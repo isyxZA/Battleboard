@@ -1,0 +1,2 @@
+part_system_destroy(particle_artillery0);
+part_system_destroy(particle_artillery1);

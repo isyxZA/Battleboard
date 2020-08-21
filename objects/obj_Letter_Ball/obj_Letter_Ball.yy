@@ -1,0 +1,43 @@
+{
+  "spriteId": {
+    "name": "spr_LetterBall_Mask",
+    "path": "sprites/spr_LetterBall_Mask/spr_LetterBall_Mask.yy",
+  },
+  "solid": false,
+  "visible": true,
+  "spriteMaskId": null,
+  "persistent": false,
+  "parentObjectId": {
+    "name": "obj_Collision_Parent",
+    "path": "objects/obj_Collision_Parent/obj_Collision_Parent.yy",
+  },
+  "physicsObject": true,
+  "physicsSensor": false,
+  "physicsShape": 0,
+  "physicsGroup": 0,
+  "physicsDensity": 2.0,
+  "physicsRestitution": 1.2,
+  "physicsLinearDamping": 0.075,
+  "physicsAngularDamping": 0.0,
+  "physicsFriction": 0.01,
+  "physicsStartAwake": true,
+  "physicsKinematic": false,
+  "physicsShapePoints": [
+    {"x":48.0,"y":48.0,},
+    {"x":48.0,"y":48.0,},
+  ],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_Letter_Ball","path":"objects/obj_Letter_Ball/obj_Letter_Ball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_Letter_Ball","path":"objects/obj_Letter_Ball/obj_Letter_Ball.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
+  "properties": [],
+  "overriddenProperties": [],
+  "parent": {
+    "name": "Credits PhysObjects",
+    "path": "folders/Objects/Game Actors/Effects/Credits PhysObjects.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "obj_Letter_Ball",
+  "tags": [],
+  "resourceType": "GMObject",
+}

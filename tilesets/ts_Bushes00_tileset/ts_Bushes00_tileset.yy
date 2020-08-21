@@ -1,0 +1,53 @@
+{
+  "spriteId": {
+    "name": "ts_Bushes_00",
+    "path": "sprites/ts_Bushes_00/ts_Bushes_00.yy",
+  },
+  "tileWidth": 48,
+  "tileHeight": 48,
+  "tilexoff": 0,
+  "tileyoff": 0,
+  "tilehsep": 0,
+  "tilevsep": 0,
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "Backgrounds",
+    "path": "texturegroups/Backgrounds",
+  },
+  "out_tilehborder": 2,
+  "out_tilevborder": 2,
+  "out_columns": 2,
+  "tile_count": 6,
+  "autoTileSets": [],
+  "tileAnimationFrames": [],
+  "tileAnimationSpeed": 15.0,
+  "tileAnimation": {
+    "FrameData": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+    ],
+    "SerialiseFrameCount": 1,
+  },
+  "macroPageTiles": {
+    "SerialiseWidth": 4,
+    "SerialiseHeight": 1,
+    "TileSerialiseData": [
+      1,
+      2,
+      3,
+      4,
+    ],
+  },
+  "parent": {
+    "name": "Tile Sets",
+    "path": "folders/Tile Sets.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "ts_Bushes00_tileset",
+  "tags": [],
+  "resourceType": "GMTileSet",
+}

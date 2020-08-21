@@ -1,0 +1,2 @@
+play_effect = true;
+

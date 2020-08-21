@@ -1,0 +1,2 @@
+part_system_destroy(particle_engineer0);
+part_system_destroy(particle_engineer1);

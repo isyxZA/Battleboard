@@ -1,0 +1,42 @@
+{
+  "spriteId": {
+    "name": "spr_Smoke_2",
+    "path": "sprites/spr_Smoke_2/spr_Smoke_2.yy",
+  },
+  "solid": false,
+  "visible": true,
+  "spriteMaskId": null,
+  "persistent": false,
+  "parentObjectId": {
+    "name": "obj_Explosion_Parent",
+    "path": "objects/obj_Explosion_Parent/obj_Explosion_Parent.yy",
+  },
+  "physicsObject": false,
+  "physicsSensor": false,
+  "physicsShape": 0,
+  "physicsGroup": 0,
+  "physicsDensity": 0.5,
+  "physicsRestitution": 0.1,
+  "physicsLinearDamping": 0.1,
+  "physicsAngularDamping": 0.1,
+  "physicsFriction": 0.2,
+  "physicsStartAwake": true,
+  "physicsKinematic": false,
+  "physicsShapePoints": [
+    {"x":96.0,"y":99.0,},
+    {"x":99.0,"y":99.0,},
+  ],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_Smoke_2","path":"objects/obj_Smoke_2/obj_Smoke_2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
+  "properties": [],
+  "overriddenProperties": [],
+  "parent": {
+    "name": "Smoke, Explosions",
+    "path": "folders/Objects/Game Actors/Effects/Smoke, Explosions.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "obj_Smoke_2",
+  "tags": [],
+  "resourceType": "GMObject",
+}
