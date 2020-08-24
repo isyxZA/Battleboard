@@ -64,7 +64,6 @@ if action_confirmed == true {
             timer_start = true;
             shoot_amount -= 1;
         }
-            else {}
 }
 
 if timer_start == true {

@@ -33,8 +33,10 @@ for (ww=0; ww<global.grid_size; ww+=1) {
 }
 */
 
-instance_create_layer(0, 0, "Ground"  , obj_Shader_Noise);
-instance_create_layer(0, 0, "GroundFX", obj_Shader_Reset);
+//instance_create_layer(0, 0, "Ground"  , obj_Shader_Noise);
+//instance_create_layer(0, 0, "GroundFX", obj_Shader_Reset);
+
+instance_create_layer(0, 0, "Ground"  , obj_Shader_Hue);
 
 
 

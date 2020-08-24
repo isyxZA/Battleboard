@@ -297,6 +297,7 @@ function scr_InitGlobals() {
 	global.green_light  = false;
 	global.locked       = false;
 	global.broadcast_server = -1;
+	global.net_type     = "";
 
 	//DefineMacros
 #macro NET_PING 1
@@ -312,6 +313,7 @@ function scr_InitGlobals() {
 #macro NET_CONNECT 11
 #macro NET_TIMER 12
 #macro NET_STARTGAME 13
+#macro NET_CANCELSHOOT 14
 
 
 

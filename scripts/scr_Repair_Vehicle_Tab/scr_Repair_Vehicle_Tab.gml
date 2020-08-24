@@ -116,6 +116,7 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	                                            u.alert_display = true;
 	                                            u.alert_colour = c_red;
 	                                            u.alarm[3] = global.tick_rate*3;
+												if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                        }
 	                                        u.manned_unit.shoot_amount  += 1; 
 	                                        u.manned_unit.repair_ammo   -= repair_rate;

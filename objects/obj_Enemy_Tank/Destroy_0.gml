@@ -11,18 +11,23 @@ ds_list_delete(global.enemyunit_list, ds_list_find_index(global.enemyunit_list, 
 
 switch my_squad {
     case "E_1":
+	case "ALPHA":
         ds_list_delete(global.squad_1, ds_list_find_index(global.squad_1, other.id));
         break;
     case "E_2":
+	case "BRAVO":
         ds_list_delete(global.squad_2, ds_list_find_index(global.squad_2, other.id));
         break;
     case "E_3":
+	case "CHARLIE":
         ds_list_delete(global.squad_3, ds_list_find_index(global.squad_3, other.id));
         break;
     case "E_4":
+	case "DELTA":
         ds_list_delete(global.squad_4, ds_list_find_index(global.squad_4, other.id));
         break;
     case "E_5":
+	case "ECHO":
         ds_list_delete(global.squad_5, ds_list_find_index(global.squad_5, other.id));
         break;
 }

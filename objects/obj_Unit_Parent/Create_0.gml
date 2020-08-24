@@ -36,6 +36,7 @@ nav_offset = 0;
 nav_display = false;
 nav_confirmed = false;
 action_confirmed = false;
+net_action = false;
 my_path = path_add();
 my_squad = "NOONE";
 manned_unit = noone;

@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Menus",
-    "path": "folders/Objects/Menus.yy",
+    "name": "Settings",
+    "path": "folders/Objects/Menus/Settings.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_Checkbox_VsyncOFF",

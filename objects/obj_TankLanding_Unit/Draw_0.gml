@@ -1,3 +1,5 @@
+if p_one == true { draw_sprite_ext(spr_VehicleLandingCraft, 0, x-6, y+8, 1.1, 1, rot, c_black, 0.6); }
+	else { draw_sprite_ext(spr_VehicleLandingCraft, 0, x+6, y-8, 1.1, 1, rot, c_black, 0.6); }
 draw_sprite_ext(spr_VehicleLandingCraft, 0, x, y, 1, 1, rot, c_white, 1);
 
 if depleted == false{

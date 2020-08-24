@@ -227,6 +227,7 @@ function scr_Tank_Tab(argument0, argument1, argument2, argument3) {
 	                                            u.alert_display = true;
 	                                            u.alert_colour = c_red;
 	                                            u.alarm[3] = global.tick_rate*3;
+												if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                        }
 	                                        u.shoot_amount   += 1; 
 	                                        u.cannon_ammo    -= cannon_rate;
@@ -296,6 +297,7 @@ function scr_Tank_Tab(argument0, argument1, argument2, argument3) {
 	                                                u.alert_display = true;
 	                                                u.alert_colour = c_red;
 	                                                u.alarm[3] = global.tick_rate*3;
+													if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                            }
 	                                            u.shoot_amount   += 1; 
 	                                            u.mg_ammo        -= mg_rate;

@@ -335,6 +335,7 @@ function scr_Engineer_Tab(argument0, argument1, argument2, argument3, argument4)
 	                                            u.alert_display = true;
 	                                            u.alert_colour = c_red;
 	                                            u.alarm[3] = global.tick_rate*3;
+												if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                        }
 	                                        u.shoot_amount   += 1; 
 	                                        u.depot_supply   -= depot_rate;
@@ -404,6 +405,7 @@ function scr_Engineer_Tab(argument0, argument1, argument2, argument3, argument4)
 	                                                u.alert_display = true;
 	                                                u.alert_colour = c_red;
 	                                                u.alarm[3] = global.tick_rate*3;
+													if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                            }
 	                                            u.shoot_amount   += 1; 
 	                                            u.repair_supply  -= repair_rate;
@@ -473,6 +475,7 @@ function scr_Engineer_Tab(argument0, argument1, argument2, argument3, argument4)
 	                                                    u.alert_display = true;
 	                                                    u.alert_colour = c_red;
 	                                                    u.alarm[3] = global.tick_rate*3;
+														if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                                }
 	                                                u.shoot_amount    += 1; 
 	                                                u.tow_supply      -= tow_rate;
@@ -542,6 +545,7 @@ function scr_Engineer_Tab(argument0, argument1, argument2, argument3, argument4)
 	                                                        u.alert_display = true;
 	                                                        u.alert_colour = c_red;
 	                                                        u.alarm[3] = global.tick_rate*3;
+															if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                                    }
 	                                                    u.shoot_amount   += 1; 
 	                                                    u.mortar_supply  -= mortar_rate;

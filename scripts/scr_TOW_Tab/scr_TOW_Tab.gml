@@ -177,6 +177,7 @@ function scr_TOW_Tab(argument0, argument1) {
 	                                            u.alert_display = true;
 	                                            u.alert_colour = c_red;
 	                                            u.alarm[3] = global.tick_rate*3;
+												if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                        }
 	                                        u.shoot_amount   += 1; 
 	                                        u.tow_ammo       -= tow_rate;

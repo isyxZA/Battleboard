@@ -277,6 +277,7 @@ function scr_Infantry_Tab(argument0, argument1, argument2, argument3) {
 	                                            u.alert_display = true;
 	                                            u.alert_colour = c_red;
 	                                            u.alarm[3] = global.tick_rate*3;
+												if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                        }
 	                                        u.shoot_amount   += 1; 
 	                                        u.rifle_ammo     -= rifle_rate;
@@ -302,7 +303,6 @@ function scr_Infantry_Tab(argument0, argument1, argument2, argument3) {
 	                    }
 	                    ammo_check = true;
 	                    global.rifle_amount = 0;
-	                    //window_mouse_set(window_get_width() / 2, window_get_height() / 2);
 	                }
 	                    else { 
 	                        global.menu_create = false;
@@ -347,6 +347,7 @@ function scr_Infantry_Tab(argument0, argument1, argument2, argument3) {
 	                                                u.alert_display = true;
 	                                                u.alert_colour = c_red;
 	                                                u.alarm[3] = global.tick_rate*3;
+													if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                            }
 	                                            u.shoot_amount   += 1; 
 	                                            u.rpg_ammo       -= rpg_rate;
@@ -416,6 +417,7 @@ function scr_Infantry_Tab(argument0, argument1, argument2, argument3) {
 	                                                    u.alert_display = true;
 	                                                    u.alert_colour = c_red;
 	                                                    u.alarm[3] = global.tick_rate*3;
+														if PLAYER.net_status != "NONE" { u.net_action = true; }
 	                                                }
 	                                                u.shoot_amount   += 1; 
 	                                                u.flare_ammo     -= flare_rate;
@@ -441,7 +443,6 @@ function scr_Infantry_Tab(argument0, argument1, argument2, argument3) {
 	                            }
 	                            ammo_check = true;
 	                            global.flare_amount = 0;
-	                            //window_mouse_set(window_get_width() / 2, window_get_height() / 2);
 	                        }
 	                            else { 
 	                                global.menu_create = false;

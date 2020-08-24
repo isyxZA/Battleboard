@@ -32,8 +32,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Menus",
-    "path": "folders/Objects/Menus.yy",
+    "name": "Setup",
+    "path": "folders/Objects/Menus/Setup.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_UnitSelector",

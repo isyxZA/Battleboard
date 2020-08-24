@@ -12,3 +12,5 @@ temp_unit  = -1;
 temp_squad = "";
 temp_xfinal = -1;
 temp_yfinal = -1;
+temp_weapon = "";
+temp_amount = 0;

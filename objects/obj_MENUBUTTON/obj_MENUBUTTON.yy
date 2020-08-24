@@ -30,6 +30,7 @@
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_MENUBUTTON","path":"objects/obj_MENUBUTTON/obj_MENUBUTTON.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"obj_MENUBUTTON","path":"objects/obj_MENUBUTTON/obj_MENUBUTTON.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":5,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_MENUBUTTON","path":"objects/obj_MENUBUTTON/obj_MENUBUTTON.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":6,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_MENUBUTTON","path":"objects/obj_MENUBUTTON/obj_MENUBUTTON.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

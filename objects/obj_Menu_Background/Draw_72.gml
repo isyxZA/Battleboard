@@ -28,6 +28,30 @@ switch room {
         draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
         draw_set_alpha(1);
         break;
+	case rm_Host:
+		shader_set(shd_vignette_noise);
+	    shader_set_uniform_f(uni_settings, 2, 1, 0.3, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+	    shader_set_uniform_f(uni_vignette_colour,148,140,104); //R,G,B - 0 to 255 was 255,223,201
+        draw_sprite_stretched(bg_Setup, 0,0,0, room_width, room_height);
+		shader_reset();
+		draw_sprite_ext(spr_OptionsBG_1, 0, x, y, 1, 0.94, 0, c_white, 1);
+        draw_set_alpha(0.1);
+		draw_roundrect_colour_ext(x+30, 190, x+368, 350, 4, 4, c_dkgray, c_dkgray, false);
+        draw_roundrect_colour_ext(x+30, 465, x+368, 570, 4, 4, c_dkgray, c_dkgray, false);
+		draw_set_alpha(1);
+		draw_roundrect_colour_ext(x+30, 190, x+368, 350, 4, 4, c_dkgray, c_dkgray, true);
+        draw_roundrect_colour_ext(x+30, 465, x+368, 570, 4, 4, c_dkgray, c_dkgray, true);
+		draw_sprite_ext(spr_Menu_Button, 0, room_width*0.5, 64, 0.8, 0.8, 0, c_white, 1);
+		draw_sprite_ext(spr_Menu_Button, 0, room_width*0.5, room_height*0.175, 0.8, 0.8, 0, c_white, 1);
+        draw_sprite_ext(spr_Menu_Button, 0, room_width*0.5, room_height*0.43, 0.8, 0.8, 0, c_white, 1);
+		draw_set_valign(fa_middle);
+        draw_set_halign(fa_center);
+        draw_set_font(fnt_16);
+        draw_text_colour_shadow(room_width*0.5, 64               , "Settings"   , c1, c1, c1, c1, 1, 330, c_black, 0.7); 
+        draw_text_colour_shadow(room_width*0.5, room_height*0.175, "Server Type", c1, c1, c1, c1, 1, 330, c_black, 0.7); 
+        draw_text_colour_shadow(room_width*0.5, room_height*0.43 , "Server Name", c1, c1, c1, c1, 1, 330, c_black, 0.7); 
+        draw_set_font(fnt_12);
+        break;
     case rm_Options:
 		shader_set(shd_vignette_noise);
 	    shader_set_uniform_f(uni_settings, 2, 1, 0.3, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
@@ -37,15 +61,12 @@ switch room {
         draw_set_alpha(0.3);
         draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
         draw_set_alpha(1);
-		
 		draw_sprite_ext(spr_OptionsBG_1, 0, x, y, 1, 1, 0, c_white, 1);
 		draw_sprite_ext(spr_OptionsBG_2, 0, x+488, y, 1, 1, 0, c_white, 1);
 		draw_sprite_ext(spr_OptionsBG_1, 0, x+1336, y, 1, 1, 0, c_white, 1);
-        
         draw_roundrect_colour_ext(x, y, x+391, y+959, 4, 4, c1, c_dkgray, true);
         draw_roundrect_colour_ext(x+488, y, x+1239, y+911, 4, 4, c1, c_dkgray, true);
         draw_roundrect_colour_ext(x+1336, y, x+1727, y+959, 4, 4, c1, c_dkgray, true);
-        
         draw_sprite_ext(spr_Menu_Button, 0, room_width*0.5, 96, 0.8, 0.8, 0, c_white, 1);
         draw_sprite_ext(spr_Menu_Button, 0, 292           , 96, 0.8, 0.8, 0, c_white, 1);
         draw_sprite_ext(spr_Menu_Button, 0, 1628          , 96, 0.8, 0.8, 0, c_white, 1);
@@ -65,7 +86,6 @@ switch room {
 		shader_reset();
         draw_set_alpha(0.3);
         draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
-        
         //Game Setup\\
 		draw_sprite_ext(spr_SetupBG_1, 0, x-250, y-400, 1, 1, 0, c_white, 1);
         draw_set_alpha(0.1);

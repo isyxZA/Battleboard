@@ -86,8 +86,8 @@ function net_client_events() {
 					if temp_squad != "" {
 					//Create the unit
 				        with instance_create_layer(xx, yy, "Units", temp_unit) { 
-							net_id   = other.temp_id;
-				            my_squad = other.temp_squad; 
+							net_id   = obj_CLIENT.temp_id;
+				            my_squad = obj_CLIENT.temp_squad; 
 				            //Add to squad list
 				            switch my_squad {
 				                case "ALPHA":
@@ -141,6 +141,87 @@ function net_client_events() {
 		case NET_DESTROY:
 			break;
 		case NET_SHOOT:
+			//Get net_id
+			temp_id     = buffer_read(data, buffer_u32);
+			//Get target coords
+			temp_xfinal = buffer_read(data,buffer_u16);
+			temp_yfinal = buffer_read(data,buffer_u16);
+			//Get weapon type
+			temp_weapon = buffer_read(data, buffer_string);
+			//Get shoot amount
+			temp_amount = buffer_read(data, buffer_u8);
+			with obj_Enemy_Parent {
+				if net_id == obj_CLIENT.temp_id {
+					action_confirmed = true;
+					target_x         = obj_CLIENT.temp_xfinal;
+					target_y         = obj_CLIENT.temp_yfinal;
+					weapon           = obj_CLIENT.temp_weapon;
+					shoot_amount     = obj_CLIENT.temp_amount;
+					global.enemyunits_running += 1;
+					switch weapon {
+						case "RIFLE":
+							shoot_rifle = true;
+							break;
+						case "RPG":
+							shoot_rpg = true;
+							break;
+						case "CANNON":
+							shoot_cannon = true;
+							break;
+						case "MG":
+							shoot_mg = true;
+							break;
+						case "TOW":
+							shoot_tow = true;
+							break;
+						case "HE":
+							shoot_he = true;
+							break;
+						case "AP":
+							shoot_ap = true;
+							break;
+					}
+				}
+			}
+			//Reset temp variables
+			temp_id     = -1;
+			temp_xfinal = -1;
+			temp_yfinal = -1;
+			temp_weapon = "";
+			temp_amount = 0;
+			break;
+		case NET_CANCELSHOOT:
+			//Find matching unit net_id
+			temp_id = buffer_read(data, buffer_u32);
+			with obj_Enemy_Parent {
+				if net_id == obj_CLIENT.temp_id {
+					action_confirmed = false;
+					shoot_amount = 0;
+					timer_start = false;
+					switch unit_type {
+						case "INFANTRY":
+							if shoot_rifle == true { shoot_rifle = false; }
+							if shoot_rpg   == true { shoot_rpg   = false; }
+							break;
+						case "TANK":
+							if shoot_cannon == true { shoot_cannon = false; }
+							if shoot_mg     == true { shoot_mg     = false; }
+							break;
+						case "BTR":
+							if shoot_he   == true { shoot_he   = false; }
+							if shoot_ap   == true { shoot_ap   = false; }
+							break;
+						case "TOW":
+							if shoot_tow == true { shoot_tow = false; }
+							break;
+						case "REPAIR":
+							if shoot_mg == true { shoot_rifle = false; }
+							break;
+					}
+				}
+			}
+			//Reset temp variables
+			temp_id = -1;
 			break;
 		case NET_MOVE:
 			//Find matching unit net_id
@@ -149,11 +230,11 @@ function net_client_events() {
 			temp_xfinal = buffer_read(data,buffer_u16);
 			temp_yfinal = buffer_read(data,buffer_u16);
 			with obj_Enemy_Parent {
-				if net_id == other.temp_id {
+				if net_id == obj_CLIENT.temp_id {
 					mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 		            //Set final waypoint
-		            x_final = other.temp_xfinal;
-		            y_final = other.temp_yfinal;
+		            x_final = obj_CLIENT.temp_xfinal;
+		            y_final = obj_CLIENT.temp_yfinal;
 					can_move = true; 
 					count_start = true;
 					nav_confirmed = true;

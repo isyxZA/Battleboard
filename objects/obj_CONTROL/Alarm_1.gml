@@ -266,10 +266,57 @@ if global.game_turn == 0 {
                         with ue { 
                             switch unit_type {
                                 case "E_INFANTRY":
+									if PLAYER.net_status != "NONE" { 
+										rifle_ammo = 100;
+										rpg_ammo = 1;
+										flare_ammo = 2;
+									}
+									no_shot = false;
+                                    no_move = false;
+                                    action_points = start_ap;
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
                                 case "E_TANK":
+									if PLAYER.net_status != "NONE" { 
+										cannon_ammo = 10;
+										mg_ammo     = 100;
+									}
+									no_shot = false;
+                                    no_move = false;
+                                    action_points = start_ap;
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
                                 case "E_ENGINEER":
+									if PLAYER.net_status != "NONE" { 
+										depot_supply  = 1;
+										repair_supply = 1;
+										tow_supply    = 1;
+										mortar_supply = 1;
+									}
+									no_shot = false;
+                                    no_move = false;
+                                    action_points = start_ap;
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
                                 case "E_BTR":
+									if PLAYER.net_status != "NONE" { 
+										he_ammo = 80;
+										ap_ammo = 80;
+									}
+									no_shot = false;
+                                    no_move = false;
+                                    action_points = start_ap;
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
                                 case "E_LOGI":
+									if PLAYER.net_status != "NONE" { 
+										building_supply = 100;
+										ammo_supply = 100;
+									}
                                     no_shot = false;
                                     no_move = false;
                                     action_points = start_ap;
@@ -277,9 +324,54 @@ if global.game_turn == 0 {
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
                                 case "E_DEPOT":
+									no_shot = false;
+                                    no_move = true;
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if build_pos < 2 { build_pos += 1; }
+                                    if is_manned == true {
+                                        action_points = start_ap;
+                                    }
+                                        else if is_manned == false {
+                                            action_points = 0;
+                                        }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
                                 case "E_REPAIR":
+									if PLAYER.net_status != "NONE" { 
+										mg_ammo = 100;
+									}
+									no_shot = false;
+                                    no_move = true;
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if build_pos < 2 { build_pos += 1; }
+                                    if is_manned == true {
+                                        action_points = start_ap;
+                                    }
+                                        else if is_manned == false {
+                                            action_points = 0;
+                                        }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
                                 case "E_TOW":
+									if PLAYER.net_status != "NONE" { 
+										tow_ammo = 10;
+									}
+									no_shot = false;
+                                    no_move = true;
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if build_pos < 2 { build_pos += 1; }
+                                    if is_manned == true {
+                                        action_points = start_ap;
+                                    }
+                                        else if is_manned == false {
+                                            action_points = 0;
+                                        }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
                                 case "E_MORTAR":
+									if PLAYER.net_status != "NONE" { 
+										mortar_ammo = 100;
+									}
                                     no_shot = false;
                                     no_move = true;
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }

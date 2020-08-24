@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Menus",
-    "path": "folders/Objects/Menus.yy",
+    "name": "Network",
+    "path": "folders/Objects/Menus/Network.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_ServerJoin",

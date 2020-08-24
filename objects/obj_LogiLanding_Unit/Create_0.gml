@@ -91,21 +91,6 @@ audio_emitter_falloff(emit, 100, 1000, 2);
 audio_emitter_position(emit, x, y, 0);
 audio_play_sound_on(emit, snd_IdleShip01, true, 1);
 
-uni_time = shader_get_uniform(shd_ripple,"time");
-var_time_var = 0;
-uni_pos = shader_get_uniform(shd_ripple,"pos");
-var_pos_x = 0;
-var_pos_y = 0;
-uni_resolution = shader_get_uniform(shd_ripple,"resolution");
-var_resolution_x = 1920;
-var_resolution_y = 1080;
-uni_wave_amount = shader_get_uniform(shd_ripple,"wave_amount");
-var_wave_amount = 24; //higher = more waves
-uni_wave_distortion = shader_get_uniform(shd_ripple,"wave_distortion");
-var_wave_distortion = 700; //higher = less distortion
-uni_wave_speed = shader_get_uniform(shd_ripple,"wave_speed");
-var_wave_speed = 0.6; //higher = faster
-
 alarm[1] = 300;
 
 

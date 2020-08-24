@@ -1,12 +1,36 @@
-/*
-//Not in use
-if nav_check == true {
-    nav_check = false;
-    scr_NavCheck();
-}
-*/
-
 if action_confirmed == true {
+	if net_action == true {
+		net_action = false;
+		if PLAYER.net_status == "HOST" {
+			//Send action data to client
+			var cc = ds_list_size(global.clients);
+			if cc > 0 { 
+				var i;
+				for (i=0;i<cc;i++) {
+					var csocket = ds_list_find_value(global.clients, i);
+					net_write_client(csocket, 
+						buffer_u8, NET_SHOOT,
+						buffer_u32, id,
+						buffer_u16, target_x,
+						buffer_u16, target_y,
+						buffer_string, weapon,
+						buffer_u8, shoot_amount
+					);
+				}
+			}
+		}
+			else if PLAYER.net_status == "CLIENT" {
+				//Send action data to host
+				net_write_server(
+					buffer_u8, NET_SHOOT,
+					buffer_u32, id,
+					buffer_u16, target_x,
+					buffer_u16, target_y,
+					buffer_string, weapon,
+					buffer_u8, shoot_amount
+				);
+			}
+	}
     if shoot_mortar == true {
         //Add alert to gui
         ds_list_add(global.action_alert_list, "Firing Mortars");

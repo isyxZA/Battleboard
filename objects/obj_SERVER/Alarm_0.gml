@@ -1,4 +1,5 @@
 /// @description  Broadcast our location occasionally. Clients pick this up and can then display servers to the user. 
+//Only broadcast when no client is connected and when in setup
 var cc = ds_list_size(global.clients);
 if cc == 0 {
 	buffer_seek(broadcast_buffer, buffer_seek_start, 0);

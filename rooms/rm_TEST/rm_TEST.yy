@@ -341,7 +341,6 @@
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_TILEHIGHLIGHTS","path":"objects/obj_TILEHIGHLIGHTS/obj_TILEHIGHLIGHTS.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":96.0,"y":0.0,"resourceVersion":"1.0","name":"inst_1E1E0670","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_Gridlines","path":"objects/obj_Gridlines/obj_Gridlines.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":480.0,"y":0.0,"resourceVersion":"1.0","name":"inst_DFBDB44","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_Ship_Shadows","path":"objects/obj_Ship_Shadows/obj_Ship_Shadows.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":288.0,"y":0.0,"resourceVersion":"1.0","name":"inst_6890EB40","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":-2,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":96,"gridY":96,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"GroundFX","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"spr_A1_D","path":"sprites/spr_A1_D/spr_A1_D.yy",},"headPosition":-1.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":960.0,"resourceVersion":"1.0","name":"graphic_54F7293","tags":[],"resourceType":"GMRSpriteGraphic",},
@@ -587,7 +586,6 @@
     {"name":"inst_78263FB6","path":"rooms/rm_TEST/rm_TEST.yy",},
     {"name":"inst_6CDCD230","path":"rooms/rm_TEST/rm_TEST.yy",},
     {"name":"inst_7381D568","path":"rooms/rm_TEST/rm_TEST.yy",},
-    {"name":"inst_6890EB40","path":"rooms/rm_TEST/rm_TEST.yy",},
     {"name":"inst_280670CF","path":"rooms/rm_TEST/rm_TEST.yy",},
     {"name":"inst_ACA065C","path":"rooms/rm_TEST/rm_TEST.yy",},
     {"name":"inst_64FFCD99","path":"rooms/rm_TEST/rm_TEST.yy",},

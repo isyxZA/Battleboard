@@ -41,21 +41,6 @@ if p_side == "ONE" {
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 1.5);
 
-uni_time = shader_get_uniform(shd_ripple,"time");
-var_time_var = 0;
-uni_pos = shader_get_uniform(shd_ripple,"pos");
-var_pos_x = 0;
-var_pos_y = 0;
-uni_resolution = shader_get_uniform(shd_ripple,"resolution");
-var_resolution_x = 1920;
-var_resolution_y = 1080;
-uni_wave_amount = shader_get_uniform(shd_ripple,"wave_amount");
-var_wave_amount = 32; //higher = more waves
-uni_wave_distortion = shader_get_uniform(shd_ripple,"wave_distortion");
-var_wave_distortion = 400; //higher = less distortion
-uni_wave_speed = shader_get_uniform(shd_ripple,"wave_speed");
-var_wave_speed = 0.6; //higher = faster
-
 
 
 
