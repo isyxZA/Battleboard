@@ -29,7 +29,11 @@ if global.game_state == "IN_MENU" {
                         alarm[6] = 60;
                         break;
 					case "Create Game"://From room host...go to setup
-						if global.server > 0 {
+						//Create server
+						if global.server_IP != "" && global.server_name != "" && global.server < 0 {
+							global.server = network_create_server(network_socket_tcp,global.server_port,2);
+						}
+						if global.server >= 0 {
 							PLAYER.net_status = "HOST";
 	                        PLAYER.player = "ONE";
 							PLAYER.faction = "US";
@@ -53,14 +57,16 @@ if global.game_state == "IN_MENU" {
                         alarm[5] = 60;
                         break;
 					case "Join Server":
+						/*
 						//If a valid server is selected then join the server and go to setup 
-						//PLAYER.net_status = "CLIENT";
-                        //global.transition = true;
-                        //global.can_choose = false;
-                        //obj_SOUND.fade_out = true;
-                        //obj_SOUND.fade_in = false;
-						//start_game = true;
-                        //alarm[0] = 60;
+						PLAYER.net_status = "CLIENT";
+                        global.transition = true;
+                        global.can_choose = false;
+                        obj_SOUND.fade_out = true;
+                        obj_SOUND.fade_in = false;
+						start_game = true;
+                        alarm[0] = 60;
+						*/
                         break;
 					case "Refresh"://In room join...refresh server list
 						if instance_exists(obj_ServerJoin) {

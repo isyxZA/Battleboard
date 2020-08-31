@@ -1,6 +1,7 @@
 unit_type = "NOONE";
 active = false;
 light_size = 0;
+size_target = 0;
 light_strength = 0;
 shoot_mask = noone;
 view_radius = 0;

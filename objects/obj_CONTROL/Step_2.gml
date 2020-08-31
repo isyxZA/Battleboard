@@ -1,42 +1,44 @@
 /// @description Alert display control, Ammo check
+if global.my_turn == true || global.waiting == true {
+	//Display AP cost of action
+	if global.draw_apcost == true {
+	    global.draw_apcost = false;
+	    draw_apcost = true;
+	    alarm[4] = global.tick_rate;
+	}
 
-//Display AP cost of action
-if global.draw_apcost == true {
-    global.draw_apcost = false;
-    draw_apcost = true;
-    alarm[4] = global.tick_rate;
+	//Display CP cost of action
+	if global.draw_cpcost == true {
+	    global.draw_cpcost = false;
+	    draw_cpcost = true;
+	    alarm[4] = global.tick_rate;
+	}
+
+	if global.draw_apreturn == true {
+	    global.draw_apreturn = false;
+	    draw_apreturn = true;
+	    alarm[4] = global.tick_rate;
+	}
+
+	if global.targeting_error == true {
+	    global.targeting_error = false;
+	    targeting_error = true;
+	    alarm[2] = 200;
+	}
+
+	if global.navigation_error == true {
+	    global.navigation_error = false;
+	    navigation_error = true;
+	    alarm[3] = 100;
+	}
+
+	if global.friendly_fire == true {
+	    global.friendly_fire = false;
+	    friendly_fire = true;
+	    alarm[5] = 100;
+	}
 }
 
-//Display CP cost of action
-if global.draw_cpcost == true {
-    global.draw_cpcost = false;
-    draw_cpcost = true;
-    alarm[4] = global.tick_rate;
-}
-
-if global.draw_apreturn == true {
-    global.draw_apreturn = false;
-    draw_apreturn = true;
-    alarm[4] = global.tick_rate;
-}
-
-if global.targeting_error == true {
-    global.targeting_error = false;
-    targeting_error = true;
-    alarm[2] = 200;
-}
-
-if global.navigation_error == true {
-    global.navigation_error = false;
-    navigation_error = true;
-    alarm[3] = 100;
-}
-
-if global.friendly_fire == true {
-    global.friendly_fire = false;
-    friendly_fire = true;
-    alarm[5] = 100;
-}
     
 if ammo_check == true {
     ammo_check = false;

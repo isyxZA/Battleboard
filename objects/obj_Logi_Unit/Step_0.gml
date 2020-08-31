@@ -1,5 +1,6 @@
-if light_size < 7 { light_size = lerp(light_size, 7, 0.05); }
-if light_strength < 1 { light_strength = lerp(light_strength, 1, 0.05); }
+//Visibilty area in fog of war
+if light_size < size_target { light_size = lerp(light_size, size_target, 0.02); }
+if light_strength != global.light_level { light_strength = lerp(light_strength, global.light_level, 0.005); }
 
 if global.game_turn != 0 {
     //SET UNIT ACTIONS DURING PLAYER TURN       

@@ -1,6 +1,6 @@
 /// @description scr_DiscoveryCheck();
 function scr_DiscoveryCheck() {
-	//Determine if the enemy unit is within view range of any of the player's units
+	//Determine if the object is within view range of any of the player's units
 
 	vis_count = 0;
 	//Check the unit positions

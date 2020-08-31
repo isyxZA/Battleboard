@@ -1,4 +1,4 @@
-if place_meeting(x,y, obj_MOUSE) {
+if place_meeting(x,y, obj_MOUSE) && obj_MENUBUTTON.start_game == false  {
     if mouse_check_button_pressed(mb_left) {
         if is_checked == false { 
 			//Find IP address and assign to global IP variable
@@ -9,8 +9,6 @@ if place_meeting(x,y, obj_MOUSE) {
 			if global.broadcast_server < 0 {
 				global.broadcast_server = network_create_server(network_socket_udp, 50001, 2);
 			}
-			//global.server_IP = "192.168.8.102";
-			//global.net_type  = "LAN";
         }
     }
 }

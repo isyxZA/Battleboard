@@ -136,9 +136,243 @@ function net_client_events() {
 					my_squad = "";
 				}
 			break;
-		case NET_SQUADUPDATE:
+		case NET_TLUPDATE://Add command catds to the turn list
+			var atype     = buffer_read(data, buffer_u8);
+			var lpos      = buffer_read(data, buffer_u8);
+			var ctext_in  = buffer_read(data, buffer_string);
+			var ctext_out = "";
+			switch ctext_in {
+	            case "BOMBER":
+					ctext_out = "E_BOMBER";
+	                break;
+	            case "MISSILE":
+	                ctext_out = "E_MISSILE";
+	                break;
+	            case "ARTILLERY":
+	                ctext_out = "E_ARTILLERY";
+	                break;
+	            case "UAV":
+	                ctext_out = "E_UAV";
+	                break;
+	            case "AIRDROP":
+	                ctext_out = "E_AIRDROP";
+	                break;
+	            case "ILC":
+	                ctext_out = "E_ILC";
+	                break;
+	            case "TLC":
+	                ctext_out = "E_TLC";
+	                break;
+	            case "ELC":
+	                ctext_out = "E_ELC";
+	                break;
+	            case "BLC":
+	                ctext_out = "E_BLC";
+	                break;
+	            case "LLC":
+	                ctext_out = "E_LLC";
+	                break;
+	        }
+			if (atype == 1) { ds_list_insert(global.turn_list, lpos, ctext_out); }
+				else if atype == 2 { ds_list_add(global.turn_list, ctext_out); } 
 			break;
-		case NET_DESTROY:
+		case NET_COMMANDCARD:
+			var c_option = buffer_read(data, buffer_string);
+			switch c_option {
+				case "BOMBER":
+					temp_x1 = buffer_read(data,buffer_u16);
+					temp_y1 = buffer_read(data,buffer_u16);
+					temp_x2 = buffer_read(data,buffer_u16);
+					temp_y2 = buffer_read(data,buffer_u16);
+					temp_x3 = buffer_read(data,buffer_u16);
+					temp_y3 = buffer_read(data,buffer_u16);
+					temp_x4 = buffer_read(data,buffer_u16);
+					temp_y4 = buffer_read(data,buffer_u16);
+					temp_x5 = buffer_read(data,buffer_u16);
+					temp_y5 = buffer_read(data,buffer_u16);
+					temp_x6 = buffer_read(data,buffer_u16);
+					temp_y6 = buffer_read(data,buffer_u16);
+					temp_x7 = buffer_read(data,buffer_u16);
+					temp_y7 = buffer_read(data,buffer_u16);
+					temp_pathx1 = buffer_read(data,buffer_s16);
+					temp_pathy1 = buffer_read(data,buffer_s16);
+					temp_pathx2 = buffer_read(data,buffer_s16);
+					temp_pathy2 = buffer_read(data,buffer_s16);
+					//Spawn bomber and bombs
+					with instance_create_layer(temp_x1, temp_y1, "Command", obj_E_Bomb) { fuse = 10; }
+		            with instance_create_layer(temp_x2, temp_y2, "Command", obj_E_Bomb) { fuse = 30; }
+		            with instance_create_layer(temp_x3, temp_y3, "Command", obj_E_Bomb) { fuse = 50; }
+		            with instance_create_layer(temp_x4, temp_y4, "Command", obj_E_Bomb) { fuse = 70; }
+		            with instance_create_layer(temp_x5, temp_y5, "Command", obj_E_Bomb) { fuse = 90; }
+		            with instance_create_layer(temp_x6, temp_y6, "Command", obj_E_Bomb) { fuse = 110; }
+		            with instance_create_layer(temp_x7, temp_y7, "Command", obj_E_Bomb) { fuse = 130; }
+		            with instance_create_layer(temp_pathx1, temp_pathy1, "Aircraft", obj_E_Bomber_Spawner) { 
+		                my_path = path_add();
+		                path_add_point(my_path, x, y, 40);
+		                path_add_point(my_path, obj_CLIENT.temp_pathx2, obj_CLIENT.temp_pathy2, 40);
+		                path_set_closed(my_path, false);
+		                path_position = 0;
+		            }
+					//Reset temp variables
+					temp_x1 = -1;
+					temp_y1 = -1;
+					temp_x2 = -1;
+					temp_y2 = -1;
+					temp_x3 = -1;
+					temp_y3 = -1;
+					temp_x4 = -1;
+					temp_y4 = -1;
+					temp_x5 = -1;
+					temp_y5 = -1;
+					temp_x6 = -1;
+					temp_y6 = -1;
+					temp_x7 = -1;
+					temp_y7 = -1;
+					temp_pathx1 = -1;
+					temp_pathy1 = -1;
+					temp_pathx2 = -1;
+					temp_pathy2 = -1;
+	                break;
+	            case "MISSILE":
+					temp_x1 = buffer_read(data,buffer_u16);
+					temp_y1 = buffer_read(data,buffer_u16);
+					temp_x2 = buffer_read(data,buffer_u16);
+					temp_y2 = buffer_read(data,buffer_u16);
+					temp_x3 = buffer_read(data,buffer_u16);
+					temp_y3 = buffer_read(data,buffer_u16);
+					temp_x4 = buffer_read(data,buffer_u16);
+					temp_y4 = buffer_read(data,buffer_u16);
+					temp_x5 = buffer_read(data,buffer_u16);
+					temp_y5 = buffer_read(data,buffer_u16);
+					temp_x6 = buffer_read(data,buffer_u16);
+					temp_y6 = buffer_read(data,buffer_u16);
+					temp_x7 = buffer_read(data,buffer_u16);
+					temp_y7 = buffer_read(data,buffer_u16);
+					//Spawn missiles
+		            with instance_create_layer(temp_x1, temp_y1, "Command", obj_E_Missile) { fuse = 10; }
+		            with instance_create_layer(temp_x2, temp_y2, "Command", obj_E_Missile) { fuse = 20; }
+		            with instance_create_layer(temp_x3, temp_y3, "Command", obj_E_Missile) { fuse = 40; }
+		            with instance_create_layer(temp_x4, temp_y4, "Command", obj_E_Missile) { fuse = 50; }
+		            with instance_create_layer(temp_x5, temp_y5, "Command", obj_E_Missile) { fuse = 60; }
+		            with instance_create_layer(temp_x6, temp_y6, "Command", obj_E_Missile) { fuse = 90; }
+		            with instance_create_layer(temp_x7, temp_y7, "Command", obj_E_Missile) { fuse = 120; }
+	                //Reset temp variables
+					temp_x1 = -1;
+					temp_y1 = -1;
+					temp_x2 = -1;
+					temp_y2 = -1;
+					temp_x3 = -1;
+					temp_y3 = -1;
+					temp_x4 = -1;
+					temp_y4 = -1;
+					temp_x5 = -1;
+					temp_y5 = -1;
+					temp_x6 = -1;
+					temp_y6 = -1;
+					temp_x7 = -1;
+					temp_y7 = -1;
+	                break;
+	            case "ARTILLERY":
+	                temp_x1  = buffer_read(data,buffer_u16);
+					temp_y1  = buffer_read(data,buffer_u16);
+					temp_x2  = buffer_read(data,buffer_u16);
+					temp_y2  = buffer_read(data,buffer_u16);
+					temp_x3  = buffer_read(data,buffer_u16);
+					temp_y3  = buffer_read(data,buffer_u16);
+					temp_x4  = buffer_read(data,buffer_u16);
+					temp_y4  = buffer_read(data,buffer_u16);
+					temp_x5  = buffer_read(data,buffer_u16);
+					temp_y5  = buffer_read(data,buffer_u16);
+					temp_x6  = buffer_read(data,buffer_u16);
+					temp_y6  = buffer_read(data,buffer_u16);
+					temp_x7  = buffer_read(data,buffer_u16);
+					temp_y7  = buffer_read(data,buffer_u16);
+					temp_x8  = buffer_read(data,buffer_u16);
+					temp_y8  = buffer_read(data,buffer_u16);
+					temp_x9  = buffer_read(data,buffer_u16);
+					temp_y9  = buffer_read(data,buffer_u16);
+					temp_x10 = buffer_read(data,buffer_u16);
+					temp_y10 = buffer_read(data,buffer_u16);
+					//Spawn artillery
+		            with instance_create_layer(temp_x1 , temp_y1 , "Command", obj_E_Artillery) { fuse = 160; }
+		            with instance_create_layer(temp_x2 , temp_y2 , "Command", obj_E_Artillery) { fuse = 130; }
+		            with instance_create_layer(temp_x3 , temp_y3 , "Command", obj_E_Artillery) { fuse = 90 ; }
+		            with instance_create_layer(temp_x4 , temp_y4 , "Command", obj_E_Artillery) { fuse = 40 ; }
+		            with instance_create_layer(temp_x5 , temp_y5 , "Command", obj_E_Artillery) { fuse = 10 ; }
+		            with instance_create_layer(temp_x6 , temp_y6 , "Command", obj_E_Artillery) { fuse = 20 ; }
+		            with instance_create_layer(temp_x7 , temp_y7 , "Command", obj_E_Artillery) { fuse = 30 ; }
+		            with instance_create_layer(temp_x8 , temp_y8 , "Command", obj_E_Artillery) { fuse = 70 ; }
+		            with instance_create_layer(temp_x9 , temp_y9 , "Command", obj_E_Artillery) { fuse = 110; }
+		            with instance_create_layer(temp_x10, temp_y10, "Command", obj_E_Artillery) { fuse = 150; }
+	                //Reset temp variables
+					temp_x1  = -1;
+					temp_y1  = -1;
+					temp_x2  = -1;
+					temp_y2  = -1;
+					temp_x3  = -1;
+					temp_y3  = -1;
+					temp_x4  = -1;
+					temp_y4  = -1;
+					temp_x5  = -1;
+					temp_y5  = -1;
+					temp_x6  = -1;
+					temp_y6  = -1;
+					temp_x7  = -1;
+					temp_y7  = -1;
+					temp_x8  = -1;
+					temp_y8  = -1;
+					temp_x9  = -1;
+					temp_y9  = -1;
+					temp_x10 = -1;
+					temp_y10 = -1;
+	                break;
+	            case "UAV":
+					temp_pathx1 = buffer_read(data,buffer_s16);
+					temp_pathy1 = buffer_read(data,buffer_s16);
+					temp_pathx2 = buffer_read(data,buffer_s16);
+					temp_pathy2 = buffer_read(data,buffer_s16);
+	                //Set uav
+		            with instance_create_layer(temp_pathx1, temp_pathy1, "Aircraft", obj_E_UAV_Spawner) { 
+		                my_path = path_add();
+		                path_add_point(my_path, x, y, 20);
+		                path_add_point(my_path, obj_CLIENT.temp_pathx2, obj_CLIENT.temp_pathy2, 20);
+		                path_set_closed(my_path, false);
+		                path_position = 0;
+		                path_start(my_path, 20, path_action_stop, 0);
+		            }
+					temp_pathx1 = -1;
+					temp_pathy1 = -1;
+					temp_pathx2 = -1;
+					temp_pathy2 = -1;
+	                break;
+	            case "AIRDROP":
+					temp_pathy1 = buffer_read(data,buffer_s16);
+					//Spawn airdrop
+	                with instance_create_layer(-96, temp_pathy1, "Aircraft", obj_E_Airdrop_Spawner) { 
+		                my_path = path_add();
+		                path_add_point(my_path, x, y, 30);
+		                path_add_point(my_path, room_width+1024, obj_CLIENT.temp_pathy1, 30);
+		                path_set_closed(my_path, false);
+		                path_position = 0;
+		            }
+					temp_pathy1 = -1;
+	                break;
+	            case "ILC":
+	                
+	                break;
+	            case "TLC":
+	                
+	                break;
+	            case "ELC":
+	                
+	                break;
+	            case "BLC":
+	                
+	                break;
+	            case "LLC":
+	                
+	                break;
+			}
 			break;
 		case NET_SHOOT:
 			//Get net_id

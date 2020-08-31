@@ -59,6 +59,4 @@ function scr_VisibilityCheck() {
 	        is_visible = false;
 	    }
 
-
-
 }

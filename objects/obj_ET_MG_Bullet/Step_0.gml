@@ -28,7 +28,7 @@ if explode == true {
         alarm[0] = room_speed*l;
 		alarm[2] = 2;
     }
-    if light_size < 2 { light_size = lerp(light_size, 2, 0.01); }
+    if light_size < 1 { light_size = lerp(light_size, 1, 0.05); }
     if can_damage == true { 
         can_damage = false; 
         var h = instance_place(x, y, obj_Houses);

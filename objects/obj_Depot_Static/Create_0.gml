@@ -1,5 +1,7 @@
 event_inherited();
 
+size_target = 4;
+
 if PLAYER.player == "ONE" { 
 	p_one = true;
 	rot = 0; 

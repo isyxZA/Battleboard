@@ -1,5 +1,6 @@
-if light_size < 12 { light_size = lerp(light_size, 12, 0.005); }
-if light_strength < 1 { light_strength = lerp(light_strength, 1, 0.005); }
+//Visibilty area in fog of war
+if light_size < size_target { light_size = lerp(light_size, size_target, 0.005); }
+if light_strength != global.light_level { light_strength = lerp(light_strength, global.light_level, 0.002); }
 
 //For game start animation
 if can_move == true {

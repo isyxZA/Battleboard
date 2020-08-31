@@ -3,11 +3,11 @@ global.units_running += 1;
 my_path = -1;
 rot = 0;
 light_size = 0;
-light_strength = 0;
+light_strength = 1;
+size_target = 12;
 can_start = true;
 view_radius = global.cell_size*6;
 fow1_scale = 0.5;
-fow2_scale = 0.125;
 alarm[0] = 20;
 alarm[1] = 200;
 

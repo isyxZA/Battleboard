@@ -28,7 +28,7 @@ if explode == true {
         alarm[0] = room_speed*l;
         alarm[1] = 25;
     }
-    if light_size < 10 { light_size = lerp(light_size, 10, 0.01); }
+    if light_size < 1 { light_size = lerp(light_size, 1, 0.05); }
     if can_damage == true { 
         can_damage = false; 
         var h = instance_place(x, y, obj_Houses);
@@ -137,7 +137,6 @@ if explode == true {
                         }
                 }
     }
-    if image_index > (sprite_get_number(spr_Explosion_01)-1) { explode = false; can_draw = false; }
 }
 
 

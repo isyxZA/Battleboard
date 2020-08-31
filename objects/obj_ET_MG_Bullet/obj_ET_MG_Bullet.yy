@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_Bullet_Parent",
-    "path": "objects/obj_Bullet_Parent/obj_Bullet_Parent.yy",
+    "name": "obj_E_Bullet_Parent",
+    "path": "objects/obj_E_Bullet_Parent/obj_E_Bullet_Parent.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,

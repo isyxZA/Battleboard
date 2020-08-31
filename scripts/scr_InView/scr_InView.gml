@@ -22,6 +22,4 @@ function scr_InView(argument0, argument1, argument2) {
 	        can_draw = false; 
 	    }
 
-
-
 }

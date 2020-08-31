@@ -31,11 +31,11 @@ if timer_start == true {
 if explode == true {
     if fade_out == false {
         if light_size < 24 { light_size = lerp(light_size, 24, 0.001); }
-        if light_strength < 1 { light_strength = lerp(light_strength, 1, 0.01); }
+        if light_strength < 1 { light_strength = lerp(light_strength, 1, 0.02); }
     }
         else if fade_out == true {
-            if light_size > 0 { light_size = lerp(light_size, 0, 0.01); }
-            if light_strength > 0 { light_strength = lerp(light_strength, 0, 0.001); }
+            if light_size > 0 { light_size = lerp(light_size, 0, 0.005); }
+            if light_strength > 0 { light_strength = lerp(light_strength, 0, 0.002); }
         }
 }
 

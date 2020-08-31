@@ -310,16 +310,20 @@ if global.game_state == "IN_GAME" {
                 draw_set_halign(fa_left);
                 if ds_list_size(global.myunit_list) < 6 {
                     draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.485, 1.5, 1, 0, c_white, 0.7);
-                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string_hash_to_newline("Left click to select a landing craft."), c_white, c_white, c_white, c_white, 1);
+                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string("Left click to select a landing craft."), c_white, c_white, c_white, c_white, 1);
                     draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.515, 2, 1, 0, c_white, 0.7);
-                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string_hash_to_newline("Right click on a green square to place your unit."), c_white, c_white, c_white, c_white, 1);
+                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string("Right click on a green square to place your unit."), c_white, c_white, c_white, c_white, 1);
                 }
-                    else {
+					else if ds_list_size(global.myunit_list) < 24 {
 	                    draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.485, 1.7, 1, 0, c_white, 0.7);
-	                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string_hash_to_newline("Press V to toggle enhanced unit visibility."), c_white, c_white, c_white, c_white, 1);
-	                    draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.515, 1.4, 1, 0, c_white, 0.7);
-	                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string_hash_to_newline("Hold TAB to identify your units."), c_white, c_white, c_white, c_white, 1);
-                    }
+		                draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string("Press V to toggle enhanced unit visibility."), c_white, c_white, c_white, c_white, 1);
+		                draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.515, 1.4, 1, 0, c_white, 0.7);
+		                draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string("Hold TAB to identify your units."), c_white, c_white, c_white, c_white, 1);
+	                }
+	                    else {
+		                    draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.485, 1.5, 1, 0, c_white, 0.7);
+		                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string("Press G to toggle grid visibility."), c_white, c_white, c_white, c_white, 1);
+	                    }
                 draw_set_halign(fa_center);
             }
                 else {
@@ -422,9 +426,8 @@ if global.game_state == "IN_GAME" {
 	    var txt2 = string(camera_get_view_y(obj_CAMERA.my_camera));
 	    var txt3 = string(camera_get_view_width(obj_CAMERA.my_camera));
 	    var txt4 = string(camera_get_view_height(obj_CAMERA.my_camera));
-	    var txt5 = string(PLAYER.player);
+	    var txt5 = string(active_turn);
 	    if global.nav_menu == true { txt6 = "True"; } else { txt6 = "False"; }
-	    var txt7 = string(active_turn);
 	    var txt8;
 	    if global.can_select == true { txt8 = "True"; } else { txt8 = "False"; }
         draw_set_color(c_red);
@@ -443,15 +446,15 @@ if global.game_state == "IN_GAME" {
         draw_text(8, 872, "View Y: " + txt2);
         draw_text(8, 888, "View Width: " + txt3);
         draw_text(8, 904, "View Height: " + txt4);
-        draw_text(8, 920, "Player: " + txt5);
+        draw_text(8, 920, "Light Level: " + string(global.light_level));
         draw_text(8, 936, "Ammo Tab: " + string(global.ammo_tab));
-        draw_text(8, 952, "Active Squad: " + txt7);
+        draw_text(8, 952, "Active Squad: " + txt5);
         draw_text(8, 968, "Turn List Size: " + string(ds_list_size(global.turn_list)));
         draw_text(8, 984, "Total Units: " + string(ds_list_size(global.myunit_list)));
         draw_text(8, 1000, "Total Enemy Units: " + string(ds_list_size(global.enemyunit_list)));
         draw_text(8, 1016, "Units Running: " + string(global.units_running));
         draw_text(8, 1032, "Enemy Units Running: " + string(global.enemyunits_running));
-        draw_text(8, 1048, "Game Turn: " + string(global.game_turn));
+        draw_text(8, 1048, "Can Select: " + string(txt8));
         draw_set_halign(fa_left);
 		draw_set_valign(fa_middle);
 		draw_set_font(fnt_12);

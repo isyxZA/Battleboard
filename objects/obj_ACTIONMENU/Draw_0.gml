@@ -115,11 +115,11 @@ if global.my_turn == true || global.waiting == true {
         if global.reticule_display == false {
             if global.menu_create == true {
                 //Draw lines to selection for visual confirmation
-                if repair_tab == false { scr_Action_Menu(global.action_menu, array_length_1d(global.action_menu)); }
-                    else { scr_Action_Menu(global.action_repair_menu, array_length_1d(global.action_repair_menu)); }
+                if repair_tab == false { scr_Action_Menu(global.action_menu, array_length(global.action_menu)); }
+                    else { scr_Action_Menu(global.action_repair_menu, array_length(global.action_repair_menu)); }
             }
                 else if global.menu_create == false {
-                    if global.nav_menu == true { scr_Action_Menu(global.nav_options, array_length_1d(global.nav_options)); }
+                    if global.nav_menu == true { scr_Action_Menu(global.nav_options, array_length(global.nav_options)); }
                         else if global.repair_display == true { scr_Repair_Vehicle_Menu(); }
                 }
         }
@@ -133,113 +133,113 @@ if global.my_turn == true || global.waiting == true {
                     //Draw menu according to ammo tab
                     switch global.ammo_tab {
                         case "INFANTRY":
-                            scr_Fire_Menu(i_fire_menu,array_length_1d(i_fire_menu),global.ammo_tab);
+                            scr_Fire_Menu(i_fire_menu,array_length(i_fire_menu),global.ammo_tab);
                             break;
                         case "TANK":
-                            scr_Fire_Menu(t_fire_menu,array_length_1d(t_fire_menu),global.ammo_tab);
+                            scr_Fire_Menu(t_fire_menu,array_length(t_fire_menu),global.ammo_tab);
                             break;
                         case "ENGINEER":
-                            scr_Fire_Menu(e_fire_menu,array_length_1d(e_fire_menu),global.ammo_tab);
+                            scr_Fire_Menu(e_fire_menu,array_length(e_fire_menu),global.ammo_tab);
                             break;
                         case "BTR":
-                            scr_Fire_Menu(b_fire_menu,array_length_1d(b_fire_menu),global.ammo_tab);
+                            scr_Fire_Menu(b_fire_menu,array_length(b_fire_menu),global.ammo_tab);
                             break;
                         case "LOGI":
                             switch global.resupply_target {
                                 case "INFANTRY":
-                                    scr_Fire_Menu(li_fire_menu, array_length_1d(li_fire_menu), "LOGI-INF");
+                                    scr_Fire_Menu(li_fire_menu, array_length(li_fire_menu), "LOGI-INF");
                                     break;
                                 case "TANK":
-                                    scr_Fire_Menu(lt_fire_menu, array_length_1d(lt_fire_menu), "LOGI-MBT");
+                                    scr_Fire_Menu(lt_fire_menu, array_length(lt_fire_menu), "LOGI-MBT");
                                     break;
                                 case "ENGINEER":
-                                    scr_Fire_Menu(le_fire_menu, array_length_1d(le_fire_menu), "LOGI-ENG");
+                                    scr_Fire_Menu(le_fire_menu, array_length(le_fire_menu), "LOGI-ENG");
                                     break;
                                 case "BTR":
-                                    scr_Fire_Menu(lb_fire_menu, array_length_1d(lb_fire_menu), "LOGI-LAV");
+                                    scr_Fire_Menu(lb_fire_menu, array_length(lb_fire_menu), "LOGI-LAV");
                                     break;
                                 case "LOGI":
-                                    scr_Fire_Menu(ll_fire_menu, array_length_1d(ll_fire_menu), "LOGI-LGI");
+                                    scr_Fire_Menu(ll_fire_menu, array_length(ll_fire_menu), "LOGI-LGI");
                                     break;
                                 case "DEPOT":
-                                    scr_Fire_Menu(ld_fire_menu, array_length_1d(ld_fire_menu), "LOGI-DPT");
+                                    scr_Fire_Menu(ld_fire_menu, array_length(ld_fire_menu), "LOGI-DPT");
                                     break;
                                 case "REPAIR":
-                                    scr_Fire_Menu(lr_fire_menu, array_length_1d(lr_fire_menu), "LOGI-RPR");
+                                    scr_Fire_Menu(lr_fire_menu, array_length(lr_fire_menu), "LOGI-RPR");
                                     break;
                                 case "TOW":
-                                    scr_Fire_Menu(lat_fire_menu, array_length_1d(lat_fire_menu), "LOGI-TOW");
+                                    scr_Fire_Menu(lat_fire_menu, array_length(lat_fire_menu), "LOGI-TOW");
                                     break;
                                 case "MORTAR":
-                                    scr_Fire_Menu(lm_fire_menu, array_length_1d(lm_fire_menu), "LOGI-MTR");
+                                    scr_Fire_Menu(lm_fire_menu, array_length(lm_fire_menu), "LOGI-MTR");
                                     break;
                                 case "NOONE":
-                                    scr_Fire_Menu(l_fire_menu, array_length_1d(l_fire_menu), "LOGI");
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGI");
                                     break;
 								default:
-                                    scr_Fire_Menu(l_fire_menu, array_length_1d(l_fire_menu), "LOGI");
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGI");
                                     break;
                             }
                             break;
                         case "DEPOT":
                             switch global.resupply_target {
                                 case "INFANTRY":
-                                    scr_Fire_Menu(li_fire_menu, array_length_1d(li_fire_menu), "DEPOT-INF");
+                                    scr_Fire_Menu(li_fire_menu, array_length(li_fire_menu), "DEPOT-INF");
                                     break;
                                 case "TANK":
-                                    scr_Fire_Menu(lt_fire_menu, array_length_1d(lt_fire_menu), "DEPOT-MBT");
+                                    scr_Fire_Menu(lt_fire_menu, array_length(lt_fire_menu), "DEPOT-MBT");
                                     break;
                                 case "ENGINEER":
-                                    scr_Fire_Menu(le_fire_menu, array_length_1d(le_fire_menu), "DEPOT-ENG");
+                                    scr_Fire_Menu(le_fire_menu, array_length(le_fire_menu), "DEPOT-ENG");
                                     break;
                                 case "BTR":
-                                    scr_Fire_Menu(lb_fire_menu, array_length_1d(lb_fire_menu), "DEPOT-LAV");
+                                    scr_Fire_Menu(lb_fire_menu, array_length(lb_fire_menu), "DEPOT-LAV");
                                     break;
                                 case "LOGI":
-                                    scr_Fire_Menu(ll_fire_menu, array_length_1d(ll_fire_menu), "DEPOT-LGI");
+                                    scr_Fire_Menu(ll_fire_menu, array_length(ll_fire_menu), "DEPOT-LGI");
                                     break;
                                 case "DEPOT":
-                                    scr_Fire_Menu(ld_fire_menu, array_length_1d(ld_fire_menu), "DEPOT-DPT");
+                                    scr_Fire_Menu(ld_fire_menu, array_length(ld_fire_menu), "DEPOT-DPT");
                                     break;
                                 case "REPAIR":
-                                    scr_Fire_Menu(lr_fire_menu, array_length_1d(lr_fire_menu), "DEPOT-RPR");
+                                    scr_Fire_Menu(lr_fire_menu, array_length(lr_fire_menu), "DEPOT-RPR");
                                     break;
                                 case "TOW":
-                                    scr_Fire_Menu(lat_fire_menu, array_length_1d(lat_fire_menu), "DEPOT-TOW");
+                                    scr_Fire_Menu(lat_fire_menu, array_length(lat_fire_menu), "DEPOT-TOW");
                                     break;
                                 case "MORTAR":
-                                    scr_Fire_Menu(lm_fire_menu, array_length_1d(lm_fire_menu), "DEPOT-MTR");
+                                    scr_Fire_Menu(lm_fire_menu, array_length(lm_fire_menu), "DEPOT-MTR");
                                     break;
                                 case "NOONE":
-                                    scr_Fire_Menu(l_fire_menu, array_length_1d(l_fire_menu), "DEPOT");
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "DEPOT");
                                     break;
 								default:
-                                    scr_Fire_Menu(l_fire_menu, array_length_1d(l_fire_menu), "DEPOT");
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "DEPOT");
                                     break;
                             }
                             break;
                         case "REPAIR":
-                            scr_Fire_Menu(r_fire_menu, array_length_1d(r_fire_menu), "REPAIR-MG");
+                            scr_Fire_Menu(r_fire_menu, array_length(r_fire_menu), "REPAIR-MG");
                             break;
                         case "TOW":
-                            scr_Fire_Menu(at_fire_menu,array_length_1d(at_fire_menu), "TOW");
+                            scr_Fire_Menu(at_fire_menu,array_length(at_fire_menu), "TOW");
                             break;
                         case "MORTAR":
-                            scr_Fire_Menu(m_fire_menu, array_length_1d(m_fire_menu), "MORTAR");
+                            scr_Fire_Menu(m_fire_menu, array_length(m_fire_menu), "MORTAR");
                             break;
                         case "SUPPLY SHIP":
                             switch global.resupply_target {
                                 case "LOGI":
-                                    scr_Fire_Menu(ll_fire_menu, array_length_1d(ll_fire_menu), "SHIP-LGI");
+                                    scr_Fire_Menu(ll_fire_menu, array_length(ll_fire_menu), "SHIP-LGI");
                                     break;
                                 case "DEPOT":
-                                    scr_Fire_Menu(ld_fire_menu, array_length_1d(ld_fire_menu), "SHIP-DPT");
+                                    scr_Fire_Menu(ld_fire_menu, array_length(ld_fire_menu), "SHIP-DPT");
                                     break;
                                 case "NOONE":
-                                    scr_Fire_Menu(l_fire_menu, array_length_1d(l_fire_menu), "SUPPLY SHIP");
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "SUPPLY SHIP");
                                     break;
 								default:
-									scr_Fire_Menu(l_fire_menu, array_length_1d(l_fire_menu), "SUPPLY SHIP");
+									scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "SUPPLY SHIP");
 									break;
                             }
                             break;

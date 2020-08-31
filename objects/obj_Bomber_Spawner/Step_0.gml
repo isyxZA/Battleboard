@@ -1,5 +1,6 @@
-if light_size < 9 { light_size = lerp(light_size, 9, 0.01); }
-if light_strength < 1 { light_strength = lerp(light_strength, 1, 0.1); }
+//Visibilty area in fog of war
+if light_size < size_target { light_size = lerp(light_size, size_target, 0.05); }
+if light_strength != global.light_level { light_strength = lerp(light_strength, global.light_level, 0.005); }
 
 if can_start == true {
     can_start = false;
@@ -17,6 +18,21 @@ if path_position == 1 {
     global.turn_AP = 0;
     path_delete(my_path); 
     audio_emitter_free(emit);
+	if PLAYER.net_status == "HOST" {
+		//Send turn end signal to client
+		var cc = ds_list_size(global.clients);
+		if cc > 0 { 
+			var i;
+			for (i=0;i<cc;i++) {
+				var csocket = ds_list_find_value(global.clients, i);
+				net_write_client(csocket, buffer_u8, NET_ENDTURN);
+			}
+		}
+	}
+		else if PLAYER.net_status == "CLIENT" {
+			//Send turn end signal to host can_endturn = true
+			net_write_server(buffer_u8, NET_ENDTURN);
+		}
     instance_destroy();
 }
     else {

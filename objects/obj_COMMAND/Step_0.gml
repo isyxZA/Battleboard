@@ -253,9 +253,9 @@ if confirm_menu == true {
 	}
     if confirm_list == 1 {
 		if p_one == true {
-				var f1 = collision_rectangle(global.menu_x, global.menu_y+global.menu_height*global.menu_ratio    , global.menu_x+(global.menu_width*global.menu_ratio), global.menu_y+(global.menu_height*2)*global.menu_ratio, obj_MOUSE, false, false);
-				var f2 = collision_rectangle(global.menu_x, global.menu_y+(global.menu_height*2)*global.menu_ratio, global.menu_x+(global.menu_width*global.menu_ratio), global.menu_y+(global.menu_height*3)*global.menu_ratio, obj_MOUSE, false, false);
-				//var f3 = collision_rectangle(global.menu_x, global.menu_y+(global.menu_height*3)*global.menu_ratio, global.menu_x+(global.menu_width*global.menu_ratio), global.menu_y+(global.menu_height*4)*global.menu_ratio, obj_MOUSE, false, false);
+			var f1 = collision_rectangle(global.menu_x, global.menu_y+global.menu_height*global.menu_ratio    , global.menu_x+(global.menu_width*global.menu_ratio), global.menu_y+(global.menu_height*2)*global.menu_ratio, obj_MOUSE, false, false);
+			var f2 = collision_rectangle(global.menu_x, global.menu_y+(global.menu_height*2)*global.menu_ratio, global.menu_x+(global.menu_width*global.menu_ratio), global.menu_y+(global.menu_height*3)*global.menu_ratio, obj_MOUSE, false, false);
+			//var f3 = collision_rectangle(global.menu_x, global.menu_y+(global.menu_height*3)*global.menu_ratio, global.menu_x+(global.menu_width*global.menu_ratio), global.menu_y+(global.menu_height*4)*global.menu_ratio, obj_MOUSE, false, false);
 		}
 			else {
 				var f1 = collision_rectangle(global.menu_x, global.menu_y                                         , global.menu_x-(global.menu_width*global.menu_ratio), global.menu_y-global.menu_height*global.menu_ratio    , obj_MOUSE, false, false);
@@ -290,10 +290,67 @@ if confirm_menu == true {
 		                    with instance_create_layer(bomber_x1, bomber_y1, "Aircraft", obj_Bomber_Spawner) { 
 		                        my_path = path_add();
 		                        path_add_point(my_path, x, y, 40);
-		                        path_add_point(my_path, other.bomber_x2, other.bomber_y2, 40);
+		                        path_add_point(my_path, obj_COMMAND.bomber_x2, obj_COMMAND.bomber_y2, 40);
 		                        path_set_closed(my_path, false);
 		                        path_position = 0;
 		                    }
+							if PLAYER.net_status == "HOST" {
+								//Send command turn data to client
+								var cc = ds_list_size(global.clients);
+								if cc > 0 { 
+									var i;
+									for (i=0;i<cc;i++) {
+										var csocket = ds_list_find_value(global.clients, i);
+										net_write_client(csocket, 
+											buffer_u8, NET_COMMANDCARD,
+											buffer_string, target_option,
+											buffer_u16, bomb_x1,//Bomb spawn coords
+											buffer_u16, bomb_y1,
+											buffer_u16, bomb_x2,
+											buffer_u16, bomb_y2,
+											buffer_u16, bomb_x3,
+											buffer_u16, bomb_y3,
+											buffer_u16, bomb_x4,
+											buffer_u16, bomb_y4,
+											buffer_u16, bomb_x5,
+											buffer_u16, bomb_y5,
+											buffer_u16, bomb_x6,
+											buffer_u16, bomb_y6,
+											buffer_u16, bomb_x7,
+											buffer_u16, bomb_y7,
+											buffer_s16, bomber_x1,//Path start x
+											buffer_s16, bomber_y1,//Path start y
+											buffer_s16, bomber_x2,//Path end x
+											buffer_s16, bomber_y2//Path end y
+										);
+									}
+								}
+							}
+								else if PLAYER.net_status == "CLIENT" {
+									//Send command turn data to host
+									net_write_server(
+										buffer_u8, NET_COMMANDCARD,
+										buffer_string, target_option,
+										buffer_u16, bomb_x1,//Bomb spawn coords
+										buffer_u16, bomb_y1,
+										buffer_u16, bomb_x2,
+										buffer_u16, bomb_y2,
+										buffer_u16, bomb_x3,
+										buffer_u16, bomb_y3,
+										buffer_u16, bomb_x4,
+										buffer_u16, bomb_y4,
+										buffer_u16, bomb_x5,
+										buffer_u16, bomb_y5,
+										buffer_u16, bomb_x6,
+										buffer_u16, bomb_y6,
+										buffer_u16, bomb_x7,
+										buffer_u16, bomb_y7,
+										buffer_s16, bomber_x1,//Path start x
+										buffer_s16, bomber_y1,//Path start y
+										buffer_s16, bomber_x2,//Path end x
+										buffer_s16, bomber_y2//Path end y
+									);
+								}
 		                    target_option = "NOONE";
 							//Reset menu animation
 							menu_anim = true;
@@ -311,6 +368,55 @@ if confirm_menu == true {
 		                    with instance_create_layer(bomb_x5, bomb_y5, "Command", obj_Missile) { fuse = 60; }
 		                    with instance_create_layer(bomb_x6, bomb_y6, "Command", obj_Missile) { fuse = 90; }
 		                    with instance_create_layer(bomb_x7, bomb_y7, "Command", obj_Missile) { fuse = 120; }
+							if PLAYER.net_status == "HOST" {
+								//Send command turn data to client
+								var cc = ds_list_size(global.clients);
+								if cc > 0 { 
+									var i;
+									for (i=0;i<cc;i++) {
+										var csocket = ds_list_find_value(global.clients, i);
+										net_write_client(csocket, 
+											buffer_u8, NET_COMMANDCARD,
+											buffer_string, target_option,
+											buffer_u16, bomb_x1,//Bomb spawn coords
+											buffer_u16, bomb_y1,
+											buffer_u16, bomb_x2,
+											buffer_u16, bomb_y2,
+											buffer_u16, bomb_x3,
+											buffer_u16, bomb_y3,
+											buffer_u16, bomb_x4,
+											buffer_u16, bomb_y4,
+											buffer_u16, bomb_x5,
+											buffer_u16, bomb_y5,
+											buffer_u16, bomb_x6,
+											buffer_u16, bomb_y6,
+											buffer_u16, bomb_x7,
+											buffer_u16, bomb_y7
+										);
+									}
+								}
+							}
+								else if PLAYER.net_status == "CLIENT" {
+									//Send command turn data to host
+									net_write_server(
+										buffer_u8, NET_COMMANDCARD,
+										buffer_string, target_option,
+										buffer_u16, bomb_x1,//Bomb spawn coords
+										buffer_u16, bomb_y1,
+										buffer_u16, bomb_x2,
+										buffer_u16, bomb_y2,
+										buffer_u16, bomb_x3,
+										buffer_u16, bomb_y3,
+										buffer_u16, bomb_x4,
+										buffer_u16, bomb_y4,
+										buffer_u16, bomb_x5,
+										buffer_u16, bomb_y5,
+										buffer_u16, bomb_x6,
+										buffer_u16, bomb_y6,
+										buffer_u16, bomb_x7,
+										buffer_u16, bomb_y7
+									);
+								}
 		                    global.active_missile = true;
 		                    target_option = "NOONE";
 							//Reset menu animation
@@ -325,11 +431,40 @@ if confirm_menu == true {
 		                    with instance_create_layer(uav_x1, uav_y1, "Aircraft", obj_UAV_Spawner) { 
 		                        my_path = path_add();
 		                        path_add_point(my_path, x, y, 20);
-		                        path_add_point(my_path, other.uav_x2, other.uav_y2, 20);
+		                        path_add_point(my_path, obj_COMMAND.uav_x2, obj_COMMAND.uav_y2, 20);
 		                        path_set_closed(my_path, false);
 		                        path_position = 0;
 		                        path_start(my_path, 20, path_action_stop, 0);
 		                    }
+							if PLAYER.net_status == "HOST" {
+								//Send command turn data to client
+								var cc = ds_list_size(global.clients);
+								if cc > 0 { 
+									var i;
+									for (i=0;i<cc;i++) {
+										var csocket = ds_list_find_value(global.clients, i);
+										net_write_client(csocket, 
+											buffer_u8, NET_COMMANDCARD,
+											buffer_string, target_option,
+											buffer_s16, uav_x1,//Path start x
+											buffer_s16, uav_y1,//Path start y
+											buffer_s16, uav_x2,//Path end x
+											buffer_s16, uav_y2 //Path end y
+										);
+									}
+								}
+							}
+								else if PLAYER.net_status == "CLIENT" {
+									//Send command turn data to host
+									net_write_server(
+										buffer_u8, NET_COMMANDCARD,
+										buffer_string, target_option,
+										buffer_s16, uav_x1,//Path start x
+										buffer_s16, uav_y1,//Path start y
+										buffer_s16, uav_x2,//Path end x
+										buffer_s16, uav_y2 //Path end y
+									);
+								}
 		                    target_option = "NOONE";
 							//Reset menu animation
 							menu_anim = true;
@@ -350,6 +485,67 @@ if confirm_menu == true {
 		                    with instance_create_layer(bomb_x8 , bomb_y8 , "Command", obj_Artillery) { fuse = 70 ; }
 		                    with instance_create_layer(bomb_x9 , bomb_y9 , "Command", obj_Artillery) { fuse = 110; }
 		                    with instance_create_layer(bomb_x10, bomb_y10, "Command", obj_Artillery) { fuse = 150; }
+							if PLAYER.net_status == "HOST" {
+								//Send command turn data to client
+								var cc = ds_list_size(global.clients);
+								if cc > 0 { 
+									var i;
+									for (i=0;i<cc;i++) {
+										var csocket = ds_list_find_value(global.clients, i);
+										net_write_client(csocket, 
+											buffer_u8, NET_COMMANDCARD,
+											buffer_string, target_option,
+											buffer_u16, bomb_x1,//Bomb spawn coords
+											buffer_u16, bomb_y1,
+											buffer_u16, bomb_x2,
+											buffer_u16, bomb_y2,
+											buffer_u16, bomb_x3,
+											buffer_u16, bomb_y3,
+											buffer_u16, bomb_x4,
+											buffer_u16, bomb_y4,
+											buffer_u16, bomb_x5,
+											buffer_u16, bomb_y5,
+											buffer_u16, bomb_x6,
+											buffer_u16, bomb_y6,
+											buffer_u16, bomb_x7,
+											buffer_u16, bomb_y7,
+											buffer_u16, bomb_x8,
+											buffer_u16, bomb_y8,
+											buffer_u16, bomb_x9,
+											buffer_u16, bomb_y9,
+											buffer_u16, bomb_x10,
+											buffer_u16, bomb_y10
+										);
+									}
+								}
+							}
+								else if PLAYER.net_status == "CLIENT" {
+									//Send command turn data to host
+									net_write_server(
+										buffer_u8, NET_COMMANDCARD,
+										buffer_string, target_option,
+										buffer_u16, bomb_x1,//Bomb spawn coords
+										buffer_u16, bomb_y1,
+										buffer_u16, bomb_x2,
+										buffer_u16, bomb_y2,
+										buffer_u16, bomb_x3,
+										buffer_u16, bomb_y3,
+										buffer_u16, bomb_x4,
+										buffer_u16, bomb_y4,
+										buffer_u16, bomb_x5,
+										buffer_u16, bomb_y5,
+										buffer_u16, bomb_x6,
+										buffer_u16, bomb_y6,
+										buffer_u16, bomb_x7,
+										buffer_u16, bomb_y7,
+										buffer_u16, bomb_x8,
+										buffer_u16, bomb_y8,
+										buffer_u16, bomb_x9,
+										buffer_u16, bomb_y9,
+										buffer_u16, bomb_x10,
+										buffer_u16, bomb_y10
+									);
+								}
 		                    global.active_artillery = true;
 		                    target_option = "NOONE";
 							//Reset menu animation
@@ -365,10 +561,33 @@ if confirm_menu == true {
 		                    with instance_create_layer(-96, bomb_y1, "Aircraft", obj_Airdrop_Spawner) { 
 		                        my_path = path_add();
 		                        path_add_point(my_path, x, y, 30);
-		                        path_add_point(my_path, room_width+1024, other.bomb_y1, 30);
+		                        path_add_point(my_path, room_width+1024, obj_COMMAND.bomb_y1, 30);
 		                        path_set_closed(my_path, false);
 		                        path_position = 0;
 		                    }
+							if PLAYER.net_status == "HOST" {
+								//Send command turn data to client
+								var cc = ds_list_size(global.clients);
+								if cc > 0 { 
+									var i;
+									for (i=0;i<cc;i++) {
+										var csocket = ds_list_find_value(global.clients, i);
+										net_write_client(csocket, 
+											buffer_u8, NET_COMMANDCARD,
+											buffer_string, target_option,
+											buffer_s16, bomb_y1,//Path end y
+										);
+									}
+								}
+							}
+								else if PLAYER.net_status == "CLIENT" {
+									//Send command turn data to host
+									net_write_server(
+										buffer_u8, NET_COMMANDCARD,
+										buffer_string, target_option,
+										buffer_s16, bomb_y1,//Path end y
+									);
+								}
 		                    target_option = "NOONE";
 							//Reset menu animation
 							menu_anim = true;

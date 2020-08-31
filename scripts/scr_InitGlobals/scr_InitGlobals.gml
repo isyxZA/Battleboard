@@ -91,6 +91,7 @@ function scr_InitGlobals() {
 	global.ui_scale = 0.8;
 	global.set_ui = false;
 	global.grid_display = true;
+	global.light_level = 1;
 	//global.unit_speed = 1;
 	//global.enemy_speed = 1;
 
@@ -307,8 +308,8 @@ function scr_InitGlobals() {
 #macro NET_MOVE 5
 #macro NET_SHOOT 6
 #macro NET_SPAWN 7
-#macro NET_DESTROY 8
-#macro NET_SQUADUPDATE 9
+#macro NET_COMMANDCARD 8
+#macro NET_TLUPDATE 9
 #macro NET_ENDTURN 10
 #macro NET_CONNECT 11
 #macro NET_TIMER 12

@@ -1,6 +1,8 @@
 event_inherited();
 path_delete(my_path);
 
+size_target = 14;
+
 var p_faction = PLAYER.faction;
 if PLAYER.player == "ONE" { 
 	p_one = true;

@@ -424,7 +424,9 @@ function scr_CommandSensors() {
 	                                            else if blc_targeting == true { blc_targeting = false; ins_txt = "BLC"; }
 	                                                else if llc_targeting == true { llc_targeting = false; ins_txt = "LLC"; }
 	            if ins_1 == true { 
-	                ds_list_insert(global.turn_list, 1, ins_txt); 
+					var pos = 1;
+	                ds_list_insert(global.turn_list, pos, ins_txt); 
+					var atype = 1;
 					cp_cost = 10; 
 					global.command_points -= 10; 
 					global.draw_cpcost = true;
@@ -461,12 +463,37 @@ function scr_CommandSensors() {
 	                        active_llc = true;
 	                        break;
 	                } 
+					if PLAYER.net_status == "HOST" {
+						//Send list update signal to client
+						var cc = ds_list_size(global.clients);
+						if cc > 0 { 
+							var i;
+							for (i=0;i<cc;i++) {
+								var csocket = ds_list_find_value(global.clients, i);
+								net_write_client(csocket, 
+									buffer_u8, NET_TLUPDATE,
+									buffer_u8, atype,
+									buffer_u8, pos,
+									buffer_string, ins_txt
+								);
+							}
+						}
+					}
+						else if PLAYER.net_status == "CLIENT" {
+							//Send list update signal to host 
+							net_write_server(
+								buffer_u8, NET_TLUPDATE,
+								buffer_u8, atype,
+								buffer_u8, pos,
+								buffer_string, ins_txt
+							);
+						}
 	            }
 	                else if ins_2 == true { 
 	                    var ls = ds_list_size(global.turn_list);
 	                    var pos = 2;
-	                    if (ls < pos) { ds_list_add(global.turn_list, ins_txt); }
-	                        else { ds_list_insert(global.turn_list, pos, ins_txt); } 
+	                    if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
+	                        else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
 	                    cp_cost = 10; 
 						global.command_points -= 10; 
 						global.draw_cpcost = true; 
@@ -503,12 +530,37 @@ function scr_CommandSensors() {
 	                            active_llc = true;
 	                            break;
 	                    }
+						if PLAYER.net_status == "HOST" {
+							//Send list update signal to client
+							var cc = ds_list_size(global.clients);
+							if cc > 0 { 
+								var i;
+								for (i=0;i<cc;i++) {
+									var csocket = ds_list_find_value(global.clients, i);
+									net_write_client(csocket, 
+										buffer_u8, NET_TLUPDATE,
+										buffer_u8, atype,
+										buffer_u8, pos,
+										buffer_string, ins_txt
+									);
+								}
+							}
+						}
+							else if PLAYER.net_status == "CLIENT" {
+								//Send list update signal to host
+								net_write_server(
+									buffer_u8, NET_TLUPDATE,
+									buffer_u8, atype,
+									buffer_u8, pos,
+									buffer_string, ins_txt
+								);
+							}
 	                }
 	                    else if ins_3 == true { 
 	                        var ls = ds_list_size(global.turn_list);
 	                        var pos = 3;
-	                        if (ls < pos) { ds_list_add(global.turn_list, ins_txt); }
-	                            else { ds_list_insert(global.turn_list, pos, ins_txt); } 
+	                        if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
+	                            else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
 	                        cp_cost = 10; 
 							global.command_points -= 10; 
 							global.draw_cpcost = true; 
@@ -545,12 +597,37 @@ function scr_CommandSensors() {
 	                                active_llc = true;
 	                                break;
 	                        }
+							if PLAYER.net_status == "HOST" {
+								//Send list update signal to client
+								var cc = ds_list_size(global.clients);
+								if cc > 0 { 
+									var i;
+									for (i=0;i<cc;i++) {
+										var csocket = ds_list_find_value(global.clients, i);
+										net_write_client(csocket, 
+											buffer_u8, NET_TLUPDATE,
+											buffer_u8, atype,
+											buffer_u8, pos,
+											buffer_string, ins_txt
+										);
+									}
+								}
+							}
+								else if PLAYER.net_status == "CLIENT" {
+									//Send list update signal to host
+									net_write_server(
+										buffer_u8, NET_TLUPDATE,
+										buffer_u8, atype,
+										buffer_u8, pos,
+										buffer_string, ins_txt
+									);
+								}
 	                    }
 	                        else if ins_4 == true { 
 	                            var ls = ds_list_size(global.turn_list);
 	                            var pos = 4;
-	                            if (ls < pos) { ds_list_add(global.turn_list, ins_txt); }
-	                                else { ds_list_insert(global.turn_list, pos, ins_txt); } 
+	                            if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
+	                                else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
 	                            cp_cost = 10; 
 								global.command_points -= 10; 
 								global.draw_cpcost = true;
@@ -587,12 +664,37 @@ function scr_CommandSensors() {
 	                                    active_llc = true;
 	                                    break;
 	                            }
+								if PLAYER.net_status == "HOST" {
+									//Send list update signal to client
+									var cc = ds_list_size(global.clients);
+									if cc > 0 { 
+										var i;
+										for (i=0;i<cc;i++) {
+											var csocket = ds_list_find_value(global.clients, i);
+											net_write_client(csocket, 
+												buffer_u8, NET_TLUPDATE,
+												buffer_u8, atype,
+												buffer_u8, pos,
+												buffer_string, ins_txt
+											);
+										}
+									}
+								}
+									else if PLAYER.net_status == "CLIENT" {
+										//Send list update signal to host
+										net_write_server(
+											buffer_u8, NET_TLUPDATE,
+											buffer_u8, atype,
+											buffer_u8, pos,
+											buffer_string, ins_txt
+										);
+									}
 	                        }
 	                            else if ins_5 == true { 
 	                                var ls = ds_list_size(global.turn_list);
 	                                var pos = 5;
-	                                if (ls < pos) { ds_list_add(global.turn_list, ins_txt); }
-	                                    else { ds_list_insert(global.turn_list, pos, ins_txt); } 
+	                                if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
+	                                    else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
 	                                cp_cost = 10; 
 									global.command_points -= 10; 
 									global.draw_cpcost = true;
@@ -629,12 +731,37 @@ function scr_CommandSensors() {
 	                                        active_llc = true;
 	                                        break;
 	                                }
+									if PLAYER.net_status == "HOST" {
+										//Send list update signal to client
+										var cc = ds_list_size(global.clients);
+										if cc > 0 { 
+											var i;
+											for (i=0;i<cc;i++) {
+												var csocket = ds_list_find_value(global.clients, i);
+												net_write_client(csocket, 
+													buffer_u8, NET_TLUPDATE,
+													buffer_u8, atype,
+													buffer_u8, pos,
+													buffer_string, ins_txt
+												);
+											}
+										}
+									}
+										else if PLAYER.net_status == "CLIENT" {
+											//Send list update signal to host
+											net_write_server(
+												buffer_u8, NET_TLUPDATE,
+												buffer_u8, atype,
+												buffer_u8, pos,
+												buffer_string, ins_txt
+											);
+										}
 	                            }
 	                                else if ins_6 == true { 
 	                                    var ls = ds_list_size(global.turn_list);
 	                                    var pos = 6;
-	                                    if (ls < pos) { ds_list_add(global.turn_list, ins_txt); }
-	                                        else { ds_list_insert(global.turn_list, pos, ins_txt); } 
+	                                    if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
+	                                        else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
 	                                    cp_cost = 10; 
 										global.command_points -= 10; 
 										global.draw_cpcost = true;
@@ -671,12 +798,37 @@ function scr_CommandSensors() {
 	                                            active_llc = true;
 	                                            break;
 	                                    }
+										if PLAYER.net_status == "HOST" {
+											//Send list update signal to client
+											var cc = ds_list_size(global.clients);
+											if cc > 0 { 
+												var i;
+												for (i=0;i<cc;i++) {
+													var csocket = ds_list_find_value(global.clients, i);
+													net_write_client(csocket, 
+														buffer_u8, NET_TLUPDATE,
+														buffer_u8, atype,
+														buffer_u8, pos,
+														buffer_string, ins_txt
+													);
+												}
+											}
+										}
+											else if PLAYER.net_status == "CLIENT" {
+												//Send list update signal to host
+												net_write_server(
+													buffer_u8, NET_TLUPDATE,
+													buffer_u8, atype,
+													buffer_u8, pos,
+													buffer_string, ins_txt
+												);
+											}
 	                                }
 	                                    else if ins_7 == true { 
 	                                        var ls = ds_list_size(global.turn_list);
 	                                        var pos = 7;
-	                                        if (ls < pos) { ds_list_add(global.turn_list, ins_txt); }
-	                                            else { ds_list_insert(global.turn_list, pos, ins_txt); } 
+	                                        if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
+	                                            else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
 	                                        cp_cost = 10; 
 											global.command_points -= 10; 
 											global.draw_cpcost = true;
@@ -713,12 +865,37 @@ function scr_CommandSensors() {
 	                                                active_llc = true;
 	                                                break;
 	                                        }
+											if PLAYER.net_status == "HOST" {
+												//Send list update signal to client
+												var cc = ds_list_size(global.clients);
+												if cc > 0 { 
+													var i;
+													for (i=0;i<cc;i++) {
+														var csocket = ds_list_find_value(global.clients, i);
+														net_write_client(csocket, 
+															buffer_u8, NET_TLUPDATE,
+															buffer_u8, atype,
+															buffer_u8, pos,
+															buffer_string, ins_txt
+														);
+													}
+												}
+											}
+												else if PLAYER.net_status == "CLIENT" {
+													//Send list update signal to host
+													net_write_server(
+														buffer_u8, NET_TLUPDATE,
+														buffer_u8, atype,
+														buffer_u8, pos,
+														buffer_string, ins_txt
+													);
+												}
 	                                    }
 	                                        else if ins_8 == true { 
 	                                            var ls = ds_list_size(global.turn_list);
 	                                            var pos = 8;
-	                                            if (ls < pos) { ds_list_add(global.turn_list, ins_txt); } 
-	                                                else { ds_list_insert(global.turn_list, pos, ins_txt); } 
+	                                            if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); } 
+	                                                else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
 	                                            cp_cost = 10; 
 												global.command_points -= 10; 
 												global.draw_cpcost = true;
@@ -755,12 +932,37 @@ function scr_CommandSensors() {
 	                                                    active_llc = true;
 	                                                    break;
 	                                            }
+												if PLAYER.net_status == "HOST" {
+													//Send list update signal to client
+													var cc = ds_list_size(global.clients);
+													if cc > 0 { 
+														var i;
+														for (i=0;i<cc;i++) {
+															var csocket = ds_list_find_value(global.clients, i);
+															net_write_client(csocket, 
+																buffer_u8, NET_TLUPDATE,
+																buffer_u8, atype,
+																buffer_u8, pos,
+																buffer_string, ins_txt
+															);
+														}
+													}
+												}
+													else if PLAYER.net_status == "CLIENT" {
+														//Send list update signal to host
+														net_write_server(
+															buffer_u8, NET_TLUPDATE,
+															buffer_u8, atype,
+															buffer_u8, pos,
+															buffer_string, ins_txt
+														);
+													}
 	                                        }
 	                                            else if ins_9 == true { 
 	                                                var ls = ds_list_size(global.turn_list);
 	                                                var pos = 9;
-	                                                if (ls < pos) { ds_list_add(global.turn_list, ins_txt); } 
-	                                                    else { ds_list_insert(global.turn_list, pos, ins_txt); } 
+	                                                if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); } 
+	                                                    else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
 	                                                cp_cost = 10; 
 													global.command_points -= 10; 
 													global.draw_cpcost = true;
@@ -797,6 +999,31 @@ function scr_CommandSensors() {
 	                                                        active_llc = true;
 	                                                        break;
 	                                                }
+													if PLAYER.net_status == "HOST" {
+														//Send list update signal to client
+														var cc = ds_list_size(global.clients);
+														if cc > 0 { 
+															var i;
+															for (i=0;i<cc;i++) {
+																var csocket = ds_list_find_value(global.clients, i);
+																net_write_client(csocket, 
+																	buffer_u8, NET_TLUPDATE,
+																	buffer_u8, atype,
+																	buffer_u8, pos,
+																	buffer_string, ins_txt
+																);
+															}
+														}
+													}
+														else if PLAYER.net_status == "CLIENT" {
+															//Send list update signal to host
+															net_write_server(
+																buffer_u8, NET_TLUPDATE,
+																buffer_u8, atype,
+																buffer_u8, pos,
+																buffer_string, ins_txt
+															);
+														}
 	                                            }
 	        }
 	    }

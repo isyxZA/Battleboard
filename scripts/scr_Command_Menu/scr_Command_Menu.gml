@@ -21,7 +21,7 @@ function scr_Command_Menu() {
 		//Draw the confirmation menu
 		if confirm_list == 1 {
 		    var m;
-		    for (m = 0; m < array_length_1d(command_menu); m += 1){
+		    for (m = 0; m < array_length(command_menu); m += 1){
 		        //Draw border boxes for each menu option
 				draw_sprite(spr_Menu_Border, 0, 0, 0+(m*global.menu_height)+global.menu_height);
 		        //Set ammo count to corresponding ammo type
@@ -54,7 +54,7 @@ function scr_Command_Menu() {
 		}
 		    else if confirm_list == 2 {
 		        var m;
-		        for (m = 0; m < array_length_1d(reinforce_menu); m += 1){
+		        for (m = 0; m < array_length(reinforce_menu); m += 1){
 		            //Draw border boxes for each menu option
 		            draw_sprite(spr_Menu_Border, 0, 0, 0+(m*global.menu_height)+global.menu_height);
 		            //Set ammo count to corresponding ammo type
@@ -102,8 +102,8 @@ function scr_Command_Menu() {
 	}
 		else {
 			var mlen;
-			if confirm_list == 1 { mlen = array_length_1d(command_menu); }
-				else if confirm_list == 2 { mlen = array_length_1d(reinforce_menu); }
+			if confirm_list == 1 { mlen = array_length(command_menu); }
+				else if confirm_list == 2 { mlen = array_length(reinforce_menu); }
 			global.menu_surf = surface_create(global.menu_width, global.menu_height*(mlen+1));
 	        surface_set_target(global.menu_surf);
 	        draw_clear_alpha(c_black, 1);

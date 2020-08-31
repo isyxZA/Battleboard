@@ -21,11 +21,11 @@ function scr_Repair_Fire_Menu() {
 
 	//Draw the unit firing menu
 	var m;
-	for (m = 0; m < array_length_1d(r_fire_menu); m += 1){
+	for (m = 0; m < array_length(r_fire_menu); m += 1){
 	    //Draw border boxes for each menu option
 	    draw_sprite(spr_Menu_Border, 0, global.menu_x, global.menu_y + (m * global.v_spacing));
 	    //Set ammo count to corresponding ammo type
-	    if (m < array_length_1d(r_fire_menu)-2) {
+	    if (m < array_length(r_fire_menu)-2) {
 		
 	        switch m {
 	            case 0:
@@ -54,7 +54,7 @@ function scr_Repair_Fire_Menu() {
 	        //Draw the text from the corresponding fire_menu option and ammo count 
 	        draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y+(global.v_spacing*0.5)) + (m * global.v_spacing), r_fire_menu[m] + " " + "x" + " " + string(shoot_amount), c1, c1, c1, c1, 1, 300, c_black, 0.2);
 	    }
-	        else if (m == array_length_1d(r_fire_menu)-2) {
+	        else if (m == array_length(r_fire_menu)-2) {
 	            var c2;
 	                if m == global.fire_option { c2 = c_white; } else { c2 = c_gray; }
 	                //For RE-TARGET

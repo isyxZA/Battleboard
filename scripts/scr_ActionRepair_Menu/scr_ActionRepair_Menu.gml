@@ -2,7 +2,7 @@ function scr_ActionRepair_Menu() {
 	//Action menu with repair option
 	//Set a pivot point where all lines can join before being affected by the menu choice
 	var ppx = global.menu_x - global.cell_size;
-	var ppy = global.menu_y + ((array_length_1d(global.action_repair_menu)*global.v_spacing)*0.5);
+	var ppy = global.menu_y + ((array_length(global.action_repair_menu)*global.v_spacing)*0.5);
 	var adja = global.v_spacing * global.menu_option;
 	switch global.menu_option {
 	    case 0:
@@ -28,11 +28,11 @@ function scr_ActionRepair_Menu() {
 	//Draw the unit header
 	//draw_sprite(spr_Menu_Header, 0, global.menu_x, global.menu_y - global.v_spacing);
 	var m;
-	for (m = 0; m < array_length_1d(global.action_repair_menu); m += 1){
+	for (m = 0; m < array_length(global.action_repair_menu); m += 1){
 	    //Draw menu options from my_menu array
 	    var c1;
 	    if m == global.menu_option {
-	        if m == array_length_1d(global.action_repair_menu)-1 { c1 = c_red; } 
+	        if m == array_length(global.action_repair_menu)-1 { c1 = c_red; } 
 	            else if m == 0 { if global.turn_AP != 0 { c1 = c_white; } else { c1 = c_red; } }
 	                else if m == 1 { if global.turn_AP != 0 { c1 = c_white; } else { c1 = c_red; } }
 	                    else if m == global.menu_option { c1 = c_white; } 

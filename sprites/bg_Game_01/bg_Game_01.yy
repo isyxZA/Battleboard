@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"bg_Game_01","path":"sprites/bg_Game_01/bg_Game_01.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "bg_Game_01",
     "tags": [],
     "resourceType": "GMSequence",
   },

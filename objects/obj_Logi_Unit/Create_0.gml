@@ -1,5 +1,7 @@
 event_inherited();
 
+size_target = 7;
+
 var p_side    = PLAYER.player;
 var p_faction = PLAYER.faction;
 

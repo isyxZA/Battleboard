@@ -63,7 +63,7 @@ if timer_count != 0 {
 				if ds_list_empty(global.squad_delta)   { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "DELTA")); }
 				if ds_list_empty(global.squad_echo)    { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "ECHO")); }
 				//Check for win conditions
-				if ds_list_empty(global.myunit_list) { if global.game_turn >= 3 { global.defeat = true; } }
+				if ds_list_empty(global.myunit_list)    { if global.game_turn >= 3 { global.defeat  = true; } }
 				if ds_list_empty(global.enemyunit_list) { if global.game_turn >= 3 { global.victory = true; } }
                 if global.my_turn == true {
                     global.my_turn = false;
@@ -122,10 +122,6 @@ if timer_count != 0 {
 								ds_list_delete(global.turn_list, 0);
 								ds_list_add(global.turn_list, active_turn);
 								break;
-							default:
-								ds_list_delete(global.turn_list, 0);
-								ds_list_add(global.turn_list, active_turn);
-								break;
 						}
                         tlist_adj = -t_space;
                         tlist_a = 0;
@@ -156,6 +152,16 @@ if timer_count != 0 {
                             case "E_3":
                             case "E_4":
                             case "E_5":
+							case "E_BOMBER":
+                            case "E_MISSILE":
+                            case "E_UAV":
+                            case "E_AIRDROP":
+                            case "E_ARTILLERY":
+                            case "E_ILC":
+                            case "E_TLC":
+                            case "E_ELC":
+                            case "E_BLC":
+                            case "E_LLC":
                                 my_turn_start = false;
                                 break;
                         }
@@ -194,10 +200,6 @@ if timer_count != 0 {
 									ds_list_delete(global.turn_list, 0);
 									ds_list_add(global.turn_list, active_turn);
 									break;
-								default:
-									ds_list_delete(global.turn_list, 0);
-									ds_list_add(global.turn_list, active_turn);
-									break;
 							}
                             tlist_adj = -t_space;
                             tlist_a = 0;
@@ -228,6 +230,16 @@ if timer_count != 0 {
                                 case "E_3":
                                 case "E_4":
                                 case "E_5":
+								case "E_BOMBER":
+		                        case "E_MISSILE":
+		                        case "E_UAV":
+		                        case "E_AIRDROP":
+		                        case "E_ARTILLERY":
+		                        case "E_ILC":
+		                        case "E_TLC":
+		                        case "E_ELC":
+		                        case "E_BLC":
+		                        case "E_LLC":
                                     my_turn_start = false;
                                     break;
                             }

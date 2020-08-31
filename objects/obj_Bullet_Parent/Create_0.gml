@@ -10,12 +10,11 @@ path_tracking = false;
 s = 0;
 can_damage = true;
 can_draw = true;
-light_size = 0.1;
+light_size = 0;
 light_strength = 1;
 damage_1 = 0;
 damage_2 = 0;
 damage_3 = 0;
 fuse = 0;
 fow1_scale = 0.5;
-fow2_scale = 0.125;
 

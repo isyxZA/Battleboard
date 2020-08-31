@@ -3,6 +3,7 @@ my_path = -1;
 rot = 0;
 light_size = 0;
 light_strength = 0;
+size_target = 9;
 can_start = true;
 view_radius = global.cell_size*2;
 fow1_scale = 0.5;

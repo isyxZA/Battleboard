@@ -7,8 +7,8 @@ if !ds_list_empty(global.enemyunit_list) {
     }
 }
 
-with obj_Trees  { if !discovered { scr_DiscoveryCheck(); } }
-with obj_Houses { if !discovered { scr_DiscoveryCheck(); } }
+//with obj_Trees  { if !discovered { scr_DiscoveryCheck(); } }
+//with obj_Houses { if !discovered { scr_DiscoveryCheck(); } }
 
 if nav_confirmed == true { alarm[9] = 20; }
 

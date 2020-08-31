@@ -1,5 +1,5 @@
 function scr_Repair_Vehicle_Menu() {
-	var mlen = array_length_1d(r_vehicle_menu);
+	var mlen = array_length(r_vehicle_menu);
 
 	if surface_exists(global.menu_surf) {
 		surface_set_target(global.menu_surf);

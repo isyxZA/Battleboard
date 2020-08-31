@@ -347,6 +347,96 @@ if global.game_state == "IN_GAME" && game_over == false {
                                 }
                             }          
                             break;
+						case "E_BOMBER":
+                            draw_sprite_ext(spr_Bomber_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_MISSILE":
+                            draw_sprite_ext(spr_Missile_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_ARTILLERY":
+                            draw_sprite_ext(spr_Artillery_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_UAV":
+                            draw_sprite_ext(spr_UAV_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_AIRDROP":
+                            draw_sprite_ext(spr_Airdrop_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_ILC":
+                            draw_sprite_ext(spr_ILC_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_TLC":
+                            draw_sprite_ext(spr_TLC_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_BLC":
+                            draw_sprite_ext(spr_BLC_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_ELC":
+                            draw_sprite_ext(spr_ELC_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
+                        case "E_LLC":
+                            draw_sprite_ext(spr_LLC_Button, 0, lx, ty_0, 1, 1, 0, c_white, lo);
+							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
+                                if li == t_pos && lt == true {
+									draw_set_font(fnt_14);
+									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+                                } 
+                            }
+                            break;
                         case "NOONE":
                             break;
                     }

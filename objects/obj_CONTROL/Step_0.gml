@@ -32,8 +32,8 @@ if global.game_state == "IN_GAME" {
 	            //End turn manually
 	            var eb = point_distance(ui_tx+(ui_rx*ui_ratio), ui_ty+(ty_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if eb < s_dist {
-	                if endturn_timer < 18 { endturn_timer += 1; }
-	                if endturn_timer >= 18 {
+	                if endturn_timer < 12 { endturn_timer += 1; }
+	                if endturn_timer >= 12 {
 	                    if global.my_turn == true { 
 	                        draw_endturn = true; 
 	                        if mouse_check_button_pressed(mb_left) {
@@ -64,6 +64,28 @@ if global.game_state == "IN_GAME" {
 	                else { 
 	                    endturn_timer = 0; 
 	                    draw_endturn = false;
+						if keyboard_check_pressed(vk_space) {
+							//End player turn
+	                        can_endturn = true;
+	                        can_count = false;
+	                        timer_count = turn_timer;
+	                        alarm[0] = 10;
+							if PLAYER.net_status == "HOST" {
+								//Send turn end signal to client
+								var cc = ds_list_size(global.clients);
+								if cc > 0 { 
+									var i;
+									for (i=0;i<cc;i++) {
+										var csocket = ds_list_find_value(global.clients, i);
+										net_write_client(csocket, buffer_u8, NET_ENDTURN);
+									}
+								}
+							}
+								else if PLAYER.net_status == "CLIENT" {
+									//Send turn end signal to host can_endturn = true
+									net_write_server(buffer_u8, NET_ENDTURN);
+								}
+						}
 	                }
 	        }
 	            else { 
@@ -207,6 +229,16 @@ if global.game_state == "IN_GAME" {
 	            case "E_3":
 	            case "E_4":
 	            case "E_5":
+				case "E_BOMBER":
+                case "E_MISSILE":
+                case "E_UAV":
+                case "E_AIRDROP":
+                case "E_ARTILLERY":
+                case "E_ILC":
+                case "E_TLC":
+                case "E_ELC":
+                case "E_BLC":
+                case "E_LLC":
 	                my_turn_start = false;
 	                break;
 	        }
@@ -275,6 +307,16 @@ if global.game_state == "IN_GAME" {
 	            case "E_3":
 	            case "E_4":
 	            case "E_5":
+				case "E_BOMBER":
+                case "E_MISSILE":
+                case "E_UAV":
+                case "E_AIRDROP":
+                case "E_ARTILLERY":
+                case "E_ILC":
+                case "E_TLC":
+                case "E_ELC":
+                case "E_BLC":
+                case "E_LLC":
 	                my_turn_start = false;
 	                break;
 	        }

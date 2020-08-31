@@ -34,8 +34,7 @@ if explode == true {
             }
         }
     }
-    if light_size < 10 { light_size = lerp(light_size, 10, 0.01); }
-    //if light_strength < 1 { light_strength = lerp(light_strength, 1, 0.1); }
+    if light_size < 1 { light_size = lerp(light_size, 1, 0.05); }
     if can_damage == true { 
         can_damage = false; 
         var h = instance_place(x, y, obj_Houses);

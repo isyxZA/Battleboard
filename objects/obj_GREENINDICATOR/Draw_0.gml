@@ -29,7 +29,7 @@ if global.my_turn == true || global.waiting == true {
                         if global.game_turn != 0 { 
                             if unit_type != "LANDINGCRAFT" { 
                                 if active == true { draw_sprite(spr_Dot_Green, 0, x, y); } 
-									else { draw_sprite(spr_Dot_Gray, 0, x, y); } 
+									//else { draw_sprite(spr_Dot_Gray, 0, x, y); } 
                             }
                                 else {
                                     if can_move == false {
@@ -37,9 +37,9 @@ if global.my_turn == true || global.waiting == true {
                                             else if depleted == true {
                                                 if ship_type == "Supply" && active == true {
                                                     if (parts_ammo >= parts_rate) && (ammunition_ammo >= ammunition_rate) { draw_sprite(spr_Dot_Green, 0, x, y); }
-                                                        else { draw_sprite(spr_Dot_Gray, 0, x, y); }
+                                                        //else { draw_sprite(spr_Dot_Gray, 0, x, y); }
                                                 }
-                                                    else { draw_sprite(spr_Dot_Gray, 0, x, y); }
+                                                    //else { draw_sprite(spr_Dot_Gray, 0, x, y); }
                                             } 
                                     }
                                 }

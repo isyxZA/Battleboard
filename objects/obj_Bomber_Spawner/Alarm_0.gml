@@ -5,8 +5,8 @@ for (e=0; e<ds_list_size(global.enemyunit_list); e+=1){
     with eu { scr_VisibilityCheck(); }
 }
 
-with obj_Trees  { if !discovered { scr_DiscoveryCheck(); } }
-with obj_Houses { if !discovered { scr_DiscoveryCheck(); } }
+//with obj_Trees  { if !discovered { scr_DiscoveryCheck(); } }
+//with obj_Houses { if !discovered { scr_DiscoveryCheck(); } }
 
 alarm[0] = 3;
 

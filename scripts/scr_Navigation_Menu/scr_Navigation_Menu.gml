@@ -3,7 +3,7 @@ function scr_Navigation_Menu() {
 	//Nav menu options
 	//Set a pivot point where all lines can join before being affected by the menu choice
 	var pxx  = global.menu_x - global.cell_size;
-	var pyy  = global.menu_y + ((array_length_1d(global.nav_options)*global.v_spacing)*0.5);
+	var pyy  = global.menu_y + ((array_length(global.nav_options)*global.v_spacing)*0.5);
 	var adjm = global.v_spacing * global.menu_option;
 
 	switch global.menu_option {
@@ -26,11 +26,11 @@ function scr_Navigation_Menu() {
 
 
 	var m;
-	for (m = 0; m < array_length_1d(global.nav_options); m += 1){
+	for (m = 0; m < array_length(global.nav_options); m += 1){
 	    //Draw menu options from menu array
 	    var c1;
 	    if m == global.menu_option {
-	        if m == array_length_1d(global.nav_options)-1 { c1 = c_red; } 
+	        if m == array_length(global.nav_options)-1 { c1 = c_red; } 
 	            else if m == global.menu_option { c1 = c_white; } 
 	                else { c1 = c_gray; }
 	    }

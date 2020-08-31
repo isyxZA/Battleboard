@@ -87,7 +87,7 @@ if global.my_turn == true || global.waiting == true {
             if is_visible == true {
                 if action_confirmed == true { draw_sprite(spr_Dot_Orange, 0, x, y); }
                     else if nav_confirmed == true { draw_sprite(spr_Dot_Orange, 0, x_final, y_final); }
-                        else { draw_sprite(spr_Dot_Gray, 0, x, y); }
+                        //else { draw_sprite(spr_Dot_Gray, 0, x, y); }
             }
         }
     }

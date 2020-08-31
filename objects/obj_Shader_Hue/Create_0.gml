@@ -8,7 +8,7 @@
 u_position = shader_get_uniform(shd_hue, "u_Position"); // control shader
 
 // radians: pi - half a hue circle, 2 * pi - full circle
-pos = 0;
+pos = 0.01;
 
 layer_script_begin("Ground", shader_hue_start);
 layer_script_begin("GroundFX", shader_hue_end);

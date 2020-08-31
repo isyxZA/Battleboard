@@ -5,18 +5,6 @@ if surface_exists (fow_surf) {
     with(obj_Unit_Parent){
         draw_sprite_ext(spr_LightPoint01, 0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0,c_white, light_strength);
     }
-	/*
-    with(obj_Trees){
-        if discovered == true {
-            draw_sprite_ext(forest_cover, 0, x*fow1_scale, y*fow1_scale, xscl*fow1_scale, yscl*fow1_scale, rot+30,c_white, light_strength);
-        }
-    }
-    with(obj_Houses){
-        if discovered == true {
-            draw_sprite_ext(my_house,0, x*fow1_scale, y*fow1_scale, 1*fow1_scale, 1*fow1_scale, 0,c_white, light_strength);
-        }
-    }
-	*/
     with(obj_UAV_Spawner){
         draw_sprite_ext(spr_LightPoint02,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0,c_white, light_strength);
     }
@@ -27,7 +15,7 @@ if surface_exists (fow_surf) {
         draw_sprite_ext(spr_LightPoint02,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0,c_white, light_strength);
     }
 	with(obj_Jet_Spawner){
-        draw_sprite_ext(spr_LightPoint02,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0,c_white, light_strength);
+        draw_sprite_ext(sprite_index,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, rot ,c_white, light_strength);
     }
     with(obj_Bomb_F18){
         if explode == true {
@@ -46,11 +34,36 @@ if surface_exists (fow_surf) {
     }
     with(obj_Artillery){
         if explode == true {
+            draw_sprite_ext(spr_LightPoint01,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0, c_white, light_strength);
+        }
+    }
+	with(obj_E_Bomb){
+        if explode == true {
             draw_sprite_ext(spr_LightPoint01,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0,c_white, light_strength);
         }
     }
+    with(obj_E_Missile){
+        if explode == true {
+            draw_sprite_ext(spr_LightPoint01,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0,c_white, light_strength);
+        }
+    }
+    with(obj_E_Artillery){
+        if explode == true {
+            draw_sprite_ext(spr_LightPoint01,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0, c_white, light_strength);
+        }
+    }
     with(obj_Bullet_Parent){
-        draw_sprite_ext(spr_LightPoint01,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0,c_white, light_strength);
+		if explode == true {
+            draw_sprite_ext(spr_LightPoint01,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0, c_white, light_strength);
+        }
+			else { 
+				if can_draw == true { draw_sprite_ext(sprite_index,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, rot, c_white, light_strength); }
+			}
+    }
+	with(obj_E_Bullet_Parent){
+		if explode == true {
+            draw_sprite_ext(spr_LightPoint01,0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0, c_white, light_strength);
+        }
     }
 	gpu_set_blendmode(bm_add);
 	var aa0 = 0.04*global.menu_ratio;
@@ -59,7 +72,7 @@ if surface_exists (fow_surf) {
 	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx1, fy1, fw1, fh1, c_white, aa1);
 	var aa2 = a2*global.menu_ratio;
 	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx2, fy2, fw2, fh2, c_white, aa2);
-	
+	/*
 	if global.grid_display == true {
 	    //Gridlines for 40x40 grid
 	    var s_pos   = 1440*fow_scale;
@@ -73,6 +86,7 @@ if surface_exists (fow_surf) {
 	        draw_sprite_ext(spr_GridLine_H, 0, s_pos, s_pos+(gap*i), 4, 0.4, 0, c_white, 1);
 	    }
 	}
+	*/
     gpu_set_blendmode(bm_normal);
     surface_reset_target();
     draw_surface_ext(fow_surf, 0, 0, 1/fow_scale, 1/fow_scale, 0, c_white, 1);
