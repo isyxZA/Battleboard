@@ -1,6 +1,7 @@
 if surface_exists (fow_surf) {
     surface_set_target(fow_surf);
     draw_clear(c_black);
+	
 	gpu_set_blendmode(bm_subtract);
     with(obj_Unit_Parent){
         draw_sprite_ext(spr_LightPoint01, 0, x*fow1_scale, y*fow1_scale, light_size*fow1_scale, light_size*fow1_scale, 0,c_white, light_strength);
@@ -72,6 +73,8 @@ if surface_exists (fow_surf) {
 	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx1, fy1, fw1, fh1, c_white, aa1);
 	var aa2 = a2*global.menu_ratio;
 	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx2, fy2, fw2, fh2, c_white, aa2);
+	//var aa = 0.5-global.light_level;
+	//draw_sprite_tiled_ext(bg_Stars     , 0, fx1, 0, 1, 1, c_white, aa);
 	/*
 	if global.grid_display == true {
 	    //Gridlines for 40x40 grid
@@ -92,7 +95,7 @@ if surface_exists (fow_surf) {
     draw_surface_ext(fow_surf, 0, 0, 1/fow_scale, 1/fow_scale, 0, c_white, 1);
 }
     else {
-        fow_surf = surface_create(surf_h, surf_w);
+        fow_surf = surface_create(surf_w, surf_h);
         surface_set_target(fow_surf);
         draw_clear(c_black);
         surface_reset_target();

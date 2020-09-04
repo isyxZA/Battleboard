@@ -98,8 +98,8 @@ if build_pos == 2 {
                             var z = ds_list_find_value(global.tile_list, i);
                             var fov = point_direction(x, y, z.tile_x, z.tile_y);
                             var ddd = point_distance(x, y, z.tile_x, z.tile_y);
-                            //If within FOV limits
-                            if (fov <= 135) && (fov >= 45) { 
+                            //Highlight if within FOV limits
+                            if (fov <= fmax) && (fov >= fmin) { 
                                 if ddd <= action_range {
                                     z.unit_count += 1;
                                     z.alarm[1] = random_range(6,32);
@@ -144,6 +144,7 @@ if keyboard_check_released(ord("F")) {
             var z = ds_list_find_value(global.tile_list, i);
             var fov = point_direction(x, y, z.tile_x, z.tile_y);
             var ddd = point_distance(x, y, z.tile_x, z.tile_y);
+			
             //If within FOV limits
             if (fov <= 135) && (fov >= 45) { 
                 if ddd <= action_range {

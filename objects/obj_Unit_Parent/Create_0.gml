@@ -104,7 +104,6 @@ line_alpha = 0.5;
 fade_switch = false;
 
 fow1_scale = 0.5;
-fow2_scale = 0.125;
 
 
 

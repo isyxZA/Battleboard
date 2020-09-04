@@ -1,6 +1,6 @@
 my_path = -1;
 rot = 0;
-light_size = 1;
+light_size = 1.05;
 light_strength = 1;
 can_start = false;
 can_draw = false;

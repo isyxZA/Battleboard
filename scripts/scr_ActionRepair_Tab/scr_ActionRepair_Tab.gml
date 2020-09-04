@@ -105,22 +105,25 @@ function scr_ActionRepair_Tab() {
 	                        var iii;
 	                        for (iii=0; iii<ds_list_size(global.selected_list); iii+=1) {
 	                            var unit = ds_list_find_value(global.selected_list, iii);
+								//For vehicles currently selected and in a repair station
 	                            if unit.manned_unit != noone {
-	                                if (unit.action_points > 0) { 
+	                                if unit.action_points > 0 { 
+										//Check parts levels of the occupied repair station
 	                                    unit.manned_unit.ammo_check = true;
+										//Enable the repair menu
 	                                    global.repair_display = true;
-	                                    global.menu_create = false;
 	                                }
 	                                    else { 
 	                                        unit.ap_depleted = true;
 	                                        if unit.selected == true { unit.selected = false; } 
 	                                    }
-                                
 	                            }
 	                                else { 
 	                                    unit.selected = false; 
 	                                }
 	                        }
+							//Disable action menu
+	                        global.menu_create = false;
 							//Reset menu animation
 							menu_anim = true;
 							menu_anim_count = 0;

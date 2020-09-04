@@ -243,7 +243,3 @@ if highlight_move == true {
         }
     }
 }
-
-
-/* */
-/*  */

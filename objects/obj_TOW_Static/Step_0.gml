@@ -99,7 +99,7 @@ if global.game_turn != 0 {
                                     //If unit has a clear line of sight
                                     else if !shoot_mask.t_line { 
                                         //If within FOV limits
-                                        if (fov <= 180) && (fov >= 0) {
+                                        if (fov <= fmax) && (fov >= fmin) {
                                             //If the target is within range
                                             if d <= action_range {
                                                 //If the unit has enough action points for a shot

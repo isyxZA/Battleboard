@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Control Actors",
-    "path": "folders/Objects/Control Actors.yy",
+    "name": "Weather",
+    "path": "folders/Objects/Game Actors/Effects/Weather.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_WEATHER",

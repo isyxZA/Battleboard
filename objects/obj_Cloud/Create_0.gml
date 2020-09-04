@@ -6,7 +6,7 @@ adjy = sprite_get_height(sprite_index)*1.25;
 cloud_aref  = 0.7;
 cloud_a1 = cloud_aref;
 cloud_a2 = cloud_a1-global.light_level;
-shadow_a   = 0.3;
+shadow_a   = 0.5;
 cloud_posx = 0;
 cloud_posy = 0;
 

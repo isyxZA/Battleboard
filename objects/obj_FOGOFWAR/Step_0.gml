@@ -1,7 +1,3 @@
-//if spv >= vmax { rate = -0.000001; }
-//if spv <= vmin { rate =  0.000001; }
-//spv += rate;
-
 t+=(increment*0.5);
 shift  = amplitude*sin(t);
 xshift = amplitude*cos(t*.99);
@@ -27,7 +23,7 @@ if fade_in == true {
 t1++;
 if (t1 > t1_duration) {
     t1 = 0;
-	t1_duration = choose(6000, 8000, 12000, 10000);
+	t1_duration = choose(6000, 8000, 10000, 12000);
     a1_start = a1;
     a2_start = a2;
     if fade_in  == true { fade_in = false; } 

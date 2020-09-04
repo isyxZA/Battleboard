@@ -7,14 +7,17 @@ if PLAYER.player == "ONE" {
 	rot = 0; 
 	rot_adj = 90; 
 	txt_rot = 0;
+	fmin = 1;
+	fmax = 179;
 }
 	else if PLAYER.player == "TWO" { 
 		p_one = false;
 		rot = 180; 
 		rot_adj = 270; 
 		txt_rot = 180;
+		fmin = 181;
+		fmax = 359;
 	}
-
 my_inf = obj_Soldier_Unit.my_sprite;
 my_sprite = spr_TOW_00;
 var t = instance_place(x, y, obj_Game_Tile);

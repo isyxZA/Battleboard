@@ -1,5 +1,5 @@
 /// @description Toggle fullscreen
-//Move this function to the options menu
+//Move this function to the options menu!!!
 if fullScreen == false {
     window_set_fullscreen(true);
     fullScreen = true;

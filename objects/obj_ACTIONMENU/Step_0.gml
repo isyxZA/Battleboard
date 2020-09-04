@@ -34,7 +34,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                     case "ENGINEER":
                                     case "BTR":
                                     case "LOGI":
-                                        if u.is_manning == true { repair_tab = true; }
+                                        if u.is_manning == true { 
+											repair_tab = true; 
+										}
                                         break;
                                     default:
                                         break;
@@ -66,7 +68,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                     }
                         else if global.menu_create == false {
                             if global.repair_display == true {
-                                //Calculate available ammo levels
+                                //Calculate available repair amount
                                 if ammo_check == true {
                                     ammo_check = false;
                                     global.repair_ammo = 0;
@@ -74,7 +76,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                         var i;
                                         for (i=0; i<ds_list_size(global.repair_list); i+=1) {
                                             var unit = ds_list_find_value(global.repair_list, i);
-                                            if unit.is_occupied == true && unit.manned_unit != noone {
+                                            if unit.manned_unit != noone {
 												if unit.manned_unit.selected == true { global.repair_ammo += unit.repair_ammo; }
                                             }
                                         }

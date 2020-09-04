@@ -95,7 +95,7 @@ if global.game_turn != 0 {
                         if (x == global.target_x) && (y == global.target_y) { can_shoot = false; }
                             else {
                                 //If within FOV limits
-                                if (fov <= 135) && (fov >= 45) {
+                                if (fov <= fmax) && (fov >= fmin) {
                                     //If the target is within range
                                     if d <= action_range {
                                         //If the unit has enough action points for a shot

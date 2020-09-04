@@ -36,8 +36,8 @@ if global.game_state == "IN_GAME" {
         }
     //CAMERA ZOOM CONTROL//
     //Set zoom level
-    if global.can_zoom == true && global.zoom_speed != 0 {
-        if global.can_pan == true {
+    if global.zoom_speed != 0 {
+        if global.can_zoom == true {
             if mouse_wheel_up() { 
                 if global.zoom_level != 0 {
                     global.zoom_level -= 2;

@@ -86,7 +86,7 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	            obj_ACTIONMENU.display_menuinfo = false;
 	        }
                 
-	if mouse_check_button_released(mb_left) {
+	if mouse_check_button_pressed(mb_left) {
 	    if global.my_turn == true {
 	        if f0 { 
 	        }

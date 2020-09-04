@@ -9,6 +9,9 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 	var utyp = argument2;
 	if surface_exists(global.menu_surf) {
 		surface_set_target(global.menu_surf);
+		var cw = gpu_get_colorwriteenable();
+		cw[3] = false;
+		gpu_set_colorwriteenable(cw);
 		//Draw the header background
 		draw_sprite(spr_Menu_Header, 0, 0, 0);
 		//Draw header arrows when more than one unit type is selected
@@ -992,6 +995,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 		}
 		surface_reset_target();
 		draw_surface_ext(global.menu_surf, global.menu_x, global.menu_y, (1*global.menu_ratio)*menu_scl, (1*global.menu_ratio)*menu_scl, txt_rot, c_white, menu_alpha);
+		cw[3] = true;
+		gpu_set_colorwriteenable(cw);
 	}
 		else {
 			global.menu_surf = surface_create(global.menu_width, global.menu_height*(mlen+1));

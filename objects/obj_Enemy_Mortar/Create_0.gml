@@ -5,12 +5,16 @@ if PLAYER.player == "ONE" {
 	rot = 180; 
 	rot_adj = 270; 
 	txt_rot = 0;
+	fmin = 225;
+	fmax = 315;
 }
 	else if PLAYER.player == "TWO" { 
 		p_one = false;
 		rot = 0; 
 		rot_adj = 90; 
 		txt_rot = 180;
+		fmin = 45;
+		fmax = 135;
 	}
 
 my_inf = obj_Enemy_Infantry.my_sprite;

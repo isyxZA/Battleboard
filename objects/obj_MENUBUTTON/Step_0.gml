@@ -1,7 +1,9 @@
 if global.game_state == "IN_MENU" {
     if global.can_choose == true {
         if place_meeting(x, y, obj_MOUSE) {
-			c1 = c_white;
+			if can_play == true { can_play = false; }
+			if txt == "Host Game" || txt == "Join Game" { c1 = c_red; }
+				else { c1 = c_white; }
             if mouse_check_button_pressed(mb_left) {
                 switch txt {
                     case "Campaign"://Single player..goes to room setup
@@ -17,6 +19,7 @@ if global.game_state == "IN_MENU" {
                         alarm[0] = 60;
                         break;
 					case "Host Game"://Multiplayer...goes to room host
+						/*
 						PLAYER.net_status = "HOST";
                         PLAYER.player = "ONE";
 						PLAYER.faction = "US";
@@ -27,6 +30,7 @@ if global.game_state == "IN_MENU" {
                         obj_SOUND.fade_in = false;
 						start_game = true;
                         alarm[6] = 60;
+						*/
                         break;
 					case "Create Game"://From room host...go to setup
 						//Create server
@@ -47,6 +51,7 @@ if global.game_state == "IN_MENU" {
 						}
                         break;
 					case "Join Game"://Multiplayer...go to room join
+						/*
 						PLAYER.net_status = "CLIENT";
                         global.transition = true;
                         global.can_choose = false;
@@ -55,6 +60,7 @@ if global.game_state == "IN_MENU" {
                         obj_SOUND.fade_in = false;
 						start_game = true;
                         alarm[5] = 60;
+						*/
                         break;
 					case "Join Server":
 						/*
@@ -179,6 +185,7 @@ if global.game_state == "IN_MENU" {
             }
         }
             else { 
+				can_play = true;
 				if txt == "Ready" || txt == "Create Game" { c1 = c_green; }
 					else if txt == "Join Server" { if global.server_IP != "" { c1 = c_green; } else { c1 = c_red; } }
 						else { c1 = c_gray; }

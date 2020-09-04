@@ -1,6 +1,6 @@
 //Determine when units can or cannot be selected
 if global.menu_create == true || global.nav_menu == true || global.nav_select == true 
-    || global.fire_display == true || global.repair_display || global.selected_LC == true  
+    || global.fire_display == true || global.repair_display == true || global.selected_LC == true  
         || global.waiting == true || global.opponent_turn == true || global.spawning_unit == true || obj_CONTROL.command_targeting == false {
         if global.can_select == true {
             global.can_select = false;

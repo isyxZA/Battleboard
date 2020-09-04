@@ -81,8 +81,6 @@ if global.my_turn == true || global.waiting == true {
         draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, c_white, 1);
     }
     
-scr_DrawSquad(my_squad);
-    
 //draw_set_alpha(0.1);
 //draw_circle_colour(x, y, view_radius, c_navy, c_navy, false);
 //draw_set_alpha(1);

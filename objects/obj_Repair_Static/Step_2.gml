@@ -118,19 +118,36 @@ if ap_depleted == true {
 
 if ammo_check == true {
     ammo_check = false;
-    if (mg_ammo < mg_rate) && (repair_ammo < repair_rate) { 
-        alert_display = true;
-        alert_text = "Ammo Depleted!"; 
-        alert_colour = c_red;
-        alarm[3] = global.tick_rate*3;
-    }
-        else if (mg_ammo < (mg_rate*4)) || (repair_ammo < (repair_rate*2)) {
-            alert_display = true;
-            alert_text = "Low Ammo!"; 
-            alert_colour = c_orange;
-            alarm[3] = global.tick_rate*3;
-        }
-            else { }
+	if is_occupied == false {
+	    if mg_ammo < mg_rate { 
+	        alert_display = true;
+	        alert_text = "Ammo Depleted!"; 
+	        alert_colour = c_red;
+	        alarm[3] = global.tick_rate*3;
+	    }
+	        else if mg_ammo < (mg_rate*4) {
+	            alert_display = true;
+	            alert_text = "Low Ammo!"; 
+	            alert_colour = c_orange;
+	            alarm[3] = global.tick_rate*3;
+	        }
+	            else { }
+	}
+		else {
+			if repair_ammo < repair_rate { 
+		        alert_display = true;
+		        alert_text = "Parts Depleted!"; 
+		        alert_colour = c_red;
+		        alarm[3] = global.tick_rate*3;
+		    }
+		        else if repair_ammo < (repair_rate*2) {
+		            alert_display = true;
+		            alert_text = "Low Parts!"; 
+		            alert_colour = c_orange;
+		            alarm[3] = global.tick_rate*3;
+		        }
+		            else { }
+		}
 
 }
 

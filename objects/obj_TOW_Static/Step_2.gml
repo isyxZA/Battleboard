@@ -155,7 +155,7 @@ if build_pos == 2 {
                             var fov = point_direction(x, y, z.tile_x, z.tile_y);
                             var ddd = point_distance(x, y, z.tile_x, z.tile_y);
                             //If within FOV limits
-                            if (fov <= 180) && (fov >= 0) { 
+                            if (fov <= fmax) && (fov >= fmin) { 
                                 if ddd <= action_range {
                                     z.unit_count += 1;
                                     z.alarm[1] = random_range(6,32);

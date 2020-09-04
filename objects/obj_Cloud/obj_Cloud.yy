@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Smoke, Explosions",
-    "path": "folders/Objects/Game Actors/Effects/Smoke, Explosions.yy",
+    "name": "Weather",
+    "path": "folders/Objects/Game Actors/Effects/Weather.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_Cloud",
