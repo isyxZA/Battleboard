@@ -80,7 +80,9 @@ function scr_InitGlobals() {
 	global.transition = false;
 	global.victory = false;
 	global.defeat = false;
-
+	
+	global.can_zoom = false;
+	global.can_pan = false;
 	global.pan_speed = 40;
 	global.zoom_speed = 0.1;
 	global.zoom_level = 8;
@@ -134,8 +136,6 @@ function scr_InitGlobals() {
 	global.nav_menu = false;
 	global.target_x = 0;
 	global.target_y = 0;
-	global.can_zoom = false;
-	global.can_pan = false;
 	global.mouse_holdpos = false;
 	global.spawning_unit = false; 
 	global.repair_display = false;

@@ -21,11 +21,9 @@ if timer_count != 0 {
                         timer_count = 0;
                         //Time allowed for moving units off of the ships
                         turn_timer = 99;
-                        //Turn on camera movement and player controls
-                        global.can_pan = true;
-                        global.my_turn = true;
-                        //Reset camera zoom speed
+						//Reset camera zoom speed
                         obj_CAMERA.alarm[0] = 10;
+                        global.my_turn  = true;
                     }
             }
                 //End of landing phase

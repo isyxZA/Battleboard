@@ -34,10 +34,11 @@ if global.my_turn == true || global.waiting == true {
                         draw_sprite_ext(spr_Danger_Icon, 0, target_x, target_y, 1, 1, txt_rot, c_white, 1);
                         break;
                     case "ENGINEER":
-                        draw_line_width_colour(x,   y, target_x, target_y, 8, c_black, c_black);
+                        draw_line_width_colour(x, y, target_x, target_y, 8, c_black, c_black);
                         draw_set_alpha(0.6);
-                        draw_line_width_colour(x,   y, target_x, target_y, 6, c_green, c_orange);
+                        draw_line_width_colour(x, y, target_x, target_y, 6, c_green, c_orange);
                         draw_set_alpha(1);
+						draw_sprite(spr_Dot_Orange, 0, target_x, target_y);
                         break;
                     case "BTR":
                         var dir = point_direction(x, y, target_x, target_y);

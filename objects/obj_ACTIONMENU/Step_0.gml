@@ -998,7 +998,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
         global.temp_AP = 0;
         //global.temp_MP = 0;
         
-        global.can_zoom = true;
+        if global.game_turn != 0 { global.can_zoom = true; }
 
         queue_reset = true;
         ammo_count = 0;

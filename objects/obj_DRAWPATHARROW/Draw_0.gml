@@ -16,32 +16,32 @@ if global.my_turn == true || global.waiting == true {
 								var r;
 								if p_one == true { r = point_direction(x1, y1, x2, y2)-90; }
 									else { r = point_direction(x1, y1, x2, y2)+90; }
-								gpu_set_blendmode(bm_subtract);
+								//gpu_set_blendmode(bm_subtract);
                                 switch unit_type {
                                     case "INFANTRY":
                                     case "MORTAR":
                                     case "TOW":
                                     case "REPAIR":
                                     case "DEPOT":
-                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                         break;
                                     case "TANK":
-                                        draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                        draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                         break;
                                     case "ENGINEER":
-                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                         break;
                                     case "LOGI":
-                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                         break;
                                     case "BTR":
-                                        draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                        draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                         break;
                                     default:
-                                        draw_sprite_ext(spr_Arrow_Sml, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                        draw_sprite_ext(spr_Arrow_Sml, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                         break;
                                 }
-								gpu_set_blendmode(bm_normal);
+								//gpu_set_blendmode(bm_normal);
                             }
                         }
                             //If selected and not selecting a path
@@ -58,32 +58,32 @@ if global.my_turn == true || global.waiting == true {
                                         var r;
 										if p_one == true { r = point_direction(x1, y1, x2, y2)-90; }
 											else { r = point_direction(x1, y1, x2, y2)+90; }
-										gpu_set_blendmode(bm_subtract);
+										//gpu_set_blendmode(bm_subtract);
                                         switch unit_type {
                                             case "INFANTRY":
-                                            case "MORTAR":
-                                            case "TOW":
-                                            case "REPAIR":
-                                            case "DEPOT":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            case "TANK":
-                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            case "ENGINEER":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            case "LOGI":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            case "BTR":
-                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            default:
-                                                draw_sprite_ext(spr_Arrow_Sml, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
+		                                    case "MORTAR":
+		                                    case "TOW":
+		                                    case "REPAIR":
+		                                    case "DEPOT":
+		                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    case "TANK":
+		                                        draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    case "ENGINEER":
+		                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    case "LOGI":
+		                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    case "BTR":
+		                                        draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    default:
+		                                        draw_sprite_ext(spr_Arrow_Sml, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
                                         }
-										gpu_set_blendmode(bm_normal);
+										//gpu_set_blendmode(bm_normal);
                                     }
                                 }
                             }
@@ -104,32 +104,32 @@ if global.my_turn == true || global.waiting == true {
 										var r;
 										if p_one == true { r = point_direction(x1, y1, x2, y2)-90; }
 											else { r = point_direction(x1, y1, x2, y2)+90; }
-										gpu_set_blendmode(bm_subtract);
+										//gpu_set_blendmode(bm_subtract);
                                         switch unit_type {
                                             case "INFANTRY":
-                                            case "MORTAR":
-                                            case "TOW":
-                                            case "REPAIR":
-                                            case "DEPOT":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            case "TANK":
-                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            case "ENGINEER":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            case "LOGI":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            case "BTR":
-                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
-                                            default:
-                                                draw_sprite_ext(spr_Arrow_Sml, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
-                                                break;
+		                                    case "MORTAR":
+		                                    case "TOW":
+		                                    case "REPAIR":
+		                                    case "DEPOT":
+		                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    case "TANK":
+		                                        draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    case "ENGINEER":
+		                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    case "LOGI":
+		                                        draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    case "BTR":
+		                                        draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
+		                                    default:
+		                                        draw_sprite_ext(spr_Arrow_Sml, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
+		                                        break;
                                         }
-										gpu_set_blendmode(bm_normal);
+										//gpu_set_blendmode(bm_normal);
                                     }
                                 }
                                 switch unit_type {
@@ -185,32 +185,32 @@ if global.my_turn == true || global.waiting == true {
 										var r;
 										if p_one == true { r = point_direction(x1, y1, x2, y2)+90; }
 											else { r = point_direction(x1, y1, x2, y2)-90; }
-										gpu_set_blendmode(bm_subtract);
+										//gpu_set_blendmode(bm_subtract);
                                         switch unit_type {
                                             case "E_INFANTRY":
                                             case "E_MORTAR":
                                             case "E_TOW":
                                             case "E_REPAIR":
                                             case "E_DEPOT":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                                 break;
                                             case "E_TANK":
-                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                                 break;
                                             case "E_ENGINEER":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                                 break;
                                             case "E_LOGI":
-                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                                draw_sprite_ext(my_sprite, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                                 break;
                                             case "E_BTR":
-                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                                 break;
                                             default:
-                                                draw_sprite_ext(spr_Arrow_Sml_02, 0, x1, y1, 0.5, 0.5, r, c_white, 1);
+                                                draw_sprite_ext(spr_Arrow_Sml_02, 0, x1, y1, 0.5, 0.5, r, c_black, 0.4);
                                                 break;
                                         }
-										gpu_set_blendmode(bm_normal);
+										//gpu_set_blendmode(bm_normal);
                                     }
                                 }
                                 switch unit_type {

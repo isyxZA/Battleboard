@@ -207,7 +207,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Heavy Bomber En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Heavy Bomber Requested", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -352,7 +352,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Bomber Detected", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -361,7 +361,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Missile Strike Imminent", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -370,7 +370,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Artillery Activity Detected", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -379,7 +379,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Drone Active", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -388,7 +388,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Resupply Aircfaft Inbound", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -397,7 +397,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -406,7 +406,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -415,7 +415,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -424,7 +424,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -433,7 +433,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Unknown Enemy Action", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;

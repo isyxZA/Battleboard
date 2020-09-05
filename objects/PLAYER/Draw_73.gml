@@ -11,8 +11,8 @@ if t_a > 0 {
 	draw_set_alpha(1);
 }
 
+/*
 if room == rm_TEST {
-	
 	if global.debug == true {
 		draw_set_alpha(0.1);
 		mp_grid_draw(global.move_grid);
@@ -29,6 +29,7 @@ if room == rm_TEST {
 		}
 	}
 }
+*/
 
 
 

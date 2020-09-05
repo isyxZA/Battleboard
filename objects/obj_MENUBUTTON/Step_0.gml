@@ -29,8 +29,7 @@ if global.game_state == "IN_MENU" {
                         obj_SOUND.fade_out = true;
                         obj_SOUND.fade_in = false;
 						start_game = true;
-                        alarm[6] = 60;
-						*/
+                        alarm[6] = 60*/
                         break;
 					case "Create Game"://From room host...go to setup
 						//Create server

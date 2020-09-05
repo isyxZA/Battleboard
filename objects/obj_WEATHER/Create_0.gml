@@ -3,7 +3,7 @@ fade_in = false;
 
 day_start    = global.light_level;
 day_change   = 0.8;
-day_duration = 6000;
+day_duration = 20000;
 
 n_colour = make_color_rgb(0,6,36);//make_color_hsv(250,100,40);
 n_start  = 0;

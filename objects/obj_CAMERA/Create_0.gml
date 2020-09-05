@@ -13,7 +13,6 @@ if PLAYER.player == "ONE" {
 		view_set_visible(my_view, true);
 		player = "TWO";
 	}
-
 pan_duration = 100;
 temp_zspeed = global.zoom_speed;
 global.zoom_speed = 0.2;

@@ -36,15 +36,15 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-216, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-216, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
-                        draw_text_colour(gui_mx-124, gui_my-68, string_hash_to_newline("Bombing Run:"), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-36, string_hash_to_newline("'Z' and 'C' to rotate."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Bombing Run:"), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("'Z' and 'C' to rotate."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -58,14 +58,14 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-216, gui_my-60, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-216, gui_my-60, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
-                        draw_text_colour(gui_mx-124, gui_my-52, string_hash_to_newline("Missile Strike:"), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-36, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Missile Strike:"), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -79,15 +79,15 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-216, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-216, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
-                        draw_text_colour(gui_mx-124, gui_my-68, string_hash_to_newline("Spy Drone:"), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-36, string_hash_to_newline("'Z' and 'C' to rotate."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Spy Drone:"), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("'Z' and 'C' to rotate."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -101,15 +101,15 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-216, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-216, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
-                        draw_text_colour(gui_mx-124, gui_my-68, string_hash_to_newline("Artillery Barrage:"), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-36, string_hash_to_newline("'Z' and 'C' to rotate."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Artillery Barrage:"), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("'Z' and 'C' to rotate."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
             }
@@ -122,16 +122,16 @@ if global.game_state == "IN_GAME" {
                     //Display information box
                     if global.display_info == true {
                         draw_set_colour(t_colour);
-                        draw_set_alpha(0.75);
-                        draw_rectangle(gui_mx-216, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_set_alpha(0.9);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-216, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
-                        draw_text_colour(gui_mx-124, gui_my-68, string_hash_to_newline("Supply Drop:"), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-36, string_hash_to_newline("Target depot for resupply."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-124, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Supply Drop:"), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("Target depot for resupply."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -146,10 +146,10 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Infantry Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
@@ -168,10 +168,10 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Armour Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
@@ -190,10 +190,10 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Engineer Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
@@ -212,10 +212,10 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Assault Vehicle Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
@@ -234,10 +234,10 @@ if global.game_state == "IN_GAME" {
                     if global.display_info == true {
                         draw_set_colour(t_colour);
                         draw_set_alpha(0.9);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, false);
-                        draw_set_colour(c_dkgray);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-34, gui_my-8, false);
+                        draw_set_colour(c_black);
                         draw_set_alpha(1);
-                        draw_rectangle(gui_mx-248, gui_my-76, gui_mx-32, gui_my-8, true);
+                        draw_rectangle(gui_mx-248, gui_my-78, gui_mx-34, gui_my-8, true);
                         draw_set_font(fnt_10);
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Supply Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
@@ -409,13 +409,14 @@ if global.game_state == "IN_GAME" {
         if draw_endturn == true {
             draw_set_colour(t_colour);
             draw_set_alpha(0.9);
-            draw_rectangle(gui_mx-184, gui_my-44, gui_mx-32, gui_my-8, false);
+            draw_rectangle(gui_mx-196, gui_my-48, gui_mx-24, gui_my+4, false);
             draw_set_colour(c_dkgray);
             draw_set_alpha(1);
-            draw_rectangle(gui_mx-184, gui_my-44, gui_mx-32, gui_my-8, true);
+            draw_rectangle(gui_mx-196, gui_my-48, gui_mx-24, gui_my+4, true);
             draw_set_font(fnt_10);
             draw_text_colour(gui_mx-108, gui_my-36, string_hash_to_newline("Turn Control:"), c_black, c_black, c_black, c_black, 1);
             draw_text_colour(gui_mx-108, gui_my-20, string_hash_to_newline("Left Click to end turn."), c_black, c_black, c_black, c_black, 1);
+			draw_text_colour(gui_mx-108, gui_my-4, string_hash_to_newline("Or press Spacebar."), c_black, c_black, c_black, c_black, 1);
             draw_set_font(fnt_16);
         }
     }
@@ -429,7 +430,7 @@ if global.game_state == "IN_GAME" {
 	    var txt5 = string(active_turn);
 	    if global.nav_menu == true { txt6 = "True"; } else { txt6 = "False"; }
 	    var txt8;
-	    if global.can_select == true { txt8 = "True"; } else { txt8 = "False"; }
+	    if global.can_zoom == true { txt8 = "True"; } else { txt8 = "False"; }
         draw_set_color(c_red);
         draw_set_valign(fa_top);
         draw_set_halign(fa_left);
@@ -454,7 +455,7 @@ if global.game_state == "IN_GAME" {
         draw_text(8, 1000, "Total Enemy Units: " + string(ds_list_size(global.enemyunit_list)));
         draw_text(8, 1016, "Units Running: " + string(global.units_running));
         draw_text(8, 1032, "Enemy Units Running: " + string(global.enemyunits_running));
-        draw_text(8, 1048, "Can Select: " + string(txt8));
+        draw_text(8, 1048, "Can Zoom: " + string(txt8));
         draw_set_halign(fa_left);
 		draw_set_valign(fa_middle);
 		draw_set_font(fnt_12);
