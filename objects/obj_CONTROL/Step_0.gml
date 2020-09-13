@@ -143,6 +143,8 @@ if global.game_state == "IN_GAME" {
 	if global.waiting == true {
 	    //Switch off waiting once unit actions are complete
 	    if global.units_running == 0 { 
+			//Calculate objective capture status
+			obj_Objective_Capture.can_count = true;
 	        global.waiting = false; 
 	        //Turn complete, send to back of the list or delete from list if required
 	        //var ind = ds_list_find_value(global.turn_list, 0);
@@ -249,6 +251,8 @@ if global.game_state == "IN_GAME" {
 	if global.enemy_waiting == true {
 	    //Switch off waiting once enemy unit actions are complete
 	    if global.enemyunits_running == 0 { 
+			//Calculate objective capture status
+			obj_Objective_Capture.can_count = true;
 	        global.enemy_waiting = false; 
 	        //Turn complete, send to back of the list or delete from list if required
 	        //var ind = ds_list_find_value(global.turn_list, 0);
@@ -342,15 +346,28 @@ if global.game_state == "IN_GAME" {
 	            }
 	        }
 	            else if switching_turns == true {
-	                switching_turns = false;
-	                if global.game_turn == 0 { display_txt = "Begin Manouvers";}
+					switching_turns = false;
+					can_count = false;
+					//Check for win conditions
+					objectives_controlled = 0;
+					objectives_lost       = 0;
+					with obj_Objective_Capture { 
+						if capture_pos >= 10 { obj_CONTROL.objectives_controlled += 1; } 
+							else if capture_pos <= -10 { obj_CONTROL.objectives_lost += 1; }
+					}
+					if objectives_controlled == objective_amount { global.victory = true; }
+						else if objectives_lost == objective_amount { global.defeat  = true; }
+					if ds_list_empty(global.myunit_list)    { if global.game_turn >= 3 { global.defeat  = true; } }
+					if ds_list_empty(global.enemyunit_list) { if global.game_turn >= 3 { global.victory = true; } }
+					if global.victory == false && global.defeat == false {
+						if global.game_turn == 0 { display_txt = "Begin Manouvers"; }
 	                    else { 
-	                        if my_turn_start == true { display_txt = "Your Turn"; my_colour = make_colour_rgb(169,169,169); }
+	                        if my_turn_start == true { display_txt = "Your Turn"; my_colour = make_colour_rgb(240,248,255); }
 	                            else if my_turn_start == false { display_txt = "Opponent Turn"; my_colour = make_colour_rgb(153,25,0); }
 	                    }
-	                can_count = false;
-	                //Switch turn
-	                alarm[1] = 100;
+		                //Switch turn
+		                alarm[1] = 100;
+					}
 	            }
 	    }
 	        else {

@@ -87,8 +87,9 @@ function scr_InitGlobals() {
 	global.zoom_speed = 0.1;
 	global.zoom_level = 8;
 	global.edge_pan = true;
-	global.vsync = true;
+	global.vsync    = true;
 	global.effects_level = 0.5;
+	global.music_level   = 0;
 	global.display_info = true;
 	global.ui_scale = 0.8;
 	global.set_ui = false;
@@ -280,6 +281,7 @@ function scr_InitGlobals() {
 	global.highlight_supply = false;
 	global.highlight_shoot = false;
 	global.highlight_move = false;
+	global.highlight_objective = false;
 
 	global.targeting_error = false;
 	global.navigation_error = false;
@@ -315,6 +317,7 @@ function scr_InitGlobals() {
 #macro NET_TIMER 12
 #macro NET_STARTGAME 13
 #macro NET_CANCELSHOOT 14
+#macro NET_ENDRUN 15
 
 
 

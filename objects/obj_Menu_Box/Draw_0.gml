@@ -4,13 +4,13 @@ switch txt {
     case "D":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         break;
     case "S":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_center);
@@ -19,7 +19,7 @@ switch txt {
     case "P":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -29,7 +29,7 @@ switch txt {
 	case "G":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -39,7 +39,7 @@ switch txt {
     case "H":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -49,7 +49,7 @@ switch txt {
     case "T":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -59,7 +59,7 @@ switch txt {
     case "R":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -69,7 +69,7 @@ switch txt {
     case "F":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -79,7 +79,7 @@ switch txt {
     case "V":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -89,7 +89,7 @@ switch txt {
     case "Z":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -99,7 +99,7 @@ switch txt {
     case "C":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -109,7 +109,7 @@ switch txt {
     case "Tab":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_14);
-        draw_text_colour_shadow(x,  y, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -119,7 +119,7 @@ switch txt {
     case "Esc":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_14);
-        draw_text_colour_shadow(x,  y, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -127,17 +127,17 @@ switch txt {
         draw_set_halign(fa_center);
         break;
     case "Middle Mouse":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.6, 0.5, 0, c_white, 1);
+        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.8, 0.7, 0, c_white, 1);
         draw_set_font(fnt_12);
-        draw_text_colour_shadow(x,  y, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_colour(c_white);
         draw_set_halign(fa_center);
         draw_text(x,y+30, string_hash_to_newline("Hold to drag the board."));
         break;
     case "Left Mouse":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.6, 0.5, 0, c_white, 1);
+        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.8, 0.7, 0, c_white, 1);
         draw_set_font(fnt_12);
-        draw_text_colour_shadow(x,  y, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_colour(c_white);
         draw_set_halign(fa_center);
         draw_text(x,y+30, string_hash_to_newline("Hold and drag to create selection box."));
@@ -145,9 +145,9 @@ switch txt {
         draw_text(x,y+70, string_hash_to_newline("Confirm unit action."));
         break;
     case "Right Mouse":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.6, 0.5, 0, c_white, 1);
+        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.8, 0.7, 0, c_white, 1);
         draw_set_font(fnt_12);
-        draw_text_colour_shadow(x,  y, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_colour(c_white);
         draw_set_halign(fa_center);
         draw_text(x,y+30, string_hash_to_newline("Place unit from landing craft to board."));
@@ -155,9 +155,9 @@ switch txt {
         draw_text(x,y+70, string_hash_to_newline("Display action menu for selected units."));
         break;
     case "Scroll Wheel":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.6, 0.5, 0, c_white, 1);
+        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.8, 0.7, 0, c_white, 1);
         draw_set_font(fnt_12);
-        draw_text_colour_shadow(x,  y, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_colour(c_white);
         draw_set_halign(fa_center);
         draw_text(x,y+30, string_hash_to_newline("Zoom camera in/out."));
@@ -166,7 +166,7 @@ switch txt {
     case "Ctrl + 1-5":
         draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.75, 0.5, 0, c_white, 1);
         draw_set_font(fnt_14);
-        draw_text_colour_shadow(x,  y, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_colour(c_white);
         draw_set_halign(fa_center);
         draw_text(x,y+30, string_hash_to_newline("Create squad from selected units."));
@@ -175,7 +175,7 @@ switch txt {
     case "Ctrl + Shift + 1-5":
         draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.75, 0.5, 0, c_white, 1);
         draw_set_font(fnt_14);
-        draw_text_colour_shadow(x,  y, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_colour(c_white);
         draw_set_halign(fa_center);
         draw_text(x,y+30, string_hash_to_newline("Add selected units to a squad"));
@@ -184,7 +184,7 @@ switch txt {
     case "X":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -194,7 +194,7 @@ switch txt {
     case "E":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
@@ -204,7 +204,7 @@ switch txt {
     case "Q":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_white, c_gray, c_gray, c_gray, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);

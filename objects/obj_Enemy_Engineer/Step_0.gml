@@ -53,7 +53,7 @@ if action_confirmed == true {
         timer_target = 10;
         timer_count = timer_target;
         timer_start = true;
-        with instance_create_layer(target_x, target_y, "Units", obj_Enemy_Depot) { depth = -1; }
+        if PLAYER.net_status == "NONE" { instance_create_layer(target_x, target_y, "Units", obj_Enemy_Depot); }
     }
         else if shoot_repair == true {
             shoot_repair = false;
@@ -61,7 +61,7 @@ if action_confirmed == true {
             timer_target = 10;
             timer_count = timer_target;
             timer_start = true;
-            with instance_create_layer(target_x, target_y, "Units", obj_Enemy_Repair) { depth = -1; }
+            if PLAYER.net_status == "NONE" { instance_create_layer(target_x, target_y, "Units", obj_Enemy_Repair); }
         }
             else if shoot_tow == true {
                 shoot_tow = false;
@@ -69,7 +69,7 @@ if action_confirmed == true {
                 timer_target = 10;
                 timer_count = timer_target;
                 timer_start = true;
-                with instance_create_layer(target_x, target_y, "Units", obj_Enemy_TOW) { depth = -1; }
+                if PLAYER.net_status == "NONE" { instance_create_layer(target_x, target_y, "Units", obj_Enemy_TOW); }
             }
                 else if shoot_mortar == true {
                     shoot_mortar = false;
@@ -77,9 +77,8 @@ if action_confirmed == true {
                     timer_target = 10;
                     timer_count = timer_target;
                     timer_start = true;
-                    with instance_create_layer(target_x, target_y, "Units", obj_Enemy_Mortar) { depth = -1; }
+                    if PLAYER.net_status == "NONE" { instance_create_layer(target_x, target_y, "Units", obj_Enemy_Mortar); }
                 }
-                    else {}
 }
 
 if timer_start == true {

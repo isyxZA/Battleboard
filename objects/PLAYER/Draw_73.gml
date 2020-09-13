@@ -1,7 +1,9 @@
 //Room change transition
 if t_a > 0 {
 	draw_set_alpha(t_a);
-	if room != rm_TEST { draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false); }
+	if room != rm_TEST && room != rm_Forest { 
+		draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false); 
+	}
 		else {
 			var cam = obj_CAMERA.my_camera;
 			draw_rectangle_colour(camera_get_view_x(cam), camera_get_view_y(cam), 
@@ -12,7 +14,7 @@ if t_a > 0 {
 }
 
 /*
-if room == rm_TEST {
+if room == rm_TEST || room == rm_Forest {
 	if global.debug == true {
 		draw_set_alpha(0.1);
 		mp_grid_draw(global.move_grid);

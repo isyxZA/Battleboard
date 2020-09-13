@@ -23,7 +23,7 @@ if fade_in == true {
 t1++;
 if (t1 > t1_duration) {
     t1 = 0;
-	t1_duration = choose(6000, 8000, 10000, 12000);
+	//t1_duration = 8000;
     a1_start = a1;
     a2_start = a2;
     if fade_in  == true { fade_in = false; } 

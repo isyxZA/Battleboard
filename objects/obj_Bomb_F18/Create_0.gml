@@ -14,7 +14,6 @@ damage_2 = 80;
 damage_3 = 100;
 play_effect = true;
 fow1_scale = 0.5;
-fow2_scale = 0.125;
 
 if PLAYER.player == "ONE" { p_one = true; rot = 0; }
 	else { p_one = false; rot = 180; }

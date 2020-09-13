@@ -1,4 +1,6 @@
 txt = "";
-c1 = c_gray;
+c1 = c_silver;
+highlight = false;
+clicked = false;
 
 

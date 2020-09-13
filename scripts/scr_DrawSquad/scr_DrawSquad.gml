@@ -16,12 +16,13 @@ function scr_DrawSquad(argument0) {
 			}
 		
 		if active == true {
-			draw_set_color(c_white);
+			var sc1 = make_colour_rgb(240,248,255);
+			draw_set_color(sc1);
 			draw_text_transformed_shadow(xx, yy, string(argument0), 1, 1, txt_rot, 2, sd, c_black, 1);
 		}
 		    else {
 		        if obj_MOUSE.show_allstats == true || global.game_turn == 0 {
-					draw_set_color(c_gray);	
+					draw_set_color(c_silver);	
 					draw_text_transformed_shadow(xx, yy, string(argument0), 1, 1, txt_rot, 2, sd, c_black, 1);
 		        }
 		    }

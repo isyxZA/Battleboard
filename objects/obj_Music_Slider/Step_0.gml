@@ -21,5 +21,6 @@ if drag == true{
 
 //work out the percentage value
 percentage = round(((x-leftLimit)/(rightLimit-leftLimit))*100)*0.01;
+global.effects_level = percentage;
 audio_group_set_gain(Music, percentage, 200); 
 

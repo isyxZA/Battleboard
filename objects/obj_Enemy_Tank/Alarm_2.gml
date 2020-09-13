@@ -33,7 +33,6 @@ if timer_count > 0 { timer_start = true; }
         }
             else { 
                 timer_start = false;
-                //global.enemyunits_running -= 1;
                 alarm[8] = 200;
                 action_confirmed = false;
                 switch weapon {

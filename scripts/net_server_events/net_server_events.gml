@@ -373,33 +373,143 @@ function net_server_events() {
 			temp_amount = buffer_read(data, buffer_u8);
 			with obj_Enemy_Parent {
 				if net_id == obj_SERVER.temp_id {
-					action_confirmed = true;
-					target_x         = obj_SERVER.temp_xfinal;
-					target_y         = obj_SERVER.temp_yfinal;
-					weapon           = obj_SERVER.temp_weapon;
-					shoot_amount     = obj_SERVER.temp_amount;
-					global.enemyunits_running += 1;
-					switch weapon {
-						case "RIFLE":
-							shoot_rifle = true;
+					weapon = obj_SERVER.temp_weapon;
+					switch unit_type {
+						case "E_INFANTRY":
+							switch weapon {
+								case "RIFLE":
+									shoot_rifle = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "RPG":
+									shoot_rpg = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "FLARE":
+									global.enemyunits_running += 1;
+									break;
+							}
 							break;
-						case "RPG":
-							shoot_rpg = true;
+						case "E_TANK":
+							switch weapon {
+								case "CANNON":
+									shoot_cannon = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "MG":
+									shoot_mg = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+							}
 							break;
-						case "CANNON":
-							shoot_cannon = true;
+						case "E_ENGINEER":
+							switch weapon {
+								case "DEPOT":
+									shoot_depot = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "REPAIR":
+									shoot_repair = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "TOW":
+									shoot_tow = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "MORTAR":
+									shoot_mortar = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+							}
 							break;
-						case "MG":
-							shoot_mg = true;
+						case "E_BTR":
+							switch weapon {
+								case "AP":
+									shoot_ap = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "HE":
+									shoot_he = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+							}
 							break;
-						case "TOW":
+						case "E_LOGI":
+							global.enemyunits_running += 1;
+							break;
+						case "E_DEPOT":
+							global.enemyunits_running += 1;
+							break;
+						case "E_REPAIR":
+							switch weapon {
+								case "MG":
+									shoot_mg = true;
+									action_confirmed = true;
+									target_x         = obj_SERVER.temp_xfinal;
+									target_y         = obj_SERVER.temp_yfinal;
+									shoot_amount     = obj_SERVER.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "REPAIR":
+									global.enemyunits_running += 1;
+									break;
+							}
+							break;
+						case "E_TOW":
 							shoot_tow = true;
+							action_confirmed = true;
+							target_x         = obj_SERVER.temp_xfinal;
+							target_y         = obj_SERVER.temp_yfinal;
+							shoot_amount     = obj_SERVER.temp_amount;
+							global.enemyunits_running += 1;
 							break;
-						case "HE":
-							shoot_he = true;
-							break;
-						case "AP":
-							shoot_ap = true;
+						case "E_MORTAR":
+							shoot_mortar = true;
+							action_confirmed = true;
+							target_x         = obj_SERVER.temp_xfinal;
+							target_y         = obj_SERVER.temp_yfinal;;
+							shoot_amount     = obj_SERVER.temp_amount;
+							global.enemyunits_running += 1;
 							break;
 					}
 				}
@@ -467,11 +577,11 @@ function net_server_events() {
 			temp_xfinal = -1;
 			temp_yfinal = -1;
 			break;
+		case NET_ENDRUN:
+			global.enemyunits_running -= 1;
+			break;
 		case NET_ENDTURN:
 			obj_CONTROL.can_endturn = true;
 			break;
-	
 	}
-
-
 }

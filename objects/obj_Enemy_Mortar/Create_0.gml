@@ -53,6 +53,7 @@ action_range = 1440;
 mortar_ammo = 0;
 mortar_max = 100;
 shoot_mortar = false;
+mortar_shot = 0;
 mortar_rate = 4;
 
 rifle_ammo = 0;

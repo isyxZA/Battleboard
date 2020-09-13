@@ -101,6 +101,8 @@ highlight_move = false;
 
 incr = 0.025;
 line_alpha = 0.5;
+l_c1 = c_green;
+l_c2 = make_color_rgb(255,159,0);
 fade_switch = false;
 
 fow1_scale = 0.5;

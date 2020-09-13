@@ -25,3 +25,8 @@ if global.selected_LC == true {
                     if is_visible == true { if occupied == false && my_colour == c_green { draw_sprite(spr_Tile_Outline_Green, 0, x, y); } }
                 }
             }
+				else if global.highlight_objective == true { 
+	                with obj_Game_Tile {
+	                    if is_visible == true { if my_colour == c_green { draw_sprite(spr_Tile_Outline_Blue, 0, x, y); } }
+	                }
+	            }

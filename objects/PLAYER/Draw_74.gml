@@ -1,6 +1,6 @@
 display_set_gui_size(surface_get_width(application_surface), surface_get_height(application_surface));
 
-if room != rm_TEST {
+if room != rm_TEST && room != rm_Forest {
 	draw_set_font(fnt_14);
 	draw_set_valign(fa_middle);
 	draw_set_halign(fa_right);

@@ -8,6 +8,7 @@ if timer_count != 0 {
                 if pre_battle == true {
                     pre_battle = false;
                     display_txt = "Secure a Beachhead";
+					obj_ARROWS.txt = display_txt;
                     //Time allowed for ships to reach full stop
                     timer_count = 0;
                     turn_timer = 6;
@@ -18,6 +19,7 @@ if timer_count != 0 {
                         //Players land their units simultaneously at this time
                         landing = true;
                         display_txt = "";
+						obj_ARROWS.alarm[0] = 20;
                         timer_count = 0;
                         //Time allowed for moving units off of the ships
                         turn_timer = 99;
@@ -60,9 +62,6 @@ if timer_count != 0 {
 				if ds_list_empty(global.squad_charlie) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "CHARLIE")); }
 				if ds_list_empty(global.squad_delta)   { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "DELTA")); }
 				if ds_list_empty(global.squad_echo)    { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "ECHO")); }
-				//Check for win conditions
-				if ds_list_empty(global.myunit_list)    { if global.game_turn >= 3 { global.defeat  = true; } }
-				if ds_list_empty(global.enemyunit_list) { if global.game_turn >= 3 { global.victory = true; } }
                 if global.my_turn == true {
                     global.my_turn = false;
                     can_endturn = false;
@@ -71,6 +70,8 @@ if timer_count != 0 {
                     scr_DeselectAll();
                     //If all units have completed their actions go ahead and end the turn
                     if global.units_running == 0 {
+						//Calculate objective capture status
+						obj_Objective_Capture.can_count = true;
 						switch active_turn {
 							case "BOMBER":
 								if active_bomber == true { active_bomber = false; }
@@ -177,6 +178,8 @@ if timer_count != 0 {
 							obj_EnemyControl_B.active = false;
 						}
                         if global.enemyunits_running == 0 {
+							//Calculate objective capture status
+							obj_Objective_Capture.can_count = true;
 							switch active_turn {
 								case "E_BOMBER":
 	                            case "E_MISSILE":

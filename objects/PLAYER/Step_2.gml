@@ -1,7 +1,7 @@
 if global.game_state != "RESTART" {
 	if keyboard_check_pressed(vk_escape) {
 	    ///Pause
-	    if (room == rm_TEST) || (room == rm_Pause) {
+	    if (room == rm_TEST) || (room == rm_Forest) || (room == rm_Pause) {
 	        if global.pause == false {
 	            global.pause = true;
 	            global.current_room = room;

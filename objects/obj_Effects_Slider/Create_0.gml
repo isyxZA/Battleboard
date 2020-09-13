@@ -1,7 +1,7 @@
 //initialize variables
 xx = 0;
 drag = false;
-percentage = 0;
+percentage = global.effects_level;
 set_ref = false;
 default_ref = 0.5;
 

@@ -288,17 +288,19 @@ if global.game_state == "IN_GAME" {
     }
     
     //Center screen text display
+	/*
     if global.game_turn == 0 {
         if display_txt != "" {
             draw_set_font(fnt_48);
 			//draw_sprite_ext(spr_Text_Background, 0, mid_x, mid_y, 1, 0.9, 0, c_white, txt_a);
-            draw_text_colour_shadow(mid_x, mid_y, string(display_txt), c_white, c_silver, t_colour, c_gray, 4, 220, c_black, 0.8);
+            draw_text_colour_shadow(mid_x, mid_y, string(display_txt), c_silver, c_silver, c_silver, c_silver, 4, 220, c_black, 0.6);
         }
     }
+	*/
     if global.victory == true || global.defeat == true { 
         draw_set_font(fnt_64);
 		draw_sprite_ext(spr_Text_Background, 0, mid_x, mid_y, 1, 0.9, 0, c_white, txt_a);
-        draw_text_colour_shadow(mid_x, mid_y, string(display_txt), c_white, c_silver, t_colour, c_gray, 4, 220, c_black, 0.8); 
+        draw_text_colour_shadow(mid_x, mid_y, string(display_txt), c_silver, c_silver, c_silver, c_silver, 4, 220, c_black, 0.6); 
     }
     draw_set_font(fnt_12);
 
@@ -455,7 +457,7 @@ if global.game_state == "IN_GAME" {
         draw_text(8, 1000, "Total Enemy Units: " + string(ds_list_size(global.enemyunit_list)));
         draw_text(8, 1016, "Units Running: " + string(global.units_running));
         draw_text(8, 1032, "Enemy Units Running: " + string(global.enemyunits_running));
-        draw_text(8, 1048, "Can Zoom: " + string(txt8));
+        draw_text(8, 1048, "Game Turn: " + string(global.game_turn));
         draw_set_halign(fa_left);
 		draw_set_valign(fa_middle);
 		draw_set_font(fnt_12);

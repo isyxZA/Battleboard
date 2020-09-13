@@ -274,16 +274,26 @@ if global.game_state == "IN_GAME" {
             }
     }
         else { moving = false; }
+	/*
+	if ds_list_empty(global.selected_list) {
+		if keyboard_check_pressed(ord("E")) {
+			var cang = camera_get_view_angle(my_camera)+10;
+			camera_set_view_angle(my_camera, cang);
+		}
+			else if keyboard_check_pressed(ord("Q")) {
+				var cang = camera_get_view_angle(my_camera)-10;
+				camera_set_view_angle(my_camera, cang);
+			}
+	}
+	*/
 }
-    else { 
-    }
 
 //Keeps the view inside the room
 camera_set_view_pos(my_camera, clamp(camera_get_view_x(my_camera), 128, room_width -(camera_get_view_width(my_camera) +128)),
 							   clamp(camera_get_view_y(my_camera), 128, room_height-(camera_get_view_height(my_camera)+128)));
 
 //Center the camera object
-x = camera_get_view_x(my_camera) + (camera_get_view_width(my_camera)*0.5);
+x = camera_get_view_x(my_camera) + (camera_get_view_width(my_camera) *0.5);
 y = camera_get_view_y(my_camera) + (camera_get_view_height(my_camera)*0.5);
 
 audio_listener_position(x, y, 0);

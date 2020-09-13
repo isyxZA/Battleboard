@@ -17,9 +17,9 @@ if is_visible == true {
 				else if p_one == false { yy = y-38; }
             draw_sprite_ext(my_sprite, 0, x, y, scl,scl, rot, my_colour, my_alpha);
         }
-
-	draw_set_colour(c_red);
-	draw_text_transformed_shadow(xx, yy, string(my_squad), 1, 1, txt_rot, 2, 245, c_black, 1);
+	
+	//draw_set_colour(c_red);
+	//draw_text_transformed_shadow(xx, yy, string(my_squad), 1, 1, txt_rot, 2, 245, c_black, 1);
 	
 	if action_confirmed == true {
 	    draw_set_colour(c_white); 

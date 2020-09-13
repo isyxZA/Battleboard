@@ -18,7 +18,7 @@ if global.my_turn == true || global.waiting == true {
                                 draw_set_alpha(0.8);
                                 draw_line_width_colour(x1, y1, x2, y2, 3, c_black, c_black);
                                 draw_set_alpha(line_alpha);
-                                draw_line_width_colour(x1, y1, x2, y2, 3, c_green, c_green);
+                                draw_line_width_colour(x1, y1, x2, y2, 3, l_c1, l_c1);
                                 draw_set_alpha(1);
                             }
                         }
@@ -37,7 +37,7 @@ if global.my_turn == true || global.waiting == true {
                                         draw_set_alpha(0.8);
                                         draw_line_width_colour(x1, y1, x2, y2, 3, c_black, c_black);
                                         draw_set_alpha(line_alpha);
-                                        draw_line_width_colour(x1, y1, x2, y2, 3, c_orange, c_orange);
+                                        draw_line_width_colour(x1, y1, x2, y2, 3, l_c2, l_c2);
                                         draw_set_alpha(1);
                                     }
                                 }
@@ -52,7 +52,7 @@ if global.my_turn == true || global.waiting == true {
                                     draw_set_alpha(0.8);
                                     draw_line_width_colour(x, y, px, py, 3, c_black, c_black);
                                     draw_set_alpha(line_alpha);
-                                    draw_line_width_colour(x, y, px, py, 3, c_orange, c_orange);
+                                    draw_line_width_colour(x, y, px, py, 3, l_c2, l_c2);
                                     draw_set_alpha(1);
                                 }
                                 //Draw the path as the unit moves along it
@@ -67,7 +67,7 @@ if global.my_turn == true || global.waiting == true {
                                         draw_set_alpha(0.8);
                                         draw_line_width_colour(x1, y1, x2, y2, 3, c_black, c_black);
                                         draw_set_alpha(line_alpha);
-                                        draw_line_width_colour(x1, y1, x2, y2, 3, c_orange, c_orange);
+                                        draw_line_width_colour(x1, y1, x2, y2, 3, l_c2, l_c2);
                                         draw_set_alpha(1);
                                     }
                                 }
@@ -93,7 +93,7 @@ if global.my_turn == true || global.waiting == true {
                                     draw_set_alpha(0.8);
                                     draw_line_width_colour(x, y, px, py, 3, c_black, c_black);
                                     draw_set_alpha(line_alpha);
-                                    draw_line_width_colour(x, y, px, py, 3, c_dkgray, make_colour_rgb(139,0,0));
+                                    draw_line_width_colour(x, y, px, py, 3, l_c1, l_c2);
                                     draw_set_alpha(1);
                                 }
                                 //Draw the path as the unit moves along it
@@ -108,7 +108,7 @@ if global.my_turn == true || global.waiting == true {
                                         draw_set_alpha(0.8);
                                         draw_line_width_colour(x1, y1, x2, y2, 3, c_black, c_black);
                                         draw_set_alpha(line_alpha);
-                                        draw_line_width_colour(x1, y1, x2, y2, 3, c_dkgray, make_colour_rgb(139,0,0));
+                                        draw_line_width_colour(x1, y1, x2, y2, 3, l_c1, l_c2);
                                         draw_set_alpha(1);
                                     }
                                 }

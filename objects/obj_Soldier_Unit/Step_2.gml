@@ -366,7 +366,7 @@ if keyboard_check_released(ord("F")) {
         highlight_shoot = false;
         global.highlight_shoot = false;
         //Remove game tile visibility
-        if !ds_list_empty(global.tile_list){
+        if !ds_list_empty(global.tile_list) {
             var i;
             for (i=0; i<ds_list_size(global.tile_list); i+=1){
                 var z = ds_list_find_value(global.tile_list, i);

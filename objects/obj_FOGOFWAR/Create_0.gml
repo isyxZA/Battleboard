@@ -35,7 +35,7 @@ a2_start = a2;
 fade_in = true;
 
 t1 = 0;
-t1_duration = 600;
+t1_duration = 10000;
 
 fx1 = (x+sh_1)*fow_scale;
 fy1 = (y+sv_1)*fow_scale;

@@ -20,8 +20,8 @@ if is_visible == true {
             draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, my_colour, my_alpha);
         }
 		
-	draw_set_colour(c_red);
-	draw_text_transformed_shadow(xx, yy, string(my_squad), 1, 1, txt_rot, 2, 245, c_black, 1);
+	//draw_set_colour(c_red);
+	//draw_text_transformed_shadow(xx, yy, string(my_squad), 1, 1, txt_rot, 2, 245, c_black, 1);
 
 	if action_confirmed == true {
 	    draw_set_colour(c_white); 

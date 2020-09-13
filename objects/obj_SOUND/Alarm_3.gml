@@ -1,5 +1,5 @@
 ss = choose(snd_scape01,snd_scape02,snd_scape03,snd_scape04,snd_scape05,snd_scape06,snd_scape07,snd_scape08,snd_scape09,snd_scape10);
-if room == rm_TEST { 
+if room == rm_TEST || room == rm_Forest { 
     var ex = obj_CAMERA.x+round(random_range(-1800, 1800));
     var ey = obj_CAMERA.y+round(random_range(-800, -1800));
     audio_emitter_position(emit, ex, ey, 0);

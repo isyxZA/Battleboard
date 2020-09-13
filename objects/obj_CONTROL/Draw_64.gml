@@ -8,17 +8,31 @@ if global.game_state == "IN_GAME" && game_over == false {
 			draw_sprite_ext(spr_UI_Bg1, 0, 0, 0, 1, 1, 0, c_white, 1);
             //Top labels
             draw_set_font(fnt_24);
-            draw_text_colour(ui_midx, ty_1, string(display_txt), c_gray, my_colour, my_colour, my_colour, 1);
-            //Action points label
+            draw_text_colour(ui_midx, ty_1, string(display_txt), c_silver, my_colour, my_colour, my_colour, 1);
+			//Objectives captured or lost
+			var ot;
+			for(ot=0; ot<objective_amount; ot++) { 
+				draw_sprite(spr_Objective_Silver, 0, (ui_midx-200)-(ot*44), ty_1);
+				draw_sprite(spr_Objective_Silver, 0, (ui_midx+200)+(ot*44), ty_1);
+			}
+			var oc;
+			for(oc=0; oc<objectives_controlled; oc++) { 
+				draw_sprite(spr_Objective_Gold, 0, (ui_midx-200)-(oc*44), ty_1);
+			}
+			var ol;
+			for(ol=0; ol<objectives_lost; ol++) { 
+				draw_sprite(spr_Objective_Red, 0, (ui_midx+200)+(ol*44), ty_1);
+			}
 			draw_set_font(fnt_16);
-            if global.temp_AP == 0 { draw_text_colour(ui_lx, ty_1+8, "Action Points", c_silver, c_white, c_white, c_white, 1); }
+            //Action points label
+            if global.temp_AP == 0 { draw_text_colour(ui_lx, ty_1+8, "Action Points", c_silver, c_silver, c_silver, c_silver, 1); }
                 //Draw AP Cost Alert
                 else if global.temp_AP != 0 { 
 					var ca = make_colour_rgb(153,25,0);
                     draw_text_colour(ui_lx, ty_1+8, "AP Cost:  " + string(global.temp_AP), c_silver, ca, ca, ca, 1);
                 }
             //Turn timer and control label
-            draw_text_colour(ui_rx, ty_1+8, "Turn Control", c_silver, c_white, c_white, c_white, 1);
+            draw_text_colour(ui_rx, ty_1+8, "Turn Control", c_silver, c_silver, c_silver, c_silver, 1);
 			//Intel label
             //Draw ERROR alerts 
             if targeting_error == true {
@@ -35,13 +49,13 @@ if global.game_state == "IN_GAME" && game_over == false {
                     }
 						else if squad_intel == false  {
 							draw_set_font(fnt_12);
-							draw_text_colour(ui_midx, ty_2, "---  " + "Intel" + "  ---", c_silver, c_gray, c_gray, c_gray, 1);
+							draw_text_colour(ui_midx, ty_2, "---  " + "Intel" + "  ---", c_silver, c_silver, c_silver, c_silver, 1);
 						}
             //Draw turn timer and end turn button
             if draw_endturn == false && turn_timer != 99 { 
                 var t = (turn_timer - timer_count);
                 draw_set_font(fnt_30);
-                draw_text_colour(ui_rx, ty_0+12, string(t), c_white, c_white, t_colour, c_silver, 1); 
+                draw_text_colour(ui_rx, ty_0+12, string(t), c_silver, c_silver, c_silver, c_silver, 1); 
             }
                 else { 
                     if draw_endturn == false {
@@ -63,7 +77,7 @@ if global.game_state == "IN_GAME" && game_over == false {
                         else { 
                             var tap = "";
                             if global.my_turn == true { tap = string(global.turn_AP); } else { tap = "--"; }
-                            draw_text_colour(ui_lx, ty_0+12, tap, c_white, t_colour, t_colour, t_colour, 1); 
+                            draw_text_colour(ui_lx, ty_0+12, tap, c_silver, c_silver, c_silver, c_silver, 1); 
                         }
                 }
             draw_set_font(fnt_16);
@@ -207,7 +221,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Heavy Bomber Requested", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Heavy Bomber Requested", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -216,7 +230,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Preparing Missile Strike", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Preparing Missile Strike", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -225,7 +239,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Calculating Artillery Coordinates", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Calculating Artillery Coordinates", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -234,7 +248,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Spy Drone Incoming", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Spy Drone Incoming", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -243,7 +257,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Supply Drop Scheduled", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Supply Drop Scheduled", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -252,7 +266,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Infantry Units", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Infantry Units", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -261,7 +275,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Armour Units", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Armour Units", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -270,7 +284,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Assault Vehicle Units", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Assault Vehicle Units", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -279,7 +293,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Engineer Units", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Engineer Units", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -288,7 +302,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Logistics Units", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Logistics Units", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -352,7 +366,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Bomber Detected", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Bomber Detected", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -361,7 +375,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Missile Strike Imminent", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Missile Strike Imminent", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -370,7 +384,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Artillery Activity Detected", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Artillery Activity Detected", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -379,7 +393,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Drone Active", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Drone Active", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -388,7 +402,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Resupply Aircfaft Inbound", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Resupply Aircfaft Inbound", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -397,7 +411,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -406,7 +420,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -415,7 +429,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -424,7 +438,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -433,7 +447,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_silver, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Enemy Reinforcements En-Route", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;
@@ -461,11 +475,13 @@ if global.game_state == "IN_GAME" && game_over == false {
             //COMMAND CARDS
 			//Command points and cost
             draw_set_font(fnt_24);
-			draw_text_colour(ui_midx, by_1, "Command", c_gray, c_silver, c_silver, c_silver, 1);
+			draw_text_colour(ui_midx, by_1, "Command", c_silver, c_silver, c_silver, c_silver, 1);
 			draw_set_font(fnt_20);
-            if draw_cpcost == false { draw_text_colour_shadow(ui_midx, by_1+36, string(global.command_points), c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6); }
+            if draw_cpcost == false { draw_text_colour_shadow(ui_midx, by_1+36, string(global.command_points), c_silver, c_silver, c_silver, c_silver, 1, 300, c_black, 0.6); }
                 else if draw_cpcost == true { draw_text_colour_shadow(ui_midx, by_1+36, "-" + string(cp_cost), c_silver, c_red, c_red, c_red, 1, 300, c_black, 0.6); }
-				
+			
+			var hr = string(floor(obj_WEATHER.hour));
+			draw_text_colour(ui_midx, by_2, string(hr+"h00"), c_silver, c_silver, c_silver, c_silver, 1);
 			draw_sprite_ext(p_flag, 0, ui_midx, by_1+72, 0.5, 0.5, 1, c_white, 1);
                 
             draw_sprite_ext(spr_Bomber_Button, 0, bx_0, by_0, 1, 1, 0, c_white, 1);
@@ -480,7 +496,7 @@ if global.game_state == "IN_GAME" && game_over == false {
                     else if missile_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_1, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_1, by_0, 1, 1, 0, c_white, 1); }
             draw_set_font(fnt_16);
-			draw_text_colour(bx_2, by_1, "---    Tactical    ---", c_silver, c_gray, c_gray, c_gray, 1);
+			draw_text_colour(bx_2, by_1, "---    Tactical    ---", c_gray, c_gray, c_gray, c_gray, 1);
 			
             draw_sprite_ext(spr_UAV_Button, 0, bx_2, by_0, 1, 1, 0, c_white, 1);
             if active_uav == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_2, by_0, 1, 1, 0, c_white, 1); }
@@ -512,7 +528,7 @@ if global.game_state == "IN_GAME" && game_over == false {
                     else if tlc_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_6, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_6, by_0, 1, 1, 0, c_white, 1); }
             
-			draw_text_colour(bx_7, by_1, "--- Reinforcements ---", c_silver, c_gray, c_gray, c_gray, 1);
+			draw_text_colour(bx_7, by_1, "--- Reinforcements ---", c_gray, c_gray, c_gray, c_gray, 1);
 			
             draw_sprite_ext(spr_ELC_Button, 0, bx_7, by_0, 1, 1, 0, c_white, 1);
             if active_elc == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_7, by_0, 1, 1, 0, c_white, 1); }
@@ -532,12 +548,12 @@ if global.game_state == "IN_GAME" && game_over == false {
                     else if llc_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_9, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_9, by_0, 1, 1, 0, c_white, 1); }
                         
-            draw_set_font(fnt_14);
+            //draw_set_font(fnt_14);
             draw_set_valign(fa_middle);
             draw_set_halign(fa_center);
-            var name = game_display_name;
-            var ver = string(GM_version);
-			draw_text_colour(ui_midx, by_2, string_hash_to_newline(name + " v" + ver), c_silver, c_gray, c_gray, c_gray, 1);
+            //var name = game_display_name;
+            //var ver = string(GM_version);
+			//draw_text_colour(ui_midx, by_2, string_hash_to_newline(name + " v" + ver), c_silver, c_gray, c_gray, c_gray, 1);
             draw_set_font(fnt_12);
             draw_set_colour(c_black);
             surface_reset_target();

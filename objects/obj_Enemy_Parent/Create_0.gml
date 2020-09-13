@@ -97,6 +97,8 @@ flash_index = -1;
 
 incr = 0.025;
 line_alpha = 1;
+l_c1 = c_dkgray;
+l_c2 = make_colour_rgb(139,0,0);
 fade_switch = false;
 
 spot_mask = -1;

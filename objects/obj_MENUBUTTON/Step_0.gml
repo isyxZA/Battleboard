@@ -2,8 +2,10 @@ if global.game_state == "IN_MENU" {
     if global.can_choose == true {
         if place_meeting(x, y, obj_MOUSE) {
 			if can_play == true { can_play = false; }
-			if txt == "Host Game" || txt == "Join Game" { c1 = c_red; }
-				else { c1 = c_white; }
+			//if txt == "Host Game" || txt == "Join Game" { c1 = c_red; }
+				//else { c1 = c_white; }
+			c1 = make_colour_rgb(240,248,255);
+			highlight = true;
             if mouse_check_button_pressed(mb_left) {
                 switch txt {
                     case "Campaign"://Single player..goes to room setup
@@ -19,7 +21,6 @@ if global.game_state == "IN_MENU" {
                         alarm[0] = 60;
                         break;
 					case "Host Game"://Multiplayer...goes to room host
-						/*
 						PLAYER.net_status = "HOST";
                         PLAYER.player = "ONE";
 						PLAYER.faction = "US";
@@ -29,7 +30,7 @@ if global.game_state == "IN_MENU" {
                         obj_SOUND.fade_out = true;
                         obj_SOUND.fade_in = false;
 						start_game = true;
-                        alarm[6] = 60*/
+                        alarm[6] = 60;
                         break;
 					case "Create Game"://From room host...go to setup
 						//Create server
@@ -50,7 +51,6 @@ if global.game_state == "IN_MENU" {
 						}
                         break;
 					case "Join Game"://Multiplayer...go to room join
-						/*
 						PLAYER.net_status = "CLIENT";
                         global.transition = true;
                         global.can_choose = false;
@@ -59,19 +59,17 @@ if global.game_state == "IN_MENU" {
                         obj_SOUND.fade_in = false;
 						start_game = true;
                         alarm[5] = 60;
-						*/
                         break;
 					case "Join Server":
-						/*
-						//If a valid server is selected then join the server and go to setup 
-						PLAYER.net_status = "CLIENT";
-                        global.transition = true;
-                        global.can_choose = false;
-                        obj_SOUND.fade_out = true;
-                        obj_SOUND.fade_in = false;
+						obj_ServerJoin.can_choose = false;
+						network_destroy(global.broadcast_server);
+						global.broadcast_server = -1;
+						global.transition = true;
+						global.can_choose = false;
+						obj_SOUND.fade_out = true;
+						obj_SOUND.fade_in = false;
 						start_game = true;
-                        alarm[0] = 60;
-						*/
+						alarm[0] = 60;
                         break;
 					case "Refresh"://In room join...refresh server list
 						if instance_exists(obj_ServerJoin) {
@@ -79,6 +77,9 @@ if global.game_state == "IN_MENU" {
 								ds_list_clear(server_list);
 								ds_list_clear(server_ports);
 								ds_list_clear(server_names);
+								global.server_IP   = undefined;
+								global.server_port = undefined;
+								global.server_name = undefined;
 							}
 						}
                         break;
@@ -158,6 +159,7 @@ if global.game_state == "IN_MENU" {
                         break;
                     case "Back"://Return to previous room
 		                global.can_choose = false;
+						if room == rm_Options { scr_SaveSettings(); }
 		                if global.temp_room == rm_MainMenu {
 		                    obj_SOUND.fade_in = true;
 		                    obj_SOUND.fade_out = false;
@@ -184,22 +186,23 @@ if global.game_state == "IN_MENU" {
             }
         }
             else { 
+				highlight = false;
 				can_play = true;
-				if txt == "Ready" || txt == "Create Game" { c1 = c_green; }
-					else if txt == "Join Server" { if global.server_IP != "" { c1 = c_green; } else { c1 = c_red; } }
-						else { c1 = c_gray; }
+				if txt == "Ready" || txt == "Create Game" || txt == "Join Server" { c1 = c_green; }
+					else { c1 = c_silver; }
             }
     }
         else {
 			//Switch text colour when button is selected
 			if global.transition == true {
-				if txt == "Ready"	   && start_ready   == true	    { c1 = make_color_rgb(255,170,0); }
-				if txt == "Campaign"   && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
-				if txt == "Host Game"  && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
-				if txt == "Join Game"  && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
-				if txt == "Options"    && start_options == true	    { c1 = make_color_rgb(255,170,0); }
-				if txt == "Credits"    && start_credits == true	    { c1 = make_color_rgb(255,170,0); }
-				if txt == "Main Menu"  && start_main    == true		{ c1 = make_color_rgb(255,170,0); }
+				if txt == "Ready"	    && start_ready   == true	    { c1 = make_color_rgb(255,170,0); }
+				if txt == "Campaign"    && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
+				if txt == "Host Game"   && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
+				if txt == "Join Game"   && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
+				if txt == "Join Server" && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
+				if txt == "Options"     && start_options == true	    { c1 = make_color_rgb(255,170,0); }
+				if txt == "Credits"     && start_credits == true	    { c1 = make_color_rgb(255,170,0); }
+				if txt == "Main Menu"   && start_main    == true		{ c1 = make_color_rgb(255,170,0); }
 			}
 				else {
 					//Red until all conditions are met

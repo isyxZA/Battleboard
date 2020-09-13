@@ -129,6 +129,9 @@ switching_turns = false;
 my_turn_start = false;
 landing = false;
 pre_battle = true;
+objective_amount = 3;
+objectives_controlled = 0;
+objectives_lost = 0;
 
 //Alerts display
 targeting_error = false;
@@ -153,7 +156,7 @@ ammo_check = false;
 //Command cards setup
 by_1 = ui_height*0.145;
 by_0 = ui_height*0.64;
-by_2 = ui_height*0.915;
+by_2 = ui_height*0.91;
 
 bx_0 = ui_width*0.14;
 bx_1 = bx_0+(t_space);
@@ -201,8 +204,11 @@ llc_targeting = false;
 
 enemy_controller = -1;
 p_faction = PLAYER.faction;
+o_faction = PLAYER.opponent_faction;
 if p_faction == "US" { p_flag = spr_Flag_US_sml; }
 	else if p_faction == "RU" { p_flag = spr_Flag_RU_sml; }
+if o_faction == "US" { o_flag = spr_Flag_US_sml; }
+	else if o_faction == "RU" { o_flag = spr_Flag_RU_sml; }
 
 
 

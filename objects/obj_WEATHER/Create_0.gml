@@ -1,9 +1,13 @@
 timer_count  = 0;
 fade_in = false;
 
+hour = 12;
+h_start = hour;
+h_change = 12;
+
 day_start    = global.light_level;
 day_change   = 0.8;
-day_duration = 20000;
+day_duration = 24000;
 
 n_colour = make_color_rgb(0,6,36);//make_color_hsv(250,100,40);
 n_start  = 0;
@@ -28,3 +32,5 @@ for (i=0; i<cn; i++) {
 		cloud_posy = other.tcy;
 	}
 }
+
+instance_create_layer(0,0,"Weather", obj_Cloud_Shadows);
