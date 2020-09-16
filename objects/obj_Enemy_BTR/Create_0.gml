@@ -70,13 +70,13 @@ mp_cost = 2;
 
 action_range = view_radius;
 
-he_ammo = 80;
-he_max = 80;
+he_ammo = 50;
+he_max = 50;
 shoot_he = false;
 he_rate = 4;
 
-ap_ammo = 80;
-ap_max = 80;
+ap_ammo = 50;
+ap_max = 50;
 shoot_ap = false;
 ap_rate = 4;
 

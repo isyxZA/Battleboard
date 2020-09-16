@@ -23,8 +23,11 @@ if global.my_turn == true || global.active_blc == true {
         //If units are still available for spawn
         if (depleted == false) {
             if mouse_check_button_pressed(mb_left) {
-                if place_meeting(x, y, obj_MOUSE) { if global.selected_LC == false { selected = true; } else { selected = false; } } 
-                    else { selected = false; }
+				if obj_CONTROL.show_options == false {
+					if place_meeting(x, y, obj_MOUSE) { if global.selected_LC == false { selected = true; } else { selected = false; } 
+				}
+			} 
+				else { selected = false; }
             }
             if selected {
                 if nav_display == false {

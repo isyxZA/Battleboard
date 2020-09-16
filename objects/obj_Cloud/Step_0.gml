@@ -29,7 +29,7 @@ if p_one == true {
 
 cloud_a1 = cloud_aref*global.menu_ratio;
 cloud_a2 = cloud_a1-global.light_level;
-shadow_a = cloud_a1-0.2;
+shadow_a = cloud_a1-0.5;
 
 x = cloud_posx;
 y = cloud_posy;

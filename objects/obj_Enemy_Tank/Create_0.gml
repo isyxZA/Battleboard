@@ -68,8 +68,8 @@ mp_cost = 2;
 
 action_range = view_radius;
 
-cannon_ammo = 10;
-cannon_max = 10;
+cannon_ammo = 12;
+cannon_max = 12;
 shoot_cannon = false;
 cannon_rate = 1;
 cannon_cost = 4;

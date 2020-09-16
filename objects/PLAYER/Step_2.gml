@@ -1,24 +1,25 @@
-if global.game_state != "RESTART" {
+if net_status != "NONE" && global.game_state != "RESTART" {
 	if keyboard_check_pressed(vk_escape) {
-	    ///Pause
-	    if (room == rm_TEST) || (room == rm_Forest) || (room == rm_Pause) {
-	        if global.pause == false {
-	            global.pause = true;
-	            global.current_room = room;
-	            obj_SOUND.fade_out = true;
-	            obj_SOUND.fade_in = false;
-	            audio_pause_all();
-	            with obj_SOUND { if s != -1 { audio_resume_sound(s); } }
-	            room_goto(rm_Pause);
-	        }
-	            else if global.pause == true {
-	                global.pause = false;
-	                obj_SOUND.fade_in = true;
-	                obj_SOUND.fade_out = false;
-	                audio_resume_all();
-	                room_goto(global.current_room);
-	            }
-	    }
+		//As single player go to pause room
+		///Pause
+		if (room == rm_TEST) || (room == rm_Forest) || (room == rm_Pause) {
+			if global.pause == false {
+			    global.pause = true;
+			    global.current_room = room;
+			    obj_SOUND.fade_out = true;
+			    obj_SOUND.fade_in = false;
+			    audio_pause_all();
+			    with obj_SOUND { if s != -1 { audio_resume_sound(s); } }
+			    room_goto(rm_Pause);
+			}
+			    else if global.pause == true {
+			        global.pause = false;
+			        obj_SOUND.fade_in = true;
+			        obj_SOUND.fade_out = false;
+			        audio_resume_all();
+			        room_goto(global.current_room);
+			    }
+		}
 	}
 }
 

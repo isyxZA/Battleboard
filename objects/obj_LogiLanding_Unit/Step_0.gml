@@ -24,7 +24,11 @@ if global.my_turn == true || global.active_llc == true {
         //If units are still available for spawn
         if (depleted == false) {
             if mouse_check_button_pressed(mb_left) {
-                if place_meeting(x, y, obj_MOUSE) { if global.selected_LC == false { selected = true; } else { selected = false; } } 
+                if place_meeting(x, y, obj_MOUSE) { 
+					if obj_CONTROL.show_options == false {
+						if global.selected_LC == false { selected = true; } else { selected = false; } 
+					}
+				} 
                     else { selected = false; }
             }
             if selected {
@@ -199,7 +203,11 @@ if global.my_turn == true || global.active_llc == true {
 		            if ds_list_empty(global.selected_list) {
 		                if (global.fire_display == false) && (resupplying == false) && (action_confirmed == false) {
 		                    if mouse_check_button_pressed(mb_left) {
-		                        if place_meeting(x, y, obj_MOUSE) { if global.selected_LC == false { selected = true; } else { selected = false; } } 
+		                        if place_meeting(x, y, obj_MOUSE) { 
+									if obj_CONTROL.show_options == false {
+										if global.selected_LC == false { selected = true; } else { selected = false; } 
+									}
+								} 
 		                            else { selected = false; }
 		                    }
 		                }

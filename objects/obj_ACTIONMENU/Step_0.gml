@@ -917,7 +917,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 }
     //If no units are currently selected
     else {
-        //Reset
+        //Reset  MAKE THIS RUN ONLY ONCE WHEN LIST IS EMPTIED
         global.menu_create = false;
         global.fire_display = false;
         global.reticule_display = false;
@@ -998,7 +998,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
         global.temp_AP = 0;
         //global.temp_MP = 0;
         
-        if global.game_turn != 0 { global.can_zoom = true; }
+        if global.game_turn != 0 && obj_CONTROL.show_options != true { global.can_zoom = true; }
 
         queue_reset = true;
         ammo_count = 0;

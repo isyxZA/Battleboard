@@ -8,7 +8,7 @@ if global.game_state == "IN_GAME" {
     if global.game_turn != 0 { 
         //DRAW UI AS SCALABLE SURFACES\\
         if surface_exists(ui_topsurf) {
-            draw_surface_stretched_ext(ui_topsurf, ui_tx, ui_ty, ui_width*ui_ratio, ui_height*ui_ratio, c_white, 1);
+            draw_surface_stretched_ext(ui_topsurf, ui_tx, ui_ty+ty_adj, ui_width*ui_ratio, ui_height*ui_ratio, c_white, 1);
         }
             else {
                 ui_topsurf = surface_create(ui_width, ui_height);
@@ -17,7 +17,7 @@ if global.game_state == "IN_GAME" {
                 surface_reset_target();
             }
         if surface_exists(ui_botsurf) {
-            draw_surface_stretched_ext(ui_botsurf, ui_bx, ui_by, ui_width*ui_ratio, ui_height*ui_ratio, c_white, 1);
+            draw_surface_stretched_ext(ui_botsurf, ui_bx, ui_by+by_adj, ui_width*ui_ratio, ui_height*ui_ratio, c_white, 1);
         }
             else {
                 ui_botsurf = surface_create(ui_width, ui_height);
@@ -297,15 +297,16 @@ if global.game_state == "IN_GAME" {
         }
     }
 	*/
+
     if global.victory == true || global.defeat == true { 
         draw_set_font(fnt_64);
-		draw_sprite_ext(spr_Text_Background, 0, mid_x, mid_y, 1, 0.9, 0, c_white, txt_a);
+		//draw_sprite_ext(spr_Text_Background, 0, mid_x, mid_y, 1, 1, 0, c_white, txt_a);
         draw_text_colour_shadow(mid_x, mid_y, string(display_txt), c_silver, c_silver, c_silver, c_silver, 4, 220, c_black, 0.6); 
     }
     draw_set_font(fnt_12);
 
     //Display hints
-    if global.display_info == true {
+    if global.display_info == true && show_options != true {
         if global.my_turn == true && global.units_running == 0 { 
             if global.game_turn == 0 { 
                 draw_set_font(fnt_14);

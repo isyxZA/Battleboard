@@ -10,6 +10,11 @@ if global.game_turn == 0 {
     turn_timer = global.turn_timer;
     //Switch on command turn cards
     command_targeting = true;
+	//Display the ui
+	ty_adj = -(ui_height*ui_ratio);
+	by_adj =    ui_height*ui_ratio;
+	y_target = 0;
+	ui_anim = true;
     //Generate turn list
 	if PLAYER.player == "ONE" {
 		ds_list_add(global.turn_list, "ALPHA");

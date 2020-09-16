@@ -32,16 +32,51 @@ if global.game_state == "IN_GAME" {
 	            //End turn manually
 	            var eb = point_distance(ui_tx+(ui_rx*ui_ratio), ui_ty+(ty_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if eb < s_dist {
-	                if endturn_timer < 12 { endturn_timer += 1; }
-	                if endturn_timer >= 12 {
-	                    if global.my_turn == true { 
-	                        draw_endturn = true; 
-	                        if mouse_check_button_pressed(mb_left) {
-	                            //End player turn
-	                            can_endturn = true;
-	                            can_count = false;
-	                            timer_count = turn_timer;
-	                            alarm[0] = 10;
+					if show_options == false {
+		                if endturn_timer < 12 { endturn_timer += 1; }
+		                if endturn_timer >= 12 {
+		                    if global.my_turn == true { 
+		                        draw_endturn = true; 
+			                        if mouse_check_button_pressed(mb_left) {
+			                            //End player turn
+			                            can_endturn = true;
+			                            can_count = false;
+			                            timer_count = turn_timer;
+			                            alarm[0] = 10;
+										if PLAYER.net_status == "HOST" {
+											//Send turn end signal to client
+											var cc = ds_list_size(global.clients);
+											if cc > 0 { 
+												var i;
+												for (i=0;i<cc;i++) {
+													var csocket = ds_list_find_value(global.clients, i);
+													net_write_client(csocket, buffer_u8, NET_ENDTURN);
+												}
+											}
+										}
+											else if PLAYER.net_status == "CLIENT" {
+												//Send turn end signal to host can_endturn = true
+												net_write_server(buffer_u8, NET_ENDTURN);
+											}
+			                        }
+		                    }
+		                }
+					}
+						else {
+							endturn_timer = 0; 
+							draw_endturn = false;
+						}
+	            }
+	                else { 
+	                    endturn_timer = 0; 
+	                    draw_endturn = false;
+						if show_options == false {
+							if keyboard_check_pressed(vk_space) {
+								//End player turn
+		                        can_endturn = true;
+		                        can_count = false;
+		                        timer_count = turn_timer;
+		                        alarm[0] = 10;
 								if PLAYER.net_status == "HOST" {
 									//Send turn end signal to client
 									var cc = ds_list_size(global.clients);
@@ -57,34 +92,7 @@ if global.game_state == "IN_GAME" {
 										//Send turn end signal to host can_endturn = true
 										net_write_server(buffer_u8, NET_ENDTURN);
 									}
-	                        }
-	                    }
-	                }
-	            }
-	                else { 
-	                    endturn_timer = 0; 
-	                    draw_endturn = false;
-						if keyboard_check_pressed(vk_space) {
-							//End player turn
-	                        can_endturn = true;
-	                        can_count = false;
-	                        timer_count = turn_timer;
-	                        alarm[0] = 10;
-							if PLAYER.net_status == "HOST" {
-								//Send turn end signal to client
-								var cc = ds_list_size(global.clients);
-								if cc > 0 { 
-									var i;
-									for (i=0;i<cc;i++) {
-										var csocket = ds_list_find_value(global.clients, i);
-										net_write_client(csocket, buffer_u8, NET_ENDTURN);
-									}
-								}
 							}
-								else if PLAYER.net_status == "CLIENT" {
-									//Send turn end signal to host can_endturn = true
-									net_write_server(buffer_u8, NET_ENDTURN);
-								}
 						}
 	                }
 	        }
@@ -111,7 +119,7 @@ if global.game_state == "IN_GAME" {
 	                can_endturn = false;
 	            }
     
-	    if global.menu_create != true && global.nav_menu != true && global.nav_select != true && global.fire_display != true {
+	    if global.menu_create != true && global.nav_menu != true && global.nav_select != true && global.fire_display != true && show_options != true {
 	        //TURN LIST SENSORS
 	        scr_ListSensors();
 	        //COMMAND OPTIONS SENSORS
@@ -360,7 +368,11 @@ if global.game_state == "IN_GAME" {
 					if ds_list_empty(global.myunit_list)    { if global.game_turn >= 3 { global.defeat  = true; } }
 					if ds_list_empty(global.enemyunit_list) { if global.game_turn >= 3 { global.victory = true; } }
 					if global.victory == false && global.defeat == false {
-						if global.game_turn == 0 { display_txt = "Begin Manouvers"; }
+						if global.game_turn == 0 { 
+							display_txt = "Begin Manouvers"; 
+							obj_ARROWS.txt = display_txt;
+							obj_ARROWS.alarm[1] = 4; 
+						}
 	                    else { 
 	                        if my_turn_start == true { display_txt = "Your Turn"; my_colour = make_colour_rgb(240,248,255); }
 	                            else if my_turn_start == false { display_txt = "Opponent Turn"; my_colour = make_colour_rgb(153,25,0); }
@@ -387,14 +399,12 @@ if global.game_state == "IN_GAME" {
 	                if global.victory == true { 
 	                    audio_stop_all();
 	                    audio_play_sound(snd_Victory, 10, false);
-	                    display_txt = "VICTORY!";
-	                    t_colour = c_yellow; 
+	                    display_txt = "VICTORY!"; 
 	                }
 	                    else if global.defeat == true { 
 	                        audio_stop_all();
 	                        audio_play_sound(snd_Defeat, 10, false);
 	                        display_txt = "DEFEAT!";
-	                        t_colour = c_red; 
 	                    }
 	            }
 	        }

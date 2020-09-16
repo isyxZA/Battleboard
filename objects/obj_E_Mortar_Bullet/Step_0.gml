@@ -41,11 +41,11 @@ if explode == true {
         var e = instance_place(x, y, obj_Enemy_Parent);
         
         if h!= noone { 
-            h.my_health -= damage_2;
+            h.my_health -= damage_1;
             if h.my_health <= 0 { h.alarm[0] = 60; }
         }
             else if t!= noone { 
-                t.my_health -= damage_2;
+                t.my_health -= damage_1;
                 if t.my_health <= 0 { t.alarm[0] = 60; }
             }
                 else if u!= noone { 
@@ -54,7 +54,7 @@ if explode == true {
                             u.unit_health -= damage_2;
                             u.taking_damage = true;
                             u.alert_display = true;
-                            u.alert_text = "-25 HP"; 
+                            u.alert_text = "-40 HP"; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
@@ -63,16 +63,16 @@ if explode == true {
                             u.taking_damage = true;
                             u.unit_health -= damage_1;
                             u.alert_display = true;
-                            u.alert_text = "-10 HP"; 
+                            u.alert_text = "-20 HP"; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
                         case "ENGINEER":
                             u.taking_damage = true;
-                            u.unit_health -= damage_2;
+                            u.unit_health -= damage_1;
                             u.alert_display = true;
-                            u.alert_text = "-25 HP"; 
+                            u.alert_text = "-20 HP"; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
@@ -81,16 +81,16 @@ if explode == true {
                             u.taking_damage = true;
                             u.unit_health -= damage_1;
                             u.alert_display = true;
-                            u.alert_text = "-10 HP"; 
+                            u.alert_text = "-20 HP"; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
                         case "LOGI":
                             u.taking_damage = true;
-                            u.unit_health -= damage_2;
+                            u.unit_health -= damage_1;
                             u.alert_display = true;
-                            u.alert_text = "-25 HP"; 
+                            u.alert_text = "-20 HP"; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
@@ -100,9 +100,9 @@ if explode == true {
                         case "TOW":
                         case "MORTAR":
                             u.taking_damage = true;
-                            u.unit_health -= damage_3;
+                            u.unit_health -= damage_1;
                             u.alert_display = true;
-                            u.alert_text = "-50 HP"; 
+                            u.alert_text = "-20 HP"; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
@@ -114,7 +114,7 @@ if explode == true {
                             case "E_INFANTRY":
                                 e.unit_health -= damage_2;
                                 e.alert_display = true;
-                                e.alert_text = "-25 HP"; 
+                                e.alert_text = "-40 HP"; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
@@ -124,7 +124,7 @@ if explode == true {
                             case "E_TANK":
                                 e.unit_health -= damage_1;
                                 e.alert_display = true;
-                                e.alert_text = "-10 HP"; 
+                                e.alert_text = "-20 HP"; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
@@ -132,9 +132,9 @@ if explode == true {
                                 e.alarm[1] = 200;
                                 break;
                             case "E_ENGINEER":
-                                e.unit_health -= damage_2;
+                                e.unit_health -= damage_1;
                                 e.alert_display = true;
-                                e.alert_text = "-25 HP"; 
+                                e.alert_text = "-20 HP"; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
@@ -144,7 +144,7 @@ if explode == true {
                             case "E_BTR":
                                 e.unit_health -= damage_1;
                                 e.alert_display = true;
-                                e.alert_text = "-10 HP"; 
+                                e.alert_text = "-20 HP"; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
@@ -152,9 +152,9 @@ if explode == true {
                                 e.alarm[1] = 200;
                                 break;
                             case "E_LOGI":
-                                e.unit_health -= damage_2;
+                                e.unit_health -= damage_1;
                                 e.alert_display = true;
-                                e.alert_text = "-25 HP"; 
+                                e.alert_text = "-20 HP"; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
@@ -165,9 +165,9 @@ if explode == true {
                             case "E_REPAIR":
                             case "E_TOW":
                             case "E_MORTAR":
-                                e.unit_health -= damage_3;
+                                e.unit_health -= damage_1;
                                 e.alert_display = true;
-                                e.alert_text = "-50 HP"; 
+                                e.alert_text = "-20 HP"; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }

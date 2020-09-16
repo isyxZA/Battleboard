@@ -8,11 +8,6 @@ switch room {
 		global.game_state = "IN_MENU"; 
 		break;
 	case rm_Options:
-		if music_pos   != 0 { obj_Music_Slider.x = music_pos; }
-		if effects_pos != 0 { obj_Effects_Slider.x = effects_pos; }
-		if zoom_pos    != 0 { obj_Zoom_Slider.x = zoom_pos; }
-		if pan_pos     != 0 { obj_Pan_Slider.x = pan_pos; }
-		if scale_pos   != 0 { obj_Scale_Slider.x = scale_pos; }
 		global.can_choose = true;//Activate menu buttons
 		global.game_state = "IN_MENU"; 
 		break;

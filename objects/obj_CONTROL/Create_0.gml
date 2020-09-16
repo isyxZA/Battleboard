@@ -34,9 +34,15 @@ s_dist = 36*ui_ratio;
 //Top ui
 ui_tx = (mid_x - (ui_width*ui_ratio)*0.5);//Surface anchor points x == (gui_width/2 - surface_width/2)
 ui_ty = (display_get_gui_height()*0.001)-1;
+ty_adj = -(ui_height*ui_ratio);
 //Bot ui
 ui_bx = ui_tx;//Surface anchor points x == (gui_width/2 - surface_width/2)
 ui_by = display_get_gui_height()-(ui_height*ui_ratio);
+by_adj = ui_height*ui_ratio;
+
+//UI animation
+y_target = 0;
+ui_anim = false;
 
 //Turn card timer sensors
 tlist_adj = -t_space;
@@ -142,6 +148,9 @@ ap_cost = 0;
 draw_cpcost = false;
 cp_cost = 0;
 draw_apreturn = false;
+
+show_options = false;
+temp_zlevel = 0;
 
 //Calculate current ammo levels trigger
 ammo_check = false;

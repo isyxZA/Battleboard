@@ -1,4 +1,4 @@
-draw_sprite_ext(sprite_index, 0, x, y, 1, 1, rot, c_white, a);
+draw_sprite_ext(sprite_index, 0, ax, ay, as, as, rot, c_white, a);
 draw_set_font(fnt_48);
 draw_set_color(c_silver);
 draw_set_halign(fa_center);

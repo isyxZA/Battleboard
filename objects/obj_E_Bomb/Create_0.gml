@@ -1,7 +1,7 @@
 image_speed = 1.25;
 explode = false;
 countdown = 3;
-damage = round(random_range(75, 100));
+damage = 100;
 timer_start = true;
 can_damage = true;
 start_countdown = false;
