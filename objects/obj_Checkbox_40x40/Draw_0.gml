@@ -5,6 +5,6 @@ if is_checked == true { draw_sprite_ext(spr_Checkmark, 0, x, y-8, scl, scl, 0, c
 draw_set_color(c_white);
 draw_set_font(fnt_12);
 draw_set_halign(fa_center);
-draw_text(x, y+32, string_hash_to_newline("40x40"));
+draw_text(x, y+64, string_hash_to_newline("Scenario A#Battlefield size: 40x40#Win Conditions: Capture 3 objectives or#Destroy all enemy units."));
 draw_set_colour(c_black);
 

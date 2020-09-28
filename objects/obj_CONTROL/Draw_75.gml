@@ -173,7 +173,7 @@ if global.game_state == "IN_GAME" {
                         draw_set_alpha(1);
                         draw_rectangle(gui_mx-248, gui_my-78, gui_mx-32, gui_my-10, true);
                         draw_set_font(fnt_10);
-                        draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Armour Ship:"), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Armor Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("Reinforces selected squad."), c_black, c_black, c_black, c_black, 1);
 						draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
@@ -262,6 +262,7 @@ if global.game_state == "IN_GAME" {
                 for (aa=0; aa<ds_list_size(global.selected_list); aa+=1){
                     unit = ds_list_find_value(global.selected_list, aa);
                     var txt = unit.unit_type;
+					if txt == "BTR" { txt = "LAV"; }
                     draw_sprite_ext(spr_Alert_Box02, 0, display_get_gui_width()*0.95, (mid_y+adj2)+((aa-lmid2)*v_space), 1, 1, 0, c_white, 0.5);
                     draw_text(display_get_gui_width()*0.95, (mid_y+adj2)+((aa-lmid2)*v_space), string_hash_to_newline(string(txt)));
                 }
@@ -287,23 +288,70 @@ if global.game_state == "IN_GAME" {
         }
     }
     
-    //Center screen text display
-	/*
-    if global.game_turn == 0 {
-        if display_txt != "" {
-            draw_set_font(fnt_48);
-			//draw_sprite_ext(spr_Text_Background, 0, mid_x, mid_y, 1, 0.9, 0, c_white, txt_a);
-            draw_text_colour_shadow(mid_x, mid_y, string(display_txt), c_silver, c_silver, c_silver, c_silver, 4, 220, c_black, 0.6);
-        }
-    }
-	*/
-
+    //Game over display panel
     if global.victory == true || global.defeat == true { 
-        draw_set_font(fnt_64);
-		//draw_sprite_ext(spr_Text_Background, 0, mid_x, mid_y, 1, 1, 0, c_white, txt_a);
-        draw_text_colour_shadow(mid_x, mid_y, string(display_txt), c_silver, c_silver, c_silver, c_silver, 4, 220, c_black, 0.6); 
+		var xx0 = sprite_get_width(spr_OptionsBG_2)*0.5;
+		var txt1 = "Battlefield Dominance";
+		draw_sprite_ext(spr_OptionsBG_2, 0, mid_x-xx0, mid_y-256, 1, 0.5, 0, c_white, txt_a);
+		
+		draw_set_colour(c_white);
+		draw_set_font(fnt_30);
+        draw_text(mid_x, mid_y-230, string(display_txt)); 
+		
+		draw_set_font(fnt_14);
+        draw_text(mid_x, mid_y-190, txt1); 
+		
+		draw_set_font(fnt_12);
+        draw_text(mid_x-280, mid_y-160, "Squad Statistics");
+		draw_text(mid_x    , mid_y-160, "Lost");
+		draw_text(mid_x+280, mid_y-160, "Destroyed");
+		draw_text(mid_x    , mid_y+ 50, "Citations, Medals & Commendations");
+		
+		draw_set_font(fnt_10);
+		draw_text(mid_x-280, mid_y-140, "Infantry:");
+		draw_text(mid_x-280, mid_y-120, "Tanks:");
+		draw_text(mid_x-280, mid_y-100, "Engineers:");
+		draw_text(mid_x-280, mid_y-80 , "Light Armor:");
+		draw_text(mid_x-280, mid_y-60 , "Logistics Trucks:");
+		draw_text(mid_x-280, mid_y-40 , "Depots:");
+		draw_text(mid_x-280, mid_y-20 , "Repair Stations:");
+		draw_text(mid_x-280, mid_y    , "TOW Launchers:");
+		draw_text(mid_x-280, mid_y+20 , "Mortar Pits:");
+	
+		draw_text(mid_x, mid_y-140, string(lost_infantry));
+		draw_text(mid_x, mid_y-120, string(lost_tank));
+		draw_text(mid_x, mid_y-100, string(lost_engineer));
+		draw_text(mid_x, mid_y-80 , string(lost_btr));
+		draw_text(mid_x, mid_y-60 , string(lost_logi));
+		draw_text(mid_x, mid_y-40 , string(lost_depot));
+		draw_text(mid_x, mid_y-20 , string(lost_repair));
+		draw_text(mid_x, mid_y    , string(lost_tow));
+		draw_text(mid_x, mid_y+20 , string(lost_mortar));
+		
+		draw_text(mid_x+280, mid_y-140, string(destroyed_infantry));
+		draw_text(mid_x+280, mid_y-120, string(destroyed_tank));
+		draw_text(mid_x+280, mid_y-100, string(destroyed_engineer));
+		draw_text(mid_x+280, mid_y-80 , string(destroyed_btr));
+		draw_text(mid_x+280, mid_y-60 , string(destroyed_logi));
+		draw_text(mid_x+280, mid_y-40 , string(destroyed_depot));
+		draw_text(mid_x+280, mid_y-20 , string(destroyed_repair));
+		draw_text(mid_x+280, mid_y    , string(destroyed_tow));
+		draw_text(mid_x+280, mid_y+20 , string(destroyed_mortar));
+		
+		draw_text(mid_x-280, mid_y+80, "Silver Star");
+		draw_text(mid_x    , mid_y+80, "Legion of Merit");
+		draw_text(mid_x+280, mid_y+80, "Superior Service");
+		
+		draw_sprite_ext(spr_SilverStar     , 0, mid_x-280, mid_y+90, 1, 1, 0, c_white, 1);
+		draw_sprite_ext(spr_LegionofMerit  , 0, mid_x    , mid_y+90, 1, 1, 0, c_white, 1);
+		draw_sprite_ext(spr_SuperiorService, 0, mid_x+280, mid_y+90, 1, 1, 0, c_white, 1);
+		
+		
+		draw_set_colour(c_black);
+		draw_set_halign(fa_center);
+		draw_set_font(fnt_12);
     }
-    draw_set_font(fnt_12);
+	
 
     //Display hints
     if global.display_info == true && show_options != true {

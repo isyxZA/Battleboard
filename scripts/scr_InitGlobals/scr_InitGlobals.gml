@@ -291,6 +291,10 @@ function scr_InitGlobals() {
 	global.double_click = false;
 	global.click_count = 0;
 	global.dbl_click_unit = "NOONE";
+	
+	global.objective_1 = -1;
+	global.objective_2 = -1;
+	global.objective_3 = -1;
 
 	global.server       = -1;
 	global.clients      = -1;

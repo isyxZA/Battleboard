@@ -1,8 +1,8 @@
-if net_status != "NONE" && global.game_state != "RESTART" {
+if net_status == "NONE" && global.game_state != "RESTART" {
 	if keyboard_check_pressed(vk_escape) {
 		//As single player go to pause room
 		///Pause
-		if (room == rm_TEST) || (room == rm_Forest) || (room == rm_Pause) {
+		if (room == rm_ALPHA) || (room == rm_BRAVO) || (room == rm_Pause) {
 			if global.pause == false {
 			    global.pause = true;
 			    global.current_room = room;

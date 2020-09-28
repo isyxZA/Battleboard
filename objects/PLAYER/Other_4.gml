@@ -27,8 +27,8 @@ switch room {
 			else if net_status == "CLIENT" { instance_create_layer(0,0,"Control",obj_CLIENT); }
 				else if net_status == "NONE" { }
 		break;
-	case rm_TEST:
-	case rm_Forest:
+	case rm_ALPHA:
+	case rm_BRAVO:
 		if global.restart_game == true { 
 			global.game_state = "RESTART";  
 			global.can_select = false;

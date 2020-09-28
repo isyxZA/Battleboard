@@ -43,11 +43,11 @@ if explode == true {
         
         if h!= noone { 
             h.my_health -= damage_2;
-            if h.my_health <= 0 { h.alarm[0] = 60; }
+            //if h.my_health <= 0 { h.alarm[0] = 60; }
         }
             else if t!= noone { 
                 t.my_health -= damage_2;
-                if t.my_health <= 0 { t.alarm[0] = 60; }
+                //if t.my_health <= 0 { t.alarm[0] = 60; }
             }
                 else if u!= noone { 
                     if global.friendly_fire == false { global.friendly_fire = true; }

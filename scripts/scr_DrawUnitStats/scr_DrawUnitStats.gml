@@ -144,7 +144,7 @@ function scr_DrawUnitStats() {
 		    case "BTR":
 		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
 		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		        draw_text_colour(xx, yy-39, string(unit_type), clr1, clr1, clr1, clr1, 1);
+		        draw_text_colour(xx, yy-39, "LAV", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
 		            var h2 = 28;
@@ -388,7 +388,7 @@ function scr_DrawUnitStats() {
 		                draw_text_colour(x, y-76, "ENGINEER SHIP", c_white, c_white, c_white, c_white, 1);
 		                break;
 		            case "Tank":
-		                draw_text_colour(x, y-76, "ARMOUR SHIP", c_white, c_white, c_white, c_white, 1);
+		                draw_text_colour(x, y-76, "ARMOR SHIP", c_white, c_white, c_white, c_white, 1);
 		                break;
 		            case "BTR":
 		                draw_text_colour(x, y-76, "ASSAULT SHIP", c_white, c_white, c_white, c_white, 1);
@@ -527,7 +527,7 @@ function scr_DrawUnitStats() {
 				case "BTR":
 					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
 							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-					draw_text_transformed_colour(xx, yy+39, string(unit_type), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					draw_text_transformed_colour(xx, yy+39, "LAV", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
 						var h2 = 28;
@@ -771,7 +771,7 @@ function scr_DrawUnitStats() {
 							draw_text_transformed_colour(x, y+76, "ENGINEER SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							break;
 						case "Tank":
-							draw_text_transformed_colour(x, y+76, "ARMOUR SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_text_transformed_colour(x, y+76, "ARMOR SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							break;
 						case "BTR":
 							draw_text_transformed_colour(x, y+76, "ASSAULT SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);

@@ -10,12 +10,12 @@
   "bbox_left": 0,
   "bbox_right": 65,
   "bbox_top": 0,
-  "bbox_bottom": 45,
+  "bbox_bottom": 43,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "width": 66,
-  "height": 46,
+  "height": 44,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f2351089-2193-4e4b-b5cd-0e82a6d40f02","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f2351089-2193-4e4b-b5cd-0e82a6d40f02","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"LayerId":{"name":"d4366496-f620-4ec4-bfc8-95df820d351b","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_Charlie_Icon","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"resourceVersion":"1.0","name":"f2351089-2193-4e4b-b5cd-0e82a6d40f02","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"500c6d0a-eade-4879-be8d-ad04ae7af58c","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"500c6d0a-eade-4879-be8d-ad04ae7af58c","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"LayerId":{"name":"0e32bb4b-22c5-4189-b71f-5d1cdc6b5781","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_Charlie_Icon","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"resourceVersion":"1.0","name":"500c6d0a-eade-4879-be8d-ad04ae7af58c","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_Charlie_Icon","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},
@@ -41,10 +41,10 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"a14550a5-7d8c-4522-a569-7df8de3e57ac","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f2351089-2193-4e4b-b5cd-0e82a6d40f02","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f32f32c7-5db9-41b9-aec9-121427d3018b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"500c6d0a-eade-4879-be8d-ad04ae7af58c","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -55,7 +55,7 @@
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 33,
-    "yorigin": 23,
+    "yorigin": 22,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_Charlie_Icon","path":"sprites/spr_Charlie_Icon/spr_Charlie_Icon.yy",},
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d4366496-f620-4ec4-bfc8-95df820d351b","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0e32bb4b-22c5-4189-b71f-5d1cdc6b5781","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Cards",

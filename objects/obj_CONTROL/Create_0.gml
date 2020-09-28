@@ -73,8 +73,8 @@ t11_timer = 0;
 
 squad_intel = false;
 
-ty_1 = ui_height*0.155;
-ty_0 = ui_height*0.51;
+ty_1 = ui_height*0.16;
+ty_0 = ui_height*0.55;
 ty_2 = ui_height*0.86;
 
 tx_0 = ui_width*0.825;
@@ -156,15 +156,29 @@ temp_zlevel = 0;
 ammo_check = false;
 
 //Track amount of destroyed units
-//lost_infantry = 0;
-//lost_tank = 0;
-//lost_engineer = 0;
-//lost_btr = 0;
-//lost_logi = 0;
+lost_infantry = 0;
+lost_tank = 0;
+lost_engineer = 0;
+lost_btr = 0;
+lost_logi = 0;
+lost_depot = 0;
+lost_repair = 0;
+lost_tow = 0;
+lost_mortar = 0;
+
+destroyed_infantry = 0;
+destroyed_tank = 0;
+destroyed_engineer = 0;
+destroyed_btr = 0;
+destroyed_logi = 0;
+destroyed_depot = 0;
+destroyed_repair = 0;
+destroyed_tow = 0;
+destroyed_mortar = 0;
 
 //Command cards setup
 by_1 = ui_height*0.145;
-by_0 = ui_height*0.64;
+by_0 = ui_height*0.7;
 by_2 = ui_height*0.91;
 
 bx_0 = ui_width*0.14;

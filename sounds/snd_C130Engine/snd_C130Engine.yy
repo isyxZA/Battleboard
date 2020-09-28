@@ -10,8 +10,8 @@
     "name": "Effects",
     "path": "audiogroups/Effects",
   },
-  "soundFile": "snd_C130Engine",
-  "duration": 6.681958,
+  "soundFile": "snd_C130Engine.mp3",
+  "duration": 6.744592,
   "parent": {
     "name": "Effects",
     "path": "folders/Sounds/Effects.yy",

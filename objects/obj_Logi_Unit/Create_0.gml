@@ -12,9 +12,11 @@ if p_side == "ONE" {
 	switch p_faction {
 		case "US":
 			my_sprite = spr_Logi_A1;
+			crater_index = spr_Logi_Crater_US;
 			break;
 		case "RU":
 			my_sprite = spr_Logi_B1;
+			crater_index = spr_Logi_Crater_RU;
 			break;
 	}
 }
@@ -25,9 +27,11 @@ if p_side == "ONE" {
 		switch p_faction {
 			case "US":
 				my_sprite = spr_Logi_A2;
+				crater_index = spr_Logi_Crater_US;
 				break;
 			case "RU":
 				my_sprite = spr_Logi_B2;
+				crater_index = spr_Logi_Crater_RU;
 				break;
 		}
 	}

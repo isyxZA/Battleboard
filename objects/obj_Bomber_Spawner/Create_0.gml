@@ -17,11 +17,9 @@ if p_side == "ONE" {
 	switch p_faction {
 		case "US":
 			my_sprite  = spr_Bomber_B2;
-			my_shadow  = spr_Bomber_B2_Shadow;
 			break;
 		case "RU":
 			my_sprite  = spr_Bomber_TU22;
-			my_shadow  = spr_Bomber_TU22_Shadow;
 			break;
 	}
 }
@@ -30,11 +28,9 @@ if p_side == "ONE" {
 		switch p_faction {
 			case "US":
 				my_sprite  = spr_Bomber_B2;
-				my_shadow  = spr_Bomber_B2_Shadow;
 				break;
 			case "RU":
 				my_sprite  = spr_Bomber_TU22;
-				my_shadow  = spr_Bomber_TU22_Shadow;
 				break;
 		}
 	}

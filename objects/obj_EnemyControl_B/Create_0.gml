@@ -59,8 +59,20 @@ spawn_engineer = false;
 spawn_btr = false;
 spawn_logi = false;
 
+objective1_x = global.objective_1.x;
+objective1_y = global.objective_1.y;
+objective2_x = global.objective_2.x;
+objective2_y = global.objective_2.y;
+objective3_x = global.objective_3.x;
+objective3_y = global.objective_3.y;
+
 with obj_CONTROL { enemy_controller = other.id; }
 
-if PLAYER.player == "ONE" { p_one = true; }
-	else { p_one = false; }
+if PLAYER.player == "ONE" { 
+	p_one = true; 
+}
+	else { 
+		p_one = false; 
+	}
+	
 

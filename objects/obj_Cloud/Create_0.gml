@@ -1,5 +1,5 @@
 sprite_index = choose(spr_Cloud_1, spr_Cloud_2, spr_Cloud_3, spr_Cloud_4);
-
+if PLAYER.player == "ONE" { rot = 0; } else { rot = 180; }
 cloud_aref = 0.75;
 cloud_a1   = cloud_aref;
 cloud_a2   = cloud_a1-global.light_level;

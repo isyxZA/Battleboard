@@ -1,9 +1,9 @@
 if global.can_choose == true {
     if place_meeting(x, y, obj_MOUSE) {
 		if can_play == true { can_play = false; }
-		//if txt == "Host Game" || txt == "Join Game" { c1 = c_red; }
-			//else { c1 = c_white; }
-		c1 = make_colour_rgb(240,248,255);
+		if txt == "Host Game" || txt == "Join Game" { c1 = c_red; }
+			else { c1 = make_colour_rgb(240,248,255); }
+		//c1 = make_colour_rgb(240,248,255);
 		highlight = true;
         if mouse_check_button_pressed(mb_left) {
             switch txt {
@@ -20,6 +20,7 @@ if global.can_choose == true {
                     alarm[0] = 60;
                     break;
 				case "Host Game"://Multiplayer...goes to room host
+					/*
 					PLAYER.net_status = "HOST";
                     PLAYER.player = "ONE";
 					PLAYER.faction = "US";
@@ -30,6 +31,7 @@ if global.can_choose == true {
                     obj_SOUND.fade_in = false;
 					start_game = true;
                     alarm[6] = 60;
+					*/
                     break;
 				case "Create Game"://From room host...go to setup
 					//Create server
@@ -50,6 +52,7 @@ if global.can_choose == true {
 					}
                     break;
 				case "Join Game"://Multiplayer...go to room join
+					/*
 					PLAYER.net_status = "CLIENT";
                     global.transition = true;
                     global.can_choose = false;
@@ -58,6 +61,7 @@ if global.can_choose == true {
                     obj_SOUND.fade_in = false;
 					start_game = true;
                     alarm[5] = 60;
+					*/
                     break;
 				case "Join Server":
 					obj_ServerJoin.can_choose = false;

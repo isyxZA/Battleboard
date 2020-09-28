@@ -118,7 +118,7 @@ if ammo_check == true {
     }
 }
 
-if PLAYER.net_status == "NONE" && landing == true {
+if PLAYER.net_status != "NONE" && landing == true {
 	if keyboard_check_pressed(vk_escape) {
 		if show_options == false {  
 			//Retract UI, disable unit selection, display game options
@@ -181,4 +181,14 @@ if PLAYER.net_status == "NONE" && landing == true {
 			}
 	}
 }
+
+/*
+if keyboard_check_pressed(ord("L")) {
+	if global.victory = false {
+		global.victory = true;
+		ui_anim = true;
+		y_target = -(ui_height*ui_ratio);
+	}
+}
+*/
 

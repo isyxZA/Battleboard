@@ -1,12 +1,12 @@
 with shoot_mask { instance_destroy(); }
 mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
-if my_tile != noone { my_tile.enemy_occupied = false; }
+if my_tile != noone { my_tile.occupied = false; }
 if nav_confirmed == true || action_confirmed == true { global.enemyunits_running -= 1; }
 audio_emitter_free(emit);
 ds_list_destroy(target_list);
 ds_list_delete(global.unit_list, ds_list_find_index(global.unit_list, id));//Remove self from unit list
 ds_list_delete(global.enemyunit_list, ds_list_find_index(global.enemyunit_list, id));//Remove self from unit list
-
+if unit_health <= 0 { obj_CONTROL.destroyed_infantry += 1; }
 switch my_squad {
     case "E_1":
 	case "ALPHA":

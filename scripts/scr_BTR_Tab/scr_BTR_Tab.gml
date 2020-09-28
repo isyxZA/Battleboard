@@ -271,7 +271,7 @@ function scr_BTR_Tab(argument0, argument1, argument2) {
 	                queue_reset = true;
 	            }
 	                else if f2 { 
-	                    //FIRE ARMOUR PIERCING ROUND
+	                    //FIRE ARMOR PIERCING ROUND
 	                    //Remove ammo cost
 	                    if global.ap_amount != 0 {
 	                        var t=0;

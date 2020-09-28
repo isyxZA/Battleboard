@@ -1,5 +1,5 @@
 if global.victory == false && global.defeat == false {
-    if room == rm_TEST || room == rm_Forest || room == rm_Options || room == rm_Pause {
+    if room == rm_ALPHA || room == rm_BRAVO || room == rm_Options || room == rm_Pause {
         if game_start == true {
             game_start = false;
             audio_play_sound(s, 0, false);

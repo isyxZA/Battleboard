@@ -11,6 +11,7 @@ damage_2 = 75;
 damage_3 = 100;
 play_effect = true;
 fow1_scale = 0.5;
+crater_index = spr_Crater;
 if PLAYER.player == "ONE" { p_one = true; rot = 0; }
 	else { p_one = false; rot = 180; }
 emit = audio_emitter_create();

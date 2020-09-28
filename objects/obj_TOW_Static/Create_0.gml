@@ -18,6 +18,7 @@ if PLAYER.player == "ONE" {
 		fmin = 181;
 		fmax = 359;
 	}
+crater_index = spr_Static_Crater;
 my_inf = obj_Soldier_Unit.my_sprite;
 my_sprite = spr_TOW_00;
 var t = instance_place(x, y, obj_Game_Tile);

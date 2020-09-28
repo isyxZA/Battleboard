@@ -32,7 +32,7 @@ if explode == true {
             }
         }
     }
-    if light_size < 3 { light_size = lerp(light_size, 3, 0.05); }
+    if light_size < 1 { light_size = lerp(light_size, 1, 0.05); }
     if can_damage == true { 
         can_damage = false; 
         var h = instance_place(x, y, obj_Houses);
@@ -42,11 +42,11 @@ if explode == true {
         
         if h!= noone { 
             h.my_health -= damage_1;
-            if h.my_health <= 0 { h.alarm[0] = 60; }
+            //if h.my_health <= 0 { h.alarm[0] = 60; }
         }
             else if t!= noone { 
                 t.my_health -= damage_1;
-                if t.my_health <= 0 { t.alarm[0] = 60; }
+                //if t.my_health <= 0 { t.alarm[0] = 60; }
             }
                 else if u!= noone { 
                     if global.friendly_fire == false { global.friendly_fire = true; }
@@ -177,6 +177,9 @@ if explode == true {
                                 break;
                         }
                     }
+						else {
+							with instance_create_layer(x, y, "GroundFX", obj_Crater) { sprite_index = other.crater_index; }
+						}
     }
 }
 

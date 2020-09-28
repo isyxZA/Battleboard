@@ -95,12 +95,12 @@ switch room {
         draw_set_alpha(0.1);
         draw_roundrect_colour_ext(x-200, y-300, x+200, y-150, 4, 4, c_dkgray, c_dkgray, false);
 		draw_roundrect_colour_ext(x-200, y-50, x+200, y+100, 4, 4, c_dkgray, c_dkgray, false);
-		draw_roundrect_colour_ext(x-200, y+200, x+200, y+350, 4, 4, c_dkgray, c_dkgray, false);
+		draw_roundrect_colour_ext(x-200, y+200, x+200, y+370, 4, 4, c_dkgray, c_dkgray, false);
         draw_set_alpha(1);
         draw_roundrect_colour_ext(x-250, y-400, x+249, y+399, 4, 4, c1, c_dkgray, true);
         draw_roundrect_colour_ext(x-200, y-300, x+200, y-150, 4, 4, c1, c_dkgray, true);
 		draw_roundrect_colour_ext(x-200, y-50, x+200, y+100, 4, 4, c1, c_dkgray, true);
-		draw_roundrect_colour_ext(x-200, y+200, x+200, y+350, 4, 4, c1, c_dkgray, true);
+		draw_roundrect_colour_ext(x-200, y+200, x+200, y+370, 4, 4, c1, c_dkgray, true);
         draw_set_valign(fa_middle);
         draw_set_halign(fa_center);
         draw_set_font(fnt_16);
@@ -111,7 +111,7 @@ switch room {
         draw_sprite_ext(spr_Menu_Button, 0, x, y-50, 1, 1, 0, c_white, 1);
         draw_text_colour_shadow(x, y-50, "Turn Timer", c1, c1, c1, c1, 1, 330, c_black, 0.7);
         draw_sprite_ext(spr_Menu_Button, 0, x, y+200, 1, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x, y+200, "Board Size", c1, c1, c1, c1, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x, y+200, "Scenario", c1, c1, c1, c1, 1, 330, c_black, 0.7);
 		
 		//Unit Setup\\
 		draw_sprite_ext(spr_SetupBG_1, 0, x+380, y-400, 1, 1, 0, c_white, 1);

@@ -1,6 +1,9 @@
 function scr_Command_Menu() {
 	if surface_exists(global.menu_surf) {
 		surface_set_target(global.menu_surf);
+		var cw = gpu_get_colorwriteenable();
+		cw[3] = false;
+		gpu_set_colorwriteenable(cw);
 		draw_set_font(fnt_16);
 		//Draw the unit header
 		draw_sprite(spr_Menu_Header, 0, 0, 0);
@@ -99,6 +102,8 @@ function scr_Command_Menu() {
 		draw_set_halign(fa_center);
 		surface_reset_target();
 		draw_surface_ext(global.menu_surf, global.menu_x, global.menu_y, (1*global.menu_ratio)*menu_scl, (1*global.menu_ratio)*menu_scl, txt_rot, c_white, menu_alpha);
+		cw[3] = true;
+		gpu_set_colorwriteenable(cw);
 	}
 		else {
 			var mlen;

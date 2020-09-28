@@ -229,7 +229,7 @@ if global.new_game == true {
 		
 		//SPAWN AI CONTROLLER if neeeded
 		if PLAYER.net_status == "NONE" { instance_create_layer(3360, 1152, "Units", obj_EnemyControl_B); }
-		instance_create_layer(3360, 5344, "GroundFX", obj_ARROWS);
+		instance_create_layer(3360, 5344, "Paths", obj_ARROWS);
 	}
 		//As PLAYER 2
 		else if p_side == "TWO" {
@@ -459,7 +459,7 @@ if global.new_game == true {
 			
 			//SPAWN AI CONTROLLER if neeeded
 			if PLAYER.net_status == "NONE" { instance_create_layer(3360, 5568, "Units", obj_EnemyControl_B); }
-			instance_create_layer(3360, 1376, "GroundFX", obj_ARROWS);
+			instance_create_layer(3360, 1376, "Paths", obj_ARROWS);
 		}
     display_txt = "";
     //Time allowed for landingcraft animation

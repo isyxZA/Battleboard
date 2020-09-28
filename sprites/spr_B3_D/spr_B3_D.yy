@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a2663f93-354d-4fb6-8f3e-32fa3a1905fc","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Desert Maps",
-    "path": "folders/Sprites/WorldTiles/Desert Maps.yy",
+    "name": "Alpha",
+    "path": "folders/Sprites/WorldTiles/Desert Maps/Alpha.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_B3_D",

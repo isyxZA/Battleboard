@@ -1,0 +1,1 @@
+global.objective_3 = id;

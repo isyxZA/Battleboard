@@ -65,6 +65,7 @@ cam_h = target_width/view_ratio;
 x = start_view_x + (camera_get_view_width(my_camera) *0.5);
 y = start_view_y + (camera_get_view_height(my_camera)*0.5);
 moving = false;
-audio_listener_orientation(0, 1, 0, 0, 0, 1);
+if PLAYER.player == "ONE" { audio_listener_orientation(0, 1, 0, 0, 0, 1); }
+	else { audio_listener_orientation(0, 1, 0, 0, 0, -1); }
 
 

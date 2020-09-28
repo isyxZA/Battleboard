@@ -14,7 +14,7 @@ if PLAYER.player == "ONE" {
 		rot_adj = 270; 
 		txt_rot = 180;
 	}
-
+crater_index = spr_Static_Crater;
 my_inf = obj_Soldier_Unit.my_sprite;
 my_sprite = spr_Depot_00;
 var t = instance_place(x, y, obj_Game_Tile);

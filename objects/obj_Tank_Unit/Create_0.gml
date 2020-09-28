@@ -14,11 +14,13 @@ if p_side == "ONE" {
 			my_sprite = spr_Tank_A1; 
 			my_turret = spr_Tank_A1_Turret;
 			my_icon   = spr_Tank_A1_Icon;
+			crater_index = spr_Tank_Crater_US;
 			break;
 		case "RU":
 			my_sprite = spr_Tank_B1; 
 			my_turret = spr_Tank_B1_Turret;
 			my_icon   = spr_Tank_B1_Icon;
+			crater_index = spr_Tank_Crater_RU;
 			break;
 	}
 }
@@ -31,11 +33,13 @@ if p_side == "ONE" {
 				my_sprite = spr_Tank_A2; 
 				my_turret = spr_Tank_A2_Turret;
 				my_icon   = spr_Tank_A2_Icon;
+				crater_index = spr_Tank_Crater_US;
 				break;
 			case "RU":
 				my_sprite = spr_Tank_B2; 
 				my_turret = spr_Tank_B2_Turret;
 				my_icon   = spr_Tank_B2_Icon;
+				crater_index = spr_Tank_Crater_RU;
 				break;
 		}
 	}

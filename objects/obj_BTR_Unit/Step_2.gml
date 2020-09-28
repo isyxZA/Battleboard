@@ -54,7 +54,7 @@ if nav_confirmed == true {
             manned_unit = noone;
         }
         //Add alert to gui
-        ds_list_add(global.action_alert_list, "BTR Moving");
+        ds_list_add(global.action_alert_list, "LAV Moving");
     }
     audio_emitter_position(emit, x, y, 0);
     if line_alpha >= 0.95 { fade_switch = true; }
@@ -84,7 +84,7 @@ if nav_confirmed == true {
         var i;
         for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
             var z = ds_list_find_value(global.action_alert_list, i);
-            if z == "BTR Moving" { 
+            if z == "LAV Moving" { 
                 ds_list_delete(global.action_alert_list, i); 
                 break;
             }
@@ -128,7 +128,7 @@ if action_confirmed == true {
     if shoot_ap == true {
         if !shoot_mask.t_line {
             //Add alert to gui
-            ds_list_add(global.action_alert_list, "BTR Firing AP"); 
+            ds_list_add(global.action_alert_list, "LAV Firing AP"); 
             shoot_ap = false;
             timer_target = 3;
             timer_count = timer_target;
@@ -180,7 +180,7 @@ if action_confirmed == true {
         else if shoot_he == true {
             if !shoot_mask.t_line {
                 //Add alert to gui
-                ds_list_add(global.action_alert_list, "BTR Firing HE");
+                ds_list_add(global.action_alert_list, "LAV Firing HE");
                 shoot_he = false;
                 timer_target = 3;
                 timer_count = timer_target;

@@ -129,7 +129,7 @@ if action_confirmed == true {
         ds_list_add(global.action_alert_list, "Building Depot"); 
         shoot_depot = false;
         shoot_amount -= 1;
-        timer_target = 10;
+        timer_target = 3;
         timer_count = timer_target;
         timer_start = true;
         instance_create_layer(target_x, target_y, "Units", obj_Depot_Static);
@@ -139,7 +139,7 @@ if action_confirmed == true {
             ds_list_add(global.action_alert_list, "Building Repair OP");
             shoot_repair = false;
             shoot_amount -= 1;
-            timer_target = 10;
+            timer_target = 3;
             timer_count = timer_target;
             timer_start = true;
             instance_create_layer(target_x, target_y, "Units", obj_Repair_Static);
@@ -149,7 +149,7 @@ if action_confirmed == true {
                 ds_list_add(global.action_alert_list, "Building TOW");
                 shoot_tow = false;
                 shoot_amount -= 1;
-                timer_target = 10;
+                timer_target = 3;
                 timer_count = timer_target;
                 timer_start = true;
                 instance_create_layer(target_x, target_y, "Units", obj_TOW_Static);
@@ -159,7 +159,7 @@ if action_confirmed == true {
                     ds_list_add(global.action_alert_list, "Building Mortar");
                     shoot_mortar = false;
                     shoot_amount -= 1;
-                    timer_target = 10;
+                    timer_target = 3;
                     timer_count = timer_target;
                     timer_start = true;
                     instance_create_layer(target_x, target_y, "Units", obj_Mortar_Static);

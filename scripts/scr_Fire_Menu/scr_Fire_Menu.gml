@@ -38,7 +38,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 		    gpu_set_blendmode(bm_normal);
 		}
 		//Draw the header text
-		draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), utyp, c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+		if utyp == "BTR" { draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "LAV", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2); }
+			else { draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), utyp, c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2); }
 		//Draw the unit firing menu
 		var m;
 		for (m=0; m<mlen; m+=1) {

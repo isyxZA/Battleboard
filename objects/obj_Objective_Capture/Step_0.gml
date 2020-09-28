@@ -46,7 +46,8 @@ if can_count == true {
 				capture_pos -= 1;
 				if capture_pos <= -10 { capture_pos = -10; objective_cap -= 1; }
 			}
-		flag_x = x+(capture_pos*(x_ref*0.1));
+		if p_one == true { flag_x = x+(capture_pos*(x_ref*0.1)); }
+			else { flag_x = x-(capture_pos*(x_ref*0.1)); }
     }
 }
 

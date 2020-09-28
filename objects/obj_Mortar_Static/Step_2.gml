@@ -146,7 +146,7 @@ if keyboard_check_released(ord("F")) {
             var ddd = point_distance(x, y, z.tile_x, z.tile_y);
 			
             //If within FOV limits
-            if (fov <= 135) && (fov >= 45) { 
+            if (fov <= fmax) && (fov >= fmin)  { 
                 if ddd <= action_range {
                     z.unit_count -= 1;
                     z.alarm[1] = 1;
@@ -168,7 +168,7 @@ if highlight_shoot == true {
             var fov = point_direction(x, y, z.tile_x, z.tile_y);
             var ddd = point_distance(x, y, z.tile_x, z.tile_y);
             //If within FOV limits
-            if (fov <= 135) && (fov >= 45) { 
+            if (fov <= fmax) && (fov >= fmin)  { 
                 if ddd <= action_range {
                     z.unit_count -= 1;
                     z.alarm[1] = 1;
@@ -218,6 +218,3 @@ if highlight_move == true {
         }
     }
 }
-
-/* */
-/*  */

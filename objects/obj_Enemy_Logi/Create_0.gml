@@ -12,10 +12,12 @@ if p_side == "ONE" {
 		case "US":
 			my_sprite = spr_Logi_A2;
 			spot_mask = spr_Logi_A2_Mask;
+			crater_index = spr_Logi_Crater_US;
 			break;
 		case "RU":
 			my_sprite = spr_Logi_B2;
 			spot_mask = spr_Logi_B2_Mask;
+			crater_index = spr_Logi_Crater_RU;
 			break;
 	}
 }
@@ -27,10 +29,12 @@ if p_side == "ONE" {
 			case "US":
 				my_sprite = spr_Logi_A1;
 				spot_mask = spr_Logi_A1_Mask;
+				crater_index = spr_Logi_Crater_US;
 				break;
 			case "RU":
 				my_sprite = spr_Logi_B1;
 				spot_mask = spr_Logi_B1_Mask;
+				crater_index = spr_Logi_Crater_RU;
 				break;
 		}
 	}

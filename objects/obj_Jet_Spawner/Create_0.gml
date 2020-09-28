@@ -20,12 +20,10 @@ if p_side == "ONE" {
 	switch p_faction {
 		case "US":
 			my_sprite  = spr_F18;
-			my_shadow  = spr_F18_Shadow;
 			my_exhaust = spr_F18_Exhaust;
 			break;
 		case "RU":
 			my_sprite  = spr_MiG29;
-			my_shadow  = spr_MiG29_Shadow;
 			my_exhaust = spr_MiG29_Exhaust;
 			break;
 	}
@@ -36,12 +34,10 @@ if p_side == "ONE" {
 		switch p_faction {
 			case "US":
 				my_sprite  = spr_F18;
-				my_shadow  = spr_F18_Shadow;
 				my_exhaust = spr_F18_Exhaust;
 				break;
 			case "RU":
 				my_sprite  = spr_MiG29;
-				my_shadow  = spr_MiG29_Shadow;
 				my_exhaust = spr_MiG29_Exhaust;
 				break;
 		}

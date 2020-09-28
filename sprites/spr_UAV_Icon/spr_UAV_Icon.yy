@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 47,
+  "bbox_right": 50,
   "bbox_top": 0,
-  "bbox_bottom": 47,
+  "bbox_bottom": 50,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 48,
-  "height": 48,
+  "width": 51,
+  "height": 51,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"43e9e526-9cb4-4b8c-9a4a-cedb41a97c00","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"43e9e526-9cb4-4b8c-9a4a-cedb41a97c00","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"LayerId":{"name":"13b18ad0-4059-46cb-a1f5-8f5e5413d67e","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_UAV_Icon","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"resourceVersion":"1.0","name":"43e9e526-9cb4-4b8c-9a4a-cedb41a97c00","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"06894466-cf4c-4753-97dd-ebb69c512e52","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"06894466-cf4c-4753-97dd-ebb69c512e52","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"LayerId":{"name":"76a25810-6dbb-4ad0-b280-fc082129364d","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_UAV_Icon","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"resourceVersion":"1.0","name":"06894466-cf4c-4753-97dd-ebb69c512e52","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_UAV_Icon","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},
@@ -41,10 +41,10 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c0b6acd6-f1ee-4741-90c0-ea12e3982aae","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"43e9e526-9cb4-4b8c-9a4a-cedb41a97c00","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3fa74b49-afec-454f-b1c0-b6db0c0ec2bb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"06894466-cf4c-4753-97dd-ebb69c512e52","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -54,8 +54,8 @@
     "backdropHeight": 1080,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 24,
-    "yorigin": 24,
+    "xorigin": 25,
+    "yorigin": 25,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_UAV_Icon","path":"sprites/spr_UAV_Icon/spr_UAV_Icon.yy",},
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"13b18ad0-4059-46cb-a1f5-8f5e5413d67e","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"76a25810-6dbb-4ad0-b280-fc082129364d","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Cards",

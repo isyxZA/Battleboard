@@ -4,6 +4,7 @@ if global.game_state == "IN_GAME" && game_over == false {
         //Top UI\\
         if surface_exists(ui_topsurf) {
             surface_set_target(ui_topsurf);
+			
             draw_clear_alpha(c_black, 1);
 			draw_sprite_ext(spr_UI_Bg1, 0, 0, 0, 1, 1, 0, c_white, 1);
             //Top labels
@@ -58,14 +59,20 @@ if global.game_state == "IN_GAME" && game_over == false {
                 draw_text_colour(ui_rx, ty_0+12, string(t), c_silver, c_silver, c_silver, c_silver, 1); 
             }
                 else { 
-                    if draw_endturn == false {
-                        draw_set_font(fnt_48);
-                        draw_text_colour(ui_rx, ty_0+8, ">", make_colour_rgb(169,169,169), c_orange, c_black, c_orange, 1);
-                    }  
-                        else {
-                            draw_set_font(fnt_64);
-                            draw_text_colour(ui_rx, ty_0+8, ">", make_colour_rgb(169,169,169), c_orange, c_black, c_orange, 1);
-                        }
+					if global.my_turn == true {
+	                    if draw_endturn == false {
+	                        draw_set_font(fnt_48);
+	                        draw_text_colour(ui_rx, ty_0+8, ">", make_colour_rgb(169,169,169), c_orange, c_black, c_orange, 1);
+	                    }  
+	                        else {
+	                            draw_set_font(fnt_64);
+	                            draw_text_colour(ui_rx, ty_0+8, ">", make_colour_rgb(169,169,169), c_orange, c_black, c_orange, 1);
+	                        }
+					}
+						else { 
+							draw_set_font(fnt_30);
+							draw_text_colour(ui_rx, ty_0+8, "--", c_silver, c_silver, c_silver, c_silver, 1); 
+						}
                 }
             //Cost Alerts
             draw_set_font(fnt_30);
@@ -275,7 +282,7 @@ if global.game_state == "IN_GAME" && game_over == false {
 							if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
 									draw_set_font(fnt_14);
-									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Armour Units", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
+									draw_text_colour_shadow(ui_midx, ty_2, "Reinforcing Armor Units", c_gray, c_gray, c_gray, c_gray, 2, 0, c_black, 0.8);
                                 } 
                             }
                             break;

@@ -13,6 +13,7 @@ if is_manning == false { mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x
 			else  { mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40); }
 	}
 audio_emitter_free(emit);
+if unit_health <= 0 { obj_CONTROL.lost_infantry += 1; }
 switch my_squad {
     case "ALPHA":
         ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));

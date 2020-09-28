@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 54,
+  "bbox_right": 51,
   "bbox_top": 0,
-  "bbox_bottom": 54,
+  "bbox_bottom": 51,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 55,
-  "height": 55,
+  "width": 52,
+  "height": 52,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"aecd4cff-972f-4024-b1da-3e25d52cecb7","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"aecd4cff-972f-4024-b1da-3e25d52cecb7","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"LayerId":{"name":"e3bdafef-eb0d-4c62-9189-448458129876","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_Missile_Button","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"resourceVersion":"1.0","name":"aecd4cff-972f-4024-b1da-3e25d52cecb7","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"1d7227fd-9634-4d17-9d1f-019536303f9f","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"1d7227fd-9634-4d17-9d1f-019536303f9f","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"LayerId":{"name":"ef3284e2-3879-4ff3-aa56-fc5bb77af010","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_Missile_Button","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"resourceVersion":"1.0","name":"1d7227fd-9634-4d17-9d1f-019536303f9f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_Missile_Button","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},
@@ -41,10 +41,10 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"fe6d5c1d-d910-4921-92c5-cf86b8312211","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"aecd4cff-972f-4024-b1da-3e25d52cecb7","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"dba6b825-9a50-4049-8964-83eb247b40d3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1d7227fd-9634-4d17-9d1f-019536303f9f","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -54,8 +54,8 @@
     "backdropHeight": 1080,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 27,
-    "yorigin": 27,
+    "xorigin": 26,
+    "yorigin": 26,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_Missile_Button","path":"sprites/spr_Missile_Button/spr_Missile_Button.yy",},
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e3bdafef-eb0d-4c62-9189-448458129876","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ef3284e2-3879-4ff3-aa56-fc5bb77af010","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Cards",

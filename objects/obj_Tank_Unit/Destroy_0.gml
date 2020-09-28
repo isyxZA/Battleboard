@@ -3,6 +3,7 @@ with obj_Enemy_Parent {
     no_shot = false;
     scr_VisibilityCheck();
 }
+obj_CONTROL.lost_tank += 1;
 with shoot_mask { instance_destroy(); }
 mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 audio_emitter_free(emit);
@@ -29,4 +30,12 @@ ds_list_delete(global.unit_list, ds_list_find_index(global.unit_list, id));//Rem
 ds_list_delete(global.myunit_list, ds_list_find_index(global.myunit_list, id));//Remove self from unit list
 ds_list_delete(global.tank_list, ds_list_find_index(global.tank_list, id));
 path_delete(my_path);
+with obj_Destroy_PFX {
+	explode_tank = true;
+	xp = other.x;
+	yp = other.y;
+	audio_emitter_position(emit, other.x, other.y, 0);
+	audio_play_sound_on(emit, snd_Tank_Explode, false, 1);
+}
+with instance_create_layer(x, y, "GroundFX", obj_Crater) { sprite_index = other.crater_index; }
 

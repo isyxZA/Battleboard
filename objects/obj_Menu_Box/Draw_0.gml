@@ -23,7 +23,7 @@ switch txt {
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Toggle fullscreen."));
+        draw_text(x+32,y, string_hash_to_newline("Toggle fullscreen. (Single Player Only)"));
         draw_set_halign(fa_center);
         break;
 	case "G":
@@ -33,7 +33,7 @@ switch txt {
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Toggle Grid display."));
+        draw_text(x+32,y, string_hash_to_newline("Toggle grid display."));
         draw_set_halign(fa_center);
         break;
     case "H":
@@ -43,7 +43,7 @@ switch txt {
         draw_set_font(fnt_12);
         draw_set_colour(c_white);
         draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Toggle hint pop-ups."));
+        draw_text(x+32,y, string_hash_to_newline("Toggle hints."));
         draw_set_halign(fa_center);
         break;
     case "T":
@@ -163,25 +163,26 @@ switch txt {
         draw_text(x,y+30, string_hash_to_newline("Zoom camera in/out."));
         draw_text(x,y+50, string_hash_to_newline("Increase/decrease action amount."));
         break;
-    case "Ctrl + 1-5":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.75, 0.5, 0, c_white, 1);
-        draw_set_font(fnt_14);
-        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_center);
-        draw_text(x,y+30, string_hash_to_newline("Create squad from selected units."));
+    case "Spacebar":
+        draw_sprite_ext(spr_Menu_Button, 0, x+40, y, 0.8, 0.7, 0, c_white, 1);
         draw_set_font(fnt_12);
-        break;
-    case "Ctrl + Shift + 1-5":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.75, 0.5, 0, c_white, 1);
-        draw_set_font(fnt_14);
-        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
+        draw_text_colour_shadow(x+40,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
         draw_set_colour(c_white);
-        draw_set_halign(fa_center);
-        draw_text(x,y+30, string_hash_to_newline("Add selected units to a squad"));
-        draw_set_font(fnt_12);
+        draw_set_halign(fa_left);
+        draw_text(x+120,y, string_hash_to_newline("End the turn."));
+		draw_set_halign(fa_center);
         break;
-    case "X":
+    case "O":
+        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
+        draw_set_font(fnt_20);
+        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
+        draw_set_font(fnt_12);
+        draw_set_colour(c_white);
+        draw_set_halign(fa_left);
+        draw_text(x+32,y, string_hash_to_newline("Highlight objective area."));
+        draw_set_halign(fa_center);
+        break;
+	case "X":
         draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
         draw_set_font(fnt_20);
         draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);

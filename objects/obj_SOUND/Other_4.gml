@@ -6,8 +6,8 @@ switch room {
             alarm[1] = 110;
         }
         break;
-    case rm_TEST:
-	case rm_Forest:
+    case rm_ALPHA:
+	case rm_BRAVO:
         if game_start == true {
             audio_play_sound(choose(snd_scape06, snd_scape07, snd_scape10), 10, false);
             s = snd_Drumbeat_Short_01;

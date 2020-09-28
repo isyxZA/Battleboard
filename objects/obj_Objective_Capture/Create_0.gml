@@ -13,3 +13,6 @@ pone_units = 0;
 ptwo_units = 0;
 
 can_count = false;
+
+if PLAYER.player == "ONE" { p_one = true; }
+	else { p_one = false; }

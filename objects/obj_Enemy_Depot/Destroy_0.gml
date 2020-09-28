@@ -1,11 +1,11 @@
 with shoot_mask { instance_destroy(); }
-if my_tile != noone { my_tile.enemy_occupied = false; }
+if my_tile != noone { my_tile.occupied = false; }
 if action_confirmed == true { global.enemyunits_running -= 1; }
 audio_emitter_free(emit);
 ds_list_destroy(target_list);
 ds_list_delete(global.unit_list, ds_list_find_index(global.unit_list, id));//Remove self from unit list
 ds_list_delete(global.enemyunit_list, ds_list_find_index(global.enemyunit_list, id));//Remove self from unit list
-
+obj_CONTROL.destroyed_depot += 1;
 switch my_squad {
     case "E_1":
 	case "ALPHA":
@@ -30,4 +30,11 @@ switch my_squad {
 }
 
 path_delete(my_path);
-
+with obj_Destroy_PFX {
+	explode_static = true;
+	xp = other.x;
+	yp = other.y;
+	audio_emitter_position(emit, other.x, other.y, 0);
+	audio_play_sound_on(emit, snd_Tank_Explode, false, 1);
+}
+with instance_create_layer(x, y, "GroundFX", obj_Crater) { sprite_index = other.crater_index; }

@@ -14,7 +14,7 @@ if PLAYER.player == "ONE" {
 	}
 
 my_inf = obj_Enemy_Infantry.my_sprite;
-
+crater_index = spr_Static_Crater;
 var t = instance_place(x, y, obj_Game_Tile);
 my_tile = t.id;
 t.occupied = true; 
