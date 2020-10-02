@@ -38,12 +38,14 @@ if can_count == true {
 		ptwo_units = u2;
 		if pone_units>ptwo_units { 
 			//If player one controls the objective
-			capture_pos += 1;
+			if capture_pos == 9 { if u2 == 0 { capture_pos += 1; } }
+				else { capture_pos += 1; }
 			if capture_pos >= 10 { capture_pos = 10; objective_cap += 1; }
 		}
 			else if ptwo_units>pone_units { 
 				//If player two controls the area
-				capture_pos -= 1;
+				if capture_pos == -9 { if u1 == 0 { capture_pos -= 1; } }
+					else { capture_pos -= 1; }
 				if capture_pos <= -10 { capture_pos = -10; objective_cap -= 1; }
 			}
 		if p_one == true { flag_x = x+(capture_pos*(x_ref*0.1)); }

@@ -1,5 +1,5 @@
 if keyboard_check_pressed(ord("O")) {
-	if global.highlight_objective == false {
+	if highlight_obj == false {
 		var vis_count = 0;
 		//Check the unit positions
 		if !ds_list_empty(global.myunit_list) {
@@ -12,6 +12,7 @@ if keyboard_check_pressed(ord("O")) {
 		    }
 		}
 		if vis_count > 0 {
+			highlight_obj = true;
 			global.highlight_objective = true;
 			//Check which game tiles are in range
 		    if !ds_list_empty(global.tile_list){
@@ -29,7 +30,8 @@ if keyboard_check_pressed(ord("O")) {
 }
 
 if keyboard_check_released(ord("O")) {
-	if global.highlight_objective == true {
+	if highlight_obj == true {
+		highlight_obj = false;
 		global.highlight_objective = false;
 		//Remove game tile visibility
 	    if !ds_list_empty(global.tile_list) {
