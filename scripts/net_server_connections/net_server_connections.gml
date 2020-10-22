@@ -29,6 +29,8 @@ function net_server_connections() {
 			var socketPos = ds_list_find_index(global.clients,socket);
 			//Deletes the socket for the connected list.
 			ds_list_delete(global.clients,socketPos);
+			//Action to take when client has disconnected
+			
 		#endregion
 		break;
 	

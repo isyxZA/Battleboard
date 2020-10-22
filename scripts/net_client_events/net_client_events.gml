@@ -24,7 +24,7 @@ function net_client_events() {
 			obj_MENUBUTTON.alarm[3] = 80;
 			break;
 		case NET_PING: //Ping from host
-			//Reads the time sent from the client.
+			//Reads the time sent back from the host.
 			var stime = buffer_read(data,buffer_u32);
 			ping = current_time-stime;
 			break;

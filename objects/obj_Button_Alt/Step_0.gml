@@ -46,6 +46,14 @@ if global.game_state == "IN_MENU" {
 						}
                         break;
 					case "Back":
+						if room == rm_Setup {
+							if PLAYER.net_status == "CLIENT" {
+								with obj_CLIENT { instance_destroy(); }
+							}
+								else if PLAYER.net_status == "SERVER" {
+									with obj_SERVER { instance_destroy(); }
+								}
+						}
 						game_restart();
 						break;
                 }

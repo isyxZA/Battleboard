@@ -6,13 +6,13 @@
 //Create server
 //global.server    = network_create_server(network_socket_tcp,global.server_port,2);
 //Create list of connected clients
-global.clients   = ds_list_create();
+global.clients  = ds_list_create();
 //Create server buffer
-global.sbuffer   = buffer_create(1024,buffer_grow,1);
+global.sbuffer  = buffer_create(1024,buffer_grow,1);
 
 //When using LAN this will broadcast the game for others on the network to find and join
 if global.net_type == "LAN" {
-	broadcast_buffer = buffer_create(32, buffer_fixed, 1);
+	broadcast_buffer = buffer_create(64, buffer_fixed, 1);
 	alarm[0] = 60;
 }
 

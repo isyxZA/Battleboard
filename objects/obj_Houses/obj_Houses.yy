@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_Octagon_96x96",
-    "path": "sprites/spr_Octagon_96x96/spr_Octagon_96x96.yy",
+    "name": "spr_Square_96x96",
+    "path": "sprites/spr_Square_96x96/spr_Square_96x96.yy",
   },
   "solid": false,
   "visible": true,
@@ -25,7 +25,6 @@
     {"isDnD":false,"eventNum":2,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_Houses","path":"objects/obj_Houses/obj_Houses.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":1,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_Houses","path":"objects/obj_Houses/obj_Houses.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_Houses","path":"objects/obj_Houses/obj_Houses.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":3,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_Houses","path":"objects/obj_Houses/obj_Houses.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

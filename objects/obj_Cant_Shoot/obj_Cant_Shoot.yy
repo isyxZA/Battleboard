@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_Octagon_96x96",
-    "path": "sprites/spr_Octagon_96x96/spr_Octagon_96x96.yy",
+    "name": "spr_Cant_Shoot",
+    "path": "sprites/spr_Cant_Shoot/spr_Cant_Shoot.yy",
   },
   "solid": false,
   "visible": false,

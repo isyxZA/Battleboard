@@ -305,23 +305,26 @@ function scr_InitGlobals() {
 	global.locked       = false;
 	global.broadcast_server = -1;
 	global.net_type     = "";
+	
+	global.clientSocket = 0;
+	global.clientConnected = -1 ;
 
 	//DefineMacros
-#macro NET_PING 1
-#macro NET_GREENLIGHT 2
-#macro NET_FACTION 3
-#macro NET_POSITION 4
-#macro NET_MOVE 5
-#macro NET_SHOOT 6
-#macro NET_SPAWN 7
-#macro NET_COMMANDCARD 8
-#macro NET_TLUPDATE 9
-#macro NET_ENDTURN 10
-#macro NET_CONNECT 11
-#macro NET_TIMER 12
-#macro NET_STARTGAME 13
-#macro NET_CANCELSHOOT 14
-#macro NET_ENDRUN 15
+	#macro NET_PING 1
+	#macro NET_GREENLIGHT 2
+	#macro NET_FACTION 3
+	#macro NET_POSITION 4
+	#macro NET_MOVE 5
+	#macro NET_SHOOT 6
+	#macro NET_SPAWN 7
+	#macro NET_COMMANDCARD 8
+	#macro NET_TLUPDATE 9
+	#macro NET_ENDTURN 10
+	#macro NET_CONNECT 11
+	#macro NET_TIMER 12
+	#macro NET_STARTGAME 13
+	#macro NET_CANCELSHOOT 14
+	#macro NET_ENDRUN 15
 
 
 

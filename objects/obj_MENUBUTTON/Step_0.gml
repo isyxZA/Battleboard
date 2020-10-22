@@ -1,13 +1,13 @@
 if global.can_choose == true {
     if place_meeting(x, y, obj_MOUSE) {
 		if can_play == true { can_play = false; }
-		if txt == "Host Game" || txt == "Join Game" { c1 = c_red; }
-			else { c1 = make_colour_rgb(240,248,255); }
-		//c1 = make_colour_rgb(240,248,255);
+		//if txt == "Host Game" || txt == "Join Game" { c1 = c_red; }
+			//else { c1 = make_colour_rgb(240,248,255); }
+		c1 = make_colour_rgb(240,248,255);
 		highlight = true;
         if mouse_check_button_pressed(mb_left) {
             switch txt {
-                case "Campaign"://Single player..goes to room setup
+                case "Campaign"://From Main Menu, Single player..goes to room Setup
 					PLAYER.net_status = "NONE";
 					PLAYER.player = "ONE";
 					PLAYER.faction = "US";
@@ -19,8 +19,7 @@ if global.can_choose == true {
 					start_game = true;
                     alarm[0] = 60;
                     break;
-				case "Host Game"://Multiplayer...goes to room host
-					/*
+				case "Host Game"://From Main Menu, Multiplayer...goes to room Host
 					PLAYER.net_status = "HOST";
                     PLAYER.player = "ONE";
 					PLAYER.faction = "US";
@@ -31,11 +30,10 @@ if global.can_choose == true {
                     obj_SOUND.fade_in = false;
 					start_game = true;
                     alarm[6] = 60;
-					*/
                     break;
-				case "Create Game"://From room host...go to setup
+				case "Create Game"://From room Host...go to Setup
 					//Create server
-					if global.server_IP != "" && global.server_name != "" && global.server < 0 {
+					if (global.server_IP != "") && (global.server_name != "") && (global.server < 0) {
 						global.server = network_create_server(network_socket_tcp,global.server_port,2);
 					}
 					if global.server >= 0 {
@@ -51,8 +49,7 @@ if global.can_choose == true {
 	                    alarm[0] = 60;
 					}
                     break;
-				case "Join Game"://Multiplayer...go to room join
-					/*
+				case "Join Game"://From Main Menu, Multiplayer...go to room Join
 					PLAYER.net_status = "CLIENT";
                     global.transition = true;
                     global.can_choose = false;
@@ -61,20 +58,28 @@ if global.can_choose == true {
                     obj_SOUND.fade_in = false;
 					start_game = true;
                     alarm[5] = 60;
-					*/
                     break;
-				case "Join Server":
-					obj_ServerJoin.can_choose = false;
-					network_destroy(global.broadcast_server);
-					global.broadcast_server = -1;
-					global.transition = true;
-					global.can_choose = false;
-					obj_SOUND.fade_out = true;
-					obj_SOUND.fade_in = false;
-					start_game = true;
-					alarm[0] = 60;
+				case "Join Server"://From room Join...Join a valid server and go to Setup
+					if (global.server_IP != undefined) && (global.server_port != undefined) && (global.server_name != undefined) && (global.server_name != "") {
+						//Sets the types of connection socket.
+						global.clientSocket = network_create_socket(network_socket_tcp);
+						//Checks whether the client is currently connected.
+						global.clientConnected = network_connect(global.clientSocket,global.server_IP,global.server_port);
+					}
+					if global.clientConnected >= 0 {
+						instance_create_layer(0,0,"Control",obj_CLIENT);
+						obj_ServerJoin.can_choose = false;
+						network_destroy(global.broadcast_server);
+						global.broadcast_server = -1;
+						global.transition = true;
+						global.can_choose = false;
+						obj_SOUND.fade_out = true;
+						obj_SOUND.fade_in = false;
+						start_game = true;
+						alarm[0] = 60;
+					}
                     break;
-				case "Refresh"://In room join...refresh server list
+				case "Refresh"://In room Join...refresh server list
 					if instance_exists(obj_ServerJoin) {
 						with obj_ServerJoin {
 							ds_list_clear(server_list);
@@ -86,14 +91,14 @@ if global.can_choose == true {
 						}
 					}
                     break;
-                case "Main Menu"://From pause room...jump back to room TEST to shut off particles etc...then back to main
+                case "Main Menu"://From Pause room...jump back to previous room to shut off particles etc...then back to Main
                     global.transition = true;
                     global.can_choose = false;
 					global.restart_game = true;
 					start_main = true;
                     alarm[1] = 80;
                     break;
-                case "Resume"://From pause room..back to previous room
+                case "Resume"://From Pause room..back to previous room
                     global.can_choose = false;
                     // return to previous room / continue
                     if (global.pause == true) {
@@ -104,7 +109,7 @@ if global.can_choose == true {
                         audio_resume_all();
                     }
                     break;
-                case "Options"://From either main or pause rooms...Go to option room
+                case "Options"://From either Main or Pause rooms...Go to Options room
                     global.transition = true;
                     global.can_choose = false;
                     if room == rm_MainMenu { 
@@ -116,7 +121,7 @@ if global.can_choose == true {
 					start_options = true;
                     alarm[2] = 60;
                     break;
-                case "Ready"://From room setup...ensure all setting are locked in...go to TEST
+                case "Ready"://From room Setup...ensure all setting are locked in...go to scenario room
 					if PLAYER.net_status == "NONE" {
 	                    global.transition = true;
 	                    global.can_choose = false;
@@ -225,19 +230,19 @@ if global.can_choose == true {
     else {
 		//Switch text colour when button is selected
 		if global.transition == true {
-			if txt == "Ready"	    && start_ready   == true	    { c1 = make_color_rgb(255,170,0); }
-			if txt == "Campaign"    && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
-			if txt == "Host Game"   && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
-			if txt == "Join Game"   && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
-			if txt == "Join Server" && start_game    == true		{ c1 = make_color_rgb(255,170,0); }
-			if txt == "Options"     && start_options == true	    { c1 = make_color_rgb(255,170,0); }
-			if txt == "Credits"     && start_credits == true	    { c1 = make_color_rgb(255,170,0); }
-			if txt == "Main Menu"   && start_main    == true		{ c1 = make_color_rgb(255,170,0); }
+			if txt == "Ready"	    && start_ready   == true { c1 = make_color_rgb(255,170,0); }
+			if txt == "Campaign"    && start_game    == true { c1 = make_color_rgb(255,170,0); }
+			if txt == "Host Game"   && start_game    == true { c1 = make_color_rgb(255,170,0); }
+			if txt == "Join Game"   && start_game    == true { c1 = make_color_rgb(255,170,0); }
+			if txt == "Join Server" && start_game    == true { c1 = make_color_rgb(255,170,0); }
+			if txt == "Options"     && start_options == true { c1 = make_color_rgb(255,170,0); }
+			if txt == "Credits"     && start_credits == true { c1 = make_color_rgb(255,170,0); }
+			if txt == "Main Menu"   && start_main    == true { c1 = make_color_rgb(255,170,0); }
 		}
 			else {
 				//Red until all conditions are met
-				if txt == "Ready"         { c1 = make_colour_rgb(153,25,0);  } 
-				if txt == "Create Game"   { c1 = make_colour_rgb(153,25,0);  }
+				if txt == "Ready"         { c1 = make_colour_rgb(153,25,0); } 
+				if txt == "Create Game"   { c1 = make_colour_rgb(153,25,0); }
 				if txt == "Join Server"   { c1 = make_colour_rgb(153,25,0); }
 			}
     }

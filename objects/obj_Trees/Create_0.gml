@@ -6,14 +6,8 @@ alpha_count = 0;
 xscl = 0;
 yscl = 0;
 alpha_duration = 40;
-if room == rm_ALPHA {
-	xscl_start = 0.55;
-	yscl_start = 0.55;
-}
-	else {
-		xscl_start = 0.75;
-		yscl_start = 0.75;
-	}
+xscl_start = 0.75;
+yscl_start = 0.75;
 fade_in = true;
 xscl_change = random_range(0.01, 0.075);
 yscl_change = random_range(0.01, 0.075);

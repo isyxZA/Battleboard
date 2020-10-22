@@ -7,15 +7,15 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 5,
-  "bbox_right": 90,
-  "bbox_top": 3,
-  "bbox_bottom": 93,
+  "bbox_left": 3,
+  "bbox_right": 119,
+  "bbox_top": 7,
+  "bbox_bottom": 210,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 96,
-  "height": 96,
+  "width": 121,
+  "height": 219,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"5e6390b8-a46b-436b-828a-f7f6c20934e5","path":"sprites/spr_House_04/spr_House_04.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"5e6390b8-a46b-436b-828a-f7f6c20934e5","path":"sprites/spr_House_04/spr_House_04.yy",},"LayerId":{"name":"49c4c35e-52d3-4192-9970-a8d1e875267a","path":"sprites/spr_House_04/spr_House_04.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_House_04","path":"sprites/spr_House_04/spr_House_04.yy",},"resourceVersion":"1.0","name":"5e6390b8-a46b-436b-828a-f7f6c20934e5","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"d7a241d2-0fd8-4250-bbed-3c2442c4095f","path":"sprites/spr_House_04/spr_House_04.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"d7a241d2-0fd8-4250-bbed-3c2442c4095f","path":"sprites/spr_House_04/spr_House_04.yy",},"LayerId":{"name":"502b5a45-8f64-45e4-a25e-61df4a6e1854","path":"sprites/spr_House_04/spr_House_04.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_House_04","path":"sprites/spr_House_04/spr_House_04.yy",},"resourceVersion":"1.0","name":"d7a241d2-0fd8-4250-bbed-3c2442c4095f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_House_04","path":"sprites/spr_House_04/spr_House_04.yy",},
@@ -41,10 +41,10 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f6bca14c-bef2-4bd7-a3a7-2db373d331c8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5e6390b8-a46b-436b-828a-f7f6c20934e5","path":"sprites/spr_House_04/spr_House_04.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"46676254-f916-46f5-9b65-097495b88fa4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d7a241d2-0fd8-4250-bbed-3c2442c4095f","path":"sprites/spr_House_04/spr_House_04.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -54,8 +54,8 @@
     "backdropHeight": 1080,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 48,
-    "yorigin": 48,
+    "xorigin": 60,
+    "yorigin": 109,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_House_04","path":"sprites/spr_House_04/spr_House_04.yy",},
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"49c4c35e-52d3-4192-9970-a8d1e875267a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"502b5a45-8f64-45e4-a25e-61df4a6e1854","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Buildings",

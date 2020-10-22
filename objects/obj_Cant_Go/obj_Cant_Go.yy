@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_Sqaure_60x60",
-    "path": "sprites/spr_Sqaure_60x60/spr_Sqaure_60x60.yy",
+    "name": "spr_Square_96x96",
+    "path": "sprites/spr_Square_96x96/spr_Square_96x96.yy",
   },
   "solid": false,
   "visible": false,
@@ -22,6 +22,7 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_Cant_Go","path":"objects/obj_Cant_Go/obj_Cant_Go.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_Cant_Go","path":"objects/obj_Cant_Go/obj_Cant_Go.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

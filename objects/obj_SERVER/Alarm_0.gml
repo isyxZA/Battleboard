@@ -3,7 +3,7 @@
 var cc = ds_list_size(global.clients);
 if cc == 0 {
 	buffer_seek(broadcast_buffer, buffer_seek_start, 0);
-	buffer_write(broadcast_buffer, buffer_string, global.server_port);
+	buffer_write(broadcast_buffer, buffer_u32, global.server_port);
 	buffer_write(broadcast_buffer, buffer_string, global.server_name);
 	network_send_broadcast(global.server, 50001, broadcast_buffer, buffer_tell(broadcast_buffer));
 }

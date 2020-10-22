@@ -7,7 +7,7 @@ if place_meeting(x,y, obj_MOUSE) && obj_MENUBUTTON.start_game == false  {
 				instance_create_layer(0, 0, "Control", obj_Get_LAN_IP); 
 			}
 			if global.broadcast_server < 0 {
-				global.broadcast_server = network_create_server(network_socket_udp, 50001, 2);
+				global.broadcast_server = network_create_server(network_socket_udp, 50002, 2);
 			}
         }
     }

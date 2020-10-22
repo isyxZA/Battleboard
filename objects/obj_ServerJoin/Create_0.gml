@@ -9,7 +9,8 @@ server_list   = ds_list_create();
 server_ports  = ds_list_create();
 server_names  = ds_list_create();
 count = ds_list_size(server_list);
-alarm[0]      = 6000;
+
+alarm[0]      = 600;
 v_sep         = 64;
 can_choose = true;
 picked = -1;
@@ -19,13 +20,3 @@ xx0 = room_width*0.5;
 xx2 = room_width*0.75;
 yy1 = room_height*0.125;
 yy0 = room_height*0.5;
-
-ds_list_add(server_list , "TEST"  );
-ds_list_add(server_ports, 001);
-ds_list_add(server_names, "TEST");
-ds_list_add(server_list , "TEST"  );
-ds_list_add(server_ports, 002);
-ds_list_add(server_names, "TEST");
-ds_list_add(server_list , "TEST"  );
-ds_list_add(server_ports, 003);
-ds_list_add(server_names, "TEST");

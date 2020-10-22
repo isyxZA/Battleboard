@@ -24,8 +24,8 @@ switch room {
 	case rm_Setup:
 		global.game_state = "IN_MENU"; 
 		if net_status == "HOST" { instance_create_layer(0,0,"Control",obj_SERVER); }
-			else if net_status == "CLIENT" { instance_create_layer(0,0,"Control",obj_CLIENT); }
-				else if net_status == "NONE" { }
+			//else if net_status == "CLIENT" { instance_create_layer(0,0,"Control",obj_CLIENT); }
+				//else if net_status == "NONE" { }
 		break;
 	case rm_ALPHA:
 	case rm_BRAVO:
