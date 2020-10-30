@@ -51,14 +51,6 @@ function scr_SaveSettings(){
 		}
 	}
 		else {
-			zx = obj_Zoom_Slider.x;
-			ini_write_real("Camera", "ZoomX", zx);
-			PLAYER.zoom_pos = zx;
-			
-			px = obj_Pan_Slider.x;
-			ini_write_real("Camera", "PanX", px);
-			PLAYER.pan_pos = px;
-			
 			mx = obj_Music_Slider.x;
 			ini_write_real("Sound", "MusicX", mx);
 			PLAYER.music_pos = mx;
@@ -67,6 +59,14 @@ function scr_SaveSettings(){
 			ini_write_real("Sound", "EffectsX", ex);
 			PLAYER.effects_pos = ex;
 			
+			zx = obj_Zoom_Slider.x;
+			ini_write_real("Camera", "ZoomX", zx);
+			PLAYER.zoom_pos = zx;
+			
+			px = obj_Pan_Slider.x;
+			ini_write_real("Camera", "PanX", px);
+			PLAYER.pan_pos = px;
+
 			ux = obj_Scale_Slider.x;
 			ini_write_real("Display", "UIX", ux);
 			PLAYER.scale_pos = ux;

@@ -71,5 +71,3 @@ audio_emitter_falloff(emit, 200, 2000, 2);
 audio_emitter_position(emit, x, y, 0);
 
 alarm[1] = 300;
-
-

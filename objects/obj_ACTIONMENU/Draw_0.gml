@@ -97,7 +97,7 @@ if global.my_turn == true || global.waiting == true {
                                     draw_set_colour(c_white);
                                     draw_set_font(fnt_12);
                                     //Draw the number of moves available to the unit
-                                    var amt = (move_max-move_amount);
+                                    var amt = floor(move_max-move_amount);
 									if p_one == true { draw_text_transformed_shadow(x_end, y_end, string(amt), 0.9, 0.9, txt_rot, 2, 245, c_black, 1); }
 										else { draw_text_transformed_shadow(x_end+2, y_end, string(amt), 0.9, 0.9, txt_rot, 2, 65, c_black, 1); }
                                     draw_set_font(fnt_20);

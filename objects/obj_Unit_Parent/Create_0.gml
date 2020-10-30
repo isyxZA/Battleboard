@@ -107,6 +107,9 @@ fade_switch = false;
 
 fow1_scale = 0.5;
 
-
+//Shader Setup
+bright_x = shader_get_uniform(shd_shadows, "bright_x");
+bright_y = shader_get_uniform(shd_shadows, "bright_y");
+mask = -1;
 
 

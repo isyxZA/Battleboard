@@ -147,7 +147,7 @@ if global.game_turn == 0 {
                                     case "BTR":
 										if my_squad == obj_CONTROL.active_turn {
                                             active = true;
-                                            action_points = start_ap;
+                                            action_points = max(4, round(start_ap*(unit_health/100)));
                                             global.turn_AP += action_points;
                                         }
 											else { action_points = 0; }
@@ -155,7 +155,7 @@ if global.game_turn == 0 {
                                     case "LOGI":
                                         if my_squad == obj_CONTROL.active_turn {
                                             active = true;
-                                            action_points = start_ap;
+                                            action_points = max(4, round(start_ap*(unit_health/100)));
                                             global.turn_AP += action_points;
                                         }
 											else { action_points = 0; }
@@ -164,7 +164,7 @@ if global.game_turn == 0 {
 										if build_pos < 2 { build_pos += 1; }
 		                                if my_squad == obj_CONTROL.active_turn {
 		                                    active = true;
-		                                    action_points = start_ap;
+		                                    action_points = max(4, round(start_ap*(unit_health/100)));
 		                                    global.turn_AP += action_points;
 		                                }
 											else { action_points = 0; }
@@ -175,7 +175,7 @@ if global.game_turn == 0 {
 											else {
 			                                    if my_squad == obj_CONTROL.active_turn {
 			                                        active = true;
-			                                        action_points = start_ap;
+			                                        action_points = max(4, round(start_ap*(unit_health/100)));
 			                                        global.turn_AP += action_points;
 			                                    }
 													else { action_points = 0; }
@@ -187,7 +187,7 @@ if global.game_turn == 0 {
                                         if is_manned == true {
                                             if my_squad == obj_CONTROL.active_turn {
                                                 active = true;
-                                                action_points = start_ap;
+                                                action_points = max(4, round(start_ap*(unit_health/100)));
                                                 global.turn_AP += action_points;
                                             }
 												else { action_points = 0; }
@@ -278,7 +278,7 @@ if global.game_turn == 0 {
 									}
 									no_shot = false;
                                     no_move = false;
-                                    action_points = start_ap;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
@@ -289,7 +289,7 @@ if global.game_turn == 0 {
 									}
 									no_shot = false;
                                     no_move = false;
-                                    action_points = start_ap;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
@@ -302,7 +302,7 @@ if global.game_turn == 0 {
 									}
 									no_shot = false;
                                     no_move = false;
-                                    action_points = start_ap;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
@@ -313,7 +313,7 @@ if global.game_turn == 0 {
 									}
 									no_shot = false;
                                     no_move = false;
-                                    action_points = start_ap;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
@@ -324,7 +324,7 @@ if global.game_turn == 0 {
 									}
                                     no_shot = false;
                                     no_move = false;
-                                    action_points = start_ap;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
@@ -334,7 +334,7 @@ if global.game_turn == 0 {
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if build_pos < 2 { build_pos += 1; }
                                     if is_manned == true {
-                                        action_points = start_ap;
+                                        action_points = max(4, round(start_ap*(unit_health/100)));
                                     }
                                         else if is_manned == false {
                                             action_points = 0;
@@ -350,7 +350,7 @@ if global.game_turn == 0 {
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if build_pos < 2 { build_pos += 1; }
                                     if is_manned == true {
-                                        action_points = start_ap;
+                                        action_points = max(4, round(start_ap*(unit_health/100)));
                                     }
                                         else if is_manned == false {
                                             action_points = 0;
@@ -366,7 +366,7 @@ if global.game_turn == 0 {
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if build_pos < 2 { build_pos += 1; }
                                     if is_manned == true {
-                                        action_points = start_ap;
+                                        action_points = max(4, round(start_ap*(unit_health/100)));
                                     }
                                         else if is_manned == false {
                                             action_points = 0;
@@ -382,7 +382,7 @@ if global.game_turn == 0 {
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if build_pos < 2 { build_pos += 1; }
                                     if is_manned == true {
-                                        action_points = start_ap;
+                                        action_points = max(4, round(start_ap*(unit_health/100)));
                                     }
                                         else if is_manned == false {
                                             action_points = 0;

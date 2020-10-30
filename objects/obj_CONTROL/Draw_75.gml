@@ -44,7 +44,7 @@ if global.game_state == "IN_GAME" {
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Bombing Run:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("'Z' and 'C' to rotate."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 20 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -87,7 +87,7 @@ if global.game_state == "IN_GAME" {
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Spy Drone:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("'Z' and 'C' to rotate."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 20 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -131,7 +131,7 @@ if global.game_state == "IN_GAME" {
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Supply Drop:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("Target depot for resupply."), c_black, c_black, c_black, c_black, 1);
-                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+                        draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 20 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -176,7 +176,7 @@ if global.game_state == "IN_GAME" {
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Armor Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("Reinforces selected squad."), c_black, c_black, c_black, c_black, 1);
-						draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+						draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 20 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -198,7 +198,7 @@ if global.game_state == "IN_GAME" {
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Engineer Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("Reinforces selected squad."), c_black, c_black, c_black, c_black, 1);
-						draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+						draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 20 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }
@@ -220,7 +220,7 @@ if global.game_state == "IN_GAME" {
                         draw_text_colour(gui_mx-140, gui_my-68, string_hash_to_newline("Assault Vehicle Ship:"), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-52, string_hash_to_newline("Drag and drop onto turn list."), c_black, c_black, c_black, c_black, 1);
                         draw_text_colour(gui_mx-140, gui_my-36, string_hash_to_newline("Reinforces selected squad."), c_black, c_black, c_black, c_black, 1);
-						draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 10 CP."), c_black, c_black, c_black, c_black, 1);
+						draw_text_colour(gui_mx-140, gui_my-20, string_hash_to_newline("Cost 20 CP."), c_black, c_black, c_black, c_black, 1);
                         draw_set_font(fnt_16);
                     }
                 }

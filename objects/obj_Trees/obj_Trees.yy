@@ -31,8 +31,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Foliage",
-    "path": "folders/Objects/Game Actors/Tile Objects/Foliage.yy",
+    "name": "Trees",
+    "path": "folders/Objects/Game Actors/Tile Objects/Foliage/Trees.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_Trees",

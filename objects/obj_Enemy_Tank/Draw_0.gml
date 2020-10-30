@@ -16,8 +16,14 @@ if is_visible == true {
 			xx = x;
 			if p_one == true  { yy = y+38; }
 				else if p_one == false { yy = y-38; }
-            draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, my_colour, my_alpha);
-            draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, my_colour, my_alpha);
+			shader_set(shd_shadows);
+			texture_set_stage(mask, sprite_get_texture(my_sprite, 0));
+			shader_set_uniform_f(bright_x, 0.25);
+			shader_set_uniform_f(bright_y, 0.25);
+	        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, my_colour, my_alpha);
+			texture_set_stage(mask, sprite_get_texture(my_turret, 0));
+	        draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, my_colour, my_alpha);
+			shader_reset();	 
         }
 		
 	//draw_set_colour(c_red);

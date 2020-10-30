@@ -305,7 +305,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 						}
                         break;
                     case "ENGINEER":
-                        scr_Engineer_Tab(1, 1, 1, 1, 10);
+                        scr_Engineer_Tab(1, 1, 1, 1, 6);
 						if menu_anim == true {
 							if menu_anim_count < menu_anim_timer { 
 								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);

@@ -116,3 +116,8 @@ p_one = -1;
 
 net_id = -1;
 
+//Shader Setup
+bright_x = shader_get_uniform(shd_shadows, "bright_x");
+bright_y = shader_get_uniform(shd_shadows, "bright_y");
+mask = -1;
+

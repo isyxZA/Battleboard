@@ -23,20 +23,10 @@ for (hh=0; hh<global.grid_size; hh+=1) {
     }
 }
 
-/*
-for (ww=0; ww<global.grid_size; ww+=1) {
-    for (hh=0; hh<global.grid_size; hh+=1) {
-		img+=1;
-		if img>210 { img = 9; t_set += 1; }
-        instance_create_layer(x+(ww*global.cell_size), y+(hh*global.cell_size), global.ground_layer, obj_Game_Tile);
-    }
-}
-*/
+instance_create_layer(0, 0, "Ground"  , obj_Shader_Noise);
+instance_create_layer(0, 0, "GroundFX", obj_Shader_Reset);
 
-//instance_create_layer(0, 0, "Ground"  , obj_Shader_Noise);
-//instance_create_layer(0, 0, "GroundFX", obj_Shader_Reset);
-
-instance_create_layer(0, 0, "Ground"  , obj_Shader_Hue);
+//instance_create_layer(0, 0, "Ground", obj_Shader_Hue);
 
 
 

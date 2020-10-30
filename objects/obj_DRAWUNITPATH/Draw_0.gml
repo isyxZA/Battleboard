@@ -14,7 +14,8 @@ if global.my_turn == true || global.waiting == true {
                                 var y1 = path_get_point_y(my_path, p1-1);
                                 var x2 = path_get_point_x(my_path, p1);
                                 var y2 = path_get_point_y(my_path, p1);
-                                var r = point_direction(x1, y1, x2, y2);
+                                //var r = point_direction(x1, y1, x2, y2);
+								//Draw lines
                                 draw_set_alpha(0.8);
                                 draw_line_width_colour(x1, y1, x2, y2, 3, c_black, c_black);
                                 draw_set_alpha(line_alpha);
@@ -33,7 +34,7 @@ if global.my_turn == true || global.waiting == true {
                                         var y1 = path_get_point_y(my_path, p1-1);
                                         var x2 = path_get_point_x(my_path, p1);
                                         var y2 = path_get_point_y(my_path, p1);
-                                        var r = point_direction(x1, y1, x2, y2);
+                                        //var r = point_direction(x1, y1, x2, y2);
                                         draw_set_alpha(0.8);
                                         draw_line_width_colour(x1, y1, x2, y2, 3, c_black, c_black);
                                         draw_set_alpha(line_alpha);
@@ -63,7 +64,7 @@ if global.my_turn == true || global.waiting == true {
                                         var y1 = path_get_point_y(my_path, p-1);
                                         var x2 = path_get_point_x(my_path, p);
                                         var y2 = path_get_point_y(my_path, p);
-                                        var r = point_direction(x1, y1, x2, y2);
+                                        //var r = point_direction(x1, y1, x2, y2);
                                         draw_set_alpha(0.8);
                                         draw_line_width_colour(x1, y1, x2, y2, 3, c_black, c_black);
                                         draw_set_alpha(line_alpha);
@@ -104,7 +105,7 @@ if global.my_turn == true || global.waiting == true {
                                         var y1 = path_get_point_y(my_path, p-1);
                                         var x2 = path_get_point_x(my_path, p);
                                         var y2 = path_get_point_y(my_path, p);
-                                        var r = point_direction(x1, y1, x2, y2);
+                                        //var r = point_direction(x1, y1, x2, y2);
                                         draw_set_alpha(0.8);
                                         draw_line_width_colour(x1, y1, x2, y2, 3, c_black, c_black);
                                         draw_set_alpha(line_alpha);

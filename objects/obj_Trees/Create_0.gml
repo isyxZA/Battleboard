@@ -35,8 +35,7 @@ rot = random_range(0, 359);
 forest_cover = -1;
 forest_shadow = -1;
 fow1_scale = 0.5;
-sat_uni = shader_get_uniform(shd_saturation, "Position"); 
-sat_level = -0.1;
+
 scr_InView(x, y, obj_CAMERA.my_camera);
 
 

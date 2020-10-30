@@ -55,5 +55,3 @@ yscale = 0.8;
 s = random_range(0.7,1);
 
 alarm[1] = 300;
-
-

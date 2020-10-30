@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 89,
+  "bbox_right": 79,
   "bbox_top": 0,
-  "bbox_bottom": 89,
+  "bbox_bottom": 79,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 90,
-  "height": 90,
+  "width": 80,
+  "height": 80,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"6ab8a6ee-a512-4675-be4d-14f72a1d6328","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"6ab8a6ee-a512-4675-be4d-14f72a1d6328","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"LayerId":{"name":"53ea25ff-94c9-431a-9c86-846c3c31e87a","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_Octagon_Green","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"resourceVersion":"1.0","name":"6ab8a6ee-a512-4675-be4d-14f72a1d6328","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"96a540a3-106a-40f5-ac6c-2600508fce0e","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"96a540a3-106a-40f5-ac6c-2600508fce0e","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"LayerId":{"name":"cdfda6b8-4009-4ce8-8d99-98aaaae11d33","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_Octagon_Green","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"resourceVersion":"1.0","name":"96a540a3-106a-40f5-ac6c-2600508fce0e","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_Octagon_Green","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},
@@ -41,10 +41,10 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"d979c9bb-25a8-4912-82b3-b32820e8444d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6ab8a6ee-a512-4675-be4d-14f72a1d6328","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"feeec762-ac2a-432c-a252-e23575053b1d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"96a540a3-106a-40f5-ac6c-2600508fce0e","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -54,8 +54,8 @@
     "backdropHeight": 1080,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 45,
-    "yorigin": 45,
+    "xorigin": 40,
+    "yorigin": 40,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_Octagon_Green","path":"sprites/spr_Octagon_Green/spr_Octagon_Green.yy",},
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"53ea25ff-94c9-431a-9c86-846c3c31e87a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"cdfda6b8-4009-4ce8-8d99-98aaaae11d33","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Grid",

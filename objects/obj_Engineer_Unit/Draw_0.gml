@@ -6,7 +6,12 @@ draw_set_valign(fa_middle);
 if global.my_turn == true || global.waiting == true {
     if global.game_turn == 0 {
         if global.vis_mask == true { draw_sprite_ext(spr_Octagon_Gray, 0, x, y, 1, 1, 0, c_white, 1); }
+		shader_set(shd_shadows);
+		texture_set_stage(mask, sprite_get_texture(my_sprite, 0));
+		shader_set_uniform_f(bright_x, 0.25);
+		shader_set_uniform_f(bright_y, 0.25);
         draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+		shader_reset();
     }
         else {
             //If not pathing
@@ -19,10 +24,10 @@ if global.my_turn == true || global.waiting == true {
                     draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1); 
                     if global.nav_select == true && anim_select == false  {
                         var na;
-                        if nav_split == true { na = 0.5; } else { na = 0.25; }
+                        if nav_split == true { na = 0.75; } else { na = 0.25; }
                         //Draw icon to show potential waypoint location 
-                        if p_one == true { draw_sprite_ext(my_sprite, 0, x_end-4, y_end+2, 0.8, 0.8, 0, c_black, na); }
-							else { draw_sprite_ext(my_sprite, 0, x_end+4, y_end-2, 0.8, 0.8, 0, c_black, na); }
+                        //if p_one == true { draw_sprite_ext(my_sprite, 0, x_end-4, y_end+2, 0.8, 0.8, 0, c_black, na); }
+							//else { draw_sprite_ext(my_sprite, 0, x_end+4, y_end-2, 0.8, 0.8, 0, c_black, na); }
                         draw_sprite_ext(my_sprite, 0, x_end, y_end, 0.75, 0.75, 0, c_white, na);
                     }
                         //If selected and not selecting a path
@@ -50,7 +55,12 @@ if global.my_turn == true || global.waiting == true {
                                         else { draw_sprite_ext(spr_Octagon_Red, 0, x, y, 1, 1, 0, c_white, 1); }
                                 } 
                             }
-                        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1); 
+                        shader_set(shd_shadows);
+						texture_set_stage(mask, sprite_get_texture(my_sprite, 0));
+						shader_set_uniform_f(bright_x, 0.25);
+						shader_set_uniform_f(bright_y, 0.25);
+				        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+						shader_reset(); 
                     }
             }
                 //If pathing
@@ -71,7 +81,12 @@ if global.my_turn == true || global.waiting == true {
             if taking_damage == false { draw_sprite_ext(spr_Octagon_Gray, 0, x, y, 1, 1, 0, c_white, 1); } 
                 else { draw_sprite_ext(spr_Octagon_Red, 0, x, y, 1, 1, 0, c_white, 1); }
         }
+        shader_set(shd_shadows);
+		texture_set_stage(mask, sprite_get_texture(my_sprite, 0));
+		shader_set_uniform_f(bright_x, 0.25);
+		shader_set_uniform_f(bright_y, 0.25);
         draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+		shader_reset();
     }
     
 scr_DrawSquad(my_squad);

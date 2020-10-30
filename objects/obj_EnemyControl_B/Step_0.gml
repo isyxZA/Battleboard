@@ -163,8 +163,8 @@ switch state {
         //Spawn the initial wave of units
         if can_spawn == true {
             can_spawn = false;
-            //Find a suitable waypoint
-            //Look for viable tiles
+            //Find a clear tile within range to spawn on
+            //Search for viable tiles
             var i;
             if !ds_list_empty(global.tile_list) {
                 for(i=0; i<ds_list_size(global.tile_list); i+=1) {
@@ -351,6 +351,10 @@ switch state {
                                                             var xdir = lengthdir_x(global.cell_size, dir);
                                                             var ydir = lengthdir_y(global.cell_size, dir);
                                                             if unit_type == "E_ENGINEER" { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx, my_unit.tty, obj_Cant_Shoot, false, true); } }
+																//ADD MORTARS HERE...WILL HAVE NO COLLISION LINE
+																//ADD LOGIS HERE...WILL SEARCH FOR UNITS IN ACTION RANGE
+																//ADD DEPOTS HERE...WILL SEARCH FOR UNITS IN ACTION RANGE
+																//ADD REAPAIR STATIONS HERE...WILL CHECK IF OCCUPIED
                                                                 else { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx-xdir, my_unit.tty-ydir, obj_Cant_Shoot, false, true); } }
                                                             //If unit has a clear line of sight
                                                             if !shoot_mask.t_line  {
@@ -372,6 +376,7 @@ switch state {
                                         else if no_shot == true {
                                             if mm >= 1 { 
 												mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40); 
+												//IF THE UNIT IS NOT A STATIC UNIT THEN ALLOW NAVIGATION...ADD HERE
 												scr_EnemyNavigation(obj_EnemyControl_B.active_x, obj_EnemyControl_B.active_y, mm); 
 											}
                                                 else { no_move = true; }

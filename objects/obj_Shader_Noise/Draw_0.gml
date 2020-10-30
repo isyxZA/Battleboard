@@ -1,7 +1,7 @@
 /// @description Enable shader
 shader_set(shd_vignette_noise);
-shader_set_uniform_f(uni_settings, 1, 0, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
-shader_set_uniform_f(uni_vignette_colour,186,177,131); //R,G,B - 0 to 255 
+shader_set_uniform_f(uni_settings, 1, 0, 0.05, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+shader_set_uniform_f(uni_vignette_colour,184,175,154); //R,G,B - 0 to 255 
 
 //255,230,204 Blanched Almond - Desert Colour
 //rgb(186,177,131) Ecru

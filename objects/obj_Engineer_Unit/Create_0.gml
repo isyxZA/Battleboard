@@ -59,7 +59,7 @@ start_ap = 10;
 start_mp = 10;
 action_points = 0;
 move_points = 0;
-ap_cost = 10;
+ap_cost = 6;
 mp_cost = 2;
 
 action_range = 136;

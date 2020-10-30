@@ -493,13 +493,13 @@ if global.game_state == "IN_GAME" && game_over == false {
                 
             draw_sprite_ext(spr_Bomber_Button, 0, bx_0, by_0, 1, 1, 0, c_white, 1);
             if active_bomber == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_0, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_0, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 20 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_0, by_0, 1, 1, 0, c_white, 1); }
                     else if bomber_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_0, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_0, by_0, 1, 1, 0, c_white, 1); }
                         
             draw_sprite_ext(spr_Missile_Button, 0, bx_1, by_0, 1, 1, 0, c_white, 1);
             if active_missile == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_1, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_1, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 10 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_1, by_0, 1, 1, 0, c_white, 1); }
                     else if missile_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_1, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_1, by_0, 1, 1, 0, c_white, 1); }
             draw_set_font(fnt_16);
@@ -507,31 +507,31 @@ if global.game_state == "IN_GAME" && game_over == false {
 			
             draw_sprite_ext(spr_UAV_Button, 0, bx_2, by_0, 1, 1, 0, c_white, 1);
             if active_uav == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_2, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_2, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 20 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_2, by_0, 1, 1, 0, c_white, 1); }
                     else if uav_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_2, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_2, by_0, 1, 1, 0, c_white, 1); }
                         
             draw_sprite_ext(spr_Artillery_Button, 0, bx_3, by_0, 1, 1, 0, c_white, 1);
             if active_artillery == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_3, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_3, by_0, 1, 1, 0, c_white, 1); } 
+                else if global.command_points < 10 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_3, by_0, 1, 1, 0, c_white, 1); } 
                     else if artillery_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_3, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_3, by_0, 1, 1, 0, c_white, 1); }
             
             draw_sprite_ext(spr_Airdrop_Button, 0, bx_4, by_0, 1, 1, 0, c_white, 1);
             if active_airdrop == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_4, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_4, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 20 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_4, by_0, 1, 1, 0, c_white, 1); }
                     else if airdrop_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_4, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_4, by_0, 1, 1, 0, c_white, 1); }
                         
             draw_sprite_ext(spr_ILC_Button, 0, bx_5, by_0, 1, 1, 0, c_white, 1);
             if active_ilc == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_5, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_5, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 10 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_5, by_0, 1, 1, 0, c_white, 1); }
                     else if ilc_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_5, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_5, by_0, 1, 1, 0, c_white, 1); }
                         
             draw_sprite_ext(spr_TLC_Button, 0, bx_6, by_0, 1, 1, 0, c_white, 1);
             if active_tlc == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_6, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_6, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 20 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_6, by_0, 1, 1, 0, c_white, 1); }
                     else if tlc_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_6, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_6, by_0, 1, 1, 0, c_white, 1); }
             
@@ -539,19 +539,19 @@ if global.game_state == "IN_GAME" && game_over == false {
 			
             draw_sprite_ext(spr_ELC_Button, 0, bx_7, by_0, 1, 1, 0, c_white, 1);
             if active_elc == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_7, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_7, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 20 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_7, by_0, 1, 1, 0, c_white, 1); }
                     else if elc_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_7, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_7, by_0, 1, 1, 0, c_white, 1); }
                         
             draw_sprite_ext(spr_BLC_Button, 0, bx_8, by_0, 1, 1, 0, c_white, 1);
             if active_blc == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_8, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_8, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 20 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_8, by_0, 1, 1, 0, c_white, 1); }
                     else if blc_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_8, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_8, by_0, 1, 1, 0, c_white, 1); }
                         
             draw_sprite_ext(spr_LLC_Button, 0, bx_9, by_0, 1, 1, 0, c_white, 1);
             if active_llc == true { draw_sprite_ext(spr_UI_Indicator_Orange, 0, bx_9, by_0, 1, 1, 0, c_white, 1); }
-                else if global.command_points <= 0 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_9, by_0, 1, 1, 0, c_white, 1); }
+                else if global.command_points < 10 { draw_sprite_ext(spr_UI_Indicator_Red, 0, bx_9, by_0, 1, 1, 0, c_white, 1); }
                     else if llc_targeting == true { draw_sprite_ext(spr_UI_Indicator_Green, 0, bx_9, by_0, 1, 1, 0, c_white, 1); }
                         else { draw_sprite_ext(spr_UI_Indicator_Gray, 0, bx_9, by_0, 1, 1, 0, c_white, 1); }
                         

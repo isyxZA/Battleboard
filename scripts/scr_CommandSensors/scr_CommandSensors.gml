@@ -13,7 +13,7 @@ function scr_CommandSensors() {
 	    if tlist_adj9 != 0 { tlist_adj9 = lerp(tlist_adj9, 0, 0.05 ); } 
 	    if (global.command_points > 0) {
 	        //Tactical
-	        if active_bomber == false {
+	        if active_bomber == false && global.command_points >= 20 {
 	            var d1 = point_distance(ui_bx+(bx_0*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d1 < s_dist {
 	                if bomber_timer < 10 { bomber_timer+=1; }
@@ -42,7 +42,7 @@ function scr_CommandSensors() {
 	                    bomber_timer = 0;
 	                }
 	        }
-	        if active_missile == false {
+	        if active_missile == false && global.command_points >= 10  {
 	            var d2 = point_distance(ui_bx+(bx_1*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d2 < s_dist {
 	                if missile_timer < 10 { missile_timer+=1; }
@@ -71,7 +71,7 @@ function scr_CommandSensors() {
 	                    missile_timer = 0; 
 	                }
 	        }
-	        if active_uav == false {
+	        if active_uav == false && global.command_points >= 20 {
 	            var d3 = point_distance(ui_bx+(bx_2*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d3 < s_dist {
 	                if uav_timer < 10 { uav_timer+=1; }
@@ -100,7 +100,7 @@ function scr_CommandSensors() {
 	                    uav_timer = 0; 
 	                }
 	        }
-	        if active_artillery == false {
+	        if active_artillery == false && global.command_points >= 10 {
 	            var d4 = point_distance(ui_bx+(bx_3*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d4 < s_dist {
 	                if artillery_timer < 10 { artillery_timer+=1; }
@@ -129,7 +129,7 @@ function scr_CommandSensors() {
 	                    artillery_timer = 0; 
 	                }
 	        }
-	        if active_airdrop == false {
+	        if active_airdrop == false && global.command_points >= 20 {
 	            var d5 = point_distance(ui_bx+(bx_4*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d5 < s_dist {
 	                if airdrop_timer < 10 { airdrop_timer+=1; }
@@ -159,7 +159,7 @@ function scr_CommandSensors() {
 	                }
 	        }
 	        //Reinforcements
-	        if active_ilc == false {
+	        if active_ilc == false && global.command_points >= 10  {
 	            var d6 = point_distance(ui_bx+(bx_5*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d6 < s_dist {
 	                if ilc_timer < 10 { ilc_timer+=1; }
@@ -188,7 +188,7 @@ function scr_CommandSensors() {
 	                    ilc_timer = 0; 
 	                }
 	        }
-	        if active_tlc == false {
+	        if active_tlc == false && global.command_points >= 20 {
 	            var d7 = point_distance(ui_bx+(bx_6*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d7 < s_dist {
 	                if tlc_timer < 10 { tlc_timer+=1; }
@@ -217,7 +217,7 @@ function scr_CommandSensors() {
 	                    tlc_timer = 0; 
 	                }
 	        }
-	        if active_elc == false {
+	        if active_elc == false && global.command_points >= 20 {
 	            var d8 = point_distance(ui_bx+(bx_7*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d8 < s_dist {
 	                if elc_timer < 10 { elc_timer+=1; }
@@ -246,7 +246,7 @@ function scr_CommandSensors() {
 	                    elc_timer = 0; 
 	                }
 	        }
-	        if active_blc == false {
+	        if active_blc == false && global.command_points >= 20 {
 	            var d9 = point_distance(ui_bx+(bx_8*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d9 < s_dist {
 	                if blc_timer < 10 { blc_timer+=1; }
@@ -275,7 +275,7 @@ function scr_CommandSensors() {
 	                    blc_timer = 0; 
 	                }
 	        }
-	        if active_llc == false {
+	        if active_llc == false && global.command_points >= 10 {
 	            var d10 = point_distance(ui_bx+(bx_9*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d10 < s_dist {
 	                if llc_timer < 10 { llc_timer+=1; }
@@ -427,41 +427,68 @@ function scr_CommandSensors() {
 					var pos = 1;
 	                ds_list_insert(global.turn_list, pos, ins_txt); 
 					var atype = 1;
-					cp_cost = 10; 
-					global.command_points -= 10; 
-					global.draw_cpcost = true;
 					ins_1_count = 12;
 	                switch ins_txt {
 	                    case "BOMBER":
-	                        active_bomber = true;
-	                        break;
-	                    case "MISSILE":
-	                        active_missile = true;
-	                        break;
-	                    case "ARTILLERY":
-	                        active_artillery = true;
-	                        break;
-	                    case "UAV":
-	                        active_uav = true;
-	                        break;
-	                    case "AIRDROP":
-	                        active_airdrop = true;
-	                        break;
-	                    case "ILC":
-	                        active_ilc = true;
-	                        break;
-	                    case "TLC":
-	                        active_tlc = true;
-	                        break;
-	                    case "ELC":
-	                        active_elc = true;
-	                        break;
-	                    case "BLC":
-	                        active_blc = true;
-	                        break;
-	                    case "LLC":
-	                        active_llc = true;
-	                        break;
+							global.command_points -= 20; 
+							global.draw_cpcost = true;
+							cp_cost = 20;
+				            active_bomber = true;
+				            break;
+				        case "MISSILE":
+							global.command_points -= 10; 
+							global.draw_cpcost = true;
+							cp_cost = 10;
+				            active_missile = true;
+				            break;
+				        case "ARTILLERY":
+							global.command_points -= 10; 
+							global.draw_cpcost = true;
+							cp_cost = 10;
+				            active_artillery = true;
+				            break;
+				        case "UAV":
+							global.command_points -= 20; 
+							global.draw_cpcost = true;
+							cp_cost = 20;
+				            active_uav = true;
+				            break;
+				        case "AIRDROP":
+							global.command_points -= 20; 
+							global.draw_cpcost = true;
+							cp_cost = 20;
+				            active_airdrop = true;
+				            break;
+				        case "ILC":
+							global.command_points -= 10; 
+							global.draw_cpcost = true;
+							cp_cost = 10;
+				            active_ilc = true;
+				            break;
+				        case "TLC":
+							global.command_points -= 20; 
+							global.draw_cpcost = true;
+							cp_cost = 20;
+				            active_tlc = true;
+				            break;
+				        case "ELC":
+							global.command_points -= 20; 
+							global.draw_cpcost = true;
+							cp_cost = 20;
+				            active_elc = true;
+				            break;
+				        case "BLC":
+							global.command_points -= 20; 
+							global.draw_cpcost = true;
+							cp_cost = 20;
+				            active_blc = true;
+				            break;
+				        case "LLC":
+							global.command_points -= 10; 
+							global.draw_cpcost = true;
+							cp_cost = 10;
+				            active_llc = true;
+				            break;
 	                } 
 					if PLAYER.net_status == "HOST" {
 						//Send list update signal to client
@@ -494,41 +521,68 @@ function scr_CommandSensors() {
 	                    var pos = 2;
 	                    if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
 	                        else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
-	                    cp_cost = 10; 
-						global.command_points -= 10; 
-						global.draw_cpcost = true; 
 						ins_2_count = 12;
 	                    switch ins_txt {
 	                        case "BOMBER":
-	                            active_bomber = true;
-	                            break;
-	                        case "MISSILE":
-	                            active_missile = true;
-	                            break;
-	                        case "ARTILLERY":
-	                            active_artillery = true;
-	                            break;
-	                        case "UAV":
-	                            active_uav = true;
-	                            break;
-	                        case "AIRDROP":
-	                            active_airdrop = true;
-	                            break;
-	                        case "ILC":
-	                            active_ilc = true;
-	                            break;
-	                        case "TLC":
-	                            active_tlc = true;
-	                            break;
-	                        case "ELC":
-	                            active_elc = true;
-	                            break;
-	                        case "BLC":
-	                            active_blc = true;
-	                            break;
-	                        case "LLC":
-	                            active_llc = true;
-	                            break;
+								global.command_points -= 20; 
+								global.draw_cpcost = true;
+								cp_cost = 20;
+				                active_bomber = true;
+				                break;
+				            case "MISSILE":
+								global.command_points -= 10; 
+								global.draw_cpcost = true;
+								cp_cost = 10;
+				                active_missile = true;
+				                break;
+				            case "ARTILLERY":
+								global.command_points -= 10; 
+								global.draw_cpcost = true;
+								cp_cost = 10;
+				                active_artillery = true;
+				                break;
+				            case "UAV":
+								global.command_points -= 20; 
+								global.draw_cpcost = true;
+								cp_cost = 20;
+				                active_uav = true;
+				                break;
+				            case "AIRDROP":
+								global.command_points -= 20; 
+								global.draw_cpcost = true;
+								cp_cost = 20;
+				                active_airdrop = true;
+				                break;
+				            case "ILC":
+								global.command_points -= 10; 
+								global.draw_cpcost = true;
+								cp_cost = 10;
+				                active_ilc = true;
+				                break;
+				            case "TLC":
+								global.command_points -= 20; 
+								global.draw_cpcost = true;
+								cp_cost = 20;
+				                active_tlc = true;
+				                break;
+				            case "ELC":
+								global.command_points -= 20; 
+								global.draw_cpcost = true;
+								cp_cost = 20;
+				                active_elc = true;
+				                break;
+				            case "BLC":
+								global.command_points -= 20; 
+								global.draw_cpcost = true;
+								cp_cost = 20;
+				                active_blc = true;
+				                break;
+				            case "LLC":
+								global.command_points -= 10; 
+								global.draw_cpcost = true;
+								cp_cost = 10;
+				                active_llc = true;
+				                break;
 	                    }
 						if PLAYER.net_status == "HOST" {
 							//Send list update signal to client
@@ -561,41 +615,68 @@ function scr_CommandSensors() {
 	                        var pos = 3;
 	                        if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
 	                            else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
-	                        cp_cost = 10; 
-							global.command_points -= 10; 
-							global.draw_cpcost = true; 
 							ins_3_count = 12;
 	                        switch ins_txt {
 	                            case "BOMBER":
-	                                active_bomber = true;
-	                                break;
-	                            case "MISSILE":
-	                                active_missile = true;
-	                                break;
-	                            case "ARTILLERY":
-	                                active_artillery = true;
-	                                break;
-	                            case "UAV":
-	                                active_uav = true;
-	                                break;
-	                            case "AIRDROP":
-	                                active_airdrop = true;
-	                                break;
-	                            case "ILC":
-	                                active_ilc = true;
-	                                break;
-	                            case "TLC":
-	                                active_tlc = true;
-	                                break;
-	                            case "ELC":
-	                                active_elc = true;
-	                                break;
-	                            case "BLC":
-	                                active_blc = true;
-	                                break;
-	                            case "LLC":
-	                                active_llc = true;
-	                                break;
+									global.command_points -= 20; 
+									global.draw_cpcost = true;
+									cp_cost = 20;
+				                    active_bomber = true;
+				                    break;
+				                case "MISSILE":
+									global.command_points -= 10; 
+									global.draw_cpcost = true;
+									cp_cost = 10;
+				                    active_missile = true;
+				                    break;
+				                case "ARTILLERY":
+									global.command_points -= 10; 
+									global.draw_cpcost = true;
+									cp_cost = 10;
+				                    active_artillery = true;
+				                    break;
+				                case "UAV":
+									global.command_points -= 20; 
+									global.draw_cpcost = true;
+									cp_cost = 20;
+				                    active_uav = true;
+				                    break;
+				                case "AIRDROP":
+									global.command_points -= 20; 
+									global.draw_cpcost = true;
+									cp_cost = 20;
+				                    active_airdrop = true;
+				                    break;
+				                case "ILC":
+									global.command_points -= 10; 
+									global.draw_cpcost = true;
+									cp_cost = 10;
+				                    active_ilc = true;
+				                    break;
+				                case "TLC":
+									global.command_points -= 20; 
+									global.draw_cpcost = true;
+									cp_cost = 20;
+				                    active_tlc = true;
+				                    break;
+				                case "ELC":
+									global.command_points -= 20; 
+									global.draw_cpcost = true;
+									cp_cost = 20;
+				                    active_elc = true;
+				                    break;
+				                case "BLC":
+									global.command_points -= 20; 
+									global.draw_cpcost = true;
+									cp_cost = 20;
+				                    active_blc = true;
+				                    break;
+				                case "LLC":
+									global.command_points -= 10; 
+									global.draw_cpcost = true;
+									cp_cost = 10;
+				                    active_llc = true;
+				                    break;
 	                        }
 							if PLAYER.net_status == "HOST" {
 								//Send list update signal to client
@@ -627,42 +708,69 @@ function scr_CommandSensors() {
 	                            var ls = ds_list_size(global.turn_list);
 	                            var pos = 4;
 	                            if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
-	                                else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
-	                            cp_cost = 10; 
-								global.command_points -= 10; 
-								global.draw_cpcost = true;
+	                                else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); }  
 								ins_4_count = 12;
 	                            switch ins_txt {
 	                                case "BOMBER":
-	                                    active_bomber = true;
-	                                    break;
-	                                case "MISSILE":
-	                                    active_missile = true;
-	                                    break;
-	                                case "ARTILLERY":
-	                                    active_artillery = true;
-	                                    break;
-	                                case "UAV":
-	                                    active_uav = true;
-	                                    break;
-	                                case "AIRDROP":
-	                                    active_airdrop = true;
-	                                    break;
-	                                case "ILC":
-	                                    active_ilc = true;
-	                                    break;
-	                                case "TLC":
-	                                    active_tlc = true;
-	                                    break;
-	                                case "ELC":
-	                                    active_elc = true;
-	                                    break;
-	                                case "BLC":
-	                                    active_blc = true;
-	                                    break;
-	                                case "LLC":
-	                                    active_llc = true;
-	                                    break;
+										global.command_points -= 20; 
+										global.draw_cpcost = true;
+										cp_cost = 20;
+				                        active_bomber = true;
+				                        break;
+				                    case "MISSILE":
+										global.command_points -= 10; 
+										global.draw_cpcost = true;
+										cp_cost = 10;
+				                        active_missile = true;
+				                        break;
+				                    case "ARTILLERY":
+										global.command_points -= 10; 
+										global.draw_cpcost = true;
+										cp_cost = 10;
+				                        active_artillery = true;
+				                        break;
+				                    case "UAV":
+										global.command_points -= 20; 
+										global.draw_cpcost = true;
+										cp_cost = 20;
+				                        active_uav = true;
+				                        break;
+				                    case "AIRDROP":
+										global.command_points -= 20; 
+										global.draw_cpcost = true;
+										cp_cost = 20;
+				                        active_airdrop = true;
+				                        break;
+				                    case "ILC":
+										global.command_points -= 10; 
+										global.draw_cpcost = true;
+										cp_cost = 10;
+				                        active_ilc = true;
+				                        break;
+				                    case "TLC":
+										global.command_points -= 20; 
+										global.draw_cpcost = true;
+										cp_cost = 20;
+				                        active_tlc = true;
+				                        break;
+				                    case "ELC":
+										global.command_points -= 20; 
+										global.draw_cpcost = true;
+										cp_cost = 20;
+				                        active_elc = true;
+				                        break;
+				                    case "BLC":
+										global.command_points -= 20; 
+										global.draw_cpcost = true;
+										cp_cost = 20;
+				                        active_blc = true;
+				                        break;
+				                    case "LLC":
+										global.command_points -= 10; 
+										global.draw_cpcost = true;
+										cp_cost = 10;
+				                        active_llc = true;
+				                        break;
 	                            }
 								if PLAYER.net_status == "HOST" {
 									//Send list update signal to client
@@ -695,41 +803,68 @@ function scr_CommandSensors() {
 	                                var pos = 5;
 	                                if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
 	                                    else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
-	                                cp_cost = 10; 
-									global.command_points -= 10; 
-									global.draw_cpcost = true;
 									ins_5_count = 12;
 	                                switch ins_txt {
 	                                    case "BOMBER":
-	                                        active_bomber = true;
-	                                        break;
-	                                    case "MISSILE":
-	                                        active_missile = true;
-	                                        break;
-	                                    case "ARTILLERY":
-	                                        active_artillery = true;
-	                                        break;
-	                                    case "UAV":
-	                                        active_uav = true;
-	                                        break;
-	                                    case "AIRDROP":
-	                                        active_airdrop = true;
-	                                        break;
-	                                    case "ILC":
-	                                        active_ilc = true;
-	                                        break;
-	                                    case "TLC":
-	                                        active_tlc = true;
-	                                        break;
-	                                    case "ELC":
-	                                        active_elc = true;
-	                                        break;
-	                                    case "BLC":
-	                                        active_blc = true;
-	                                        break;
-	                                    case "LLC":
-	                                        active_llc = true;
-	                                        break;
+											global.command_points -= 20; 
+											global.draw_cpcost = true;
+											cp_cost = 20;
+					                        active_bomber = true;
+					                        break;
+					                    case "MISSILE":
+											global.command_points -= 10; 
+											global.draw_cpcost = true;
+											cp_cost = 10;
+					                        active_missile = true;
+					                        break;
+					                    case "ARTILLERY":
+											global.command_points -= 10; 
+											global.draw_cpcost = true;
+											cp_cost = 10;
+					                        active_artillery = true;
+					                        break;
+					                    case "UAV":
+											global.command_points -= 20; 
+											global.draw_cpcost = true;
+											cp_cost = 20;
+					                        active_uav = true;
+					                        break;
+					                    case "AIRDROP":
+											global.command_points -= 20; 
+											global.draw_cpcost = true;
+											cp_cost = 20;
+					                        active_airdrop = true;
+					                        break;
+					                    case "ILC":
+											global.command_points -= 10; 
+											global.draw_cpcost = true;
+											cp_cost = 10;
+					                        active_ilc = true;
+					                        break;
+					                    case "TLC":
+											global.command_points -= 20; 
+											global.draw_cpcost = true;
+											cp_cost = 20;
+					                        active_tlc = true;
+					                        break;
+					                    case "ELC":
+											global.command_points -= 20; 
+											global.draw_cpcost = true;
+											cp_cost = 20;
+					                        active_elc = true;
+					                        break;
+					                    case "BLC":
+											global.command_points -= 20; 
+											global.draw_cpcost = true;
+											cp_cost = 20;
+					                        active_blc = true;
+					                        break;
+					                    case "LLC":
+											global.command_points -= 10; 
+											global.draw_cpcost = true;
+											cp_cost = 10;
+					                        active_llc = true;
+					                        break;
 	                                }
 									if PLAYER.net_status == "HOST" {
 										//Send list update signal to client
@@ -762,41 +897,68 @@ function scr_CommandSensors() {
 	                                    var pos = 6;
 	                                    if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
 	                                        else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
-	                                    cp_cost = 10; 
-										global.command_points -= 10; 
-										global.draw_cpcost = true;
 										ins_6_count = 12;
 	                                    switch ins_txt {
 	                                        case "BOMBER":
-	                                            active_bomber = true;
-	                                            break;
-	                                        case "MISSILE":
-	                                            active_missile = true;
-	                                            break;
-	                                        case "ARTILLERY":
-	                                            active_artillery = true;
-	                                            break;
-	                                        case "UAV":
-	                                            active_uav = true;
-	                                            break;
-	                                        case "AIRDROP":
-	                                            active_airdrop = true;
-	                                            break;
-	                                        case "ILC":
-	                                            active_ilc = true;
-	                                            break;
-	                                        case "TLC":
-	                                            active_tlc = true;
-	                                            break;
-	                                        case "ELC":
-	                                            active_elc = true;
-	                                            break;
-	                                        case "BLC":
-	                                            active_blc = true;
-	                                            break;
-	                                        case "LLC":
-	                                            active_llc = true;
-	                                            break;
+												global.command_points -= 20; 
+												global.draw_cpcost = true;
+												cp_cost = 20;
+						                        active_bomber = true;
+						                        break;
+						                    case "MISSILE":
+												global.command_points -= 10; 
+												global.draw_cpcost = true;
+												cp_cost = 10;
+						                        active_missile = true;
+						                        break;
+						                    case "ARTILLERY":
+												global.command_points -= 10; 
+												global.draw_cpcost = true;
+												cp_cost = 10;
+						                        active_artillery = true;
+						                        break;
+						                    case "UAV":
+												global.command_points -= 20; 
+												global.draw_cpcost = true;
+												cp_cost = 20;
+						                        active_uav = true;
+						                        break;
+						                    case "AIRDROP":
+												global.command_points -= 20; 
+												global.draw_cpcost = true;
+												cp_cost = 20;
+						                        active_airdrop = true;
+						                        break;
+						                    case "ILC":
+												global.command_points -= 10; 
+												global.draw_cpcost = true;
+												cp_cost = 10;
+						                        active_ilc = true;
+						                        break;
+						                    case "TLC":
+												global.command_points -= 20; 
+												global.draw_cpcost = true;
+												cp_cost = 20;
+						                        active_tlc = true;
+						                        break;
+						                    case "ELC":
+												global.command_points -= 20; 
+												global.draw_cpcost = true;
+												cp_cost = 20;
+						                        active_elc = true;
+						                        break;
+						                    case "BLC":
+												global.command_points -= 20; 
+												global.draw_cpcost = true;
+												cp_cost = 20;
+						                        active_blc = true;
+						                        break;
+						                    case "LLC":
+												global.command_points -= 10; 
+												global.draw_cpcost = true;
+												cp_cost = 10;
+						                        active_llc = true;
+						                        break;
 	                                    }
 										if PLAYER.net_status == "HOST" {
 											//Send list update signal to client
@@ -829,41 +991,68 @@ function scr_CommandSensors() {
 	                                        var pos = 7;
 	                                        if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); }
 	                                            else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
-	                                        cp_cost = 10; 
-											global.command_points -= 10; 
-											global.draw_cpcost = true;
 											ins_7_count = 12;
 	                                        switch ins_txt {
 	                                            case "BOMBER":
-	                                                active_bomber = true;
-	                                                break;
-	                                            case "MISSILE":
-	                                                active_missile = true;
-	                                                break;
-	                                            case "ARTILLERY":
-	                                                active_artillery = true;
-	                                                break;
-	                                            case "UAV":
-	                                                active_uav = true;
-	                                                break;
-	                                            case "AIRDROP":
-	                                                active_airdrop = true;
-	                                                break;
-	                                            case "ILC":
-	                                                active_ilc = true;
-	                                                break;
-	                                            case "TLC":
-	                                                active_tlc = true;
-	                                                break;
-	                                            case "ELC":
-	                                                active_elc = true;
-	                                                break;
-	                                            case "BLC":
-	                                                active_blc = true;
-	                                                break;
-	                                            case "LLC":
-	                                                active_llc = true;
-	                                                break;
+													global.command_points -= 20; 
+													global.draw_cpcost = true;
+													cp_cost = 20;
+							                        active_bomber = true;
+							                        break;
+							                    case "MISSILE":
+													global.command_points -= 10; 
+													global.draw_cpcost = true;
+													cp_cost = 10;
+							                        active_missile = true;
+							                        break;
+							                    case "ARTILLERY":
+													global.command_points -= 10; 
+													global.draw_cpcost = true;
+													cp_cost = 10;
+							                        active_artillery = true;
+							                        break;
+							                    case "UAV":
+													global.command_points -= 20; 
+													global.draw_cpcost = true;
+													cp_cost = 20;
+							                        active_uav = true;
+							                        break;
+							                    case "AIRDROP":
+													global.command_points -= 20; 
+													global.draw_cpcost = true;
+													cp_cost = 20;
+							                        active_airdrop = true;
+							                        break;
+							                    case "ILC":
+													global.command_points -= 10; 
+													global.draw_cpcost = true;
+													cp_cost = 10;
+							                        active_ilc = true;
+							                        break;
+							                    case "TLC":
+													global.command_points -= 20; 
+													global.draw_cpcost = true;
+													cp_cost = 20;
+							                        active_tlc = true;
+							                        break;
+							                    case "ELC":
+													global.command_points -= 20; 
+													global.draw_cpcost = true;
+													cp_cost = 20;
+							                        active_elc = true;
+							                        break;
+							                    case "BLC":
+													global.command_points -= 20; 
+													global.draw_cpcost = true;
+													cp_cost = 20;
+							                        active_blc = true;
+							                        break;
+							                    case "LLC":
+													global.command_points -= 10; 
+													global.draw_cpcost = true;
+													cp_cost = 10;
+							                        active_llc = true;
+							                        break;
 	                                        }
 											if PLAYER.net_status == "HOST" {
 												//Send list update signal to client
@@ -896,41 +1085,68 @@ function scr_CommandSensors() {
 	                                            var pos = 8;
 	                                            if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); } 
 	                                                else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
-	                                            cp_cost = 10; 
-												global.command_points -= 10; 
-												global.draw_cpcost = true;
 												ins_8_count = 12;
 	                                            switch ins_txt {
 	                                                case "BOMBER":
-	                                                    active_bomber = true;
-	                                                    break;
-	                                                case "MISSILE":
-	                                                    active_missile = true;
-	                                                    break;
-	                                                case "ARTILLERY":
-	                                                    active_artillery = true;
-	                                                    break;
-	                                                case "UAV":
-	                                                    active_uav = true;
-	                                                    break;
-	                                                case "AIRDROP":
-	                                                    active_airdrop = true;
-	                                                    break;
-	                                                case "ILC":
-	                                                    active_ilc = true;
-	                                                    break;
-	                                                case "TLC":
-	                                                    active_tlc = true;
-	                                                    break;
-	                                                case "ELC":
-	                                                    active_elc = true;
-	                                                    break;
-	                                                case "BLC":
-	                                                    active_blc = true;
-	                                                    break;
-	                                                case "LLC":
-	                                                    active_llc = true;
-	                                                    break;
+														global.command_points -= 20; 
+														global.draw_cpcost = true;
+														cp_cost = 20;
+								                        active_bomber = true;
+								                        break;
+								                    case "MISSILE":
+														global.command_points -= 10; 
+														global.draw_cpcost = true;
+														cp_cost = 10;
+								                        active_missile = true;
+								                        break;
+								                    case "ARTILLERY":
+														global.command_points -= 10; 
+														global.draw_cpcost = true;
+														cp_cost = 10;
+								                        active_artillery = true;
+								                        break;
+								                    case "UAV":
+														global.command_points -= 20; 
+														global.draw_cpcost = true;
+														cp_cost = 20;
+								                        active_uav = true;
+								                        break;
+								                    case "AIRDROP":
+														global.command_points -= 20; 
+														global.draw_cpcost = true;
+														cp_cost = 20;
+								                        active_airdrop = true;
+								                        break;
+								                    case "ILC":
+														global.command_points -= 10; 
+														global.draw_cpcost = true;
+														cp_cost = 10;
+								                        active_ilc = true;
+								                        break;
+								                    case "TLC":
+														global.command_points -= 20; 
+														global.draw_cpcost = true;
+														cp_cost = 20;
+								                        active_tlc = true;
+								                        break;
+								                    case "ELC":
+														global.command_points -= 20; 
+														global.draw_cpcost = true;
+														cp_cost = 20;
+								                        active_elc = true;
+								                        break;
+								                    case "BLC":
+														global.command_points -= 20; 
+														global.draw_cpcost = true;
+														cp_cost = 20;
+								                        active_blc = true;
+								                        break;
+								                    case "LLC":
+														global.command_points -= 10; 
+														global.draw_cpcost = true;
+														cp_cost = 10;
+								                        active_llc = true;
+								                        break;
 	                                            }
 												if PLAYER.net_status == "HOST" {
 													//Send list update signal to client
@@ -963,41 +1179,68 @@ function scr_CommandSensors() {
 	                                                var pos = 9;
 	                                                if (ls < pos) { var atype = 2; ds_list_add(global.turn_list, ins_txt); } 
 	                                                    else { var atype = 1; ds_list_insert(global.turn_list, pos, ins_txt); } 
-	                                                cp_cost = 10; 
-													global.command_points -= 10; 
-													global.draw_cpcost = true;
 													ins_9_count = 12;
 	                                                switch ins_txt {
 	                                                    case "BOMBER":
-	                                                        active_bomber = true;
-	                                                        break;
-	                                                    case "MISSILE":
-	                                                        active_missile = true;
-	                                                        break;
-	                                                    case "ARTILLERY":
-	                                                        active_artillery = true;
-	                                                        break;
-	                                                    case "UAV":
-	                                                        active_uav = true;
-	                                                        break;
-	                                                    case "AIRDROP":
-	                                                        active_airdrop = true;
-	                                                        break;
-	                                                    case "ILC":
-	                                                        active_ilc = true;
-	                                                        break;
-	                                                    case "TLC":
-	                                                        active_tlc = true;
-	                                                        break;
-	                                                    case "ELC":
-	                                                        active_elc = true;
-	                                                        break;
-	                                                    case "BLC":
-	                                                        active_blc = true;
-	                                                        break;
-	                                                    case "LLC":
-	                                                        active_llc = true;
-	                                                        break;
+															global.command_points -= 20; 
+															global.draw_cpcost = true;
+															cp_cost = 20;
+									                        active_bomber = true;
+									                        break;
+									                    case "MISSILE":
+															global.command_points -= 10; 
+															global.draw_cpcost = true;
+															cp_cost = 10;
+									                        active_missile = true;
+									                        break;
+									                    case "ARTILLERY":
+															global.command_points -= 10; 
+															global.draw_cpcost = true;
+															cp_cost = 10;
+									                        active_artillery = true;
+									                        break;
+									                    case "UAV":
+															global.command_points -= 20; 
+															global.draw_cpcost = true;
+															cp_cost = 20;
+									                        active_uav = true;
+									                        break;
+									                    case "AIRDROP":
+															global.command_points -= 20; 
+															global.draw_cpcost = true;
+															cp_cost = 20;
+									                        active_airdrop = true;
+									                        break;
+									                    case "ILC":
+															global.command_points -= 10; 
+															global.draw_cpcost = true;
+															cp_cost = 10;
+									                        active_ilc = true;
+									                        break;
+									                    case "TLC":
+															global.command_points -= 20; 
+															global.draw_cpcost = true;
+															cp_cost = 20;
+									                        active_tlc = true;
+									                        break;
+									                    case "ELC":
+															global.command_points -= 20; 
+															global.draw_cpcost = true;
+															cp_cost = 20;
+									                        active_elc = true;
+									                        break;
+									                    case "BLC":
+															global.command_points -= 20; 
+															global.draw_cpcost = true;
+															cp_cost = 20;
+									                        active_blc = true;
+									                        break;
+									                    case "LLC":
+															global.command_points -= 10; 
+															global.draw_cpcost = true;
+															cp_cost = 10;
+									                        active_llc = true;
+									                        break;
 	                                                }
 													if PLAYER.net_status == "HOST" {
 														//Send list update signal to client
