@@ -16,7 +16,7 @@ function scr_Navigation(argument0) {
 	    x_end = path_get_x(my_path, 1);
 	    y_end = path_get_y(my_path, 1);
 	    //Check for overlapping path ends...if one exists then delete last point on path
-	    repeat (move_max) {
+		repeat(move_max) {
 	        if !ds_list_empty(global.unit_list){
 	            var iu;
 	            for (iu=0; iu<ds_list_size(global.unit_list); iu+=1;) {
@@ -303,7 +303,25 @@ function scr_Navigation(argument0) {
 	    global.temp_AP = 0;
 	    for (i=0; i<ds_list_size(global.selected_list); i+=1) {
 	        var unit = ds_list_find_value(global.selected_list, i);
-	        global.temp_AP += (unit.move_amount*unit.mp_cost);
+			
+			with unit {
+				if move_amount > 0 {
+					var t_ap = 0;
+					var mpi;
+					var mpn = path_get_number(my_path)-1;
+					for(mpi=0; mpi<mpn; mpi++) {
+						var pxx = path_get_point_x(my_path, mpi);
+						var pyy = path_get_point_y(my_path, mpi);
+						var pmc = instance_place(pxx, pyy, obj_Game_Tile);
+						t_ap += pmc.move_rating;
+					}
+					temp_ap = t_ap;
+				}
+					else { temp_ap = 0; }
+				global.temp_AP += temp_ap;
+			}
+			
+	        //global.temp_AP += (unit.move_amount*unit.mp_cost);
 	    }
 	}
 

@@ -10,6 +10,7 @@ taking_damage = false;
 health_max = 100;
 action_range = 0;
 action_points = 0;
+temp_ap = 0;
 move_points = 0;
 mp_adjust = 0;
 start_ap = 0;

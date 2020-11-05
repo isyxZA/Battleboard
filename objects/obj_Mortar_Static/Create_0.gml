@@ -1,6 +1,5 @@
 event_inherited();
 
-size_target = 4;
 
 if PLAYER.player == "ONE" { 
 	p_one = true;
@@ -26,6 +25,8 @@ t.occupied = true;
 my_tile   = t.tile_num;
 my_tile_x = t.tile_x;
 my_tile_y = t.tile_y;
+view_radius = (global.cell_size*4)+(t.height_rating*global.cell_size);
+size_target = (4+t.height_rating)*1.5;//Light radius target size
 x = my_tile_x;
 y = my_tile_y;
 
@@ -40,7 +41,6 @@ target_y = y;
 diag = true;
 
 unit_type = "MORTAR";
-view_radius = global.cell_size*4;
 
 my_speed = 0.75;
 

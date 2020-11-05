@@ -67,9 +67,12 @@ if nav_confirmed == true {
         path_end(); 
         var t = instance_place(x, y, obj_Game_Tile);
         t.occupied = true;
-        my_tile   = t.tile_num;
+        mp_cost   = t.move_rating;
+        my_tile   = t.id;
         my_tile_x = t.tile_x;
         my_tile_y = t.tile_y;
+		view_radius = (global.cell_size*5)+(t.height_rating*global.cell_size);
+		size_target = (5+t.height_rating)*1.5;//Light radius target size
         x = my_tile_x;
         y = my_tile_y;
         x_end = x;
@@ -234,7 +237,7 @@ if global.game_turn != 0 {
                             var i;
                             for (i=0; i<ds_list_size(global.tile_list); i+=1){
                                 var z = ds_list_find_value(global.tile_list, i);
-                                if point_in_circle(z.tile_x,z.tile_y, x, y, view_radius){
+                                if point_in_circle(z.tile_x,z.tile_y, x, y, view_radius+(global.cell_size*2)){
                                      z.unit_count += 1;
                                      z.alarm[1] = random_range(6,32);
                                 }
@@ -337,7 +340,7 @@ if keyboard_check_released(ord("T")) {
             var i;
             for (i=0; i<ds_list_size(global.tile_list); i+=1){
                 var z = ds_list_find_value(global.tile_list, i);
-                if point_in_circle(z.tile_x,z.tile_y, x, y, view_radius){
+                if point_in_circle(z.tile_x,z.tile_y, x, y, view_radius+(global.cell_size*2)){
                     if z.unit_count > 0 { 
                         z.unit_count -= 1; 
                         z.alarm[1] = 1;
@@ -356,7 +359,7 @@ if highlight_move == true {
             var i;
             for (i=0; i<ds_list_size(global.tile_list); i+=1){
                 var z = ds_list_find_value(global.tile_list, i);
-                if point_in_circle(z.tile_x,z.tile_y, x, y, view_radius){
+                if point_in_circle(z.tile_x,z.tile_y, x, y, view_radius+(global.cell_size*2)){
                     if z.unit_count > 0 { 
                         z.unit_count -= 1; 
                         z.alarm[1] = 1;
@@ -366,6 +369,3 @@ if highlight_move == true {
         }
     }
 }
-
-/* */
-/*  */

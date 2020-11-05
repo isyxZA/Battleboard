@@ -1,7 +1,5 @@
 event_inherited();
 
-size_target = 9;
-
 var p_side    = PLAYER.player;
 var p_faction = PLAYER.faction;
 
@@ -46,9 +44,12 @@ if p_side == "ONE" {
 
 var t = instance_place(x, y, obj_Game_Tile);
 t.occupied = true;
+mp_cost   = t.move_rating;
 my_tile   = t.tile_num;
 my_tile_x = t.tile_x;
 my_tile_y = t.tile_y;
+view_radius = (global.cell_size*6)+(t.height_rating*global.cell_size);
+size_target = (6+t.height_rating)*1.5;//Light radius target size
 x = my_tile_x;
 y = my_tile_y;
 
@@ -59,7 +60,6 @@ shoot_mask.my_unit = id;
 mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
 
 unit_type = "BTR";
-view_radius = global.cell_size*6;
 
 my_speed = 3.8;
 fuel_count = 100;
@@ -69,7 +69,6 @@ start_mp = 12;
 action_points = 0;
 move_points = 0;
 ap_cost = 4;
-mp_cost = 2;
 
 action_range = global.cell_size*7;
 

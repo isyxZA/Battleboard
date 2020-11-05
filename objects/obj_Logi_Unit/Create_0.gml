@@ -1,7 +1,5 @@
 event_inherited();
 
-size_target = 7;
-
 var p_side    = PLAYER.player;
 var p_faction = PLAYER.faction;
 
@@ -39,9 +37,12 @@ if p_side == "ONE" {
 
 var t = instance_place(x, y, obj_Game_Tile);
 t.occupied = true;
+mp_cost   = t.move_rating;
 my_tile   = t.tile_num;
 my_tile_x = t.tile_x;
 my_tile_y = t.tile_y;
+view_radius = (global.cell_size*5)+(t.height_rating*global.cell_size);
+size_target = (5+t.height_rating)*1.5;//Light radius target size
 x = my_tile_x;
 y = my_tile_y;
 
@@ -50,7 +51,6 @@ shoot_mask = instance_create_layer(x, y, "Units", obj_Cant_Shoot);
 mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
 
 unit_type = "LOGI";
-view_radius = global.cell_size*5;
 
 my_speed = 3.9;
 
@@ -59,7 +59,6 @@ start_mp = 12;
 action_points = 0;
 move_points = 0;
 ap_cost = 4;
-mp_cost = 2;
 
 action_range = 136;
 

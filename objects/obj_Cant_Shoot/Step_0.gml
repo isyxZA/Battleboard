@@ -6,6 +6,8 @@ if global.opponent_turn == true { active = false; }
     
 if active == true {
     switch kind {
+		case -1:
+			break;
         case 1:
             var dir = point_direction(x, y, my_unit.target_x, my_unit.target_y);
             var xdir = lengthdir_x(global.cell_size, dir);

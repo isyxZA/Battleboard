@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_Menu_Sensor",
+    "path": "sprites/spr_Menu_Sensor/spr_Menu_Sensor.yy",
+  },
   "solid": false,
   "visible": false,
   "spriteMaskId": null,

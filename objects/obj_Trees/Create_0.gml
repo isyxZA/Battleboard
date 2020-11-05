@@ -36,8 +36,28 @@ forest_cover = -1;
 forest_shadow = -1;
 fow1_scale = 0.5;
 
-scr_InView(x, y, obj_CAMERA.my_camera);
+/*
+//Shader Setup
+uni_time = shader_get_uniform(shd_ripple,"time");
+var_time_var = 0;
 
+uni_pos = shader_get_uniform(shd_ripple,"pos");
+var_pos_x = 0;
+var_pos_y = 0;
+
+uni_resolution = shader_get_uniform(shd_ripple,"resolution");
+var_resolution_x = 256;
+var_resolution_y = 256;
+
+uni_wave_amount = shader_get_uniform(shd_ripple,"wave_amount");
+var_wave_amount = choose(8, 10, 12, 16); //higher = more waves
+
+uni_wave_distortion = shader_get_uniform(shd_ripple,"wave_distortion");
+var_wave_distortion = choose(600, 700, 800); //higher = less distortion
+
+uni_wave_speed = shader_get_uniform(shd_ripple,"wave_speed");
+var_wave_speed = choose(0.1, 0.2, 0.3, 0.4); //higher = faster
+*/
 
 //Particles Setup
 particle_tree0 = part_system_create();
@@ -82,3 +102,5 @@ part_type_speed(part3, .3, .4, -0.002, 0);
 part_type_direction(part3, 180, 0, 0, 2);
 part_type_orientation(part3, 0, 359, 0, 0, true);
 part_type_life(part3, 100, 140);
+
+scr_InView(x, y, obj_CAMERA.my_camera);

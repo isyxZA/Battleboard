@@ -121,16 +121,20 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
             else if global.nav_select == true {
                 //RMB to bring up the nav menu
                 if mouse_check_button_pressed(mb_right) {
+					var total_ap = 0;
                     //Calculate the mp cost
                     if !ds_list_empty(global.selected_list) {
                         var ii;
                         global.temp_AP = 0;
                         for (ii=0; ii<ds_list_size(global.selected_list); ii+=1) {
                             var u2 = ds_list_find_value(global.selected_list, ii);
-                            global.temp_AP += (u2.move_amount*u2.mp_cost);
+							global.temp_AP += u2.temp_ap;
+							total_ap += u2.action_points;
+                            //global.temp_AP += (u2.move_amount*u2.mp_cost);
                         }
                     } 
-                    if (global.turn_AP-global.temp_AP) < 0 { global.navigation_error = true; }
+					//CAHNGE to total AP of selected units only
+                    if (total_ap-global.temp_AP) < 0 { global.navigation_error = true; }
                         else {
                             global.nav_menu = true;
                             global.nav_select = false; 

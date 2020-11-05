@@ -17,7 +17,7 @@ if global.game_state == "IN_GAME" {
         //When units are selected
         if !ds_list_empty(global.selected_list) {
             //If not selecting a waypoint or a target then display stats
-            if global.nav_select != true && global.fire_display != true {
+            if global.nav_select != true && global.fire_display != true && global.highlight_move != true {
                 var i;
                 for (i=0; i<ds_list_size(global.selected_list); i+=1) {
                     var unit = ds_list_find_value(global.selected_list, i);

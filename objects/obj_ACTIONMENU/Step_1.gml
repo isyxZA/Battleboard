@@ -109,12 +109,14 @@ if !ds_list_empty(global.selected_list) {
 						                            //Set final waypoint
 						                            x_final = x_end;
 						                            y_final = y_end;
-						                            action_points -= (move_amount*mp_cost);
-						                            global.turn_AP -= (move_amount*mp_cost);
+						                            action_points -= temp_ap;
+													global.turn_AP -= temp_ap;
+						                            //global.turn_AP -= (move_amount*mp_cost);
 						                            alert_display = true;
-						                            alert_text = "-"+string(move_amount*mp_cost)+ " AP";
+						                            alert_text = "-"+string(temp_ap)+ " AP";
 						                            alert_colour = c_red;
 						                            alarm[3] = global.tick_rate*3;
+													temp_ap = 0;
 						                            move_amount = 0;
 						                            move_max = 0;
 						                            nav_offset = 0;
@@ -123,8 +125,9 @@ if !ds_list_empty(global.selected_list) {
 						                        case "REPAIR":
 						                        case "TOW":
 						                        case "MORTAR":
-						                            action_points -= (move_amount*mp_cost);
-										            global.turn_AP -= (move_amount*mp_cost);
+						                            action_points -= temp_ap;
+													global.turn_AP -= temp_ap;
+										            //global.turn_AP -= (move_amount*mp_cost);
 													var inf = instance_create_layer(x, y, "Units", obj_Soldier_Unit);
 										            with inf {
 														mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
@@ -140,7 +143,7 @@ if !ds_list_empty(global.selected_list) {
 											            count_start = true;
 														action_points = other.action_points;
 														alert_display = true;
-											            alert_text = "-"+string(move_amount*mp_cost)+ " AP";
+											            alert_text = "-"+string(temp_ap)+ " AP";
 											            alert_colour = c_red;
 											            alarm[3] = global.tick_rate*3;
 														alarm[6] = 10;
@@ -203,6 +206,7 @@ if !ds_list_empty(global.selected_list) {
 										            y_end = y;
 										            x_final = x;
 										            y_final = y;
+													temp_ap = 0;
 										            move_amount = 0;
 										            move_max = 0;
 										            nav_offset = 0;
@@ -256,6 +260,7 @@ if !ds_list_empty(global.selected_list) {
                                     //Reset navigation path
                                     mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
                                     move_amount = 0;
+									move_max = 0;
 									mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
                                 }
                             }
@@ -329,7 +334,9 @@ if !ds_list_empty(global.selected_list) {
                                 nav_display = false;
                                 //Reset navigation path
                                 mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+								temp_ap = 0;
                                 move_amount = 0;
+								move_max = 0;
                             }
                         }
                     }

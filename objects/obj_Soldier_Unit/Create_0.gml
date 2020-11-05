@@ -1,7 +1,5 @@
 event_inherited();
 
-size_target = 6;
-
 var p_side    = PLAYER.player;
 var p_faction = PLAYER.faction;
 
@@ -34,9 +32,12 @@ if p_side == "ONE" {
 
 var t = instance_place(x, y, obj_Game_Tile);
 t.occupied = true;
+mp_cost   = t.move_rating;
 my_tile   = t.tile_num;
 my_tile_x = t.tile_x;
 my_tile_y = t.tile_y;
+view_radius = (global.cell_size*4)+(t.height_rating*global.cell_size);
+size_target = (4+t.height_rating)*1.5;//Light radius target size...was 6
 x = my_tile_x;
 y = my_tile_y;
 
@@ -45,7 +46,6 @@ shoot_mask.kind = 1;
 shoot_mask.my_unit = id;
 
 unit_type = "INFANTRY";
-view_radius = global.cell_size*4;
 
 my_speed = 3.5;
 
@@ -54,7 +54,6 @@ start_mp = 8;
 action_points = 0;
 move_points = 0;
 ap_cost = 2;
-mp_cost = 2;
 
 action_range = global.cell_size*5;
 
