@@ -94,14 +94,20 @@ if global.my_turn == true || global.waiting == true {
                                     }
                             }
                                 else if global.nav_select == true {
+									/*
                                     draw_set_colour(c_white);
                                     draw_set_font(fnt_12);
                                     //Draw the number of moves available to the unit
                                     var amt = floor(move_max-move_amount);
-									if p_one == true { draw_text_transformed_shadow(x_end, y_end, string(amt), 0.9, 0.9, txt_rot, 2, 245, c_black, 1); }
+									if p_one == true { 
+										draw_text_transformed_shadow(x_end, y_end-32, string(move_amount), 0.9, 0.9, txt_rot, 2, 245, c_black, 1);
+										draw_text_transformed_shadow(x_end, y_end, string(amt), 0.9, 0.9, txt_rot, 2, 245, c_black, 1); 
+										draw_text_transformed_shadow(x_end, y_end+32, string(move_max), 0.9, 0.9, txt_rot, 2, 245, c_black, 1);
+										}
 										else { draw_text_transformed_shadow(x_end+2, y_end, string(amt), 0.9, 0.9, txt_rot, 2, 65, c_black, 1); }
                                     draw_set_font(fnt_20);
                                     draw_set_colour(c_black);
+									*/
                                 }
                         }
                 }

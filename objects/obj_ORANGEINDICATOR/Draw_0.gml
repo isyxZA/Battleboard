@@ -25,14 +25,15 @@ if global.my_turn == true || global.waiting == true {
                                     }
                             }
                                 else if global.nav_select == true {
-                                    if nav_split == true { draw_sprite(spr_Dot_Orange, 0, x_end, y_end); 
+									if move_amount > 0 { 
+										draw_sprite(spr_Dot_Orange, 0, x_end, y_end); 
 									}
-                                    //draw_sprite(spr_Dot_Green, 0, x, y);
-                                    if nav_offset != 0 { 
-                                        var n = nav_offset/global.cell_size;
-                                        if n > 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end+17, y_end, 0.5, 0.5,  0, c_white, 1); }
-                                            else if n < 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end-16, y_end, 0.5, 0.5, 180, c_white, 1); }
-                                    }
+	                                //draw_sprite(spr_Dot_Green, 0, x, y);
+	                                if nav_offset != 0 {//FIX THIS FOR PLAYER SIDE
+	                                    var n = nav_offset/global.cell_size;
+	                                    if n > 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end+17, y_end, 0.5, 0.5,  0, c_white, 1); }
+	                                        else if n < 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end-16, y_end, 0.5, 0.5, 180, c_white, 1); }
+	                                }
                                 }
                         }
                 }

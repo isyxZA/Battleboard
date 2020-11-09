@@ -1,26 +1,56 @@
 /// @description scr_Navigation(offset);
 /// @param offset
 function scr_Navigation(argument0) {
+	
 
 	var mx = mouse_x-global.cell_size*0.5 + argument0;
 	var my = mouse_y-global.cell_size*0.5;
 	var xx = instance_nearest(mx, my, obj_Game_Tile).tile_x;
 	var yy = instance_nearest(mx, my, obj_Game_Tile).tile_y;
 
+	var tap1 = 0;
 
 	//Create the navigation path 
 	if mp_grid_path(global.move_grid, my_path, x, y, xx, yy, diag) {
 	    //Limit movement to move max
-	    while (path_get_number(my_path)-1 > move_max) { path_delete_point(my_path, path_get_number(my_path)-1); }    
+	    while (path_get_number(my_path)-1 > move_max) { path_delete_point(my_path, path_get_number(my_path)-1); }  
+		//Calculate the ap cost
+		var pn1 = path_get_number(my_path)-1;
+		var im1;
+		for(im1=0; im1<pn1; im1++) {
+			var ppx1 = path_get_point_x(my_path, im1);
+			var ppy1 = path_get_point_y(my_path, im1);
+			var ppc1 = instance_place(ppx1, ppy1, obj_Game_Tile);
+			if ppc1 != noone { tap1 += ppc1.move_rating; }
+		}
+		temp_ap = tap1;
+		//Limit movement to action point cost
+		while (tap1 > action_points) { 
+			path_delete_point(my_path, path_get_number(my_path)-1); 
+			if (x_end == x) && (y_end == y) { temp_ap = 0; }
+				else {
+					pn1 = path_get_number(my_path)-1;
+					tap1 = 0;
+					var im2;
+					for(im2=0; im2<pn1; im2++) {
+						var ppx2 = path_get_point_x(my_path, im2);
+						var ppy2 = path_get_point_y(my_path, im2);
+						var ppc2 = instance_place(ppx2, ppy2, obj_Game_Tile);
+						if ppc2 != noone { tap1 += ppc2.move_rating; }
+					}
+					temp_ap = tap1;
+				}
+		}
 	    //Store the path end coords
 	    x_end = path_get_x(my_path, 1);
 	    y_end = path_get_y(my_path, 1);
+		move_max = min(move_max,path_get_number(my_path)-1);
 	    //Check for overlapping path ends...if one exists then delete last point on path
 		repeat(move_max) {
 	        if !ds_list_empty(global.unit_list){
-	            var iu;
-	            for (iu=0; iu<ds_list_size(global.unit_list); iu+=1;) {
-	                var u = ds_list_find_value(global.unit_list, iu);
+	            var iu1;
+	            for (iu1=0; iu1<ds_list_size(global.unit_list); iu1+=1;) {
+	                var u = ds_list_find_value(global.unit_list, iu1);
 	                //If u is not self
 	                if (u.id != id) {
 	                    switch u.unit_type {
@@ -293,49 +323,33 @@ function scr_Navigation(argument0) {
 	    //Create the final path
 	    //Will be executed once CONFIRMED in the ACTIONMENU
 	    mp_grid_path(global.move_grid, my_path, x, y, x_end, y_end, diag);
-	    if (x_end == x) && (y_end == y)  { move_amount = 0; }
-	        else { move_amount = (path_get_number(my_path)-1); }
 	}
-
-	//Calculate the mp cost
-	if !ds_list_empty(global.selected_list) {
-	    var i;
-	    global.temp_AP = 0;
-	    for (i=0; i<ds_list_size(global.selected_list); i+=1) {
-	        var unit = ds_list_find_value(global.selected_list, i);
+	
+	if (x_end == x) && (y_end == y) { move_amount = 0; }
+	        else { move_amount = (path_get_number(my_path)-1); }
 			
-			with unit {
+	//Calculate the ap cost
+	if !ds_list_empty(global.selected_list) {
+	    var ie;
+	    global.temp_AP = 0;
+	    for (ie=0; ie<ds_list_size(global.selected_list); ie+=1) {
+	        var n_unit1 = ds_list_find_value(global.selected_list, ie);
+			with n_unit1 {
 				if move_amount > 0 {
-					var t_ap = 0;
-					var mpi;
-					var mpn = path_get_number(my_path)-1;
-					for(mpi=0; mpi<mpn; mpi++) {
-						var pxx = path_get_point_x(my_path, mpi);
-						var pyy = path_get_point_y(my_path, mpi);
-						var pmc = instance_place(pxx, pyy, obj_Game_Tile);
-						t_ap += pmc.move_rating;
+					temp_ap = 0;
+					var im3;
+					for(im3=0; im3<move_amount; im3++) {
+						var ppx3 = path_get_point_x(my_path, im3);
+						var ppy3 = path_get_point_y(my_path, im3);
+						var ppc3 = instance_place(ppx3, ppy3, obj_Game_Tile);
+						if ppc3 != noone { temp_ap += ppc3.move_rating; }
 					}
-					temp_ap = t_ap;
 				}
 					else { temp_ap = 0; }
 				global.temp_AP += temp_ap;
 			}
-			
-	        //global.temp_AP += (unit.move_amount*unit.mp_cost);
 	    }
 	}
-
-
-
-
-
-
-
-   
-
-
-
-
 
 
 }

@@ -19,7 +19,11 @@ if global.my_turn == true || global.waiting == true {
                             if global.nav_select == false { 
 								draw_sprite(spr_Dot_Green, 0, x, y);
                             }
-                                else if global.nav_select == true { draw_sprite(spr_Dot_Green, 0, x, y); }
+                                else if global.nav_select == true { 
+									if global.nav_select == true {
+										draw_sprite(spr_Dot_Green, 0, x, y); 
+									}
+								}
                         }
                 }
         }

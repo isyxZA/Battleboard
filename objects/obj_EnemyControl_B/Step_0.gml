@@ -354,7 +354,7 @@ switch state {
 																//ADD MORTARS HERE...WILL HAVE NO COLLISION LINE
 																//ADD LOGIS HERE...WILL SEARCH FOR UNITS IN ACTION RANGE
 																//ADD DEPOTS HERE...WILL SEARCH FOR UNITS IN ACTION RANGE
-																//ADD REAPAIR STATIONS HERE...WILL CHECK IF OCCUPIED
+																//ADD REPAIR STATIONS HERE...WILL CHECK IF OCCUPIED
                                                                 else { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx-xdir, my_unit.tty-ydir, obj_Cant_Shoot, false, true); } }
                                                             //If unit has a clear line of sight
                                                             if !shoot_mask.t_line  {
