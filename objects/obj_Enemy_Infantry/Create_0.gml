@@ -38,6 +38,7 @@ if p_side == "ONE" {
 var t = instance_place(x, y, obj_Game_Tile);
 my_tile = t.id;
 t.occupied = true; 
+mp_cost   = t.move_rating;
 my_tile_x = t.tile_x;
 my_tile_y = t.tile_y;
 x = my_tile_x;
@@ -56,7 +57,6 @@ my_speed = 3.5;
 start_ap = 8;
 action_points = 0;
 ap_cost = 2;
-mp_cost = 2;
 
 action_range = view_radius;
 

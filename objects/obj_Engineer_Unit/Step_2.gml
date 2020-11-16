@@ -135,7 +135,7 @@ if action_confirmed == true {
         timer_target = 3;
         timer_count = timer_target;
         timer_start = true;
-        instance_create_layer(target_x, target_y, "Units", obj_Depot_Static);
+        instance_create_layer(target_x, target_y, "StaticUnits", obj_Depot_Static);
     }
         else if shoot_repair == true {
             //Add alert to gui
@@ -145,7 +145,7 @@ if action_confirmed == true {
             timer_target = 3;
             timer_count = timer_target;
             timer_start = true;
-            instance_create_layer(target_x, target_y, "Units", obj_Repair_Static);
+            instance_create_layer(target_x, target_y, "StaticUnits", obj_Repair_Static);
         }
             else if shoot_tow == true {
                 //Add alert to gui
@@ -155,7 +155,7 @@ if action_confirmed == true {
                 timer_target = 3;
                 timer_count = timer_target;
                 timer_start = true;
-                instance_create_layer(target_x, target_y, "Units", obj_TOW_Static);
+                instance_create_layer(target_x, target_y, "StaticUnits", obj_TOW_Static);
             }
                 else if shoot_mortar == true {
                     //Add alert to gui
@@ -165,7 +165,7 @@ if action_confirmed == true {
                     timer_target = 3;
                     timer_count = timer_target;
                     timer_start = true;
-                    instance_create_layer(target_x, target_y, "Units", obj_Mortar_Static);
+                    instance_create_layer(target_x, target_y, "StaticUnits", obj_Mortar_Static);
                 }
                     else {}
 }

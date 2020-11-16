@@ -331,9 +331,8 @@ switch state {
                                     var amm = (action_points/ap_cost);
                                     if amm<0 {amm=0;}
                                     //Find max mp
-                                    var mm = (action_points/mp_cost);
-                                    if mm<0 {mm=0;}
-                                    //If mp is depleted
+                                    //var mm = (action_points/mp_cost);
+                                    //if mm<0 {mm=0;}
                                     //Take action
                                     if no_shot == false {
                                         if (amm >= 1) {
@@ -374,12 +373,12 @@ switch state {
                                         //If there are enough points available
                                         //Begin movement
                                         else if no_shot == true {
-                                            if mm >= 1 { 
+                                            if action_points >= mp_cost { 
 												mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40); 
 												//IF THE UNIT IS NOT A STATIC UNIT THEN ALLOW NAVIGATION...ADD HERE
-												scr_EnemyNavigation(obj_EnemyControl_B.active_x, obj_EnemyControl_B.active_y, mm); 
+												scr_EnemyNavigation(obj_EnemyControl_B.active_x, obj_EnemyControl_B.active_y); 
 											}
-                                                else { no_move = true; }
+                                                else { no_move = true; }			
                                         }
                                     //If the unit cannot move or shoot then increment the idle count
                                     if no_move == true && no_shot == true { idle_state = 1; }
@@ -444,18 +443,18 @@ switch state {
                             with u1 {
                                 if nav_confirmed == false && action_confirmed == false && resupplying == false {
                                     //Find max movement amount
-                                    var mm = (action_points/mp_cost);
-                                    if mm<0 {mm=0;}
+                                    //var mm = (action_points/mp_cost);
+                                    //if mm<0 {mm=0;}
                                     //Find max actions amount
                                     var amm = (action_points/ap_cost);
                                     if amm<0 {amm=0;}
                                     //If there are enough points available
                                     //Begin movement
                                     if no_move == false {
-                                        //Allow for movement up to 4 tiles
-                                        if mm >= choose(2,4,6,8) { 
+                                        //Allow for movement up to 4 moves then look for a target
+                                        if action_points >= mp_cost*2 { 
 											mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
-                                            scr_EnemyNavigation(obj_EnemyControl_B.active_x, obj_EnemyControl_B.active_y, mm);   
+                                            scr_EnemyNavigation(obj_EnemyControl_B.active_x, obj_EnemyControl_B.active_y);   
                                         }
                                             else {
                                                 //Check if unit has a firing solution
@@ -494,9 +493,9 @@ switch state {
                                                 }
                                                     else {
                                                         //If the unit has movement points available
-                                                        if mm >= 1 { 
+                                                        if action_points >= mp_cost { 
 															mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
-															scr_EnemyNavigation(obj_EnemyControl_B.active_x, obj_EnemyControl_B.active_y, mm); 
+															scr_EnemyNavigation(obj_EnemyControl_B.active_x, obj_EnemyControl_B.active_y); 
 														}
                                                             else { no_move = true; }
                                                     }

@@ -19,8 +19,10 @@ if PLAYER.player == "ONE" {
 crater_index = spr_Static_Crater;
 my_inf = obj_Soldier_Unit.my_sprite;
 my_sprite = spr_TOW_00;
+mp_cost = 2;
 var t = instance_place(x, y, obj_Game_Tile);
 t.occupied = true;
+t.move_rating = mp_cost;
 my_tile   = t.tile_num;
 my_tile_x = t.tile_x;
 my_tile_y = t.tile_y;
@@ -50,7 +52,6 @@ start_mp = 10;
 action_points = 0;
 move_points = 0;
 ap_cost = 10;
-mp_cost = 2;
 
 action_range = 768;
 

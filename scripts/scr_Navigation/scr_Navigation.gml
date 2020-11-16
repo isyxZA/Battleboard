@@ -25,7 +25,7 @@ function scr_Navigation(argument0) {
 		}
 		temp_ap = tap1;
 		//Limit movement to action point cost
-		while (tap1 > action_points) { 
+		while (temp_ap > action_points) { 
 			path_delete_point(my_path, path_get_number(my_path)-1); 
 			if (x_end == x) && (y_end == y) { temp_ap = 0; }
 				else {

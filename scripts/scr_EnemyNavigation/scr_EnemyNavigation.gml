@@ -2,22 +2,52 @@
 /// @param waypoint_x
 /// @param  waypoint_y
 /// @param  move_max
-function scr_EnemyNavigation(argument0, argument1, argument2) {
+function scr_EnemyNavigation(argument0, argument1) {
 
 	var mx = argument0;
 	var my = argument1;
 	var xx = instance_nearest(mx, my, obj_Game_Tile).tile_x;
 	var yy = instance_nearest(mx, my, obj_Game_Tile).tile_y;
-
+	var tap1 = 0;
+	
 	//Create the navigation path 
 	if mp_grid_path(global.move_grid, my_path, x, y, xx, yy, diag) {
-	    //Limit movement to move max
-	    while (path_get_number(my_path)-1 > argument2) { path_delete_point(my_path, path_get_number(my_path)-1); }    
+	    //Limit movement to move cap
+	    //while (path_get_number(my_path)-1 > move_max) { path_delete_point(my_path, path_get_number(my_path)-1); }    
+		//Calculate the ap cost
+		var pn1 = path_get_number(my_path)-1;
+		var im1;
+		for(im1=0; im1<pn1; im1++) {
+			var ppx1 = path_get_point_x(my_path, im1);
+			var ppy1 = path_get_point_y(my_path, im1);
+			var ppc1 = instance_place(ppx1, ppy1, obj_Game_Tile);
+			if ppc1 != noone { tap1 += ppc1.move_rating; }
+		}
+		temp_ap = tap1;
+		//Limit movement to action point cost
+		while (temp_ap > action_points) { 
+			path_delete_point(my_path, path_get_number(my_path)-1); 
+			if (x_end == x) && (y_end == y) { temp_ap = 0; }
+				else {
+					pn1 = path_get_number(my_path)-1;
+					tap1 = 0;
+					var im2;
+					for(im2=0; im2<pn1; im2++) {
+						var ppx2 = path_get_point_x(my_path, im2);
+						var ppy2 = path_get_point_y(my_path, im2);
+						var ppc2 = instance_place(ppx2, ppy2, obj_Game_Tile);
+						if ppc2 != noone { tap1 += ppc2.move_rating; }
+					}
+					temp_ap = tap1;
+				}
+		}
 	    //Store the path end coords
 	    x_end = path_get_x(my_path, 1);
 	    y_end = path_get_y(my_path, 1);
+		move_max = path_get_number(my_path)-1;
+		
 	    //Check for overlapping path ends...if one exists then delete last point on path
-	    repeat (argument2) {
+	    repeat (move_max) {
 	        if !ds_list_empty(global.unit_list){
 	            var in;
 	            for (in=0; in<ds_list_size(global.unit_list); in+=1;) {
@@ -296,31 +326,46 @@ function scr_EnemyNavigation(argument0, argument1, argument2) {
 	    if (x_end == x) && (y_end == y)  { move_amount = 0; }
 	        else { move_amount = (path_get_number(my_path)-1); }
 
-	    if (move_amount > 0) {
-	        if mp_grid_path(global.move_grid, my_path, x, y, x_end, y_end, diag) {
-	            can_move = true; 
-	            count_start = true;
-	            //Set final waypoint
-	            x_final = x_end;
-	            y_final = y_end;
-	            action_points -= (move_amount*mp_cost);
-	            //Remove cost
-				if instance_exists(obj_EnemyControl_B) {
-					obj_EnemyControl_B.turn_ap -= (move_amount*mp_cost);
+	    if move_amount > 0 {
+		    if mp_grid_path(global.move_grid, my_path, x, y, x_end, y_end, diag) {
+				temp_ap = 0;
+				var im3;
+				for(im3=0; im3<move_amount; im3++) {
+					var ppx3 = path_get_point_x(my_path, im3);
+					var ppy3 = path_get_point_y(my_path, im3);
+					var ppc3 = instance_place(ppx3, ppy3, obj_Game_Tile);
+					if ppc3 != noone { temp_ap += ppc3.move_rating; }
 				}
-	            move_amount = 0;
-	            nav_confirmed = true;
-				mp_grid_add_rectangle(global.move_grid, x_final-36, y_final-36, x_final+36, y_final+36);
-	        }
-	            else {
-	                x_end = x;
-	                y_end = y;
-	                x_final = x;
-	                y_final = y;
-	                mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+				if temp_ap <= action_points {
+			        can_move = true; 
+			        count_start = true;
+			        //Set final waypoint
+			        x_final = x_end;
+			        y_final = y_end;
+			        action_points -= temp_ap;
+			        //Remove cost
+					if instance_exists(obj_EnemyControl_B) {
+						obj_EnemyControl_B.turn_ap -= temp_ap;
+					}
+					move_max = 0;
+			        move_amount = 0;
+					temp_ap = 0;
+			        nav_confirmed = true;
+					mp_grid_add_rectangle(global.move_grid, x_final-36, y_final-36, x_final+36, y_final+36);
+				}
+		    }
+		        else {
+		            x_end = x;
+		            y_end = y;
+		            x_final = x;
+		            y_final = y;
+		            mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
 					mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
-	                no_move = true;
-	            }
+		            no_move = true;
+					move_max = 0;
+			        move_amount = 0;
+					temp_ap = 0;
+		        }
 	    }
 	        else {
 	            x_end = x;
@@ -330,6 +375,9 @@ function scr_EnemyNavigation(argument0, argument1, argument2) {
 	            mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
 				mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
 	            no_move = true;
+				move_max = 0;
+	            move_amount = 0;
+				temp_ap = 0;
 	        }
 	}
 	    else {

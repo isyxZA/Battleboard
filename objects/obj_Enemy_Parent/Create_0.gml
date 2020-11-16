@@ -7,6 +7,7 @@ unit_health = 100;
 health_max = 100;
 action_range = 0;
 action_points = 0;
+temp_ap = 0;
 start_ap = 0;
 ap_cost = 0;
 ap_depleted = false;

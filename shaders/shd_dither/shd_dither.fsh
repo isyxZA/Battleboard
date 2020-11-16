@@ -29,8 +29,8 @@ void main()
 {
     gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
 	//Loop our screen position between 0 and 3
-    int xPos = int(mod(v_vPosition.x,4.0));
-	int yPos = int(mod(v_vPosition.y,4.0));
+    int xPos = int(mod(v_vPosition.x,2.0));
+	int yPos = int(mod(v_vPosition.y,2.0));
 	
 	int dith = patCalc(gl_FragColor.a, xPos, yPos);
 	

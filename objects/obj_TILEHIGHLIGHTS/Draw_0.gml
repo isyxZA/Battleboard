@@ -4,9 +4,15 @@ if global.selected_LC == true {
         if is_visible == true {
             if global.supply_ship == noone {
                 if my_colour == c_red || occupied == true { }
-                    else { draw_sprite(spr_Tile_Outline_Green, 0, x, y); }
+                    else { 
+						draw_sprite(spr_Tile_Outline_Green, 0, x, y); 
+					}
             }
-                else { if my_colour == c_green { draw_sprite(spr_Tile_Outline_Orange, 0, x, y); } }
+                else { 
+					if my_colour == c_green { 
+						draw_sprite(spr_Tile_Outline_Orange, 0, x, y); 
+					} 
+				}
         }
     }
 }

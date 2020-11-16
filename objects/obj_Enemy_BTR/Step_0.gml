@@ -32,7 +32,8 @@ if nav_confirmed == true {
         path_end();
         var t = instance_place(x, y, obj_Game_Tile);
         t.occupied = true;
-        my_tile = t.id;
+		mp_cost   = t.move_rating;
+        my_tile   = t.id;
         my_tile_x = t.tile_x;
         my_tile_y = t.tile_y;
         x = my_tile_x;

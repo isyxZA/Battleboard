@@ -4,12 +4,21 @@ if light_strength != global.light_level { light_strength = lerp(light_strength, 
 
 //For game start animation
 if can_move == true {
+	if p_one == true {
+		part_emitter_region(particle_ship0, ship0_emitter, x-20, x+20, y+120, y+120, ps_shape_line, ps_distr_invgaussian);
+	}
+		else {
+			part_emitter_region(particle_ship0, ship0_emitter, x-20, x+20, y-120, y-120, ps_shape_line, ps_distr_invgaussian);
+		}
+	//Wake
+	part_emitter_stream(particle_ship0, ship0_emitter, part1, -3);	
     audio_emitter_position(emit, x, y, 0);
     if PLAYER.player == "ONE" && (y > y_to) { move_towards_point(x, y_to, s); } 
 		else if PLAYER.player == "TWO" && (y < y_to) { move_towards_point(x, y_to, s); }
 	        else { 
 	            speed = 0; 
 	            can_move = false;
+				part_emitter_clear(particle_ship0, ship0_emitter);
 	            var spawner = instance_place(x, y, obj_Ship_Spawn);
 	            if spawner != noone {
 	                //global.active_llc = false;

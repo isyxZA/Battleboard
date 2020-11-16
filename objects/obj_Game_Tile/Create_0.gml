@@ -1,8 +1,8 @@
 if global.grid_size == 40 { origin = 1440; }
 img = -1;
 //Tile variables
-height_rating = irandom(4);
-move_rating   = irandom_range(1, 4);
+height_rating = 1;
+move_rating   = 2;
 if PLAYER.player == "ONE" { 
 	p_one = true; 
 }

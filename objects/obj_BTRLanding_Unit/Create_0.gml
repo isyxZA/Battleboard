@@ -55,3 +55,20 @@ yscale = 0.8;
 s = random_range(0.7,1);
 
 alarm[1] = 300;
+
+//Particles Setup
+particle_ship0 = part_system_create();
+part_system_depth(particle_ship0, 2);
+ship0_emitter = part_emitter_create(particle_ship0);
+
+//Foam particle
+part1 = part_type_create();
+part_type_sprite(part1, spr_Wake_1, true, true, false);
+part_type_size(part1, 0.5, 0.5, 0.003, 0.002);
+part_type_scale(part1, 1, 1);
+part_type_alpha3(part1,0,0.2,0);
+part_type_speed(part1, 0.4, 0.6, 0, 0.02);
+if p_one == true { part_type_direction(part1, 260, 280, 0, 1); }
+	else { part_type_direction(part1, 85, 95, 0, 1); }
+part_type_orientation(part1, 0, 359, 0, 0, true);
+part_type_life(part1, 60, 300);

@@ -2,19 +2,19 @@
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
-  "origin": 0,
+  "origin": 1,
   "preMultiplyAlpha": false,
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 0,
+  "bbox_right": 4,
   "bbox_top": 0,
   "bbox_bottom": 479,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 1,
+  "width": 5,
   "height": 480,
   "textureGroupId": {
     "name": "Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"523b146e-a1bb-43ab-bbad-596adad37f8f","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"LayerId":null,"resourceVersion":"1.0","name":"composite","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"523b146e-a1bb-43ab-bbad-596adad37f8f","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"LayerId":{"name":"381ac5e1-383d-435c-8f95-87d484c83d46","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_GridLine_V_a","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"resourceVersion":"1.0","name":"523b146e-a1bb-43ab-bbad-596adad37f8f","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"7242da10-ac19-45e7-9e2e-964ac0485bae","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"7242da10-ac19-45e7-9e2e-964ac0485bae","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"LayerId":{"name":"98c2b1c9-0ea7-40b0-bfcd-daad8b69894c","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_GridLine_V_a","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"resourceVersion":"1.0","name":"7242da10-ac19-45e7-9e2e-964ac0485bae","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_GridLine_V_a","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},
@@ -41,10 +41,10 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"b9ddd20b-af62-477b-b4a6-bdb6371adeb3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"523b146e-a1bb-43ab-bbad-596adad37f8f","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c1989532-e14e-4fa7-ae96-6e06d0435b78","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7242da10-ac19-45e7-9e2e-964ac0485bae","path":"sprites/spr_GridLine_V_a/spr_GridLine_V_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
-    "visibleRange": {"x":0.0,"y":0.0,},
+    "visibleRange": null,
     "lockOrigin": false,
     "showBackdrop": true,
     "showBackdropImage": false,
@@ -54,7 +54,7 @@
     "backdropHeight": 1080,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 0,
+    "xorigin": 2,
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"381ac5e1-383d-435c-8f95-87d484c83d46","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"98c2b1c9-0ea7-40b0-bfcd-daad8b69894c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Grid",
