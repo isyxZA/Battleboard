@@ -1,3 +1,13 @@
+if place_meeting(x, y, obj_MOUSE) {
+    if mouse_check_button_pressed(mb_left) {
+		if (obj_UnitFormations.formation_points-unit_cost >= 0) {
+            can_drag = true; 
+            with obj_SquadAssigner { can_activate = true; }
+        }
+    }
+}
+
+/*
 if clear == true {
     clear = false;
     auto_assign = false;
@@ -17,7 +27,7 @@ if auto_assign == false {
     else if auto_assign == true {
         can_drag = false;
     }
-
+*/
 
 
 

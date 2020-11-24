@@ -5,6 +5,8 @@ if clear == true {
     place_unit = "";
     open_slots = 6;
     temp_sprite = -1;
+	temp_cost = 0;
+	lpos = -1;
     slot1_full = false;
     slot2_full = false;
     slot3_full = false;
@@ -22,6 +24,27 @@ if clear == true {
     }
 }
 
+if mouse_check_button_released(mb_left) {
+    if active == true { 
+        active = false; 
+        //Add unit to squad
+        if place_unit != "" {
+            if slot1_full == false { slot1_full = true; slot1_sprite = temp_sprite; open_slots -= 1; ds_list_add(squad_list, place_unit); obj_UnitFormations.formation_points -= temp_cost; }
+                else if slot2_full == false { slot2_full = true; slot2_sprite = temp_sprite; open_slots -= 1; ds_list_add(squad_list, place_unit); obj_UnitFormations.formation_points -= temp_cost; }
+                    else if slot3_full == false { slot3_full = true; slot3_sprite = temp_sprite; open_slots -= 1; ds_list_add(squad_list, place_unit); obj_UnitFormations.formation_points -= temp_cost; } 
+                        else if slot4_full == false { slot4_full = true; slot4_sprite = temp_sprite; open_slots -= 1; ds_list_add(squad_list, place_unit); obj_UnitFormations.formation_points -= temp_cost; } 
+                            else if slot5_full == false { slot5_full = true; slot5_sprite = temp_sprite; open_slots -= 1; ds_list_add(squad_list, place_unit); obj_UnitFormations.formation_points -= temp_cost; } 
+                                else if slot6_full == false { slot6_full = true; slot6_sprite = temp_sprite; open_slots -= 1; ds_list_add(squad_list, place_unit); obj_UnitFormations.formation_points -= temp_cost; } 
+            place_unit = "";
+            temp_sprite = -1;
+			temp_cost = 0;
+            //with obj_UnitSelector { if dragging == true { unit_amount -= 1; } }
+        }
+    }
+    if can_activate == true { can_activate = false; }
+}
+
+/*
 if auto_assign == false {
     if mouse_check_button_released(mb_left) {
         if active == true { 
@@ -61,4 +84,4 @@ if auto_assign == false {
         }
             else { active = false; }
     }
-
+*/

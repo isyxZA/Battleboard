@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c21c131c-0ee3-4d88-8718-2ff2b5274bd1","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c21c131c-0ee3-4d88-8718-2ff2b5274bd1","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"LayerId":{"name":"f6a0fff4-d62a-4440-90cb-faea83c12432","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_Beach_04_A","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"resourceVersion":"1.0","name":"c21c131c-0ee3-4d88-8718-2ff2b5274bd1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"2ec0e093-e503-42c8-8623-343ff7ca7208","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"2ec0e093-e503-42c8-8623-343ff7ca7208","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"LayerId":{"name":"84292ec7-495d-42b9-a8ab-463ba28713e2","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_Beach_04_A","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"resourceVersion":"1.0","name":"2ec0e093-e503-42c8-8623-343ff7ca7208","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_Beach_04_A","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"620be8ca-1f5e-4bae-84f5-7174e07169a4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c21c131c-0ee3-4d88-8718-2ff2b5274bd1","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"455fafd1-f576-4215-b788-e91cf5ef44e5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2ec0e093-e503-42c8-8623-343ff7ca7208","path":"sprites/spr_Beach_04_A/spr_Beach_04_A.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f6a0fff4-d62a-4440-90cb-faea83c12432","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"84292ec7-495d-42b9-a8ab-463ba28713e2","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
     "name": "Beach",

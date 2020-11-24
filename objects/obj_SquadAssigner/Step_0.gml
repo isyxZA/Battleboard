@@ -6,18 +6,21 @@ if can_activate == true {
                     active = false; 
                     place_unit = "";
                     temp_sprite = -1;
+					temp_cost = 0;
                 }
         }
             else { 
                 active = false; 
                 place_unit = "";
                 temp_sprite = -1;
+				temp_cost = 0;
             }
     }
         else { 
             active = false; 
             place_unit = "";
             temp_sprite = -1;
+			temp_cost = 0;
         }
 }
 

@@ -1,16 +1,17 @@
 my_squad = "";
 temp_sprite = -1;
+temp_cost = 0;
 squad_list = -1;
+lpos = -1;
 place_unit = "";
 t_colour = make_colour_rgb(169,169,169);
 open_slots = 6;
 can_activate = false;
 active = false;
 v_space = 32;
-alarm[0] = 10;
 auto_assign = false;
 clear = false;
-selector = -1;
+//selector = -1;
 
 slot_y1 = y-14;
 slot_y2 = slot_y1+v_space;

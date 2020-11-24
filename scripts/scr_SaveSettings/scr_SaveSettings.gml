@@ -25,7 +25,7 @@ function scr_SaveSettings(){
 	
 	if room != rm_Options {
 		if instance_exists(obj_Music_Slider)   {
-			 mx = obj_Music_Slider.x-obj_OPTIONS.x;
+			mx = obj_Music_Slider.x-obj_OPTIONS.x;
 			ini_write_real("Sound", "MusicX", mx);
 			PLAYER.music_pos = mx;
 		}

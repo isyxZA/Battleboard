@@ -27,7 +27,7 @@ fullScreen = true;
 //Transition effect alpha level
 t_a = 0;
 
-if file_exists("settings.sav"){
+if file_exists("settings.sav") {
 	ini_open("settings.sav");
 		
 	global.zoom_speed = ini_read_real("Camera", "Zoom", 0.1);
