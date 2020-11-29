@@ -90,56 +90,6 @@ switch room {
 		shader_reset();
         draw_set_alpha(0.3);
         draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
-        //Game Setup\\
-		draw_sprite_ext(spr_SetupBG_1, 0, x-250, y-400, 1, 1, 0, c_white, 1);
-        draw_set_alpha(0.1);
-        draw_roundrect_colour_ext(x-200, y-300, x+200, y-150, 4, 4, c_dkgray, c_dkgray, false);
-		draw_roundrect_colour_ext(x-200, y-50, x+200, y+100, 4, 4, c_dkgray, c_dkgray, false);
-		draw_roundrect_colour_ext(x-200, y+200, x+200, y+370, 4, 4, c_dkgray, c_dkgray, false);
-        draw_set_alpha(1);
-        draw_roundrect_colour_ext(x-250, y-400, x+249, y+399, 4, 4, c1, c_dkgray, true);
-        draw_roundrect_colour_ext(x-200, y-300, x+200, y-150, 4, 4, c1, c_dkgray, true);
-		draw_roundrect_colour_ext(x-200, y-50, x+200, y+100, 4, 4, c1, c_dkgray, true);
-		draw_roundrect_colour_ext(x-200, y+200, x+200, y+370, 4, 4, c1, c_dkgray, true);
-        draw_set_valign(fa_middle);
-        draw_set_halign(fa_center);
-        draw_set_font(fnt_16);
-        draw_sprite_ext(spr_Menu_Button, 0, x, y-400, 1, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x, y-400, "Game Setup", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-		draw_sprite_ext(spr_Menu_Button, 0, x, y-300, 1, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x, y-300, "Position", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-        draw_sprite_ext(spr_Menu_Button, 0, x, y-50, 1, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x, y-50, "Turn Timer", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-        draw_sprite_ext(spr_Menu_Button, 0, x, y+200, 1, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x, y+200, "Scenario", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-		
-		//Unit Setup\\
-		draw_sprite_ext(spr_SetupBG_1, 0, x+380, y-400, 1, 1, 0, c_white, 1);
-        draw_roundrect_colour_ext(x+380, y-400, x+879, y+399, 4, 4, c1, c_dkgray, true);
-		
-		draw_set_alpha(0.1);
-		draw_roundrect_colour_ext(x+430, y-244, x+830, y-78, 4, 4, c_dkgray, c_dkgray, false);
-		draw_roundrect_colour_ext(x+430, y+64, x+830, y+230, 4, 4, c_dkgray, c_dkgray, false);
-		
-		draw_set_alpha(1);
-		draw_roundrect_colour_ext(x+430, y-244, x+830, y-78, 4, 4, c1, c_dkgray, true);
-		draw_roundrect_colour_ext(x+430, y+64, x+830, y+230, 4, 4, c1, c_dkgray, true);
-	
-		draw_sprite_ext(spr_Menu_Button, 0, x+630, y-400, 1, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x+630, y-400, "Unit Setup", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-		draw_sprite_ext(spr_Menu_Button, 0, x+630, y-244, 1.2, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x+630, y-244, "Your Faction", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-        draw_sprite_ext(spr_Menu_Button, 0, x+630, y+64, 1.2, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x+630, y+64, "Opponent Faction", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-		
-        //Squad Setup\\
-		draw_sprite_ext(spr_SetupBG_2, 0, x+1000, y-400, 1, 1, 0, c_white, 1);
-        draw_roundrect_colour_ext(x+1000, y-400, x+1599, y+399, 4, 4, c1, c_dkgray, true);
-        draw_sprite_ext(spr_Menu_Button, 0, x+1300, y-400, 1, 1, 0, c_white, 1);
-        draw_text_colour_shadow(x+1300, y-400, "Formations", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_14);
-        draw_text_colour_shadow(x+1300, y+20, "Drag and drop squads into the landing craft to create a formation.", c1, c1, c1, c1, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
 		draw_set_alpha(1);
         break;
 }

@@ -3,6 +3,7 @@ temp_sprite = -1;
 temp_cost = 0;
 squad_list = -1;
 lpos = -1;
+lcheck = false;
 place_unit = "";
 t_colour = make_colour_rgb(169,169,169);
 open_slots = 6;

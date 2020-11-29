@@ -8,6 +8,14 @@ if can_drag == true {
 				temp_cost   = other.unit_cost;
             }
         }
+		with obj_ReserveAssigner {
+            if active == true {
+                place_unit  = other.my_unit;
+                temp_sprite = other.icon_sprite;
+				temp_cost   = other.unit_cost;
+				temp_class  = other.unit_class;
+            }
+        }
     }
         else { dragging = false; }
 }

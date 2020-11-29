@@ -325,6 +325,21 @@ function scr_InitGlobals() {
 	#macro NET_STARTGAME 13
 	#macro NET_CANCELSHOOT 14
 	#macro NET_ENDRUN 15
+	
+	#macro INF_1 5
+	#macro INF_2 10
+	
+	#macro MBT_1 40
+	#macro MBT_2 30
+	
+	#macro HMV_1 15
+	#macro HMV_2 20
+	
+	#macro LAV_1 30
+	#macro LAV_2 25
+	
+	#macro LOG_1 15
+	#macro LOG_2 10
 
 
 

@@ -8,6 +8,9 @@ if place_meeting(x,y, obj_MOUSE) {
 			with obj_SquadAssigner {
 				clear = true;
 			}
+			with obj_ReserveAssigner {
+				clear = true;
+			}
 		    anim_count = 0;
 		}
 	}

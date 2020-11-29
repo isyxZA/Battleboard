@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_BTR_B2",
-    "path": "sprites/spr_BTR_B2/spr_BTR_B2.yy",
+    "name": "spr_BTR_B2a",
+    "path": "sprites/spr_BTR_B2a/spr_BTR_B2a.yy",
   },
   "solid": false,
   "visible": true,

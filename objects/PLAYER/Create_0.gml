@@ -23,7 +23,7 @@ player  = "";
 faction = "US";
 opponent_faction = "";
 net_status = "NONE";
-fullScreen = true;
+//fullScreen = true;
 //Transition effect alpha level
 t_a = 0;
 

@@ -71,17 +71,300 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
 				su = ini_read_string("ECHO", "E6", "NOONE");
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
+				
+				su = ini_read_string("INF", "I1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				
+				su = ini_read_string("MBT", "M1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				
+				su = ini_read_string("HMV", "H1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				
+				su = ini_read_string("LAV", "V1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				
+				su = ini_read_string("LOG", "L1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
-			if !ds_list_empty(global.temp_alpha) {
-				formation_points = 0;
-				with obj_SquadAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
+			//CALCULATE AMOUNT OF FORMATION POINTS USED\\
+			var fp = 0;
+			var i;
+			var l;
+			var v;
+			if !ds_list_empty(global.temp_alpha)    {
+				l = ds_list_size(global.temp_alpha);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_alpha, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
 				}
 			}
-				else { formation_points = start_points; }
+			if !ds_list_empty(global.temp_bravo)    { 
+				l = ds_list_size(global.temp_bravo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_bravo, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_charlie)  { 
+				l = ds_list_size(global.temp_charlie);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_charlie, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_delta)    { 
+				l = ds_list_size(global.temp_delta);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_delta, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_echo)     { 
+				l = ds_list_size(global.temp_echo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_echo, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_infantry) { 
+				l = ds_list_size(global.temp_infantry);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_infantry, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_tank)     { 
+				l = ds_list_size(global.temp_tank);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_tank, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_engineer) { 
+				l = ds_list_size(global.temp_engineer);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_engineer, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_btr)      { 
+				l = ds_list_size(global.temp_btr);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_btr, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_logi)     { 
+				l = ds_list_size(global.temp_logi);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_logi, i);
+					switch v {
+						case "INFANTRY":
+							fp += INF_1;
+							break;
+						case "TANK":
+							fp += MBT_1;
+							break;
+						case "ENGINEER":
+							fp += HMV_1;
+							break;
+						case "BTR":
+							fp += LAV_1;
+							break;
+						case "LOGI":
+							fp += LOG_1;
+							break;
+					}
+				}
+			}
+			//ADD A CHECK HERE TO ENSURE POINTS USED ARE IN RANGE\\
+			formation_points = start_points - fp;
+			with obj_SquadAssigner {
+				open_slots = 6;
+				lpos = -1;
+				alarm[0] = 2;
+			}
+			with obj_ReserveAssigner {
+				open_slots = 4;
+				lpos = -1;
+				alarm[0] = 2;
+			}
 			break;
 		case 2:
 			//Assign formation "TWO" from settings
@@ -153,11 +436,60 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
 				su = ini_read_string("ECHO", "E6", "NOONE");
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
+				su = ini_read_string("INF", "I1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				
+				su = ini_read_string("MBT", "M1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				
+				su = ini_read_string("HMV", "H1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				
+				su = ini_read_string("LAV", "V1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				
+				su = ini_read_string("LOG", "L1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
 			if !ds_list_empty(global.temp_alpha) {
 				formation_points = 0;
 				with obj_SquadAssigner {
+					open_slots = 0;
+					lpos = -1;
+					alarm[0] = 2;
+				}
+				with obj_ReserveAssigner {
 					open_slots = 0;
 					lpos = -1;
 					alarm[0] = 2;
@@ -235,11 +567,60 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
 				su = ini_read_string("ECHO", "E6", "NOONE");
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
+				su = ini_read_string("INF", "I1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				
+				su = ini_read_string("MBT", "M1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				
+				su = ini_read_string("HMV", "H1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				
+				su = ini_read_string("LAV", "V1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				
+				su = ini_read_string("LOG", "L1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
 			if !ds_list_empty(global.temp_alpha) {
 				formation_points = 0;
 				with obj_SquadAssigner {
+					open_slots = 0;
+					lpos = -1;
+					alarm[0] = 2;
+				}
+				with obj_ReserveAssigner {
 					open_slots = 0;
 					lpos = -1;
 					alarm[0] = 2;
@@ -317,11 +698,60 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
 				su = ini_read_string("ECHO", "E6", "NOONE");
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
+				su = ini_read_string("INF", "I1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				
+				su = ini_read_string("MBT", "M1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				
+				su = ini_read_string("HMV", "H1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				
+				su = ini_read_string("LAV", "V1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				
+				su = ini_read_string("LOG", "L1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
 			if !ds_list_empty(global.temp_alpha) {
 				formation_points = 0;
 				with obj_SquadAssigner {
+					open_slots = 0;
+					lpos = -1;
+					alarm[0] = 2;
+				}
+				with obj_ReserveAssigner {
 					open_slots = 0;
 					lpos = -1;
 					alarm[0] = 2;
@@ -399,11 +829,60 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
 				su = ini_read_string("ECHO", "E6", "NOONE");
 				if su != "NOONE" { ds_list_add(global.temp_echo, su); }
+				su = ini_read_string("INF", "I1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				su = ini_read_string("INF", "I4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_infantry, su); }
+				
+				su = ini_read_string("MBT", "M1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				su = ini_read_string("MBT", "M4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_tank, su); }
+				
+				su = ini_read_string("HMV", "H1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				su = ini_read_string("HMV", "H4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_engineer, su); }
+				
+				su = ini_read_string("LAV", "V1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				su = ini_read_string("LAV", "V4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_btr, su); }
+				
+				su = ini_read_string("LOG", "L1", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L2", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L3", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
+				su = ini_read_string("LOG", "L4", "NOONE");
+				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
 			if !ds_list_empty(global.temp_alpha) {
 				formation_points = 0;
 				with obj_SquadAssigner {
+					open_slots = 0;
+					lpos = -1;
+					alarm[0] = 2;
+				}
+				with obj_ReserveAssigner {
 					open_slots = 0;
 					lpos = -1;
 					alarm[0] = 2;
