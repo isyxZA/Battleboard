@@ -128,20 +128,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_alpha, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -151,20 +166,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_bravo, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -174,20 +204,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_charlie, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -197,20 +242,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_delta, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -220,20 +280,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_echo, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -243,20 +318,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_infantry, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -266,20 +356,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_tank, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -289,20 +394,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_engineer, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -312,20 +432,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_btr, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -335,20 +470,35 @@ if auto_assign == true {
 				for(i=0; i<l; i+=1) {
 					v = ds_list_find_value(global.temp_logi, i);
 					switch v {
-						case "INFANTRY":
+						case "INF_A":
 							fp += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
 							fp += MBT_1;
 							break;
-						case "ENGINEER":
-							fp += HMV_1;
+						case "MBT_B":
+							fp += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
 							fp += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
 							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
 							break;
 					}
 				}
@@ -482,20 +632,403 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
-			if !ds_list_empty(global.temp_alpha) {
-				formation_points = 0;
-				with obj_SquadAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
-				}
-				with obj_ReserveAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
+			//CALCULATE AMOUNT OF FORMATION POINTS USED\\
+			var fp = 0;
+			var i;
+			var l;
+			var v;
+			if !ds_list_empty(global.temp_alpha)    {
+				l = ds_list_size(global.temp_alpha);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_alpha, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
 				}
 			}
-				else { formation_points = start_points; }
+			if !ds_list_empty(global.temp_bravo)    { 
+				l = ds_list_size(global.temp_bravo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_bravo, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_charlie)  { 
+				l = ds_list_size(global.temp_charlie);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_charlie, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_delta)    { 
+				l = ds_list_size(global.temp_delta);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_delta, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_echo)     { 
+				l = ds_list_size(global.temp_echo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_echo, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_infantry) { 
+				l = ds_list_size(global.temp_infantry);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_infantry, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_tank)     { 
+				l = ds_list_size(global.temp_tank);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_tank, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_engineer) { 
+				l = ds_list_size(global.temp_engineer);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_engineer, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_btr)      { 
+				l = ds_list_size(global.temp_btr);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_btr, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_logi)     { 
+				l = ds_list_size(global.temp_logi);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_logi, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			//ADD A CHECK HERE TO ENSURE POINTS USED ARE IN RANGE\\
+			formation_points = start_points - fp;
+			with obj_SquadAssigner {
+				open_slots = 6;
+				lpos = -1;
+				alarm[0] = 2;
+			}
+			with obj_ReserveAssigner {
+				open_slots = 4;
+				lpos = -1;
+				alarm[0] = 2;
+			}
 			break;
 		case 3:
 			//Assign formation "THREE" from settings
@@ -613,20 +1146,403 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
-			if !ds_list_empty(global.temp_alpha) {
-				formation_points = 0;
-				with obj_SquadAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
-				}
-				with obj_ReserveAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
+			//CALCULATE AMOUNT OF FORMATION POINTS USED\\
+			var fp = 0;
+			var i;
+			var l;
+			var v;
+			if !ds_list_empty(global.temp_alpha)    {
+				l = ds_list_size(global.temp_alpha);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_alpha, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
 				}
 			}
-				else { formation_points = start_points; }
+			if !ds_list_empty(global.temp_bravo)    { 
+				l = ds_list_size(global.temp_bravo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_bravo, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_charlie)  { 
+				l = ds_list_size(global.temp_charlie);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_charlie, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_delta)    { 
+				l = ds_list_size(global.temp_delta);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_delta, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_echo)     { 
+				l = ds_list_size(global.temp_echo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_echo, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_infantry) { 
+				l = ds_list_size(global.temp_infantry);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_infantry, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_tank)     { 
+				l = ds_list_size(global.temp_tank);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_tank, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_engineer) { 
+				l = ds_list_size(global.temp_engineer);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_engineer, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_btr)      { 
+				l = ds_list_size(global.temp_btr);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_btr, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_logi)     { 
+				l = ds_list_size(global.temp_logi);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_logi, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			//ADD A CHECK HERE TO ENSURE POINTS USED ARE IN RANGE\\
+			formation_points = start_points - fp;
+			with obj_SquadAssigner {
+				open_slots = 6;
+				lpos = -1;
+				alarm[0] = 2;
+			}
+			with obj_ReserveAssigner {
+				open_slots = 4;
+				lpos = -1;
+				alarm[0] = 2;
+			}
 			break;
 		case 4:
 			//Assign formation "FOUR" from settings
@@ -744,20 +1660,403 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
-			if !ds_list_empty(global.temp_alpha) {
-				formation_points = 0;
-				with obj_SquadAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
-				}
-				with obj_ReserveAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
+			//CALCULATE AMOUNT OF FORMATION POINTS USED\\
+			var fp = 0;
+			var i;
+			var l;
+			var v;
+			if !ds_list_empty(global.temp_alpha)    {
+				l = ds_list_size(global.temp_alpha);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_alpha, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
 				}
 			}
-				else { formation_points = start_points; }
+			if !ds_list_empty(global.temp_bravo)    { 
+				l = ds_list_size(global.temp_bravo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_bravo, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_charlie)  { 
+				l = ds_list_size(global.temp_charlie);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_charlie, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_delta)    { 
+				l = ds_list_size(global.temp_delta);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_delta, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_echo)     { 
+				l = ds_list_size(global.temp_echo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_echo, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_infantry) { 
+				l = ds_list_size(global.temp_infantry);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_infantry, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_tank)     { 
+				l = ds_list_size(global.temp_tank);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_tank, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_engineer) { 
+				l = ds_list_size(global.temp_engineer);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_engineer, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_btr)      { 
+				l = ds_list_size(global.temp_btr);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_btr, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_logi)     { 
+				l = ds_list_size(global.temp_logi);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_logi, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			//ADD A CHECK HERE TO ENSURE POINTS USED ARE IN RANGE\\
+			formation_points = start_points - fp;
+			with obj_SquadAssigner {
+				open_slots = 6;
+				lpos = -1;
+				alarm[0] = 2;
+			}
+			with obj_ReserveAssigner {
+				open_slots = 4;
+				lpos = -1;
+				alarm[0] = 2;
+			}
 			break;
 		case 5:
 			//Assign formation "FIVE" from settings
@@ -875,75 +2174,405 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
-			if !ds_list_empty(global.temp_alpha) {
-				formation_points = 0;
-				with obj_SquadAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
-				}
-				with obj_ReserveAssigner {
-					open_slots = 0;
-					lpos = -1;
-					alarm[0] = 2;
+			//CALCULATE AMOUNT OF FORMATION POINTS USED\\
+			var fp = 0;
+			var i;
+			var l;
+			var v;
+			if !ds_list_empty(global.temp_alpha)    {
+				l = ds_list_size(global.temp_alpha);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_alpha, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
 				}
 			}
-				else { formation_points = start_points; }
+			if !ds_list_empty(global.temp_bravo)    { 
+				l = ds_list_size(global.temp_bravo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_bravo, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_charlie)  { 
+				l = ds_list_size(global.temp_charlie);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_charlie, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_delta)    { 
+				l = ds_list_size(global.temp_delta);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_delta, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_echo)     { 
+				l = ds_list_size(global.temp_echo);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_echo, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_infantry) { 
+				l = ds_list_size(global.temp_infantry);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_infantry, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_tank)     { 
+				l = ds_list_size(global.temp_tank);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_tank, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_engineer) { 
+				l = ds_list_size(global.temp_engineer);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_engineer, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_btr)      { 
+				l = ds_list_size(global.temp_btr);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_btr, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			if !ds_list_empty(global.temp_logi)     { 
+				l = ds_list_size(global.temp_logi);
+				for(i=0; i<l; i+=1) {
+					v = ds_list_find_value(global.temp_logi, i);
+					switch v {
+						case "INF_A":
+							fp += INF_1;
+							break;
+						case "INF_B":
+							fp += INF_2;
+							break;
+						case "MBT_A":
+							fp += MBT_1;
+							break;
+						case "MBT_B":
+							fp += MBT_2;
+							break;
+						case "LAC_A":
+							fp += LAC_1;
+							break;
+						case "LAC_B":
+							fp += LAC_2;
+							break;
+						case "LAV_A":
+							fp += LAV_1;
+							break;
+						case "LAV_B":
+							fp += LAV_2;
+							break;
+						case "LOGI_A":
+							fp += LOG_1;
+							break;
+						case "LOGI_B":
+							fp += LOG_2;
+							break;
+					}
+				}
+			}
+			//ADD A CHECK HERE TO ENSURE POINTS USED ARE IN RANGE\\
+			formation_points = start_points - fp;
+			with obj_SquadAssigner {
+				open_slots = 6;
+				lpos = -1;
+				alarm[0] = 2;
+			}
+			with obj_ReserveAssigner {
+				open_slots = 4;
+				lpos = -1;
+				alarm[0] = 2;
+			}
 			break;
 	}
 }
-		
-/*
-if clear == true {
-    clear = false;
-    auto_assign = false;
-    ready = false;
-
-    ds_list_clear(selector_list);
-    ds_list_add(selector_list, us1.id);
-    ds_list_add(selector_list, us2.id);
-    ds_list_add(selector_list, us3.id);
-    ds_list_add(selector_list, us4.id);
-    ds_list_add(selector_list, us5.id);
-    
-    ds_list_clear(assigner_list);
-    ds_list_add(assigner_list, sa1.id);
-    ds_list_add(assigner_list, sa2.id);
-    ds_list_add(assigner_list, sa3.id);
-    ds_list_add(assigner_list, sa4.id);
-    ds_list_add(assigner_list, sa5.id);
-}
-
-if ready == false {
-	if auto_assign == true {
-		//Loop thru unit selector and squad assigner lists 
-		//First identify available slots in the assigner abjects
-		//Place available units into available squad slots
-		if !ds_list_empty(selector_list) {
-		    var i;
-		    var ssize = ds_list_size(selector_list);
-		    for(i=0; i<ssize; i+=1;){
-		        var u = ds_list_find_value(selector_list, i);
-		        if u.unit_amount > 0 {
-		            var ii;
-		            var asize = ds_list_size(assigner_list);
-		            for(ii=0; ii<asize; ii+=1;){ 
-		                var a = ds_list_find_value(assigner_list, ii);
-		                if a.open_slots >= 1 {
-		                    //Assign unit
-		                    a.temp_sprite = u.icon_sprite;
-		                    a.place_unit  = u.my_unit;
-		                    a.selector    = u.id;
-		                    break;
-		                }
-		                    else { ds_list_delete(assigner_list, ii); break; }
-		            }
-		        }
-		            else { ds_list_delete(selector_list, i); break; }
-		    }
-		}
-	}
-}
-*/
 
 

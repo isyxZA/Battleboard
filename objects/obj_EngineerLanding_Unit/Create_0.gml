@@ -11,10 +11,12 @@ if PLAYER.player == "ONE" {
 	v_spacing = 78;
 	switch p_faction {
 		case "US":
-			u_sprite = spr_Engineer_A1;
+			u_spriteA = spr_Engineer_A1;
+			u_spriteB = spr_Engineer_A1a;
 			break;
 		case "RU":
-			u_sprite = spr_Engineer_B1;
+			u_spriteA = spr_Engineer_B1;
+			u_spriteB = spr_Engineer_A1a;
 			break;
 	}
 }
@@ -25,10 +27,12 @@ if PLAYER.player == "ONE" {
 		v_spacing = -78;
 		switch p_faction {
 			case "US":
-				u_sprite = spr_Engineer_A2;
+				u_spriteA = spr_Engineer_A2;
+				u_spriteB = spr_Engineer_A2a;
 				break;
 			case "RU":
-				u_sprite = spr_Engineer_B2;
+				u_spriteA = spr_Engineer_B2;
+				u_spriteB = spr_Engineer_B2a;
 				break;
 		} 
 	}
@@ -36,18 +40,29 @@ if PLAYER.player == "ONE" {
 unit_type = "LANDINGCRAFT";
 y_to = 0;
 can_move = true;
-unit_list = ds_list_create();
 view_radius = global.cell_size*8;
 unit_drag = false;
 can_place = false;
 depleted = false;
 mx = 0;
 my = 0;
-my_unit = obj_Engineer_Unit;
-ship_type = "Engineer";
+my_unit = -1;
+ship_type = "LAC";
+unit_list = ds_list_create();
 
-unit_list[| 0] = u_sprite;
-unit_list[| 1] = u_sprite;
+var i;
+for (i=0; i<ds_list_size(global.temp_engineer); i+=1) {
+	var v = ds_list_find_value(global.temp_engineer, i);
+	switch v {
+		case "LAC_A":
+			unit_list[| i] = u_spriteA;
+			break;
+		case "LAC_B":
+			unit_list[| i] = u_spriteB;
+			break;
+	}
+}
+ds_list_clear(global.temp_engineer);
 
 xscale = 0.8;
 yscale = 0.8;

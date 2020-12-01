@@ -89,40 +89,68 @@ if global.my_turn == true || global.active_ilc == true {
                 if mouse_check_button_pressed(mb_right) {
                     if can_place == true { 
                         if !ds_list_empty(unit_list) {
-                            if global.game_turn == 0 {
-                                var t = ds_list_find_value(unit_list, 0);
-                                switch t {
-                                    case spr_Infantry_A1:
-									case spr_Infantry_A2:
-									case spr_Infantry_B1:
-									case spr_Infantry_B2:
-                                        my_unit = obj_Soldier_Unit;
-                                        break;
-                                    case spr_Tank_A1_Icon:
-									case spr_Tank_A2_Icon:
-									case spr_Tank_B1_Icon:
-									case spr_Tank_B2_Icon:
-                                        my_unit = obj_Tank_Unit;
-                                        break;
-                                    case spr_Engineer_A1:
-									case spr_Engineer_A2:
-									case spr_Engineer_B1:
-									case spr_Engineer_B2:
-                                        my_unit = obj_Engineer_Unit;
-                                        break;
-                                    case spr_BTR_A1_Icon:
-									case spr_BTR_A2_Icon:
-									case spr_BTR_B1_Icon:
-									case spr_BTR_B2_Icon:
-                                        my_unit = obj_BTR_Unit;
-                                        break;
-                                    case spr_Logi_A1:
-									case spr_Logi_A2:
-									case spr_Logi_B1:
-									case spr_Logi_B2:
-                                        my_unit = obj_Logi_Unit;
-                                        break;
-                                }
+                            var t = ds_list_find_value(unit_list, 0);
+                            switch t {
+                                case spr_Infantry_A1:
+								case spr_Infantry_A2:
+								case spr_Infantry_B1:
+								case spr_Infantry_B2:
+                                    my_unit = obj_Soldier_Unit;
+                                    break;
+								case spr_Infantry_A1a:
+								case spr_Infantry_A2a:
+								case spr_Infantry_B1a:
+								case spr_Infantry_B2a:
+                                    my_unit = obj_Soldier_Unit;
+                                    break;
+                                case spr_Tank_A1_Icon:
+								case spr_Tank_A2_Icon:
+								case spr_Tank_B1_Icon:
+								case spr_Tank_B2_Icon:
+                                    my_unit = obj_Tank_Unit;
+                                    break;
+								case spr_Tank_A1a_Icon:
+								case spr_Tank_A2a_Icon:
+								case spr_Tank_B1a_Icon:
+								case spr_Tank_B2a_Icon:
+                                    my_unit = obj_Tank_Unit;
+                                    break;
+                                case spr_Engineer_A1:
+								case spr_Engineer_A2:
+								case spr_Engineer_B1:
+								case spr_Engineer_B2:
+                                    my_unit = obj_Engineer_Unit;
+                                    break;
+								case spr_Engineer_A1a:
+								case spr_Engineer_A2a:
+								case spr_Engineer_B1a:
+								case spr_Engineer_B2a:
+                                    my_unit = obj_Engineer_Unit;
+                                    break;
+                                case spr_BTR_A1_Icon:
+								case spr_BTR_A2_Icon:
+								case spr_BTR_B1_Icon:
+								case spr_BTR_B2_Icon:
+                                    my_unit = obj_BTR_Unit;
+                                    break;
+								case spr_BTR_A1a_Icon:
+								case spr_BTR_A2a_Icon:
+								case spr_BTR_B1a_Icon:
+								case spr_BTR_B2a_Icon:
+                                    my_unit = obj_BTR_Unit;
+                                    break;
+                                case spr_Logi_A1:
+								case spr_Logi_A2:
+								case spr_Logi_B1:
+								case spr_Logi_B2:
+									my_unit = obj_Logi_Unit;
+                                    break;
+								case spr_Logi_A1a:
+								case spr_Logi_A2a:
+								case spr_Logi_B1a:
+								case spr_Logi_B2a:
+                                    my_unit = obj_Logi_Unit;
+                                    break;
                             }
                             //Remove from available units list
                             ds_list_delete(unit_list, 0);

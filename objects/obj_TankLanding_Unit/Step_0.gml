@@ -89,6 +89,21 @@ if global.my_turn == true || global.active_tlc == true {
                 if mouse_check_button_pressed(mb_right) {
                     if can_place == true { 
                         if !ds_list_empty(unit_list) {
+							var t = ds_list_find_value(unit_list, 0);
+                            switch t {
+                                case spr_Tank_A1_Icon:
+								case spr_Tank_A2_Icon:
+								case spr_Tank_B1_Icon:
+								case spr_Tank_B2_Icon:
+                                    my_unit = obj_Tank_Unit;
+                                    break;
+								case spr_Tank_A1a_Icon:
+								case spr_Tank_A2a_Icon:
+								case spr_Tank_B1a_Icon:
+								case spr_Tank_B2a_Icon:
+                                    my_unit = obj_Tank_Unit;
+                                    break;
+                            }
                             //Remove from available units list
                             ds_list_delete(unit_list, 0);
                             global.spawning_unit = true; 

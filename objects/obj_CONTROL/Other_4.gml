@@ -2,53 +2,83 @@ if global.new_game == true {
     global.new_game = false;
 	var p_side    = PLAYER.player;
     var p_faction = PLAYER.faction;
-	var isprite;
-	var tsprite; 
-	var esprite;
-	var bsprite;
-	var lsprite;
+	var ispritea;
+	var tspritea; 
+	var espritea;
+	var bspritea;
+	var lspritea;
+	var ispriteb;
+	var tspriteb; 
+	var espriteb;
+	var bspriteb;
+	var lspriteb;
 	if p_side == "ONE" {
 		//Set faction sprites
 		switch p_faction {
 			case "US":
-				isprite = spr_Infantry_A1;
-				tsprite = spr_Tank_A1_Icon;
-				esprite = spr_Engineer_A1;
-				bsprite = spr_BTR_A1_Icon;
-				lsprite = spr_Logi_A1;
+				ispritea = spr_Infantry_A1;
+				tspritea = spr_Tank_A1_Icon;
+				espritea = spr_Engineer_A1;
+				bspritea = spr_BTR_A1_Icon;
+				lspritea = spr_Logi_A1;
+				ispriteb = spr_Infantry_A1a;
+				tspriteb = spr_Tank_A1a_Icon;
+				espriteb = spr_Engineer_A1a;
+				bspriteb = spr_BTR_A1a_Icon;
+				lspriteb = spr_Logi_A1a;
 				break;
 			case "RU":
-				isprite = spr_Infantry_B1;
-				tsprite = spr_Tank_B1_Icon;
-				esprite = spr_Engineer_B1;
-				bsprite = spr_BTR_B1_Icon;
-				lsprite = spr_Logi_B1;
+				ispritea = spr_Infantry_B1;
+				tspritea = spr_Tank_B1_Icon;
+				espritea = spr_Engineer_B1;
+				bspritea = spr_BTR_B1_Icon;
+				lspritea = spr_Logi_B1;
+				ispriteb = spr_Infantry_B1a;
+				tspriteb = spr_Tank_B1a_Icon;
+				espriteb = spr_Engineer_B1a;
+				bspriteb = spr_BTR_B1a_Icon;
+				lspriteb = spr_Logi_B1a;
 				break;
 		}
 		//Spawn landing craft, reinforcement spawners and start game effects objects
 		//ALPHA SPAWN
 		with instance_create_layer(3360, 5888, "Ships", obj_LogiLanding_Unit) {
 			my_squad = "ALPHA";
-			my_sprite = spr_SoldierLandingCraft;
+			sprite_index = spr_SoldierLandingCraft;
 			y_to = y-320;
 			var i;
 			for (i=0; i<ds_list_size(global.temp_alpha); i+=1) {
 			    var v = ds_list_find_value(global.temp_alpha, i);
 			    switch v {
-			        case "INFANTRY":
-			            unit_list[| i] = isprite;
+			        case "INF_A":
+			            unit_list[| i] = ispritea;
 			            break;
-			        case "TANK":
-			            unit_list[| i] = tsprite;
+					case "INF_B":
+			            unit_list[| i] = ispriteb;
 			            break;
-			        case "ENGINEER":
-			            unit_list[| i] = esprite;
+			        case "MBT_A":
+			            unit_list[| i] = tspritea;
 			            break;
-			        case "BTR":
-			            unit_list[| i] = bsprite;
+					case "MBT_B":
+			            unit_list[| i] = tspriteb;
 			            break;
-			        case "LOGI":
-			            unit_list[| i] = lsprite;
+			        case "LAC_A":
+			            unit_list[| i] = espritea;
+			            break;
+					case "LAC_B":
+			            unit_list[| i] = espriteb;
+			            break;
+			        case "LAV_A":
+			            unit_list[| i] = bspritea;
+			            break;
+					case "LAV_B":
+			            unit_list[| i] = bspriteb;
+			            break;
+			        case "LOGI_A":
+			            unit_list[| i] = lspritea;
+			            break;
+					case "LOGI_B":
+			            unit_list[| i] = lspriteb;
 			            break;
 			    }
 			}
@@ -58,26 +88,41 @@ if global.new_game == true {
 		//BRAVO SPAWN
 		with instance_create_layer(3104, 5888, "Ships", obj_SoldierLanding_Unit) {
 			my_squad = "BRAVO";
-			my_sprite = spr_SoldierLandingCraft;
+			sprite_index = spr_SoldierLandingCraft;
 			y_to = y-256;
 			var i;
 			for (i=0; i<ds_list_size(global.temp_bravo); i+=1) {
 			    var v = ds_list_find_value(global.temp_bravo, i);
 			    switch v {
-			        case "INFANTRY":
-			            unit_list[| i] = isprite;
+			        case "INF_A":
+			            unit_list[| i] = ispritea;
 			            break;
-			        case "TANK":
-			            unit_list[| i] = tsprite;
+					case "INF_B":
+			            unit_list[| i] = ispriteb;
 			            break;
-			        case "ENGINEER":
-			            unit_list[| i] = esprite;
+			        case "MBT_A":
+			            unit_list[| i] = tspritea;
 			            break;
-			        case "BTR":
-			            unit_list[| i] = bsprite;
+					case "MBT_B":
+			            unit_list[| i] = tspriteb;
 			            break;
-			        case "LOGI":
-			            unit_list[| i] = lsprite;
+			        case "LAC_A":
+			            unit_list[| i] = espritea;
+			            break;
+					case "LAC_B":
+			            unit_list[| i] = espriteb;
+			            break;
+			        case "LAV_A":
+			            unit_list[| i] = bspritea;
+			            break;
+					case "LAV_B":
+			            unit_list[| i] = bspriteb;
+			            break;
+			        case "LOGI_A":
+			            unit_list[| i] = lspritea;
+			            break;
+					case "LOGI_B":
+			            unit_list[| i] = lspriteb;
 			            break;
 			    }
 			}
@@ -87,26 +132,41 @@ if global.new_game == true {
 		//CHARLIE SPAWN
 		with instance_create_layer(3616, 5888, "Ships", obj_SoldierLanding_Unit) {
 			my_squad = "CHARLIE";
-			my_sprite = spr_SoldierLandingCraft;
+			sprite_index = spr_SoldierLandingCraft;
 			y_to = y-256;
 			var i;
 			for (i=0; i<ds_list_size(global.temp_charlie); i+=1) {
 			    var v = ds_list_find_value(global.temp_charlie, i);
 			    switch v {
-			        case "INFANTRY":
-			            unit_list[| i] = isprite;
+			        case "INF_A":
+			            unit_list[| i] = ispritea;
 			            break;
-			        case "TANK":
-			            unit_list[| i] = tsprite;
+					case "INF_B":
+			            unit_list[| i] = ispriteb;
 			            break;
-			        case "ENGINEER":
-			            unit_list[| i] = esprite;
+			        case "MBT_A":
+			            unit_list[| i] = tspritea;
 			            break;
-			        case "BTR":
-			            unit_list[| i] = bsprite;
+					case "MBT_B":
+			            unit_list[| i] = tspriteb;
 			            break;
-			        case "LOGI":
-			            unit_list[| i] = lsprite;
+			        case "LAC_A":
+			            unit_list[| i] = espritea;
+			            break;
+					case "LAC_B":
+			            unit_list[| i] = espriteb;
+			            break;
+			        case "LAV_A":
+			            unit_list[| i] = bspritea;
+			            break;
+					case "LAV_B":
+			            unit_list[| i] = bspriteb;
+			            break;
+			        case "LOGI_A":
+			            unit_list[| i] = lspritea;
+			            break;
+					case "LOGI_B":
+			            unit_list[| i] = lspriteb;
 			            break;
 			    }
 			}
@@ -116,26 +176,41 @@ if global.new_game == true {
 		//DELTA SPAWN
 		with instance_create_layer(2848, 5952, "Ships", obj_SoldierLanding_Unit) {
 			my_squad = "DELTA";
-			my_sprite = spr_SoldierLandingCraft;
+			sprite_index = spr_SoldierLandingCraft;
 			y_to = y-256;
 			var i;
 			for (i=0; i<ds_list_size(global.temp_delta); i+=1) {
 			    var v = ds_list_find_value(global.temp_delta, i);
 			    switch v {
-			        case "INFANTRY":
-			            unit_list[| i] = isprite;
+			        case "INF_A":
+			            unit_list[| i] = ispritea;
 			            break;
-			        case "TANK":
-			            unit_list[| i] = tsprite;
+					case "INF_B":
+			            unit_list[| i] = ispriteb;
 			            break;
-			        case "ENGINEER":
-			            unit_list[| i] = esprite;
+			        case "MBT_A":
+			            unit_list[| i] = tspritea;
 			            break;
-			        case "BTR":
-			            unit_list[| i] = bsprite;
+					case "MBT_B":
+			            unit_list[| i] = tspriteb;
 			            break;
-			        case "LOGI":
-			            unit_list[| i] = lsprite;
+			        case "LAC_A":
+			            unit_list[| i] = espritea;
+			            break;
+					case "LAC_B":
+			            unit_list[| i] = espriteb;
+			            break;
+			        case "LAV_A":
+			            unit_list[| i] = bspritea;
+			            break;
+					case "LAV_B":
+			            unit_list[| i] = bspriteb;
+			            break;
+			        case "LOGI_A":
+			            unit_list[| i] = lspritea;
+			            break;
+					case "LOGI_B":
+			            unit_list[| i] = lspriteb;
 			            break;
 			    }
 			}
@@ -145,26 +220,41 @@ if global.new_game == true {
 		//ECHO SPAWN
 		with instance_create_layer(3872, 5952, "Ships", obj_SoldierLanding_Unit) {
 			my_squad = "ECHO";
-			my_sprite = spr_SoldierLandingCraft;
+			sprite_index = spr_SoldierLandingCraft;
 			y_to = y-256;
 			var i;
 			for (i=0; i<ds_list_size(global.temp_echo); i+=1) {
 			    var v = ds_list_find_value(global.temp_echo, i);
 			    switch v {
-			        case "INFANTRY":
-			            unit_list[| i] = isprite;
+			        case "INF_A":
+			            unit_list[| i] = ispritea;
 			            break;
-			        case "TANK":
-			            unit_list[| i] = tsprite;
+					case "INF_B":
+			            unit_list[| i] = ispriteb;
 			            break;
-			        case "ENGINEER":
-			            unit_list[| i] = esprite;
+			        case "MBT_A":
+			            unit_list[| i] = tspritea;
 			            break;
-			        case "BTR":
-			            unit_list[| i] = bsprite;
+					case "MBT_B":
+			            unit_list[| i] = tspriteb;
 			            break;
-			        case "LOGI":
-			            unit_list[| i] = lsprite;
+			        case "LAC_A":
+			            unit_list[| i] = espritea;
+			            break;
+					case "LAC_B":
+			            unit_list[| i] = espriteb;
+			            break;
+			        case "LAV_A":
+			            unit_list[| i] = bspritea;
+			            break;
+					case "LAV_B":
+			            unit_list[| i] = bspriteb;
+			            break;
+			        case "LOGI_A":
+			            unit_list[| i] = lspritea;
+			            break;
+					case "LOGI_B":
+			            unit_list[| i] = lspriteb;
 			            break;
 			    }
 			}
@@ -236,19 +326,29 @@ if global.new_game == true {
 			//Set faction sprites
 			switch p_faction {
 				case "US":
-				isprite = spr_Infantry_A2;
-				tsprite = spr_Tank_A2_Icon;
-				esprite = spr_Engineer_A2;
-				bsprite = spr_BTR_A2_Icon;
-				lsprite = spr_Logi_A2;
-				break;
-			case "RU":
-				isprite = spr_Infantry_B2;
-				tsprite = spr_Tank_B2_Icon;
-				esprite = spr_Engineer_B2;
-				bsprite = spr_BTR_B2_Icon;
-				lsprite = spr_Logi_B2;
-				break;
+					ispritea = spr_Infantry_A2;
+					tspritea = spr_Tank_A2_Icon;
+					espritea = spr_Engineer_A2;
+					bspritea = spr_BTR_A2_Icon;
+					lspritea = spr_Logi_A2;
+					ispriteb = spr_Infantry_A2a;
+					tspriteb = spr_Tank_A2a_Icon;
+					espriteb = spr_Engineer_A2a;
+					bspriteb = spr_BTR_A2a_Icon;
+					lspriteb = spr_Logi_A2a;
+					break;
+				case "RU":
+					ispritea = spr_Infantry_B2;
+					tspritea = spr_Tank_B2_Icon;
+					espritea = spr_Engineer_B2;
+					bspritea = spr_BTR_B2_Icon;
+					lspritea = spr_Logi_B2;
+					ispriteb = spr_Infantry_B2a;
+					tspriteb = spr_Tank_B2a_Icon;
+					espriteb = spr_Engineer_B2a;
+					bspriteb = spr_BTR_B2a_Icon;
+					lspriteb = spr_Logi_B2a;
+					break;
 			}
 			//Spawn landing craft, reinforcement spawners and start game effects objects
 			//ALPHA SPAWN
@@ -260,20 +360,35 @@ if global.new_game == true {
 				for (i=0; i<ds_list_size(global.temp_alpha); i+=1) {
 				    var v = ds_list_find_value(global.temp_alpha, i);
 				    switch v {
-				        case "INFANTRY":
-				            unit_list[| i] = isprite;
+				        case "INF_A":
+				            unit_list[| i] = ispritea;
 				            break;
-				        case "TANK":
-				            unit_list[| i] = tsprite;
+						case "INF_B":
+				            unit_list[| i] = ispriteb;
 				            break;
-				        case "ENGINEER":
-				            unit_list[| i] = esprite;
+				        case "MBT_A":
+				            unit_list[| i] = tspritea;
 				            break;
-				        case "BTR":
-				            unit_list[| i] = bsprite;
+						case "MBT_B":
+				            unit_list[| i] = tspriteb;
 				            break;
-				        case "LOGI":
-				            unit_list[| i] = lsprite;
+				        case "LAC_A":
+				            unit_list[| i] = espritea;
+				            break;
+						case "LAC_B":
+				            unit_list[| i] = espriteb;
+				            break;
+				        case "LAV_A":
+				            unit_list[| i] = bspritea;
+				            break;
+						case "LAV_B":
+				            unit_list[| i] = bspriteb;
+				            break;
+				        case "LOGI_A":
+				            unit_list[| i] = lspritea;
+				            break;
+						case "LOGI_B":
+				            unit_list[| i] = lspriteb;
 				            break;
 				    }
 				}
@@ -290,20 +405,35 @@ if global.new_game == true {
 				for (i=0; i<ds_list_size(global.temp_bravo); i+=1) {
 				    var v = ds_list_find_value(global.temp_bravo, i);
 				    switch v {
-				        case "INFANTRY":
-				            unit_list[| i] = isprite;
+				        case "INF_A":
+				            unit_list[| i] = ispritea;
 				            break;
-				        case "TANK":
-				            unit_list[| i] = tsprite;
+						case "INF_B":
+				            unit_list[| i] = ispriteb;
 				            break;
-				        case "ENGINEER":
-				            unit_list[| i] = esprite;
+				        case "MBT_A":
+				            unit_list[| i] = tspritea;
 				            break;
-				        case "BTR":
-				            unit_list[| i] = bsprite;
+						case "MBT_B":
+				            unit_list[| i] = tspriteb;
 				            break;
-				        case "LOGI":
-				            unit_list[| i] = lsprite;
+				        case "LAC_A":
+				            unit_list[| i] = espritea;
+				            break;
+						case "LAC_B":
+				            unit_list[| i] = espriteb;
+				            break;
+				        case "LAV_A":
+				            unit_list[| i] = bspritea;
+				            break;
+						case "LAV_B":
+				            unit_list[| i] = bspriteb;
+				            break;
+				        case "LOGI_A":
+				            unit_list[| i] = lspritea;
+				            break;
+						case "LOGI_B":
+				            unit_list[| i] = lspriteb;
 				            break;
 				    }
 				}
@@ -320,20 +450,35 @@ if global.new_game == true {
 				for (i=0; i<ds_list_size(global.temp_charlie); i+=1) {
 				    var v = ds_list_find_value(global.temp_charlie, i);
 				    switch v {
-				        case "INFANTRY":
-				            unit_list[| i] = isprite;
+				        case "INF_A":
+				            unit_list[| i] = ispritea;
 				            break;
-				        case "TANK":
-				            unit_list[| i] = tsprite;
+						case "INF_B":
+				            unit_list[| i] = ispriteb;
 				            break;
-				        case "ENGINEER":
-				            unit_list[| i] = esprite;
+				        case "MBT_A":
+				            unit_list[| i] = tspritea;
 				            break;
-				        case "BTR":
-				            unit_list[| i] = bsprite;
+						case "MBT_B":
+				            unit_list[| i] = tspriteb;
 				            break;
-				        case "LOGI":
-				            unit_list[| i] = lsprite;
+				        case "LAC_A":
+				            unit_list[| i] = espritea;
+				            break;
+						case "LAC_B":
+				            unit_list[| i] = espriteb;
+				            break;
+				        case "LAV_A":
+				            unit_list[| i] = bspritea;
+				            break;
+						case "LAV_B":
+				            unit_list[| i] = bspriteb;
+				            break;
+				        case "LOGI_A":
+				            unit_list[| i] = lspritea;
+				            break;
+						case "LOGI_B":
+				            unit_list[| i] = lspriteb;
 				            break;
 				    }
 				}
@@ -350,20 +495,35 @@ if global.new_game == true {
 				for (i=0; i<ds_list_size(global.temp_delta); i+=1) {
 				    var v = ds_list_find_value(global.temp_delta, i);
 				    switch v {
-				        case "INFANTRY":
-				            unit_list[| i] = isprite;
+				        case "INF_A":
+				            unit_list[| i] = ispritea;
 				            break;
-				        case "TANK":
-				            unit_list[| i] = tsprite;
+						case "INF_B":
+				            unit_list[| i] = ispriteb;
 				            break;
-				        case "ENGINEER":
-				            unit_list[| i] = esprite;
+				        case "MBT_A":
+				            unit_list[| i] = tspritea;
 				            break;
-				        case "BTR":
-				            unit_list[| i] = bsprite;
+						case "MBT_B":
+				            unit_list[| i] = tspriteb;
 				            break;
-				        case "LOGI":
-				            unit_list[| i] = lsprite;
+				        case "LAC_A":
+				            unit_list[| i] = espritea;
+				            break;
+						case "LAC_B":
+				            unit_list[| i] = espriteb;
+				            break;
+				        case "LAV_A":
+				            unit_list[| i] = bspritea;
+				            break;
+						case "LAV_B":
+				            unit_list[| i] = bspriteb;
+				            break;
+				        case "LOGI_A":
+				            unit_list[| i] = lspritea;
+				            break;
+						case "LOGI_B":
+				            unit_list[| i] = lspriteb;
 				            break;
 				    }
 				}
@@ -380,20 +540,35 @@ if global.new_game == true {
 				for (i=0; i<ds_list_size(global.temp_echo); i+=1) {
 				    var v = ds_list_find_value(global.temp_echo, i);
 				    switch v {
-				        case "INFANTRY":
-				            unit_list[| i] = isprite;
+				        case "INF_A":
+				            unit_list[| i] = ispritea;
 				            break;
-				        case "TANK":
-				            unit_list[| i] = tsprite;
+						case "INF_B":
+				            unit_list[| i] = ispriteb;
 				            break;
-				        case "ENGINEER":
-				            unit_list[| i] = esprite;
+				        case "MBT_A":
+				            unit_list[| i] = tspritea;
 				            break;
-				        case "BTR":
-				            unit_list[| i] = bsprite;
+						case "MBT_B":
+				            unit_list[| i] = tspriteb;
 				            break;
-				        case "LOGI":
-				            unit_list[| i] = lsprite;
+				        case "LAC_A":
+				            unit_list[| i] = espritea;
+				            break;
+						case "LAC_B":
+				            unit_list[| i] = espriteb;
+				            break;
+				        case "LAV_A":
+				            unit_list[| i] = bspritea;
+				            break;
+						case "LAV_B":
+				            unit_list[| i] = bspriteb;
+				            break;
+				        case "LOGI_A":
+				            unit_list[| i] = lspritea;
+				            break;
+						case "LOGI_B":
+				            unit_list[| i] = lspriteb;
 				            break;
 				    }
 				}

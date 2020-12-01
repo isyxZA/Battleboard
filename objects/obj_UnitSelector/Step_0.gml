@@ -23,11 +23,7 @@ if can_drag == true {
 	
 if (obj_UnitFormations.formation_points-unit_cost < 0) { my_indicator = spr_Indicator_Red; }
     else { my_indicator = spr_Indicator_Green; }
-	
-/*    
-if unit_amount <= 0 { my_indicator = spr_Indicator_Red; }
-    else { my_indicator = spr_Indicator_Green; }
-*/
+
 
 
 

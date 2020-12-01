@@ -18,49 +18,61 @@ if PLAYER.player == "ONE" {
 
 unit_type = "LANDINGCRAFT";
 can_move = true;
-unit_list = ds_list_create();
 view_radius = global.cell_size*8;
 unit_drag = false;
 can_place = false;
 depleted = false;
 mx = 0;
 my = 0;
+my_unit = -1;
 ship_type = "Infantry";
+unit_list = ds_list_create();
 
 if global.game_turn == 0 {
-    my_unit = -1;
 }
     else {
 		var p_faction = PLAYER.faction;
 		if PLAYER.player == "ONE" { 
 			switch p_faction {
 				case "US":
-					u_sprite = spr_Infantry_A1;
+					u_spriteA = spr_Infantry_A1;
+					u_spriteB = spr_Infantry_A1;
 					break;
 				case "RU":
-					u_sprite = spr_Infantry_B1;
+					u_spriteA = spr_Infantry_B1;
+					u_spriteB = spr_Infantry_B1;
 					break;
 			}
+			v_spacing = 82; 
 		}
 			else if PLAYER.player == "TWO" { 
 				switch p_faction {
 					case "US":
-						u_sprite = spr_Infantry_A2;
+						u_spriteA = spr_Infantry_A2;
+						u_spriteB = spr_Infantry_A2;
 						break;
 					case "RU":
-						u_sprite = spr_Infantry_B2;
+						u_spriteA = spr_Infantry_B2;
+						u_spriteB = spr_Infantry_B2;
 						break;
 				} 
+				v_spacing = -82; 
 			}
-        my_unit = obj_Soldier_Unit;
-        unit_list[| 0] = u_sprite;
-        unit_list[| 1] = u_sprite;
-        unit_list[| 2] = u_sprite;
-        unit_list[| 3] = u_sprite;
-        unit_list[| 4] = u_sprite;
-        unit_list[| 5] = u_sprite;
+		//Load global.temp_logi here
+		var i;
+		for (i=0; i<ds_list_size(global.temp_infantry); i+=1) {
+			var v = ds_list_find_value(global.temp_infantry, i);
+			switch v {
+			    case "INF_A":
+			        unit_list[| i] = u_spriteA;
+			        break;
+			    case "INF_B":
+			        unit_list[| i] = u_spriteB;
+			        break;
+			}
+		}
+		ds_list_clear(global.temp_infantry);
     }
-
 
 xscale = 0.8;
 yscale = 0.8;

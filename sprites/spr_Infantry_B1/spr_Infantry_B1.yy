@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_Infantry_B1","path":"sprites/spr_Infantry_B1/spr_Infantry_B1.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_Infantry_B1",
     "tags": [],
     "resourceType": "GMSequence",
   },

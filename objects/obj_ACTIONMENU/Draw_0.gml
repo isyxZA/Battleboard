@@ -8,108 +8,46 @@ if global.my_turn == true || global.waiting == true {
             draw_set_valign(fa_middle);
             //Draw lines from the unit to the action/fire menus and the corresponding menu choice
             if global.menu_create == true {
-                //If not currently using the targeting reticule or choosing fire/ammo options
-                if global.reticule_display == false {
-					/*
-                    //Set a pivot point where all lines can join before being affected by the menu choice
-                    var px = global.pivot_x;
-                    var py = global.pivot_y; 
-                    draw_line_width_colour(x_end, y_end, px, py, 3, c_black, c_black);
-                    draw_line_colour(x_end, y_end, px, py, c_silver, c_dkgray);
-                    draw_circle_colour(x, y, 4, c_black, c_white, false);
-                    draw_set_alpha(1);
-					*/
-                }
-                    //If shoot/fire rounds or deploy object is selected from action menu then the menu is removed and a targeting reticule is displayed
-                    else if global.reticule_display == true {
-                        if in_queue == false {
-                            //Draw line to target and visually show if there is line of sight
-                            var sc;
-                            if can_shoot == true { sc = make_colour_rgb(0,100,0); } else { sc = make_colour_rgb(139,0,0); }
-                            draw_set_alpha(0.5);
-                            draw_line_width_colour(x_end-2, y_end  , global.target_x, global.target_y, 1, sc, c_black);
-                            draw_line_width_colour(x_end-1, y_end  , global.target_x, global.target_y, 1, sc, c_black);
-                            draw_line_width_colour(x_end  , y_end+2, global.target_x, global.target_y, 2, sc, c_black);
-                            draw_line_width_colour(x_end  , y_end+1, global.target_x, global.target_y, 2, sc, c_black);
-                            draw_line_width_colour(x_end  , y_end  , global.target_x, global.target_y, 2, sc, c_black);
-                            draw_line_width_colour(x_end  , y_end-1, global.target_x, global.target_y, 2, sc, c_black);
-                            draw_line_width_colour(x_end  , y_end-2, global.target_x, global.target_y, 2, sc, c_black);
-                            draw_line_width_colour(x_end+1, y_end  , global.target_x, global.target_y, 1, sc, c_black);
-                            draw_line_width_colour(x_end+2, y_end  , global.target_x, global.target_y, 1, sc, c_black);
-                            draw_set_alpha(1);
-                            draw_circle_colour(x, y, 4, c_black, c_white, false);
-                        }
+                //If shoot/fire rounds or deploy object is selected from action menu then the menu is removed and a targeting reticule is displayed
+                if global.reticule_display == true {
+                    if in_queue == false {
+                        //Draw line to target and visually show if there is line of sight
+                        var sc;
+                        if can_shoot == true { sc = make_colour_rgb(0,100,0); } else { sc = make_colour_rgb(139,0,0); }
+                        draw_set_alpha(0.5);
+                        draw_line_width_colour(x_end-2, y_end  , global.target_x, global.target_y, 1, sc, c_black);
+                        draw_line_width_colour(x_end-1, y_end  , global.target_x, global.target_y, 1, sc, c_black);
+                        draw_line_width_colour(x_end  , y_end+2, global.target_x, global.target_y, 2, sc, c_black);
+                        draw_line_width_colour(x_end  , y_end+1, global.target_x, global.target_y, 2, sc, c_black);
+                        draw_line_width_colour(x_end  , y_end  , global.target_x, global.target_y, 2, sc, c_black);
+                        draw_line_width_colour(x_end  , y_end-1, global.target_x, global.target_y, 2, sc, c_black);
+                        draw_line_width_colour(x_end  , y_end-2, global.target_x, global.target_y, 2, sc, c_black);
+                        draw_line_width_colour(x_end+1, y_end  , global.target_x, global.target_y, 1, sc, c_black);
+                        draw_line_width_colour(x_end+2, y_end  , global.target_x, global.target_y, 1, sc, c_black);
+                        draw_set_alpha(1);
+                        draw_circle_colour(x, y, 4, c_black, c_white, false);
                     }
+                }
             }
                 else if global.menu_create == false {
-                    if global.nav_menu == true {
-						/*
-                        //Set a pivot point where all lines can join before being affected by the menu choice
-                        var px = global.pivot_x;
-						var py = global.pivot_y; 
-                        draw_line_width_colour(x_end, y_end, px, py, 3, c_black, c_black);
-                        draw_line_colour(x_end, y_end, px, py, c_silver, c_dkgray);
-                        draw_circle_colour(x_end, y_end, 4, c_black, c_white, false);
-                        draw_set_alpha(1);
-						*/
-                    }
-                        else if global.nav_menu == false {
-                            if global.nav_select == false { 
-                                if unit_type == "LANDINGCRAFT" {
-                                    var mc;
-                                    if can_place == true || can_shoot == true { mc = make_colour_rgb(0,100,0); } else { mc = make_colour_rgb(139,0,0); }
-                                    var dir = point_direction(x, y, mx, my);
-                                    var xdir = lengthdir_x(20, dir);
-                                    var ydir = lengthdir_y(20, dir);
-                                    draw_sprite(spr_Dot_Orange, 0, mx, my);
-                                    draw_circle_colour(mx, my, 4, c_black, c_white, false);
-                                    if can_place == true || can_shoot == true { draw_sprite_ext(spr_Arrowhead_Green, 0, mx-xdir, my-ydir, 1, 1, dir, c_white, 1); }
-                                        else { draw_sprite_ext(spr_Arrowhead_Red, 0, mx-xdir, my-ydir, 1, 1, dir, c_white, 1); } 
-                                    draw_sprite(spr_Dot_Green, 0, x, y);
-                                    draw_circle_colour(x, y, 4, c_black, c_white, false);
-                                }
-                                    else {
-										/*
-                                        if global.repair_display == true { 
-                                            //Set a pivot point where all lines can join before being affected by the menu choice
-                                            var px = global.pivot_x;
-											var py = global.pivot_y; 
-                                            draw_line_width_colour(x, y, px, py, 3, c_black, c_black);
-                                            draw_line_colour(x, y, px, py, c_silver, c_dkgray);
-                                            draw_circle_colour(x, y, 4, c_black, c_white, false);
-                                            draw_set_alpha(1);
-                                            //Fire menu options
-                                            var fadj = global.v_spacing * global.fire_option;
-											if p_one == true {
-												draw_line_width_colour(px, py, global.menu_x, global.menu_y+(global.v_spacing*0.5)+fadj, 3, c_black, c_black);
-							                    draw_line_colour(px, py, global.menu_x, global.menu_y+(global.v_spacing*0.5)+fadj, c_dkgray, c_silver);
-											}
-												else {
-													draw_line_width_colour(px, py, global.menu_x, global.menu_y-(global.v_spacing*1.5)-fadj, 3, c_black, c_black);
-													draw_line_colour(px, py, global.menu_x, global.menu_y-(global.v_spacing*1.5)-fadj, c_dkgray, c_silver);
-												}
-                                            draw_circle_colour(px, py, 4, c_black, c_white, false);
-                                        }
-										*/
-                                    }
-                            }
-                                else if global.nav_select == true {
-									/*
-                                    draw_set_colour(c_white);
-                                    draw_set_font(fnt_12);
-                                    //Draw the number of moves available to the unit
-                                    var amt = floor(move_max-move_amount);
-									if p_one == true { 
-										draw_text_transformed_shadow(x_end, y_end-32, string(move_amount), 0.9, 0.9, txt_rot, 2, 245, c_black, 1);
-										draw_text_transformed_shadow(x_end, y_end, string(amt), 0.9, 0.9, txt_rot, 2, 245, c_black, 1); 
-										draw_text_transformed_shadow(x_end, y_end+32, string(move_max), 0.9, 0.9, txt_rot, 2, 245, c_black, 1);
-										}
-										else { draw_text_transformed_shadow(x_end+2, y_end, string(amt), 0.9, 0.9, txt_rot, 2, 65, c_black, 1); }
-                                    draw_set_font(fnt_20);
-                                    draw_set_colour(c_black);
-									*/
-                                }
-                        }
+	                if global.nav_menu == false {
+	                    if global.nav_select == false { 
+	                        if unit_type == "LANDINGCRAFT" {
+	                            var mc;
+	                            if can_place == true || can_shoot == true { mc = make_colour_rgb(0,100,0); } else { mc = make_colour_rgb(139,0,0); }
+	                            var dir = point_direction(x, y, mx, my);
+	                            var xdir = lengthdir_x(20, dir);
+	                            var ydir = lengthdir_y(20, dir);
+	                            draw_sprite(spr_Dot_Orange, 0, mx, my);
+	                            draw_circle_colour(mx, my, 4, c_black, c_white, false);
+	                            if can_place == true || can_shoot == true { draw_sprite_ext(spr_Arrowhead_Green, 0, mx-xdir, my-ydir, 1, 1, dir, c_white, 1); }
+	                                else { draw_sprite_ext(spr_Arrowhead_Red, 0, mx-xdir, my-ydir, 1, 1, dir, c_white, 1); } 
+	                            draw_sprite(spr_Dot_Green, 0, x, y);
+	                            draw_circle_colour(x, y, 4, c_black, c_white, false);
+	                        }
+	                            else { }
+	                    }
+	                }
                 }
         }
             else {

@@ -125,12 +125,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                     //Calculate the mp cost
                     if !ds_list_empty(global.selected_list) {
                         var ii;
-                        //global.temp_AP = 0;
                         for (ii=0; ii<ds_list_size(global.selected_list); ii+=1) {
                             var u2 = ds_list_find_value(global.selected_list, ii);
-							//global.temp_AP += u2.temp_ap;
 							total_ap += u2.action_points;
-                            //global.temp_AP += (u2.move_amount*u2.mp_cost);
                         }
                     } 
                     if (total_ap-global.temp_AP) < 0 { global.navigation_error = true; }

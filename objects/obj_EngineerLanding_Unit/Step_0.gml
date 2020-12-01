@@ -89,6 +89,21 @@ if global.my_turn == true || global.active_elc == true {
                 if mouse_check_button_pressed(mb_right) {
                     if can_place == true { 
                         if !ds_list_empty(unit_list) {
+							var t = ds_list_find_value(unit_list, 0);
+                            switch t {
+                                case spr_Engineer_A1:
+								case spr_Engineer_A2:
+								case spr_Engineer_B1:
+								case spr_Engineer_B2:
+                                    my_unit = obj_Engineer_Unit;
+                                    break;
+								case spr_Engineer_A1a:
+								case spr_Engineer_A2a:
+								case spr_Engineer_B1a:
+								case spr_Engineer_B2a:
+                                    my_unit = obj_Engineer_Unit;
+                                    break;
+                            }
                             //Remove from available units list
                             ds_list_delete(unit_list, 0);
                             global.spawning_unit = true; 

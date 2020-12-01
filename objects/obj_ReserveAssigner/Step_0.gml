@@ -33,20 +33,35 @@ if can_activate == true {
 				//RETURN THE COST TO FORMATION POINTS
 				var slv = ds_list_find_value(squad_list, 0);
 				switch slv {
-					case "INFANTRY":
+					case "INF_A":
 						obj_UnitFormations.formation_points += INF_1;
 						break;
-					case "TANK":
+					case "INF_B":
+						obj_UnitFormations.formation_points += INF_2;
+						break;
+					case "MBT_A":
 						obj_UnitFormations.formation_points += MBT_1;
 						break;
-					case "ENGINEER":
-						obj_UnitFormations.formation_points += HMV_1;
+					case "MBT_B":
+						obj_UnitFormations.formation_points += MBT_2;
 						break;
-					case "BTR":
+					case "LAC_A":
+						obj_UnitFormations.formation_points += LAC_1;
+						break;
+					case "LAC_B":
+						obj_UnitFormations.formation_points += LAC_2;
+						break;
+					case "LAV_A":
 						obj_UnitFormations.formation_points += LAV_1;
 						break;
-					case "LOGI":
+					case "LAV_B":
+						obj_UnitFormations.formation_points += LAV_2;
+						break;
+					case "LOGI_A":
 						obj_UnitFormations.formation_points += LOG_1;
+						break;
+					case "LOGI_B":
+						obj_UnitFormations.formation_points += LOG_2;
 						break;
 				}
 				ds_list_delete(squad_list, 0);
@@ -57,20 +72,35 @@ if can_activate == true {
 				else if (slot2_full == true) && (point_distance(mouse_x, mouse_y, slot_x2, slot_y2) < 12) {
 					var slv = ds_list_find_value(squad_list, 1);
 					switch slv {
-						case "INFANTRY":
+						case "INF_A":
 							obj_UnitFormations.formation_points += INF_1;
 							break;
-						case "TANK":
+						case "INF_B":
+							obj_UnitFormations.formation_points += INF_2;
+							break;
+						case "MBT_A":
 							obj_UnitFormations.formation_points += MBT_1;
 							break;
-						case "ENGINEER":
-							obj_UnitFormations.formation_points += HMV_1;
+						case "MBT_B":
+							obj_UnitFormations.formation_points += MBT_2;
 							break;
-						case "BTR":
+						case "LAC_A":
+							obj_UnitFormations.formation_points += LAC_1;
+							break;
+						case "LAC_B":
+							obj_UnitFormations.formation_points += LAC_2;
+							break;
+						case "LAV_A":
 							obj_UnitFormations.formation_points += LAV_1;
 							break;
-						case "LOGI":
+						case "LAV_B":
+							obj_UnitFormations.formation_points += LAV_2;
+							break;
+						case "LOGI_A":
 							obj_UnitFormations.formation_points += LOG_1;
+							break;
+						case "LOGI_B":
+							obj_UnitFormations.formation_points += LOG_2;
 							break;
 					}
 					ds_list_delete(squad_list, 1);
@@ -81,20 +111,35 @@ if can_activate == true {
 					else if (slot3_full == true) && (point_distance(mouse_x, mouse_y, slot_x3, slot_y3) < 12) {
 						var slv = ds_list_find_value(squad_list, 2);
 						switch slv {
-							case "INFANTRY":
+							case "INF_A":
 								obj_UnitFormations.formation_points += INF_1;
 								break;
-							case "TANK":
+							case "INF_B":
+								obj_UnitFormations.formation_points += INF_2;
+								break;
+							case "MBT_A":
 								obj_UnitFormations.formation_points += MBT_1;
 								break;
-							case "ENGINEER":
-								obj_UnitFormations.formation_points += HMV_1;
+							case "MBT_B":
+								obj_UnitFormations.formation_points += MBT_2;
 								break;
-							case "BTR":
+							case "LAC_A":
+								obj_UnitFormations.formation_points += LAC_1;
+								break;
+							case "LAC_B":
+								obj_UnitFormations.formation_points += LAC_2;
+								break;
+							case "LAV_A":
 								obj_UnitFormations.formation_points += LAV_1;
 								break;
-							case "LOGI":
+							case "LAV_B":
+								obj_UnitFormations.formation_points += LAV_2;
+								break;
+							case "LOGI_A":
 								obj_UnitFormations.formation_points += LOG_1;
+								break;
+							case "LOGI_B":
+								obj_UnitFormations.formation_points += LOG_2;
 								break;
 						}
 						ds_list_delete(squad_list, 2);
@@ -105,20 +150,35 @@ if can_activate == true {
 						else if (slot4_full == true) && (point_distance(mouse_x, mouse_y, slot_x4, slot_y4) < 12) {
 							var slv = ds_list_find_value(squad_list, 3);
 							switch slv {
-								case "INFANTRY":
+								case "INF_A":
 									obj_UnitFormations.formation_points += INF_1;
 									break;
-								case "TANK":
+								case "INF_B":
+									obj_UnitFormations.formation_points += INF_2;
+									break;
+								case "MBT_A":
 									obj_UnitFormations.formation_points += MBT_1;
 									break;
-								case "ENGINEER":
-									obj_UnitFormations.formation_points += HMV_1;
+								case "MBT_B":
+									obj_UnitFormations.formation_points += MBT_2;
 									break;
-								case "BTR":
+								case "LAC_A":
+									obj_UnitFormations.formation_points += LAC_1;
+									break;
+								case "LAC_B":
+									obj_UnitFormations.formation_points += LAC_2;
+									break;
+								case "LAV_A":
 									obj_UnitFormations.formation_points += LAV_1;
 									break;
-								case "LOGI":
+								case "LAV_B":
+									obj_UnitFormations.formation_points += LAV_2;
+									break;
+								case "LOGI_A":
 									obj_UnitFormations.formation_points += LOG_1;
+									break;
+								case "LOGI_B":
+									obj_UnitFormations.formation_points += LOG_2;
 									break;
 							}
 							ds_list_delete(squad_list, 3);

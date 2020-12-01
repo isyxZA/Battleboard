@@ -332,8 +332,8 @@ function scr_InitGlobals() {
 	#macro MBT_1 40
 	#macro MBT_2 30
 	
-	#macro HMV_1 15
-	#macro HMV_2 20
+	#macro LAC_1 15
+	#macro LAC_2 20
 	
 	#macro LAV_1 30
 	#macro LAV_2 25

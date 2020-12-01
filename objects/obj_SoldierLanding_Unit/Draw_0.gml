@@ -1,11 +1,11 @@
-if p_one == true { draw_sprite_ext(spr_SoldierLandingCraft, 0, x-6, y+8, 1.1, 1, rot, c_black, 0.6); }
-	else { draw_sprite_ext(spr_SoldierLandingCraft, 0, x+6, y-8, 1.1, 1, rot, c_black, 0.6); }
+if p_one == true { draw_sprite_ext(sprite_index, 0, x-6, y+8, 1.1, 1, rot, c_black, 0.6); }
+	else { draw_sprite_ext(sprite_index, 0, x+6, y-8, 1.1, 1, rot, c_black, 0.6); }
 shader_set(shd_shadows);
 mask = shader_get_sampler_index(shd_shadows, "mask");
-texture_set_stage(mask, sprite_get_texture(spr_SoldierLandingCraft, 0));
+texture_set_stage(mask, sprite_get_texture(sprite_index, 0));
 shader_set_uniform_f(bright_x, 1);
 shader_set_uniform_f(bright_y, 1);
-draw_sprite_ext(spr_SoldierLandingCraft, 0, x, y, 1, 1, rot, c_white, 1);
+draw_sprite_ext(sprite_index, 0, x, y, 1, 1, rot, c_white, 1);
 shader_reset();
 
 if depleted == false{
@@ -13,7 +13,7 @@ if depleted == false{
     var ms = min(4, ds_list_size(unit_list));
     for (m=0; m<ms; m+=1){
 		draw_sprite_ext(unit_list[| m], 0, x-2, y + (m*v_spacing)+2, xscale, yscale, 0, c_black, 0.5);
-        draw_sprite_ext(unit_list[| m], 0, x, y + (m*v_spacing), xscale, yscale, 0, c_white, 1);
+        draw_sprite_ext(unit_list[| m], 0, x  , y + (m*v_spacing)  , xscale, yscale, 0, c_white, 1  );
     }
 
     if unit_drag == true { 

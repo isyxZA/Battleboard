@@ -17,14 +17,15 @@ if PLAYER.player == "ONE" {
 unit_type = "LANDINGCRAFT";
 
 can_move = true;
-unit_list = ds_list_create();
 view_radius = global.cell_size*8;
 action_range = view_radius;
 unit_drag = false;
 can_place = false;
 depleted = false;
 supply_display = false;
+my_unit = -1;
 ship_type = "Supply";
+unit_list = ds_list_create();
 
 start_ap = 10;
 action_points = 0;
@@ -51,20 +52,20 @@ mx = x;
 my = y;
 
 if global.game_turn == 0 {
-    my_unit = -1;
 	if PLAYER.player == "ONE" { v_spacing = 60; }
 		else if PLAYER.player == "TWO" { v_spacing = -60; }
 }
     else {
 		var p_faction = PLAYER.faction;
-        my_unit = obj_Logi_Unit;
 		if PLAYER.player == "ONE" { 
 			switch p_faction {
 				case "US":
-					u_sprite = spr_Logi_A1;
+					u_spriteA = spr_Logi_A1;
+					u_spriteB = spr_Logi_A1a;
 					break;
 				case "RU":
-					u_sprite = spr_Logi_B1;
+					u_spriteA = spr_Logi_B1;
+					u_spriteB = spr_Logi_B1a;
 					break;
 			}
 			v_spacing = 82; 
@@ -72,16 +73,30 @@ if global.game_turn == 0 {
 			else if PLAYER.player == "TWO" { 
 				switch p_faction {
 					case "US":
-						u_sprite = spr_Logi_A2;
+						u_spriteA = spr_Logi_A2;
+						u_spriteB = spr_Logi_A2a;
 						break;
 					case "RU":
-						u_sprite = spr_Logi_B2;
+						u_spriteA = spr_Logi_B2;
+						u_spriteB = spr_Logi_B2a;
 						break;
 				} 
 				v_spacing = -82; 
 			}
-        unit_list[| 0] = u_sprite;
-        unit_list[| 1] = u_sprite;
+		//Load global.temp_logi here
+		var i;
+		for (i=0; i<ds_list_size(global.temp_logi); i+=1) {
+			var v = ds_list_find_value(global.temp_logi, i);
+			switch v {
+			    case "LOGI_A":
+			        unit_list[| i] = u_spriteA;
+			        break;
+			    case "LOGI_B":
+			        unit_list[| i] = u_spriteB;
+			        break;
+			}
+		}
+		ds_list_clear(global.temp_logi);
     }
 
 s = random_range(0.5,0.7);

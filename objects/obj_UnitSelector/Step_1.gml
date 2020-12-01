@@ -6,31 +6,31 @@ if unit_change == true {
 		case 0:
 			switch unit_class {
 				case "INF":
-					my_unit     = "INFANTRY";
+					my_unit     = "INF_A";
 					my_sprite   = spr_Infantry_Icon;
 					icon_sprite = spr_Infantry_Dropdown;
 					unit_cost   = INF_1;
 					break;
 				case "MBT":
-					my_unit     = "TANK";
+					my_unit     = "MBT_A";
 					my_sprite   = spr_Tank_Icon;
 					icon_sprite = spr_Tank_Dropdown;
 					unit_cost   = MBT_1;
 					break;
 				case "HMV":
-					my_unit     = "ENGINEER";
+					my_unit     = "LAC_A";
 					my_sprite   = spr_Engineer_Icon;
 					icon_sprite = spr_Engineer_Dropdown;
-					unit_cost   = HMV_1;
+					unit_cost   = LAC_1;
 					break;
 				case "LAV":
-					my_unit     = "BTR";
+					my_unit     = "LAV_A";
 					my_sprite   = spr_BTR_Icon;
 					icon_sprite = spr_BTR_Dropdown;
 					unit_cost   = LAV_1;
 					break;
 				case "LOG":
-					my_unit     = "LOGI";
+					my_unit     = "LOGI_A";
 					my_sprite   = spr_Logi_Icon;
 					icon_sprite = spr_Logi_Dropdown;
 					unit_cost   = LOG_1;
@@ -40,31 +40,31 @@ if unit_change == true {
 		case 1:
 			switch unit_class {
 				case "INF":
-					my_unit     = "INFANTRY";
+					my_unit     = "INF_B";
 					my_sprite   = spr_Infantry_Icon;
 					icon_sprite = spr_Infantry_Dropdown;
 					unit_cost   = INF_2;
 					break;
 				case "MBT":
-					my_unit     = "TANK";
+					my_unit     = "MBT_B";
 					my_sprite   = spr_Tank_Icon;
 					icon_sprite = spr_Tank_Dropdown;
 					unit_cost   = MBT_2;
 					break;
 				case "HMV":
-					my_unit     = "ENGINEER";
+					my_unit     = "LAC_B";
 					my_sprite   = spr_Engineer_Icon;
 					icon_sprite = spr_Engineer_Dropdown;
-					unit_cost   = HMV_2;
+					unit_cost   = LAC_2;
 					break;
 				case "LAV":
-					my_unit     = "BTR";
+					my_unit     = "LAV_B";
 					my_sprite   = spr_BTR_Icon;
 					icon_sprite = spr_BTR_Dropdown;
 					unit_cost   = LAV_2;
 					break;
 				case "LOG":
-					my_unit     = "LOGI";
+					my_unit     = "LOGI_B";
 					my_sprite   = spr_Logi_Icon;
 					icon_sprite = spr_Logi_Dropdown;
 					unit_cost   = LOG_2;
@@ -83,28 +83,6 @@ if place_meeting(x, y, obj_MOUSE) {
         }
     }
 }
-
-/*
-if clear == true {
-    clear = false;
-    auto_assign = false;
-    unit_amount = start_units;
-}
-
-if auto_assign == false {
-    if place_meeting(x, y, obj_MOUSE) {
-        if mouse_check_button_pressed(mb_left) {
-            if unit_amount >= 1 { 
-                can_drag = true; 
-                with obj_SquadAssigner { can_activate = true; }
-            }
-        }
-    }
-}
-    else if auto_assign == true {
-        can_drag = false;
-    }
-*/
 
 
 

@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_Infantry_B2_Mask","path":"sprites/spr_Infantry_B2_Mask/spr_Infantry_B2_Mask.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_Infantry_B2_Mask",
     "tags": [],
     "resourceType": "GMSequence",
   },

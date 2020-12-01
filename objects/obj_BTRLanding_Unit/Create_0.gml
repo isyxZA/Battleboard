@@ -11,10 +11,12 @@ if PLAYER.player == "ONE" {
 	v_spacing = 78;
 	switch p_faction {
 		case "US":
-			u_sprite = spr_BTR_A1_Icon;
+			u_spriteA = spr_BTR_A1_Icon;
+			u_spriteB = spr_BTR_A1a_Icon;
 			break;
 		case "RU":
-			u_sprite = spr_BTR_B1_Icon;
+			u_spriteA = spr_BTR_B1_Icon;
+			u_spriteB = spr_BTR_B1a_Icon;
 			break;
 	}
 }
@@ -25,10 +27,12 @@ if PLAYER.player == "ONE" {
 		v_spacing = -78;
 		switch p_faction {
 			case "US":
-				u_sprite = spr_BTR_A2_Icon;
+				u_spriteA = spr_BTR_A2_Icon;
+				u_spriteB = spr_BTR_A2a_Icon;
 				break;
 			case "RU":
-				u_sprite = spr_BTR_B2_Icon;
+				u_spriteA = spr_BTR_B2_Icon;
+				u_spriteB = spr_BTR_B2a_Icon;
 				break;
 		} 
 	}
@@ -36,19 +40,29 @@ if PLAYER.player == "ONE" {
 unit_type = "LANDINGCRAFT";
 y_to = 0;
 can_move = true;
-unit_list = ds_list_create();
 view_radius = global.cell_size*8;
 unit_drag = false;
 can_place = false;
 depleted = false;
 mx = 0;
 my = 0;
-my_unit = obj_BTR_Unit;
+my_unit = -1;
 ship_type = "BTR";
+unit_list = ds_list_create();
 
-unit_list[| 0] = u_sprite;
-unit_list[| 1] = u_sprite;
-unit_list[| 2] = u_sprite;
+var i;
+for (i=0; i<ds_list_size(global.temp_btr); i+=1) {
+	var v = ds_list_find_value(global.temp_btr, i);
+	switch v {
+		case "LAV_A":
+			unit_list[| i] = u_spriteA;
+			break;
+		case "LAV_B":
+			unit_list[| i] = u_spriteB;
+			break;
+	}
+}
+ds_list_clear(global.temp_tank);
 
 xscale = 0.8;
 yscale = 0.8;

@@ -88,6 +88,21 @@ if global.my_turn == true || global.active_blc == true {
                 if mouse_check_button_pressed(mb_right) {
                     if can_place == true { 
                         if !ds_list_empty(unit_list) {
+							var t = ds_list_find_value(unit_list, 0);
+                            switch t {
+                                case spr_BTR_A1_Icon:
+								case spr_BTR_A2_Icon:
+								case spr_BTR_B1_Icon:
+								case spr_BTR_B2_Icon:
+                                    my_unit = obj_BTR_Unit;
+                                    break;
+								case spr_BTR_A1a_Icon:
+								case spr_BTR_A2a_Icon:
+								case spr_BTR_B1a_Icon:
+								case spr_BTR_B2a_Icon:
+                                    my_unit = obj_BTR_Unit;
+                                    break;
+                            }
                             //Remove from available units list
                             ds_list_delete(unit_list, 0);
                             global.spawning_unit = true; 
