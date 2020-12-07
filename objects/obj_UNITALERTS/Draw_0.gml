@@ -5,7 +5,8 @@ with obj_Unit_Parent {
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         switch unit_type {
-            case "INFANTRY":
+            case "INF_A":
+			case "INF_B":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -21,7 +22,8 @@ with obj_Unit_Parent {
                 draw_sprite_ext(spr_Alert_Box01, 0, xx, yy, 1, 1, 0, c_white, 1);
 				draw_text_transformed_colour(xx, yy, string(alert_text), 1, 1, txt_rot, c_gray, alert_colour, c_gray, alert_colour, 1);
                 break;
-            case "TANK":
+            case "MBT_A":
+			case "MBT_B":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -37,7 +39,8 @@ with obj_Unit_Parent {
                 draw_sprite_ext(spr_Alert_Box01, 0, xx, yy, 1, 1, 0, c_white, 1);
 				draw_text_transformed_colour(xx, yy, string(alert_text), 1, 1, txt_rot, c_gray, alert_colour, c_gray, alert_colour, 1);
                 break;
-            case "ENGINEER":
+            case "LAC_A":
+			case "LAC_B":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -53,7 +56,8 @@ with obj_Unit_Parent {
                 draw_sprite_ext(spr_Alert_Box01, 0, xx, yy, 1, 1, 0, c_white, 1);
 				draw_text_transformed_colour(xx, yy, string(alert_text), 1, 1, txt_rot, c_gray, alert_colour, c_gray, alert_colour, 1);
                 break;
-            case "BTR":
+            case "LAV_A":
+			case "LAV_B":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -69,7 +73,8 @@ with obj_Unit_Parent {
                 draw_sprite_ext(spr_Alert_Box01, 0, xx, yy, 1, 1, 0, c_white, 1);
 				draw_text_transformed_colour(xx, yy, string(alert_text), 1, 1, txt_rot, c_gray, alert_colour, c_gray, alert_colour, 1);
                 break;
-            case "LOGI":
+            case "LOGI_A":
+			case "LOGI_B":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -129,7 +134,8 @@ with obj_Enemy_Parent {
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
         switch unit_type {
-            case "E_INFANTRY":
+            case "E_INFA":
+			case "E_INFB":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -145,7 +151,8 @@ with obj_Enemy_Parent {
                 draw_sprite_ext(spr_Alert_Box01, 0, xx, yy, 1, 1, 0, c_white, 1);
 				draw_text_transformed_colour(xx, yy, string(alert_text), 1, 1, txt_rot, c_gray, alert_colour, c_gray, alert_colour, 1);
                 break;
-            case "E_TANK":
+            case "E_MBTA":
+			case "E_MBTB":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -161,7 +168,8 @@ with obj_Enemy_Parent {
                 draw_sprite_ext(spr_Alert_Box01, 0, xx, yy, 1, 1, 0, c_white, 1);
 				draw_text_transformed_colour(xx, yy, string(alert_text), 1, 1, txt_rot, c_gray, alert_colour, c_gray, alert_colour, 1);
                 break;
-            case "E_ENGINEER":
+            case "E_LACA":
+			case "E_LACB":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -177,7 +185,8 @@ with obj_Enemy_Parent {
                 draw_sprite_ext(spr_Alert_Box01, 0, xx, yy, 1, 1, 0, c_white, 1);
 				draw_text_transformed_colour(xx, yy, string(alert_text), 1, 1, txt_rot, c_gray, alert_colour, c_gray, alert_colour, 1);
                 break;
-            case "E_BTR":
+            case "E_LAVA":
+			case "E_LAVB":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 
@@ -193,7 +202,8 @@ with obj_Enemy_Parent {
                 draw_sprite_ext(spr_Alert_Box01, 0, xx, yy, 1, 1, 0, c_white, 1);
 				draw_text_transformed_colour(xx, yy, string(alert_text), 1, 1, txt_rot, c_gray, alert_colour, c_gray, alert_colour, 1);
                 break;
-            case "E_LOGI":
+            case "E_LOGIA":
+			case "E_LOGIB":
                 var xx;
                 var yy;
                 if nav_confirmed == true { 

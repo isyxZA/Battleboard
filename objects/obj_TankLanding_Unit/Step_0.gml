@@ -95,13 +95,13 @@ if global.my_turn == true || global.active_tlc == true {
 								case spr_Tank_A2_Icon:
 								case spr_Tank_B1_Icon:
 								case spr_Tank_B2_Icon:
-                                    my_unit = obj_Tank_Unit;
+                                    my_unit = obj_MBTA_Unit;
                                     break;
 								case spr_Tank_A1a_Icon:
 								case spr_Tank_A2a_Icon:
 								case spr_Tank_B1a_Icon:
 								case spr_Tank_B2a_Icon:
-                                    my_unit = obj_Tank_Unit;
+                                    my_unit = obj_MBTB_Unit;
                                     break;
                             }
                             //Remove from available units list

@@ -17,19 +17,24 @@ function scr_DrawSquadUnits(argument0) {
 	        else if unit.unit_health >= 25 { icon_colour = c_orange; }
 	            else { icon_colour = c_red; }
 	    switch unit.unit_type {
-	        case "INFANTRY":
+	        case "INF_A":
+			case "INF_B":
 	            draw_sprite_ext(spr_Infantry_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
-	        case "TANK":
+	        case "MBT_A":
+			case "MBT_B":
 	            draw_sprite_ext(spr_Tank_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
-	        case "ENGINEER":
+	        case "LAC_A":
+			case "LAC_B":
 	            draw_sprite_ext(spr_Engineer_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
-	        case "BTR":
+	        case "LAV_A":
+			case "LAV_B":
 	            draw_sprite_ext(spr_BTR_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
-	        case "LOGI":
+	        case "LOGI_A":
+			case "LOGI_B":
 	            draw_sprite_ext(spr_Logi_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
 			case "DEPOT":
@@ -46,7 +51,5 @@ function scr_DrawSquadUnits(argument0) {
 	            break;
 	    }
 	}
-
-
 
 }

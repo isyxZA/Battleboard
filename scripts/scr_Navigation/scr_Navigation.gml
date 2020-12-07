@@ -69,14 +69,18 @@ function scr_Navigation(argument0) {
 	                                    if (x_end == u.x_end) && (y_end == u.y_end) {
 	                                        //If static unit is not under construction
 	                                        if u.can_be_manned == true {
-	                                            if unit_type != "INFANTRY" {
+	                                            if (unit_type != "INF_A") && (unit_type != "INF_B") {
 	                                                switch unit_type {
 	                                                    //If this unit is a vehicle
 	                                                    //Prevent from entering static unit
-	                                                    case "TANK":
-	                                                    case "ENGINEER":
-	                                                    case "BTR":
-	                                                    case "LOGI":
+	                                                    case "MBT_A":
+														case "MBT_B":
+	                                                    case "LAC_A":
+														case "LAC_B":
+	                                                    case "LAV_A":
+														case "LAV_B":
+	                                                    case "LOGI_A":
+														case "LOGI_B":
 	                                                        path_delete_point(my_path, path_get_number(my_path) - 1);
 	                                                        x_end = path_get_x(my_path, 1);
 	                                                        y_end = path_get_y(my_path, 1);
@@ -122,14 +126,18 @@ function scr_Navigation(argument0) {
 	                                        else if (x_end == u.x_final) && (y_end == u.y_final) {
 	                                            //If static unit is not under construction
 	                                            if u.can_be_manned == true {
-	                                                if unit_type != "INFANTRY" {
+	                                                if (unit_type != "INF_A") && (unit_type != "INF_B") {
 	                                                   switch unit_type {
 	                                                    //If this unit is a vehicle
 	                                                    //Prevent from entering static unit
-	                                                    case "TANK":
-	                                                    case "ENGINEER":
-	                                                    case "BTR":
-	                                                    case "LOGI":
+	                                                    case "MBT_A":
+														case "MBT_B":
+	                                                    case "LAC_A":
+														case "LAC_B":
+	                                                    case "LAV_A":
+														case "LAV_B":
+	                                                    case "LOGI_A":
+														case "LOGI_B":
 	                                                        path_delete_point(my_path, path_get_number(my_path) - 1);
 	                                                        x_end = path_get_x(my_path, 1);
 	                                                        y_end = path_get_y(my_path, 1);
@@ -184,13 +192,17 @@ function scr_Navigation(argument0) {
 	                                        //If the repair station is not under construction
 	                                        if u.can_be_manned == true {
 	                                            //If this unit is not infantry
-	                                            if unit_type != "INFANTRY" {
+	                                            if (unit_type != "INF_A") && (unit_type != "INF_B") {
 	                                                switch unit_type {
 	                                                    //Vehicle control
-	                                                    case "TANK":
-	                                                    case "ENGINEER":
-	                                                    case "BTR":
-	                                                    case "LOGI":
+	                                                    case "MBT_A":
+														case "MBT_B":
+	                                                    case "LAC_A":
+														case "LAC_B":
+	                                                    case "LAV_A":
+														case "LAV_B":
+	                                                    case "LOGI_A":
+														case "LOGI_B":
 	                                                        //If the repair station is selecting a waypoint for its manned unit
 	                                                        //Prevent vehicle entry
 	                                                        if u.nav_split == true || u.is_occupied == true || u.is_manned == false {
@@ -239,13 +251,17 @@ function scr_Navigation(argument0) {
 	                                            //If the repair station is not under construction
 	                                            if u.can_be_manned == true {
 	                                                //If this unit is not infantry
-	                                                if unit_type != "INFANTRY" {
+	                                                if (unit_type != "INF_A") && (unit_type != "INF_B") {
 	                                                    switch unit_type {
 	                                                        //Vehicle control
-	                                                        case "TANK":
-	                                                        case "ENGINEER":
-	                                                        case "BTR":
-	                                                        case "LOGI":
+	                                                        case "MBT_A":
+															case "MBT_B":
+	                                                        case "LAC_A":
+															case "LAC_B":
+	                                                        case "LAV_A":
+															case "LAV_B":
+	                                                        case "LOGI_A":
+															case "LOGI_B":
 	                                                            //If the repair station is selecting a waypoint for its manned unit
 	                                                            //Prevent vehicle entry
 	                                                            if u.nav_split == true || u.is_occupied == true || u.is_manned == false{

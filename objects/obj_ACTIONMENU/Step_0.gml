@@ -1,4 +1,5 @@
 if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
+	amount_reset = true;
     //If not using targeting reticule
     if global.reticule_display == false {
         //And not currently choosing a waypoint
@@ -30,10 +31,14 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                             for (i=0; i<ds_list_size(global.selected_list); i+=1) {
                                 var u = ds_list_find_value(global.selected_list, i);
                                 switch u.unit_type {
-                                    case "TANK":
-                                    case "ENGINEER":
-                                    case "BTR":
-                                    case "LOGI":
+                                    case "MBT_A":
+									case "MBT_B":
+                                    case "LAC_A":
+									case "LAC_B":
+                                    case "LAV_A":
+									case "LAV_B":
+                                    case "LOGI_A":
+									case "LOGI_B":
                                         if u.is_manning == true { 
 											repair_tab = true; 
 										}
@@ -90,10 +95,14 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                     for (ii=0; ii<ds_list_size(global.selected_list); ii+=1) {
                                         var u = ds_list_find_value(global.selected_list, ii);
                                         switch u.unit_type {
-                                            case "TANK":
-                                            case "ENGINEER":
-                                            case "BTR":
-                                            case "LOGI":
+                                            case "MBT_A":
+											case "MBT_B":
+		                                    case "LAC_A":
+											case "LAC_B":
+		                                    case "LAV_A":
+											case "LAV_B":
+		                                    case "LOGI_A":
+											case "LOGI_B":
                                                 if u.is_manning == true { 
                                                     h_total += u.unit_health; 
                                                     h_max   += u.health_max;
@@ -145,17 +154,22 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                 //Display the fire/action options
                 if global.fire_display ==  false { 
                     global.fire_display = true; 
-                    if global.selected_infantry != 0 { global.ammo_tab = "INFANTRY"; }
-                        else if global.selected_tank != 0 { global.ammo_tab = "TANK"; }
-                            else if global.selected_engineer != 0 { global.ammo_tab = "ENGINEER"; }
-                                else if global.selected_btr != 0 { global.ammo_tab = "BTR"; }
-                                    else if global.selected_logi != 0 { global.ammo_tab = "LOGI"; }
-                                        else if global.selected_depot != 0 { global.ammo_tab = "DEPOT"; }
-                                            else if global.selected_repair != 0 { global.ammo_tab = "REPAIR"; }
-                                                else if global.selected_tow != 0 { global.ammo_tab = "TOW"; }
-                                                    else if global.selected_mortar != 0 { global.ammo_tab = "MORTAR"; }
-                                                        else if global.supply_ship != noone { global.ammo_tab = "SUPPLY SHIP"; }
-                                                            else { global.ammo_tab = "NOONE"; }
+                    if global.selected_infa != 0 { global.ammo_tab = "INF_A"; }
+						else if global.selected_infb != 0 { global.ammo_tab = "INF_B"; }
+	                        else if global.selected_mbta != 0 { global.ammo_tab = "MBT_A"; }
+								else if global.selected_mbtb != 0 { global.ammo_tab = "MBT_B"; }
+		                            else if global.selected_laca != 0 { global.ammo_tab = "LAC_A"; }
+										else if global.selected_lacb != 0 { global.ammo_tab = "LAC_B"; }
+			                                else if global.selected_lava != 0 { global.ammo_tab = "LAV_A"; }
+												else if global.selected_lavb != 0 { global.ammo_tab = "LAV_B"; }
+				                                    else if global.selected_logia != 0 { global.ammo_tab = "LOGI_A"; }
+														else if global.selected_logib != 0 { global.ammo_tab = "LOGI_B"; }
+															else if global.selected_depot != 0 { global.ammo_tab = "DEPOT"; }
+					                                            else if global.selected_repair != 0 { global.ammo_tab = "REPAIR"; }
+					                                                else if global.selected_tow != 0 { global.ammo_tab = "TOW"; }
+					                                                    else if global.selected_mortar != 0 { global.ammo_tab = "MORTAR"; }
+					                                                        else if global.supply_ship != noone { global.ammo_tab = "SUPPLY SHIP"; }
+					                                                            else { global.ammo_tab = "NOONE"; }
                 }
                 if ammo_check == false { ammo_check = true; }
             }
@@ -174,23 +188,36 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                 //Calculate available ammo levels
                 if ammo_check == true {
                     ammo_check = false;
-                    global.cannon_ammo = 0;
-                    global.mg_tank_ammo = 0;
-                    global.rifle_ammo = 0;
-                    global.flare_ammo = 0;
-                    global.rpg_ammo = 0;
-                    global.depot_supply = 0;
-                    global.repair_supply = 0;
-                    global.tow_supply = 0;
-                    global.mortar_supply = 0;
-                    global.he_ammo = 0;
-                    global.ap_ammo = 0;
-                    global.ammo_supply = 0;
-                    global.building_supply = 0;
+					//INF Ammo
+                    global.inf_rfl_ammo = 0;
+                    global.inf_flr_ammo = 0;
+                    global.inf_rpg_ammo = 0;
+					//MBT Ammo
+                    global.mbt_ap_ammo = 0;
+                    global.mbt_mg_ammo = 0;
+					//LAC Ammo
+                    global.lac_dpt_supply = 0;
+                    global.lac_rpr_supply = 0;
+                    global.lac_tow_supply = 0;
+                    global.lac_mtr_supply = 0;
+					global.lac_tow2_ammo  = 0;
+					//LAV Ammo
+                    global.lav_he_ammo = 0;
+                    global.lav_ap_ammo = 0;
+					global.lav_at_ammo = 0;
+					global.lav_mg_ammo = 0;
+					//LOGI Ammo
+                    global.logi_amo_supply = 0;
+                    global.logi_bld_supply = 0;
+					global.logi_sqd_supply = 0;
+					//TOW Ammo
                     global.tow_ammo = 0;
+					//MORTAR Ammo
                     global.mortar_ammo = 0;
+					//SHIP Ammo
                     global.ammunition_ammo = 0;
-                    global.parts_ammo = 0;
+                    global.parts_ammo      = 0;
+					//REPAIR Ammo
                     global.repair_mg_ammo = 0;
                     if !ds_list_empty(global.selected_list) {
                         var i;
@@ -199,42 +226,82 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                             with unit {
                                 if unit_type == global.ammo_tab {
                                       switch unit_type {
-                                        case "INFANTRY":
+                                        case "INF_A":
                                             //If the unit has line of fire then add its ammo to available rounds
                                             if can_shoot == true {
-                                                global.rifle_ammo += rifle_ammo;
-                                                global.flare_ammo += flare_ammo;
-                                                global.rpg_ammo   += rpg_ammo;
+                                                global.inf_rfl_ammo += rifle_ammo;
+                                                global.inf_flr_ammo += flare_ammo;
+                                                global.inf_rpg_ammo += rpg_ammo;
                                             }
                                             break;
-                                        case "TANK":
+										case "INF_B":
                                             //If the unit has line of fire then add its ammo to available rounds
                                             if can_shoot == true {
-                                                global.cannon_ammo  += cannon_ammo;
-                                                global.mg_tank_ammo += mg_ammo;
+                                                global.inf_rfl_ammo += rifle_ammo;
+                                                global.inf_flr_ammo += flare_ammo;
+                                                global.inf_rpg_ammo += rpg_ammo;
                                             }
                                             break;
-                                        case "ENGINEER":
+                                        case "MBT_A":
                                             //If the unit has line of fire then add its ammo to available rounds
                                             if can_shoot == true {
-                                                global.depot_supply  += depot_supply;
-                                                global.repair_supply += repair_supply;
-                                                global.tow_supply    += tow_supply;
-                                                global.mortar_supply += mortar_supply;
+                                                global.mbt_ap_ammo += cannon_ammo;
+                                                global.mbt_mg_ammo += mg_ammo;
                                             }
                                             break;
-                                        case "BTR":
+										case "MBT_B":
                                             //If the unit has line of fire then add its ammo to available rounds
                                             if can_shoot == true {
-                                                global.he_ammo += he_ammo;
-                                                global.ap_ammo += ap_ammo;
+                                                global.mbt_ap_ammo += cannon_ammo;
+                                                global.mbt_mg_ammo += mg_ammo;
                                             }
                                             break;
-                                        case "LOGI":
+                                        case "LAC_A":
                                             //If the unit has line of fire then add its ammo to available rounds
                                             if can_shoot == true {
-                                                global.ammo_supply     += ammo_supply;
-                                                global.building_supply += building_supply;
+                                                global.lac_dpt_supply += depot_supply;
+                                                global.lac_rpr_supply += repair_supply;
+                                                global.lac_tow_supply += tow_supply;
+                                                global.lac_mtr_supply += mortar_supply;
+                                            }
+                                            break;
+										case "LAC_B":
+                                            //If the unit has line of fire then add its ammo to available rounds
+                                            if can_shoot == true {
+                                                global.lac_tow2_ammo += tow_ammo;
+                                            }
+                                            break;
+                                        case "LAV_A":
+                                            //If the unit has line of fire then add its ammo to available rounds
+                                            if can_shoot == true {
+                                                global.lav_he_ammo  += he_ammo;
+                                                global.lav_ap_ammo  += ap_ammo;
+												global.lav_mg_ammo  += mg_ammo;
+												global.lav_at_ammo  += tow_ammo;
+												global.lav_sq_ammo  += sqd_ammo;
+                                            }
+                                            break;
+										case "LAV_B":
+                                            //If the unit has line of fire then add its ammo to available rounds
+                                            if can_shoot == true {
+                                                global.lav_he_ammo += he_ammo;
+                                                global.lav_ap_ammo += ap_ammo;
+												global.lav_mg_ammo += mg_ammo;
+												global.lav_sq_ammo += sqd_ammo;
+                                            }
+                                            break;
+                                        case "LOGI_A":
+                                            //If the unit has line of fire then add its ammo to available rounds
+                                            if can_shoot == true {
+                                                global.logi_amo_supply += ammo_supply;
+                                                global.logi_bld_supply += building_supply;
+                                            }
+                                            break;
+										case "LOGI_B":
+                                            //If the unit has line of fire then add its ammo to available rounds
+                                            if can_shoot == true {
+                                                global.logi_amo_supply += ammo_supply;
+                                                global.logi_sqd_supply += sqd_supply;
                                             }
                                             break;
                                         case "DEPOT":
@@ -253,13 +320,13 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                         case "TOW":
                                             //If the unit has line of fire then add its ammo to available rounds
                                             if can_shoot == true {
-                                                global.tow_ammo     += tow_ammo;
+                                                global.tow_ammo += tow_ammo;
                                             }
                                             break;
                                         case "MORTAR":
                                             //If the unit has line of fire then add its ammo to available rounds
                                             if can_shoot == true {
-                                                global.mortar_ammo  += mortar_ammo;
+                                                global.mortar_ammo += mortar_ammo;
                                             }
                                             break;
                                         default:
@@ -282,8 +349,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                 }
                 //Create menu selection boxes for fire menu according to unit type
                 switch global.ammo_tab {
-                    case "INFANTRY":
-                        scr_Infantry_Tab(4, 1, 1, 2);
+                    case "INF_A":
+                        scr_INFA_Tab(4, 1, 1, 2);
 						if menu_anim == true {
 							if menu_anim_count < menu_anim_timer { 
 								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -293,8 +360,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								else { menu_anim = false; }
 						}
                         break;
-                    case "TANK":
-                        scr_Tank_Tab(1, 4, 4, 2);
+					case "INF_B":
+                        scr_INFB_Tab(4, 1, 1, 2);
 						if menu_anim == true {
 							if menu_anim_count < menu_anim_timer { 
 								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -304,8 +371,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								else { menu_anim = false; }
 						}
                         break;
-                    case "ENGINEER":
-                        scr_Engineer_Tab(1, 1, 1, 1, 6);
+                    case "MBT_A":
+                        scr_MBTA_Tab(1, 4, 4, 2);
 						if menu_anim == true {
 							if menu_anim_count < menu_anim_timer { 
 								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -315,8 +382,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								else { menu_anim = false; }
 						}
                         break;
-                    case "BTR":
-                        scr_BTR_Tab(4, 4, 4);
+					case "MBT_B":
+                        scr_MBTB_Tab(1, 4, 4, 2);
 						if menu_anim == true {
 							if menu_anim_count < menu_anim_timer { 
 								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -326,69 +393,144 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								else { menu_anim = false; }
 						}
                         break;
-                    case "LOGI":
+                    case "LAC_A":
+                        scr_LACA_Tab(1, 1, 1, 1, 6);
+						if menu_anim == true {
+							if menu_anim_count < menu_anim_timer { 
+								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_anim_count ++; 
+							}
+								else { menu_anim = false; }
+						}
+                        break;
+					case "LAC_B":
+                        scr_LACB_Tab(1, 6);
+						if menu_anim == true {
+							if menu_anim_count < menu_anim_timer { 
+								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_anim_count ++; 
+							}
+								else { menu_anim = false; }
+						}
+                        break;
+                    case "LAV_A":
+                        scr_LAVA_Tab(
+							obj_LAVA_Unit.he_rate, obj_LAVA_Unit.ap_rate, obj_LAVA_Unit.mg_rate, obj_LAVA_Unit.tow_rate, obj_LAVA_Unit.sqd_rate,
+							obj_LAVA_Unit.he_cost, obj_LAVA_Unit.ap_cost, obj_LAVA_Unit.mg_cost, obj_LAVA_Unit.tow_cost, obj_LAVA_Unit.sqd_cost
+						);
+						if menu_anim == true {
+							if menu_anim_count < menu_anim_timer { 
+								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_anim_count ++; 
+							}
+								else { menu_anim = false; }
+						}
+                        break;
+					case "LAV_B":
+                        scr_LAVB_Tab(
+							obj_LAVB_Unit.he_rate, obj_LAVB_Unit.ap_rate, obj_LAVB_Unit.mg_rate, obj_LAVB_Unit.sqd_rate,
+							obj_LAVB_Unit.he_cost, obj_LAVB_Unit.ap_cost, obj_LAVB_Unit.mg_cost, obj_LAVB_Unit.sqd_cost
+						);
+						if menu_anim == true {
+							if menu_anim_count < menu_anim_timer { 
+								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_anim_count ++; 
+							}
+								else { menu_anim = false; }
+						}
+                        break;
+                    case "LOGI_A":
                         //Determine if a unit is being targeted for resupply
-                        var inf   = instance_place(global.target_x, global.target_y, obj_Soldier_Unit);
-                        var tank  = instance_place(global.target_x, global.target_y, obj_Tank_Unit);
-                        var eng   = instance_place(global.target_x, global.target_y, obj_Engineer_Unit);
-                        var btr   = instance_place(global.target_x, global.target_y, obj_BTR_Unit);
-                        var logi  = instance_place(global.target_x, global.target_y, obj_Logi_Unit);
+                        var infa  = instance_place(global.target_x, global.target_y, obj_INFA_Unit);
+						var infb  = instance_place(global.target_x, global.target_y, obj_INFB_Unit);
+                        var tanka = instance_place(global.target_x, global.target_y, obj_MBTA_Unit);
+						var tankb = instance_place(global.target_x, global.target_y, obj_MBTB_Unit);
+                        var laca  = instance_place(global.target_x, global.target_y, obj_LACA_Unit);
+						var lacb  = instance_place(global.target_x, global.target_y, obj_LACB_Unit);
+                        var lava  = instance_place(global.target_x, global.target_y, obj_LAVA_Unit);
+						var lavb  = instance_place(global.target_x, global.target_y, obj_LAVB_Unit);
+                        var logia = instance_place(global.target_x, global.target_y, obj_LOGIA_Unit);
+						var logib = instance_place(global.target_x, global.target_y, obj_LOGIB_Unit);
                         var depot = instance_place(global.target_x, global.target_y, obj_Depot_Static);
                         var rpr   = instance_place(global.target_x, global.target_y, obj_Repair_Static);
                         var tow   = instance_place(global.target_x, global.target_y, obj_TOW_Static);
                         var mtr   = instance_place(global.target_x, global.target_y, obj_Mortar_Static);
         
-                        if inf != noone { 
-                            if (inf.nav_confirmed == false) && (inf.action_confirmed == false) && (inf.resupplying == false ) { global.resupply_target = "INFANTRY"; }
+                        if infa != noone { 
+                            if (infa.nav_confirmed == false) && (infa.action_confirmed == false) && (infa.resupplying == false ) { global.resupply_target = "INF_A"; }
                                 else { global.resupply_target = "NOONE"; }
                         }
-                            else if tank { 
-                                if (tank.nav_confirmed == false) && (tank.action_confirmed == false) && (tank.resupplying == false ) { global.resupply_target = "TANK"; }
-                                    else { global.resupply_target = "NOONE"; }
-                            }
-                                else if eng { 
-                                    if (eng.nav_confirmed == false) && (eng.action_confirmed == false) && (eng.resupplying == false ) { global.resupply_target = "ENGINEER"; }
-                                        else { global.resupply_target = "NOONE"; }
-                                }
-                                    else if btr { 
-                                        if (btr.nav_confirmed == false) && (btr.action_confirmed == false) && (btr.resupplying == false ) { global.resupply_target = "BTR"; }
-                                            else { global.resupply_target = "NOONE"; }
-                                    }
-                                        else if logi { 
-                                            if (logi.nav_confirmed == false) && (logi.action_confirmed == false) && (logi.resupplying == false ) { global.resupply_target = "LOGI"; }
-                                                else { global.resupply_target = "NOONE"; }
-                                        }
-                                            else if depot { 
-                                                if (depot.nav_confirmed == false) && (depot.action_confirmed == false) && (depot.resupplying == false ) && (depot.is_manned == true) { global.resupply_target = "DEPOT"; }
-                                                    else { global.resupply_target = "NOONE"; }
-                                            }
-                                                else if rpr { 
-                                                    if (rpr.nav_confirmed == false) && (rpr.action_confirmed == false) && (rpr.resupplying == false ) && (rpr.is_manned == true) { global.resupply_target = "REPAIR"; }
-                                                        else { global.resupply_target = "NOONE"; }
-                                                }
-                                                    else if tow { 
-                                                        if (tow.nav_confirmed == false) && (tow.action_confirmed == false) && (tow.resupplying == false ) && (tow.is_manned == true) { global.resupply_target = "TOW"; }
-                                                            else { global.resupply_target = "NOONE"; }
-                                                    }
-                                                        else if mtr { 
-                                                            if (mtr.nav_confirmed == false) && (mtr.action_confirmed == false) && (mtr.resupplying == false ) && (mtr.is_manned == true) { global.resupply_target = "MORTAR"; }
-                                                                else { global.resupply_target = "NOONE"; }
-                                                        }
-                                                            else { global.resupply_target = "NOONE"; }
+							else if infb { 
+	                            if (infb.nav_confirmed == false) && (infb.action_confirmed == false) && (infb.resupplying == false ) { global.resupply_target = "INF_B"; }
+	                                else { global.resupply_target = "NOONE"; }
+	                        }
+	                            else if tanka { 
+	                                if (tanka.nav_confirmed == false) && (tanka.action_confirmed == false) && (tanka.resupplying == false ) { global.resupply_target = "MBT_A"; }
+	                                    else { global.resupply_target = "NOONE"; }
+	                            }
+									else if tankb { 
+		                                if (tankb.nav_confirmed == false) && (tankb.action_confirmed == false) && (tankb.resupplying == false ) { global.resupply_target = "MBT_B"; }
+		                                    else { global.resupply_target = "NOONE"; }
+		                            }
+		                                else if laca { 
+		                                    if (laca.nav_confirmed == false) && (laca.action_confirmed == false) && (laca.resupplying == false ) { global.resupply_target = "LAC_A"; }
+		                                        else { global.resupply_target = "NOONE"; }
+		                                }
+											else if lacb { 
+			                                    if (lacb.nav_confirmed == false) && (lacb.action_confirmed == false) && (lacb.resupplying == false ) { global.resupply_target = "LAC_B"; }
+			                                        else { global.resupply_target = "NOONE"; }
+			                                }
+			                                    else if lava { 
+			                                        if (lava.nav_confirmed == false) && (lava.action_confirmed == false) && (lava.resupplying == false ) { global.resupply_target = "LAV_A"; }
+			                                            else { global.resupply_target = "NOONE"; }
+			                                    }
+													else if lavb { 
+				                                        if (lavb.nav_confirmed == false) && (lavb.action_confirmed == false) && (lavb.resupplying == false ) { global.resupply_target = "LAV_B"; }
+				                                            else { global.resupply_target = "NOONE"; }
+				                                    }
+				                                        else if logia { 
+				                                            if (logia.nav_confirmed == false) && (logia.action_confirmed == false) && (logia.resupplying == false ) { global.resupply_target = "LOGI_A"; }
+				                                                else { global.resupply_target = "NOONE"; }
+				                                        }
+															else if logib { 
+					                                            if (logib.nav_confirmed == false) && (logib.action_confirmed == false) && (logib.resupplying == false ) { global.resupply_target = "LOGI_B"; }
+					                                                else { global.resupply_target = "NOONE"; }
+					                                        }
+					                                            else if depot { 
+					                                                if (depot.nav_confirmed == false) && (depot.action_confirmed == false) && (depot.resupplying == false ) && (depot.is_manned == true) { global.resupply_target = "DEPOT"; }
+					                                                    else { global.resupply_target = "NOONE"; }
+					                                            }
+					                                                else if rpr { 
+					                                                    if (rpr.nav_confirmed == false) && (rpr.action_confirmed == false) && (rpr.resupplying == false ) && (rpr.is_manned == true) { global.resupply_target = "REPAIR"; }
+					                                                        else { global.resupply_target = "NOONE"; }
+					                                                }
+					                                                    else if tow { 
+					                                                        if (tow.nav_confirmed == false) && (tow.action_confirmed == false) && (tow.resupplying == false ) && (tow.is_manned == true) { global.resupply_target = "TOW"; }
+					                                                            else { global.resupply_target = "NOONE"; }
+					                                                    }
+					                                                        else if mtr { 
+					                                                            if (mtr.nav_confirmed == false) && (mtr.action_confirmed == false) && (mtr.resupplying == false ) && (mtr.is_manned == true) { global.resupply_target = "MORTAR"; }
+					                                                                else { global.resupply_target = "NOONE"; }
+					                                                        }
+					                                                            else { global.resupply_target = "NOONE"; }
                                                             
                         //Determine which tab to display depending on which unit type is targeted    
                         switch global.resupply_target {
-                            case "INFANTRY":
-                                var ammo_1  = inf.rifle_ammo;
-                                var ammo_2  = inf.rpg_ammo;
-                                var ammo_3  = inf.flare_ammo;
-                                var max_1   = inf.rifle_max;
-                                var max_2   = inf.rpg_max;
-                                var max_3   = inf.flare_max;
-                                var rate_1  = obj_Logi_Unit.rifle_supply_rate;
-                                var rate_2  = obj_Logi_Unit.rpg_supply_rate;
-                                var rate_3  = obj_Logi_Unit.flare_supply_rate;
-                                scr_Logi_Infantry_Tab(inf.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
+                            case "INF_A":
+                                var ammo_1  = infa.rifle_ammo;
+                                var ammo_2  = infa.rpg_ammo;
+                                var ammo_3  = infa.flare_ammo;
+                                var max_1   = infa.rifle_max;
+                                var max_2   = infa.rpg_max;
+                                var max_3   = infa.flare_max;
+                                var rate_1  = obj_LOGIA_Unit.rfl_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.rpg_supply_rate;
+                                var rate_3  = obj_LOGIA_Unit.flr_supply_rate;
+                                scr_LOGIA_INFA_Tab(infa.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -398,14 +540,17 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                                 break;
-                            case "TANK":
-                                var ammo_1  = tank.cannon_ammo;
-                                var ammo_2  = tank.mg_ammo;
-                                var max_1   = tank.cannon_max;
-                                var max_2   = tank.mg_max;
-                                var rate_1  = obj_Logi_Unit.cannon_supply_rate;
-                                var rate_2  = obj_Logi_Unit.mg_supply_rate;
-                                scr_Logi_Tank_Tab(tank.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+							case "INF_B":
+                                var ammo_1  = infb.rifle_ammo;
+                                var ammo_2  = infb.rpg_ammo;
+                                var ammo_3  = infb.flare_ammo;
+                                var max_1   = infb.rifle_max;
+                                var max_2   = infb.rpg_max;
+                                var max_3   = infb.flare_max;
+                                var rate_1  = obj_LOGIA_Unit.rfl_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.rpg_supply_rate;
+                                var rate_3  = obj_LOGIA_Unit.flr_supply_rate;
+                                scr_LOGIA_INFB_Tab(infb.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -415,20 +560,14 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                                 break;
-                            case "ENGINEER":
-                                var ammo_1  = eng.depot_supply;
-                                var ammo_2  = eng.repair_supply;
-                                var ammo_3  = eng.tow_supply;
-                                var ammo_4  = eng.mortar_supply;
-                                var max_1   = eng.depot_max;
-                                var max_2   = eng.repair_max;
-                                var max_3   = eng.tow_max;
-                                var max_4   = eng.mortar_max;
-                                var rate_1  = obj_Logi_Unit.depot_supply_rate;
-                                var rate_2  = obj_Logi_Unit.repair_supply_rate;
-                                var rate_3  = obj_Logi_Unit.tow_supply_rate;
-                                var rate_4  = obj_Logi_Unit.mortar_supply_rate;
-                                scr_Logi_Engineer_Tab(eng.id, ammo_1, ammo_2, ammo_3, ammo_4, max_1, max_2, max_3, max_4, rate_1, rate_2, rate_3, rate_4);
+                            case "MBT_A":
+                                var ammo_1  = tanka.cannon_ammo;
+                                var ammo_2  = tanka.mg_ammo;
+                                var max_1   = tanka.cannon_max;
+                                var max_2   = tanka.mg_max;
+                                var rate_1  = obj_LOGIA_Unit.mbtap_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.mbtmg_supply_rate;
+                                scr_LOGIA_MBTA_Tab(tanka.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -438,14 +577,14 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                                 break;
-                            case "BTR":
-                                var ammo_1  = btr.he_ammo;
-                                var ammo_2  = btr.ap_ammo;
-                                var max_1   = btr.he_max;
-                                var max_2   = btr.ap_max;
-                                var rate_1  = obj_Logi_Unit.he_supply_rate;
-                                var rate_2  = obj_Logi_Unit.ap_supply_rate;
-                                scr_Logi_BTR_Tab(btr.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+							case "MBT_B":
+                                var ammo_1  = tankb.cannon_ammo;
+                                var ammo_2  = tankb.mg_ammo;
+                                var max_1   = tankb.cannon_max;
+                                var max_2   = tankb.mg_max;
+                                var rate_1  = obj_LOGIA_Unit.mbtap_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.mbtmg_supply_rate;
+                                scr_LOGIA_MBTB_Tab(tankb.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -455,14 +594,108 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                                 break;
-                            case "LOGI":
-                                var ammo_1  = logi.ammo_supply;
-                                var ammo_2  = logi.building_supply;
-                                var max_1   = logi.ammo_max;
-                                var max_2   = logi.building_max;
-                                var rate_1  = obj_Logi_Unit.ammo_supply_rate;
-                                var rate_2  = obj_Logi_Unit.building_supply_rate;
-                                scr_Logi_Logi_Tab(logi.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+                            case "LAC_A":
+                                var ammo_1  = laca.depot_supply;
+                                var ammo_2  = laca.repair_supply;
+                                var ammo_3  = laca.tow_supply;
+                                var ammo_4  = laca.mortar_supply;
+                                var max_1   = laca.depot_max;
+                                var max_2   = laca.repair_max;
+                                var max_3   = laca.tow_max;
+                                var max_4   = laca.mortar_max;
+                                var rate_1  = obj_LOGIA_Unit.lacdpt_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.lacrpr_supply_rate;
+                                var rate_3  = obj_LOGIA_Unit.lactow_supply_rate;
+                                var rate_4  = obj_LOGIA_Unit.lacmtr_supply_rate;
+                                scr_LOGIA_LACA_Tab(laca.id, ammo_1, ammo_2, ammo_3, ammo_4, max_1, max_2, max_3, max_4, rate_1, rate_2, rate_3, rate_4);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LAC_B":
+                                var ammo_1  = lacb.tow_ammo;
+                                var max_1   = lacb.tow_max;
+                                var rate_1  = obj_LOGIA_Unit.lactow2_supply_rate;
+                                scr_LOGIA_LACB_Tab(lacb.id, ammo_1, max_1, rate_1);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "LAV_A":
+                                var ammo_1  = lava.he_ammo;
+                                var ammo_2  = lava.ap_ammo;
+								var ammo_3  = lava.mg_ammo;
+                                var ammo_4  = lava.tow_ammo;
+                                var max_1   = lava.he_max;
+                                var max_2   = lava.ap_max;
+								var max_3   = lava.mg_max;
+                                var max_4   = lava.tow_max;
+                                var rate_1  = obj_LOGIA_Unit.lavhe_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.lavap_supply_rate;
+								var rate_3  = obj_LOGIA_Unit.lavmg_supply_rate;
+                                var rate_4  = obj_LOGIA_Unit.lavat_supply_rate;
+                                scr_LOGIA_LAVA_Tab(lava.id, ammo_1, ammo_2, ammo_3, ammo_4, max_1, max_2, max_3, max_4, rate_1, rate_2, rate_3, rate_4);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LAV_B":
+                                var ammo_1  = lavb.he_ammo;
+                                var ammo_2  = lavb.ap_ammo;
+								var ammo_3  = lavb.mg_ammo;
+                                var max_1   = lavb.he_max;
+                                var max_2   = lavb.ap_max;
+								var max_3   = lavb.mg_max;
+                                var rate_1  = obj_LOGIA_Unit.lavhe_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.lavap_supply_rate;
+								var rate_3  = obj_LOGIA_Unit.lavmg_supply_rate;
+                                scr_LOGIA_LAVB_Tab(lavb.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "LOGI_A":
+                                var ammo_1  = logia.ammo_supply;
+                                var ammo_2  = logia.building_supply;
+                                var max_1   = logia.ammo_max;
+                                var max_2   = logia.building_max;
+                                var rate_1  = obj_LOGIA_Unit.logiamo_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.logibld_supply_rate;
+                                scr_LOGIA_LOGIA_Tab(logia.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LOGI_B":
+                                var ammo_1  = logib.ammo_supply;
+                                var max_1   = logib.ammo_max;
+                                var rate_1  = obj_LOGIA_Unit.logiamo_supply_rate;
+                                scr_LOGIA_LOGIB_Tab(logib.id, ammo_1, max_1, rate_1);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -477,9 +710,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                 var ammo_2  = depot.ammunition_ammo;
                                 var max_1   = depot.parts_max;
                                 var max_2   = depot.ammunition_max;
-                                var rate_1  = obj_Logi_Unit.depotparts_supply_rate;
-                                var rate_2  = obj_Logi_Unit.depotammo_supply_rate;
-                                scr_Logi_Depot_Tab(depot.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+                                var rate_1  = obj_LOGIA_Unit.depotbld_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.depotamo_supply_rate;
+                                scr_LOGIA_Depot_Tab(depot.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -494,9 +727,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                 var ammo_2  = rpr.mg_ammo;
                                 var max_1   = rpr.repair_max;
                                 var max_2   = rpr.mg_max;
-                                var rate_1  = obj_Logi_Unit.repairS_supply_rate;
-                                var rate_2  = obj_Logi_Unit.repairmg_supply_rate;
-                                scr_Logi_Repair_Tab(rpr.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+                                var rate_1  = obj_LOGIA_Unit.repairS_supply_rate;
+                                var rate_2  = obj_LOGIA_Unit.repairmg_supply_rate;
+                                scr_LOGIA_Repair_Tab(rpr.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -509,8 +742,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                             case "TOW":
                                 var ammo_1  = tow.tow_ammo;
                                 var max_1   = tow.tow_max;
-                                var rate_1  = obj_Logi_Unit.towS_supply_rate;
-                                scr_Logi_TOW_Tab(tow.id, ammo_1, max_1, rate_1);
+                                var rate_1  = obj_LOGIA_Unit.towS_supply_rate;
+                                scr_LOGIA_TOW_Tab(tow.id, ammo_1, max_1, rate_1);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -523,8 +756,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                             case "MORTAR":
                                 var ammo_1  = mtr.mortar_ammo;
                                 var max_1   = mtr.mortar_max;
-                                var rate_1  = obj_Logi_Unit.mortarS_supply_rate;
-                                scr_Logi_Mortar_Tab(mtr.id, ammo_1, max_1, rate_1);
+                                var rate_1  = obj_LOGIA_Unit.mortarS_supply_rate;
+                                scr_LOGIA_Mortar_Tab(mtr.id, ammo_1, max_1, rate_1);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -535,7 +768,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								}
                                 break;
                             case "NOONE":
-                                scr_Logi_Noone_Tab();
+                                scr_LOGIA_Noone_Tab();
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -546,7 +779,318 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								}
                                 break;
                             default:
-                                scr_Logi_Noone_Tab();
+                                scr_LOGIA_Noone_Tab();
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                        }
+                        break;
+					case "LOGI_B":
+                        //Determine if a unit is being targeted for resupply
+                        var infa  = instance_place(global.target_x, global.target_y, obj_INFA_Unit);
+						var infb  = instance_place(global.target_x, global.target_y, obj_INFB_Unit);
+                        var tanka = instance_place(global.target_x, global.target_y, obj_MBTA_Unit);
+						var tankb = instance_place(global.target_x, global.target_y, obj_MBTB_Unit);
+						var lacb  = instance_place(global.target_x, global.target_y, obj_LACB_Unit);
+                        var lava  = instance_place(global.target_x, global.target_y, obj_LAVA_Unit);
+						var lavb  = instance_place(global.target_x, global.target_y, obj_LAVB_Unit);
+                        var logia = instance_place(global.target_x, global.target_y, obj_LOGIA_Unit);
+						var logib = instance_place(global.target_x, global.target_y, obj_LOGIB_Unit);
+                        var depot = instance_place(global.target_x, global.target_y, obj_Depot_Static);
+                        var rpr   = instance_place(global.target_x, global.target_y, obj_Repair_Static);
+                        var tow   = instance_place(global.target_x, global.target_y, obj_TOW_Static);
+                        var mtr   = instance_place(global.target_x, global.target_y, obj_Mortar_Static);
+        
+                        if infa != noone { 
+                            if (infa.nav_confirmed == false) && (infa.action_confirmed == false) && (infa.resupplying == false ) { global.resupply_target = "INF_A"; }
+                                else { global.resupply_target = "NOONE"; }
+                        }
+							else if infb { 
+	                            if (infb.nav_confirmed == false) && (infb.action_confirmed == false) && (infb.resupplying == false ) { global.resupply_target = "INF_B"; }
+	                                else { global.resupply_target = "NOONE"; }
+	                        }
+	                            else if tanka { 
+	                                if (tanka.nav_confirmed == false) && (tanka.action_confirmed == false) && (tanka.resupplying == false ) { global.resupply_target = "MBT_A"; }
+	                                    else { global.resupply_target = "NOONE"; }
+	                            }
+									else if tankb { 
+		                                if (tankb.nav_confirmed == false) && (tankb.action_confirmed == false) && (tankb.resupplying == false ) { global.resupply_target = "MBT_B"; }
+		                                    else { global.resupply_target = "NOONE"; }
+		                            }
+										else if lacb { 
+			                                if (lacb.nav_confirmed == false) && (lacb.action_confirmed == false) && (lacb.resupplying == false ) { global.resupply_target = "LAC_B"; }
+			                                    else { global.resupply_target = "NOONE"; }
+			                            }
+			                                else if lava { 
+			                                    if (lava.nav_confirmed == false) && (lava.action_confirmed == false) && (lava.resupplying == false ) { global.resupply_target = "LAV_A"; }
+			                                        else { global.resupply_target = "NOONE"; }
+			                                }
+												else if lavb { 
+				                                    if (lavb.nav_confirmed == false) && (lavb.action_confirmed == false) && (lavb.resupplying == false ) { global.resupply_target = "LAV_B"; }
+				                                        else { global.resupply_target = "NOONE"; }
+				                                }
+				                                    else if logia { 
+				                                        if (logia.nav_confirmed == false) && (logia.action_confirmed == false) && (logia.resupplying == false ) { global.resupply_target = "LOGI_A"; }
+				                                            else { global.resupply_target = "NOONE"; }
+				                                    }
+														else if logib { 
+					                                        if (logib.nav_confirmed == false) && (logib.action_confirmed == false) && (logib.resupplying == false ) { global.resupply_target = "LOGI_B"; }
+					                                            else { global.resupply_target = "NOONE"; }
+					                                    }
+					                                        else if depot { 
+					                                            if (depot.nav_confirmed == false) && (depot.action_confirmed == false) && (depot.resupplying == false ) && (depot.is_manned == true) { global.resupply_target = "DEPOT"; }
+					                                                else { global.resupply_target = "NOONE"; }
+					                                        }
+					                                            else if rpr { 
+					                                                if (rpr.nav_confirmed == false) && (rpr.action_confirmed == false) && (rpr.resupplying == false ) && (rpr.is_manned == true) { global.resupply_target = "REPAIR"; }
+					                                                    else { global.resupply_target = "NOONE"; }
+					                                            }
+					                                                else if tow { 
+					                                                    if (tow.nav_confirmed == false) && (tow.action_confirmed == false) && (tow.resupplying == false ) && (tow.is_manned == true) { global.resupply_target = "TOW"; }
+					                                                        else { global.resupply_target = "NOONE"; }
+					                                                }
+					                                                    else if mtr { 
+					                                                        if (mtr.nav_confirmed == false) && (mtr.action_confirmed == false) && (mtr.resupplying == false ) && (mtr.is_manned == true) { global.resupply_target = "MORTAR"; }
+					                                                            else { global.resupply_target = "NOONE"; }
+					                                                    }
+					                                                        else { global.resupply_target = "NOONE"; }
+                                                            
+                        //Determine which tab to display depending on which unit type is targeted    
+                        switch global.resupply_target {
+                            case "INF_A":
+                                var ammo_1  = infa.rifle_ammo;
+                                var ammo_2  = infa.rpg_ammo;
+                                var ammo_3  = infa.flare_ammo;
+                                var max_1   = infa.rifle_max;
+                                var max_2   = infa.rpg_max;
+                                var max_3   = infa.flare_max;
+                                var rate_1  = obj_LOGIB_Unit.rfl_supply_rate;
+                                var rate_2  = obj_LOGIB_Unit.rpg_supply_rate;
+                                var rate_3  = obj_LOGIB_Unit.flr_supply_rate;
+                                scr_LOGIB_INFA_Tab(infa.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "INF_B":
+                                var ammo_1  = infb.rifle_ammo;
+                                var ammo_2  = infb.rpg_ammo;
+                                var ammo_3  = infb.flare_ammo;
+                                var max_1   = infb.rifle_max;
+                                var max_2   = infb.rpg_max;
+                                var max_3   = infb.flare_max;
+                                var rate_1  = obj_LOGIB_Unit.rfl_supply_rate;
+                                var rate_2  = obj_LOGIB_Unit.rpg_supply_rate;
+                                var rate_3  = obj_LOGIB_Unit.flr_supply_rate;
+                                scr_LOGIB_INFB_Tab(infb.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "MBT_A":
+                                var ammo_1  = tanka.cannon_ammo;
+                                var ammo_2  = tanka.mg_ammo;
+                                var max_1   = tanka.cannon_max;
+                                var max_2   = tanka.mg_max;
+                                var rate_1  = obj_LOGIB_Unit.mbtap_supply_rate;
+                                var rate_2  = obj_LOGIB_Unit.mbtmg_supply_rate;
+                                scr_LOGIB_MBTA_Tab(tanka.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "MBT_B":
+                                var ammo_1  = tankb.cannon_ammo;
+                                var ammo_2  = tankb.mg_ammo;
+                                var max_1   = tankb.cannon_max;
+                                var max_2   = tankb.mg_max;
+                                var rate_1  = obj_LOGIB_Unit.mbtap_supply_rate;
+                                var rate_2  = obj_LOGIB_Unit.mbtmg_supply_rate;
+                                scr_LOGIB_MBTB_Tab(tankb.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LAC_B":
+                                var ammo_1  = lacb.tow_ammo;
+                                var max_1   = lacb.tow_max;
+                                var rate_1  = obj_LOGIB_Unit.lactow2_supply_rate;
+                                scr_LOGIB_LACB_Tab(lacb.id, ammo_1, max_1, rate_1);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "LAV_A":
+                                var ammo_1  = lava.he_ammo;
+                                var ammo_2  = lava.ap_ammo;
+								var ammo_3  = lava.mg_ammo;
+                                var ammo_4  = lava.tow_ammo;
+                                var max_1   = lava.he_max;
+                                var max_2   = lava.ap_max;
+								var max_3   = lava.mg_max;
+                                var max_4   = lava.tow_max;
+                                var rate_1  = obj_LOGIB_Unit.lavhe_supply_rate;
+                                var rate_2  = obj_LOGIB_Unit.lavap_supply_rate;
+								var rate_3  = obj_LOGIB_Unit.lavmg_supply_rate;
+                                var rate_4  = obj_LOGIB_Unit.lavat_supply_rate;
+                                scr_LOGIB_LAVA_Tab(lava.id, ammo_1, ammo_2, ammo_3, ammo_4, max_1, max_2, max_3, max_4, rate_1, rate_2, rate_3, rate_4);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LAV_B":
+                                var ammo_1  = lavb.he_ammo;
+                                var ammo_2  = lavb.ap_ammo;
+								var ammo_3  = lavb.mg_ammo;
+                                var max_1   = lavb.he_max;
+                                var max_2   = lavb.ap_max;
+								var max_3   = lavb.mg_max;
+                                var rate_1  = obj_LOGIB_Unit.lavhe_supply_rate;
+                                var rate_2  = obj_LOGIB_Unit.lavap_supply_rate;
+								var rate_3  = obj_LOGIB_Unit.lavmg_supply_rate;
+                                scr_LOGIB_LAVB_Tab(lavb.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "LOGI_A":
+                                var ammo_1  = logia.ammo_supply;
+                                var max_1   = logia.ammo_max;
+                                var rate_1  = obj_LOGIB_Unit.logiamo_supply_rate;
+                                scr_LOGIB_LOGIA_Tab(logib.id, ammo_1, max_1, rate_1);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LOGI_B":
+                                var ammo_1  = logib.ammo_supply;
+                                var max_1   = logib.ammo_max;
+                                var rate_1  = obj_LOGIB_Unit.logiamo_supply_rate;
+                                scr_LOGIB_LOGIB_Tab(logib.id, ammo_1, max_1, rate_1);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "DEPOT":
+                                var ammo_1  = depot.ammunition_ammo;
+                                var max_1   = depot.ammunition_max;
+                                var rate_1  = obj_LOGIB_Unit.depotamo_supply_rate;
+                                scr_LOGIB_Depot_Tab(depot.id, ammo_1, max_1, rate_1);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "REPAIR":
+                                var ammo_1  = rpr.mg_ammo;
+                                var max_1   = rpr.mg_max;
+                                var rate_1  = obj_LOGIB_Unit.repairmg_supply_rate;
+                                scr_LOGIB_Repair_Tab(rpr.id, ammo_1, max_1, rate_1);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "TOW":
+                                var ammo_1  = tow.tow_ammo;
+                                var max_1   = tow.tow_max;
+                                var rate_1  = obj_LOGIB_Unit.towS_supply_rate;
+                                scr_LOGIB_TOW_Tab(tow.id, ammo_1, max_1, rate_1);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "MORTAR":
+                                var ammo_1  = mtr.mortar_ammo;
+                                var max_1   = mtr.mortar_max;
+                                var rate_1  = obj_LOGIB_Unit.mortarS_supply_rate;
+                                scr_LOGIB_Mortar_Tab(mtr.id, ammo_1, max_1, rate_1);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "NOONE":
+                                scr_LOGIB_SQUAD_Tab();
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            default:
+                                scr_LOGIB_Noone_Tab();
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -560,67 +1104,92 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                         break;
                     case "DEPOT":
                         //Determine if a unit is being targeted for resupply
-                        var inf   = instance_place(global.target_x, global.target_y, obj_Soldier_Unit);
-                        var tank  = instance_place(global.target_x, global.target_y, obj_Tank_Unit);
-                        var eng   = instance_place(global.target_x, global.target_y, obj_Engineer_Unit);
-                        var btr   = instance_place(global.target_x, global.target_y, obj_BTR_Unit);
-                        var logi  = instance_place(global.target_x, global.target_y, obj_Logi_Unit);
+                        var infa  = instance_place(global.target_x, global.target_y, obj_INFA_Unit);
+						var infb  = instance_place(global.target_x, global.target_y, obj_INFB_Unit);
+                        var tanka = instance_place(global.target_x, global.target_y, obj_MBTA_Unit);
+						var tankb = instance_place(global.target_x, global.target_y, obj_MBTB_Unit);
+                        var laca  = instance_place(global.target_x, global.target_y, obj_LACA_Unit);
+						var lacb  = instance_place(global.target_x, global.target_y, obj_LACB_Unit);
+                        var lava  = instance_place(global.target_x, global.target_y, obj_LAVA_Unit);
+						var lavb  = instance_place(global.target_x, global.target_y, obj_LAVB_Unit);
+                        var logia = instance_place(global.target_x, global.target_y, obj_LOGIA_Unit);
+						var logib = instance_place(global.target_x, global.target_y, obj_LOGIB_Unit);
                         var depot = instance_place(global.target_x, global.target_y, obj_Depot_Static);
                         var rpr   = instance_place(global.target_x, global.target_y, obj_Repair_Static);
                         var tow   = instance_place(global.target_x, global.target_y, obj_TOW_Static);
                         var mtr   = instance_place(global.target_x, global.target_y, obj_Mortar_Static);
         
-                        if inf != noone { 
-                            if (inf.nav_confirmed == false) && (inf.action_confirmed == false) && (inf.resupplying == false ) { global.resupply_target = "INFANTRY"; }
+                        if infa != noone { 
+                            if (infa.nav_confirmed == false) && (infa.action_confirmed == false) && (infa.resupplying == false ) { global.resupply_target = "INF_A"; }
                                 else { global.resupply_target = "NOONE"; }
                         }
-                            else if tank { 
-                                if (tank.nav_confirmed == false) && (tank.action_confirmed == false) && (tank.resupplying == false ) { global.resupply_target = "TANK"; }
-                                    else { global.resupply_target = "NOONE"; }
-                            }
-                                else if eng { 
-                                    if (eng.nav_confirmed == false) && (eng.action_confirmed == false) && (eng.resupplying == false ) { global.resupply_target = "ENGINEER"; }
-                                        else { global.resupply_target = "NOONE"; }
-                                }
-                                    else if btr { 
-                                        if (btr.nav_confirmed == false) && (btr.action_confirmed == false) && (btr.resupplying == false ) { global.resupply_target = "BTR"; }
-                                            else { global.resupply_target = "NOONE"; }
-                                    }
-                                        else if logi { 
-                                            if (logi.nav_confirmed == false) && (logi.action_confirmed == false) && (logi.resupplying == false ) { global.resupply_target = "LOGI"; }
-                                                else { global.resupply_target = "NOONE"; }
-                                        }
-                                            else if depot { 
-                                                if (depot.nav_confirmed == false) && (depot.action_confirmed == false) && (depot.resupplying == false ) && (depot.is_manned == true) { global.resupply_target = "DEPOT"; }
-                                                    else { global.resupply_target = "NOONE"; }
-                                            }
-                                                else if rpr { 
-                                                    if (rpr.nav_confirmed == false) && (rpr.action_confirmed == false) && (rpr.resupplying == false ) && (rpr.is_manned == true) { global.resupply_target = "REPAIR"; }
-                                                        else { global.resupply_target = "NOONE"; }
-                                                }
-                                                    else if tow { 
-                                                        if (tow.nav_confirmed == false) && (tow.action_confirmed == false) && (tow.resupplying == false ) && (tow.is_manned == true) { global.resupply_target = "TOW"; }
-                                                            else { global.resupply_target = "NOONE"; }
-                                                    }
-                                                        else if mtr { 
-                                                            if (mtr.nav_confirmed == false) && (mtr.action_confirmed == false) && (mtr.resupplying == false ) && (mtr.is_manned == true) { global.resupply_target = "MORTAR"; }
-                                                                else { global.resupply_target = "NOONE"; }
-                                                        }
-                                                            else { global.resupply_target = "NOONE"; }
+							else if infb { 
+	                            if (infb.nav_confirmed == false) && (infb.action_confirmed == false) && (infb.resupplying == false ) { global.resupply_target = "INF_B"; }
+	                                else { global.resupply_target = "NOONE"; }
+	                        }
+	                            else if tanka { 
+	                                if (tanka.nav_confirmed == false) && (tanka.action_confirmed == false) && (tanka.resupplying == false ) { global.resupply_target = "MBT_A"; }
+	                                    else { global.resupply_target = "NOONE"; }
+	                            }
+									else if tankb { 
+		                                if (tankb.nav_confirmed == false) && (tankb.action_confirmed == false) && (tankb.resupplying == false ) { global.resupply_target = "MBT_B"; }
+		                                    else { global.resupply_target = "NOONE"; }
+		                            }
+		                                else if laca { 
+		                                    if (laca.nav_confirmed == false) && (laca.action_confirmed == false) && (laca.resupplying == false ) { global.resupply_target = "LAC_A"; }
+		                                        else { global.resupply_target = "NOONE"; }
+		                                }
+											else if lacb { 
+			                                    if (lacb.nav_confirmed == false) && (lacb.action_confirmed == false) && (lacb.resupplying == false ) { global.resupply_target = "LAC_B"; }
+			                                        else { global.resupply_target = "NOONE"; }
+			                                }
+			                                    else if lava { 
+			                                        if (lava.nav_confirmed == false) && (lava.action_confirmed == false) && (lava.resupplying == false ) { global.resupply_target = "LAV_A"; }
+			                                            else { global.resupply_target = "NOONE"; }
+			                                    }
+													else if lavb { 
+				                                        if (lavb.nav_confirmed == false) && (lavb.action_confirmed == false) && (lavb.resupplying == false ) { global.resupply_target = "LAV_B"; }
+				                                            else { global.resupply_target = "NOONE"; }
+				                                    }
+				                                        else if logia { 
+				                                            if (logia.nav_confirmed == false) && (logia.action_confirmed == false) && (logia.resupplying == false ) { global.resupply_target = "LOGI_A"; }
+				                                                else { global.resupply_target = "NOONE"; }
+				                                        }
+															else if logib { 
+					                                            if (logib.nav_confirmed == false) && (logib.action_confirmed == false) && (logib.resupplying == false ) { global.resupply_target = "LOGI_B"; }
+					                                                else { global.resupply_target = "NOONE"; }
+					                                        }
+					                                            else if depot { 
+					                                                if (depot.nav_confirmed == false) && (depot.action_confirmed == false) && (depot.resupplying == false ) && (depot.is_manned == true) { global.resupply_target = "DEPOT"; }
+					                                                    else { global.resupply_target = "NOONE"; }
+					                                            }
+					                                                else if rpr { 
+					                                                    if (rpr.nav_confirmed == false) && (rpr.action_confirmed == false) && (rpr.resupplying == false ) && (rpr.is_manned == true) { global.resupply_target = "REPAIR"; }
+					                                                        else { global.resupply_target = "NOONE"; }
+					                                                }
+					                                                    else if tow { 
+					                                                        if (tow.nav_confirmed == false) && (tow.action_confirmed == false) && (tow.resupplying == false ) && (tow.is_manned == true) { global.resupply_target = "TOW"; }
+					                                                            else { global.resupply_target = "NOONE"; }
+					                                                    }
+					                                                        else if mtr { 
+					                                                            if (mtr.nav_confirmed == false) && (mtr.action_confirmed == false) && (mtr.resupplying == false ) && (mtr.is_manned == true) { global.resupply_target = "MORTAR"; }
+					                                                                else { global.resupply_target = "NOONE"; }
+					                                                        }
+					                                                            else { global.resupply_target = "NOONE"; }
                                                             
                         //Determine which tab to display depending on which unit type is targeted    
                         switch global.resupply_target {
-                            case "INFANTRY":
-                                var ammo_1  = inf.rifle_ammo;
-                                var ammo_2  = inf.rpg_ammo;
-                                var ammo_3  = inf.flare_ammo;
-                                var max_1   = inf.rifle_max;
-                                var max_2   = inf.rpg_max;
-                                var max_3   = inf.flare_max;
-                                var rate_1  = obj_Depot_Static.rifle_supply_rate;
+                            case "INF_A":
+                                var ammo_1  = infa.rifle_ammo;
+                                var ammo_2  = infa.rpg_ammo;
+                                var ammo_3  = infa.flare_ammo;
+                                var max_1   = infa.rifle_max;
+                                var max_2   = infa.rpg_max;
+                                var max_3   = infa.flare_max;
+                                var rate_1  = obj_Depot_Static.rfl_supply_rate;
                                 var rate_2  = obj_Depot_Static.rpg_supply_rate;
-                                var rate_3  = obj_Depot_Static.flare_supply_rate;
-                                scr_Depot_Infantry_Tab(inf.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
+                                var rate_3  = obj_Depot_Static.flr_supply_rate;
+                                scr_Depot_Infantry_Tab(infa.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -630,14 +1199,17 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                                 break;
-                            case "TANK":
-                                var ammo_1  = tank.cannon_ammo;
-                                var ammo_2  = tank.mg_ammo;
-                                var max_1   = tank.cannon_max;
-                                var max_2   = tank.mg_max;
-                                var rate_1  = obj_Depot_Static.cannon_supply_rate;
-                                var rate_2  = obj_Depot_Static.mg_supply_rate;
-                                scr_Depot_Tank_Tab(tank.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+							case "INF_B":
+                                var ammo_1  = infb.rifle_ammo;
+                                var ammo_2  = infb.rpg_ammo;
+                                var ammo_3  = infb.flare_ammo;
+                                var max_1   = infb.rifle_max;
+                                var max_2   = infb.rpg_max;
+                                var max_3   = infb.flare_max;
+                                var rate_1  = obj_Depot_Static.rfl_supply_rate;
+                                var rate_2  = obj_Depot_Static.rpg_supply_rate;
+                                var rate_3  = obj_Depot_Static.flr_supply_rate;
+                                scr_Depot_Infantry_Tab(infb.id, ammo_1, ammo_2, ammo_3, max_1, max_2, max_3, rate_1, rate_2, rate_3);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -647,20 +1219,14 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                                 break;
-                            case "ENGINEER":
-                                var ammo_1  = eng.depot_supply;
-                                var ammo_2  = eng.repair_supply;
-                                var ammo_3  = eng.tow_supply;
-                                var ammo_4  = eng.mortar_supply;
-                                var max_1   = eng.depot_max;
-                                var max_2   = eng.repair_max;
-                                var max_3   = eng.tow_max;
-                                var max_4   = eng.mortar_max;
-                                var rate_1  = obj_Depot_Static.depot_supply_rate;
-                                var rate_2  = obj_Depot_Static.repair_supply_rate;
-                                var rate_3  = obj_Depot_Static.tow_supply_rate;
-                                var rate_4  = obj_Depot_Static.mortar_supply_rate;
-                                scr_Depot_Engineer_Tab(eng.id, ammo_1, ammo_2, ammo_3, ammo_4, max_1, max_2, max_3, max_4, rate_1, rate_2, rate_3, rate_4);
+                            case "MBT_A":
+                                var ammo_1  = tanka.cannon_ammo;
+                                var ammo_2  = tanka.mg_ammo;
+                                var max_1   = tanka.cannon_max;
+                                var max_2   = tanka.mg_max;
+                                var rate_1  = obj_Depot_Static.mbtap_supply_rate;
+                                var rate_2  = obj_Depot_Static.mbtmg_supply_rate;
+                                scr_Depot_Tank_Tab(tanka.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -670,14 +1236,14 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                                 break;
-                            case "BTR":
-                                var ammo_1  = btr.he_ammo;
-                                var ammo_2  = btr.ap_ammo;
-                                var max_1   = btr.he_max;
-                                var max_2   = btr.ap_max;
-                                var rate_1  = obj_Depot_Static.he_supply_rate;
-                                var rate_2  = obj_Depot_Static.ap_supply_rate;
-                                scr_Depot_BTR_Tab(btr.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+							case "MBT_B":
+                                var ammo_1  = tankb.cannon_ammo;
+                                var ammo_2  = tankb.mg_ammo;
+                                var max_1   = tankb.cannon_max;
+                                var max_2   = tankb.mg_max;
+                                var rate_1  = obj_Depot_Static.mbtap_supply_rate;
+                                var rate_2  = obj_Depot_Static.mbtmg_supply_rate;
+                                scr_Depot_Tank_Tab(tankb.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -687,14 +1253,111 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                                 break;
-                            case "LOGI":
-                                var ammo_1  = logi.ammo_supply;
-                                var ammo_2  = logi.building_supply;
-                                var max_1   = logi.ammo_max;
-                                var max_2   = logi.building_max;
-                                var rate_1  = obj_Depot_Static.ammo_supply_rate;
-                                var rate_2  = obj_Depot_Static.building_supply_rate;
-                                scr_Depot_Logi_Tab(logi.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+                            case "LAC_A":
+                                var ammo_1  = laca.depot_supply;
+                                var ammo_2  = laca.repair_supply;
+                                var ammo_3  = laca.tow_supply;
+                                var ammo_4  = laca.mortar_supply;
+                                var max_1   = laca.depot_max;
+                                var max_2   = laca.repair_max;
+                                var max_3   = laca.tow_max;
+                                var max_4   = laca.mortar_max;
+                                var rate_1  = obj_Depot_Static.lacdpt_supply_rate;
+                                var rate_2  = obj_Depot_Static.lacrpr_supply_rate;
+                                var rate_3  = obj_Depot_Static.lactow_supply_rate;
+                                var rate_4  = obj_Depot_Static.lacmtr_supply_rate;
+                                scr_Depot_Engineer_Tab(laca.id, ammo_1, ammo_2, ammo_3, ammo_4, max_1, max_2, max_3, max_4, rate_1, rate_2, rate_3, rate_4);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LAC_B":
+                                var ammo_1  = lacb.depot_supply;
+                                var ammo_2  = lacb.repair_supply;
+                                var ammo_3  = lacb.tow_supply;
+                                var ammo_4  = lacb.mortar_supply;
+                                var max_1   = lacb.depot_max;
+                                var max_2   = lacb.repair_max;
+                                var max_3   = lacb.tow_max;
+                                var max_4   = lacb.mortar_max;
+                                var rate_1  = obj_Depot_Static.lacdpt_supply_rate;
+                                var rate_2  = obj_Depot_Static.lacrpr_supply_rate;
+                                var rate_3  = obj_Depot_Static.lactow_supply_rate;
+                                var rate_4  = obj_Depot_Static.lacmtr_supply_rate;
+                                scr_Depot_Engineer_Tab(lacb.id, ammo_1, ammo_2, ammo_3, ammo_4, max_1, max_2, max_3, max_4, rate_1, rate_2, rate_3, rate_4);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "LAV_A":
+                                var ammo_1  = lava.he_ammo;
+                                var ammo_2  = lava.ap_ammo;
+                                var max_1   = lava.he_max;
+                                var max_2   = lava.ap_max;
+                                var rate_1  = obj_Depot_Static.lavhe_supply_rate;
+                                var rate_2  = obj_Depot_Static.lavap_supply_rate;
+                                scr_Depot_BTR_Tab(lava.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LAV_B":
+                                var ammo_1  = lavb.he_ammo;
+                                var ammo_2  = lavb.ap_ammo;
+                                var max_1   = lavb.he_max;
+                                var max_2   = lavb.ap_max;
+                                var rate_1  = obj_Depot_Static.lavhe_supply_rate;
+                                var rate_2  = obj_Depot_Static.lavap_supply_rate;
+                                scr_Depot_BTR_Tab(lavb.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+                            case "LOGI_A":
+                                var ammo_1  = logia.ammo_supply;
+                                var ammo_2  = logia.building_supply;
+                                var max_1   = logia.ammo_max;
+                                var max_2   = logia.building_max;
+                                var rate_1  = obj_Depot_Static.logiamo_supply_rate;
+                                var rate_2  = obj_Depot_Static.logibld_supply_rate;
+                                scr_Depot_Logi_Tab(logia.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LOGI_B":
+                                var ammo_1  = logib.ammo_supply;
+                                var ammo_2  = logib.building_supply;
+                                var max_1   = logib.ammo_max;
+                                var max_2   = logib.building_max;
+                                var rate_1  = obj_Depot_Static.logiamo_supply_rate;
+                                var rate_2  = obj_Depot_Static.logibld_supply_rate;
+                                scr_Depot_Logi_Tab(logib.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -709,8 +1372,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                 var ammo_2  = depot.ammunition_ammo;
                                 var max_1   = depot.parts_max;
                                 var max_2   = depot.ammunition_max;
-                                var rate_1  = obj_Depot_Static.depotammo_supply_rate;
-                                var rate_2  = obj_Depot_Static.depotparts_supply_rate;
+                                var rate_1  = obj_Depot_Static.depotamo_supply_rate;
+                                var rate_2  = obj_Depot_Static.depotbld_supply_rate;
                                 scr_Depot_Depot_Tab(depot.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
@@ -824,28 +1487,50 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 						}
                         break;
                     case "SUPPLY SHIP":
-                        var logi  = instance_place(global.target_x, global.target_y, obj_Logi_Unit);
+                        var logia  = instance_place(global.target_x, global.target_y, obj_LOGIA_Unit);
+						var logib  = instance_place(global.target_x, global.target_y, obj_LOGIB_Unit);
                         var depot = instance_place(global.target_x, global.target_y, obj_Depot_Static);
-                        if logi { 
-                            if (logi.nav_confirmed == false) && (logi.action_confirmed == false) && (logi.resupplying == false) { global.resupply_target = "LOGI"; }
+                        if logia { 
+                            if (logia.nav_confirmed == false) && (logia.action_confirmed == false) && (logia.resupplying == false) { global.resupply_target = "LOGI_A"; }
                                 else { global.resupply_target = "NOONE"; }
                         }
-                            else if depot { 
-                                if (depot.nav_confirmed == false) && (depot.action_confirmed == false) && (depot.is_manned == true) && (depot.resupplying == false) { global.resupply_target = "DEPOT"; }
-                                    else { global.resupply_target = "NOONE"; }
-                            }
-                                else { global.resupply_target = "NOONE"; }
+							if logib { 
+	                            if (logib.nav_confirmed == false) && (logib.action_confirmed == false) && (logib.resupplying == false) { global.resupply_target = "LOGI_B"; }
+	                                else { global.resupply_target = "NOONE"; }
+	                        }
+	                            else if depot { 
+	                                if (depot.nav_confirmed == false) && (depot.action_confirmed == false) && (depot.is_manned == true) && (depot.resupplying == false) { global.resupply_target = "DEPOT"; }
+	                                    else { global.resupply_target = "NOONE"; }
+	                            }
+	                                else { global.resupply_target = "NOONE"; }
                                 
                          //Determine which tab to display depending on which unit type is targeted    
                         switch global.resupply_target {
-                            case "LOGI":
-                                var ammo_1  = logi.ammo_supply;
-                                var ammo_2  = logi.building_supply;
-                                var max_1   = logi.ammo_max;
-                                var max_2   = logi.building_max;
-                                var rate_1  = obj_LogiLanding_Unit.ammo_supply_rate;//10
-                                var rate_2  = obj_LogiLanding_Unit.building_supply_rate;//10
-                                scr_SupplyShip_Logi_Tab(logi.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+                            case "LOGI_A":
+                                var ammo_1  = logia.ammo_supply;
+                                var ammo_2  = logia.building_supply;
+                                var max_1   = logia.ammo_max;
+                                var max_2   = logia.building_max;
+                                var rate_1  = obj_LogiLanding_Unit.logiamo_supply_rate;//10
+                                var rate_2  = obj_LogiLanding_Unit.logibld_supply_rate;//10
+                                scr_SupplyShip_Logi_Tab(logia.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
+								if menu_anim == true {
+									if menu_anim_count < menu_anim_timer { 
+										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+										menu_anim_count ++; 
+									}
+										else { menu_anim = false; }
+								}
+                                break;
+							case "LOGI_B":
+                                var ammo_1  = logib.ammo_supply;
+                                var ammo_2  = logib.building_supply;
+                                var max_1   = logib.ammo_max;
+                                var max_2   = logib.building_max;
+                                var rate_1  = obj_LogiLanding_Unit.logiamo_supply_rate;//10
+                                var rate_2  = obj_LogiLanding_Unit.logibld_supply_rate;//10
+                                scr_SupplyShip_Logi_Tab(logib.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -860,8 +1545,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                 var ammo_2  = depot.ammunition_ammo;
                                 var max_1   = depot.parts_max;
                                 var max_2   = depot.ammunition_max;
-                                var rate_1  = obj_LogiLanding_Unit.depotparts_supply_rate;//10
-                                var rate_2  = obj_LogiLanding_Unit.depotammo_supply_rate;//10
+                                var rate_1  = obj_LogiLanding_Unit.depotbld_supply_rate;//10
+                                var rate_2  = obj_LogiLanding_Unit.depotamo_supply_rate;//10
                                 scr_SupplyShip_Depot_Tab(depot.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
@@ -917,92 +1602,98 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 }
     //If no units are currently selected
     else {
-        //Reset  MAKE THIS RUN ONLY ONCE WHEN LIST IS EMPTIED
-        global.menu_create = false;
-        global.fire_display = false;
-        global.reticule_display = false;
-        global.repair_display = false;
-        global.nav_menu = false;
-        global.nav_select = false;
-        global.ammo_tab = "NOONE";
-        global.resupply_target = "NOONE";
-        //Infantry
-        global.rifle_amount = 0;
-        global.flare_amount = 0;
-        global.rpg_amount = 0;
-        //Tank 
-        global.cannon_amount = 0;
-        global.mg_tank_amount = 0;
-        //Engineer
-        global.depot_amount = 0;
-        global.repair_amount = 0;
-        global.tow_amount = 0;
-        global.mortar_amount = 0;
-        //BTR
-        global.he_amount = 0;
-        global.ap_amount = 0;
-        //Logi
-        global.rifle_l_amount = 0;
-        global.rpg_l_amount = 0;
-        global.flare_l_amount = 0;
-        global.cannon_l_amount = 0;
-        global.tankmg_l_amount = 0;
-        global.he_l_amount = 0;
-        global.ap_l_amount = 0;
-        global.depot_l_amount = 0;
-        global.repair_l_amount = 0;
-        global.tow_l_amount = 0;
-        global.mortar_l_amount = 0;
-        global.ammo_l_amount = 0;
-        global.building_l_amount = 0;
-        global.depotParts_l_amount = 0;
-        global.depotAmmo_l_amount = 0;
-        global.repairmg_l_amount = 0;
-        global.repairS_l_amount = 0;
-        global.towS_l_amount = 0;
-        global.mortarS_l_amount = 0;
-        //TOW
-        global.towS_amount = 0;
-        //Mortar
-        global.mortarS_amount = 0;
-        //Depot
-        global.rifle_d_amount = 0;
-        global.rpg_d_amount = 0;
-        global.flare_d_amount = 0;
-        global.cannon_d_amount = 0;
-        global.tankmg_d_amount = 0;
-        global.he_d_amount = 0;
-        global.ap_d_amount = 0;
-        global.depot_d_amount = 0;
-        global.repair_d_amount = 0;
-        global.tow_d_amount = 0;
-        global.mortar_d_amount = 0;
-        global.ammo_d_amount = 0;
-        global.building_d_amount = 0;
-        global.depotParts_d_amount = 0;
-        global.depotAmmo_d_amount = 0;
-        global.repairmg_d_amount = 0;
-        global.repairS_d_amount = 0;
-        global.towS_d_amount = 0;
-        global.mortarS_d_amount = 0;
-        //Resupply Ship
-        global.ammo_s_amount = 0;
-        global.building_s_amount = 0;
-        global.depotParts_s_amount = 0;
-        global.depotAmmo_s_amount = 0;
-        //Repair
-		global.repair_ammo = 0;
-        global.repair_mg_amount = 0;
-        global.repair_v_amount = 0;
-        //Temp cost variables
-        global.temp_AP = 0;
-        //global.temp_MP = 0;
-        
-        if global.game_turn != 0 && obj_CONTROL.show_options != true { global.can_zoom = true; }
+		if amount_reset == true {
+			amount_reset = false;
+	        //Reset
+	        global.menu_create = false;
+	        global.fire_display = false;
+	        global.reticule_display = false;
+	        global.repair_display = false;
+	        global.nav_menu = false;
+	        global.nav_select = false;
+	        global.ammo_tab = "NOONE";
+	        global.resupply_target = "NOONE";
+	        //INF
+	        global.inf_rfl_amount = 0;
+	        global.inf_flr_amount = 0;
+	        global.inf_rpg_amount = 0;
+	        //MBT
+	        global.mbt_ap_amount = 0;
+	        global.mbt_mg_amount = 0;
+	        //LAC
+	        global.lac_dpt_amount = 0;
+	        global.lac_rpr_amount = 0;
+	        global.lac_tow_amount = 0;
+	        global.lac_mtr_amount = 0;
+			global.lac_tow2_amount = 0;
+	        //LAV
+	        global.lav_he_amount = 0;
+	        global.lav_ap_amount = 0;
+			global.lav_mg_amount = 0;
+			global.lav_at_amount = 0;
+			global.lav_sq_amount = 0;
+	        //LOGI
+	        global.infrfl_l_amount  = 0;
+	        global.infrpg_l_amount  = 0;
+	        global.infflr_l_amount  = 0;
+	        global.mbtap_l_amount   = 0;
+	        global.mbtmg_l_amount   = 0;
+	        global.lavhe_l_amount   = 0;
+	        global.lavap_l_amount   = 0;
+	        global.lacdpt_l_amount  = 0;
+	        global.lacrpr_l_amount  = 0;
+	        global.lactow_l_amount  = 0;
+	        global.lacmtr_l_amount  = 0;
+	        global.logiamo_l_amount = 0;
+	        global.logibld_l_amount = 0;
+	        global.dptbld_l_amount  = 0;
+	        global.dptamo_l_amount  = 0;
+	        global.rprmg_l_amount   = 0;
+	        global.rprbld_l_amount  = 0;
+	        global.towamo_l_amount  = 0;
+	        global.mtramo_l_amount  = 0;
+	        //TOW
+	        global.towS_amount = 0;
+	        //Mortar
+	        global.mortarS_amount = 0;
+	        //Depot
+	        global.infrfl_d_amount  = 0;
+	        global.infrpg_d_amount  = 0;
+	        global.infflr_d_amount  = 0;
+	        global.mbtap_d_amount   = 0;
+	        global.mbtmg_d_amount   = 0;
+	        global.lavhe_d_amount   = 0;
+	        global.lavap_d_amount   = 0;
+	        global.lacdpt_d_amount  = 0;
+	        global.lacrpr_d_amount  = 0;
+	        global.lactow_d_amount  = 0;
+	        global.lacmtr_d_amount  = 0;
+	        global.logiamo_d_amount = 0;
+	        global.logibld_d_amount = 0;
+	        global.dptbld_d_amount  = 0;
+	        global.dptamo_d_amount  = 0;
+	        global.rprmg_d_amount   = 0;
+	        global.rprbld_d_amount  = 0;
+	        global.towamo_d_amount  = 0;
+	        global.mtramo_d_amount  = 0;
+	        //Resupply Ship
+	        global.logiamo_s_amount = 0;
+	        global.logibld_s_amount = 0;
+	        global.dptbld_s_amount  = 0;
+	        global.dptamo_s_amount  = 0;
+	        //Repair
+			global.repair_ammo = 0;
+	        global.repair_mg_amount = 0;
+	        global.repair_v_amount = 0;
+	        //Temp cost variables
+	        global.temp_AP = 0;
 
-        queue_reset = true;
-        ammo_count = 0;
-        ammo_check = true;
-        shoot_amount = 0;
+	        if global.game_turn != 0 && obj_CONTROL.show_options != true { global.can_zoom = true; }
+
+	        queue_reset = true;
+	        ammo_count = 0;
+	        ammo_check = true;
+	        shoot_amount = 0;
+		}
     }
 

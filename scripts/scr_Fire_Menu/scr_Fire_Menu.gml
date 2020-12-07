@@ -16,14 +16,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 		draw_sprite(spr_Menu_Header, 0, 0, 0);
 		//Draw header arrows when more than one unit type is selected
 		var uc = 0;
-		if global.selected_infantry != 0 uc++;
-		if global.selected_tank != 0 uc++;
-		if global.selected_engineer != 0 uc++;
-		if global.selected_btr != 0 uc++;
-		if global.selected_logi != 0 uc++;
-		if global.selected_depot != 0 uc++;
+		if global.selected_infa   != 0 uc++;
+		if global.selected_infb   != 0 uc++;
+		if global.selected_mbta   != 0 uc++;
+		if global.selected_mbtb   != 0 uc++;
+		if global.selected_laca   != 0 uc++;
+		if global.selected_lacb   != 0 uc++;
+		if global.selected_lava   != 0 uc++;
+		if global.selected_lavb   != 0 uc++;
+		if global.selected_logia  != 0 uc++;
+		if global.selected_logib  != 0 uc++;
+		if global.selected_depot  != 0 uc++;
 		if global.selected_repair != 0 uc++;
-		if global.selected_tow != 0 uc++;
+		if global.selected_tow    != 0 uc++;
 		if global.selected_mortar != 0 uc++;
 		if uc > 1 {
 		    var hs;
@@ -38,8 +43,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 		    gpu_set_blendmode(bm_normal);
 		}
 		//Draw the header text
-		if utyp == "BTR" { draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "LAV", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2); }
-			else { draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), utyp, c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2); }
+		//if utyp == "LAV_A" { draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "LAV", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2); }
+			//else { draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), utyp, c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2); }
 		//Draw the unit firing menu
 		var m;
 		for (m=0; m<mlen; m+=1) {
@@ -48,135 +53,235 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 		    //Set ammo count to corresponding ammo type
 		    if (m < mlen-2) {
 				switch utyp {
-					case "INFANTRY":
+					case "INF_A":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Rifleman", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 				        switch m {
 				            case 0:
-				                shoot_amount = global.rifle_amount;
-				                ammo_count   = global.rifle_ammo;
+				                shoot_amount = global.inf_rfl_amount;
+				                ammo_count   = global.inf_rfl_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.rpg_amount;
-				                ammo_count   = global.rpg_ammo;
+				                shoot_amount = global.inf_rpg_amount;
+				                ammo_count   = global.inf_rpg_ammo;
 				                break;
 				            case 2:
-				                shoot_amount = global.flare_amount;
-				                ammo_count   = global.flare_ammo;
+				                shoot_amount = global.inf_flr_amount;
+				                ammo_count   = global.inf_flr_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				                case 0:
-				                    if global.rifle_ammo <= 0 { c1 = c_red; }
+				                    if global.inf_rfl_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                case 1:
-				                    if global.rpg_ammo <= 0 { c1 = c_red; }
+				                    if global.inf_rpg_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                case 2:
-				                    if global.flare_ammo <= 0 { c1 = c_red; }
+				                    if global.inf_flr_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                default:
 				                    c1 = c_white;
-				                    break
+				                    break;
 				            }
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "TANK":
-						switch m {
+					case "INF_B":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Recon", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+				        switch m {
 				            case 0:
-				                shoot_amount = global.cannon_amount;
-				                ammo_count   = global.cannon_ammo;
+				                shoot_amount = global.inf_rfl_amount;
+				                ammo_count   = global.inf_rfl_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.mg_tank_amount;
-				                ammo_count   = global.mg_tank_ammo;
-				                break;
-				            default:
-				                shoot_amount = 0;
-				                break;
-				        }
-				        var c1;
-				        if m == global.fire_option { 
-				            switch m {
-				            case 0:
-				                if global.cannon_ammo <= 0 { c1 = c_red; }
-				                    else { c1 = c_white; }
-				                break;
-				            case 1:
-				                if global.mg_tank_ammo <= 0 { c1 = c_red; }
-				                    else { c1 = c_white; }
-				                break;
-				            default:
-				                c1 = c_white;
-				                break
-				            }
-				        }
-				            else { c1 = c_gray; }
-						break;
-					case "ENGINEER":
-						switch m {
-				            case 0:
-				                shoot_amount = global.depot_amount;
-				                ammo_count   = global.depot_supply;
-				                break;
-				            case 1:
-				                shoot_amount = global.repair_amount;
-				                ammo_count   = global.repair_supply;
+				                shoot_amount = global.inf_rpg_amount;
+				                ammo_count   = global.inf_rpg_ammo;
 				                break;
 				            case 2:
-				                shoot_amount = global.tow_amount;
-				                ammo_count   = global.tow_supply;
-				                break;
-				            case 3:
-				                shoot_amount = global.mortar_amount;
-				                ammo_count   = global.mortar_supply;
+				                shoot_amount = global.inf_flr_amount;
+				                ammo_count   = global.inf_flr_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
-				            case 0:
-				                if global.depot_supply <= 0 { c1 = c_red; }
-				                    else { c1 = c_white; }
-				                break;
-				            case 1:
-				                if global.repair_supply <= 0 { c1 = c_red; }
-				                    else { c1 = c_white; }
-				                break;
-				            case 2:
-				                if global.tow_supply <= 0 { c1 = c_red; }
-				                    else { c1 = c_white; }
-				                break;
-				            case 3:
-				                if global.mortar_supply <= 0 { c1 = c_red; }
-				                    else { c1 = c_white; }
-				                break;
-				            default:
-				                c1 = c_white;
-				                break
+				                case 0:
+				                    if global.inf_rfl_ammo <= 0 { c1 = c_red; }
+				                        else { c1 = c_white; }
+				                    break;
+				                case 1:
+				                    if global.inf_rpg_ammo <= 0 { c1 = c_red; }
+				                        else { c1 = c_white; }
+				                    break;
+				                case 2:
+				                    if global.inf_flr_ammo <= 0 { c1 = c_red; }
+				                        else { c1 = c_white; }
+				                    break;
+				                default:
+				                    c1 = c_white;
+				                    break;
 				            }
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "BTR":
+					case "MBT_A":
+						//Draw the header text
+						if PLAYER.faction == "US" {
+							draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "M1A2 MBT", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						}
+							else if PLAYER.faction == "RU" {
+								draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "T72 MBT", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+							}
 						switch m {
 				            case 0:
-				                shoot_amount = global.he_amount;
-				                ammo_count = global.he_ammo;
+				                shoot_amount = global.mbt_ap_amount;
+				                ammo_count   = global.mbt_ap_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.ap_amount;
-				                ammo_count = global.ap_ammo;
+				                shoot_amount = global.mbt_mg_amount;
+				                ammo_count   = global.mbt_mg_ammo;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.mbt_ap_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.mbt_mg_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "MBT_B":
+						//Draw the header text
+						if PLAYER.faction == "US" {
+							draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "M1A1 MBT", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						}
+							else if PLAYER.faction == "RU" {
+								draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "T62 MBT", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+							}
+						switch m {
+				            case 0:
+				                shoot_amount = global.mbt_ap_amount;
+				                ammo_count   = global.mbt_ap_ammo;
+				                break;
+				            case 1:
+				                shoot_amount = global.mbt_mg_amount;
+				                ammo_count   = global.mbt_mg_ammo;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.mbt_ap_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.mbt_mg_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LAC_A":
+						//Draw the header text
+						if PLAYER.faction == "US" {
+							draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "M1097 Cargo", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						}
+							else if PLAYER.faction == "RU" {
+								draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Tigr Cargo", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+							}
+						switch m {
+				            case 0:
+				                shoot_amount = global.lac_dpt_amount;
+				                ammo_count   = global.lac_dpt_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.lac_rpr_amount;
+				                ammo_count   = global.lac_rpr_supply;
+				                break;
+				            case 2:
+				                shoot_amount = global.lac_tow_amount;
+				                ammo_count   = global.lac_tow_supply;
+				                break;
+				            case 3:
+				                shoot_amount = global.lac_mtr_amount;
+				                ammo_count   = global.lac_mtr_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.lac_dpt_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.lac_rpr_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 2:
+				                if global.lac_tow_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 3:
+				                if global.lac_mtr_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LAC_B":
+						//Draw the header text
+						if PLAYER.faction == "US" {
+							draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "M1097 TOW", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						}
+							else if PLAYER.faction == "RU" {
+								draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Tigr TOW", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+							}
+						switch m {
+				            case 0:
+				                shoot_amount = global.lac_tow2_amount;
+				                ammo_count   = global.lac_tow2_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -186,21 +291,136 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.he_ammo <= 0 { c1 = c_red; }
-				                    else { c1 = c_white; }
-				                break;
-				            case 1:
-				                if global.ap_ammo <= 0 { c1 = c_red; }
+				                if global.lac_tow2_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LAV_A":
+						//Draw the header text
+						if PLAYER.faction == "US" {
+							draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Bradley IFV", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						}
+							else if PLAYER.faction == "RU" {
+								draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "BMP3 IFV", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+							}
+						switch m {
+				            case 0:
+				                shoot_amount = global.lav_he_amount;
+				                ammo_count = global.lav_he_ammo;
+				                break;
+				            case 1:
+				                shoot_amount = global.lav_ap_amount;
+				                ammo_count = global.lav_ap_ammo;
+				                break;
+							case 2:
+				                shoot_amount = global.lav_mg_amount;
+				                ammo_count = global.lav_mg_ammo;
+				                break;
+				            case 3:
+				                shoot_amount = global.lav_at_amount;
+				                ammo_count = global.lav_at_ammo;
+				                break;
+				            case 4:
+				                shoot_amount = global.lav_sq_amount;
+				                ammo_count = global.lav_sq_ammo;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.lav_he_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.lav_ap_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+							case 2:
+				                if global.lav_mg_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 3:
+				                if global.lav_at_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 4:
+				                if global.lav_sq_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LAV_B":
+						//Draw the header text
+						if PLAYER.faction == "US" {
+							draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Stryker APC", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						}
+							else if PLAYER.faction == "RU" {
+								draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "BTR-80 APC", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+							}
+						switch m {
+				            case 0:
+				                shoot_amount = global.lav_he_amount;
+				                ammo_count = global.lav_he_ammo;
+				                break;
+				            case 1:
+				                shoot_amount = global.lav_ap_amount;
+				                ammo_count = global.lav_ap_ammo;
+				                break;
+							case 2:
+				                shoot_amount = global.lav_mg_amount;
+				                ammo_count = global.lav_mg_ammo;
+				                break;
+				            case 3:
+				                shoot_amount = global.lav_sq_amount;
+				                ammo_count = global.lav_sq_ammo;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.lav_he_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.lav_ap_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+							case 2:
+				                if global.lav_mg_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 3:
+				                if global.lav_sq_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
 						break;
 					case "REPAIR-MG":
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Heavy MG", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.repair_mg_amount;
@@ -208,7 +428,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -219,12 +439,13 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
 								break;
 					case "TOW":
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "TOW", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.towS_amount;
@@ -232,7 +453,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -243,12 +464,13 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
 						break;
 					case "MORTAR":
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Mortar", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.mortarS_amount;
@@ -256,7 +478,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -267,7 +489,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -275,39 +497,39 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-INF":
 						switch m {
 				            case 0:
-				                shoot_amount = global.rifle_l_amount;
+				                shoot_amount = global.infrfl_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.rpg_l_amount;
+				                shoot_amount = global.infrpg_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.flare_l_amount;
+				                shoot_amount = global.infflr_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -315,31 +537,31 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-MBT":
 						switch m {
 				            case 0:
-				                shoot_amount = global.cannon_l_amount;
+				                shoot_amount = global.mbtap_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.tankmg_l_amount;
+				                shoot_amount = global.mbtmg_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -347,47 +569,47 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-ENG":
 						switch m {
 				            case 0:
-				                shoot_amount = global.depot_l_amount;
-				                ammo_count   = global.building_supply;
+				                shoot_amount = global.lacdpt_l_amount;
+				                ammo_count   = global.logi_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.repair_l_amount;
-				                ammo_count   = global.building_supply;
+				                shoot_amount = global.lacrpr_l_amount;
+				                ammo_count   = global.logi_bld_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.tow_l_amount;
-				                ammo_count   = global.building_supply;
+				                shoot_amount = global.lactow_l_amount;
+				                ammo_count   = global.logi_bld_supply;
 				                break;
 				            case 3:
-				                shoot_amount = global.mortar_l_amount;
-				                ammo_count   = global.building_supply;
+				                shoot_amount = global.lacmtr_l_amount;
+				                ammo_count   = global.logi_bld_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.building_supply <= 0 { c1 = c_red; }
+				                if global.logi_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.building_supply <= 0 { c1 = c_red; }
+				                if global.logi_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.building_supply <= 0 { c1 = c_red; }
+				                if global.logi_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.building_supply <= 0 { c1 = c_red; }
+				                if global.logi_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -395,31 +617,31 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-LAV":
 						switch m {
 				            case 0:
-				                shoot_amount = global.he_l_amount;
+				                shoot_amount = global.lavhe_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.ap_l_amount;
+				                shoot_amount = global.lavap_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -427,31 +649,31 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-LGI":
 						switch m {
 				            case 0:
-				                shoot_amount = global.ammo_l_amount;
+				                shoot_amount = global.logiamo_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.building_l_amount;
-				                ammo_count   = global.building_supply;
+				                shoot_amount = global.logibld_l_amount;
+				                ammo_count   = global.logi_bld_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.building_supply <= 0 { c1 = c_red; }
+				                if global.logi_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -459,31 +681,31 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-DPT":
 						switch m {
 				            case 0:
-				                shoot_amount = global.depotParts_l_amount;
-				                ammo_count   = global.building_supply;
+				                shoot_amount = global.dptbld_l_amount;
+				                ammo_count   = global.logi_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.depotAmmo_l_amount;
+				                shoot_amount = global.dptamo_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.building_supply <= 0 { c1 = c_red; }
+				                if global.logi_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -491,31 +713,31 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-RPR":
 						switch m {
 				            case 0:
-				                shoot_amount = global.repairS_l_amount;
-				                ammo_count   = global.building_supply;
+				                shoot_amount = global.rprbld_l_amount;
+				                ammo_count   = global.logi_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.repairmg_l_amount;
+				                shoot_amount = global.rprmg_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.building_supply <= 0 { c1 = c_red; }
+				                if global.logi_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -523,23 +745,23 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-TOW":
 						switch m {
 				            case 0:
-				                shoot_amount = global.towS_l_amount;
+				                shoot_amount = global.towamo_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -547,28 +769,28 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "LOGI-MTR":
 						switch m {
 				            case 0:
-				                shoot_amount = global.mortarS_l_amount;
+				                shoot_amount = global.mtramo_l_amount;
 				                ammo_count   = global.ammo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammo_supply <= 0 { c1 = c_red; }
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI":
+					case "LOGI_A":
 						switch m {
 				            default:
 				                shoot_amount = 0;
@@ -579,7 +801,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				            switch m {
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -587,20 +809,20 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-INF":
 						switch m {
 				            case 0:
-				                shoot_amount = global.rifle_d_amount;
+				                shoot_amount = global.infrfl_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.rpg_d_amount;
+				                shoot_amount = global.infrpg_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            case 2:
-				                shoot_amount = global.flare_d_amount;
+				                shoot_amount = global.infflr_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -619,7 +841,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -627,16 +849,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-MBT":
 						switch m {
 				            case 0:
-				                shoot_amount = global.cannon_d_amount;
+				                shoot_amount = global.mbtap_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.tankmg_d_amount;
+				                shoot_amount = global.mbtmg_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -651,7 +873,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -659,24 +881,24 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-ENG":
 						switch m {
 				            case 0:
-				                shoot_amount = global.depot_d_amount;
+				                shoot_amount = global.lacdpt_d_amount;
 				                ammo_count   = global.parts_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.repair_d_amount;
+				                shoot_amount = global.lacrpr_d_amount;
 				                ammo_count   = global.parts_ammo;
 				                break;
 				            case 2:
-				                shoot_amount = global.tow_d_amount;
+				                shoot_amount = global.lactow_d_amount;
 				                ammo_count   = global.parts_ammo;
 				                break;
 				            case 3:
-				                shoot_amount = global.mortar_d_amount;
+				                shoot_amount = global.lacmtr_d_amount;
 				                ammo_count   = global.parts_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -699,7 +921,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -707,16 +929,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-LAV":
 						switch m {
 				            case 0:
-				                shoot_amount = global.he_d_amount;
+				                shoot_amount = global.lavhe_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.ap_d_amount;
+				                shoot_amount = global.lavap_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -731,7 +953,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -739,16 +961,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-LGI":
 						switch m {
 				            case 0:
-				                shoot_amount = global.ammo_d_amount;
+				                shoot_amount = global.logiamo_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.building_d_amount;
+				                shoot_amount = global.logibld_d_amount;
 				                ammo_count   = global.parts_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -763,7 +985,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -771,16 +993,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-DPT":
 						switch m {
 				            case 0:
-				                shoot_amount = global.depotParts_d_amount;
+				                shoot_amount = global.dptbld_d_amount;
 				                ammo_count   = global.parts_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.depotAmmo_d_amount;
+				                shoot_amount = global.dptamo_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -795,7 +1017,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -803,16 +1025,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-RPR":
 						switch m {
 				            case 0:
-				                shoot_amount = global.repairS_d_amount;
+				                shoot_amount = global.rprbld_d_amount;
 				                ammo_count   = global.parts_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.repairmg_d_amount;
+				                shoot_amount = global.rprmg_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -827,7 +1049,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -835,12 +1057,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-TOW":
 						switch m {
 				            case 0:
-				                shoot_amount = global.towS_d_amount;
+				                shoot_amount = global.towamo_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -851,7 +1073,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -859,12 +1081,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "DEPOT-MTR":
 						switch m {
 				            case 0:
-				                shoot_amount = global.mortarS_d_amount;
+				                shoot_amount = global.mtramo_d_amount;
 				                ammo_count   = global.ammunition_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -875,7 +1097,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -891,7 +1113,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				            switch m {
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -899,16 +1121,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "SHIP-LGI":
 						switch m {
 				            case 0:
-				                shoot_amount = global.ammo_s_amount;
+				                shoot_amount = global.logiamo_s_amount;
 				                ammo_count   = global.lc_ammunition_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.building_s_amount;
+				                shoot_amount = global.logibld_s_amount;
 				                ammo_count   = global.lc_parts_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -923,7 +1145,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -931,16 +1153,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 					case "SHIP-DPT":
 						switch m {
 				            case 0:
-				                shoot_amount = global.depotParts_s_amount;
+				                shoot_amount = global.dptbld_s_amount;
 				                ammo_count   = global.lc_parts_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.depotAmmo_s_amount;
+				                shoot_amount = global.dptamo_s_amount;
 				                ammo_count   = global.lc_ammunition_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
-				                break
+				                break;
 				        }
 				        var c1;
 				        if m == global.fire_option { 
@@ -955,7 +1177,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -971,7 +1193,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				            switch m {
 				            default:
 				                c1 = c_white;
-				                break
+				                break;
 				            }
 				        }
 				            else { c1 = c_gray; }
@@ -1005,7 +1227,6 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 	        draw_clear_alpha(c_black, 1);
 	        surface_reset_target();
 		}
-
 
 
 }

@@ -47,7 +47,7 @@ depleted = false;
 mx = 0;
 my = 0;
 my_unit = -1;
-ship_type = "BTR";
+ship_type = "LAV_A";
 unit_list = ds_list_create();
 
 var i;

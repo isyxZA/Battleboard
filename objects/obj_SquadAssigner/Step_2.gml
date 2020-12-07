@@ -17,19 +17,19 @@ if lcheck == true {
 					slot1_full = true;
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
-						case "INFANTRY":
+						case "INF_A":
 							slot1_sprite = spr_Infantry_Dropdown;
 							break;
-						case "TANK":
+						case "MBT_A":
 							slot1_sprite = spr_Tank_Dropdown;
 							break;
-						case "ENGINEER":
+						case "LAC_A":
 							slot1_sprite = spr_Engineer_Dropdown;
 							break;
-						case "BTR":
+						case "LAV_A":
 							slot1_sprite = spr_BTR_Dropdown;
 							break;
-						case "LOGI":
+						case "LOGI_A":
 							slot1_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -38,19 +38,19 @@ if lcheck == true {
 					slot2_full = true;
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
-						case "INFANTRY":
+						case "INF_A":
 							slot2_sprite = spr_Infantry_Dropdown;
 							break;
-						case "TANK":
+						case "MBT_A":
 							slot2_sprite = spr_Tank_Dropdown;
 							break;
-						case "ENGINEER":
+						case "LAC_A":
 							slot2_sprite = spr_Engineer_Dropdown;
 							break;
-						case "BTR":
+						case "LAV_A":
 							slot2_sprite = spr_BTR_Dropdown;
 							break;
-						case "LOGI":
+						case "LOGI_A":
 							slot2_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -59,19 +59,19 @@ if lcheck == true {
 					slot3_full = true;
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
-						case "INFANTRY":
+						case "INF_A":
 							slot3_sprite = spr_Infantry_Dropdown;
 							break;
-						case "TANK":
+						case "MBT_A":
 							slot3_sprite = spr_Tank_Dropdown;
 							break;
-						case "ENGINEER":
+						case "LAC_A":
 							slot3_sprite = spr_Engineer_Dropdown;
 							break;
-						case "BTR":
+						case "LAV_A":
 							slot3_sprite = spr_BTR_Dropdown;
 							break;
-						case "LOGI":
+						case "LOGI_A":
 							slot3_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -80,19 +80,19 @@ if lcheck == true {
 					slot4_full = true;
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
-						case "INFANTRY":
+						case "INF_A":
 							slot4_sprite = spr_Infantry_Dropdown;
 							break;
-						case "TANK":
+						case "MBT_A":
 							slot4_sprite = spr_Tank_Dropdown;
 							break;
-						case "ENGINEER":
+						case "LAC_A":
 							slot4_sprite = spr_Engineer_Dropdown;
 							break;
-						case "BTR":
+						case "LAV_A":
 							slot4_sprite = spr_BTR_Dropdown;
 							break;
-						case "LOGI":
+						case "LOGI_A":
 							slot4_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -101,19 +101,19 @@ if lcheck == true {
 					slot5_full = true;
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
-						case "INFANTRY":
+						case "INF_A":
 							slot5_sprite = spr_Infantry_Dropdown;
 							break;
-						case "TANK":
+						case "MBT_A":
 							slot5_sprite = spr_Tank_Dropdown;
 							break;
-						case "ENGINEER":
+						case "LAC_A":
 							slot5_sprite = spr_Engineer_Dropdown;
 							break;
-						case "BTR":
+						case "LAV_A":
 							slot5_sprite = spr_BTR_Dropdown;
 							break;
-						case "LOGI":
+						case "LOGI_A":
 							slot5_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -122,19 +122,19 @@ if lcheck == true {
 					slot6_full = true;
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
-						case "INFANTRY":
+						case "INF_A":
 							slot6_sprite = spr_Infantry_Dropdown;
 							break;
-						case "TANK":
+						case "MBT_A":
 							slot6_sprite = spr_Tank_Dropdown;
 							break;
-						case "ENGINEER":
+						case "LAC_A":
 							slot6_sprite = spr_Engineer_Dropdown;
 							break;
-						case "BTR":
+						case "LAV_A":
 							slot6_sprite = spr_BTR_Dropdown;
 							break;
-						case "LOGI":
+						case "LOGI_A":
 							slot6_sprite = spr_Logi_Dropdown;
 							break;
 					}

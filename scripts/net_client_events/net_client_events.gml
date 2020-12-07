@@ -50,20 +50,32 @@ function net_client_events() {
 			var uu     = buffer_read(data,buffer_string);
 			temp_squad = buffer_read(data,buffer_string);
 			switch uu {
-				case "INFANTRY":
-					temp_unit = obj_Enemy_Infantry;
+				case "INF_A":
+					temp_unit = obj_Enemy_INFA;
 					break;
-				case "TANK":
-					temp_unit = obj_Enemy_Tank;
+				case "INF_B":
+					temp_unit = obj_Enemy_INFB;
 					break;
-				case "ENGINEER":
-					temp_unit = obj_Enemy_Engineer;
+				case "MBT_A":
+					temp_unit = obj_Enemy_MBTA;
 					break;
-				case "BTR":
-					temp_unit = obj_Enemy_BTR;
+				case "MBT_B":
+					temp_unit = obj_Enemy_MBTB;
 					break;
-				case "LOGI":
-					temp_unit = obj_Enemy_Logi;
+				case "LAC_A":
+					temp_unit = obj_Enemy_LACA;
+					break;
+				case "LAV_A":
+					temp_unit = obj_Enemy_LAVA;
+					break;
+				case "LAV_B":
+					temp_unit = obj_Enemy_LAVB;
+					break;
+				case "LOGI_A":
+					temp_unit = obj_Enemy_LOGIA;
+					break;
+				case "LOGI_B":
+					temp_unit = obj_Enemy_LOGIB;
 					break;
 				case "DEPOT":
 					temp_unit = obj_Enemy_Depot;
@@ -388,7 +400,7 @@ function net_client_events() {
 				if net_id == obj_CLIENT.temp_id {
 					weapon = obj_CLIENT.temp_weapon;
 					switch unit_type {
-						case "E_INFANTRY":
+						case "E_INFA":
 							switch weapon {
 								case "RIFLE":
 									shoot_rifle = true;
@@ -411,7 +423,30 @@ function net_client_events() {
 									break;
 							}
 							break;
-						case "E_TANK":
+						case "E_INFB":
+							switch weapon {
+								case "RIFLE":
+									shoot_rifle = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "RPG":
+									shoot_rpg = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "FLARE":
+									global.enemyunits_running += 1;
+									break;
+							}
+							break;
+						case "E_MBTA":
 							switch weapon {
 								case "CANNON":
 									shoot_cannon = true;
@@ -431,7 +466,27 @@ function net_client_events() {
 									break;
 							}
 							break;
-						case "E_ENGINEER":
+						case "E_MBTB":
+							switch weapon {
+								case "CANNON":
+									shoot_cannon = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "MG":
+									shoot_mg = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+							}
+							break;
+						case "E_LACA":
 							switch weapon {
 								case "DEPOT":
 									shoot_depot = true;
@@ -467,7 +522,43 @@ function net_client_events() {
 									break;
 							}
 							break;
-						case "E_BTR":
+						case "E_LACB":
+							switch weapon {
+								case "DEPOT":
+									shoot_depot = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "REPAIR":
+									shoot_repair = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "TOW":
+									shoot_tow = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "MORTAR":
+									shoot_mortar = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+							}
+							break;
+						case "E_LAVA":
 							switch weapon {
 								case "AP":
 									shoot_ap = true;
@@ -487,7 +578,30 @@ function net_client_events() {
 									break;
 							}
 							break;
-						case "E_LOGI":
+						case "E_LAVB":
+							switch weapon {
+								case "AP":
+									shoot_ap = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+								case "HE":
+									shoot_he = true;
+									action_confirmed = true;
+									target_x         = obj_CLIENT.temp_xfinal;
+									target_y         = obj_CLIENT.temp_yfinal;
+									shoot_amount     = obj_CLIENT.temp_amount;
+									global.enemyunits_running += 1;
+									break;
+							}
+							break;
+						case "E_LOGIA":
+							global.enemyunits_running += 1;
+							break;
+						case "E_LOGIB":
 							global.enemyunits_running += 1;
 							break;
 						case "E_DEPOT":
@@ -543,15 +657,27 @@ function net_client_events() {
 					shoot_amount = 0;
 					timer_start = false;
 					switch unit_type {
-						case "INFANTRY":
+						case "INF_A":
 							if shoot_rifle == true { shoot_rifle = false; }
 							if shoot_rpg   == true { shoot_rpg   = false; }
 							break;
-						case "TANK":
+						case "INF_B":
+							if shoot_rifle == true { shoot_rifle = false; }
+							if shoot_rpg   == true { shoot_rpg   = false; }
+							break;
+						case "MBT_A":
 							if shoot_cannon == true { shoot_cannon = false; }
 							if shoot_mg     == true { shoot_mg     = false; }
 							break;
-						case "BTR":
+						case "MBT_B":
+							if shoot_cannon == true { shoot_cannon = false; }
+							if shoot_mg     == true { shoot_mg     = false; }
+							break;
+						case "LAV_A":
+							if shoot_he   == true { shoot_he   = false; }
+							if shoot_ap   == true { shoot_ap   = false; }
+							break;
+						case "LAV_B":
 							if shoot_he   == true { shoot_he   = false; }
 							if shoot_ap   == true { shoot_ap   = false; }
 							break;

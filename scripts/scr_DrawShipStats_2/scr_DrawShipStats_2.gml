@@ -9,7 +9,7 @@ function scr_DrawShipStats_2() {
 	    draw_set_colour(c_black);
 	    draw_set_halign(fa_center);
 	    draw_set_valign(fa_middle);
-	    draw_text_transformed_colour(x, yy, "SUPPLY SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+	    draw_text_transformed_colour(x, yy, "LOGISTICS SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 	    if depleted == true {
 			var xx0;
 				var xx1;
@@ -65,7 +65,7 @@ function scr_DrawShipStats_2() {
 	    draw_set_colour(c_black);
 	    draw_set_halign(fa_center);
 	    draw_set_valign(fa_middle);
-	    draw_text_transformed_colour(x, yy, "ENGINEER SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+	    draw_text_transformed_colour(x, yy, "LAC SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 	}
 	with obj_TankLanding_Unit {
 		var yy;
@@ -76,7 +76,7 @@ function scr_DrawShipStats_2() {
 	    draw_set_colour(c_black);
 	    draw_set_halign(fa_center);
 	    draw_set_valign(fa_middle);
-	    draw_text_transformed_colour(x, yy, "ARMOR SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1); 
+	    draw_text_transformed_colour(x, yy, "MBT SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1); 
 	}
 	with obj_BTRLanding_Unit { 
 		var yy;
@@ -87,7 +87,7 @@ function scr_DrawShipStats_2() {
 	    draw_set_colour(c_black);
 	    draw_set_halign(fa_center);
 	    draw_set_valign(fa_middle);
-	    draw_text_transformed_colour(x, yy, "ASSAULT SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+	    draw_text_transformed_colour(x, yy, "LAV SHIP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 	}
 
 

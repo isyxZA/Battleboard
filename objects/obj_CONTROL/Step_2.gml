@@ -42,19 +42,19 @@ if global.my_turn == true || global.waiting == true {
     
 if ammo_check == true {
     ammo_check = false;
-    global.cannon_ammo = 0;
-    global.mg_tank_ammo = 0;
-    global.rifle_ammo = 0;
-    global.flare_ammo = 0;
-    global.rpg_ammo = 0;
-    global.depot_supply = 0;
-    global.repair_supply = 0;
-    global.tow_supply = 0;
-    global.mortar_supply = 0;
-    global.he_ammo = 0;
-    global.ap_ammo = 0;
-    global.ammo_supply = 0;
-    global.building_supply = 0;
+    global.mbt_ap_ammo = 0;
+    global.mbt_mg_ammo = 0;
+    global.inf_rfl_ammo = 0;
+    global.inf_flr_ammo = 0;
+    global.inf_rpg_ammo = 0;
+    global.lac_dpt_supply = 0;
+    global.lac_rpr_supply = 0;
+    global.lac_tow_supply = 0;
+    global.lac_mtr_supply = 0;
+    global.lav_he_ammo = 0;
+    global.lav_ap_ammo = 0;
+    global.logi_amo_supply = 0;
+    global.logi_bld_supply = 0;
     global.tow_ammo = 0;
     global.mortar_ammo = 0;
     global.ammunition_ammo= 0;
@@ -69,28 +69,28 @@ if ammo_check == true {
             var unit = ds_list_find_value(global.myunit_list, i);
             with unit {
                 switch unit_type {
-                  case "INFANTRY":
-                      global.rifle_ammo += rifle_ammo;
-                      global.flare_ammo += flare_ammo;
-                      global.rpg_ammo   += rpg_ammo;
+                  case "INF_A":
+                      global.inf_rfl_ammo += rifle_ammo;
+                      global.inf_flr_ammo += flare_ammo;
+                      global.inf_rpg_ammo   += rpg_ammo;
                       break;
-                  case "TANK":
-                      global.cannon_ammo  += cannon_ammo;
-                      global.mg_tank_ammo += mg_ammo;
+                  case "MBT_A":
+                      global.mbt_ap_ammo  += cannon_ammo;
+                      global.mbt_mg_ammo += mg_ammo;
                       break;
-                  case "ENGINEER":
-                      global.depot_supply  += depot_supply;
-                      global.repair_supply += repair_supply;
-                      global.tow_supply    += tow_supply;
-                      global.mortar_supply += mortar_supply;
+                  case "LAC_A":
+                      global.lac_dpt_supply  += depot_supply;
+                      global.lac_rpr_supply += repair_supply;
+                      global.lac_tow_supply    += tow_supply;
+                      global.lac_mtr_supply += mortar_supply;
                       break;
-                  case "BTR":
-                      global.he_ammo += he_ammo;
-                      global.ap_ammo += ap_ammo;
+                  case "LAV_A":
+                      global.lav_he_ammo += he_ammo;
+                      global.lav_ap_ammo += ap_ammo;
                       break;
-                  case "LOGI":
-                      global.ammo_supply += ammo_supply;
-                      global.building_supply += building_supply;
+                  case "LOGI_A":
+                      global.logi_amo_supply += ammo_supply;
+                      global.logi_bld_supply += building_supply;
                       break;
                   case "DEPOT":
                       global.ammunition_ammo += ammunition_ammo;

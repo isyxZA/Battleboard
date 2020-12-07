@@ -61,11 +61,16 @@ if global.game_turn == 0 {
                     var unit = ds_list_find_value(global.myunit_list, i);
                     with unit { 
                         switch unit_type {
-                            case "INFANTRY":
-                            case "TANK":
-                            case "ENGINEER":
-                            case "BTR":
-                            case "LOGI":
+                            case "INF_A":
+							case "INF_B":
+                            case "MBT_A":
+							case "MBT_B":
+                            case "LAC_A":
+							case "LAC_B":
+                            case "LAV_A":
+							case "LAV_B":
+                            case "LOGI_A":
+							case "LOGI_B":
                                 if my_squad == obj_CONTROL.active_turn {
                                     active = true;
                                     action_points = start_ap;
@@ -99,11 +104,16 @@ if global.game_turn == 0 {
                     var unit = ds_list_find_value(global.enemyunit_list, i);
                     with unit { 
                         switch unit_type {
-                            case "E_INFANTRY":
-                            case "E_TANK":
-                            case "E_ENGINEER":
-                            case "E_BTR":
-                            case "E_LOGI":
+                            case "E_INFA":
+							case "E_INFB":
+                            case "E_MBTA":
+							case "E_MBTB":
+                            case "E_LACA":
+							case "E_LACB":
+                            case "E_LAVA":
+							case "E_LAVB":
+                            case "E_LOGIA":
+							case "E_LOGIB":
                                 no_shot = false;
                                 no_move = false;
                                 action_points = start_ap;
@@ -141,10 +151,14 @@ if global.game_turn == 0 {
                             var unit = ds_list_find_value(global.myunit_list, i);
                             with unit { 
                                 switch unit_type {
-                                    case "INFANTRY":
-                                    case "TANK":
-                                    case "ENGINEER":
-                                    case "BTR":
+                                    case "INF_A":
+									case "INF_B":
+                                    case "MBT_A":
+									case "MBT_B":
+                                    case "LAC_A":
+									case "LAC_B":
+                                    case "LAV_A":
+									case "LAV_B":
 										if my_squad == obj_CONTROL.active_turn {
                                             active = true;
                                             action_points = max(4, round(start_ap*(unit_health/100)));
@@ -152,7 +166,8 @@ if global.game_turn == 0 {
                                         }
 											else { action_points = 0; }
                                         break;
-                                    case "LOGI":
+                                    case "LOGI_A":
+									case "LOGI_B":
                                         if my_squad == obj_CONTROL.active_turn {
                                             active = true;
                                             action_points = max(4, round(start_ap*(unit_health/100)));
@@ -270,7 +285,7 @@ if global.game_turn == 0 {
                         var ue = ds_list_find_value(global.enemyunit_list, e);
                         with ue { 
                             switch unit_type {
-                                case "E_INFANTRY":
+                                case "E_INFA":
 									if PLAYER.net_status != "NONE" { 
 										rifle_ammo = 100;
 										rpg_ammo = 1;
@@ -282,7 +297,19 @@ if global.game_turn == 0 {
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
-                                case "E_TANK":
+								case "E_INFB":
+									if PLAYER.net_status != "NONE" { 
+										rifle_ammo = 100;
+										rpg_ammo = 1;
+										flare_ammo = 2;
+									}
+									no_shot = false;
+                                    no_move = false;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
+                                case "E_MBTA":
 									if PLAYER.net_status != "NONE" { 
 										cannon_ammo = 10;
 										mg_ammo     = 100;
@@ -293,7 +320,18 @@ if global.game_turn == 0 {
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
-                                case "E_ENGINEER":
+								case "E_MBTB":
+									if PLAYER.net_status != "NONE" { 
+										cannon_ammo = 10;
+										mg_ammo     = 100;
+									}
+									no_shot = false;
+                                    no_move = false;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
+                                case "E_LACA":
 									if PLAYER.net_status != "NONE" { 
 										depot_supply  = 1;
 										repair_supply = 1;
@@ -306,7 +344,20 @@ if global.game_turn == 0 {
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
-                                case "E_BTR":
+								case "E_LACB":
+									if PLAYER.net_status != "NONE" { 
+										depot_supply  = 1;
+										repair_supply = 1;
+										tow_supply    = 1;
+										mortar_supply = 1;
+									}
+									no_shot = false;
+                                    no_move = false;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
+                                case "E_LAVA":
 									if PLAYER.net_status != "NONE" { 
 										he_ammo = 80;
 										ap_ammo = 80;
@@ -317,7 +368,29 @@ if global.game_turn == 0 {
                                     if !ds_list_empty(target_list) { ds_list_clear(target_list); }
                                     if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
                                     break;
-                                case "E_LOGI":
+								case "E_LAVB":
+									if PLAYER.net_status != "NONE" { 
+										he_ammo = 80;
+										ap_ammo = 80;
+									}
+									no_shot = false;
+                                    no_move = false;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
+                                case "E_LOGIA":
+									if PLAYER.net_status != "NONE" { 
+										building_supply = 100;
+										ammo_supply = 100;
+									}
+                                    no_shot = false;
+                                    no_move = false;
+                                    action_points = max(4, round(start_ap*(unit_health/100)));
+                                    if !ds_list_empty(target_list) { ds_list_clear(target_list); }
+                                    if spot_count > 0 { spot_count -= 1; } else { is_spotted = false; }
+                                    break;
+								case "E_LOGIB":
 									if PLAYER.net_status != "NONE" { 
 										building_supply = 100;
 										ammo_supply = 100;

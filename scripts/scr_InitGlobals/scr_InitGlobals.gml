@@ -20,16 +20,27 @@ function scr_InitGlobals() {
 	global.selected_list = ds_list_create();
 	global.action_alert_list = ds_list_create();
 
-	global.tank_list = ds_list_create();
-	global.selected_tank_list = ds_list_create();
-	global.infantry_list = ds_list_create();
-	global.selected_infantry_list = ds_list_create();
-	global.logi_list = ds_list_create();
-	global.selected_logi_list = ds_list_create();
-	global.btr_list = ds_list_create();
-	global.selected_btr_list = ds_list_create();
-	global.engineer_list = ds_list_create();
-	global.selected_engineer_list = ds_list_create();
+	global.mbta_list = ds_list_create();
+	global.selected_mbta_list = ds_list_create();
+	global.infa_list = ds_list_create();
+	global.selected_infa_list = ds_list_create();
+	global.logia_list = ds_list_create();
+	global.selected_logia_list = ds_list_create();
+	global.lava_list = ds_list_create();
+	global.selected_lava_list = ds_list_create();
+	global.laca_list = ds_list_create();
+	global.selected_laca_list = ds_list_create();
+	
+	global.mbtb_list = ds_list_create();
+	global.selected_mbtb_list = ds_list_create();
+	global.infb_list = ds_list_create();
+	global.selected_infb_list = ds_list_create();
+	global.logib_list = ds_list_create();
+	global.selected_logib_list = ds_list_create();
+	global.lavb_list = ds_list_create();
+	global.selected_lavb_list = ds_list_create();
+	global.lacb_list = ds_list_create();
+	global.selected_lacb_list = ds_list_create();
 
 	global.depot_list = ds_list_create();
 	global.selected_depot_list = ds_list_create();
@@ -53,21 +64,31 @@ function scr_InitGlobals() {
 	global.squad_5 = ds_list_create();
 
 	global.selected_LC = false;
-	global.selected_infantry = 0;
-	global.selected_tank = 0;
-	global.selected_logi = 0;
-	global.selected_btr = 0;
-	global.selected_engineer = 0;
+	global.selected_infa = 0;
+	global.selected_mbta = 0;
+	global.selected_logia = 0;
+	global.selected_lava = 0;
+	global.selected_laca = 0;
+	global.selected_infb = 0;
+	global.selected_mbtb = 0;
+	global.selected_logib = 0;
+	global.selected_lavb = 0;
+	global.selected_lacb = 0;
 	global.selected_depot = 0;
 	global.selected_repair = 0;
 	global.selected_tow = 0;
 	global.selected_mortar = 0;
 
-	global.total_tank = 0;
-	global.total_infantry = 0;
-	global.total_engineer = 0;
-	global.total_btr = 0;
-	global.total_logi = 0;
+	global.total_mbta = 0;
+	global.total_infa = 0;
+	global.total_laca = 0;
+	global.total_lava = 0;
+	global.total_logia = 0;
+	global.total_mbtb = 0;
+	global.total_infb = 0;
+	global.total_lacb = 0;
+	global.total_lavb = 0;
+	global.total_logib = 0;
 	global.total_depot = 0;
 	global.total_repair = 0;
 	global.total_tow = 0;
@@ -157,35 +178,48 @@ function scr_InitGlobals() {
 	global.active_llc = false;
 
 	//Unit Action Variables
-	//Tank
-	global.cannon_ammo = 0;
-	global.cannon_amount = 0;
-	global.mg_tank_ammo = 0;
-	global.mg_tank_amount = 0;
-	//Infantry
-	global.rifle_ammo = 0;
-	global.rifle_amount = 0;
-	global.flare_ammo = 0;
-	global.flare_amount = 0;
-	global.rpg_ammo = 0;
-	global.rpg_amount = 0;
-	//Logi
-	global.ammo_supply = 0;
-	global.building_supply = 0;
-	//BTR
-	global.he_ammo = 0;
-	global.he_amount = 0;
-	global.ap_ammo = 0;
-	global.ap_amount = 0;
-	//Engineer
-	global.depot_supply = 0;
-	global.depot_amount = 0;
-	global.repair_supply = 0;
-	global.repair_amount = 0;
-	global.tow_supply = 0;
-	global.tow_amount = 0;
-	global.mortar_supply = 0;
-	global.mortar_amount = 0;
+	//MBT
+	global.mbt_ap_ammo   = 0;
+	global.mbt_ap_amount = 0;
+	global.mbt_mg_ammo   = 0;
+	global.mbt_mg_amount = 0;
+	
+	//INF
+	global.inf_rfl_ammo   = 0;
+	global.inf_rfl_amount = 0;
+	global.inf_flr_ammo   = 0;
+	global.inf_flr_amount = 0;
+	global.inf_rpg_ammo   = 0;
+	global.inf_rpg_amount = 0;
+	
+	//LOGI
+	global.logi_amo_supply = 0;
+	global.logi_bld_supply = 0;
+	global.logi_sqd_supply = 0;
+	
+	//LAV
+	global.lav_he_ammo   = 0;
+	global.lav_he_amount = 0;
+	global.lav_ap_ammo   = 0;
+	global.lav_ap_amount = 0;
+	global.lav_at_ammo   = 0;
+	global.lav_at_amount = 0;
+	global.lav_mg_ammo   = 0;
+	global.lav_mg_amount = 0;
+	global.lav_sq_ammo   = 0;
+	global.lav_sq_amount = 0;
+	
+	//LAC
+	global.lac_dpt_supply = 0;
+	global.lac_dpt_amount = 0;
+	global.lac_rpr_supply = 0;
+	global.lac_rpr_amount = 0;
+	global.lac_tow_supply = 0;
+	global.lac_tow_amount = 0;
+	global.lac_mtr_supply = 0;
+	global.lac_mtr_amount = 0;
+	global.lac_tow2_ammo   = 0;
+	global.lac_tow2_amount = 0;
 	//TOW
 	global.tow_ammo = 0;
 	global.towS_amount = 0;
@@ -208,69 +242,73 @@ function scr_InitGlobals() {
 
 	//LOGI RESUPPLY VARIABLES
 	//Infantry
-	global.rifle_l_amount = 0;
-	global.rpg_l_amount = 0;
-	global.flare_l_amount = 0;
+	global.infrfl_l_amount = 0;
+	global.infrpg_l_amount = 0;
+	global.infflr_l_amount = 0;
 	//Tank
-	global.cannon_l_amount = 0;
-	global.tankmg_l_amount = 0;
-	//BTR
-	global.he_l_amount = 0;
-	global.ap_l_amount = 0;
-	//Engineer
-	global.depot_l_amount = 0;
-	global.repair_l_amount = 0;
-	global.tow_l_amount = 0;
-	global.mortar_l_amount = 0;
+	global.mbtap_l_amount = 0;
+	global.mbtmg_l_amount = 0;
+	//LAV
+	global.lavhe_l_amount = 0;
+	global.lavap_l_amount = 0;
+	global.lavmg_l_amount = 0;
+	global.lavat_l_amount = 0;
+	//LAC
+	global.lacdpt_l_amount  = 0;
+	global.lacrpr_l_amount  = 0;
+	global.lactow_l_amount  = 0;
+	global.lacmtr_l_amount  = 0;
+	global.lactow2_l_amount = 0;
 	//Logi
-	global.ammo_l_amount = 0;
-	global.building_l_amount = 0;
+	global.logiamo_l_amount = 0;
+	global.logibld_l_amount = 0;
 	//Depot
-	global.depotParts_l_amount = 0;
-	global.depotAmmo_l_amount = 0;
+	global.dptbld_l_amount = 0;
+	global.dptamo_l_amount = 0;
 	//Repair
-	global.repairmg_l_amount = 0;
-	global.repairS_l_amount = 0;
+	global.rprmg_l_amount = 0;
+	global.rprbld_l_amount = 0;
 	//TOW
-	global.towS_l_amount = 0;
+	global.towamo_l_amount = 0;
 	//Mortar
-	global.mortarS_l_amount = 0;
+	global.mtramo_l_amount = 0;
+	
 	//DEPOT RESUPPLY VARIBLES
-	//Infantry
-	global.rifle_d_amount = 0;
-	global.rpg_d_amount = 0;
-	global.flare_d_amount = 0;
-	//Tank
-	global.cannon_d_amount = 0;
-	global.tankmg_d_amount = 0;
-	//BTR
-	global.he_d_amount = 0;
-	global.ap_d_amount = 0;
-	//Engineer
-	global.depot_d_amount = 0;
-	global.repair_d_amount = 0;
-	global.tow_d_amount = 0;
-	global.mortar_d_amount = 0;
-	//Logi
-	global.ammo_d_amount = 0;
-	global.building_d_amount = 0;
+	//INF
+	global.infrfl_d_amount = 0;
+	global.infrpg_d_amount = 0;
+	global.infflr_d_amount = 0;
+	//MBT
+	global.mbtap_d_amount = 0;
+	global.mbtmg_d_amount = 0;
+	//LAV
+	global.lavhe_d_amount = 0;
+	global.lavap_d_amount = 0;
+	//LAC
+	global.lacdpt_d_amount = 0;
+	global.lacrpr_d_amount = 0;
+	global.lactow_d_amount = 0;
+	global.lacmtr_d_amount = 0;
+	//LOGI
+	global.logiamo_d_amount = 0;
+	global.logibld_d_amount = 0;
 	//Depot
-	global.depotParts_d_amount = 0;
-	global.depotAmmo_d_amount = 0;
+	global.dptbld_d_amount = 0;
+	global.dptamo_d_amount = 0;
 	//Repair
-	global.repairmg_d_amount = 0;
-	global.repairS_d_amount = 0;
+	global.rprmg_d_amount = 0;
+	global.rprbld_d_amount = 0;
 	//TOW
-	global.towS_d_amount = 0;
+	global.towamo_d_amount = 0;
 	//Mortar
-	global.mortarS_d_amount = 0;
+	global.mtramo_d_amount = 0;
 	//SHIP RESUPPLY VARIABLES
 	//Logi
-	global.ammo_s_amount = 0;
-	global.building_s_amount = 0;
+	global.logiamo_s_amount = 0;
+	global.logibld_s_amount = 0;
 	//Depot
-	global.depotParts_s_amount = 0;
-	global.depotAmmo_s_amount = 0;
+	global.dptbld_s_amount = 0;
+	global.dptamo_s_amount = 0;
 
 	global.ammo_tab = "NOONE";
 	global.resupply_target = "NOONE";
@@ -340,8 +378,6 @@ function scr_InitGlobals() {
 	
 	#macro LOG_1 15
 	#macro LOG_2 10
-
-
 
 
 }

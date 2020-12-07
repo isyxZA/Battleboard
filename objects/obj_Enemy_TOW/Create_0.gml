@@ -17,7 +17,7 @@ if PLAYER.player == "ONE" {
 		fmax = 179;
 	}
 
-my_inf = obj_Enemy_Infantry.my_sprite;
+my_inf = obj_Enemy_INFA.my_sprite;
 crater_index = spr_Static_Crater;
 mp_cost = 2;
 var t = instance_place(x, y, obj_Game_Tile);

@@ -17,10 +17,10 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	*/
 
 	/*
-	ll_fire_menu[0] = "Ammunition";
-	ll_fire_menu[1] = "Parts";
-	ll_fire_menu[2] = "Retarget";
-	ll_fire_menu[3] = "Cancel";
+	lala_fire_menu[0] = "Ammunition";
+	lala_fire_menu[1] = "Parts";
+	lala_fire_menu[2] = "Retarget";
+	lala_fire_menu[3] = "Cancel";
 	*/
 
 	var target_unit          = argument0;
@@ -28,8 +28,8 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	var building_count       = argument2;
 	var ammo_max             = argument3;
 	var building_max         = argument4;
-	var ammo_supply_rate     = argument5;
-	var building_supply_rate = argument6;
+	var logiamo_supply_rate     = argument5;
+	var logibld_supply_rate = argument6;
 
 	var f0;
 	var f1;
@@ -60,17 +60,17 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	    //Increase by a rate of 10
 	    if mouse_wheel_up() { 
 	        //Check if there is enough supply available
-	        if global.ammo_s_amount <= (global.lc_ammunition_ammo-ammo_supply_rate) {
+	        if global.logiamo_s_amount <= (global.lc_ammunition_ammo-logiamo_supply_rate) {
 	            //Make sure the unit ammo does not go over max
-	            if ((global.ammo_s_amount+ammo_count)+ammo_supply_rate) <= ammo_max {
+	            if ((global.logiamo_s_amount+ammo_count)+logiamo_supply_rate) <= ammo_max {
 	                //Check if there is enough turn AP for the move
 	                var m_ap = (global.turn_AP-global.temp_AP);
 	                if m_ap >=  ap_cost {
 	                    //Check total unit AP available
 	                    var ap = target_unit.action_points;
-	                    if ap >= ((global.ammo_s_amount+ammo_supply_rate)/ammo_supply_rate)*ap_cost {
+	                    if ap >= ((global.logiamo_s_amount+logiamo_supply_rate)/logiamo_supply_rate)*ap_cost {
 	                        //Add the rounds
-	                        global.ammo_s_amount +=  ammo_supply_rate; 
+	                        global.logiamo_s_amount +=  logiamo_supply_rate; 
 	                    }
 	                }
 	            }
@@ -78,15 +78,15 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	    }
 	    //Decrease by a rate of 10
 	    if mouse_wheel_down() { 
-	        if global.ammo_s_amount >= ammo_supply_rate { 
-	            global.ammo_s_amount -= ammo_supply_rate; 
+	        if global.logiamo_s_amount >= logiamo_supply_rate { 
+	            global.logiamo_s_amount -= logiamo_supply_rate; 
 	        } 
 	    }
 	    //Clamp the value between zero and the max available rounds
-	    if global.ammo_s_amount < 0 { global.ammo_s_amount = 0; }
-	    if global.ammo_s_amount > global.lc_ammunition_ammo { global.ammo_s_amount = global.lc_ammunition_ammo; }
+	    if global.logiamo_s_amount < 0 { global.logiamo_s_amount = 0; }
+	    if global.logiamo_s_amount > global.lc_ammunition_ammo { global.logiamo_s_amount = global.lc_ammunition_ammo; }
 	    //Add to temp AP cost
-	    global.temp_AP = (global.ammo_s_amount/ammo_supply_rate)*ap_cost;
+	    global.temp_AP = (global.logiamo_s_amount/logiamo_supply_rate)*ap_cost;
 	    //Set the menu position
 	    global.fire_option = 0; 
 	    //Switch off camera zoom
@@ -100,17 +100,17 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	        //Increase by a rate of 10
 	        if mouse_wheel_up() { 
 	            //Check if there is enough supply available
-	            if global.building_s_amount <= (global.lc_parts_ammo-building_supply_rate) { 
+	            if global.logibld_s_amount <= (global.lc_parts_ammo-logibld_supply_rate) { 
 	                //Make sure the unit rpg ammo does not go over max
-	                if ((global.building_s_amount+building_count)+building_supply_rate) <= building_max {
+	                if ((global.logibld_s_amount+building_count)+logibld_supply_rate) <= building_max {
 	                    //Check if there is enough turn AP for the move
 	                    var m_ap = (global.turn_AP-global.temp_AP);
 	                    if m_ap >= ap_cost {
 	                        //Check total unit AP available
 	                        var ap = target_unit.action_points;
-	                        if ap >= ((global.building_s_amount+building_supply_rate)/building_supply_rate)*ap_cost {
+	                        if ap >= ((global.logibld_s_amount+logibld_supply_rate)/logibld_supply_rate)*ap_cost {
 	                            //Add the rounds
-	                            global.building_s_amount += building_supply_rate; 
+	                            global.logibld_s_amount += logibld_supply_rate; 
 	                        }
 	                    }
 	                }
@@ -118,15 +118,15 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	        }
 	        //Decrease by a rate of 4
 	        if mouse_wheel_down() { 
-	            if global.building_s_amount >= building_supply_rate { 
-	                global.building_s_amount -= building_supply_rate; 
+	            if global.logibld_s_amount >= logibld_supply_rate { 
+	                global.logibld_s_amount -= logibld_supply_rate; 
 	            } 
 	        }
 	        //Clamp the value between zero and the max available rounds
-	        if global.building_s_amount < 0 { global.building_s_amount = 0; }
-	        if global.building_s_amount > global.lc_parts_ammo { global.building_s_amount = global.lc_parts_ammo; }
+	        if global.logibld_s_amount < 0 { global.logibld_s_amount = 0; }
+	        if global.logibld_s_amount > global.lc_parts_ammo { global.logibld_s_amount = global.lc_parts_ammo; }
 	        //Add to temp AP cost
-	        global.temp_AP = (global.building_s_amount/building_supply_rate)*ap_cost;
+	        global.temp_AP = (global.logibld_s_amount/logibld_supply_rate)*ap_cost;
 	        //Set the menu position
 	        global.fire_option = 1; 
 	        //Switch off camera zoom
@@ -162,10 +162,10 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	            else if f1 {
 	                //TRANSFER AMMO SUPPLY
 	                //Remove ammo cost
-	                if global.ammo_s_amount != 0 {
+	                if global.logiamo_s_amount != 0 {
 	                    if global.supply_ship != noone {
 	                        var u = global.supply_ship;
-	                        if (u.can_shoot == true) && (u.ammunition_ammo >= global.ammo_s_amount) {
+	                        if (u.can_shoot == true) && (u.ammunition_ammo >= global.logiamo_s_amount) {
 	                            if (target_unit.action_points >= global.temp_AP) {
 	                                    u.action_confirmed = true;
 	                                    global.units_running += 1; 
@@ -175,8 +175,8 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	                                    u.target_y = global.target_y;
 	                                    u.resupply_unit = argument0;
 	                                    u.resupply_unit.resupplying = true;
-	                                    u.shoot_amount    += global.ammo_s_amount/ammo_supply_rate; 
-	                                    u.ammunition_ammo -= global.ammo_s_amount;
+	                                    u.shoot_amount    += global.logiamo_s_amount/logiamo_supply_rate; 
+	                                    u.ammunition_ammo -= global.logiamo_s_amount;
 	                                    global.turn_AP    -= ap_cost*u.shoot_amount;
 										target_unit.alert_display = true;
 	                                    target_unit.alert_colour = c_red;
@@ -209,10 +209,10 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	                else if f2 {
 	                    //TRANSFER PARTS SUPPLY
 	                    //Remove ammo cost
-	                    if global.building_s_amount != 0 {
+	                    if global.logibld_s_amount != 0 {
 	                        if global.supply_ship != noone {
 	                            var u = global.supply_ship;
-	                            if (u.can_shoot == true) && (u.parts_ammo >= global.building_s_amount) {
+	                            if (u.can_shoot == true) && (u.parts_ammo >= global.logibld_s_amount) {
 	                                if (target_unit.action_points >= global.temp_AP) {
 	                                    u.action_confirmed = true;
 	                                    global.units_running += 1; 
@@ -222,8 +222,8 @@ function scr_SupplyShip_Logi_Tab(argument0, argument1, argument2, argument3, arg
 	                                    u.target_y = global.target_y;
 	                                    u.resupply_unit = argument0;
 	                                    u.resupply_unit.resupplying = true;
-	                                    u.shoot_amount   += global.building_s_amount/building_supply_rate; 
-	                                    u.parts_ammo     -= global.building_s_amount;
+	                                    u.shoot_amount   += global.logibld_s_amount/logibld_supply_rate; 
+	                                    u.parts_ammo     -= global.logibld_s_amount;
 	                                    global.turn_AP   -= ap_cost*u.shoot_amount;
 	                                    target_unit.alert_display = true;
 	                                    target_unit.alert_colour = c_red;

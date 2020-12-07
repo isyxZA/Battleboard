@@ -10,7 +10,7 @@ function scr_SaveGame(){
 		ds_list_mark_as_map(save_list, ds_list_size(save_list)-1);
 		
 		switch unit_type {
-			case "INFANTRY":
+			case "INF_A":
 				ds_map_add(s_map, "x", x);
 				ds_map_add(s_map, "y", y);
 				ds_map_add(s_map, "unit"  , unit_type);
@@ -20,7 +20,7 @@ function scr_SaveGame(){
 				ds_map_add(s_map, "flare" , flare_ammo);
 				ds_map_add(s_map, "squad" , my_squad);
 				break;
-			case "TANK":
+			case "MBT_A":
 				ds_map_add(s_map, "x", x);
 				ds_map_add(s_map, "y", y);
 				ds_map_add(s_map, "unit"  , unit_type);
@@ -29,7 +29,7 @@ function scr_SaveGame(){
 				ds_map_add(s_map, "mg"    , mg_ammo);
 				ds_map_add(s_map, "squad" , my_squad);
 				break;
-			case "ENGINEER":
+			case "LAC_A":
 				ds_map_add(s_map, "x", x);
 				ds_map_add(s_map, "y", y);
 				ds_map_add(s_map, "unit"  , unit_type);
@@ -40,7 +40,7 @@ function scr_SaveGame(){
 				ds_map_add(s_map, "mortar", mortar_supply);
 				ds_map_add(s_map, "squad" , my_squad);
 				break;
-			case "BTR":
+			case "LAV_A":
 				ds_map_add(s_map, "x", x);
 				ds_map_add(s_map, "y", y);
 				ds_map_add(s_map, "unit"  , unit_type);
@@ -49,7 +49,7 @@ function scr_SaveGame(){
 				ds_map_add(s_map, "ap"    , ap_ammo);
 				ds_map_add(s_map, "squad" , my_squad);
 				break;
-			case "LOGI":
+			case "LOGI_A":
 				ds_map_add(s_map, "x", x);
 				ds_map_add(s_map, "y", y);
 				ds_map_add(s_map, "unit"  , unit_type);

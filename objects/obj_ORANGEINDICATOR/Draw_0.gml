@@ -2,41 +2,24 @@
 if global.my_turn == true || global.waiting == true {
     with obj_Unit_Parent {
         if selected {
-            if global.menu_create == true {
-                //If not currently using the targeting reticule or choosing fire/ammo options
-                if global.reticule_display == false {
-                    //draw_sprite(spr_Dot_Green, 0, x_end, y_end);
+            if global.menu_create == false {
+                if global.nav_menu == true {
+					draw_sprite(spr_Dot_Orange, 0, x_end, y_end);
                 }
-                    else if global.reticule_display == true {
-                        //draw_sprite(spr_Dot_Green, 0, x, y);
+                    else if global.nav_menu == false {
+                        if global.nav_select == true {
+							if move_amount > 0 { 
+								draw_sprite(spr_Dot_Orange, 0, x_end, y_end); 
+							}
+	                        if nav_offset != 0 {
+								//FIX THIS FOR PLAYER SIDE\\
+	                            var n = nav_offset/global.cell_size;
+	                            if n > 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end+17, y_end, 0.5, 0.5,  0, c_white, 1); }
+	                                else if n < 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end-16, y_end, 0.5, 0.5, 180, c_white, 1); }
+	                        }
+                        }
                     }
             }
-                else if global.menu_create == false {
-                    if global.nav_menu == true {
-                        draw_sprite(spr_Dot_Orange, 0, x_end, y_end);
-                        //draw_sprite(spr_Dot_Green, 0, x, y);
-                    }
-                        else if global.nav_menu == false {
-                            if global.nav_select == false { 
-                                if unit_type == "LANDINGCRAFT" {
-                                }
-                                    else {
-                                        //draw_sprite(spr_Dot_Green, 0, x, y);
-                                    }
-                            }
-                                else if global.nav_select == true {
-									if move_amount > 0 { 
-										draw_sprite(spr_Dot_Orange, 0, x_end, y_end); 
-									}
-	                                //draw_sprite(spr_Dot_Green, 0, x, y);
-	                                if nav_offset != 0 {//FIX THIS FOR PLAYER SIDE
-	                                    var n = nav_offset/global.cell_size;
-	                                    if n > 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end+17, y_end, 0.5, 0.5,  0, c_white, 1); }
-	                                        else if n < 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end-16, y_end, 0.5, 0.5, 180, c_white, 1); }
-	                                }
-                                }
-                        }
-                }
         }
             else {
                 if resupplying == true { 
@@ -52,11 +35,6 @@ if global.my_turn == true || global.waiting == true {
                 if nav_confirmed == true {
                     draw_sprite(spr_Dot_Orange, 0, x_final, y_final);
                 }
-                    else if nav_confirmed == false { 
-                        if global.game_turn != 0 { 
-                            //draw_sprite(spr_Dot_Green, 0, x, y);
-                        }
-                    }
                 if action_confirmed == true {
                     if unit_type != "REPAIR" {
                         draw_sprite(spr_Dot_Orange, 0, x, y);

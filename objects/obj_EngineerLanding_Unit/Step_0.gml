@@ -95,13 +95,13 @@ if global.my_turn == true || global.active_elc == true {
 								case spr_Engineer_A2:
 								case spr_Engineer_B1:
 								case spr_Engineer_B2:
-                                    my_unit = obj_Engineer_Unit;
+                                    my_unit = obj_LACA_Unit;
                                     break;
 								case spr_Engineer_A1a:
 								case spr_Engineer_A2a:
 								case spr_Engineer_B1a:
 								case spr_Engineer_B2a:
-                                    my_unit = obj_Engineer_Unit;
+                                    my_unit = obj_LACB_Unit;
                                     break;
                             }
                             //Remove from available units list

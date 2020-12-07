@@ -13,7 +13,7 @@ if PLAYER.player == "ONE" {
 		txt_rot = 180;
 	}
 crater_index = spr_Static_Crater;
-my_inf = obj_Soldier_Unit.my_sprite;
+my_inf = obj_INFA_Unit.my_sprite;
 my_sprite = spr_Repair_00;
 mp_cost = 2;
 var t = instance_place(x, y, obj_Game_Tile);

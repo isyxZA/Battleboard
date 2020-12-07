@@ -7,16 +7,16 @@ ds_list_destroy(global.enemyunit_list);
 ds_list_destroy(global.selected_list);
 ds_list_destroy(global.action_alert_list);
 
-ds_list_destroy(global.tank_list);
-ds_list_destroy(global.selected_tank_list);
-ds_list_destroy(global.infantry_list);
-ds_list_destroy(global.selected_infantry_list);
-ds_list_destroy(global.logi_list);
-ds_list_destroy(global.selected_logi_list);
-ds_list_destroy(global.btr_list);
-ds_list_destroy(global.selected_btr_list);
-ds_list_destroy(global.engineer_list);
-ds_list_destroy(global.selected_engineer_list);
+ds_list_destroy(global.mbta_list);
+ds_list_destroy(global.selected_mbta_list);
+ds_list_destroy(global.infa_list);
+ds_list_destroy(global.selected_infa_list);
+ds_list_destroy(global.logia_list);
+ds_list_destroy(global.selected_logia_list);
+ds_list_destroy(global.lava_list);
+ds_list_destroy(global.selected_lava_list);
+ds_list_destroy(global.laca_list);
+ds_list_destroy(global.selected_laca_list);
 
 ds_list_destroy(global.depot_list);
 ds_list_destroy(global.selected_depot_list);

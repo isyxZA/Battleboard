@@ -30,19 +30,24 @@ function scr_DrawSquadUnits_E(argument0) {
 			        else if unit.unit_health >= 25 { icon_colour = c_orange; }
 			            else { icon_colour = c_red; }
 			    switch unit.unit_type {
-			        case "E_INFANTRY":
+			        case "E_INFA":
+					case "E_INFB":
 			            draw_sprite_ext(spr_Infantry_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
-			        case "E_TANK":
+			        case "E_MBTA":
+					case "E_MBTB":
 			            draw_sprite_ext(spr_Tank_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
-			        case "E_ENGINEER":
+			        case "E_LACA":
+					case "E_LACB":
 			            draw_sprite_ext(spr_Engineer_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
-			        case "E_BTR":
+			        case "E_LAVA":
+					case "E_LAVB":
 			            draw_sprite_ext(spr_BTR_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
-			        case "E_LOGI":
+			        case "E_LOGIA":
+					case "E_LOGIB":
 			            draw_sprite_ext(spr_Logi_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
 			    }
@@ -51,7 +56,7 @@ function scr_DrawSquadUnits_E(argument0) {
 	}
 		else {
 			draw_set_font(fnt_12);
-							draw_text_colour(ui_midx, ty_2, "No Available Intel", c_silver, c_gray, c_gray, c_gray, 1);
+			draw_text_colour(ui_midx, ty_2, "No Available Intel", c_silver, c_gray, c_gray, c_gray, 1);
 		}
 
 }

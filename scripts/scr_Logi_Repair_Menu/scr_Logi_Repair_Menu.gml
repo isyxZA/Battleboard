@@ -1,17 +1,17 @@
 function scr_Logi_Repair_Menu() {
 	/*
-	lr_fire_menu[0] = "Parts";
-	lr_fire_menu[1] = "MG Ammo";
-	lr_fire_menu[2] = "Retarget";
-	lr_fire_menu[3] = "Cancel";
+	lar_fire_menu[0] = "Parts";
+	lar_fire_menu[1] = "MG Ammo";
+	lar_fire_menu[2] = "Retarget";
+	lar_fire_menu[3] = "Cancel";
 	*/
 
 	//Draw the unit header
 	draw_sprite(spr_Menu_Header, 0, global.menu_x, global.menu_y - global.v_spacing);
-	draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y - global.v_spacing*0.5), "LOGI", c_gray, c_gray, c_gray, c_gray, 1, 0, c_black, 1);
+	draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y - global.v_spacing*0.5), "LOGI_A", c_gray, c_gray, c_gray, c_gray, 1, 0, c_black, 1);
 
-	if global.selected_tank != 0 || global.selected_engineer != 0 || global.selected_btr != 0 
-	    || global.selected_infantry != 0 || global.selected_depot != 0 || global.selected_repair != 0  
+	if global.selected_mbta != 0 || global.selected_laca != 0 || global.selected_lava != 0 
+	    || global.selected_infa != 0 || global.selected_depot != 0 || global.selected_repair != 0  
 	        || global.selected_tow != 0  || global.selected_mortar != 0 {
 	    var hs;
 	    if global.header_highlight == false { hs = spr_Arrowhead_White; } else { 
@@ -27,20 +27,20 @@ function scr_Logi_Repair_Menu() {
 
 	//Draw the unit resupply menu
 	var m;
-	for (m = 0; m < array_length(lr_fire_menu); m += 1){
+	for (m = 0; m < array_length(lar_fire_menu); m += 1){
 	    //Draw border boxes for each menu option
 	    draw_sprite(spr_Menu_Border, 0, global.menu_x, global.menu_y + (m * global.v_spacing));
 	    //Set ammo count to corresponding ammo type
-	    if (m < array_length(lr_fire_menu)-2) {
+	    if (m < array_length(lar_fire_menu)-2) {
 		
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.repairS_l_amount;
-	                ammo_count   = global.building_supply;
+	                shoot_amount = global.rprbld_l_amount;
+	                ammo_count   = global.logi_bld_supply;
 	                break;
 	            case 1:
-	                shoot_amount = global.repairmg_l_amount;
+	                shoot_amount = global.rprmg_l_amount;
 	                ammo_count   = global.ammo_supply;
 	                break;
 	            default:
@@ -51,11 +51,11 @@ function scr_Logi_Repair_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.building_supply <= 0 { c1 = c_red; }
+	                if global.logi_bld_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 1:
-	                if global.ammo_supply <= 0 { c1 = c_red; }
+	                if global.logi_amo_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:
@@ -67,19 +67,19 @@ function scr_Logi_Repair_Menu() {
 			
 			
 	        //Draw the text from the corresponding fire_menu option and ammo count 
-	        draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y+(global.v_spacing*0.5)) + (m * global.v_spacing), lr_fire_menu[m] + " " + "x" + " " + string(shoot_amount), c1, c1, c1, c1, 1, 300, c_black, 0.2);
+	        draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y+(global.v_spacing*0.5)) + (m * global.v_spacing), lar_fire_menu[m] + " " + "x" + " " + string(shoot_amount), c1, c1, c1, c1, 1, 300, c_black, 0.2);
 	    }
-	        else if (m == array_length(lr_fire_menu)-2) {
+	        else if (m == array_length(lar_fire_menu)-2) {
 	            var c2;
 	                if m == global.fire_option { c2 = c_white; } else { c2 = c_gray; }
 	                //For RE-TARGET
-	                draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y+(global.v_spacing*0.5)) + (m * global.v_spacing), lr_fire_menu[m], c2, c2, c2, c2, 1, 300, c_black, 0.2);
+	                draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y+(global.v_spacing*0.5)) + (m * global.v_spacing), lar_fire_menu[m], c2, c2, c2, c2, 1, 300, c_black, 0.2);
 	        }
 	            else {
 	                var c3;
 	                if m == global.fire_option { c3 = c_red; } else { c3 = c_gray; }
 	                //For CANCEL
-	                draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y+(global.v_spacing*0.5)) + (m * global.v_spacing), lr_fire_menu[m], c3, c3, c3, c3, 1, 300, c_black, 0.2);
+	                draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y+(global.v_spacing*0.5)) + (m * global.v_spacing), lar_fire_menu[m], c3, c3, c3, c3, 1, 300, c_black, 0.2);
 	            }
 	    if m == global.fire_option  { draw_sprite(spr_Menu_Glass, 0, global.menu_x, global.menu_y + (m * global.v_spacing)); }
 	}

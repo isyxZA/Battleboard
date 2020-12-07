@@ -3,19 +3,34 @@ with(obj_Enemy_Parent){
         var sa = spot_count*0.2;
         mask_alpha = lerp(mask_alpha, sa, 0.01);
         switch unit_type {
-            case "E_INFANTRY":
+            case "E_INFA":
                 draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
                 break;
-            case "E_TANK":
+			case "E_INFB":
                 draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
                 break;
-            case "E_ENGINEER":
+            case "E_MBTA":
                 draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
                 break;
-            case "E_BTR":
+			case "E_MBTB":
                 draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
                 break;
-            case "E_LOGI":
+            case "E_LACA":
+                draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
+                break;
+			case "E_LACB":
+                draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
+                break;
+            case "E_LAVA":
+                draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
+                break;
+			case "E_LAVB":
+                draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
+                break;
+            case "E_LOGIA":
+                draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
+                break;
+			case "E_LOGIB":
                 draw_sprite_ext(spot_mask, 0, spotted_x, spotted_y, 1, 1, 0, c_white, mask_alpha);
                 break;
             case "E_DEPOT":

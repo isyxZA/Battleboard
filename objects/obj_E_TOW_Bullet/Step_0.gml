@@ -52,7 +52,8 @@ if explode == true {
             }
                 else if u!= noone { 
                     switch u.unit_type {
-                        case "INFANTRY":
+                        case "INF_A":
+						case "INF_B":
                             u.unit_health -= damage_1;
                             u.taking_damage = true;
                             u.alert_display = true;
@@ -61,7 +62,8 @@ if explode == true {
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
-                        case "TANK":
+                        case "MBT_A":
+						case "MBT_B":
                             u.taking_damage = true;
                             u.unit_health -= damage_3;
                             u.alert_display = true;
@@ -70,7 +72,8 @@ if explode == true {
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
-                        case "ENGINEER":
+                        case "LAC_A":
+						case "LAC_B":
                             u.taking_damage = true;
                             u.unit_health -= damage_3;
                             u.alert_display = true;
@@ -79,7 +82,8 @@ if explode == true {
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
-                        case "BTR":
+                        case "LAV_A":
+						case "LAV_B":
                             u.taking_damage = true;
                             u.unit_health -= damage_3;
                             u.alert_display = true;
@@ -88,7 +92,8 @@ if explode == true {
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
-                        case "LOGI":
+                        case "LOGI_A":
+						case "LOGI_B":
                             u.taking_damage = true;
                             u.unit_health -= damage_3;
                             u.alert_display = true;
@@ -113,7 +118,8 @@ if explode == true {
                 }
                     else if e!= noone { 
                         switch e.unit_type {
-                            case "E_INFANTRY":
+                            case "E_INFA":
+							case "E_INFB":
                                 e.unit_health -= damage_1;
                                 e.alert_display = true;
                                 e.alert_text = "-20 HP"; 
@@ -123,7 +129,8 @@ if explode == true {
                                 e.is_visible = true;
                                 e.alarm[1] = 200;
                                 break;
-                            case "E_TANK":
+                            case "E_MBTA":
+							case "E_MBTB":
                                 e.unit_health -= damage_3;
                                 e.alert_display = true;
                                 e.alert_text = "-80 HP"; 
@@ -133,7 +140,8 @@ if explode == true {
                                 e.is_visible = true;
                                 e.alarm[1] = 200;
                                 break;
-                            case "E_ENGINEER":
+                            case "E_LACA":
+							case "E_LACB":
                                 e.unit_health -= damage_3;
                                 e.alert_display = true;
                                 e.alert_text = "-80 HP"; 
@@ -143,7 +151,8 @@ if explode == true {
                                 e.is_visible = true;
                                 e.alarm[1] = 200;
                                 break;
-                            case "E_BTR":
+                            case "E_LAVA":
+							case "E_LAVB":
                                 e.unit_health -= damage_3;
                                 e.alert_display = true;
                                 e.alert_text = "-80 HP"; 
@@ -153,7 +162,8 @@ if explode == true {
                                 e.is_visible = true;
                                 e.alarm[1] = 200;
                                 break;
-                            case "E_LOGI":
+                            case "E_LOGIA":
+							case "E_LOGIB":
                                 e.unit_health -= damage_3;
                                 e.alert_display = true;
                                 e.alert_text = "-80 HP"; 

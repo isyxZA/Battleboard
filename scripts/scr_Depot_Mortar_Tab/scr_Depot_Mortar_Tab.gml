@@ -12,9 +12,9 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	*/
 
 	/*
-	lm_fire_menu[0] = "Mortar Ammo";
-	lm_fire_menu[1] = "Retarget";
-	lm_fire_menu[2] = "Cancel";
+	lam_fire_menu[0] = "Mortar Ammo";
+	lam_fire_menu[1] = "Retarget";
+	lam_fire_menu[2] = "Cancel";
 	*/
 
 	var mortarS_count       = argument1;
@@ -51,9 +51,9 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	        //Increase by a rate of 4
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo supply available
-	            if global.mortarS_d_amount <= (global.ammunition_ammo-mortarS_supply_rate) {
+	            if global.mtramo_d_amount <= (global.ammunition_ammo-mortarS_supply_rate) {
 	                //Make sure the unit ammo does not go over max
-	                if ((global.mortarS_d_amount+mortarS_count)+mortarS_supply_rate) <= mortar_max {
+	                if ((global.mtramo_d_amount+mortarS_count)+mortarS_supply_rate) <= mortar_max {
 	                    //Check if there is enough turn AP for the move
 	                    var m_ap = (global.turn_AP-global.temp_AP);
 	                    if m_ap >=  ap_cost {
@@ -66,9 +66,9 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	                                if unit.can_shoot == true { ap += unit.action_points; }
 	                            }
 	                        }
-	                        if ap >= ((global.mortarS_d_amount+mortarS_supply_rate)/mortarS_supply_rate)*ap_cost {
+	                        if ap >= ((global.mtramo_d_amount+mortarS_supply_rate)/mortarS_supply_rate)*ap_cost {
 	                            //Add the rounds
-	                            global.mortarS_d_amount += mortarS_supply_rate; 
+	                            global.mtramo_d_amount += mortarS_supply_rate; 
 	                        }
 	                    }
 	                }
@@ -76,15 +76,15 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	        }
 	        //Decrease by a rate of 1
 	        if mouse_wheel_down() { 
-	            if global.mortarS_d_amount >= mortarS_supply_rate { 
-	                global.mortarS_d_amount -= mortarS_supply_rate; 
+	            if global.mtramo_d_amount >= mortarS_supply_rate { 
+	                global.mtramo_d_amount -= mortarS_supply_rate; 
 	            } 
 	        }
 	        //Clamp the value between zero and the max available rounds
-	        if global.mortarS_d_amount < 0 { global.mortarS_d_amount = 0; }
-	        if global.mortarS_d_amount > global.ammunition_ammo { global.mortarS_d_amount = global.ammunition_ammo; }
+	        if global.mtramo_d_amount < 0 { global.mtramo_d_amount = 0; }
+	        if global.mtramo_d_amount > global.ammunition_ammo { global.mtramo_d_amount = global.ammunition_ammo; }
 	        //Add to temp AP cost
-	        global.temp_AP = (global.mortarS_d_amount/mortarS_supply_rate)*ap_cost;
+	        global.temp_AP = (global.mtramo_d_amount/mortarS_supply_rate)*ap_cost;
 	        //Set the menu position
 	        global.fire_option = 0; 
 	        //Switch off camera zoom
@@ -145,47 +145,71 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                            ammo_check = true;
 	                        }
-	                            else if global.selected_infantry != 0 {
-	                                global.ammo_tab = "INFANTRY"; 
+	                            else if global.selected_infa != 0 {
+	                                global.ammo_tab = "INF_A"; 
 									//Remove the surface
 									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                                ammo_check = true;
 	                            }
-	                                else if global.selected_tank != 0 {
-	                                    global.ammo_tab = "TANK"; 
+									else if global.selected_infb != 0 {
+		                                global.ammo_tab = "INF_B"; 
 										//Remove the surface
 										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                                    ammo_check = true;
-	                                }
-	                                    else if global.selected_engineer != 0 {
-	                                        global.ammo_tab = "ENGINEER"; 
+		                                ammo_check = true;
+		                            }
+		                                else if global.selected_mbta != 0 {
+		                                    global.ammo_tab = "MBT_A"; 
 											//Remove the surface
 											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                                        ammo_check = true;
-	                                    }
-	                                        else if global.selected_btr != 0 {
-	                                            global.ammo_tab = "BTR"; 
+		                                    ammo_check = true;
+		                                }
+											else if global.selected_mbtb != 0 {
+			                                    global.ammo_tab = "MBT_B"; 
 												//Remove the surface
 												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                                            ammo_check = true;
-	                                        }
-	                                            else {
-	                                            }
+			                                    ammo_check = true;
+			                                }
+			                                    else if global.selected_laca != 0 {
+			                                        global.ammo_tab = "LAC_A"; 
+													//Remove the surface
+													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+			                                        ammo_check = true;
+			                                    }
+													else if global.selected_lacb != 0 {
+				                                        global.ammo_tab = "LAC_B"; 
+														//Remove the surface
+														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+				                                        ammo_check = true;
+				                                    }
+				                                        else if global.selected_lava != 0 {
+				                                            global.ammo_tab = "LAV_A"; 
+															//Remove the surface
+															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+				                                            ammo_check = true;
+				                                        }
+															else if global.selected_lavb != 0 {
+					                                            global.ammo_tab = "LAV_B"; 
+																//Remove the surface
+																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+					                                            ammo_check = true;
+					                                        }
+					                                            else {
+					                                            }
 	        }
 	            else if f1 {
 	                //TRANSFER MORTAR AMMO
 	                //Remove ammo cost
-	                if global.mortarS_d_amount != 0 {
+	                if global.mtramo_d_amount != 0 {
 	                    var t=0;
-	                    while (global.mortarS_d_amount >= mortarS_supply_rate) {
+	                    while (global.mtramo_d_amount >= mortarS_supply_rate) {
 	                        t+=1;
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_depot_list); i+=1) {
 	                            var u = ds_list_find_value(global.selected_depot_list, i);
 	                            if (u.can_shoot == true) && (u.ammunition_ammo >= mortarS_supply_rate) {
 	                                if (u.action_points >= ap_cost) {
-	                                    global.mortarS_d_amount -= mortarS_supply_rate;
-	                                    if global.mortarS_d_amount >= 0 { 
+	                                    global.mtramo_d_amount -= mortarS_supply_rate;
+	                                    if global.mtramo_d_amount >= 0 { 
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
@@ -209,7 +233,7 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	                            }
 	                        }
 	                        if t >= 200 { 
-	                            global.mortarS_d_amount = 0;
+	                            global.mtramo_d_amount = 0;
 	                            global.targeting_error = true;
 	                        } 
 	                    }
@@ -222,7 +246,7 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	                        with unit { if action_confirmed == true { selected = false; } }
 	                    }
 	                    ammo_check = true;
-	                    global.mortarS_d_amount = 0;
+	                    global.mtramo_d_amount = 0;
 	                }
 	                    else { 
 	                        global.menu_create = false;

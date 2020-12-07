@@ -70,14 +70,18 @@ function scr_EnemyNavigation(argument0, argument1) {
 	                                    if (x_end == un.x_end) && (y_end == un.y_end) {
 	                                        //If static unit is not under construction
 	                                        if un.can_be_manned == true {
-	                                            if unit_type != "E_INFANTRY" {
+	                                            if (unit_type != "E_INFA") && (unit_type != "E_INFB") {
 	                                                switch unit_type {
 	                                                    //If this unit is a vehicle
 	                                                    //Prevent from entering static unit
-	                                                    case "E_TANK":
-	                                                    case "E_ENGINEER":
-	                                                    case "E_BTR":
-	                                                    case "E_LOGI":
+	                                                    case "E_MBTA":
+														case "E_MBTB":
+	                                                    case "E_LACA":
+														case "E_LACB":
+	                                                    case "E_LAVA":
+														case "E_LAVB":
+	                                                    case "E_LOGIA":
+														case "E_LOGIB":
 	                                                        path_delete_point(my_path, path_get_number(my_path) - 1);
 	                                                        x_end = path_get_x(my_path, 1);
 	                                                        y_end = path_get_y(my_path, 1);
@@ -123,44 +127,48 @@ function scr_EnemyNavigation(argument0, argument1) {
 	                                        else if (x_end == un.x_final) && (y_end == un.y_final) {
 	                                            //If static unit is not under construction
 	                                            if un.can_be_manned == true {
-	                                                if unit_type != "E_INFANTRY" {
-	                                                   switch unit_type {
-	                                                    //If this unit is a vehicle
-	                                                    //Prevent from entering static unit
-	                                                    case "E_TANK":
-	                                                    case "E_ENGINEER":
-	                                                    case "E_BTR":
-	                                                    case "E_LOGI":
-	                                                        path_delete_point(my_path, path_get_number(my_path) - 1);
-	                                                        x_end = path_get_x(my_path, 1);
-	                                                        y_end = path_get_y(my_path, 1);
-	                                                        break;
-	                                                    case "E_DEPOT":
-	                                                    case "E_REPAIR":
-	                                                    case "E_TOW":
-	                                                    case "E_MORTAR":
-	                                                        //When transfering infantry between static units
-	                                                        if un.is_manned == true {
-	                                                            path_delete_point(my_path, path_get_number(my_path) - 1);
-	                                                            x_end = path_get_x(my_path, 1);
-	                                                            y_end = path_get_y(my_path, 1);
-	                                                        }
-	                                                        break;
-	                                                }
-	                                            }
-	                                                    //If this unit is infantry
-	                                                    else { 
-	                                                        //If the static unit is already being manned
-	                                                        //Prevent from entering static unit
-	                                                        if un.is_manned == true {
-	                                                            path_delete_point(my_path, path_get_number(my_path) - 1);
-	                                                            x_end = path_get_x(my_path, 1);
-	                                                            y_end = path_get_y(my_path, 1);    
-	                                                        }
-	                                                            //If the static unit is not currently manned
-	                                                            //Allow infantry to man the static unit
-	                                                            else { }
-	                                                    }
+		                                            if (unit_type != "E_INFA") && (unit_type != "E_INFB") {
+		                                                switch unit_type {
+			                                                //If this unit is a vehicle
+			                                                //Prevent from entering static unit
+				                                            case "E_MBTA":
+															case "E_MBTB":
+				                                            case "E_LACA":
+															case "E_LACB":
+				                                            case "E_LAVA":
+															case "E_LAVB":
+				                                            case "E_LOGIA":
+															case "E_LOGIB":
+			                                                    path_delete_point(my_path, path_get_number(my_path) - 1);
+			                                                    x_end = path_get_x(my_path, 1);
+			                                                    y_end = path_get_y(my_path, 1);
+			                                                    break;
+			                                                case "E_DEPOT":
+			                                                case "E_REPAIR":
+			                                                case "E_TOW":
+			                                                case "E_MORTAR":
+			                                                    //When transfering infantry between static units
+			                                                    if un.is_manned == true {
+			                                                        path_delete_point(my_path, path_get_number(my_path) - 1);
+			                                                        x_end = path_get_x(my_path, 1);
+			                                                        y_end = path_get_y(my_path, 1);
+			                                                    }
+			                                                    break;
+														}
+													}
+		                                                //If this unit is infantry
+		                                                else { 
+		                                                    //If the static unit is already being manned
+		                                                    //Prevent from entering static unit
+		                                                    if un.is_manned == true {
+		                                                        path_delete_point(my_path, path_get_number(my_path) - 1);
+		                                                        x_end = path_get_x(my_path, 1);
+		                                                        y_end = path_get_y(my_path, 1);    
+		                                                    }
+		                                                        //If the static unit is not currently manned
+		                                                        //Allow infantry to man the static unit
+		                                                        else { }
+		                                                }
 	                                            }
 	                                                //If static unit is under construction
 	                                                //Prevent all units from entering static unit
@@ -185,13 +193,17 @@ function scr_EnemyNavigation(argument0, argument1) {
 	                                        //If the repair station is not under construction
 	                                        if un.can_be_manned == true {
 	                                            //If this unit is not infantry
-	                                            if unit_type != "E_INFANTRY" {
+	                                            if (unit_type != "E_INFA") && (unit_type != "E_INFB") {
 	                                                switch unit_type {
 	                                                    //Vehicle control
-	                                                    case "E_TANK":
-	                                                    case "E_ENGINEER":
-	                                                    case "E_BTR":
-	                                                    case "E_LOGI":
+	                                                    case "E_MBTA":
+														case "E_MBTB":
+				                                        case "E_LACA":
+														case "E_LACB":
+				                                        case "E_LAVA":
+														case "E_LAVB":
+				                                        case "E_LOGIA":
+														case "E_LOGIB":
 	                                                        //If the repair station is selecting a waypoint for its manned unit
 	                                                        //Prevent vehicle entry
 	                                                        if un.nav_split == true || un.is_occupied == true || un.is_manned == false{
@@ -240,13 +252,17 @@ function scr_EnemyNavigation(argument0, argument1) {
 	                                            //If the repair station is not under construction
 	                                            if un.can_be_manned == true {
 	                                                //If this unit is not infantry
-	                                                if unit_type != "E_INFANTRY" {
+	                                                if (unit_type != "E_INFA") && (unit_type != "E_INFB") {
 	                                                    switch unit_type {
 	                                                        //Vehicle control
-	                                                        case "E_TANK":
-	                                                        case "E_ENGINEER":
-	                                                        case "E_BTR":
-	                                                        case "E_LOGI":
+	                                                        case "E_MBTA":
+															case "E_MBTB":
+				                                            case "E_LACA":
+															case "E_LACB":
+				                                            case "E_LAVA":
+															case "E_LAVB":
+				                                            case "E_LOGIA":
+															case "E_LOGIB":
 	                                                            //If the repair station is selecting a waypoint for its manned unit
 	                                                            //Prevent vehicle entry
 	                                                            if un.nav_split == true || un.is_occupied == true || un.is_manned == false{

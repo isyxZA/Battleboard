@@ -94,13 +94,13 @@ if global.my_turn == true || global.active_blc == true {
 								case spr_BTR_A2_Icon:
 								case spr_BTR_B1_Icon:
 								case spr_BTR_B2_Icon:
-                                    my_unit = obj_BTR_Unit;
+                                    my_unit = obj_LAVA_Unit;
                                     break;
 								case spr_BTR_A1a_Icon:
 								case spr_BTR_A2a_Icon:
 								case spr_BTR_B1a_Icon:
 								case spr_BTR_B2a_Icon:
-                                    my_unit = obj_BTR_Unit;
+                                    my_unit = obj_LAVB_Unit;
                                     break;
                             }
                             //Remove from available units list

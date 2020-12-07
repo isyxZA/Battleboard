@@ -1,22 +1,32 @@
-global.selected_infantry = ds_list_size(global.selected_infantry_list);
-global.selected_tank     = ds_list_size(global.selected_tank_list);
-global.selected_engineer = ds_list_size(global.selected_engineer_list);
-global.selected_btr      = ds_list_size(global.selected_btr_list);
-global.selected_logi     = ds_list_size(global.selected_logi_list);
-global.selected_depot    = ds_list_size(global.selected_depot_list);
-global.selected_repair   = ds_list_size(global.selected_repair_list);
-global.selected_tow      = ds_list_size(global.selected_tow_list);
-global.selected_mortar   = ds_list_size(global.selected_mortar_list);
+global.selected_infa   = ds_list_size(global.selected_infa_list);
+global.selected_infb   = ds_list_size(global.selected_infb_list);
+global.selected_mbta   = ds_list_size(global.selected_mbta_list);
+global.selected_mbtb   = ds_list_size(global.selected_mbtb_list);
+global.selected_laca   = ds_list_size(global.selected_laca_list);
+global.selected_lacb   = ds_list_size(global.selected_lacb_list);
+global.selected_lava   = ds_list_size(global.selected_lava_list);
+global.selected_lavb   = ds_list_size(global.selected_lavb_list);
+global.selected_logia  = ds_list_size(global.selected_logia_list);
+global.selected_logib  = ds_list_size(global.selected_logib_list);
+global.selected_depot  = ds_list_size(global.selected_depot_list);
+global.selected_repair = ds_list_size(global.selected_repair_list);
+global.selected_tow    = ds_list_size(global.selected_tow_list);
+global.selected_mortar = ds_list_size(global.selected_mortar_list);
 
-global.total_infantry = ds_list_size(global.infantry_list);
-global.total_tank     = ds_list_size(global.tank_list);
-global.total_engineer = ds_list_size(global.engineer_list);
-global.total_btr      = ds_list_size(global.btr_list);
-global.total_logi     = ds_list_size(global.logi_list);
-global.total_depot    = ds_list_size(global.depot_list);
-global.total_repair   = ds_list_size(global.repair_list);
-global.total_tow      = ds_list_size(global.tow_list);
-global.total_mortar   = ds_list_size(global.mortar_list);
+global.total_infa   = ds_list_size(global.infa_list);
+global.total_infb   = ds_list_size(global.infb_list);
+global.total_mbta   = ds_list_size(global.mbta_list);
+global.total_mbtb   = ds_list_size(global.mbtb_list);
+global.total_laca   = ds_list_size(global.laca_list);
+global.total_lacb   = ds_list_size(global.lacb_list);
+global.total_lava   = ds_list_size(global.lava_list);
+global.total_lavb   = ds_list_size(global.lavb_list);
+global.total_logia  = ds_list_size(global.logia_list);
+global.total_logib  = ds_list_size(global.logib_list);
+global.total_depot  = ds_list_size(global.depot_list);
+global.total_repair = ds_list_size(global.repair_list);
+global.total_tow    = ds_list_size(global.tow_list);
+global.total_mortar = ds_list_size(global.mortar_list);
 
 
 //Set global reference position of targeting reticule
@@ -106,11 +116,16 @@ if !ds_list_empty(global.selected_list) {
 							                //If the waypoint is not the unit's current position then allow movement
 							                if move_amount > 0 {
 							                    switch unit_type {
-							                        case "INFANTRY":
-							                        case "TANK":
-							                        case "ENGINEER":
-							                        case "BTR":
-							                        case "LOGI":
+							                        case "INF_A":
+													case "INF_B":
+							                        case "MBT_A":
+													case "MBT_B":
+							                        case "LAC_A":
+													case "LAC_B":
+							                        case "LAV_A":
+													case "LAV_B":
+							                        case "LOGI_A":
+													case "LOGI_B":
 							                            nav_confirmed = true;
 							                            can_move = true; 
 							                            count_start = true;
@@ -137,7 +152,7 @@ if !ds_list_empty(global.selected_list) {
 							                            action_points -= temp_ap;
 														global.turn_AP -= temp_ap;
 											            //global.turn_AP -= (move_amount*mp_cost);
-														var inf = instance_create_layer(x, y, "Units", obj_Soldier_Unit);
+														var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
 											            with inf {
 															mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 															my_squad = other.my_squad;
@@ -301,17 +316,22 @@ if !ds_list_empty(global.selected_list) {
                         //Display the fire/action options
                         if global.fire_display ==  false { 
                             global.fire_display = true; 
-                            if global.selected_infantry != 0 { global.ammo_tab = "INFANTRY"; }
-                                else if global.selected_tank != 0 { global.ammo_tab = "TANK"; }
-                                    else if global.selected_engineer != 0 { global.ammo_tab = "ENGINEER"; }
-                                        else if global.selected_btr != 0 { global.ammo_tab = "BTR"; }
-                                            else if global.selected_logi != 0 { global.ammo_tab = "LOGI"; }
-                                                else if global.selected_depot != 0 { global.ammo_tab = "DEPOT"; }
-                                                    else if global.selected_repair != 0 { global.ammo_tab = "REPAIR"; }
-                                                        else if global.selected_tow != 0 { global.ammo_tab = "TOW"; }
-                                                            else if global.selected_mortar != 0 { global.ammo_tab = "MORTAR"; }
-                                                                else if global.supply_ship != noone { global.ammo_tab = "SUPPLY SHIP"; }
-                                                                    else { global.ammo_tab = "NOONE"; }
+                            if global.selected_infa != 0 { global.ammo_tab = "INF_A"; }
+								else if global.selected_infb != 0 { global.ammo_tab = "INF_B"; }
+	                                else if global.selected_mbta != 0 { global.ammo_tab = "MBT_A"; }
+										else if global.selected_mbtb != 0 { global.ammo_tab = "MBT_B"; }
+		                                    else if global.selected_laca != 0 { global.ammo_tab = "LAC_A"; }
+												else if global.selected_lacb != 0 { global.ammo_tab = "LAC_B"; }
+			                                        else if global.selected_lava != 0 { global.ammo_tab = "LAV_A"; }
+														else if global.selected_lavb != 0 { global.ammo_tab = "LAV_B"; }
+				                                            else if global.selected_logia != 0 { global.ammo_tab = "LOGI_A"; }
+																else if global.selected_logib != 0 { global.ammo_tab = "LOGI_B"; }
+																	else if global.selected_depot != 0 { global.ammo_tab = "DEPOT"; }
+					                                                    else if global.selected_repair != 0 { global.ammo_tab = "REPAIR"; }
+					                                                        else if global.selected_tow != 0 { global.ammo_tab = "TOW"; }
+					                                                            else if global.selected_mortar != 0 { global.ammo_tab = "MORTAR"; }
+					                                                                else if global.supply_ship != noone { global.ammo_tab = "SUPPLY SHIP"; }
+					                                                                    else { global.ammo_tab = "NOONE"; }
                         
                             if ammo_check == false { ammo_check = true; }
 	                        global.menu_x = mouse_x;

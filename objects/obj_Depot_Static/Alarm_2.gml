@@ -8,8 +8,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "INFANTRY" { 
-                                rifle_ammo += other.rifle_supply_rate; 
+                            if unit_type == "INF_A" { 
+                                rifle_ammo += other.rfl_supply_rate; 
                                 alert_display = true;
                                 alert_text = "+20 Rifle Ammo"; 
                                 alert_colour = c_green;
@@ -35,7 +35,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "INFANTRY" { 
+                            if unit_type == "INF_A" { 
                                 rpg_ammo += other.rpg_supply_rate;
                                 alert_display = true;
                                 alert_text = "+1 RPG Ammo"; 
@@ -62,8 +62,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "INFANTRY" { 
-                                flare_ammo += other.flare_supply_rate;
+                            if unit_type == "INF_A" { 
+                                flare_ammo += other.flr_supply_rate;
                                 alert_display = true;
                                 alert_text = "+1 Flare Ammo"; 
                                 alert_colour = c_green;
@@ -89,8 +89,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "TANK" { 
-                                cannon_ammo += other.cannon_supply_rate;
+                            if unit_type == "MBT_A" { 
+                                cannon_ammo += other.mbtap_supply_rate;
                                 alert_display = true;
                                 alert_text = "+1 Cannon Ammo"; 
                                 alert_colour = c_green;
@@ -116,8 +116,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "TANK" { 
-                                mg_ammo += other.mg_supply_rate;
+                            if unit_type == "MBT_A" { 
+                                mg_ammo += other.mbtmg_supply_rate;
                                 alert_display = true;
                                 alert_text = "+20 MG Ammo"; 
                                 alert_colour = c_green;
@@ -150,7 +150,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "ENGINEER" { 
+                            if unit_type == "LAC_A" { 
                                 depot_supply += 1;
                                 alert_display = true;
                                 alert_text = "+1 Depot"; 
@@ -177,7 +177,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "ENGINEER" { 
+                            if unit_type == "LAC_A" { 
                                 repair_supply += 1;
                                 alert_display = true;
                                 alert_text = "+1 Repair OP"; 
@@ -204,7 +204,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "ENGINEER" { 
+                            if unit_type == "LAC_A" { 
                                 tow_supply += 1;
                                 alert_display = true;
                                 alert_text = "+1 TOW"; 
@@ -231,7 +231,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "ENGINEER" { 
+                            if unit_type == "LAC_A" { 
                                 mortar_supply += 1;
                                 alert_display = true;
                                 alert_text = "+1 Mortar"; 
@@ -258,8 +258,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "BTR" { 
-                                he_ammo += other.he_supply_rate;
+                            if unit_type == "LAV_A" { 
+                                he_ammo += other.lavhe_supply_rate;
                                 alert_display = true;
                                 alert_text = "+4 HE Ammo"; 
                                 alert_colour = c_green;
@@ -285,8 +285,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "BTR" { 
-                                ap_ammo += other.ap_supply_rate;
+                            if unit_type == "LAV_A" { 
+                                ap_ammo += other.lavap_supply_rate;
                                 alert_display = true;
                                 alert_text = "+4 AP Ammo"; 
                                 alert_colour = c_green;
@@ -312,15 +312,15 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "LOGI" { 
-                                ammo_supply += other.ammo_supply_rate; 
+                            if unit_type == "LOGI_A" { 
+                                ammo_supply += other.logiamo_supply_rate; 
                                 alert_display = true;
                                 alert_text = "+10 Ammo"; 
                                 alert_colour = c_green;
                                 alarm[3] = global.tick_rate*2;
                             }
                                 else if unit_type == "DEPOT" { 
-                                    ammunition_ammo += other.depotammo_supply_rate; 
+                                    ammunition_ammo += other.depotamo_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+10 Ammo"; 
                                     alert_colour = c_green;
@@ -346,15 +346,15 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "LOGI" { 
-                                building_supply += other.building_supply_rate; 
+                            if unit_type == "LOGI_A" { 
+                                building_supply += other.logibld_supply_rate; 
                                 alert_display = true;
                                 alert_text = "10 Parts"; 
                                 alert_colour = c_green;
                                 alarm[3] = global.tick_rate*2;
                             }
                                 else if unit_type == "DEPOT" { 
-                                    parts_ammo += other.depotparts_supply_rate; 
+                                    parts_ammo += other.depotbld_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+10 Parts"; 
                                     alert_colour = c_green;
@@ -450,8 +450,8 @@ if timer_count > 0 { timer_start = true; }
                     case "RIFLE":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "INFANTRY" { 
-                                    rifle_ammo += other.rifle_supply_rate; 
+                                if unit_type == "INF_A" { 
+                                    rifle_ammo += other.rfl_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+20 Rifle Ammo"; 
                                     alert_colour = c_green;
@@ -476,7 +476,7 @@ if timer_count > 0 { timer_start = true; }
                     case "RPG":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "INFANTRY" { 
+                                if unit_type == "INF_A" { 
                                     rpg_ammo += other.rpg_supply_rate;
                                     alert_display = true;
                                     alert_text = "+1 RPG Ammo"; 
@@ -502,8 +502,8 @@ if timer_count > 0 { timer_start = true; }
                     case "FLARE":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "INFANTRY" { 
-                                    flare_ammo += other.flare_supply_rate;
+                                if unit_type == "INF_A" { 
+                                    flare_ammo += other.flr_supply_rate;
                                     alert_display = true;
                                     alert_text = "+1 Flare Ammo"; 
                                     alert_colour = c_green;
@@ -528,8 +528,8 @@ if timer_count > 0 { timer_start = true; }
                     case "CANNON":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "TANK" { 
-                                    cannon_ammo += other.cannon_supply_rate;
+                                if unit_type == "MBT_A" { 
+                                    cannon_ammo += other.mbtap_supply_rate;
                                     alert_display = true;
                                     alert_text = "+1 Cannon Ammo"; 
                                     alert_colour = c_green;
@@ -554,8 +554,8 @@ if timer_count > 0 { timer_start = true; }
                     case "MG":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "TANK" { 
-                                    mg_ammo += other.mg_supply_rate;
+                                if unit_type == "MBT_A" { 
+                                    mg_ammo += other.mbtmg_supply_rate;
                                     alert_display = true;
                                     alert_text = "+20 MG Ammo"; 
                                     alert_colour = c_green;
@@ -587,7 +587,7 @@ if timer_count > 0 { timer_start = true; }
                     case "DEPOT":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "ENGINEER" { 
+                                if unit_type == "LAC_A" { 
                                     depot_supply += 1;
                                     alert_display = true;
                                     alert_text = "+1 Depot"; 
@@ -613,7 +613,7 @@ if timer_count > 0 { timer_start = true; }
                     case "REPAIR":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "ENGINEER" { 
+                                if unit_type == "LAC_A" { 
                                     repair_supply += 1;
                                     alert_display = true;
                                     alert_text = "+1 Repair OP"; 
@@ -639,7 +639,7 @@ if timer_count > 0 { timer_start = true; }
                     case "TOW":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "ENGINEER" { 
+                                if unit_type == "LAC_A" { 
                                     tow_supply += 1;
                                     alert_display = true;
                                     alert_text = "+1 TOW"; 
@@ -665,7 +665,7 @@ if timer_count > 0 { timer_start = true; }
                     case "MORTAR":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "ENGINEER" { 
+                                if unit_type == "LAC_A" { 
                                     mortar_supply += 1;
                                     alert_display = true;
                                     alert_text = "+1 Mortar"; 
@@ -691,8 +691,8 @@ if timer_count > 0 { timer_start = true; }
                     case "HE":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "BTR" { 
-                                    he_ammo += other.he_supply_rate;
+                                if unit_type == "LAV_A" { 
+                                    he_ammo += other.lavhe_supply_rate;
                                     alert_display = true;
                                     alert_text = "+4 HE Ammo"; 
                                     alert_colour = c_green;
@@ -717,8 +717,8 @@ if timer_count > 0 { timer_start = true; }
                     case "AP":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "BTR" { 
-                                    ap_ammo += other.ap_supply_rate;
+                                if unit_type == "LAV_A" { 
+                                    ap_ammo += other.lavap_supply_rate;
                                     alert_display = true;
                                     alert_text = "+4 AP Ammo"; 
                                     alert_colour = c_green;
@@ -743,15 +743,15 @@ if timer_count > 0 { timer_start = true; }
                     case "AMMO":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "LOGI" { 
-                                    ammo_supply += other.ammo_supply_rate; 
+                                if unit_type == "LOGI_A" { 
+                                    ammo_supply += other.logiamo_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+10 Ammo"; 
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2;
                                 }
                                     else if unit_type == "DEPOT" { 
-                                        ammunition_ammo += other.depotammo_supply_rate; 
+                                        ammunition_ammo += other.depotamo_supply_rate; 
                                         alert_display = true;
                                         alert_text = "+10 Ammo"; 
                                         alert_colour = c_green;
@@ -776,15 +776,15 @@ if timer_count > 0 { timer_start = true; }
                     case "PARTS":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "LOGI" { 
-                                    building_supply += other.building_supply_rate; 
+                                if unit_type == "LOGI_A" { 
+                                    building_supply += other.logibld_supply_rate; 
                                     alert_display = true;
                                     alert_text = "10 Parts"; 
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2;
                                 }
                                     else if unit_type == "DEPOT" { 
-                                        parts_ammo += other.depotparts_supply_rate; 
+                                        parts_ammo += other.depotbld_supply_rate; 
                                         alert_display = true;
                                         alert_text = "+10 Parts"; 
                                         alert_colour = c_green;

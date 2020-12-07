@@ -40,11 +40,11 @@ shoot_ammunition = false;
 ammunition_rate = 10;
 
 //Logi
-ammo_supply_rate = 10;
-building_supply_rate = 10;
+logiamo_supply_rate = 10;
+logibld_supply_rate = 10;
 //Depot
-depotammo_supply_rate = 10;
-depotparts_supply_rate = 10;
+depotamo_supply_rate = 10;
+depotbld_supply_rate = 10;
 
 resupply_unit = noone;
 

@@ -17,10 +17,10 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	*/
 
 	/*
-	lr_fire_menu[0] = "Parts";
-	lr_fire_menu[1] = "MG Ammo";
-	lr_fire_menu[2] = "Retarget";
-	lr_fire_menu[3] = "Cancel";
+	lar_fire_menu[0] = "Parts";
+	lar_fire_menu[1] = "MG Ammo";
+	lar_fire_menu[2] = "Retarget";
+	lar_fire_menu[3] = "Cancel";
 	*/
 
 	var repair_count         = argument1;
@@ -63,9 +63,9 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	        //Increase by a rate of 10
 	        if mouse_wheel_up() { 
 	            //Check if there is enough supply available
-	            if global.repairS_d_amount <= (global.parts_ammo-repairS_supply_rate) { 
+	            if global.rprbld_d_amount <= (global.parts_ammo-repairS_supply_rate) { 
 	                //Make sure the unit rpg ammo does not go over max
-	                if ((global.repairS_d_amount+repair_count)+repairS_supply_rate) <= repair_max {
+	                if ((global.rprbld_d_amount+repair_count)+repairS_supply_rate) <= repair_max {
 	                    //Check if there is enough turn AP for the move
 	                    var m_ap = (global.turn_AP-global.temp_AP);
 	                    if m_ap >=  ap_cost {
@@ -78,9 +78,9 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                                if unit.can_shoot == true { ap += unit.action_points; }
 	                            }
 	                        }
-	                        if ap >= ((global.repairS_d_amount+repairS_supply_rate)/repairS_supply_rate)*ap_cost {
+	                        if ap >= ((global.rprbld_d_amount+repairS_supply_rate)/repairS_supply_rate)*ap_cost {
 	                            //Add the rounds
-	                            global.repairS_d_amount +=  repairS_supply_rate; 
+	                            global.rprbld_d_amount +=  repairS_supply_rate; 
 	                        }
 	                    }
 	                }
@@ -88,15 +88,15 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	        }
 	        //Decrease by a rate of 4
 	        if mouse_wheel_down() { 
-	            if global.repairS_d_amount >= repairS_supply_rate { 
-	                global.repairS_d_amount -= repairS_supply_rate; 
+	            if global.rprbld_d_amount >= repairS_supply_rate { 
+	                global.rprbld_d_amount -= repairS_supply_rate; 
 	            } 
 	        }
 	        //Clamp the value between zero and the max available rounds
-	        if global.repairS_d_amount < 0 { global.repairS_d_amount = 0; }
-	        if global.repairS_d_amount > global.parts_ammo { global.repairS_d_amount = global.parts_ammo; }
+	        if global.rprbld_d_amount < 0 { global.rprbld_d_amount = 0; }
+	        if global.rprbld_d_amount > global.parts_ammo { global.rprbld_d_amount = global.parts_ammo; }
 	        //Add to temp AP cost
-	        global.temp_AP = (global.repairS_d_amount/repairS_supply_rate)*ap_cost;
+	        global.temp_AP = (global.rprbld_d_amount/repairS_supply_rate)*ap_cost;
 	        //Set the menu position
 	        global.fire_option = 0; 
 	        //Switch off camera zoom
@@ -111,9 +111,9 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	            //Increase by a rate of 20
 	            if mouse_wheel_up() { 
 	                //Check if there is enough supply available
-	                if global.repairmg_d_amount <= (global.ammunition_ammo-repairmg_supply_rate) {
+	                if global.rprmg_d_amount <= (global.ammunition_ammo-repairmg_supply_rate) {
 	                    //Make sure the unit ammo does not go over max
-	                    if ((global.repairmg_d_amount+repairmg_count)+repairmg_supply_rate) <= mg_max {
+	                    if ((global.rprmg_d_amount+repairmg_count)+repairmg_supply_rate) <= mg_max {
 	                        //Check if there is enough turn AP for the move
 	                        var m_ap = (global.turn_AP-global.temp_AP);
 	                        if m_ap >=  ap_cost {
@@ -126,9 +126,9 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                                    if unit.can_shoot == true { ap += unit.action_points; }
 	                                }
 	                            }
-	                            if ap >= ((global.repairmg_d_amount+repairmg_supply_rate)/repairmg_supply_rate)*ap_cost {
+	                            if ap >= ((global.rprmg_d_amount+repairmg_supply_rate)/repairmg_supply_rate)*ap_cost {
 	                                //Add the rounds
-	                                global.repairmg_d_amount += repairmg_supply_rate; 
+	                                global.rprmg_d_amount += repairmg_supply_rate; 
 	                            }
 	                        }
 	                    }
@@ -136,15 +136,15 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	            }
 	            //Decrease by a rate of 10
 	            if mouse_wheel_down() { 
-	                if global.repairmg_d_amount >= repairmg_supply_rate { 
-	                    global.repairmg_d_amount -= repairmg_supply_rate; 
+	                if global.rprmg_d_amount >= repairmg_supply_rate { 
+	                    global.rprmg_d_amount -= repairmg_supply_rate; 
 	                } 
 	            }
 	            //Clamp the value between zero and the max available rounds
-	            if global.repairmg_d_amount < 0 { global.repairmg_d_amount = 0; }
-	            if global.repairmg_d_amount > global.ammunition_ammo { global.repairmg_d_amount = global.ammunition_ammo; }
+	            if global.rprmg_d_amount < 0 { global.rprmg_d_amount = 0; }
+	            if global.rprmg_d_amount > global.ammunition_ammo { global.rprmg_d_amount = global.ammunition_ammo; }
 	            //Add to temp AP cost
-	            global.temp_AP = (global.repairmg_d_amount/repairmg_supply_rate)*ap_cost;
+	            global.temp_AP = (global.rprmg_d_amount/repairmg_supply_rate)*ap_cost;
 	            //Set the menu position
 	            global.fire_option = 1; 
 	            //Switch off camera zoom
@@ -205,47 +205,71 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                            ammo_check = true;
 	                        }
-	                            else if global.selected_infantry != 0 {
-	                                global.ammo_tab = "INFANTRY"; 
+	                            else if global.selected_infa != 0 {
+	                                global.ammo_tab = "INF_A"; 
 									//Remove the surface
 									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                                ammo_check = true;
 	                            }
-	                                else if global.selected_tank != 0 {
-	                                    global.ammo_tab = "TANK"; 
+									else if global.selected_infb != 0 {
+		                                global.ammo_tab = "INF_B"; 
 										//Remove the surface
 										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                                    ammo_check = true;
-	                                }
-	                                    else if global.selected_engineer != 0 {
-	                                        global.ammo_tab = "ENGINEER"; 
+		                                ammo_check = true;
+		                            }
+		                                else if global.selected_mbta != 0 {
+		                                    global.ammo_tab = "MBT_A"; 
 											//Remove the surface
 											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                                        ammo_check = true;
-	                                    }
-	                                        else if global.selected_btr != 0 {
-	                                            global.ammo_tab = "BTR"; 
+		                                    ammo_check = true;
+		                                }
+											else if global.selected_mbtb != 0 {
+			                                    global.ammo_tab = "MBT_B"; 
 												//Remove the surface
 												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                                            ammo_check = true;
-	                                        }
-	                                            else {
-	                                            }
+			                                    ammo_check = true;
+			                                }
+			                                    else if global.selected_laca != 0 {
+			                                        global.ammo_tab = "LAC_A"; 
+													//Remove the surface
+													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+			                                        ammo_check = true;
+			                                    }
+													else if global.selected_lacb != 0 {
+				                                        global.ammo_tab = "LAC_B"; 
+														//Remove the surface
+														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+				                                        ammo_check = true;
+				                                    }
+				                                        else if global.selected_lava != 0 {
+				                                            global.ammo_tab = "LAV_A"; 
+															//Remove the surface
+															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+				                                            ammo_check = true;
+				                                        }
+															else if global.selected_lavb != 0 {
+					                                            global.ammo_tab = "LAV_B"; 
+																//Remove the surface
+																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+					                                            ammo_check = true;
+					                                        }
+					                                            else {
+					                                            }
 	        }
 	            else if f1 {
 	                //TRANSFER PARTS SUPPLY
 	                //Remove cost
-	                if global.repairS_d_amount != 0 {
+	                if global.rprbld_d_amount != 0 {
 	                    var t=0;
-	                    while (global.repairS_d_amount >= repairS_supply_rate) {
+	                    while (global.rprbld_d_amount >= repairS_supply_rate) {
 	                        t+=1;
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_depot_list); i+=1) {
 	                            var u = ds_list_find_value(global.selected_depot_list, i);
 	                            if (u.can_shoot == true) && (u.parts_ammo >= repairS_supply_rate) {
 	                                if (u.action_points >= ap_cost) {
-	                                    global.repairS_d_amount -= repairS_supply_rate;
-	                                    if global.repairS_d_amount >= 0 { 
+	                                    global.rprbld_d_amount -= repairS_supply_rate;
+	                                    if global.rprbld_d_amount >= 0 { 
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
@@ -269,7 +293,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                            }
 	                        }
 	                        if t >= 200 { 
-	                            global.repairS_d_amount = 0;
+	                            global.rprbld_d_amount = 0;
 	                            global.targeting_error = true;
 	                        } 
 	                    }
@@ -282,7 +306,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                        with unit { if action_confirmed == true { selected = false; } }
 	                    }
 	                    ammo_check = true;
-	                    global.repairS_d_amount = 0;
+	                    global.rprbld_d_amount = 0;
 	                }
 	                    else { 
 	                        global.menu_create = false;
@@ -306,17 +330,17 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                else if f2 {
 	                    //TRANSFER AMMO SUPPLY
 	                    //Remove ammo cost
-	                    if global.repairmg_d_amount != 0 {
+	                    if global.rprmg_d_amount != 0 {
 	                        var t=0;
-	                        while (global.repairmg_d_amount >= repairmg_supply_rate) {
+	                        while (global.rprmg_d_amount >= repairmg_supply_rate) {
 	                            t+=1;
 	                            var i;
 	                            for (i=0; i<ds_list_size(global.selected_depot_list); i+=1) {
 	                                var u = ds_list_find_value(global.selected_depot_list, i);
 	                                if (u.can_shoot == true) && (u.ammunition_ammo >= repairmg_supply_rate) {
 	                                    if (u.action_points >= ap_cost) {
-	                                        global.repairmg_d_amount -= repairmg_supply_rate;
-	                                        if global.repairmg_d_amount >= 0 { 
+	                                        global.rprmg_d_amount -= repairmg_supply_rate;
+	                                        if global.rprmg_d_amount >= 0 { 
 	                                            if u.shoot_amount == 0 { 
 	                                                u.action_confirmed = true;
 	                                                global.units_running += 1; 
@@ -340,7 +364,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                                }
 	                            }
 	                            if t >= 200 { 
-	                                global.repairmg_d_amount = 0;
+	                                global.rprmg_d_amount = 0;
 	                                global.targeting_error = true;
 	                            } 
 	                        }
@@ -353,7 +377,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                            with unit { if action_confirmed == true { selected = false; } }
 	                        }
 	                        ammo_check = true;
-	                        global.repairmg_d_amount = 0;
+	                        global.rprmg_d_amount = 0;
 	                    }
 	                        else { 
 	                            global.menu_create = false;

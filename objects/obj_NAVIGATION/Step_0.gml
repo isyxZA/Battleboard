@@ -32,14 +32,6 @@ if global.my_turn == true && global.nav_select == true {
 					if move_max > 0 {
 						if global.mouse_holdpos == false { scr_Navigation(nav_offset); }
 					}
-					/*
-	                var mm = (action_points/mp_cost);
-	                if mm > 0 {
-						if move_max != mm { move_max += 1; }
-	                    if move_max > mm { move_max = mm; }
-	                    if global.mouse_holdpos == false { scr_Navigation(nav_offset); }
-	                }
-					*/
 	            }
             }
         } 

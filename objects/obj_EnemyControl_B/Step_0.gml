@@ -82,22 +82,22 @@ if global.game_state == "IN_GAME" {
 	                                        var eu = ds_list_find_value(active_list, ia);
 	                                        with eu {
 	                                            switch unit_type {
-	                                                case "E_INFANTRY":
+	                                                case "E_INFA":
 	                                                    if rifle_ammo <= 0 { rifle_ammo += rifle_rate*4; }
 	                                                    if rpg_ammo   <= 0 { rpg_ammo += rpg_rate; }
 	                                                    if flare_ammo <= 0 { flare_ammo += flare_rate; }
 	                                                    break;
-	                                                case "E_TANK":
+	                                                case "E_MBTA":
 	                                                    if cannon_ammo <= 0 { cannon_ammo += cannon_rate*2; }
 	                                                    if mg_ammo     <= 0 { mg_ammo += mg_rate*4; }
 	                                                    break;
-	                                                case "E_ENGINEER":
+	                                                case "E_LACA":
 	                                                    break;
-	                                                case "E_BTR":
+	                                                case "E_LAVA":
 	                                                    if ap_ammo <= 0 { ap_ammo += ap_rate*2; }
 	                                                    if he_ammo <= 0 { he_ammo += he_rate*2; }
 	                                                    break;
-	                                                case "E_LOGI":
+	                                                case "E_LOGIA":
 	                                                    break;
 	                                                case "E_DEPOT":
 	                                                    break;
@@ -198,7 +198,7 @@ switch state {
                     if !ds_list_empty(tile_list) {
                         var c  = abs(floor(random(ds_list_size(tile_list))));
                         var ct = ds_list_find_value(tile_list, c);
-                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_Infantry); infantry_amount -= 1; }
+                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_INFA); infantry_amount -= 1; }
                         //Remove the waypoint to prevent unit stacking
                         ds_list_delete(tile_list, c);
                     }
@@ -222,7 +222,7 @@ switch state {
                         if !ds_list_empty(tile_list) {
                             var c  = abs(floor(random(ds_list_size(tile_list))));
                             var ct = ds_list_find_value(tile_list, c);
-                            if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_Tank); tank_amount -= 1; }
+                            if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_MBTA); tank_amount -= 1; }
                             //Remove the waypoint to prevent unit stacking
                             ds_list_delete(tile_list, c);
                         }
@@ -245,7 +245,7 @@ switch state {
                             if !ds_list_empty(tile_list) {
                                 var c  = abs(floor(random(ds_list_size(tile_list))));
                                 var ct = ds_list_find_value(tile_list, c);
-                                if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_Engineer); engineer_amount -= 1; }
+                                if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LACA); engineer_amount -= 1; }
                                 //Remove the waypoint to prevent unit stacking
                                 ds_list_delete(tile_list, c);
                             }
@@ -268,7 +268,7 @@ switch state {
                                 if !ds_list_empty(tile_list) {
                                     var c  = abs(floor(random(ds_list_size(tile_list))));
                                     var ct = ds_list_find_value(tile_list, c);
-                                    if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_BTR); btr_amount -= 1; }
+                                    if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LAVA); btr_amount -= 1; }
                                     //Remove the waypoint to prevent unit stacking
                                     ds_list_delete(tile_list, c);
                                 }
@@ -291,7 +291,7 @@ switch state {
                                     if !ds_list_empty(tile_list) {
                                         var c  = abs(floor(random(ds_list_size(tile_list))));
                                         var ct = ds_list_find_value(tile_list, c);
-                                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_Logi); logi_amount -= 1; }
+                                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LOGIA); logi_amount -= 1; }
                                         //Remove the waypoint to prevent unit stacking
                                         ds_list_delete(tile_list, c);
                                     }
@@ -349,7 +349,7 @@ switch state {
                                                             var dir = point_direction(x, y, ttx, tty);
                                                             var xdir = lengthdir_x(global.cell_size, dir);
                                                             var ydir = lengthdir_y(global.cell_size, dir);
-                                                            if unit_type == "E_ENGINEER" { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx, my_unit.tty, obj_Cant_Shoot, false, true); } }
+                                                            if unit_type == "E_LACA" { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx, my_unit.tty, obj_Cant_Shoot, false, true); } }
 																//ADD MORTARS HERE...WILL HAVE NO COLLISION LINE
 																//ADD LOGIS HERE...WILL SEARCH FOR UNITS IN ACTION RANGE
 																//ADD DEPOTS HERE...WILL SEARCH FOR UNITS IN ACTION RANGE
@@ -474,7 +474,7 @@ switch state {
                                                                         var dir = point_direction(x, y, ttx, tty);
                                                                         var xdir = lengthdir_x(global.cell_size, dir);
                                                                         var ydir = lengthdir_y(global.cell_size, dir);
-                                                                        if unit_type == "E_ENGINEER" { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx, my_unit.tty, obj_Cant_Shoot, false, true); } }
+                                                                        if unit_type == "E_LACA" { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx, my_unit.tty, obj_Cant_Shoot, false, true); } }
                                                                             else { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx-xdir, my_unit.tty-ydir, obj_Cant_Shoot, false, true); } }
                                                                         //If unit has a clear line of sight
                                                                         if !shoot_mask.t_line  {
@@ -519,7 +519,7 @@ switch state {
                                                                     var dir = point_direction(x, y, ttx, tty);
                                                                     var xdir = lengthdir_x(global.cell_size, dir);
                                                                     var ydir = lengthdir_y(global.cell_size, dir);
-                                                                    if unit_type == "E_ENGINEER" { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx, my_unit.tty, obj_Cant_Shoot, false, true); } }
+                                                                    if unit_type == "E_LACA" { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx, my_unit.tty, obj_Cant_Shoot, false, true); } }
                                                                         else { with shoot_mask { t_line = collision_line(x, y, my_unit.ttx-xdir, my_unit.tty-ydir, obj_Cant_Shoot, false, true); } }
                                                                     //If unit has a clear line of sight
                                                                     if !shoot_mask.t_line  {
@@ -615,7 +615,7 @@ switch state {
                     if !ds_list_empty(tile_list) {
                         var c  = abs(floor(random(ds_list_size(tile_list))));
                         var ct = ds_list_find_value(tile_list, c);
-                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_Infantry); infantry_amount -= 1; }
+                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_INFA); infantry_amount -= 1; }
                         //Remove the waypoint to prevent unit stacking
                         ds_list_delete(tile_list, c);
                     }
@@ -638,7 +638,7 @@ switch state {
                         if !ds_list_empty(tile_list) {
                             var c  = abs(floor(random(ds_list_size(tile_list))));
                             var ct = ds_list_find_value(tile_list, c);
-                            if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_Tank); tank_amount -= 1; }
+                            if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_MBTA); tank_amount -= 1; }
                             //Remove the waypoint to prevent unit stacking
                             ds_list_delete(tile_list, c);
                         }
@@ -660,7 +660,7 @@ switch state {
                             if !ds_list_empty(tile_list) {
                                 var c  = abs(floor(random(ds_list_size(tile_list))));
                                 var ct = ds_list_find_value(tile_list, c);
-                                if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_Engineer); engineer_amount -= 1; }
+                                if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LACA); engineer_amount -= 1; }
                                 //Remove the waypoint to prevent unit stacking
                                 ds_list_delete(tile_list, c);
                             }
@@ -683,7 +683,7 @@ switch state {
                                 if !ds_list_empty(tile_list) {
                                     var c  = abs(floor(random(ds_list_size(tile_list))));
                                     var ct = ds_list_find_value(tile_list, c);
-                                    if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_BTR); btr_amount -= 1; }
+                                    if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LAVA); btr_amount -= 1; }
                                     //Remove the waypoint to prevent unit stacking
                                     ds_list_delete(tile_list, c);
                                 }
@@ -706,7 +706,7 @@ switch state {
                                     if !ds_list_empty(tile_list) {
                                         var c  = abs(floor(random(ds_list_size(tile_list))));
                                         var ct = ds_list_find_value(tile_list, c);
-                                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_Logi); logi_amount -= 1; }
+                                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LOGIA); logi_amount -= 1; }
                                         //Remove the waypoint to prevent unit stacking
                                         ds_list_delete(tile_list, c);
                                     }

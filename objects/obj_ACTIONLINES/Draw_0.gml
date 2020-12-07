@@ -5,7 +5,8 @@ if global.my_turn == true || global.waiting == true {
             if action_confirmed == true || draw_flash == true {
                 var rr = make_colour_rgb(139,0,0);
                 switch unit_type {
-                    case "INFANTRY":
+                    case "INF_A":
+					case "INF_B":
                         var dir = point_direction(x, y, target_x, target_y);
                         var xdir = lengthdir_x(24, dir);
                         var ydir = lengthdir_y(24, dir);
@@ -22,7 +23,8 @@ if global.my_turn == true || global.waiting == true {
                         }
                         draw_sprite_ext(spr_Danger_Icon, 0, target_x, target_y, 1, 1, txt_rot, c_white, 1);
                         break;
-                    case "TANK":
+                    case "MBT_A":
+					case "MBT_B":
                         var dir = point_direction(x, y, target_x, target_y);
                         var xdir = lengthdir_x(39, dir);
                         var ydir = lengthdir_y(39, dir);
@@ -33,14 +35,16 @@ if global.my_turn == true || global.waiting == true {
                         }
                         draw_sprite_ext(spr_Danger_Icon, 0, target_x, target_y, 1, 1, txt_rot, c_white, 1);
                         break;
-                    case "ENGINEER":
+                    case "LAC_A":
+					case "LAC_B":
                         draw_line_width_colour(x, y, target_x, target_y, 8, c_black, c_black);
                         draw_set_alpha(0.6);
                         draw_line_width_colour(x, y, target_x, target_y, 6, c_green, c_orange);
                         draw_set_alpha(1);
 						draw_sprite(spr_Dot_Orange, 0, target_x, target_y);
                         break;
-                    case "BTR":
+                    case "LAV_A":
+					case "LAV_B":
                         var dir = point_direction(x, y, target_x, target_y);
                         var xdir = lengthdir_x(22, dir);
                         var ydir = lengthdir_y(22, dir);
@@ -51,7 +55,8 @@ if global.my_turn == true || global.waiting == true {
                         }
                         draw_sprite_ext(spr_Danger_Icon, 0, target_x, target_y, 1, 1, txt_rot, c_white, 1);
                         break;
-                    case "LOGI":
+                    case "LOGI_A":
+					case "LOGI_B":
                         draw_line_width_colour(x,   y, target_x, target_y, 8, c_black, c_black);
                         draw_set_alpha(0.6);
                         draw_line_width_colour(x,   y, target_x, target_y, 6, c_green, c_orange);
@@ -101,7 +106,8 @@ if global.my_turn == true || global.waiting == true {
             if action_confirmed == true || draw_flash == true {
                 var rr = make_colour_rgb(139,0,0);
                 switch unit_type {
-                    case "E_INFANTRY":
+                    case "E_INFA":
+					case "E_INFB":
                         var dir = point_direction(x, y, target_x, target_y);
                         var xdir = lengthdir_x(24, dir);
                         var ydir = lengthdir_y(24, dir);
@@ -117,7 +123,8 @@ if global.my_turn == true || global.waiting == true {
                             gpu_set_blendmode(bm_normal); 
                         }
                         break;
-                    case "E_TANK":
+                    case "E_MBTA":
+					case "E_MBTB":
                         var dir = point_direction(x, y, target_x, target_y);
                         var xdir = lengthdir_x(39, dir);
                         var ydir = lengthdir_y(39, dir);
@@ -127,13 +134,15 @@ if global.my_turn == true || global.waiting == true {
                             gpu_set_blendmode(bm_normal); 
                         }
                         break;
-                    case "E_ENGINEER":
+                    case "E_LACA":
+					case "E_LACB":
                         draw_line_width_colour(x,   y, target_x, target_y, 8, c_black, c_black);
                         draw_set_alpha(0.6);
                         draw_line_width_colour(x,   y, target_x, target_y, 6, c_green, c_orange);
                         draw_set_alpha(1);
                         break;
-                    case "E_BTR":
+                    case "E_LAVA":
+					case "E_LAVB":
                         var dir = point_direction(x, y, target_x, target_y);
                         var xdir = lengthdir_x(22, dir);
                         var ydir = lengthdir_y(22, dir);
@@ -143,7 +152,8 @@ if global.my_turn == true || global.waiting == true {
                             gpu_set_blendmode(bm_normal); 
                         }
                         break;
-                    case "E_LOGI":
+                    case "E_LOGIA":
+					case "E_LOGIB":
                         draw_line_width_colour(x,   y, target_x, target_y, 8, c_black, c_black);
                         draw_set_alpha(0.6);
                         draw_line_width_colour(x,   y, target_x, target_y, 6, c_green, c_orange);

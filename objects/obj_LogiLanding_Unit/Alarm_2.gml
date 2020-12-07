@@ -8,15 +8,15 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "LOGI" { 
-                                ammo_supply += other.ammo_supply_rate; 
+                            if unit_type == "LOGI_A" { 
+                                ammo_supply += other.logiamo_supply_rate; 
                                 alert_display = true;
                                 alert_text = "+10 Ammo"; 
                                 alert_colour = c_green;
                                 alarm[3] = global.tick_rate*2;
                             }
                                 else if unit_type == "DEPOT" { 
-                                    ammunition_ammo += other.depotammo_supply_rate; 
+                                    ammunition_ammo += other.depotamo_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+10 Ammo"; 
                                     alert_colour = c_green;
@@ -42,15 +42,15 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "LOGI" { 
-                                building_supply += other.building_supply_rate; 
+                            if unit_type == "LOGI_A" { 
+                                building_supply += other.logibld_supply_rate; 
                                 alert_display = true;
                                 alert_text = "10 Parts"; 
                                 alert_colour = c_green;
                                 alarm[3] = global.tick_rate*2;
                             }
                                 else if unit_type == "DEPOT" { 
-                                    parts_ammo += other.depotparts_supply_rate; 
+                                    parts_ammo += other.depotbld_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+10 Parts"; 
                                     alert_colour = c_green;
@@ -86,15 +86,15 @@ if timer_count > 0 { timer_start = true; }
                     case "AMMO":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "LOGI" { 
-                                    ammo_supply += other.ammo_supply_rate; 
+                                if unit_type == "LOGI_A" { 
+                                    ammo_supply += other.logiamo_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+10 Ammo"; 
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2;
                                 }
                                     else if unit_type == "DEPOT" { 
-                                        ammunition_ammo += other.depotammo_supply_rate; 
+                                        ammunition_ammo += other.depotamo_supply_rate; 
                                         alert_display = true;
                                         alert_text = "+10 Ammo"; 
                                         alert_colour = c_green;
@@ -119,15 +119,15 @@ if timer_count > 0 { timer_start = true; }
                     case "PARTS":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "LOGI" { 
-                                    building_supply += other.building_supply_rate; 
+                                if unit_type == "LOGI_A" { 
+                                    building_supply += other.logibld_supply_rate; 
                                     alert_display = true;
                                     alert_text = "10 Parts"; 
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2;
                                 }
                                     else if unit_type == "DEPOT" { 
-                                        parts_ammo += other.depotparts_supply_rate; 
+                                        parts_ammo += other.depotbld_supply_rate; 
                                         alert_display = true;
                                         alert_text = "+10 Parts"; 
                                         alert_colour = c_green;

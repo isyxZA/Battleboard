@@ -46,11 +46,16 @@ function scr_Navigation_Tab() {
 		                        //if nav_split == true {
 								if move_amount > 0 {
 		                            switch unit_type {
-		                                case "INFANTRY":
-		                                case "TANK":
-		                                case "ENGINEER":
-		                                case "BTR":
-		                                case "LOGI":
+		                                case "INF_A":
+										case "INF_B":
+							            case "MBT_A":
+										case "MBT_B":
+							            case "LAC_A":
+										case "LAC_B":
+							            case "LAV_A":
+										case "LAV_B":
+							            case "LOGI_A":
+										case "LOGI_B":
 		                                    nav_confirmed = true;
 		                                    can_move = true; 
 		                                    count_start = true;
@@ -77,7 +82,7 @@ function scr_Navigation_Tab() {
 											action_points -= temp_ap;
 											global.turn_AP -= temp_ap;
 		                                    //global.turn_AP -= (move_amount*mp_cost);
-											var inf = instance_create_layer(x, y, "Units", obj_Soldier_Unit);
+											var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
 		                                    with inf {
 												mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 												my_squad = other.my_squad;

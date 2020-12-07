@@ -8,8 +8,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_INFANTRY" { 
-                                rifle_ammo += other.rifle_supply_rate; 
+                            if unit_type == "E_INFA" { 
+                                rifle_ammo += other.rfl_supply_rate; 
                             }
                         }
                     }
@@ -18,7 +18,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_INFANTRY" { 
+                            if unit_type == "E_INFA" { 
                                 rpg_ammo += other.rpg_supply_rate;
                             }
                         }
@@ -28,8 +28,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_INFANTRY" { 
-                                flare_ammo += other.flare_supply_rate;
+                            if unit_type == "E_INFA" { 
+                                flare_ammo += other.flr_supply_rate;
                             }
                         }
                     }
@@ -38,8 +38,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_TANK" { 
-                                cannon_ammo += other.cannon_supply_rate;
+                            if unit_type == "E_MBTA" { 
+                                cannon_ammo += other.mbtap_supply_rate;
                             }
                         }
                     }
@@ -48,8 +48,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_TANK" { 
-                                mg_ammo += other.mg_supply_rate; 
+                            if unit_type == "E_MBTA" { 
+                                mg_ammo += other.mbtmg_supply_rate; 
                             }
                                 else if unit_type == "E_REPAIR" { 
                                     mg_ammo += other.repairmg_supply_rate;
@@ -61,7 +61,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_ENGINEER" { 
+                            if unit_type == "E_LACA" { 
                                 depot_supply += 1;
                             }
                         }
@@ -71,7 +71,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_ENGINEER" { 
+                            if unit_type == "E_LACA" { 
                                 repair_supply += 1;
                             }
                         }
@@ -81,7 +81,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_ENGINEER" { 
+                            if unit_type == "E_LACA" { 
                                 tow_supply += 1;
                             }
                         }
@@ -91,7 +91,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_ENGINEER" { 
+                            if unit_type == "E_LACA" { 
                                 mortar_supply += 1;
                             }
                         }
@@ -101,8 +101,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_BTR" { 
-                                he_ammo += other.he_supply_rate;
+                            if unit_type == "E_LAVA" { 
+                                he_ammo += other.lavhe_supply_rate;
                             }
                         }
                     }
@@ -111,8 +111,8 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_BTR" { 
-                                ap_ammo += other.ap_supply_rate;
+                            if unit_type == "E_LAVA" { 
+                                ap_ammo += other.lavap_supply_rate;
                             }
                         }
                     }
@@ -121,11 +121,11 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_LOGI" { 
-                                ammo_supply += other.ammo_supply_rate; 
+                            if unit_type == "E_LOGIA" { 
+                                ammo_supply += other.logiamo_supply_rate; 
                             }
                                 else if unit_type == "E_DEPOT" { 
-                                    ammunition_ammo += other.depotammo_supply_rate; 
+                                    ammunition_ammo += other.depotamo_supply_rate; 
                                 }
                         }
                     }
@@ -134,11 +134,11 @@ if timer_count > 0 { timer_start = true; }
                     shoot_parts = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "E_LOGI" { 
-                                building_supply += other.building_supply_rate; 
+                            if unit_type == "E_LOGIA" { 
+                                building_supply += other.logibld_supply_rate; 
                             }
                                 else if unit_type == "E_DEPOT" { 
-                                    parts_ammo += other.depotparts_supply_rate; 
+                                    parts_ammo += other.depotbld_supply_rate; 
                                 }
                                     else if unit_type == "E_REPAIR" { 
                                         repair_ammo += other.repairS_supply_rate; 
@@ -180,8 +180,8 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_ammunition = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_INFANTRY" { 
-	                                rifle_ammo += other.rifle_supply_rate; 
+	                            if unit_type == "E_INFA" { 
+	                                rifle_ammo += other.rfl_supply_rate; 
 	                            }
 	                        }
 	                    }
@@ -190,7 +190,7 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_ammunition = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_INFANTRY" { 
+	                            if unit_type == "E_INFA" { 
 	                                rpg_ammo += other.rpg_supply_rate;
 	                            }
 	                        }
@@ -200,8 +200,8 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_ammunition = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_INFANTRY" { 
-	                                flare_ammo += other.flare_supply_rate;
+	                            if unit_type == "E_INFA" { 
+	                                flare_ammo += other.flr_supply_rate;
 	                            }
 	                        }
 	                    }
@@ -210,8 +210,8 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_ammunition = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_TANK" { 
-	                                cannon_ammo += other.cannon_supply_rate;
+	                            if unit_type == "E_MBTA" { 
+	                                cannon_ammo += other.mbtap_supply_rate;
 	                            }
 	                        }
 	                    }
@@ -220,8 +220,8 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_ammunition = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_TANK" { 
-	                                mg_ammo += other.mg_supply_rate; 
+	                            if unit_type == "E_MBTA" { 
+	                                mg_ammo += other.mbtmg_supply_rate; 
 	                            }
 	                                else if unit_type == "E_REPAIR" { 
 	                                    mg_ammo += other.repairmg_supply_rate;
@@ -233,7 +233,7 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_parts = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_ENGINEER" { 
+	                            if unit_type == "E_LACA" { 
 	                                depot_supply += 1;
 	                            }
 	                        }
@@ -243,7 +243,7 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_parts = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_ENGINEER" { 
+	                            if unit_type == "E_LACA" { 
 	                                repair_supply += 1;
 	                            }
 	                        }
@@ -253,7 +253,7 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_parts = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_ENGINEER" { 
+	                            if unit_type == "E_LACA" { 
 	                                tow_supply += 1;
 	                            }
 	                        }
@@ -263,7 +263,7 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_parts = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_ENGINEER" { 
+	                            if unit_type == "E_LACA" { 
 	                                mortar_supply += 1;
 	                            }
 	                        }
@@ -273,8 +273,8 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_ammunition = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_BTR" { 
-	                                he_ammo += other.he_supply_rate;
+	                            if unit_type == "E_LAVA" { 
+	                                he_ammo += other.lavhe_supply_rate;
 	                            }
 	                        }
 	                    }
@@ -283,8 +283,8 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_ammunition = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_BTR" { 
-	                                ap_ammo += other.ap_supply_rate;
+	                            if unit_type == "E_LAVA" { 
+	                                ap_ammo += other.lavap_supply_rate;
 	                            }
 	                        }
 	                    }
@@ -293,11 +293,11 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_ammunition = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_LOGI" { 
-	                                ammo_supply += other.ammo_supply_rate; 
+	                            if unit_type == "E_LOGIA" { 
+	                                ammo_supply += other.logiamo_supply_rate; 
 	                            }
 	                                else if unit_type == "E_DEPOT" { 
-	                                    ammunition_ammo += other.depotammo_supply_rate; 
+	                                    ammunition_ammo += other.depotamo_supply_rate; 
 	                                }
 	                        }
 	                    }
@@ -306,11 +306,11 @@ if timer_count > 0 { timer_start = true; }
 	                    shoot_parts = true;
 	                    if resupply_unit != noone {
 	                        with resupply_unit { 
-	                            if unit_type == "E_LOGI" { 
-	                                building_supply += other.building_supply_rate; 
+	                            if unit_type == "E_LOGIA" { 
+	                                building_supply += other.logibld_supply_rate; 
 	                            }
 	                                else if unit_type == "E_DEPOT" { 
-	                                    parts_ammo += other.depotparts_supply_rate; 
+	                                    parts_ammo += other.depotbld_supply_rate; 
 	                                }
 	                                    else if unit_type == "E_REPAIR" { 
 	                                        repair_ammo += other.repairS_supply_rate; 

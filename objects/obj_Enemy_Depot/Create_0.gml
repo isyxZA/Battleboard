@@ -13,7 +13,7 @@ if PLAYER.player == "ONE" {
 		txt_rot = 180;
 	}
 
-my_inf = obj_Enemy_Infantry.my_sprite;
+my_inf = obj_Enemy_INFA.my_sprite;
 crater_index = spr_Static_Crater;
 mp_cost = 2;
 var t = instance_place(x, y, obj_Game_Tile);
@@ -58,26 +58,26 @@ shoot_ammunition = false;
 ammunition_rate = 20;
 
 //Infantry
-rifle_supply_rate = 20;
+rfl_supply_rate = 20;
 rpg_supply_rate = 1;
-flare_supply_rate = 1;
+flr_supply_rate = 1;
 //Tank
-cannon_supply_rate = 1;
-mg_supply_rate = 20;
+mbtap_supply_rate = 1;
+mbtmg_supply_rate = 20;
 //BTR
-he_supply_rate = 4;
-ap_supply_rate = 4;
+lavhe_supply_rate = 4;
+lavap_supply_rate = 4;
 //Engineer
-depot_supply_rate = 10;
-repair_supply_rate = 10;
-tow_supply_rate = 10;
-mortar_supply_rate = 10;
+lacdpt_supply_rate = 10;
+lacrpr_supply_rate = 10;
+lactow_supply_rate = 10;
+lacmtr_supply_rate = 10;
 //Logi
-ammo_supply_rate = 10;
-building_supply_rate = 10;
+logiamo_supply_rate = 10;
+logibld_supply_rate = 10;
 //Depot
-depotammo_supply_rate = 10;
-depotparts_supply_rate = 10;
+depotamo_supply_rate = 10;
+depotbld_supply_rate = 10;
 //Repair
 repairS_supply_rate = 10;
 repairmg_supply_rate = 20;

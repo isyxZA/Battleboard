@@ -73,23 +73,6 @@ if surface_exists (fow_surf) {
 	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx1, fy1, fw1, fh1, c_white, aa1);
 	var aa2 = a2*global.menu_ratio;
 	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx2, fy2, fw2, fh2, c_white, aa2);
-	//var aa = 0.5-global.light_level;
-	//draw_sprite_tiled_ext(bg_Stars     , 0, fx1, 0, 1, 1, c_white, aa);
-	/*
-	if global.grid_display == true {
-	    //Gridlines for 40x40 grid
-	    var s_pos   = 1440*fow_scale;
-	    var gap     = 96*fow_scale;
-	    var squares = 41;
-	    var i = 0;
-	    for(i=0; i<squares; i+=1) {
-	        //Vertical Lines
-	        draw_sprite_ext(spr_GridLine_V, 0, s_pos+(gap*i), s_pos, 0.4, 4, 0, c_white, 1);
-	        //Horizontal Lines
-	        draw_sprite_ext(spr_GridLine_H, 0, s_pos, s_pos+(gap*i), 4, 0.4, 0, c_white, 1);
-	    }
-	}
-	*/
     gpu_set_blendmode(bm_normal);
     surface_reset_target();
     draw_surface_ext(fow_surf, 0, 0, 1/fow_scale, 1/fow_scale, 0, c_white, 1);

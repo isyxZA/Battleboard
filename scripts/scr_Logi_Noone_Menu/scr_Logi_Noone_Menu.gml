@@ -1,10 +1,10 @@
 function scr_Logi_Noone_Menu() {
 	//Draw the unit header
 	draw_sprite(spr_Menu_Header, 0, global.menu_x, global.menu_y - global.v_spacing);
-	draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y - global.v_spacing*0.5), "LOGI", c_gray, c_gray, c_gray, c_gray, 1, 0, c_black, 1);
+	draw_text_colour_shadow(global.menu_x+(global.h_spacing*0.5), (global.menu_y - global.v_spacing*0.5), "LOGI_A", c_gray, c_gray, c_gray, c_gray, 1, 0, c_black, 1);
 
-	if global.selected_tank != 0 || global.selected_engineer != 0 || global.selected_btr != 0 
-	    || global.selected_infantry != 0 || global.selected_depot != 0 || global.selected_repair != 0  
+	if global.selected_mbta != 0 || global.selected_laca != 0 || global.selected_lava != 0 
+	    || global.selected_infa != 0 || global.selected_depot != 0 || global.selected_repair != 0  
 	        || global.selected_tow != 0  || global.selected_mortar != 0 {
 	    var hs;
 	    if global.header_highlight == false { hs = spr_Arrowhead_White; } else { 

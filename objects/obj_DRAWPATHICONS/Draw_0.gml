@@ -18,23 +18,28 @@ if global.my_turn == true || global.waiting == true {
 								else { r = point_direction(x1, y1, x2, y2)+90; }
 							//gpu_set_blendmode(bm_subtract);
 		                    switch unit_type {
-		                        case "INFANTRY":
+		                        case "INF_A":
+								case "INF_B":
 		                        case "MORTAR":
 		                        case "TOW":
 		                        case "REPAIR":
 		                        case "DEPOT":
 		                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 		                            break;
-		                        case "TANK":
+		                        case "MBT_A":
+								case "MBT_B":
 		                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 		                            break;
-		                        case "ENGINEER":
+		                        case "LAC_A":
+								case "LAC_B":
 		                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 		                            break;
-		                        case "LOGI":
+		                        case "LOGI_A":
+								case "LOGI_B":
 		                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 		                            break;
-		                        case "BTR":
+		                        case "LAV_A":
+								case "LAV_B":
 		                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 		                            break;
 		                        default:
@@ -60,23 +65,28 @@ if global.my_turn == true || global.waiting == true {
 										else { r = point_direction(x1, y1, x2, y2)+90; }
 									//gpu_set_blendmode(bm_subtract);
 		                            switch unit_type {
-		                                case "INFANTRY":
+		                                case "INF_A":
+										case "INF_B":
 				                        case "MORTAR":
 				                        case "TOW":
 				                        case "REPAIR":
 				                        case "DEPOT":
 				                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
-				                        case "TANK":
+				                        case "MBT_A":
+										case "MBT_B":
 				                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
-				                        case "ENGINEER":
+				                        case "LAC_A":
+										case "LAC_B":
 				                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
-				                        case "LOGI":
+				                        case "LOGI_A":
+										case "LOGI_B":
 				                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
-				                        case "BTR":
+				                        case "LAV_A":
+										case "LAV_B":
 				                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
 				                        default:
@@ -106,23 +116,28 @@ if global.my_turn == true || global.waiting == true {
 										else { r = point_direction(x1, y1, x2, y2)+90; }
 									//gpu_set_blendmode(bm_subtract);
 		                            switch unit_type {
-		                                case "INFANTRY":
+		                                case "INF_A":
+										case "INF_B":
 				                        case "MORTAR":
 				                        case "TOW":
 				                        case "REPAIR":
 				                        case "DEPOT":
 				                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
-				                        case "TANK":
+				                        case "MBT_A":
+										case "MBT_B":
 				                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
-				                        case "ENGINEER":
+				                        case "LAC_A":
+										case "LAC_B":
 				                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
-				                        case "LOGI":
+				                        case "LOGI_A":
+										case "LOGI_B":
 				                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
-				                        case "BTR":
+				                        case "LAV_A":
+										case "LAV_B":
 				                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
 				                        default:
@@ -133,23 +148,28 @@ if global.my_turn == true || global.waiting == true {
 		                        }
 		                    }
 		                    switch unit_type {
-		                        case "INFANTRY":
+		                        case "INF_A":
+								case "INF_B":
 		                        case "MORTAR":
 		                        case "TOW":
 		                        case "REPAIR":
 		                        case "DEPOT":
 		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
 		                            break;
-		                        case "TANK":
+		                        case "MBT_A":
+								case "MBT_B":
 		                            draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot, c_white, 1);
 		                            break;
-		                        case "ENGINEER":
+		                        case "LAC_A":
+								case "LAC_B":
 		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
 		                            break;
-		                        case "LOGI":
+		                        case "LOGI_A":
+								case "LOGI_B":
 		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
 		                            break;
-		                        case "BTR":
+		                        case "LAV_A":
+								case "LAV_B":
 		                            draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot, c_white, 1);
 		                            break;
 		                        default:
@@ -187,23 +207,28 @@ if global.my_turn == true || global.waiting == true {
 											else { r = point_direction(x1, y1, x2, y2)-90; }
 										//gpu_set_blendmode(bm_subtract);
                                         switch unit_type {
-                                            case "E_INFANTRY":
+                                            case "E_INFA":
+											case "E_INFB":
                                             case "E_MORTAR":
                                             case "E_TOW":
                                             case "E_REPAIR":
                                             case "E_DEPOT":
                                                 draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
                                                 break;
-                                            case "E_TANK":
+                                            case "E_MBTA":
+											case "E_MBTB":
                                                 draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
                                                 break;
-                                            case "E_ENGINEER":
+                                            case "E_LACA":
+											case "E_LACB":
                                                 draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
                                                 break;
-                                            case "E_LOGI":
+                                            case "E_LOGIA":
+											case "E_LOGIB":
                                                 draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
                                                 break;
-                                            case "E_BTR":
+                                            case "E_LAVA":
+											case "E_LAVB":
                                                 draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
                                                 break;
                                             default:
@@ -214,23 +239,28 @@ if global.my_turn == true || global.waiting == true {
                                     }
                                 }
                                 switch unit_type {
-                                    case "E_INFANTRY":
+                                    case "E_INFA":
+									case "E_INFB":
                                     case "E_MORTAR":
                                     case "E_TOW":
                                     case "E_REPAIR":
                                     case "E_DEPOT":
                                         draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
                                         break;
-                                    case "E_TANK":
+                                    case "E_MBTA":
+									case "E_MBTB":
                                         draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot, c_white, 1);
                                         break;
-                                    case "E_ENGINEER":
+                                    case "E_LACA":
+									case "E_LACB":
                                         draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
                                         break;
-                                    case "E_LOGI":
+                                    case "E_LOGIA":
+									case "E_LOGIB":
                                         draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
                                         break;
-                                    case "E_BTR":
+                                    case "E_LAVA":
+									case "E_LAVB":
                                         draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot, c_white, 1);
                                         break;
                                     default:

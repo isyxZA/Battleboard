@@ -9,22 +9,22 @@ if can_count == true {
             var z = ds_list_find_value(global.unit_list, i);
             if point_in_circle(z.x,z.y, x, y, capture_radius) {
 				switch z.unit_type {
-					case "INFANTRY":
-					case "TANK":
-					case "ENGINEER":
-					case "BTR":
-					case "LOGI":
+					case "INF_A":
+					case "MBT_A":
+					case "LAC_A":
+					case "LAV_A":
+					case "LOGI_A":
 					case "DEPOT":
 					case "REPAIR":
 					case "TOW":
 					case "MORTAR":
 						u1 ++;
 						break;
-					case "E_INFANTRY":
-					case "E_TANK":
-					case "E_ENGINEER":
-					case "E_BTR":
-					case "E_LOGI":
+					case "E_INFA":
+					case "E_MBTA":
+					case "E_LACA":
+					case "E_LAVA":
+					case "E_LOGIA":
 					case "E_DEPOT":
 					case "E_REPAIR":
 					case "E_TOW":
