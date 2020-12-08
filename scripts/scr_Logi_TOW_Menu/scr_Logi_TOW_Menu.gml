@@ -36,7 +36,7 @@ function scr_Logi_TOW_Menu() {
 	        switch m {
 	            case 0:
 	                shoot_amount = global.towamo_l_amount;
-	                ammo_count   = global.ammo_supply;
+	                ammo_count   = global.logi_amo_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;

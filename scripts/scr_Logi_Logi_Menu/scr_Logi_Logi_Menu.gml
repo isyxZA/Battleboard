@@ -37,7 +37,7 @@ function scr_Logi_Logi_Menu() {
 	        switch m {
 	            case 0:
 	                shoot_amount = global.logiamo_l_amount;
-	                ammo_count   = global.ammo_supply;
+	                ammo_count   = global.logi_amo_supply;
 	                break;
 	            case 1:
 	                shoot_amount = global.logibld_l_amount;

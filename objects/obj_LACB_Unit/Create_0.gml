@@ -10,10 +10,12 @@ if p_side == "ONE" {
 	switch p_faction {
 		case "US":
 			my_sprite    = spr_Engineer_A1a;
+			my_turret    = spr_Engineer_A1a_Turret;
 			crater_index = spr_Engineer_Crater_US;
 			break;
 		case "RU":
 			my_sprite    = spr_Engineer_B1a;
+			my_turret    = spr_Engineer_B1a_Turret;
 			crater_index = spr_Engineer_Crater_RU;
 			break;
 	}
@@ -25,10 +27,12 @@ if p_side == "ONE" {
 		switch p_faction {
 			case "US":
 				my_sprite = spr_Engineer_A2a;
+				my_turret    = spr_Engineer_A2a_Turret;
 				crater_index = spr_Engineer_Crater_US;
 				break;
 			case "RU":
 				my_sprite = spr_Engineer_B2a;
+				my_turret    = spr_Engineer_B2a_Turret;
 				crater_index = spr_Engineer_Crater_RU;
 				break;
 		}
@@ -70,6 +74,8 @@ y_final = y;
 target_x = x;
 target_y = y;
 diag = false;
+
+turret_rot = 0;
 
 can_man = true;
 is_manning = false;

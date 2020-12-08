@@ -67,14 +67,17 @@ flr_supply_rate = 1;
 //Tank
 mbtap_supply_rate = 1;
 mbtmg_supply_rate = 20;
-//BTR
+//LAV
 lavhe_supply_rate = 4;
 lavap_supply_rate = 4;
-//Engineer
+lavmg_supply_rate = 20;
+lavat_supply_rate = 1;
+//LAC
 lacdpt_supply_rate = 10;
 lacrpr_supply_rate = 10;
 lactow_supply_rate = 10;
 lacmtr_supply_rate = 10;
+lactow2_supply_rate = 1;
 //Logi
 logiamo_supply_rate = 10;
 logibld_supply_rate = 10;

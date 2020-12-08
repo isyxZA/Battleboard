@@ -54,7 +54,7 @@ if nav_confirmed == true {
             manned_unit = noone;
         }
         //Add alert to gui
-        ds_list_add(global.action_alert_list, "LAV Moving");
+        ds_list_add(global.action_alert_list, "IFV Moving");
     }
     audio_emitter_position(emit, x, y, 0);
     if line_alpha >= 0.95 { fade_switch = true; }
@@ -87,7 +87,7 @@ if nav_confirmed == true {
         var i;
         for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
             var z = ds_list_find_value(global.action_alert_list, i);
-            if z == "LAV Moving" { 
+            if z == "IFV Moving" { 
                 ds_list_delete(global.action_alert_list, i); 
                 break;
             }
@@ -131,7 +131,7 @@ if action_confirmed == true {
     if shoot_ap == true {
         if !shoot_mask.t_line {
             //Add alert to gui
-            ds_list_add(global.action_alert_list, "LAV Firing AP"); 
+            ds_list_add(global.action_alert_list, "IFV Firing AP"); 
             shoot_ap = false;
             timer_target = 3;
             timer_count = timer_target;
@@ -183,7 +183,7 @@ if action_confirmed == true {
         else if shoot_he == true {
             if !shoot_mask.t_line {
                 //Add alert to gui
-                ds_list_add(global.action_alert_list, "LAV Firing HE");
+                ds_list_add(global.action_alert_list, "IFV Firing HE");
                 shoot_he = false;
                 timer_target = 3;
                 timer_count = timer_target;
@@ -232,7 +232,160 @@ if action_confirmed == true {
 						}
                 }
         }
-            else {}
+			else if shoot_mg == true {
+	            if !shoot_mask.t_line {
+	                //Add alert to gui
+	                ds_list_add(global.action_alert_list, "IFV Firing MG");
+	                shoot_mg = false;
+	                timer_target = 3;
+	                timer_count = timer_target;
+	                timer_start = true;
+	                shoot_amount -= 1;
+	            }
+	                else {
+	                    shoot_mg = false;
+	                    timer_start = false;
+	                    action_confirmed = false;
+	                    //Ammo amount to be returned
+	                    mg_ammo += shoot_amount*mg_rate;
+	                    //Action points to be returned
+	                    var pp = shoot_amount*mg_cost;
+	                    action_points += pp;
+	                    global.turn_AP += pp;
+	                    global.ap_return = pp;
+	                    global.draw_apreturn = true;
+	                    shoot_amount = 0;
+	                    alert_display = true;
+	                    alert_text = "Cancelled!"; 
+	                    alert_colour = c_red;
+	                    alarm[3] = global.tick_rate*3;
+	                    global.units_running -= 1;
+						//SEND NET CANCEL SIGNAL
+						if PLAYER.net_status == "HOST" {
+							//Send action data to client
+							var cc = ds_list_size(global.clients);
+							if cc > 0 { 
+								var i;
+								for (i=0;i<cc;i++) {
+									var csocket = ds_list_find_value(global.clients, i);
+									net_write_client(csocket, 
+										buffer_u8, NET_CANCELSHOOT,
+										buffer_u32, id,
+									);
+								}
+							}
+						}
+							else if PLAYER.net_status == "CLIENT" {
+								//Send action data to host
+								net_write_server(
+									buffer_u8, NET_CANCELSHOOT,
+									buffer_u32, id,
+								);
+							}
+	                }
+	        }
+				else if shoot_tow == true {
+		            if !shoot_mask.t_line {
+		                //Add alert to gui
+		                ds_list_add(global.action_alert_list, "IFV Firing TOW");
+		                shoot_tow = false;
+		                timer_target = 3;
+		                timer_count = timer_target;
+		                timer_start = true;
+		                shoot_amount -= 1;
+		            }
+		                else {
+		                    shoot_tow = false;
+		                    timer_start = false;
+		                    action_confirmed = false;
+		                    //Ammo amount to be returned
+		                    tow_ammo += shoot_amount*tow_rate;
+		                    //Action points to be returned
+		                    var pp = shoot_amount*mg_cost;
+		                    action_points += pp;
+		                    global.turn_AP += pp;
+		                    global.ap_return = pp;
+		                    global.draw_apreturn = true;
+		                    shoot_amount = 0;
+		                    alert_display = true;
+		                    alert_text = "Cancelled!"; 
+		                    alert_colour = c_red;
+		                    alarm[3] = global.tick_rate*3;
+		                    global.units_running -= 1;
+							//SEND NET CANCEL SIGNAL
+							if PLAYER.net_status == "HOST" {
+								//Send action data to client
+								var cc = ds_list_size(global.clients);
+								if cc > 0 { 
+									var i;
+									for (i=0;i<cc;i++) {
+										var csocket = ds_list_find_value(global.clients, i);
+										net_write_client(csocket, 
+											buffer_u8, NET_CANCELSHOOT,
+											buffer_u32, id,
+										);
+									}
+								}
+							}
+								else if PLAYER.net_status == "CLIENT" {
+									//Send action data to host
+									net_write_server(
+										buffer_u8, NET_CANCELSHOOT,
+										buffer_u32, id,
+									);
+								}
+		                }
+		        }
+					else if shoot_sqd == true {
+			            if !shoot_mask.t_line {
+			                //Add alert to gui
+			                shoot_sqd = false;
+							if squad_unit != "NOONE" {
+								ds_list_add(global.action_alert_list, "IFV Deploying Squad");
+				                timer_target = 3;
+				                timer_count = timer_target;
+				                timer_start = true;
+				                shoot_amount -= 1;
+								switch squad_unit {
+									case "INF_A":
+										var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
+										break;
+									case "INF_B":
+										var inf = instance_create_layer(x, y, "Units", obj_INFB_Unit);
+										break;
+									default:
+										var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
+										break;
+								}
+								with inf {
+									my_squad    = other.squad_temp;
+									unit_health = other.health_temp;
+									rifle_ammo = rfl_temp;
+									rpg_ammo   = rpg_temp;
+									flare_ammo = flr_temp;
+									//Add to squad list
+									switch my_squad {
+										case "ALPHA":
+											ds_list_add(global.squad_alpha, id);
+											break;
+										case "BRAVO":
+											ds_list_add(global.squad_bravo, id);
+											break;
+										case "CHARLIE":
+											ds_list_add(global.squad_charlie, id);
+											break;
+										case "DELTA":
+											ds_list_add(global.squad_delta, id);
+											break;
+										case "ECHO":
+											ds_list_add(global.squad_echo, id);
+											break;
+									}
+								}
+							}
+			            }
+			        }
+						else {}
 }
 
 if timer_start == true {

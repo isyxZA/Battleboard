@@ -45,7 +45,7 @@ function scr_LOGIA_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	        //Increase by a rate of 4
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo supply available
-	            if global.mtramo_l_amount <= (global.ammo_supply-mortarS_supply_rate) {
+	            if global.mtramo_l_amount <= (global.logi_amo_supply-mortarS_supply_rate) {
 	                //Make sure the unit ammo does not go over max
 	                if ((global.mtramo_l_amount+mortarS_count)+mortarS_supply_rate) <= mortar_max {
 	                    //Check if there is enough turn AP for the move
@@ -76,7 +76,7 @@ function scr_LOGIA_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	        }
 	        //Clamp the value between zero and the max available rounds
 	        if global.mtramo_l_amount < 0 { global.mtramo_l_amount = 0; }
-	        if global.mtramo_l_amount > global.logi_amo_supply { global.mtramo_l_amount = global.ammo_supply; }
+	        if global.mtramo_l_amount > global.logi_amo_supply { global.mtramo_l_amount = global.logi_amo_supply; }
 	        //Add to temp AP cost
 	        global.temp_AP = (global.mtramo_l_amount/mortarS_supply_rate)*ap_cost;
 	        //Set the menu position

@@ -1,6 +1,6 @@
 /// @description scr_LACB_Tab(tow_rate, ap_cost)
-/// @param  tow_rate
-/// @param  ap_cost
+/// @param tow_rate
+/// @param ap_cost
 function scr_LACB_Tab(argument0, argument1) {
 
 	var f0;

@@ -28,11 +28,11 @@ function scr_Depot_Noone_Menu() {
 	        switch m {
 	            case 0:
 	                shoot_amount = global.parts_amount;
-	                ammo_count   = global.parts_ammo;
+	                ammo_count   = global.dpt_bld_supply;
 	                break;
 	            case 1:
 	                shoot_amount = global.ammunition_amount;
-	                ammo_count   = global.ammunition_ammo;
+	                ammo_count   = global.dpt_amo_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -42,11 +42,11 @@ function scr_Depot_Noone_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.parts_ammo <= 0 { c1 = c_red; }
+	                if global.dpt_bld_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 1:
-	                if global.ammunition_ammo <= 0 { c1 = c_red; }
+	                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

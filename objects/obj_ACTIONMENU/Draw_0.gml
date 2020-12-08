@@ -85,77 +85,165 @@ if global.my_turn == true || global.waiting == true {
                         case "MBT_A":
                             scr_Fire_Menu(ta_fire_menu,array_length(ta_fire_menu),global.ammo_tab);
                             break;
+						case "MBT_B":
+                            scr_Fire_Menu(tb_fire_menu,array_length(tb_fire_menu),global.ammo_tab);
+                            break;
                         case "LAC_A":
                             scr_Fire_Menu(ea_fire_menu,array_length(ea_fire_menu),global.ammo_tab);
+                            break;
+						case "LAC_B":
+                            scr_Fire_Menu(eb_fire_menu,array_length(eb_fire_menu),global.ammo_tab);
                             break;
                         case "LAV_A":
                             scr_Fire_Menu(ba_fire_menu,array_length(ba_fire_menu),global.ammo_tab);
                             break;
+						case "LAV_B":
+                            scr_Fire_Menu(bb_fire_menu,array_length(bb_fire_menu),global.ammo_tab);
+                            break;
                         case "LOGI_A":
                             switch global.resupply_target {
                                 case "INF_A":
-                                    scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "LOGI-INF");
+                                    scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "LOGIA-INFA");
+                                    break;
+								case "INF_B":
+                                    scr_Fire_Menu(laib_fire_menu, array_length(laib_fire_menu), "LOGIA-INFB");
                                     break;
                                 case "MBT_A":
-                                    scr_Fire_Menu(lata_fire_menu, array_length(lata_fire_menu), "LOGI-MBT");
+                                    scr_Fire_Menu(lata_fire_menu, array_length(lata_fire_menu), "LOGIA-MBTA");
+                                    break;
+								case "MBT_B":
+                                    scr_Fire_Menu(latb_fire_menu, array_length(latb_fire_menu), "LOGIA-MBTB");
                                     break;
                                 case "LAC_A":
-                                    scr_Fire_Menu(laea_fire_menu, array_length(laea_fire_menu), "LOGI-ENG");
+                                    scr_Fire_Menu(laea_fire_menu, array_length(laea_fire_menu), "LOGIA-LACA");
+                                    break;
+								case "LAC_B":
+                                    scr_Fire_Menu(laeb_fire_menu, array_length(laeb_fire_menu), "LOGIA-LACB");
                                     break;
                                 case "LAV_A":
-                                    scr_Fire_Menu(laba_fire_menu, array_length(laba_fire_menu), "LOGI-LAV");
+                                    scr_Fire_Menu(laba_fire_menu, array_length(laba_fire_menu), "LOGIA-LAVA");
                                     break;
-                                case "LOGI_A":
-                                    scr_Fire_Menu(lala_fire_menu, array_length(lala_fire_menu), "LOGI-LGI");
+								case "LAV_B":
+                                    scr_Fire_Menu(labb_fire_menu, array_length(labb_fire_menu), "LOGIA-LAVB");
+                                    break;
+								case "LOGI_A":
+                                    scr_Fire_Menu(lala_fire_menu, array_length(lala_fire_menu), "LOGIA-LOGIA");
+                                    break;
+								case "LOGI_B":
+                                    scr_Fire_Menu(lalb_fire_menu, array_length(lalb_fire_menu), "LOGIA-LOGIB");
                                     break;
                                 case "DEPOT":
-                                    scr_Fire_Menu(lad_fire_menu, array_length(lad_fire_menu), "LOGI-DPT");
+                                    scr_Fire_Menu(lad_fire_menu, array_length(lad_fire_menu), "LOGIA-DEPOT");
                                     break;
                                 case "REPAIR":
-                                    scr_Fire_Menu(lar_fire_menu, array_length(lar_fire_menu), "LOGI-RPR");
+                                    scr_Fire_Menu(lar_fire_menu, array_length(lar_fire_menu), "LOGIA-REPAIR");
                                     break;
                                 case "TOW":
-                                    scr_Fire_Menu(laat_fire_menu, array_length(laat_fire_menu), "LOGI-TOW");
+                                    scr_Fire_Menu(laat_fire_menu, array_length(laat_fire_menu), "LOGIA-TOW");
                                     break;
                                 case "MORTAR":
-                                    scr_Fire_Menu(lam_fire_menu, array_length(lam_fire_menu), "LOGI-MTR");
+                                    scr_Fire_Menu(lam_fire_menu, array_length(lam_fire_menu), "LOGIA-MORTAR");
                                     break;
                                 case "NOONE":
-                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGI_A");
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGIA_A");
                                     break;
 								default:
-                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGI_A");
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGIA_A");
+                                    break;
+                            }
+                            break;
+						case "LOGI_B":
+                            switch global.resupply_target {
+                                case "INF_A":
+                                    scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "LOGIB-INFA");
+                                    break;
+								case "INF_B":
+                                    scr_Fire_Menu(laib_fire_menu, array_length(laib_fire_menu), "LOGIB-INFB");
+                                    break;
+                                case "MBT_A":
+                                    scr_Fire_Menu(lata_fire_menu, array_length(lata_fire_menu), "LOGIB-MBTA");
+                                    break;
+								case "MBT_B":
+                                    scr_Fire_Menu(latb_fire_menu, array_length(latb_fire_menu), "LOGIB-MBTB");
+                                    break;
+								case "LAC_B":
+                                    scr_Fire_Menu(laeb_fire_menu, array_length(laeb_fire_menu), "LOGIB-LACB");
+                                    break;
+                                case "LAV_A":
+                                    scr_Fire_Menu(laba_fire_menu, array_length(laba_fire_menu), "LOGIB-LAVA");
+                                    break;
+								case "LAV_B":
+                                    scr_Fire_Menu(labb_fire_menu, array_length(labb_fire_menu), "LOGIB-LAVB");
+                                    break;
+								case "LOGI_A":
+                                    scr_Fire_Menu(lbla_fire_menu, array_length(lbla_fire_menu), "LOGIB-LOGIA");
+                                    break;
+								case "LOGI_B":
+                                    scr_Fire_Menu(lbla_fire_menu, array_length(lbla_fire_menu), "LOGIB-LOGIB");
+                                    break;
+                                case "DEPOT":
+                                    scr_Fire_Menu(lbd_fire_menu, array_length(lbd_fire_menu), "LOGIB-DEPOT");
+                                    break;
+                                case "REPAIR":
+                                    scr_Fire_Menu(lbr_fire_menu, array_length(lbr_fire_menu), "LOGIB-REPAIR");
+                                    break;
+                                case "TOW":
+                                    scr_Fire_Menu(laat_fire_menu, array_length(laat_fire_menu), "LOGIB-TOW");
+                                    break;
+                                case "MORTAR":
+                                    scr_Fire_Menu(lam_fire_menu, array_length(lam_fire_menu), "LOGIB-MORTAR");
+                                    break;
+                                case "NOONE":
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGIB_A");
+                                    break;
+								default:
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGIB_A");
                                     break;
                             }
                             break;
                         case "DEPOT":
                             switch global.resupply_target {
                                 case "INF_A":
-                                    scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "DEPOT-INF");
+                                    scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "DEPOT-INFA");
+                                    break;
+								case "INF_B":
+                                    scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "DEPOT-INFB");
                                     break;
                                 case "MBT_A":
-                                    scr_Fire_Menu(lata_fire_menu, array_length(lata_fire_menu), "DEPOT-MBT");
+                                    scr_Fire_Menu(lata_fire_menu, array_length(lata_fire_menu), "DEPOT-MBTA");
+                                    break;
+								case "MBT_B":
+                                    scr_Fire_Menu(lata_fire_menu, array_length(lata_fire_menu), "DEPOT-MBTB");
                                     break;
                                 case "LAC_A":
-                                    scr_Fire_Menu(laea_fire_menu, array_length(laea_fire_menu), "DEPOT-ENG");
+                                    scr_Fire_Menu(laea_fire_menu, array_length(laea_fire_menu), "DEPOT-LACA");
+                                    break;
+								case "LAC_B":
+                                    scr_Fire_Menu(laeb_fire_menu, array_length(laeb_fire_menu), "DEPOT-LACB");
                                     break;
                                 case "LAV_A":
-                                    scr_Fire_Menu(laba_fire_menu, array_length(laba_fire_menu), "DEPOT-LAV");
+                                    scr_Fire_Menu(laba_fire_menu, array_length(laba_fire_menu), "DEPOT-LAVA");
+                                    break;
+								case "LAV_B":
+                                    scr_Fire_Menu(labb_fire_menu, array_length(labb_fire_menu), "DEPOT-LAVB");
                                     break;
                                 case "LOGI_A":
-                                    scr_Fire_Menu(lala_fire_menu, array_length(lala_fire_menu), "DEPOT-LGI");
+                                    scr_Fire_Menu(lala_fire_menu, array_length(lala_fire_menu), "DEPOT-LOGIA");
+                                    break;
+								case "LOGI_B":
+                                    scr_Fire_Menu(lalb_fire_menu, array_length(lalb_fire_menu), "DEPOT-LOGIB");
                                     break;
                                 case "DEPOT":
-                                    scr_Fire_Menu(lad_fire_menu, array_length(lad_fire_menu), "DEPOT-DPT");
+                                    scr_Fire_Menu(lad_fire_menu, array_length(lad_fire_menu), "DEPOT-DEPOT");
                                     break;
                                 case "REPAIR":
-                                    scr_Fire_Menu(lar_fire_menu, array_length(lar_fire_menu), "DEPOT-RPR");
+                                    scr_Fire_Menu(lar_fire_menu, array_length(lar_fire_menu), "DEPOT-REPAIR");
                                     break;
                                 case "TOW":
                                     scr_Fire_Menu(laat_fire_menu, array_length(laat_fire_menu), "DEPOT-TOW");
                                     break;
                                 case "MORTAR":
-                                    scr_Fire_Menu(lam_fire_menu, array_length(lam_fire_menu), "DEPOT-MTR");
+                                    scr_Fire_Menu(lam_fire_menu, array_length(lam_fire_menu), "DEPOT-MORTAR");
                                     break;
                                 case "NOONE":
                                     scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "DEPOT");
@@ -177,16 +265,19 @@ if global.my_turn == true || global.waiting == true {
                         case "SUPPLY SHIP":
                             switch global.resupply_target {
                                 case "LOGI_A":
-                                    scr_Fire_Menu(lala_fire_menu, array_length(lala_fire_menu), "SHIP-LGI");
+                                    scr_Fire_Menu(lala_fire_menu, array_length(lala_fire_menu), "SHIP-LOGIA");
+                                    break;
+								case "LOGI_B":
+                                    scr_Fire_Menu(lalb_fire_menu, array_length(lalb_fire_menu), "SHIP-LOGIB");
                                     break;
                                 case "DEPOT":
-                                    scr_Fire_Menu(lad_fire_menu, array_length(lad_fire_menu), "SHIP-DPT");
+                                    scr_Fire_Menu(lad_fire_menu, array_length(lad_fire_menu), "SHIP-DEPOT");
                                     break;
                                 case "NOONE":
-                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "SUPPLY SHIP");
+                                    scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "SHIP");
                                     break;
 								default:
-									scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "SUPPLY SHIP");
+									scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "SHIP");
 									break;
                             }
                             break;

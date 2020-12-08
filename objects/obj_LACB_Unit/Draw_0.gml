@@ -12,6 +12,8 @@ if global.my_turn == true || global.waiting == true {
 		shader_set_uniform_f(bright_x, 0.75);
 		shader_set_uniform_f(bright_y, 0.75);
         draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+		texture_set_stage(mask, sprite_get_texture(my_turret, 0));
+        draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, c_white, 1);
 		shader_reset();
     }
         else {
@@ -30,6 +32,7 @@ if global.my_turn == true || global.waiting == true {
                         //if p_one == true { draw_sprite_ext(my_sprite, 0, x_end-4, y_end+2, 0.8, 0.8, 0, c_black, na); }
 							//else { draw_sprite_ext(my_sprite, 0, x_end+4, y_end-2, 0.8, 0.8, 0, c_black, na); }
                         draw_sprite_ext(my_sprite, 0, x_end, y_end, 0.75, 0.75, 0, c_white, na);
+						draw_sprite_ext(my_turret, 0, x_end, y_end, 0.75, 0.75, turret_rot, c_white, na);
                     }
                         //If selected and not selecting a path
                         else if global.nav_select == false {
@@ -39,6 +42,7 @@ if global.my_turn == true || global.waiting == true {
                                 if p_one == true { draw_sprite_ext(my_sprite, 0, x_end-4, y_end+2, 0.8, 0.8, 0, c_black, 0.5); }
 									else { draw_sprite_ext(my_sprite, 0, x_end+4, y_end-2, 0.8, 0.8, 0, c_black, 0.5); } 
                                 draw_sprite_ext(my_sprite, 0, x_end, y_end, 0.75, 0.75, 0, c_white, 1);
+								draw_sprite_ext(my_turret, 0, x_end, y_end, 0.75, 0.75, turret_rot, c_white, 1);
                             }
                         }
                 }
@@ -62,6 +66,8 @@ if global.my_turn == true || global.waiting == true {
 						shader_set_uniform_f(bright_x, 0.25);
 						shader_set_uniform_f(bright_y, 0.25);
 				        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+						texture_set_stage(mask, sprite_get_texture(my_turret, 0));
+						draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, c_white, 1);
 						shader_reset(); 
                     }
             }
@@ -74,6 +80,7 @@ if global.my_turn == true || global.waiting == true {
                     }
                     var pa = max(0.5, path_position);
                     draw_sprite_ext(my_sprite, 0, x_final, y_final, scl, scl, 0, c_white, pa);
+					draw_sprite_ext(my_turret, 0, x_final, y_final, scl, scl, turret_rot, c_white, pa);
                 }
     }
 }
@@ -89,6 +96,8 @@ if global.my_turn == true || global.waiting == true {
 		shader_set_uniform_f(bright_x, 0.25);
 		shader_set_uniform_f(bright_y, 0.25);
         draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+		texture_set_stage(mask, sprite_get_texture(my_turret, 0));
+        draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, c_white, 1);
 		shader_reset();
     }
     

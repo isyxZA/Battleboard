@@ -55,7 +55,7 @@ function scr_LOGIA_MBTA_Tab(argument0, argument1, argument2, argument3, argument
 	        //Increase by a rate of 1
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo supply available
-	            if global.mbtap_l_amount <= (global.ammo_supply-mbtap_supply_rate) {
+	            if global.mbtap_l_amount <= (global.logi_amo_supply-mbtap_supply_rate) {
 	                //Make sure the unit rifle ammo does not go over max
 	                if ((global.mbtap_l_amount+cannon_count)+mbtap_supply_rate) <= cannon_max {
 	                    //Check if there is enough turn AP for the move
@@ -86,7 +86,7 @@ function scr_LOGIA_MBTA_Tab(argument0, argument1, argument2, argument3, argument
 	        }
 	        //Clamp the value between zero and the max available rounds
 	        if global.mbtap_l_amount < 0 { global.mbtap_l_amount = 0; }
-	        if global.mbtap_l_amount > global.logi_amo_supply { global.mbtap_l_amount = global.ammo_supply; }
+	        if global.mbtap_l_amount > global.logi_amo_supply { global.mbtap_l_amount = global.logi_amo_supply; }
 	        //Add to temp AP cost
 	        global.temp_AP = (global.mbtap_l_amount/mbtap_supply_rate)*ap_cost;
 	        //Set the menu position
@@ -103,7 +103,7 @@ function scr_LOGIA_MBTA_Tab(argument0, argument1, argument2, argument3, argument
 	            //Increase by a rate of 20
 	            if mouse_wheel_up() { 
 	                //Check if there is enough ammo available
-	                if global.mbtmg_l_amount <= (global.ammo_supply-mbtmg_supply_rate) { 
+	                if global.mbtmg_l_amount <= (global.logi_amo_supply-mbtmg_supply_rate) { 
 	                    //Make sure the unit rpg ammo does not go over max
 	                    if ((global.mbtmg_l_amount+mg_count)+mbtmg_supply_rate) <= mg_max {
 	                        //Check if there is enough turn AP for the move
@@ -134,7 +134,7 @@ function scr_LOGIA_MBTA_Tab(argument0, argument1, argument2, argument3, argument
 	            }
 	            //Clamp the value between zero and the max available rounds
 	            if global.mbtmg_l_amount < 0 { global.mbtmg_l_amount = 0; }
-	            if global.mbtmg_l_amount > global.logi_amo_supply { global.mbtmg_l_amount = global.ammo_supply; }
+	            if global.mbtmg_l_amount > global.logi_amo_supply { global.mbtmg_l_amount = global.logi_amo_supply; }
 	            //Add to temp AP cost
 	            global.temp_AP = (global.mbtmg_l_amount/mbtmg_supply_rate)*ap_cost;
 	            //Set the menu position

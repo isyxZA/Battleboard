@@ -375,19 +375,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						switch m {
 				            case 0:
 				                shoot_amount = global.lav_he_amount;
-				                ammo_count = global.lav_he_ammo;
+				                ammo_count   = global.lav_he_ammo;
 				                break;
 				            case 1:
 				                shoot_amount = global.lav_ap_amount;
-				                ammo_count = global.lav_ap_ammo;
+				                ammo_count   = global.lav_ap_ammo;
 				                break;
 							case 2:
 				                shoot_amount = global.lav_mg_amount;
-				                ammo_count = global.lav_mg_ammo;
+				                ammo_count   = global.lav_mg_ammo;
 				                break;
 				            case 3:
 				                shoot_amount = global.lav_sq_amount;
-				                ammo_count = global.lav_sq_ammo;
+				                ammo_count   = global.lav_sq_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -494,19 +494,21 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-INF":
+					case "LOGIA-INFA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.infrfl_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.infrpg_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            case 2:
 				                shoot_amount = global.infflr_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -534,15 +536,59 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-MBT":
+					case "LOGIA-INFB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.infrfl_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.infrpg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 2:
+				                shoot_amount = global.infflr_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 2:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIA-MBTA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.mbtap_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.mbtmg_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -566,7 +612,43 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-ENG":
+					case "LOGIA-MBTB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.mbtap_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.mbtmg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIA-LACA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.lacdpt_l_amount;
@@ -614,15 +696,51 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-LAV":
+					case "LOGIA-LACB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.lactow2_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIA-LAVA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.lavhe_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.lavap_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+							case 2:
+				                shoot_amount = global.lavmg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 3:
+				                shoot_amount = global.lavat_l_amount;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -639,6 +757,14 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                if global.logi_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
+							case 2:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 3:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
 				            default:
 				                c1 = c_white;
 				                break;
@@ -646,11 +772,55 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-LGI":
+					case "LOGIA-LAVB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.lavhe_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.lavap_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+							case 2:
+				                shoot_amount = global.lavmg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+							case 2:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIA-LOGIA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.logiamo_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.logibld_l_amount;
@@ -678,7 +848,35 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-DPT":
+					case "LOGIA-LOGIB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.logiamo_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIA-DEPOT":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.dptbld_l_amount;
@@ -686,7 +884,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            case 1:
 				                shoot_amount = global.dptamo_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -710,7 +908,9 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-RPR":
+					case "LOGIA-REPAIR":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.rprbld_l_amount;
@@ -718,7 +918,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				                break;
 				            case 1:
 				                shoot_amount = global.rprmg_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -742,11 +942,13 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-TOW":
+					case "LOGIA-TOW":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.towamo_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -766,11 +968,13 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI-MTR":
+					case "LOGIA-MORTAR":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.mtramo_l_amount;
-				                ammo_count   = global.ammo_supply;
+				                ammo_count   = global.logi_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -790,7 +994,9 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "LOGI_A":
+					case "LOGIA_A":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            default:
 				                shoot_amount = 0;
@@ -806,19 +1012,469 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "DEPOT-INF":
+					case "LOGIB-INFA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.infrfl_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.infrpg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 2:
+				                shoot_amount = global.infflr_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 2:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-INFB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.infrfl_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.infrpg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 2:
+				                shoot_amount = global.infflr_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 2:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-MBTA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.mbtap_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.mbtmg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-MBTB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.mbtap_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.mbtmg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-LACB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.lactow2_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-LAVA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.lavhe_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.lavap_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+							case 2:
+				                shoot_amount = global.lavmg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 3:
+				                shoot_amount = global.lavat_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+							case 2:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 3:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-LAVB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.lavhe_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.lavap_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+							case 2:
+				                shoot_amount = global.lavmg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+							case 2:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-LOGIA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.logiamo_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-LOGIB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.logiamo_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-DEPOT":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.dptamo_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-REPAIR":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.rprmg_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_bld_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-TOW":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.towamo_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB-MORTAR":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.mtramo_l_amount;
+				                ammo_count   = global.logi_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "LOGIB_A":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "DEPOT-INFA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.infrfl_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.infrpg_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            case 2:
 				                shoot_amount = global.infflr_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -828,15 +1484,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -846,15 +1502,59 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "DEPOT-MBT":
+					case "DEPOT-INFB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.infrfl_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.infrpg_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            case 2:
+				                shoot_amount = global.infflr_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 2:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "DEPOT-MBTA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.mbtap_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.mbtmg_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -864,11 +1564,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -878,23 +1578,59 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "DEPOT-ENG":
+					case "DEPOT-MBTB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.mbtap_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.mbtmg_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "DEPOT-LACA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.lacdpt_d_amount;
-				                ammo_count   = global.parts_ammo;
+				                ammo_count   = global.dpt_bld_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.lacrpr_d_amount;
-				                ammo_count   = global.parts_ammo;
+				                ammo_count   = global.dpt_bld_supply;
 				                break;
 				            case 2:
 				                shoot_amount = global.lactow_d_amount;
-				                ammo_count   = global.parts_ammo;
+				                ammo_count   = global.dpt_bld_supply;
 				                break;
 				            case 3:
 				                shoot_amount = global.lacmtr_d_amount;
-				                ammo_count   = global.parts_ammo;
+				                ammo_count   = global.dpt_bld_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -904,19 +1640,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.parts_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.parts_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.parts_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.parts_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -926,15 +1662,51 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "DEPOT-LAV":
+					case "DEPOT-LACB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.lactow2_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "DEPOT-LAVA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.lavhe_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.lavap_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+							case 2:
+				                shoot_amount = global.lavmg_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            case 3:
+				                shoot_amount = global.lavat_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -944,11 +1716,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -958,15 +1730,59 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "DEPOT-LGI":
+					case "DEPOT-LAVB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.lavhe_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            case 1:
+				                shoot_amount = global.lavap_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+							case 2:
+				                shoot_amount = global.lavmg_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            case 1:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+							case 2:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "DEPOT-LOGIA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.logiamo_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.logibld_d_amount;
-				                ammo_count   = global.parts_ammo;
+				                ammo_count   = global.dpt_bld_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -976,11 +1792,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.parts_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -990,15 +1806,43 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "DEPOT-DPT":
+					case "DEPOT-LOGIB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.logiamo_d_amount;
+				                ammo_count   = global.dpt_amo_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "DEPOT-DEPOT":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.dptbld_d_amount;
-				                ammo_count   = global.parts_ammo;
+				                ammo_count   = global.dpt_bld_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.dptamo_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1008,11 +1852,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.parts_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1022,15 +1866,17 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "DEPOT-RPR":
+					case "DEPOT-REPAIR":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.rprbld_d_amount;
-				                ammo_count   = global.parts_ammo;
+				                ammo_count   = global.dpt_bld_supply;
 				                break;
 				            case 1:
 				                shoot_amount = global.rprmg_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1040,11 +1886,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.parts_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1055,10 +1901,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				            else { c1 = c_gray; }
 						break;
 					case "DEPOT-TOW":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.towamo_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1068,7 +1916,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1078,11 +1926,13 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "DEPOT-MTR":
+					case "DEPOT-MORTAR":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.mtramo_d_amount;
-				                ammo_count   = global.ammunition_ammo;
+				                ammo_count   = global.dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1092,7 +1942,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.ammunition_ammo <= 0 { c1 = c_red; }
+				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1103,6 +1953,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				            else { c1 = c_gray; }
 						break;
 					case "DEPOT":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            default:
 				                shoot_amount = 0;
@@ -1118,7 +1970,9 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "SHIP-LGI":
+					case "SHIP-LOGIA":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.logiamo_s_amount;
@@ -1150,7 +2004,35 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "SHIP-DPT":
+					case "SHIP-LOGIB":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = global.logiamo_s_amount;
+				                ammo_count   = global.lc_ammunition_ammo;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if global.lc_ammunition_ammo <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
+					case "SHIP-DEPOT":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
 				                shoot_amount = global.dptbld_s_amount;
@@ -1182,7 +2064,9 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
-					case "SUPPLY SHIP":
+					case "SHIP":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            default:
 				                shoot_amount = 0;

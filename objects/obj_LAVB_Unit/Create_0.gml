@@ -94,6 +94,12 @@ sqd_max   = 4;
 shoot_sqd = false;
 sqd_rate  = 1;
 sqd_cost  = 2;
+squad_unit = "NOONE";
+squad_temp = "NOONE";
+health_temp = 0;
+rfl_temp = 0;
+flr_temp = 0;
+rpg_temp = 0;
 
 x_end = x;
 y_end = y;

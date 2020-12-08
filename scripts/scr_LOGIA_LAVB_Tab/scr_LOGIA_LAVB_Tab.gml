@@ -65,7 +65,7 @@ function scr_LOGIA_LAVB_Tab(argument0, argument1, argument2, argument3, argument
 	        //Increase
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo supply available
-	            if global.lavhe_l_amount <= (global.ammo_supply-lavhe_supply_rate) {
+	            if global.lavhe_l_amount <= (global.logi_amo_supply-lavhe_supply_rate) {
 	                //Make sure the unit ammo does not go over max
 	                if ((global.lavhe_l_amount+he_count)+lavhe_supply_rate) <= he_max {
 	                    //Check if there is enough turn AP for the move
@@ -96,7 +96,7 @@ function scr_LOGIA_LAVB_Tab(argument0, argument1, argument2, argument3, argument
 	        }
 	        //Clamp the value between zero and the max available rounds
 	        if global.lavhe_l_amount < 0 { global.lavhe_l_amount = 0; }
-	        if global.lavhe_l_amount > global.logi_amo_supply { global.lavhe_l_amount = global.ammo_supply; }
+	        if global.lavhe_l_amount > global.logi_amo_supply { global.lavhe_l_amount = global.logi_amo_supply; }
 	        //Add to temp AP cost
 	        global.temp_AP = (global.lavhe_l_amount/lavhe_supply_rate)*ap_cost;
 	        //Set the menu position
@@ -113,7 +113,7 @@ function scr_LOGIA_LAVB_Tab(argument0, argument1, argument2, argument3, argument
 	            //Increase
 	            if mouse_wheel_up() { 
 	                //Check if there is enough ammo available
-	                if global.lavap_l_amount <= (global.ammo_supply-lavap_supply_rate) { 
+	                if global.lavap_l_amount <= (global.logi_amo_supply-lavap_supply_rate) { 
 	                    //Make sure the unit rpg ammo does not go over max
 	                    if ((global.lavap_l_amount+ap_count)+lavap_supply_rate) <= ap_max {
 	                        //Check if there is enough turn AP for the move
@@ -144,7 +144,7 @@ function scr_LOGIA_LAVB_Tab(argument0, argument1, argument2, argument3, argument
 	            }
 	            //Clamp the value between zero and the max available rounds
 	            if global.lavap_l_amount < 0 { global.lavap_l_amount = 0; }
-	            if global.lavap_l_amount > global.logi_amo_supply { global.lavap_l_amount = global.ammo_supply; }
+	            if global.lavap_l_amount > global.logi_amo_supply { global.lavap_l_amount = global.logi_amo_supply; }
 	            //Add to temp AP cost
 	            global.temp_AP = (global.lavap_l_amount/lavap_supply_rate)*ap_cost;
 	            //Set the menu position
@@ -161,7 +161,7 @@ function scr_LOGIA_LAVB_Tab(argument0, argument1, argument2, argument3, argument
 		            //Increase
 		            if mouse_wheel_up() { 
 		                //Check if there is enough ammo available
-		                if global.lavmg_l_amount <= (global.ammo_supply-lavmg_supply_rate) { 
+		                if global.lavmg_l_amount <= (global.logi_amo_supply-lavmg_supply_rate) { 
 		                    //Make sure the unit rpg ammo does not go over max
 		                    if ((global.lavmg_l_amount+mg_count)+lavmg_supply_rate) <= mg_max {
 		                        //Check if there is enough turn AP for the move
@@ -192,7 +192,7 @@ function scr_LOGIA_LAVB_Tab(argument0, argument1, argument2, argument3, argument
 		            }
 		            //Clamp the value between zero and the max available rounds
 		            if global.lavmg_l_amount < 0 { global.lavmg_l_amount = 0; }
-		            if global.lavmg_l_amount > global.logi_amo_supply { global.lavmg_l_amount = global.ammo_supply; }
+		            if global.lavmg_l_amount > global.logi_amo_supply { global.lavmg_l_amount = global.logi_amo_supply; }
 		            //Add to temp AP cost
 		            global.temp_AP = (global.lavmg_l_amount/lavmg_supply_rate)*ap_cost;
 		            //Set the menu position

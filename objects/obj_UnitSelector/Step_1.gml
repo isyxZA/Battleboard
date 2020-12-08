@@ -17,7 +17,7 @@ if unit_change == true {
 					icon_sprite = spr_Tank_Dropdown;
 					unit_cost   = MBT_1;
 					break;
-				case "HMV":
+				case "LAC":
 					my_unit     = "LAC_A";
 					my_sprite   = spr_Engineer_Icon;
 					icon_sprite = spr_Engineer_Dropdown;
@@ -51,7 +51,7 @@ if unit_change == true {
 					icon_sprite = spr_Tank_Dropdown;
 					unit_cost   = MBT_2;
 					break;
-				case "HMV":
+				case "LAC":
 					my_unit     = "LAC_B";
 					my_sprite   = spr_Engineer_Icon;
 					icon_sprite = spr_Engineer_Dropdown;

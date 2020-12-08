@@ -40,7 +40,7 @@ function scr_LOGIA_LACB_Tab(argument0, argument1, argument2, argument3) {
 	    obj_ACTIONMENU.display_menuinfo = false;
 	}
 	    else if f1 { 
-	        //RESUPPLY DEPOT
+	        //RESUPPLY TOW2
 	        //Select number of rounds to fire
 	        //Increase by a rate of 1 building supply
 	        if mouse_wheel_up() { 
@@ -223,10 +223,10 @@ function scr_LOGIA_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                                            u.alert_colour = c_red;
 	                                            u.alarm[3] = global.tick_rate*3;
 	                                        }
-	                                        u.shoot_amount     += 1; 
-	                                        u.building_supply  -= lacdpt_supply_rate;
-	                                        global.turn_AP     -= ap_cost;
-	                                        u.action_points    -= ap_cost;
+	                                        u.shoot_amount  += 1; 
+	                                        u.ammo_supply   -= lacdpt_supply_rate;
+	                                        global.turn_AP  -= ap_cost;
+	                                        u.action_points -= ap_cost;
 	                                        u.alert_text = "-"+string(u.shoot_amount*ap_cost)+ " AP";
 	                                    }
 	                                }

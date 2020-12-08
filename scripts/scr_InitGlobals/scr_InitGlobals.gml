@@ -227,9 +227,9 @@ function scr_InitGlobals() {
 	global.mortar_ammo = 0;
 	global.mortarS_amount = 0;
 	//Depot
-	global.ammunition_ammo = 0;
+	global.dpt_amo_supply = 0;
 	global.ammunition_amount = 0;
-	global.parts_ammo = 0;
+	global.dpt_bld_supply = 0;
 	global.parts_amount = 0;
 	//Supply ship
 	global.lc_ammunition_ammo = 0;
@@ -262,6 +262,7 @@ function scr_InitGlobals() {
 	//Logi
 	global.logiamo_l_amount = 0;
 	global.logibld_l_amount = 0;
+	global.logisqd_l_amount = 0;
 	//Depot
 	global.dptbld_l_amount = 0;
 	global.dptamo_l_amount = 0;
@@ -284,11 +285,14 @@ function scr_InitGlobals() {
 	//LAV
 	global.lavhe_d_amount = 0;
 	global.lavap_d_amount = 0;
+	global.lavmg_d_amount = 0;
+	global.lavat_d_amount = 0;
 	//LAC
 	global.lacdpt_d_amount = 0;
 	global.lacrpr_d_amount = 0;
 	global.lactow_d_amount = 0;
 	global.lacmtr_d_amount = 0;
+	global.lactow2_d_amount = 0;
 	//LOGI
 	global.logiamo_d_amount = 0;
 	global.logibld_d_amount = 0;

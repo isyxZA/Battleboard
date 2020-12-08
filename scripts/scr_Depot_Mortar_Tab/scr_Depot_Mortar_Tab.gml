@@ -39,7 +39,7 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 			f3 = collision_rectangle(global.menu_x, global.menu_y-(global.menu_height*2)*global.menu_ratio, global.menu_x-(global.menu_width*global.menu_ratio), global.menu_y-(global.menu_height*3)*global.menu_ratio, obj_MOUSE, false, false);
 		}
 
-	var ap_cost = 2;
+	var ap_cost = obj_Depot_Static.ap_cost;
 
 	if f0 {
 	    global.header_highlight = true;
@@ -51,7 +51,7 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	        //Increase by a rate of 4
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo supply available
-	            if global.mtramo_d_amount <= (global.ammunition_ammo-mortarS_supply_rate) {
+	            if global.mtramo_d_amount <= (global.dpt_amo_supply-mortarS_supply_rate) {
 	                //Make sure the unit ammo does not go over max
 	                if ((global.mtramo_d_amount+mortarS_count)+mortarS_supply_rate) <= mortar_max {
 	                    //Check if there is enough turn AP for the move
@@ -82,7 +82,7 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	        }
 	        //Clamp the value between zero and the max available rounds
 	        if global.mtramo_d_amount < 0 { global.mtramo_d_amount = 0; }
-	        if global.mtramo_d_amount > global.ammunition_ammo { global.mtramo_d_amount = global.ammunition_ammo; }
+	        if global.mtramo_d_amount > global.dpt_amo_supply { global.mtramo_d_amount = global.dpt_amo_supply; }
 	        //Add to temp AP cost
 	        global.temp_AP = (global.mtramo_d_amount/mortarS_supply_rate)*ap_cost;
 	        //Set the menu position
@@ -121,80 +121,74 @@ function scr_Depot_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo tab
-	            if global.selected_depot != 0 {
-	                global.ammo_tab = "DEPOT";
+				if global.selected_repair != 0 {
+	                global.ammo_tab = "REPAIR";
 					//Remove the surface
 					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                ammo_check = true;
 	            }
-	                else if global.selected_repair != 0 {
-	                    global.ammo_tab = "REPAIR";
+	                else if global.selected_tow != 0 {
+	                    global.ammo_tab = "TOW";
 						//Remove the surface
 						if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                    ammo_check = true;
 	                }
-	                    else if global.selected_tow != 0 {
-	                        global.ammo_tab = "TOW";
+	                    else if global.selected_mortar != 0 {
+	                        global.ammo_tab = "MORTAR";
 							//Remove the surface
 							if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                        ammo_check = true;
 	                    }
-	                        else if global.selected_mortar != 0 {
-	                            global.ammo_tab = "MORTAR";
+	                        else if global.selected_infa != 0 {
+	                            global.ammo_tab = "INF_A"; 
 								//Remove the surface
 								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                            ammo_check = true;
 	                        }
-	                            else if global.selected_infa != 0 {
-	                                global.ammo_tab = "INF_A"; 
+								else if global.selected_infb != 0 {
+		                            global.ammo_tab = "INF_B"; 
 									//Remove the surface
 									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                                ammo_check = true;
-	                            }
-									else if global.selected_infb != 0 {
-		                                global.ammo_tab = "INF_B"; 
+		                            ammo_check = true;
+		                        }
+		                            else if global.selected_mbta != 0 {
+		                                global.ammo_tab = "MBT_A"; 
 										//Remove the surface
 										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 		                                ammo_check = true;
 		                            }
-		                                else if global.selected_mbta != 0 {
-		                                    global.ammo_tab = "MBT_A"; 
+										else if global.selected_mbtb != 0 {
+			                                global.ammo_tab = "MBT_B"; 
 											//Remove the surface
 											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-		                                    ammo_check = true;
-		                                }
-											else if global.selected_mbtb != 0 {
-			                                    global.ammo_tab = "MBT_B"; 
+			                                ammo_check = true;
+			                            }
+			                                else if global.selected_laca != 0 {
+			                                    global.ammo_tab = "LAC_A"; 
 												//Remove the surface
 												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 			                                    ammo_check = true;
 			                                }
-			                                    else if global.selected_laca != 0 {
-			                                        global.ammo_tab = "LAC_A"; 
+												else if global.selected_lacb != 0 {
+				                                    global.ammo_tab = "LAC_B"; 
 													//Remove the surface
 													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                                        ammo_check = true;
-			                                    }
-													else if global.selected_lacb != 0 {
-				                                        global.ammo_tab = "LAC_B"; 
+				                                    ammo_check = true;
+				                                }
+				                                    else if global.selected_lava != 0 {
+				                                        global.ammo_tab = "LAV_A"; 
 														//Remove the surface
 														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 				                                        ammo_check = true;
 				                                    }
-				                                        else if global.selected_lava != 0 {
-				                                            global.ammo_tab = "LAV_A"; 
+														else if global.selected_lavb != 0 {
+					                                        global.ammo_tab = "LAV_B"; 
 															//Remove the surface
 															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                            ammo_check = true;
-				                                        }
-															else if global.selected_lavb != 0 {
-					                                            global.ammo_tab = "LAV_B"; 
-																//Remove the surface
-																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                            ammo_check = true;
+					                                        ammo_check = true;
+					                                    }
+					                                        else {
 					                                        }
-					                                            else {
-					                                            }
 	        }
 	            else if f1 {
 	                //TRANSFER MORTAR AMMO

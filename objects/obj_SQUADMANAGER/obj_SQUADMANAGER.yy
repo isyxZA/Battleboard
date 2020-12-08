@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Control Actors",
-    "path": "folders/Objects/Control Actors.yy",
+    "name": "Retired",
+    "path": "folders/Objects/Control Actors/Retired.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_SQUADMANAGER",

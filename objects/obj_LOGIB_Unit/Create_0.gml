@@ -70,8 +70,13 @@ ammo_rate = 10;
 sqd_supply = 0;
 sqd_max = 6;
 shoot_squad = false;
-squad_rate = 1;
+sqd_rate = 1;
 squad_unit = "NOONE";
+squad_temp = "NOONE";
+health_temp = 0;
+rfl_temp = 0;
+flr_temp = 0;
+rpg_temp = 0;
 
 //Infantry
 rfl_supply_rate = 20;

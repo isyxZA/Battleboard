@@ -163,6 +163,11 @@ lbr_fire_menu[0] = "MG(s)";
 lbr_fire_menu[1] = "Retarget";
 lbr_fire_menu[2] = "Cancel";
 
+//Logi B - Deploy
+lbs_fire_menu[0] = "Deploy";
+lbs_fire_menu[1] = "Retarget";
+lbs_fire_menu[2] = "Cancel";
+
 //Depot
 d_fire_menu[0] = "Parts";
 d_fire_menu[1] = "Ammo";

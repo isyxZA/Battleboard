@@ -57,8 +57,8 @@ if ammo_check == true {
     global.logi_bld_supply = 0;
     global.tow_ammo = 0;
     global.mortar_ammo = 0;
-    global.ammunition_ammo= 0;
-    global.parts_ammo = 0;
+    global.dpt_amo_supply= 0;
+    global.dpt_bld_supply = 0;
     global.repair_ammo = 0;
     global.repair_mg_ammo = 0;
     global.lc_ammunition_ammo = 0;
@@ -93,8 +93,8 @@ if ammo_check == true {
                       global.logi_bld_supply += building_supply;
                       break;
                   case "DEPOT":
-                      global.ammunition_ammo += ammunition_ammo;
-                      global.parts_ammo += parts_ammo;
+                      global.dpt_amo_supply += ammunition_ammo;
+                      global.dpt_bld_supply += parts_ammo;
                       break;
                   case "REPAIR":
                       global.repair_ammo += repair_ammo;

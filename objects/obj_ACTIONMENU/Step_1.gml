@@ -106,9 +106,9 @@ if !ds_list_empty(global.selected_list) {
 	                    }
 						if (t_ap-global.temp_AP) < 0 { global.navigation_error = true; }
 							else { 
-						        var i;
-						        for (i=0; i<ds_list_size(global.selected_list); i+=1) {
-						            var unit = ds_list_find_value(global.selected_list, i);
+						        var ij;
+						        for (ij=0; ij<ds_list_size(global.selected_list); ij+=1) {
+						            var unit = ds_list_find_value(global.selected_list, ij);
 						            with unit {
 										if temp_ap<=action_points {
 							                //Remove selection
@@ -151,7 +151,6 @@ if !ds_list_empty(global.selected_list) {
 							                        case "MORTAR":
 							                            action_points -= temp_ap;
 														global.turn_AP -= temp_ap;
-											            //global.turn_AP -= (move_amount*mp_cost);
 														var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
 											            with inf {
 															mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);

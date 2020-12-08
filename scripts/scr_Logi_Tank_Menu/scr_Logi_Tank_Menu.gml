@@ -37,11 +37,11 @@ function scr_Logi_Tank_Menu() {
 	        switch m {
 	            case 0:
 	                shoot_amount = global.mbtap_l_amount;
-	                ammo_count   = global.ammo_supply;
+	                ammo_count   = global.logi_amo_supply;
 	                break;
 	            case 1:
 	                shoot_amount = global.mbtmg_l_amount;
-	                ammo_count   = global.ammo_supply;
+	                ammo_count   = global.logi_amo_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;

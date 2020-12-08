@@ -21,8 +21,10 @@ function scr_DrawUnitStats() {
 		switch unit_type {
 		    case "INF_A":
 		        if is_manning == false {
-		            if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            //if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		                //else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+		                else { clr1 = c_green; }
 		            draw_text_colour(xx, yy-39, "Riflemen", clr1, clr1, clr1, clr1, 1);
 		            var h1 = 18;
 		            var h2 = 28;
@@ -53,8 +55,8 @@ function scr_DrawUnitStats() {
 		        break;
 			case "INF_B":
 		        if is_manning == false {
-		            if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+		                else { clr1 = c_green; }
 		            draw_text_colour(xx, yy-39, "Recon", clr1, clr1, clr1, clr1, 1);
 		            var h1 = 18;
 		            var h2 = 28;
@@ -84,8 +86,8 @@ function scr_DrawUnitStats() {
 		        }
 		        break;
 		    case "MBT_A":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "M1A2 MBT", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
@@ -125,8 +127,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 			case "MBT_B":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "M1A1 MBT", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
@@ -166,8 +168,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "LAC_A":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "M1097 Cargo", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
@@ -215,8 +217,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 			case "LAC_B":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "M1097 TOW", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
@@ -264,8 +266,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "LAV_A":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "M3 IFV", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
@@ -305,8 +307,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 			case "LAV_B":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "M1126 APC", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
@@ -346,8 +348,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "LOGI_A": 
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "M35 Cargo", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
@@ -387,8 +389,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 			case "LOGI_B": 
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "M35 Transport", clr1, clr1, clr1, clr1, 1);
 		        if is_manning == false {
 		            var h1 = 18;
@@ -428,8 +430,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "DEPOT":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "Depot", clr1, clr1, clr1, clr1, 1);
 		        if can_be_manned == true {
 		            var h1 = 18;
@@ -465,8 +467,8 @@ function scr_DrawUnitStats() {
 		        break;
 		    case "REPAIR":
 		        if is_occupied == false {
-		            if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 		            draw_text_colour(xx, yy-39, "Repair", clr1, clr1, clr1, clr1, 1);
 		            if can_be_manned == true {
 		                var h1 = 18;
@@ -502,8 +504,8 @@ function scr_DrawUnitStats() {
 		        }
 		        break;
 		    case "TOW":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "TOW", clr1, clr1, clr1, clr1, 1);
 		        if can_be_manned == true && alert_display == false {
 		            var h1 = 18;
@@ -534,8 +536,8 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "MORTAR":
-		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+					else { clr1 = c_green; }
 		        draw_text_colour(xx, yy-39, "Mortar", clr1, clr1, clr1, clr1, 1);
 		        if can_be_manned == true {
 		            var h1 = 18;
@@ -608,8 +610,8 @@ function scr_DrawUnitStats() {
 			switch unit_type {
 				case "INF_A":
 					if is_manning == false {
-						if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+						if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+							else { clr1 = c_green; }
 						draw_text_transformed_colour(xx, yy+39, "Riflemen", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 						var h1 = 18;
 						var h2 = 28;
@@ -640,8 +642,8 @@ function scr_DrawUnitStats() {
 					break;
 				case "INF_B":
 					if is_manning == false {
-						if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+						if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+							else { clr1 = c_green; }
 						draw_text_transformed_colour(xx, yy+39, "Recon", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 						var h1 = 18;
 						var h2 = 28;
@@ -671,8 +673,8 @@ function scr_DrawUnitStats() {
 					}
 					break;
 				case "MBT_A":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "T-72 MBT", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
@@ -712,8 +714,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "MBT_B":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "T-62 MBT", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
@@ -753,8 +755,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LAC_A":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "Tigr Cargo", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
@@ -802,8 +804,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LAC_B":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "Tigr TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
@@ -851,8 +853,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LAV_A":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "BMP3 IFV", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
@@ -892,8 +894,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LAV_B":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "BTR-80 APC", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
@@ -933,8 +935,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LOGI_A": 
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "Ural Cargo", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
@@ -974,8 +976,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LOGI_B": 
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "Ural Transport", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if is_manning == false {
 						var h1 = 18;
@@ -1015,8 +1017,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "DEPOT":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "Depot", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if can_be_manned == true {
 						var h1 = 18;
@@ -1052,8 +1054,8 @@ function scr_DrawUnitStats() {
 					break;
 				case "REPAIR":
 					if is_occupied == false {
-						if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+						if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+							else { clr1 = c_green; }
 						draw_text_transformed_colour(xx, yy+39, "Repair", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 						if can_be_manned == true {
 							var h1 = 18;
@@ -1089,8 +1091,8 @@ function scr_DrawUnitStats() {
 					}
 					break;
 				case "TOW":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if can_be_manned == true && alert_display == false {
 						var h1 = 18;
@@ -1121,8 +1123,8 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "MORTAR":
-					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
-							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, txt_rot, c_white, 1); }
+					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
+						else { clr1 = c_green; }
 					draw_text_transformed_colour(xx, yy+39, "Mortar", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if can_be_manned == true {
 						var h1 = 18;
@@ -1195,7 +1197,5 @@ function scr_DrawUnitStats() {
 	draw_set_colour(c_black);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
-
-
 
 }

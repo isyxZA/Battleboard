@@ -268,9 +268,7 @@ if global.my_turn == true || global.waiting == true {
         //Set idle image rotation
         if rot != 180  { rot += (sin(degtorad(rot-180))); }
     }
-
-    
-    
+   
 var d2;
 if action_confirmed == true || draw_flash == true { 
     d2 = point_direction(x, y, target_x, target_y)+rot_adj; 

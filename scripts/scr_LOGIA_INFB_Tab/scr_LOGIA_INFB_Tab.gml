@@ -65,7 +65,7 @@ function scr_LOGIA_INFB_Tab(argument0, argument1, argument2, argument3, argument
 	        //Increase by a rate of 20
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo supply available
-	            if global.infrfl_l_amount <= (global.ammo_supply-rfl_supply_rate) {
+	            if global.infrfl_l_amount <= (global.logi_amo_supply-rfl_supply_rate) {
 	                //Make sure the unit rifle ammo does not go over max
 	                if ((global.infrfl_l_amount+rifle_count)+rfl_supply_rate) <= rifle_max {
 	                    //Check if there is enough turn AP for the move
@@ -96,7 +96,7 @@ function scr_LOGIA_INFB_Tab(argument0, argument1, argument2, argument3, argument
 	        }
 	        //Clamp the value between zero and the max available rounds
 	        if global.infrfl_l_amount < 0 { global.infrfl_l_amount = 0; }
-	        if global.infrfl_l_amount > global.logi_amo_supply { global.infrfl_l_amount = global.ammo_supply; }
+	        if global.infrfl_l_amount > global.logi_amo_supply { global.infrfl_l_amount = global.logi_amo_supply; }
 	        //Add to temp AP cost
 	        global.temp_AP = (global.infrfl_l_amount/rfl_supply_rate)*ap_cost;
 	        //Set the menu position
@@ -113,7 +113,7 @@ function scr_LOGIA_INFB_Tab(argument0, argument1, argument2, argument3, argument
 	            //Increase by a rate of 1
 	            if mouse_wheel_up() { 
 	                //Check if there is enough ammo available
-	                if global.infrpg_l_amount <= (global.ammo_supply-rpg_supply_rate) { 
+	                if global.infrpg_l_amount <= (global.logi_amo_supply-rpg_supply_rate) { 
 	                    //Make sure the unit rpg ammo does not go over max
 	                    if ((global.infrpg_l_amount+rpg_count)+rpg_supply_rate) <= rpg_max {
 	                        //Check if there is enough turn AP for the move
@@ -144,7 +144,7 @@ function scr_LOGIA_INFB_Tab(argument0, argument1, argument2, argument3, argument
 	            }
 	            //Clamp the value between zero and the max available rounds
 	            if global.infrpg_l_amount < 0 { global.infrpg_l_amount = 0; }
-	            if global.infrpg_l_amount > global.logi_amo_supply { global.infrpg_l_amount = global.ammo_supply; }
+	            if global.infrpg_l_amount > global.logi_amo_supply { global.infrpg_l_amount = global.logi_amo_supply; }
 	            //Add to temp AP cost
 	            global.temp_AP = (global.infrpg_l_amount/rpg_supply_rate)*ap_cost;
 	            //Set the menu position
@@ -161,7 +161,7 @@ function scr_LOGIA_INFB_Tab(argument0, argument1, argument2, argument3, argument
 	                //Increase by a rate of 1
 	                if mouse_wheel_up() { 
 	                    //Check if there is enough ammo available
-	                    if global.infflr_l_amount <= (global.ammo_supply-flr_supply_rate) { 
+	                    if global.infflr_l_amount <= (global.logi_amo_supply-flr_supply_rate) { 
 	                        //Make sure the unit flare ammo does not go over max
 	                        if ((global.infflr_l_amount+flare_count)+flr_supply_rate) <= flare_max {
 	                            //Check if there is enough turn AP for the move
@@ -192,7 +192,7 @@ function scr_LOGIA_INFB_Tab(argument0, argument1, argument2, argument3, argument
 	                }
 	                //Clamp the value between zero and the max available rounds
 	                if global.infflr_l_amount < 0 { global.infflr_l_amount = 0; }
-	                if global.infflr_l_amount > global.logi_amo_supply { global.infflr_l_amount = global.ammo_supply; }
+	                if global.infflr_l_amount > global.logi_amo_supply { global.infflr_l_amount = global.logi_amo_supply; }
 	                //Add to temp AP cost
 	                global.temp_AP = (global.infflr_l_amount/flr_supply_rate)*ap_cost;
 	                //Set the menu position

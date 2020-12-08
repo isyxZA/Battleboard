@@ -254,7 +254,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 												}
 				                            }
 				                        }
-				                        if ap >= ((global.lav_sq_amount+sqd_rate)/sqd_rate)*sqd_cost {
+				                        if ap >= (global.lav_sq_amount+sqd_rate)*sqd_cost {
 				                            //Add the rounds
 											global.lav_sq_amount += sqd_rate;
 				                        }
@@ -269,7 +269,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				            }
 				            //Clamp the value between zero and the max available rounds
 				            if global.lav_sq_amount < 0 { global.lav_sq_amount = 0; }
-				            if global.lav_sq_amount > global.lav_sq_ammo { global.lav_sq_amount = global.lav_sq_ammo; }
+				            if global.lav_sq_amount > 1 { global.lav_sq_amount = 1; }
 				            //Add to temp AP cost
 				            global.temp_AP = (global.lav_sq_amount/sqd_rate)*sqd_cost;
 				            //Set the menu position

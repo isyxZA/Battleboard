@@ -128,14 +128,56 @@ if action_confirmed == true {
 			}
 	}
     if shoot_tow == true {
-        //Add alert to gui
-        ds_list_add(global.action_alert_list, "LAC Firing TOW");
-        shoot_tow = false;
-        shoot_amount -= 1;
-        timer_target = 3;
-        timer_count = timer_target;
-        timer_start = true;
-        instance_create_layer(target_x, target_y, "StaticUnits", obj_TOW_Static);
+        if !shoot_mask.t_line {
+            //Add alert to gui
+            ds_list_add(global.action_alert_list, "LAC Firing TOW"); 
+            shoot_tow = false;
+            timer_target = 3;
+            timer_count = timer_target;
+            timer_start = true;
+            shoot_amount -= 1;
+        }
+            else {
+                shoot_tow = false;
+                timer_start = false;
+                action_confirmed = false;
+                //Ammo amount to be returned
+                tow_ammo += shoot_amount*tow_rate;
+                //Action points to be returned
+                var pp = shoot_amount*ap_cost;
+                action_points += pp;
+                global.turn_AP += pp;
+                global.ap_return = pp;
+                global.draw_apreturn = true;
+                shoot_amount = 0;
+                alert_display = true;
+                alert_text = "Cancelled!"; 
+                alert_colour = c_red;
+                alarm[3] = global.tick_rate*3;
+                global.units_running -= 1;
+				//SEND NET CANCEL SIGNAL
+				if PLAYER.net_status == "HOST" {
+					//Send action data to client
+					var cc = ds_list_size(global.clients);
+					if cc > 0 { 
+						var i;
+						for (i=0;i<cc;i++) {
+							var csocket = ds_list_find_value(global.clients, i);
+							net_write_client(csocket, 
+								buffer_u8, NET_CANCELSHOOT,
+								buffer_u32, id,
+							);
+						}
+					}
+				}
+					else if PLAYER.net_status == "CLIENT" {
+						//Send action data to host
+						net_write_server(
+							buffer_u8, NET_CANCELSHOOT,
+							buffer_u32, id,
+						);
+					}
+            }
     }
         else {}
 }
@@ -172,6 +214,19 @@ if global.my_turn == true || global.waiting == true {
     else {
         //Set idle image rotation
         if rot != 180  { rot += (sin(degtorad(rot-180))); }
+    }
+
+var d2;
+if action_confirmed == true || draw_flash == true { 
+    d2 = point_direction(x, y, target_x, target_y)+rot_adj; 
+    if turret_rot != d2  { turret_rot += (sin(degtorad(turret_rot-d2))); }
+}
+    else { 
+        if selected && global.reticule_display == true {
+             d2 = point_direction(x, y, global.target_x, global.target_y)+rot_adj;
+             if turret_rot != d2  { turret_rot += (sin(degtorad(turret_rot-d2))); } 
+        }
+            else { if turret_rot != 180  { turret_rot += (sin(degtorad(turret_rot-180))); } }
     }
 
 if mp_depleted == true {

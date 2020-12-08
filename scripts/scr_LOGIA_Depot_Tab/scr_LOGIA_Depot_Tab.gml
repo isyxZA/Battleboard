@@ -103,7 +103,7 @@ function scr_LOGIA_Depot_Tab(argument0, argument1, argument2, argument3, argumen
 	            //Increase by a rate of 10
 	            if mouse_wheel_up() { 
 	                //Check if there is enough supply available
-	                if global.dptamo_l_amount <= (global.ammo_supply-depotamo_supply_rate) {
+	                if global.dptamo_l_amount <= (global.logi_amo_supply-depotamo_supply_rate) {
 	                    //Make sure the unit ammo does not go over max
 	                    if ((global.dptamo_l_amount+depotammo_count)+depotamo_supply_rate) <= ammunition_max {
 	                        //Check if there is enough turn AP for the move
@@ -134,7 +134,7 @@ function scr_LOGIA_Depot_Tab(argument0, argument1, argument2, argument3, argumen
 	            }
 	            //Clamp the value between zero and the max available rounds
 	            if global.dptamo_l_amount < 0 { global.dptamo_l_amount = 0; }
-	            if global.dptamo_l_amount > global.logi_amo_supply { global.dptamo_l_amount = global.ammo_supply; }
+	            if global.dptamo_l_amount > global.logi_amo_supply { global.dptamo_l_amount = global.logi_amo_supply; }
 	            //Add to temp AP cost
 	            global.temp_AP = (global.dptamo_l_amount/depotamo_supply_rate)*ap_cost;
 	            //Set the menu position

@@ -104,15 +104,55 @@ if action_confirmed == true {
         timer_start = true;
         shoot_amount -= 1;
     }
-        else if shoot_squad == true {
-            //Add alert to gui
-            ds_list_add(global.action_alert_list, "Logi Deploying Troops");
-            shoot_squad = false;
-            timer_target = 3;
-            timer_count = timer_target;
-            timer_start = true;
-            shoot_amount -= 1;
-        }
+        else if shoot_sqd == true {
+			if !shoot_mask.t_line {
+				//Add alert to gui
+				shoot_sqd = false;
+				if squad_unit != "NOONE" {
+					ds_list_add(global.action_alert_list, "Logi Deploying Squad");
+					timer_target = 3;
+					timer_count = timer_target;
+					timer_start = true;
+					shoot_amount -= 1;
+					switch squad_unit {
+						case "INF_A":
+							var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
+							break;
+						case "INF_B":
+							var inf = instance_create_layer(x, y, "Units", obj_INFB_Unit);
+							break;
+						default:
+							var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
+							break;
+					}
+					with inf {
+						my_squad    = other.squad_temp;
+						unit_health = other.health_temp;
+						rifle_ammo = rfl_temp;
+						rpg_ammo   = rpg_temp;
+						flare_ammo = flr_temp;
+						//Add to squad list
+						switch my_squad {
+							case "ALPHA":
+								ds_list_add(global.squad_alpha, id);
+								break;
+							case "BRAVO":
+								ds_list_add(global.squad_bravo, id);
+								break;
+							case "CHARLIE":
+								ds_list_add(global.squad_charlie, id);
+								break;
+							case "DELTA":
+								ds_list_add(global.squad_delta, id);
+								break;
+							case "ECHO":
+								ds_list_add(global.squad_echo, id);
+								break;
+						}
+					}
+				}
+			}
+		}
             else {}
 }
 
