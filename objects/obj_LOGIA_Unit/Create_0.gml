@@ -1,7 +1,7 @@
 event_inherited();
 
-var p_side    = PLAYER.player;
-var p_faction = PLAYER.faction;
+var p_side = PLAYER.player;
+p_faction  = PLAYER.faction;
 
 if p_side == "ONE" { 
 	p_one   = true;

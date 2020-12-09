@@ -1,6 +1,9 @@
 event_inherited();
 
-if PLAYER.player == "ONE" { 
+var p_side = PLAYER.player;
+p_faction  = PLAYER.faction;
+
+if p_side == "ONE" { 
 	p_one = true;
 	rot = 0; 
 	rot_adj = 90; 
@@ -8,7 +11,7 @@ if PLAYER.player == "ONE" {
 	fmin = 1;
 	fmax = 179;
 }
-	else if PLAYER.player == "TWO" { 
+	else if p_side == "TWO" { 
 		p_one = false;
 		rot = 180; 
 		rot_adj = 270; 

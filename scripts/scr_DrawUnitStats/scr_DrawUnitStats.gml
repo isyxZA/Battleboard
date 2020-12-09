@@ -21,95 +21,108 @@ function scr_DrawUnitStats() {
 		switch unit_type {
 		    case "INF_A":
 		        if is_manning == false {
-		            //if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		                //else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-		                else { clr1 = c_green; }
-		            draw_text_colour(xx, yy-39, "Riflemen", clr1, clr1, clr1, clr1, 1);
-		            var h1 = 18;
-		            var h2 = 28;
+		            if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_colour(xx, yy-38, "Riflemen", clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_colour(xx, yy-38, "Riflemen", clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //Rifle Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Rifle_Icon, 0, xx+h1, yy-16, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy-18, string(rifle_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Rifle_Icon,      0, xx+14, yy-16, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+24, yy-18, string(rifle_ammo), c_white, c_white, c_white, c_white, 1);
 		            //RPG Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_RPG_Icon,   0, xx+h1, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy, string(rpg_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_RPG_Icon,        0, xx+14, yy, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+24, yy, string(rpg_ammo), c_white, c_white, c_white, c_white, 1);
 		            //Flare Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Flare_Icon, 0, xx+h1, yy+18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy+18, string(flare_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Flare_Icon,      0, xx+14, yy+18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+24, yy+18, string(flare_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		        break;
 			case "INF_B":
 		        if is_manning == false {
-		            if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-		                else { clr1 = c_green; }
-		            draw_text_colour(xx, yy-39, "Recon", clr1, clr1, clr1, clr1, 1);
-		            var h1 = 18;
-		            var h2 = 28;
+		            if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_colour(xx, yy-38, "Recon", clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_colour(xx, yy-38, "Recon", clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                   c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //Rifle Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Rifle_Icon, 0, xx+h1, yy-16, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy-18, string(rifle_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Rifle_Icon,      0, xx+14, yy-16, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+24, yy-18, string(rifle_ammo), c_white, c_white, c_white, c_white, 1);
 		            //RPG Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_RPG_Icon,   0, xx+h1, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy, string(rpg_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_RPG_Icon,        0, xx+14, yy, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+24, yy, string(rpg_ammo), c_white, c_white, c_white, c_white, 1);
 		            //Flare Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Flare_Icon, 0, xx+h1, yy+18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy+18, string(flare_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Flare_Icon,      0, xx+14, yy+18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+24, yy+18, string(flare_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		        break;
 		    case "MBT_A":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "M1A2 MBT", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		                else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+				switch p_faction {
+					case "US":
+						draw_text_colour(xx, yy-38, "M1A2 MBT", clr1, clr1, clr1, clr1, 1);
+						break;
+					case "RU":
+						draw_text_colour(xx, yy-38, "T-72 MBT", clr1, clr1, clr1, clr1, 1);
+						break;
+				}
 		        if is_manning == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                   c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //Cannon Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Cannon_Icon, 0, xx+h1, yy-18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy-18, string(cannon_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Cannon_Icon,     0, xx+15, yy-18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy-18, string(cannon_ammo), c_white, c_white, c_white, c_white, 1);
 		            //MG Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_MG_Icon,     0, xx+h1, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy, string(mg_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_MG_Icon,         0, xx+15, yy, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy, string(mg_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -127,30 +140,35 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 			case "MBT_B":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "M1A1 MBT", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+				switch p_faction {
+					case "US":
+						draw_text_colour(xx, yy-38, "M1A1 MBT", clr1, clr1, clr1, clr1, 1);
+						break;
+					case "RU":
+						draw_text_colour(xx, yy-38, "T-62 MBT", clr1, clr1, clr1, clr1, 1);
+						break;
+				}
 		        if is_manning == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                   c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //Cannon Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Cannon_Icon, 0, xx+h1, yy-18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy-18, string(cannon_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Cannon_Icon,     0, xx+15, yy-18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy-18, string(cannon_ammo), c_white, c_white, c_white, c_white, 1);
 		            //MG Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_MG_Icon,     0, xx+h1, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy, string(mg_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_MG_Icon,         0, xx+15, yy, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy, string(mg_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -168,38 +186,43 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "LAC_A":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "M1097 Cargo", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+				switch p_faction {
+					case "US":
+						draw_text_colour(xx, yy-38, "M1097 Cargo", clr1, clr1, clr1, clr1, 1);
+						break;
+					case "RU":
+						draw_text_colour(xx, yy-38, "Tigr Cargo", clr1, clr1, clr1, clr1, 1);
+						break;
+				}
 		        if is_manning == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                   c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //Depot 
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Depot_Icon,  0, xx+(h1+8), yy-18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2+8), yy-18, string(depot_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Depot_Icon,      0, xx+22, yy-18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+32, yy-18, string(depot_supply), c_white, c_white, c_white, c_white, 1);
 		            //Repair
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Repair_Icon, 0, xx+(h1+8), yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2+8), yy, string(repair_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Repair_Icon,     0, xx+22, yy, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+32, yy, string(repair_supply), c_white, c_white, c_white, c_white, 1);
 		            //AT
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_AT_Icon,     0, xx+(h1+8), yy+18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2+8), yy+18, string(tow_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_AT_Icon,         0, xx+22, yy+18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+32, yy+18, string(tow_supply), c_white, c_white, c_white, c_white, 1);
 		            //AA
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+36, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_AA_Icon,     0, xx+(h1+8), yy+36, 1, 1, 0, c_white, 1);
-		            draw_text_colour(x+(h2+8), yy+36, string(mortar_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_AA_Icon,         0, xx+22, yy+36, 1, 1, 0, c_white, 1);
+		            draw_text_colour(x+32, yy+36, string(mortar_supply), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -217,38 +240,31 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 			case "LAC_B":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "M1097 TOW", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+				switch p_faction {
+					case "US":
+						draw_text_colour(xx, yy-38, "M1097 TOW", clr1, clr1, clr1, clr1, 1);
+						break;
+					case "RU":
+						draw_text_colour(xx, yy-38, "Tigr TOW", clr1, clr1, clr1, clr1, 1);
+						break;
+				}
 		        if is_manning == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                   c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
-		            //Depot 
+		            //TOW
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Depot_Icon,  0, xx+(h1+8), yy-18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2+8), yy-18, string(depot_supply), c_white, c_white, c_white, c_white, 1);
-		            //Repair
-		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Repair_Icon, 0, xx+(h1+8), yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2+8), yy, string(repair_supply), c_white, c_white, c_white, c_white, 1);
-		            //AT
-		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_AT_Icon,     0, xx+(h1+8), yy+18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2+8), yy+18, string(tow_supply), c_white, c_white, c_white, c_white, 1);
-		            //AA
-		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+36, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_AA_Icon,     0, xx+(h1+8), yy+36, 1, 1, 0, c_white, 1);
-		            draw_text_colour(x+(h2+8), yy+36, string(mortar_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_AT_Icon,         0, xx+24, yy-18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+34, yy-18, string(tow_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -266,30 +282,47 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "LAV_A":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "M3 IFV", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+				switch p_faction {
+					case "US":
+						draw_text_colour(xx, yy-38, "M3 IFV", clr1, clr1, clr1, clr1, 1);
+						break;
+					case "RU":
+						draw_text_colour(xx, yy-38, "BMP3 IFV", clr1, clr1, clr1, clr1, 1);
+						break;
+				}
 		        if is_manning == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
+					//SQUADS
+		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-9, yy+18, "SQ",                  c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy+18, string(sqd_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //HE Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_HE_Icon, 0, xx+h1, yy-18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy-18, string(he_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_HE_Icon, 0, xx+15, yy-18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy-18, string(he_ammo), c_white, c_white, c_white, c_white, 1);
 		            //AP Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_AP_Icon, 0, xx+h1, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy, string(ap_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_AP_Icon, 0, xx+15, yy, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy, string(ap_ammo), c_white, c_white, c_white, c_white, 1);
+					//MG Ammo
+		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, 0, c_white, 1);
+		            draw_sprite_ext(spr_MG_Icon, 0, xx+15, yy+18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy+18, string(mg_ammo), c_white, c_white, c_white, c_white, 1);
+					//AT Ammo
+		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+36, 1, 1, 0, c_white, 1);
+		            draw_sprite_ext(spr_AT_Icon, 0, xx+15, yy+36, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy+36, string(tow_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -307,30 +340,43 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 			case "LAV_B":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "M1126 APC", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+				switch p_faction {
+					case "US":
+						draw_text_colour(xx, yy-38, "M1126 APC", clr1, clr1, clr1, clr1, 1);
+						break;
+					case "RU":
+						draw_text_colour(xx, yy-38, "BTR-80 APC", clr1, clr1, clr1, clr1, 1);
+						break;
+				}
 		        if is_manning == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
+					//SQUADS
+		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-9, yy+18, "SQ",                  c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy+18, string(sqd_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //HE Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_HE_Icon, 0, xx+h1, yy-18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy-18, string(he_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_HE_Icon, 0, xx+18, yy-18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+28, yy-18, string(he_ammo), c_white, c_white, c_white, c_white, 1);
 		            //AP Ammo
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_AP_Icon, 0, xx+h1, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+h2, yy, string(ap_ammo), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_AP_Icon, 0, xx+18, yy, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+28, yy, string(ap_ammo), c_white, c_white, c_white, c_white, 1);
+					//MG Ammo
+		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, 0, c_white, 1);
+		            draw_sprite_ext(spr_MG_Icon, 0, xx+15, yy+18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+25, yy+18, string(mg_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -348,30 +394,35 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "LOGI_A": 
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "M35 Cargo", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+				switch p_faction {
+					case "US":
+						draw_text_colour(xx, yy-38, "M35 Cargo", clr1, clr1, clr1, clr1, 1);
+						break;
+					case "RU":
+						draw_text_colour(xx, yy-38, "Ural Cargo", clr1, clr1, clr1, clr1, 1);
+						break;
+				}
 		        if is_manning == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //Ammo Supply
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Ammo_Icon,     0, xx+(h1-2), yy-18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2-2), yy-18, string(ammo_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Ammo_Icon,     0, xx+16, yy-18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+26, yy-18, string(ammo_supply), c_white, c_white, c_white, c_white, 1);
 		            //Building Supply
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Building_Icon, 0, xx+(h1-2), yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2-2), yy, string(building_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Building_Icon, 0, xx+16, yy, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+26, yy, string(building_supply), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -389,30 +440,35 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 			case "LOGI_B": 
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "M35 Transport", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+				switch p_faction {
+					case "US":
+						draw_text_colour(xx, yy-38, "M35 Carrier", clr1, clr1, clr1, clr1, 1);
+						break;
+					case "RU":
+						draw_text_colour(xx, yy-38, "Ural Carrier", clr1, clr1, clr1, clr1, 1);
+						break;
+				}
 		        if is_manning == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            draw_set_halign(fa_right);
 		            //Health
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
 		            //AP
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		            draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
+		            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
+					//SQUADS
+		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx-9, yy+18, "SQ",                  c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy+18, string(sqd_supply), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //Ammo Supply
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Ammo_Icon,     0, xx+(h1-2), yy-18, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2-2), yy-18, string(ammo_supply), c_white, c_white, c_white, c_white, 1);
-		            //Building Supply
-		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		            draw_sprite_ext(spr_Building_Icon, 0, xx+(h1-2), yy, 1, 1, 0, c_white, 1);
-		            draw_text_colour(xx+(h2-2), yy, string(building_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_sprite_ext(spr_Ammo_Icon,     0, xx+16, yy-18, 1, 1, 0, c_white, 1);
+		            draw_text_colour(xx+26, yy-18, string(ammo_supply), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -430,31 +486,29 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "DEPOT":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "Depot", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        draw_text_colour(xx, yy-38, "Depot", clr1, clr1, clr1, clr1, 1);
 		        if can_be_manned == true {
-		            var h1 = 18;
-		            var h2 = 28;
 		            if is_manned == true {
 		                draw_set_halign(fa_right);
 		                //Health
-		                draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		                draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
-		                //AP
-		                draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		                draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
-		                draw_set_halign(fa_left);
+			            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
+			            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+			            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+			            //AP
+			            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
+			            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+			            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
+			            draw_set_halign(fa_left);
 		                //Parts Supply
 		                draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		                draw_sprite_ext(spr_Building_Icon,     0, xx+(h1-2), yy-18, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx+(h2-2), y-18, string(parts_ammo), c_white, c_white, c_white, c_white, 1);
+		                draw_sprite_ext(spr_Building_Icon,     0, xx+16, yy-18, 1, 1, 0, c_white, 1);
+		                draw_text_colour(xx+26, y-18, string(parts_ammo), c_white, c_white, c_white, c_white, 1);
 		                //Ammunition Supply
 		                draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		                draw_sprite_ext(spr_Ammo_Icon, 0, xx+(h1-2), yy, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx+(h2-2), yy, string(ammunition_ammo), c_white, c_white, c_white, c_white, 1);
+		                draw_sprite_ext(spr_Ammo_Icon, 0, xx+16, yy, 1, 1, 0, c_white, 1);
+		                draw_text_colour(xx+26, yy, string(ammunition_ammo), c_white, c_white, c_white, c_white, 1);
 		            }
 		                else if is_manned == false {
 		                    //Health
@@ -467,31 +521,29 @@ function scr_DrawUnitStats() {
 		        break;
 		    case "REPAIR":
 		        if is_occupied == false {
-		            if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-		            draw_text_colour(xx, yy-39, "Repair", clr1, clr1, clr1, clr1, 1);
+		            if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            draw_text_colour(xx, yy-38, "Repair", clr1, clr1, clr1, clr1, 1);
 		            if can_be_manned == true {
-		                var h1 = 18;
-		                var h2 = 28;
 		                if is_manned == true {
 		                    draw_set_halign(fa_right);
 		                    //Health
-		                    draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		                    draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		                    draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
-		                    //AP
-		                    draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		                    draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		                    draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
-		                    draw_set_halign(fa_left);
+				            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
+				            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+				            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+				            //AP
+				            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
+				            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+				            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
+				            draw_set_halign(fa_left);
 		                    //Repair Supply
 		                    draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		                    draw_sprite_ext(spr_Building_Icon, 0, xx+h1, yy-18, 1, 1, 0, c_white, 1);
-		                    draw_text_colour(xx+h2, yy-18, string(repair_ammo), c_white, c_white, c_white, c_white, 1);
+		                    draw_sprite_ext(spr_Building_Icon, 0, xx+18, yy-18, 1, 1, 0, c_white, 1);
+		                    draw_text_colour(xx+28, yy-18, string(repair_ammo), c_white, c_white, c_white, c_white, 1);
 		                    //MG Ammo
 		                    draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, 0, c_white, 1);
-		                    draw_sprite_ext(spr_MG_Icon, 0, xx+h1, yy, 1, 1, 0, c_white, 1);
-		                    draw_text_colour(xx+h2, yy, string(mg_ammo), c_white, c_white, c_white, c_white, 1);
+		                    draw_sprite_ext(spr_MG_Icon, 0, xx+18, yy, 1, 1, 0, c_white, 1);
+		                    draw_text_colour(xx+28, yy, string(mg_ammo), c_white, c_white, c_white, c_white, 1);
 		                }
 		                    else if is_manned == false {
 		                        //Health
@@ -504,27 +556,25 @@ function scr_DrawUnitStats() {
 		        }
 		        break;
 		    case "TOW":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "TOW", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        draw_text_colour(xx, yy-38, "TOW", clr1, clr1, clr1, clr1, 1);
 		        if can_be_manned == true && alert_display == false {
-		            var h1 = 18;
-		            var h2 = 28;
 		            if is_manned == true {
 		                draw_set_halign(fa_right);
 		                //Health
-		                draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		                draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
-		                //AP
-		                draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		                draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
-		                draw_set_halign(fa_left);
+			            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
+			            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+			            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+			            //AP
+			            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
+			            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+			            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
+			            draw_set_halign(fa_left);
 		                //TOW Ammo
 		                draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		                draw_sprite_ext(spr_Flare_Icon, 0, xx+h1, yy-18, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx+h2, yy-18, string(tow_ammo), c_white, c_white, c_white, c_white, 1);
+		                draw_sprite_ext(spr_Flare_Icon, 0, xx+18, yy-18, 1, 1, 0, c_white, 1);
+		                draw_text_colour(xx+28, yy-18, string(tow_ammo), c_white, c_white, c_white, c_white, 1);
 		            }
 		                else if is_manned == false {
 		                    //Health
@@ -536,27 +586,25 @@ function scr_DrawUnitStats() {
 		            }
 		        break;
 		    case "MORTAR":
-		        if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-					else { clr1 = c_green; }
-		        draw_text_colour(xx, yy-39, "Mortar", clr1, clr1, clr1, clr1, 1);
+		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+		        draw_text_colour(xx, yy-38, "Mortar", clr1, clr1, clr1, clr1, 1);
 		        if can_be_manned == true {
-		            var h1 = 18;
-		            var h2 = 28;
 		            if is_manned == true {
 		                draw_set_halign(fa_right);
 		                //Health
-		                draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
-		                draw_sprite_ext(spr_Health, 0, xx-(h1+4), yy-20, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx-h2, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
-		                //AP
-		                draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx-(h1-1), yy, "AP", clr1, clr1, clr1, clr1, 1);
-		                draw_text_colour(xx-(h2+7), yy, string(action_points), clr1, clr1, clr1, clr1, 1);
-		                draw_set_halign(fa_left);
+			            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, 0, c_white, 1);
+			            draw_sprite_ext(spr_Health,          0, xx-16, yy-20, 1, 1, 0, c_white, 1);
+			            draw_text_colour(xx-22, yy-18, string(unit_health), c_white, c_white, c_white, c_white, 1);
+			            //AP
+			            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, 0, c_white, 1);
+			            draw_text_colour(xx-9, yy, "AP",                  c_white, c_white, c_white, c_white, 1);
+			            draw_text_colour(xx-29, yy, string(action_points), c_white, c_white, c_white, c_white, 1);
+			            draw_set_halign(fa_left);
 		                //Mortar Ammo
 		                draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
-		                draw_sprite_ext(spr_Flare_Icon, 0, xx+h1, yy-18, 1, 1, 0, c_white, 1);
-		                draw_text_colour(xx+h2, yy-18, string(mortar_ammo), c_white, c_white, c_white, c_white, 1);
+		                draw_sprite_ext(spr_Flare_Icon, 0, xx+18, yy-18, 1, 1, 0, c_white, 1);
+		                draw_text_colour(xx+28, yy-18, string(mortar_ammo), c_white, c_white, c_white, c_white, 1);
 		            }
 		                else if is_manned == false {
 		                    //Health
@@ -610,93 +658,108 @@ function scr_DrawUnitStats() {
 			switch unit_type {
 				case "INF_A":
 					if is_manning == false {
-						if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-							else { clr1 = c_green; }
-						draw_text_transformed_colour(xx, yy+39, "Riflemen", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						var h1 = 18;
-						var h2 = 28;
+						if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						switch p_faction {
+							case "US":
+								draw_text_transformed_colour(xx, yy+40, "Riflemen", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+								break;
+							case "RU":
+								draw_text_transformed_colour(xx, yy+40, "Riflemen", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+								break;
+						}
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//Rifle Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Rifle_Icon, 0, xx-h1, yy+16, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy+18, string(rifle_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Rifle_Icon,      0, xx-14, yy+16, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy+18, string(rifle_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//RPG Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_RPG_Icon,   0, xx-h1, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy, string(rpg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_RPG_Icon,   0, xx-14, yy, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy, string(rpg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//Flare Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Flare_Icon, 0, xx-h1, yy-18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy-18, string(flare_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Flare_Icon,      0, xx-14, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy-18, string(flare_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 					break;
 				case "INF_B":
 					if is_manning == false {
-						if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-							else { clr1 = c_green; }
-						draw_text_transformed_colour(xx, yy+39, "Recon", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						var h1 = 18;
-						var h2 = 28;
+						if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						switch p_faction {
+							case "US":
+								draw_text_transformed_colour(xx, yy+40, "Recon", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+								break;
+							case "RU":
+								draw_text_transformed_colour(xx, yy+40, "Recon", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+								break;
+						}
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//Rifle Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Rifle_Icon, 0, xx-h1, yy+16, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy+18, string(rifle_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Rifle_Icon,      0, xx-14, yy+16, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy+18, string(rifle_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//RPG Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_RPG_Icon,   0, xx-h1, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy, string(rpg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_RPG_Icon,   0, xx-14, yy, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy, string(rpg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//Flare Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Flare_Icon, 0, xx-h1, yy-18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy-18, string(flare_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Flare_Icon,      0, xx-14, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy-18, string(flare_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 					break;
 				case "MBT_A":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "T-72 MBT", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_transformed_colour(xx, yy+40, "M1A2 MBT", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_transformed_colour(xx, yy+40, "T-72 MBT", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 					if is_manning == false {
-						var h1 = 18;
-						var h2 = 28;
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//Cannon Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Cannon_Icon, 0, xx-h1, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy+18, string(cannon_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Cannon_Icon,     0, xx-14, yy+18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy+18, string(cannon_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//MG Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_MG_Icon,     0, xx-h1, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy, string(mg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_MG_Icon,         0, xx-14, yy, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy, string(mg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {
@@ -714,30 +777,35 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "MBT_B":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "T-62 MBT", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_transformed_colour(xx, yy+40, "M1A1 MBT", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_transformed_colour(xx, yy+40, "T-62 MBT", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 					if is_manning == false {
-						var h1 = 18;
-						var h2 = 28;
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//Cannon Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Cannon_Icon, 0, xx-h1, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy+18, string(cannon_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Cannon_Icon, 0, xx-14, yy+16, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy+18, string(cannon_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//MG Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_MG_Icon,     0, xx-h1, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy, string(mg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_MG_Icon,     0, xx-14, yy, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy, string(mg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {
@@ -755,38 +823,43 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LAC_A":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "Tigr Cargo", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_transformed_colour(xx, yy+40, "M1097 Cargo", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_transformed_colour(xx, yy+40, "Tigr Cargo", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 					if is_manning == false {
-						var h1 = 18;
-						var h2 = 28;
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//Depot 
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Depot_Icon,  0, xx-(h1+8), yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2+8), yy+18, string(depot_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Depot_Icon,      0, xx-22, yy+18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-32, yy+18, string(depot_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//Repair
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Repair_Icon, 0, xx-(h1+8), yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2+8), yy, string(repair_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Repair_Icon,     0, xx-22, yy, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-32, yy, string(repair_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//TOW
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_AT_Icon,     0, xx-(h1+8), yy-18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2+8), yy-18, string(tow_supply), 1, 1, txt_rot,c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_AT_Icon,         0, xx-22, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-32, yy-18, string(tow_supply), 1, 1, txt_rot,c_white, c_white, c_white, c_white, 1);
 						//MORTAR
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-36, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_AA_Icon,     0, xx-(h1+8), yy-36, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(x-(h2+8), yy-36, string(mortar_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_AA_Icon,         0, xx-22, yy-36, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(x-32, yy-36, string(mortar_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {
@@ -804,38 +877,31 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LAC_B":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "Tigr TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_transformed_colour(xx, yy+40, "M1097 TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_transformed_colour(xx, yy+40, "Tigr TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 					if is_manning == false {
-						var h1 = 18;
-						var h2 = 28;
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
-						//Depot 
-						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Depot_Icon,  0, xx-(h1+8), yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2+8), yy+18, string(depot_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
-						//Repair
-						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Repair_Icon, 0, xx-(h1+8), yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2+8), yy, string(repair_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//TOW
-						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_AT_Icon,     0, xx-(h1+8), yy-18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2+8), yy-18, string(tow_supply), 1, 1, txt_rot,c_white, c_white, c_white, c_white, 1);
-						//MORTAR
-						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-36, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_AA_Icon,     0, xx-(h1+8), yy-36, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(x-(h2+8), yy-36, string(mortar_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
+						draw_sprite_ext(spr_AT_Icon,     0, xx-22, yy+18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-32, yy+18, string(tow_supply), 1, 1, txt_rot,c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {
@@ -853,30 +919,47 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LAV_A":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "BMP3 IFV", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_transformed_colour(xx, yy+40, "M3 IFV", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_transformed_colour(xx, yy+40, "BMP3 IFV", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 					if is_manning == false {
-						var h1 = 18;
-						var h2 = 28;
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						//SQUADS
+						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+10, yy-18, "SQ", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy-18, string(sqd_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//HE Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_HE_Icon, 0, xx-h1, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy+18, string(he_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_HE_Icon, 0, xx-18, yy+18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-28, yy+18, string(he_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_AP_Icon, 0, xx-h1, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy, string(ap_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_AP_Icon, 0, xx-18, yy, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-28, yy, string(ap_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						//MG Ammo
+						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_sprite_ext(spr_MG_Icon, 0, xx-18, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-28, yy-18, string(mg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						//AT Ammo
+						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-36, 1, 1, txt_rot, c_white, 1);
+						draw_sprite_ext(spr_AT_Icon, 0, xx-18, yy-36, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-28, yy-36, string(tow_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {
@@ -894,30 +977,43 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LAV_B":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "BTR-80 APC", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_transformed_colour(xx, yy+40, "M1126 APC", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_transformed_colour(xx, yy+40, "BTR-80 APC", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 					if is_manning == false {
-						var h1 = 18;
-						var h2 = 28;
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						//SQUADS
+						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+10, yy-18, "SQ", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy-18, string(sqd_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//HE Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_HE_Icon, 0, xx-h1, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy+18, string(he_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_HE_Icon, 0, xx-18, yy+18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-28, yy+18, string(he_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP Ammo
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_AP_Icon, 0, xx-h1, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-h2, yy, string(ap_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_AP_Icon, 0, xx-18, yy, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-28, yy, string(ap_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						//MG Ammo
+						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_sprite_ext(spr_MG_Icon, 0, xx-18, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-28, yy-18, string(mg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {
@@ -935,30 +1031,35 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LOGI_A": 
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "Ural Cargo", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_transformed_colour(xx, yy+40, "M35 Cargo", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_transformed_colour(xx, yy+40, "Ural Cargo", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 					if is_manning == false {
-						var h1 = 18;
-						var h2 = 28;
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//Ammo Supply
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Ammo_Icon,     0, xx-(h1-2), yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2-2), yy+18, string(ammo_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Ammo_Icon,       0, xx-14, yy+18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy+18, string(ammo_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//Building Supply
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Building_Icon, 0, xx-(h1-2), yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2-2), yy, string(building_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Building_Icon,   0, xx-14, yy, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy, string(building_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {
@@ -976,30 +1077,35 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "LOGI_B": 
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "Ural Transport", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
+					switch p_faction {
+						case "US":
+							draw_text_transformed_colour(xx, yy+40, "M35 Carrier", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+						case "RU":
+							draw_text_transformed_colour(xx, yy+40, "Ural Carrier", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							break;
+					}
 					if is_manning == false {
-						var h1 = 18;
-						var h2 = 28;
 						draw_set_halign(fa_right);
 						//Health
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						//AP
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-						draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						//SQUADS
+						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx+10, yy-18, "SQ", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy-18, string(sqd_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//Ammo Supply
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Ammo_Icon,     0, xx-(h1-2), yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2-2), yy+18, string(ammo_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
-						//Building Supply
-						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-						draw_sprite_ext(spr_Building_Icon, 0, xx-(h1-2), yy, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-(h2-2), yy, string(building_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_sprite_ext(spr_Ammo_Icon,       0, xx-14, yy+18, 1, 1, txt_rot, c_white, 1);
+						draw_text_transformed_colour(xx-24, yy+18, string(ammo_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {
@@ -1017,31 +1123,29 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "DEPOT":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "Depot", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					draw_text_transformed_colour(xx, yy+40, "Depot", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if can_be_manned == true {
-						var h1 = 18;
-						var h2 = 28;
 						if is_manned == true {
 							draw_set_halign(fa_right);
 							//Health
 							draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+							draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							//AP
 							draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-							draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							draw_set_halign(fa_left);
 							//Parts Supply
 							draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_sprite_ext(spr_Building_Icon,     0, xx-(h1-2), yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx-(h2-2), y+18, string(parts_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_sprite_ext(spr_Building_Icon,   0, xx-16, yy+18, 1, 1, txt_rot, c_white, 1);
+							draw_text_transformed_colour(xx-26, y+18, string(parts_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							//Ammunition Supply
 							draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-							draw_sprite_ext(spr_Ammo_Icon, 0, xx-(h1-2), yy, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx-(h2-2), yy, string(ammunition_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_sprite_ext(spr_Ammo_Icon, 0, xx-16, yy, 1, 1, txt_rot, c_white, 1);
+							draw_text_transformed_colour(xx-26, yy, string(ammunition_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						}
 							else if is_manned == false {
 							    //Health
@@ -1054,31 +1158,29 @@ function scr_DrawUnitStats() {
 					break;
 				case "REPAIR":
 					if is_occupied == false {
-						if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-							else { clr1 = c_green; }
-						draw_text_transformed_colour(xx, yy+39, "Repair", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+						if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+							else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						draw_text_transformed_colour(xx, yy+40, "Repair", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 						if can_be_manned == true {
-							var h1 = 18;
-							var h2 = 28;
 							if is_manned == true {
 							    draw_set_halign(fa_right);
 							    //Health
-							    draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-							    draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-							    draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
-							    //AP
-							    draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1,txt_rot, c_white, 1);
-							    draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-							    draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-							    draw_set_halign(fa_left);
+								draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
+								draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+								draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+								//AP
+								draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
+								draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+								draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+								draw_set_halign(fa_left);
 							    //Repair Supply
 							    draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-							    draw_sprite_ext(spr_Building_Icon, 0, xx-h1, yy+18, 1, 1, txt_rot, c_white, 1);
-							    draw_text_transformed_colour(xx-h2, yy+18, string(repair_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							    draw_sprite_ext(spr_Building_Icon, 0, xx-18, yy+18, 1, 1, txt_rot, c_white, 1);
+							    draw_text_transformed_colour(xx-28, yy+18, string(repair_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							    //MG Ammo
 							    draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy, 1, 1, txt_rot, c_white, 1);
-							    draw_sprite_ext(spr_MG_Icon, 0, xx-h1, yy, 1, 1, txt_rot, c_white, 1);
-							    draw_text_transformed_colour(xx-h2, yy, string(mg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							    draw_sprite_ext(spr_MG_Icon, 0, xx-18, yy, 1, 1, txt_rot, c_white, 1);
+							    draw_text_transformed_colour(xx-28, yy, string(mg_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							}
 							    else if is_manned == false {
 							        //Health
@@ -1091,27 +1193,25 @@ function scr_DrawUnitStats() {
 					}
 					break;
 				case "TOW":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					draw_text_transformed_colour(xx, yy+40, "TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if can_be_manned == true && alert_display == false {
-						var h1 = 18;
-						var h2 = 28;
 						if is_manned == true {
 							draw_set_halign(fa_right);
 							//Health
 							draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+							draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							//AP
 							draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-							draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							draw_set_halign(fa_left);
 							//TOW Ammo
 							draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_sprite_ext(spr_Flare_Icon, 0, xx-h1, yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx-h2, yy+18, string(tow_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_sprite_ext(spr_Flare_Icon, 0, xx-18, yy+18, 1, 1, txt_rot, c_white, 1);
+							draw_text_transformed_colour(xx-28, yy+18, string(tow_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						}
 							else if is_manned == false {
 							    //Health
@@ -1123,27 +1223,25 @@ function scr_DrawUnitStats() {
 						}
 					break;
 				case "MORTAR":
-					if selected != true { clr1 = make_colour_rgb(255,255,255);  }
-						else { clr1 = c_green; }
-					draw_text_transformed_colour(xx, yy+39, "Mortar", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+					if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+						else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy+39, 1, 1, 0, c_white, 1); }
+					draw_text_transformed_colour(xx, yy+40, "Mortar", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 					if can_be_manned == true {
-						var h1 = 18;
-						var h2 = 28;
 						if is_manned == true {
 							draw_set_halign(fa_right);
 							//Health
 							draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_sprite_ext(spr_Health, 0, xx+(h1+4), yy+20, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx+h2, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_sprite_ext(spr_Health,          0, xx+16, yy+20, 1, 1, txt_rot, c_white, 1);
+							draw_text_transformed_colour(xx+22, yy+18, string(unit_health), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							//AP
 							draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx+(h1-1), yy, "AP", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
-							draw_text_transformed_colour(xx+(h2+7), yy, string(action_points), 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							draw_text_transformed_colour(xx+10, yy, "AP", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_text_transformed_colour(xx+28, yy, string(action_points), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 							draw_set_halign(fa_left);
 							//Mortar Ammo
 							draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_sprite_ext(spr_Flare_Icon, 0, xx-h1, yy+18, 1, 1, txt_rot, c_white, 1);
-							draw_text_transformed_colour(xx-h2, yy+18, string(mortar_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+							draw_sprite_ext(spr_Flare_Icon, 0, xx-18, yy+18, 1, 1, txt_rot, c_white, 1);
+							draw_text_transformed_colour(xx-28, yy+18, string(mortar_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						}
 							else if is_manned == false {
 							    //Health

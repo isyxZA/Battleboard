@@ -84,7 +84,8 @@ resupplying = false;
 my_sound = -1;
 icon_colour = c_white;
 
-p_one = -1;
+p_one     = true;
+p_faction = "";
 
 ship_type = "";
 y_to = 0;

@@ -85,7 +85,7 @@ if global.game_turn != 0 {
                     path_clear_points(my_path);
                     //Add self to selected units list
                     ds_list_add(global.selected_list, id);
-                    ds_list_add(global.selected_logia_list, id);
+                    ds_list_add(global.selected_logib_list, id);
                 }
                 //Determine firing solution
                 if global.reticule_display == true {
@@ -119,7 +119,7 @@ if global.game_turn != 0 {
                         in_queue = false;
                         //Remove self from selected units list
                         ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
-                        ds_list_delete(global.selected_logia_list, ds_list_find_index(global.selected_logia_list, id));
+                        ds_list_delete(global.selected_logib_list, ds_list_find_index(global.selected_logib_list, id));
 						mp_grid_add_rectangle(global.move_grid, x_final-36, y_final-36, x_final+36, y_final+36);
                     }
                     if can_shoot == true { can_shoot = false; }
@@ -137,7 +137,7 @@ if global.game_turn != 0 {
                 in_queue = false;
                 //Remove self from selected units list
                 ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
-                ds_list_delete(global.selected_logia_list, ds_list_find_index(global.selected_logia_list, id));
+                ds_list_delete(global.selected_logib_list, ds_list_find_index(global.selected_logib_list, id));
 				mp_grid_add_rectangle(global.move_grid, x_final-36, y_final-36, x_final+36, y_final+36);
             }
             if can_shoot == true { can_shoot = false; }

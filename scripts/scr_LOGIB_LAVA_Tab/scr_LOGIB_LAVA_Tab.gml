@@ -206,7 +206,7 @@ function scr_LOGIB_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 		            //Add to temp AP cost
 		            global.temp_AP = (global.lavmg_l_amount/lavmg_supply_rate)*ap_cost;
 		            //Set the menu position
-		            global.fire_option = 1; 
+		            global.fire_option = 2; 
 		            //Switch off camera zoom
 		            global.can_zoom  = false;
 		            global.header_highlight = false;
@@ -254,7 +254,7 @@ function scr_LOGIB_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 			            //Add to temp AP cost
 			            global.temp_AP = (global.lavat_l_amount/lavat_supply_rate)*ap_cost;
 			            //Set the menu position
-			            global.fire_option = 1; 
+			            global.fire_option = 3; 
 			            //Switch off camera zoom
 			            global.can_zoom  = false;
 			            global.header_highlight = false;
@@ -263,7 +263,7 @@ function scr_LOGIB_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 			        }
 			            else if f5 {
 			                //RE-TARGET 
-			                global.fire_option = 2; 
+			                global.fire_option = 4; 
 			                global.can_zoom  = true;
 			                global.header_highlight = false;
 			                obj_ACTIONMENU.display_tabinfo = false;
@@ -271,14 +271,14 @@ function scr_LOGIB_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 			            }
 			                else if f6 {
 			                    //CANCEL
-			                    global.fire_option = 3; 
+			                    global.fire_option = 5; 
 			                    global.can_zoom  = true;  
 			                    global.header_highlight = false;
 			                    obj_ACTIONMENU.display_tabinfo = false;
 			                    obj_ACTIONMENU.display_menuinfo = false;
 			                }
 			                    else { 
-			                        global.fire_option = 0; 
+			                        //global.fire_option = 0; 
 			                        global.can_zoom  = true;
 			                        global.header_highlight = false;
 			                        obj_ACTIONMENU.display_tabinfo = false;

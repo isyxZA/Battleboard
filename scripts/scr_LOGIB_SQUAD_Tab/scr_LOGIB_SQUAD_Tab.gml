@@ -99,7 +99,7 @@ function scr_LOGIB_SQUAD_Tab(argument0, argument1) {
 	                obj_ACTIONMENU.display_menuinfo = false;
 	            }
 	                else { 
-	                    global.fire_option = 0; 
+	                    //global.fire_option = 0; 
 	                    global.can_zoom  = true;
 	                    global.header_highlight = false;
 	                    obj_ACTIONMENU.display_tabinfo = false;

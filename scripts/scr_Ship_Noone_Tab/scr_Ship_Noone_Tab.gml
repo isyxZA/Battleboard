@@ -25,7 +25,7 @@ function scr_Ship_Noone_Tab() {
 	        global.can_zoom  = true; 
 	    }
 	        else { 
-	            global.fire_option = 0; 
+	            //global.fire_option = 0; 
 	            global.can_zoom  = true;
 	        }
             

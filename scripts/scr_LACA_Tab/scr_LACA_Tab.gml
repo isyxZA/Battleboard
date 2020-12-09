@@ -249,7 +249,7 @@ function scr_LACA_Tab(argument0, argument1, argument2, argument3, argument4) {
 	                        }
 	                            else { 
 	                                //OUT OF MENU AREA
-	                                global.fire_option = 0; 
+	                                //global.fire_option = 0; 
 	                                global.can_zoom  = true;
 	                                global.header_highlight = false;
 	                                obj_ACTIONMENU.display_tabinfo = false;

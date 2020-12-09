@@ -13,12 +13,12 @@ if clear == true {
     slot4_full = false;
     slot5_full = false;
     slot6_full = false;
-    slot1_sprite = -1;
-    slot2_sprite = -1;
-    slot3_sprite = -1;
-    slot4_sprite = -1;  
-    slot5_sprite = -1;
-    slot6_sprite = -1;
+    slot1_sprite = spr_Dropdown_Empty;
+	slot2_sprite = spr_Dropdown_Empty;
+	slot3_sprite = spr_Dropdown_Empty;
+	slot4_sprite = spr_Dropdown_Empty;
+	slot5_sprite = spr_Dropdown_Empty;
+	slot6_sprite = spr_Dropdown_Empty;
     if squad_list != -1 { 
         if !ds_list_empty(squad_list) { ds_list_clear(squad_list); } 
     }

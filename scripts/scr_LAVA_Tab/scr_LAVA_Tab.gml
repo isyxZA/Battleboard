@@ -182,7 +182,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		            //Add to temp AP cost
 		            global.temp_AP = (global.lav_mg_amount/mg_rate)*mg_cost;
 		            //Set the menu position
-		            global.fire_option = 1; 
+		            global.fire_option = 2; 
 		            //Switch off camera zoom
 		            global.can_zoom  = false;
 		            global.header_highlight = false;
@@ -226,7 +226,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 			            //Add to temp AP cost
 			            global.temp_AP = (global.lav_at_amount/tow_rate)*tow_cost;
 			            //Set the menu position
-			            global.fire_option = 1; 
+			            global.fire_option = 3; 
 			            //Switch off camera zoom
 			            global.can_zoom  = false;
 			            global.header_highlight = false;
@@ -273,7 +273,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				            //Add to temp AP cost
 				            global.temp_AP = (global.lav_sq_amount/sqd_rate)*sqd_cost;
 				            //Set the menu position
-				            global.fire_option = 1; 
+				            global.fire_option = 4; 
 				            //Switch off camera zoom
 				            global.can_zoom  = false;
 				            global.header_highlight = false;
@@ -282,7 +282,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				        }
 				            else if f6 { 
 				                //RE-TARGET
-				                global.fire_option = 2; 
+				                global.fire_option = 5; 
 				                global.can_zoom  = true;
 				                global.header_highlight = false;
 				                obj_ACTIONMENU.display_tabinfo = false;
@@ -290,14 +290,14 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				            }
 				                else if f7 { 
 				                    //CANCEL
-				                    global.fire_option = 3; 
+				                    global.fire_option = 6; 
 				                    global.can_zoom  = true;
 				                    global.header_highlight = false;
 				                    obj_ACTIONMENU.display_tabinfo = false;
 				                    obj_ACTIONMENU.display_menuinfo = false;
 				                }
 				                    else { 
-				                        global.fire_option = 0; 
+				                        //global.fire_option = 0; 
 				                        global.can_zoom  = true;
 				                        global.header_highlight = false;
 				                        obj_ACTIONMENU.display_tabinfo = false;

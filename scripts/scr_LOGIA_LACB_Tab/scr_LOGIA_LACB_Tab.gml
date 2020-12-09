@@ -89,7 +89,7 @@ function scr_LOGIA_LACB_Tab(argument0, argument1, argument2, argument3) {
 	    }
 		    else if f2 {
 		        //RE-TARGET 
-		        global.fire_option = 4; 
+		        global.fire_option = 1; 
 		        global.can_zoom  = true; 
 		        global.header_highlight = false;
 		        obj_ACTIONMENU.display_tabinfo = false;
@@ -97,14 +97,14 @@ function scr_LOGIA_LACB_Tab(argument0, argument1, argument2, argument3) {
 		    }
 		        else if f3 {
 		            //CANCEL
-		            global.fire_option = 5; 
+		            global.fire_option = 2; 
 		            global.can_zoom  = true; 
 		            global.header_highlight = false;
 		            obj_ACTIONMENU.display_tabinfo = false;
 		            obj_ACTIONMENU.display_menuinfo = false;
 		        }
 		            else { 
-		                global.fire_option = 0; 
+		                //global.fire_option = 0; 
 		                global.can_zoom  = true;
 		                global.header_highlight = false;
 		                obj_ACTIONMENU.display_tabinfo = false;

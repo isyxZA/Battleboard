@@ -6,6 +6,12 @@ if lcheck == true {
 	slot4_full = false;
 	slot5_full = false;
 	slot6_full = false;
+	slot1_sprite = spr_Dropdown_Empty;
+	slot2_sprite = spr_Dropdown_Empty;
+	slot3_sprite = spr_Dropdown_Empty;
+	slot4_sprite = spr_Dropdown_Empty;
+	slot5_sprite = spr_Dropdown_Empty;
+	slot6_sprite = spr_Dropdown_Empty;
 	if !ds_list_empty(squad_list) {
 		var sli;
 		var slu;
@@ -20,16 +26,31 @@ if lcheck == true {
 						case "INF_A":
 							slot1_sprite = spr_Infantry_Dropdown;
 							break;
+						case "INF_B":
+							slot1_sprite = spr_Infantry_Dropdown;
+							break;
 						case "MBT_A":
+							slot1_sprite = spr_Tank_Dropdown;
+							break;
+						case "MBT_B":
 							slot1_sprite = spr_Tank_Dropdown;
 							break;
 						case "LAC_A":
 							slot1_sprite = spr_Engineer_Dropdown;
 							break;
+						case "LAC_B":
+							slot1_sprite = spr_Engineer_Dropdown;
+							break;
 						case "LAV_A":
 							slot1_sprite = spr_BTR_Dropdown;
 							break;
+						case "LAV_B":
+							slot1_sprite = spr_BTR_Dropdown;
+							break;
 						case "LOGI_A":
+							slot1_sprite = spr_Logi_Dropdown;
+							break;
+						case "LOGI_B":
 							slot1_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -41,16 +62,31 @@ if lcheck == true {
 						case "INF_A":
 							slot2_sprite = spr_Infantry_Dropdown;
 							break;
+						case "INF_B":
+							slot2_sprite = spr_Infantry_Dropdown;
+							break;
 						case "MBT_A":
+							slot2_sprite = spr_Tank_Dropdown;
+							break;
+						case "MBT_B":
 							slot2_sprite = spr_Tank_Dropdown;
 							break;
 						case "LAC_A":
 							slot2_sprite = spr_Engineer_Dropdown;
 							break;
+						case "LAC_B":
+							slot2_sprite = spr_Engineer_Dropdown;
+							break;
 						case "LAV_A":
 							slot2_sprite = spr_BTR_Dropdown;
 							break;
+						case "LAV_B":
+							slot2_sprite = spr_BTR_Dropdown;
+							break;
 						case "LOGI_A":
+							slot2_sprite = spr_Logi_Dropdown;
+							break;
+						case "LOGI_B":
 							slot2_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -62,16 +98,31 @@ if lcheck == true {
 						case "INF_A":
 							slot3_sprite = spr_Infantry_Dropdown;
 							break;
+						case "INF_B":
+							slot3_sprite = spr_Infantry_Dropdown;
+							break;
 						case "MBT_A":
+							slot3_sprite = spr_Tank_Dropdown;
+							break;
+						case "MBT_B":
 							slot3_sprite = spr_Tank_Dropdown;
 							break;
 						case "LAC_A":
 							slot3_sprite = spr_Engineer_Dropdown;
 							break;
+						case "LAC_B":
+							slot3_sprite = spr_Engineer_Dropdown;
+							break;
 						case "LAV_A":
 							slot3_sprite = spr_BTR_Dropdown;
 							break;
+						case "LAV_B":
+							slot3_sprite = spr_BTR_Dropdown;
+							break;
 						case "LOGI_A":
+							slot3_sprite = spr_Logi_Dropdown;
+							break;
+						case "LOGI_B":
 							slot3_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -83,16 +134,31 @@ if lcheck == true {
 						case "INF_A":
 							slot4_sprite = spr_Infantry_Dropdown;
 							break;
+						case "INF_B":
+							slot4_sprite = spr_Infantry_Dropdown;
+							break;
 						case "MBT_A":
+							slot4_sprite = spr_Tank_Dropdown;
+							break;
+						case "MBT_B":
 							slot4_sprite = spr_Tank_Dropdown;
 							break;
 						case "LAC_A":
 							slot4_sprite = spr_Engineer_Dropdown;
 							break;
+						case "LAC_B":
+							slot4_sprite = spr_Engineer_Dropdown;
+							break;
 						case "LAV_A":
 							slot4_sprite = spr_BTR_Dropdown;
 							break;
+						case "LAV_B":
+							slot4_sprite = spr_BTR_Dropdown;
+							break;
 						case "LOGI_A":
+							slot4_sprite = spr_Logi_Dropdown;
+							break;
+						case "LOGI_B":
 							slot4_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -104,16 +170,31 @@ if lcheck == true {
 						case "INF_A":
 							slot5_sprite = spr_Infantry_Dropdown;
 							break;
+						case "INF_B":
+							slot5_sprite = spr_Infantry_Dropdown;
+							break;
 						case "MBT_A":
+							slot5_sprite = spr_Tank_Dropdown;
+							break;
+						case "MBT_B":
 							slot5_sprite = spr_Tank_Dropdown;
 							break;
 						case "LAC_A":
 							slot5_sprite = spr_Engineer_Dropdown;
 							break;
+						case "LAC_B":
+							slot5_sprite = spr_Engineer_Dropdown;
+							break;
 						case "LAV_A":
 							slot5_sprite = spr_BTR_Dropdown;
 							break;
+						case "LAV_B":
+							slot5_sprite = spr_BTR_Dropdown;
+							break;
 						case "LOGI_A":
+							slot5_sprite = spr_Logi_Dropdown;
+							break;
+						case "LOGI_B":
 							slot5_sprite = spr_Logi_Dropdown;
 							break;
 					}
@@ -125,16 +206,31 @@ if lcheck == true {
 						case "INF_A":
 							slot6_sprite = spr_Infantry_Dropdown;
 							break;
+						case "INF_B":
+							slot6_sprite = spr_Infantry_Dropdown;
+							break;
 						case "MBT_A":
+							slot6_sprite = spr_Tank_Dropdown;
+							break;
+						case "MBT_B":
 							slot6_sprite = spr_Tank_Dropdown;
 							break;
 						case "LAC_A":
 							slot6_sprite = spr_Engineer_Dropdown;
 							break;
+						case "LAC_B":
+							slot6_sprite = spr_Engineer_Dropdown;
+							break;
 						case "LAV_A":
 							slot6_sprite = spr_BTR_Dropdown;
 							break;
+						case "LAV_B":
+							slot6_sprite = spr_BTR_Dropdown;
+							break;
 						case "LOGI_A":
+							slot6_sprite = spr_Logi_Dropdown;
+							break;
+						case "LOGI_B":
 							slot6_sprite = spr_Logi_Dropdown;
 							break;
 					}

@@ -42,7 +42,7 @@ function scr_LOGIB_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	    else if f1 { 
 	        //RESUPPLY TOW
 	        //Select number of rounds to fire
-	        //Increase by a rate of 4
+	        //Increase
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo supply available
 	            if global.mtramo_l_amount <= (global.logi_amo_supply-mortarS_supply_rate) {
@@ -104,7 +104,7 @@ function scr_LOGIB_Mortar_Tab(argument0, argument1, argument2, argument3) {
 	                obj_ACTIONMENU.display_menuinfo = false;
 	            }
 	                else { 
-	                    global.fire_option = 0; 
+	                    //global.fire_option = 0; 
 	                    global.can_zoom  = true;
 	                    global.header_highlight = false;
 	                    obj_ACTIONMENU.display_tabinfo = false;

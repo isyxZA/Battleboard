@@ -28,7 +28,7 @@ switch my_squad {
 }
 ds_list_delete(global.unit_list, ds_list_find_index(global.unit_list, id));//Remove self from unit list
 ds_list_delete(global.myunit_list, ds_list_find_index(global.myunit_list, id));//Remove self from unit list
-ds_list_delete(global.mbta_list, ds_list_find_index(global.mbta_list, id));
+ds_list_delete(global.mbtb_list, ds_list_find_index(global.mbtb_list, id));
 path_delete(my_path);
 with obj_Destroy_PFX {
 	explode_tank = true;

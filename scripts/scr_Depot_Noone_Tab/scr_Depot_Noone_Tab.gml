@@ -36,7 +36,7 @@ function scr_Depot_Noone_Tab() {
 	        }
 	            else { 
 	                //OUT OF MENU AREA
-	                global.fire_option = 0; 
+	                //global.fire_option = 0; 
 	                global.can_zoom  = true;
 	                global.header_highlight = false;
 	                obj_ACTIONMENU.display_tabinfo = false;

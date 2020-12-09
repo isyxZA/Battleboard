@@ -23,11 +23,11 @@ function scr_Depot_LOGIA_Tab(argument0, argument1, argument2, argument3, argumen
 	lala_fire_menu[3] = "Cancel";
 	*/
 
-	var ammo_count           = argument1;
-	var building_count       = argument2;
-	var ammo_max             = argument3;
-	var building_max         = argument4;
-	var logiamo_supply_rate     = argument5;
+	var ammo_count          = argument1;
+	var building_count      = argument2;
+	var ammo_max            = argument3;
+	var building_max        = argument4;
+	var logiamo_supply_rate = argument5;
 	var logibld_supply_rate = argument6;
 
 	var f0;
@@ -170,7 +170,7 @@ function scr_Depot_LOGIA_Tab(argument0, argument1, argument2, argument3, argumen
 	                    obj_ACTIONMENU.display_menuinfo = false;
 	                }
 	                    else { 
-	                        global.fire_option = 0; 
+	                        //global.fire_option = 0; 
 	                        global.can_zoom  = true;
 	                        global.header_highlight = false;
 	                        obj_ACTIONMENU.display_tabinfo = false;

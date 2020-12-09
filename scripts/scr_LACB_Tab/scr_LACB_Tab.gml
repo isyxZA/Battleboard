@@ -68,7 +68,7 @@ function scr_LACB_Tab(argument0, argument1) {
 		    //Add to temp AP cost
 		    global.temp_AP = (global.lac_tow2_amount/tow_rate)*ap_cost;
 		    //Set the menu position
-		    global.fire_option = 2; 
+		    global.fire_option = 0; 
 		    //Switch off camera zoom
 		    global.can_zoom  = false;
 		    global.header_highlight = false;
@@ -77,7 +77,7 @@ function scr_LACB_Tab(argument0, argument1) {
 		}
 		        else if f2 { 
 		            //RE-TARGET
-		            global.fire_option = 4; 
+		            global.fire_option = 1; 
 		            global.can_zoom  = true;
 		            global.header_highlight = false;
 		            obj_ACTIONMENU.display_tabinfo = false;
@@ -85,7 +85,7 @@ function scr_LACB_Tab(argument0, argument1) {
 		        }
 		            else if f3 { 
 		                //CANCEL
-		                global.fire_option = 5; 
+		                global.fire_option = 2; 
 		                global.can_zoom  = true;
 		                global.header_highlight = false;
 		                obj_ACTIONMENU.display_tabinfo = false;
@@ -93,7 +93,7 @@ function scr_LACB_Tab(argument0, argument1) {
 		            }
 		                else { 
 		                    //OUT OF MENU AREA
-		                    global.fire_option = 0; 
+		                    //global.fire_option = 0; 
 		                    global.can_zoom  = true;
 		                    global.header_highlight = false;
 		                    obj_ACTIONMENU.display_tabinfo = false;

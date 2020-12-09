@@ -33,6 +33,6 @@ switch my_squad {
 }
 ds_list_delete(global.unit_list, ds_list_find_index(global.unit_list, id));//Remove self from unit list
 ds_list_delete(global.myunit_list, ds_list_find_index(global.myunit_list, id));//Remove self from unit list
-ds_list_delete(global.infa_list, ds_list_find_index(global.infa_list, id));//Remove self from unit list
+ds_list_delete(global.infb_list, ds_list_find_index(global.infb_list, id));//Remove self from unit list
 path_delete(my_path);
 

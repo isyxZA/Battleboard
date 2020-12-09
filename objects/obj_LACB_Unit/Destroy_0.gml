@@ -28,7 +28,7 @@ switch my_squad {
 }
 ds_list_delete(global.unit_list, ds_list_find_index(global.unit_list, id));//Remove self from unit list
 ds_list_delete(global.myunit_list, ds_list_find_index(global.myunit_list, id));//Remove self from unit list
-ds_list_delete(global.laca_list, ds_list_find_index(global.laca_list, id));
+ds_list_delete(global.lacb_list, ds_list_find_index(global.lacb_list, id));
 path_delete(my_path);
 with obj_Destroy_PFX {
 	explode_engineer = true;

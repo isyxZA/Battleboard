@@ -35,7 +35,7 @@ function scr_LOGIB_Noone_Tab() {
 	            obj_ACTIONMENU.display_menuinfo = false;
 	        }
 	            else { 
-	                global.fire_option = 0; 
+	                //global.fire_option = 0; 
 	                global.can_zoom  = true;
 	                global.header_highlight = false;
 	                obj_ACTIONMENU.display_tabinfo = false;

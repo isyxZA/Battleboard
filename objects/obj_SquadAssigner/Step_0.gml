@@ -64,7 +64,7 @@ if can_activate == true {
 				}
 				ds_list_delete(squad_list, 0);
 				//slot1_full = false;
-				open_slots += 1;
+				//open_slots += 1;
 				lcheck = true;
 			}
 				else if (slot2_full == true) && (point_distance(mouse_x, mouse_y, x, slot_y2) < 12) {
@@ -103,7 +103,7 @@ if can_activate == true {
 					}
 					ds_list_delete(squad_list, 1);
 					//slot2_full = false;
-					open_slots += 1;
+					//open_slots += 1;
 					lcheck = true;
 				}
 					else if (slot3_full == true) && (point_distance(mouse_x, mouse_y, x, slot_y3) < 12) {
@@ -142,7 +142,7 @@ if can_activate == true {
 						}
 						ds_list_delete(squad_list, 2);
 						//slot3_full = false;
-						open_slots += 1;
+						//open_slots += 1;
 						lcheck = true;
 					}
 						else if (slot4_full == true) && (point_distance(mouse_x, mouse_y, x, slot_y4) < 12) {
@@ -181,7 +181,7 @@ if can_activate == true {
 							}
 							ds_list_delete(squad_list, 3);
 							//slot4_full = false;
-							open_slots += 1;
+							//open_slots += 1;
 							lcheck = true;
 						}
 							else if (slot5_full == true) && (point_distance(mouse_x, mouse_y, x, slot_y5) < 12) {
@@ -220,7 +220,7 @@ if can_activate == true {
 								}
 								ds_list_delete(squad_list, 4);
 								//slot5_full = false;
-								open_slots += 1;
+								//open_slots += 1;
 								lcheck = true;
 							}
 								else if (slot6_full == true) && (point_distance(mouse_x, mouse_y, x, slot_y6) < 12) {
@@ -259,7 +259,7 @@ if can_activate == true {
 									}
 									ds_list_delete(squad_list, 5);
 									//slot6_full = false;
-									open_slots += 1;
+									//open_slots += 1;
 									lcheck = true;
 								}
 									else {}

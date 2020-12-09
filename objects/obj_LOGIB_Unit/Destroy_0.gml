@@ -28,7 +28,7 @@ switch my_squad {
 }
 ds_list_delete(global.unit_list, ds_list_find_index(global.unit_list, id));//Remove self from unit list
 ds_list_delete(global.myunit_list, ds_list_find_index(global.myunit_list, id));//Remove self from unit list
-ds_list_delete(global.logia_list, ds_list_find_index(global.logia_list, id));
+ds_list_delete(global.logib_list, ds_list_find_index(global.logib_list, id));
 path_delete(my_path);
 with obj_Destroy_PFX {
 	explode_logi = true;
