@@ -35,8 +35,8 @@ function scr_Logi_Mortar_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.mtramo_l_amount;
-	                ammo_count   = global.logi_amo_supply;
+	                shoot_amount = mtramo_l_amount;
+	                ammo_count   = logia_amo_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -46,7 +46,7 @@ function scr_Logi_Mortar_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.logi_amo_supply <= 0 { c1 = c_red; }
+	                if logia_amo_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

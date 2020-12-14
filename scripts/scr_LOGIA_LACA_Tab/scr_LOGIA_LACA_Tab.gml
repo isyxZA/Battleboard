@@ -75,9 +75,9 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	        //Increase by a rate of 1 building supply
 	        if mouse_wheel_up() { 
 	            //Check if there is enough building supply available
-	            if global.lacdpt_l_amount <= (global.logi_bld_supply-lacdpt_supply_rate) {
+	            if lacdpt_l_amount <= (logia_bld_supply-lacdpt_supply_rate) {
 	                //Make sure the unit does not go over max
-	                if ((global.lacdpt_l_amount+depot_count)+lacdpt_supply_rate) <= depot_max {
+	                if ((lacdpt_l_amount+depot_count)+lacdpt_supply_rate) <= depot_max {
 	                    //Check if there is enough turn AP for the move
 	                    var m_ap = (global.turn_AP-global.temp_AP);
 	                    if m_ap >= ap_cost {
@@ -90,9 +90,9 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                if unit.can_shoot == true { ap += unit.action_points; }
 	                            }
 	                        }
-	                        if ap >= ((global.lacdpt_l_amount+lacdpt_supply_rate)/lacdpt_supply_rate)*ap_cost {
+	                        if ap >= ((lacdpt_l_amount+lacdpt_supply_rate)/lacdpt_supply_rate)*ap_cost {
 	                            //Add the rounds
-	                            global.lacdpt_l_amount +=  lacdpt_supply_rate; 
+	                            lacdpt_l_amount +=  lacdpt_supply_rate; 
 	                        }
 	                    }
 	                }
@@ -100,15 +100,15 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	        }
 	        //Decrease by a rate of 1
 	        if mouse_wheel_down() { 
-	            if global.lacdpt_l_amount >= lacdpt_supply_rate { 
-	                global.lacdpt_l_amount -= lacdpt_supply_rate; 
+	            if lacdpt_l_amount >= lacdpt_supply_rate { 
+	                lacdpt_l_amount -= lacdpt_supply_rate; 
 	            } 
 	        }
 	        //Clamp the value between zero and the max available rounds
-	        if global.lacdpt_l_amount < 0 { global.lacdpt_l_amount = 0; }
-	        if global.lacdpt_l_amount > global.logi_bld_supply { global.lacdpt_l_amount = global.logi_bld_supply; }
+	        if lacdpt_l_amount < 0 { lacdpt_l_amount = 0; }
+	        if lacdpt_l_amount > logia_bld_supply { lacdpt_l_amount = logia_bld_supply; }
 	        //Add to temp AP cost
-	        global.temp_AP = (global.lacdpt_l_amount/lacdpt_supply_rate)*ap_cost;
+	        global.temp_AP = (lacdpt_l_amount/lacdpt_supply_rate)*ap_cost;
 	        //Set the menu position
 	        global.fire_option = 0; 
 	        //Switch off camera zoom
@@ -123,9 +123,9 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	            //Increase by a rate of 1 building supply
 	            if mouse_wheel_up() { 
 	                //Check if there is enough building supply available
-	                if global.lacrpr_l_amount <= (global.logi_bld_supply-lacrpr_supply_rate) {
+	                if lacrpr_l_amount <= (logia_bld_supply-lacrpr_supply_rate) {
 	                    //Make sure the unit does not go over max
-	                    if ((global.lacrpr_l_amount+repair_count)+lacrpr_supply_rate) <= repair_max {
+	                    if ((lacrpr_l_amount+repair_count)+lacrpr_supply_rate) <= repair_max {
 	                        //Check if there is enough turn AP for the move
 	                        var m_ap = (global.turn_AP-global.temp_AP);
 	                        if m_ap >= ap_cost {
@@ -138,9 +138,9 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                    if unit.can_shoot == true { ap += unit.action_points; }
 	                                }
 	                            }
-	                            if ap >= ((global.lacrpr_l_amount+lacrpr_supply_rate)/lacrpr_supply_rate)*ap_cost {
+	                            if ap >= ((lacrpr_l_amount+lacrpr_supply_rate)/lacrpr_supply_rate)*ap_cost {
 	                                //Add the rounds
-	                                global.lacrpr_l_amount += lacrpr_supply_rate; 
+	                                lacrpr_l_amount += lacrpr_supply_rate; 
 	                            }
 	                        }
 	                    }
@@ -148,15 +148,15 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	            }
 	            //Decrease by a rate of 1
 	            if mouse_wheel_down() { 
-	                if global.lacrpr_l_amount >= lacrpr_supply_rate { 
-	                    global.lacrpr_l_amount -= lacrpr_supply_rate; 
+	                if lacrpr_l_amount >= lacrpr_supply_rate { 
+	                    lacrpr_l_amount -= lacrpr_supply_rate; 
 	                } 
 	            }
 	            //Clamp the value between zero and the max available rounds
-	            if global.lacrpr_l_amount < 0 { global.lacrpr_l_amount = 0; }
-	            if global.lacrpr_l_amount > global.logi_bld_supply { global.lacrpr_l_amount = global.logi_bld_supply; }
+	            if lacrpr_l_amount < 0 { lacrpr_l_amount = 0; }
+	            if lacrpr_l_amount > logia_bld_supply { lacrpr_l_amount = logia_bld_supply; }
 	            //Add to temp AP cost
-	            global.temp_AP = (global.lacrpr_l_amount/lacrpr_supply_rate)*ap_cost;
+	            global.temp_AP = (lacrpr_l_amount/lacrpr_supply_rate)*ap_cost;
 	            //Set the menu position
 	            global.fire_option = 1; 
 	            //Switch off camera zoom
@@ -171,9 +171,9 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                //Increase by a rate of 1
 	                if mouse_wheel_up() { 
 	                     //Check if there is enough building supply available
-	                    if global.lactow_l_amount <= (global.logi_bld_supply-lactow_supply_rate) {
+	                    if lactow_l_amount <= (logia_bld_supply-lactow_supply_rate) {
 	                        //Make sure the unit rifle building does not go over max
-	                        if ((global.lactow_l_amount+tow_count)+lactow_supply_rate) <= tow_max {
+	                        if ((lactow_l_amount+tow_count)+lactow_supply_rate) <= tow_max {
 	                            //Check if there is enough turn AP for the move
 	                            var m_ap = (global.turn_AP-global.temp_AP);
 	                            if m_ap >= ap_cost {
@@ -186,9 +186,9 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                        if unit.can_shoot == true { ap += unit.action_points; }
 	                                    }
 	                                }
-	                                if ap >= ((global.lactow_l_amount+lactow_supply_rate)/lactow_supply_rate)*ap_cost {
+	                                if ap >= ((lactow_l_amount+lactow_supply_rate)/lactow_supply_rate)*ap_cost {
 	                                    //Add the rounds
-	                                    global.lactow_l_amount += lactow_supply_rate; 
+	                                    lactow_l_amount += lactow_supply_rate; 
 	                                }
 	                            }
 	                        }
@@ -196,15 +196,15 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                }
 	                //Decrease by a rate of 1
 	                if mouse_wheel_down() { 
-	                    if global.lactow_l_amount >= lactow_supply_rate { 
-	                        global.lactow_l_amount -= lactow_supply_rate; 
+	                    if lactow_l_amount >= lactow_supply_rate { 
+	                        lactow_l_amount -= lactow_supply_rate; 
 	                    } 
 	                }
 	                //Clamp the value between zero and the max available rounds
-	                if global.lactow_l_amount < 0 { global.lactow_l_amount = 0; }
-	                if global.lactow_l_amount > global.logi_bld_supply { global.lactow_l_amount = global.logi_bld_supply; }
+	                if lactow_l_amount < 0 { lactow_l_amount = 0; }
+	                if lactow_l_amount > logia_bld_supply { lactow_l_amount = logia_bld_supply; }
 	                //Add to temp AP cost
-	                global.temp_AP = (global.lactow_l_amount/lactow_supply_rate)*ap_cost;
+	                global.temp_AP = (lactow_l_amount/lactow_supply_rate)*ap_cost;
 	                global.fire_option = 2; 
 	                //Switch off camera zoom
 	                global.can_zoom  = false;
@@ -218,9 +218,9 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                    //Increase by a rate of 1
 	                    if mouse_wheel_up() { 
 	                         //Check if there is enough building supply available
-	                        if global.lacmtr_l_amount <= (global.logi_bld_supply-lacmtr_supply_rate) {
+	                        if lacmtr_l_amount <= (logia_bld_supply-lacmtr_supply_rate) {
 	                            //Make sure the unit does not go over max
-	                            if ((global.lacmtr_l_amount+mortar_count)+lacmtr_supply_rate) <= mortar_max {
+	                            if ((lacmtr_l_amount+mortar_count)+lacmtr_supply_rate) <= mortar_max {
 	                                //Check if there is enough turn AP for the move
 	                                var m_ap = (global.turn_AP-global.temp_AP);
 	                                if m_ap >= ap_cost {
@@ -233,9 +233,9 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                            if unit.can_shoot == true { ap += unit.action_points; }
 	                                        }
 	                                    }
-	                                    if ap >= ((global.lacmtr_l_amount+lacmtr_supply_rate)/lacmtr_supply_rate)*ap_cost {
+	                                    if ap >= ((lacmtr_l_amount+lacmtr_supply_rate)/lacmtr_supply_rate)*ap_cost {
 	                                        //Add the rounds
-	                                        global.lacmtr_l_amount += lacmtr_supply_rate; 
+	                                        lacmtr_l_amount += lacmtr_supply_rate; 
 	                                    }
 	                                }
 	                            }
@@ -243,15 +243,15 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                    }
 	                    //Decrease by a rate of 1
 	                    if mouse_wheel_down() { 
-	                        if global.lacmtr_l_amount >= lacmtr_supply_rate { 
-	                            global.lacmtr_l_amount -= lacmtr_supply_rate; 
+	                        if lacmtr_l_amount >= lacmtr_supply_rate { 
+	                            lacmtr_l_amount -= lacmtr_supply_rate; 
 	                        } 
 	                    }
 	                    //Clamp the value between zero and the max available rounds
-	                    if global.lacmtr_l_amount < 0 { global.lacmtr_l_amount = 0; }
-	                    if global.lacmtr_l_amount > global.logi_bld_supply { global.lacmtr_l_amount = global.logi_bld_supply; }
+	                    if lacmtr_l_amount < 0 { lacmtr_l_amount = 0; }
+	                    if lacmtr_l_amount > logia_bld_supply { lacmtr_l_amount = logia_bld_supply; }
 	                    //Add to temp AP cost
-	                    global.temp_AP = (global.lacmtr_l_amount/lacmtr_supply_rate)*ap_cost;
+	                    global.temp_AP = (lacmtr_l_amount/lacmtr_supply_rate)*ap_cost;
 	                    global.fire_option = 3; 
 	                    //Switch off camera zoom
 	                    global.can_zoom  = false;
@@ -286,102 +286,39 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	if mouse_check_button_released(mb_left) {
 	    if global.my_turn == true {
 	        if f0 { 
-		        //Switch ammo tab
-				if global.selected_logib != 0 {
-			        global.ammo_tab = "LOGI_B";
+		        //Switch ammo/fire options tab
+				if ds_list_size(tabs) > 1 {
+					var t_size = ds_list_size(tabs)-1;
+					if tab_count < t_size { tab_count += 1; }
+						else { tab_count = 0; }
+					global.ammo_tab = ds_list_find_value(tabs, tab_count);
+					lacdpt_l_amount = 0;
+			        lacrpr_l_amount = 0;
+			        lactow_l_amount = 0;
+			        lacmtr_l_amount = 0;
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
 					//Remove the surface
 					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			        ammo_check = true;
-			    }
-			        else if global.selected_depot != 0 {
-			            global.ammo_tab = "DEPOT";
-						//Remove the surface
-						if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			            ammo_check = true;
-			        }
-			            else if global.selected_repair != 0 {
-			                global.ammo_tab = "REPAIR";
-							//Remove the surface
-							if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                ammo_check = true;
-			            }
-			                else if global.selected_tow != 0 {
-			                    global.ammo_tab = "TOW";
-								//Remove the surface
-								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                    ammo_check = true;
-			                }
-			                    else if global.selected_mortar != 0 {
-			                        global.ammo_tab = "MORTAR";
-									//Remove the surface
-									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                        ammo_check = true;
-			                    }
-			                        else if global.selected_infa != 0 {
-			                            global.ammo_tab = "INF_A"; 
-										//Remove the surface
-										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                            ammo_check = true;
-			                        }
-										else if global.selected_infb != 0 {
-				                            global.ammo_tab = "INF_B"; 
-											//Remove the surface
-											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                            ammo_check = true;
-				                        }
-				                            else if global.selected_mbta != 0 {
-				                                global.ammo_tab = "MBT_A"; 
-												//Remove the surface
-												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                ammo_check = true;
-				                            }
-												else if global.selected_mbtb != 0 {
-					                                global.ammo_tab = "MBT_B"; 
-													//Remove the surface
-													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                ammo_check = true;
-					                            }
-					                                else if global.selected_laca != 0 {
-					                                    global.ammo_tab = "LAC_A"; 
-														//Remove the surface
-														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                    ammo_check = true;
-					                                }
-														else if global.selected_lacb != 0 {
-						                                    global.ammo_tab = "LAC_B"; 
-															//Remove the surface
-															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                    ammo_check = true;
-						                                }
-						                                    else if global.selected_lava != 0 {
-						                                        global.ammo_tab = "LAV_A"; 
-																//Remove the surface
-																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                        ammo_check = true;
-						                                    }
-																else if global.selected_lavb != 0 {
-							                                        global.ammo_tab = "LAV_B"; 
-																	//Remove the surface
-																	if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-							                                        ammo_check = true;
-							                                    }
-							                                        else {
-							                                        }
+				}
 	        }
 	            else if f1 {
 	                //TRANSFER DEPOT SUPPLY
 	                //Remove supply cost
-	                if global.lacdpt_l_amount != 0 {
+	                if lacdpt_l_amount != 0 {
 	                    var t=0;
-	                    while (global.lacdpt_l_amount >= lacdpt_supply_rate) {
+	                    while (lacdpt_l_amount >= lacdpt_supply_rate) {
 	                        t+=1;
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_logia_list); i+=1) {
 	                            var u = ds_list_find_value(global.selected_logia_list, i);
 	                            if (u.can_shoot == true) && (u.building_supply >= lacdpt_supply_rate) {
 	                                if (u.action_points >= ap_cost) {
-	                                    global.lacdpt_l_amount -= lacdpt_supply_rate;
-	                                    if global.lacdpt_l_amount >= 0 { 
+	                                    lacdpt_l_amount -= lacdpt_supply_rate;
+	                                    if lacdpt_l_amount >= 0 { 
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
@@ -405,7 +342,7 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                            }
 	                        }
 	                        if t >= 200 { 
-	                            global.lacdpt_l_amount = 0;
+	                            lacdpt_l_amount = 0;
 	                            global.targeting_error = true;
 	                        } 
 	                    }
@@ -418,7 +355,7 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                        with unit { if action_confirmed == true { selected = false; } }
 	                    }
 	                    ammo_check = true;
-	                    global.lacdpt_l_amount = 0;
+	                    lacdpt_l_amount = 0;
 	                }
 	                    else { 
 	                        global.menu_create = false;
@@ -442,17 +379,17 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                else if f2 {
 	                    //TRANSFER REPAIR SUPPLY
 	                    //Remove supply cost
-	                    if global.lacrpr_l_amount != 0 {
+	                    if lacrpr_l_amount != 0 {
 	                        var t=0;
-	                        while (global.lacrpr_l_amount >= lacrpr_supply_rate) {
+	                        while (lacrpr_l_amount >= lacrpr_supply_rate) {
 	                            t+=1;
 	                            var i;
 	                            for (i=0; i<ds_list_size(global.selected_logia_list); i+=1) {
 	                                var u = ds_list_find_value(global.selected_logia_list, i);
 	                                if (u.can_shoot == true) && (u.building_supply >= lacrpr_supply_rate) {
 	                                    if (u.action_points >= ap_cost) {
-	                                        global.lacrpr_l_amount -= lacrpr_supply_rate;
-	                                        if global.lacrpr_l_amount >= 0 { 
+	                                        lacrpr_l_amount -= lacrpr_supply_rate;
+	                                        if lacrpr_l_amount >= 0 { 
 	                                            if u.shoot_amount == 0 { 
 	                                                u.action_confirmed = true;
 	                                                global.units_running += 1; 
@@ -476,7 +413,7 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                }
 	                            }
 	                            if t >= 200 { 
-	                                global.lacrpr_l_amount = 0;
+	                                lacrpr_l_amount = 0;
 	                                global.targeting_error = true;
 	                            } 
 	                        }
@@ -489,7 +426,7 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                            with unit { if action_confirmed == true { selected = false; } }
 	                        }
 	                        ammo_check = true;
-	                        global.lacrpr_l_amount = 0;
+	                        lacrpr_l_amount = 0;
 	                    }
 	                        else { 
 	                            global.menu_create = false;
@@ -513,17 +450,17 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                    else if f3 {
 	                        //TRANSFER TOW SUPPLY
 	                        //Remove supply cost
-	                        if global.lactow_l_amount != 0 {
+	                        if lactow_l_amount != 0 {
 	                            var t=0;
-	                            while (global.lactow_l_amount >= lactow_supply_rate) {
+	                            while (lactow_l_amount >= lactow_supply_rate) {
 	                                t+=1;
 	                                var i;
 	                                for (i=0; i<ds_list_size(global.selected_logia_list); i+=1) {
 	                                    var u = ds_list_find_value(global.selected_logia_list, i);
 	                                    if (u.can_shoot == true) && (u.building_supply >= lactow_supply_rate) {
 	                                        if (u.action_points >= ap_cost) {
-	                                            global.lactow_l_amount -= lactow_supply_rate;
-	                                            if global.lactow_l_amount >= 0 { 
+	                                            lactow_l_amount -= lactow_supply_rate;
+	                                            if lactow_l_amount >= 0 { 
 	                                                if u.shoot_amount == 0 { 
 	                                                    u.action_confirmed = true;
 	                                                    global.units_running += 1; 
@@ -547,7 +484,7 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                    }
 	                                }
 	                                if t >= 200 { 
-	                                    global.lactow_l_amount = 0;
+	                                    lactow_l_amount = 0;
 	                                    global.targeting_error = true;
 	                                } 
 	                            }
@@ -560,7 +497,7 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                with unit { if action_confirmed == true { selected = false; } }
 	                            }
 	                            ammo_check = true;
-	                            global.lactow_l_amount = 0;
+	                            lactow_l_amount = 0;
 	                        }
 	                            else { 
 	                                global.menu_create = false;
@@ -584,17 +521,17 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                        else if f4 {
 	                            //TRANSFER MORTAR SUPPLY
 	                            //Remove supply cost
-	                            if global.lacmtr_l_amount != 0 {
+	                            if lacmtr_l_amount != 0 {
 	                                var t=0;
-	                                while (global.lacmtr_l_amount >= lacmtr_supply_rate) {
+	                                while (lacmtr_l_amount >= lacmtr_supply_rate) {
 	                                    t+=1;
 	                                    var i;
 	                                    for (i=0; i<ds_list_size(global.selected_logia_list); i+=1) {
 	                                        var u = ds_list_find_value(global.selected_logia_list, i);
 	                                        if (u.can_shoot == true) && (u.building_supply >= lacmtr_supply_rate) {
 	                                            if (u.action_points >= ap_cost) {
-	                                                global.lacmtr_l_amount -= lacmtr_supply_rate;
-	                                                if global.infflr_l_amount >= 0 { 
+	                                                lacmtr_l_amount -= lacmtr_supply_rate;
+	                                                if infflr_l_amount >= 0 { 
 	                                                    if u.shoot_amount == 0 { 
 	                                                        u.action_confirmed = true;
 	                                                        global.units_running += 1; 
@@ -618,7 +555,7 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                        }
 	                                    }
 	                                    if t >= 200 { 
-	                                        global.lacmtr_l_amount = 0;
+	                                        lacmtr_l_amount = 0;
 	                                        global.targeting_error = true;
 	                                    } 
 	                                }
@@ -631,7 +568,7 @@ function scr_LOGIA_LACA_Tab(argument0, argument1, argument2, argument3, argument
 	                                    with unit { if action_confirmed == true { selected = false; } }
 	                                }
 	                                ammo_check = true;
-	                                global.lacmtr_l_amount = 0;
+	                                lacmtr_l_amount = 0;
 	                            }
 	                                else { 
 	                                    global.menu_create = false;

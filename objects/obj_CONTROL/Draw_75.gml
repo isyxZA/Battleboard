@@ -262,7 +262,6 @@ if global.game_state == "IN_GAME" {
                 for (aa=0; aa<ds_list_size(global.selected_list); aa+=1){
                     unit = ds_list_find_value(global.selected_list, aa);
                     var txt = unit.unit_type;
-					if txt == "LAV_A" { txt = "LAV"; }
                     draw_sprite_ext(spr_Alert_Box02, 0, display_get_gui_width()*0.95, (mid_y+adj2)+((aa-lmid2)*v_space), 1, 1, 0, c_white, 0.5);
                     draw_text(display_get_gui_width()*0.95, (mid_y+adj2)+((aa-lmid2)*v_space), string_hash_to_newline(string(txt)));
                 }

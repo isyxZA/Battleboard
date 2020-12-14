@@ -29,8 +29,8 @@ function scr_Repair_Fire_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.repair_mg_amount;
-	                ammo_count   = global.repair_mg_ammo;
+	                shoot_amount = repair_mg_amount;
+	                ammo_count   = repair_mg_ammo;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -40,7 +40,7 @@ function scr_Repair_Fire_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.repair_mg_ammo <= 0 { c1 = c_red; }
+	                if repair_mg_ammo <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

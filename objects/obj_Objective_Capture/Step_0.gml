@@ -14,6 +14,11 @@ if can_count == true {
 					case "LAC_A":
 					case "LAV_A":
 					case "LOGI_A":
+					case "INF_B":
+					case "MBT_B":
+					case "LAC_B":
+					case "LAV_B":
+					case "LOGI_B":
 					case "DEPOT":
 					case "REPAIR":
 					case "TOW":
@@ -25,6 +30,11 @@ if can_count == true {
 					case "E_LACA":
 					case "E_LAVA":
 					case "E_LOGIA":
+					case "E_INFB":
+					case "E_MBTB":
+					case "E_LACB":
+					case "E_LAVB":
+					case "E_LOGIB":
 					case "E_DEPOT":
 					case "E_REPAIR":
 					case "E_TOW":

@@ -42,79 +42,98 @@ if global.my_turn == true || global.waiting == true {
     
 if ammo_check == true {
     ammo_check = false;
-    global.mbt_ap_ammo = 0;
-    global.mbt_mg_ammo = 0;
-    global.inf_rfl_ammo = 0;
-    global.inf_flr_ammo = 0;
-    global.inf_rpg_ammo = 0;
-    global.lac_dpt_supply = 0;
-    global.lac_rpr_supply = 0;
-    global.lac_tow_supply = 0;
-    global.lac_mtr_supply = 0;
-    global.lav_he_ammo = 0;
-    global.lav_ap_ammo = 0;
-    global.logi_amo_supply = 0;
-    global.logi_bld_supply = 0;
-    global.tow_ammo = 0;
-    global.mortar_ammo = 0;
-    global.dpt_amo_supply= 0;
-    global.dpt_bld_supply = 0;
-    global.repair_ammo = 0;
-    global.repair_mg_ammo = 0;
-    global.lc_ammunition_ammo = 0;
-    global.lc_parts_ammo  = 0;
+    mbta_ap_ammo = 0;
+    mbta_mg_ammo= 0;
+    obj_ACTIONMENU.infa_rfl_ammo = 0;
+    obj_ACTIONMENU.infa_flr_ammo = 0;
+    obj_ACTIONMENU.infa_rpg_ammo = 0;
+    laca_dpt_supply = 0;
+    laca_rpr_supply = 0;
+    laca_tow_supply = 0;
+    laca_mtr_supply = 0;
+	lacb_tow_ammo = 0;
+    lava_he_ammo = 0;
+    lava_ap_ammo = 0;
+	lava_mg_ammo = 0;
+    lava_at_ammo = 0;
+	lava_sq_ammo = 0;
+    logia_amo_supply = 0;
+    logia_bld_supply = 0;
+    tow_ammo = 0;
+    mortar_ammo = 0;
+    dpt_amo_supply= 0;
+    dpt_bld_supply = 0;
+    repair_v_ammo = 0;
+    repair_mg_ammo = 0;
+    lc_amo_ammo = 0;
+    lc_bld_ammo  = 0;
     if !ds_list_empty(global.myunit_list) {
         var i;
         for (i=0; i<ds_list_size(global.myunit_list); i+=1) {
             var unit = ds_list_find_value(global.myunit_list, i);
             with unit {
                 switch unit_type {
-                  case "INF_A":
-                      global.inf_rfl_ammo += rifle_ammo;
-                      global.inf_flr_ammo += flare_ammo;
-                      global.inf_rpg_ammo   += rpg_ammo;
-                      break;
-                  case "MBT_A":
-                      global.mbt_ap_ammo  += cannon_ammo;
-                      global.mbt_mg_ammo += mg_ammo;
-                      break;
-                  case "LAC_A":
-                      global.lac_dpt_supply  += depot_supply;
-                      global.lac_rpr_supply += repair_supply;
-                      global.lac_tow_supply    += tow_supply;
-                      global.lac_mtr_supply += mortar_supply;
-                      break;
-                  case "LAV_A":
-                      global.lav_he_ammo += he_ammo;
-                      global.lav_ap_ammo += ap_ammo;
-                      break;
-                  case "LOGI_A":
-                      global.logi_amo_supply += ammo_supply;
-                      global.logi_bld_supply += building_supply;
-                      break;
-                  case "DEPOT":
-                      global.dpt_amo_supply += ammunition_ammo;
-                      global.dpt_bld_supply += parts_ammo;
-                      break;
-                  case "REPAIR":
-                      global.repair_ammo += repair_ammo;
-                      global.repair_mg_ammo += mg_ammo;
-                      break;
-                  case "TOW":
-                      global.tow_ammo += tow_ammo;
-                      break;
-                  case "MORTAR":
-                      global.mortar_ammo += mortar_ammo;
-                      break;
-                  default:
-                      break;
+	                case "INF_A":
+					case "INF_B":
+	                    infa_rfl_ammo += rifle_ammo;
+	                    infa_flr_ammo += flare_ammo;
+	                    infa_rpg_ammo += rpg_ammo;
+	                    break;
+	                case "MBT_A":
+					case "MBT_B":
+	                    mbta_ap_ammo  += cannon_ammo;
+	                    mbta_mg_ammo+= mg_ammo;
+	                    break;
+	                case "LAC_A":
+	                    laca_dpt_supply += depot_supply;
+	                    laca_rpr_supply += repair_supply;
+	                    laca_tow_supply += tow_supply;
+	                    laca_mtr_supply += mortar_supply;
+	                    break;
+					case "LAC_B":
+						lacb_tow_ammo += tow_ammo;
+						break;
+	                case "LAV_A":
+	                    lava_he_ammo += he_ammo;
+	                    lava_ap_ammo += ap_ammo;
+						lava_mg_ammo += mg_ammo;
+	                    lava_at_ammo += tow_ammo;
+	                    break;
+					case "LAV_B":
+	                    lava_he_ammo += he_ammo;
+	                    lava_ap_ammo += ap_ammo;
+						lava_mg_ammo += mg_ammo;
+	                    break;
+	                case "LOGI_A":
+	                    logia_amo_supply += ammo_supply;
+	                    logia_bld_supply += building_supply;
+	                    break;
+					case "LOGI_B":
+	                    logia_amo_supply += ammo_supply;
+	                    break;
+	                case "DEPOT":
+	                    dpt_amo_supply += ammunition_ammo;
+	                    dpt_bld_supply += parts_ammo;
+	                    break;
+	                case "REPAIR":
+	                    repair_v_ammo += repair_ammo;
+	                    repair_mg_ammo += mg_ammo;
+	                    break;
+	                case "TOW":
+	                    tow_ammo += tow_ammo;
+	                    break;
+	                case "MORTAR":
+	                    mortar_ammo += mortar_ammo;
+	                    break;
+	                default:
+	                    break;
                 }
             }
         }
     }
     with obj_LogiLanding_Unit { 
-        global.lc_ammunition_ammo += ammunition_ammo;
-        global.lc_parts_ammo      += parts_ammo;
+        lc_amo_ammo += ammunition_ammo;
+        lc_bld_ammo      += parts_ammo;
     }
 }
 

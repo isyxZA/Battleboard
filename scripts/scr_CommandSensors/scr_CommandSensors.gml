@@ -30,7 +30,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -59,7 +59,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -88,7 +88,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -117,7 +117,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -146,7 +146,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -176,7 +176,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -205,7 +205,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -234,7 +234,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -263,7 +263,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -292,7 +292,7 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }

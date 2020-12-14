@@ -9,7 +9,7 @@ if p_side == "ONE" {
 	txt_rot = 0;
 	switch p_faction {
 		case "US":
-			my_sprite = spr_Infantry_A1a;
+			my_sprite = spr_Infantry_B1a;
 			break;
 		case "RU":
 			my_sprite = spr_Infantry_B1a;

@@ -222,7 +222,7 @@ function scr_DrawUnitStats() {
 		            //AA
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy+36, 1, 1, 0, c_white, 1);
 		            draw_sprite_ext(spr_AA_Icon,         0, xx+22, yy+36, 1, 1, 0, c_white, 1);
-		            draw_text_colour(x+32, yy+36, string(mortar_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx+32, yy+36, string(mortar_supply), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_center);
 		        }
 		            else if is_manning == true {
@@ -859,7 +859,7 @@ function scr_DrawUnitStats() {
 						//MORTAR
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy-36, 1, 1, txt_rot, c_white, 1);
 						draw_sprite_ext(spr_AA_Icon,         0, xx-22, yy-36, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(x-32, yy-36, string(mortar_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx-32, yy-36, string(mortar_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {

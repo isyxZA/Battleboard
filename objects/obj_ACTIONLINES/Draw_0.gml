@@ -145,12 +145,21 @@ if global.my_turn == true || global.waiting == true {
                         }
                         break;
                     case "E_LACA":
-					case "E_LACB":
                         draw_line_width_colour(x,   y, target_x, target_y, 8, c_black, c_black);
                         draw_set_alpha(0.6);
                         draw_line_width_colour(x,   y, target_x, target_y, 6, c_green, c_orange);
                         draw_set_alpha(1);
                         break;
+					case "E_LACB":
+						var dir = point_direction(x, y, target_x, target_y);
+                        var xdir = lengthdir_x(12, dir);
+                        var ydir = lengthdir_y(12, dir);
+                        if draw_flash == true { 
+                            gpu_set_blendmode(bm_max);
+                            draw_sprite_ext(flash_index, 0, x+xdir, y+ydir, 1, 1, dir, c_white, 1);
+                            gpu_set_blendmode(bm_normal); 
+                        }
+						break;
                     case "E_LAVA":
 					case "E_LAVB":
                         var dir = point_direction(x, y, target_x, target_y);

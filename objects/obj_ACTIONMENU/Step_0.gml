@@ -76,13 +76,13 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                 //Calculate available repair amount
                                 if ammo_check == true {
                                     ammo_check = false;
-                                    global.repair_ammo = 0;
+                                    repair_v_ammo = 0;
                                     if !ds_list_empty(global.repair_list) {
                                         var i;
                                         for (i=0; i<ds_list_size(global.repair_list); i+=1) {
                                             var unit = ds_list_find_value(global.repair_list, i);
                                             if unit.manned_unit != noone {
-												if unit.manned_unit.selected == true { global.repair_ammo += unit.repair_ammo; }
+												if unit.manned_unit.selected == true { repair_v_ammo += unit.repair_ammo; }
                                             }
                                         }
                                     }
@@ -152,24 +152,44 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
             //If RMB while the targeting reticule is visible
             if mouse_check_button_pressed(mb_right) {
                 //Display the fire/action options
-                if global.fire_display ==  false { 
+                if global.fire_display ==  false {
                     global.fire_display = true; 
-                    if global.selected_infa != 0 { global.ammo_tab = "INF_A"; }
-						else if global.selected_infb != 0 { global.ammo_tab = "INF_B"; }
-	                        else if global.selected_mbta != 0 { global.ammo_tab = "MBT_A"; }
-								else if global.selected_mbtb != 0 { global.ammo_tab = "MBT_B"; }
-		                            else if global.selected_laca != 0 { global.ammo_tab = "LAC_A"; }
-										else if global.selected_lacb != 0 { global.ammo_tab = "LAC_B"; }
-			                                else if global.selected_lava != 0 { global.ammo_tab = "LAV_A"; }
-												else if global.selected_lavb != 0 { global.ammo_tab = "LAV_B"; }
-				                                    else if global.selected_logia != 0 { global.ammo_tab = "LOGI_A"; }
-														else if global.selected_logib != 0 { global.ammo_tab = "LOGI_B"; }
-															else if global.selected_depot != 0 { global.ammo_tab = "DEPOT"; }
-					                                            else if global.selected_repair != 0 { global.ammo_tab = "REPAIR"; }
-					                                                else if global.selected_tow != 0 { global.ammo_tab = "TOW"; }
-					                                                    else if global.selected_mortar != 0 { global.ammo_tab = "MORTAR"; }
-					                                                        else if global.supply_ship != noone { global.ammo_tab = "SUPPLY SHIP"; }
-					                                                            else { global.ammo_tab = "NOONE"; }
+					ds_list_clear(tabs);
+					global.selected_infa   = ds_list_size(global.selected_infa_list);
+					global.selected_infb   = ds_list_size(global.selected_infb_list);
+					global.selected_mbta   = ds_list_size(global.selected_mbta_list);
+					global.selected_mbtb   = ds_list_size(global.selected_mbtb_list);
+					global.selected_laca   = ds_list_size(global.selected_laca_list);
+					global.selected_lacb   = ds_list_size(global.selected_lacb_list);
+					global.selected_lava   = ds_list_size(global.selected_lava_list);
+					global.selected_lavb   = ds_list_size(global.selected_lavb_list);
+					global.selected_logia  = ds_list_size(global.selected_logia_list);
+					global.selected_logib  = ds_list_size(global.selected_logib_list);
+					global.selected_depot  = ds_list_size(global.selected_depot_list);
+					global.selected_repair = ds_list_size(global.selected_repair_list);
+					global.selected_tow    = ds_list_size(global.selected_tow_list);
+					global.selected_mortar = ds_list_size(global.selected_mortar_list);
+					if global.selected_infa   != 0     { ds_list_add(tabs, "INF_A"); }
+					if global.selected_infb   != 0     { ds_list_add(tabs, "INF_B"); }
+					if global.selected_mbta   != 0     { ds_list_add(tabs, "MBT_A"); }
+					if global.selected_mbtb   != 0     { ds_list_add(tabs, "MBT_B"); }
+					if global.selected_laca   != 0     { ds_list_add(tabs, "LAC_A"); }
+					if global.selected_lacb   != 0     { ds_list_add(tabs, "LAC_B"); }
+					if global.selected_lava   != 0     { ds_list_add(tabs, "LAV_A"); }
+					if global.selected_lavb   != 0     { ds_list_add(tabs, "LAV_B"); }
+					if global.selected_logia  != 0     { ds_list_add(tabs, "LOGI_A"); }
+					if global.selected_logib  != 0     { ds_list_add(tabs, "LOGI_B"); }
+					if global.selected_depot  != 0     { ds_list_add(tabs, "DEPOT"); }
+					if global.selected_repair != 0     { ds_list_add(tabs, "REPAIR"); }
+					if global.selected_tow    != 0     { ds_list_add(tabs, "TOW"); }
+					if global.selected_mortar != 0     { ds_list_add(tabs, "MORTAR"); }
+					if global.supply_ship     != noone { ds_list_add(tabs, "SUPPLY SHIP"); }
+					if !ds_list_empty(tabs) { 
+						global.ammo_tab = ds_list_find_value(tabs, 0);
+					}
+						else {
+							global.ammo_tab = "NOONE";
+						}
                 }
                 if ammo_check == false { ammo_check = true; }
             }
@@ -188,161 +208,175 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                 //Calculate available ammo levels
                 if ammo_check == true {
                     ammo_check = false;
-					//INF Ammo
-                    global.inf_rfl_ammo = 0;
-                    global.inf_flr_ammo = 0;
-                    global.inf_rpg_ammo = 0;
-					//MBT Ammo
-                    global.mbt_ap_ammo = 0;
-                    global.mbt_mg_ammo = 0;
-					//LAC Ammo
-                    global.lac_dpt_supply = 0;
-                    global.lac_rpr_supply = 0;
-                    global.lac_tow_supply = 0;
-                    global.lac_mtr_supply = 0;
-					global.lac_tow2_ammo  = 0;
-					//LAV Ammo
-                    global.lav_he_ammo = 0;
-                    global.lav_ap_ammo = 0;
-					global.lav_at_ammo = 0;
-					global.lav_mg_ammo = 0;
-					//LOGI Ammo
-                    global.logi_amo_supply = 0;
-                    global.logi_bld_supply = 0;
-					global.logi_sqd_supply = 0;
+					//INFA Ammo
+                    infa_rfl_ammo = 0;
+                    infa_flr_ammo = 0;
+                    infa_rpg_ammo = 0;
+					//INFB Ammo
+					infb_rfl_ammo = 0;
+                    infb_flr_ammo = 0;
+                    infb_rpg_ammo = 0;
+					//MBTA Ammo
+                    mbta_ap_ammo = 0;
+                    mbta_mg_ammo = 0;
+					//MBTB Ammo
+                    mbtb_ap_ammo = 0;
+                    mbtb_mg_ammo = 0;
+					//LACA Ammo
+                    laca_dpt_supply = 0;
+                    laca_rpr_supply = 0;
+                    laca_tow_supply = 0;
+                    laca_mtr_supply = 0;
+					//LAVB Ammo
+					lacb_tow_ammo = 0;
+					//LAVA Ammo
+                    lava_he_ammo = 0;
+                    lava_ap_ammo = 0;
+					lava_mg_ammo = 0;
+					lava_at_ammo = 0;
+					lava_sq_ammo = 0;
+					//LAVA Ammo
+                    lavb_he_ammo = 0;
+                    lavb_ap_ammo = 0;
+					lavb_mg_ammo = 0;
+					lavb_sq_ammo = 0;
+					//LOGIA Ammo
+                    logia_amo_supply = 0;
+                    logia_bld_supply = 0;
+					//LOGIB Ammo
+					logib_amo_supply = 0;
+					logib_sqd_supply = 0;
 					//TOW Ammo
-                    global.tow_ammo = 0;
+                    tow_ammo = 0;
 					//MORTAR Ammo
-                    global.mortar_ammo = 0;
+                    mortar_ammo = 0;
 					//SHIP Ammo
-                    global.dpt_amo_supply = 0;
-                    global.dpt_bld_supply      = 0;
+                    dpt_amo_supply = 0;
+                    dpt_bld_supply = 0;
 					//REPAIR Ammo
-                    global.repair_mg_ammo = 0;
+                    repair_mg_ammo = 0;
                     if !ds_list_empty(global.selected_list) {
                         var i;
                         for (i=0; i<ds_list_size(global.selected_list); i+=1) {
                             var unit = ds_list_find_value(global.selected_list, i);
                             with unit {
-                                if unit_type == global.ammo_tab {
-                                      switch unit_type {
-                                        case "INF_A":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.inf_rfl_ammo += rifle_ammo;
-                                                global.inf_flr_ammo += flare_ammo;
-                                                global.inf_rpg_ammo += rpg_ammo;
-                                            }
-                                            break;
-										case "INF_B":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.inf_rfl_ammo += rifle_ammo;
-                                                global.inf_flr_ammo += flare_ammo;
-                                                global.inf_rpg_ammo += rpg_ammo;
-                                            }
-                                            break;
-                                        case "MBT_A":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.mbt_ap_ammo += cannon_ammo;
-                                                global.mbt_mg_ammo += mg_ammo;
-                                            }
-                                            break;
-										case "MBT_B":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.mbt_ap_ammo += cannon_ammo;
-                                                global.mbt_mg_ammo += mg_ammo;
-                                            }
-                                            break;
-                                        case "LAC_A":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.lac_dpt_supply += depot_supply;
-                                                global.lac_rpr_supply += repair_supply;
-                                                global.lac_tow_supply += tow_supply;
-                                                global.lac_mtr_supply += mortar_supply;
-                                            }
-                                            break;
-										case "LAC_B":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.lac_tow2_ammo += tow_ammo;
-                                            }
-                                            break;
-                                        case "LAV_A":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.lav_he_ammo  += he_ammo;
-                                                global.lav_ap_ammo  += ap_ammo;
-												global.lav_mg_ammo  += mg_ammo;
-												global.lav_at_ammo  += tow_ammo;
-												global.lav_sq_ammo  += sqd_ammo;
-                                            }
-                                            break;
-										case "LAV_B":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.lav_he_ammo += he_ammo;
-                                                global.lav_ap_ammo += ap_ammo;
-												global.lav_mg_ammo += mg_ammo;
-												global.lav_sq_ammo += sqd_ammo;
-                                            }
-                                            break;
-                                        case "LOGI_A":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.logi_amo_supply += ammo_supply;
-                                                global.logi_bld_supply += building_supply;
-                                            }
-                                            break;
-										case "LOGI_B":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.logi_amo_supply += ammo_supply;
-                                                global.logi_sqd_supply += sqd_supply;
-                                            }
-                                            break;
-                                        case "DEPOT":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.dpt_amo_supply += ammunition_ammo;
-                                                global.dpt_bld_supply += parts_ammo;
-                                            }
-                                            break;
-                                        case "REPAIR":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.repair_mg_ammo += mg_ammo;
-                                            }
-                                            break;
-                                        case "TOW":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.tow_ammo += tow_ammo;
-                                            }
-                                            break;
-                                        case "MORTAR":
-                                            //If the unit has line of fire then add its ammo to available rounds
-                                            if can_shoot == true {
-                                                global.mortar_ammo += mortar_ammo;
-                                            }
-                                            break;
-                                        default:
-                                            break;
-                                      }
-                                }
+	                            switch unit_type {
+		                            case "INF_A":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.infa_rfl_ammo += rifle_ammo;
+		                                    obj_ACTIONMENU.infa_flr_ammo += flare_ammo;
+		                                    obj_ACTIONMENU.infa_rpg_ammo += rpg_ammo;
+		                                }
+		                                break;
+									case "INF_B":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.infb_rfl_ammo += rifle_ammo;
+		                                    obj_ACTIONMENU.infb_flr_ammo += flare_ammo;
+		                                    obj_ACTIONMENU.infb_rpg_ammo += rpg_ammo;
+		                                }
+		                                break;
+		                            case "MBT_A":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.mbta_ap_ammo += cannon_ammo;
+		                                    obj_ACTIONMENU.mbta_mg_ammo += mg_ammo;
+		                                }
+		                                break;
+									case "MBT_B":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.mbtb_ap_ammo += cannon_ammo;
+		                                    obj_ACTIONMENU.mbtb_mg_ammo += mg_ammo;
+		                                }
+		                                break;
+		                            case "LAC_A":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.laca_dpt_supply += depot_supply;
+		                                    obj_ACTIONMENU.laca_rpr_supply += repair_supply;
+		                                    obj_ACTIONMENU.laca_tow_supply += tow_supply;
+		                                    obj_ACTIONMENU.laca_mtr_supply += mortar_supply;
+		                                }
+		                                break;
+									case "LAC_B":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.lacb_tow_ammo += tow_ammo;
+		                                }
+		                                break;
+		                            case "LAV_A":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.lava_he_ammo += he_ammo;
+		                                    obj_ACTIONMENU.lava_ap_ammo += ap_ammo;
+											obj_ACTIONMENU.lava_mg_ammo += mg_ammo;
+											obj_ACTIONMENU.lava_at_ammo += tow_ammo;
+											obj_ACTIONMENU.lava_sq_ammo += sqd_ammo;
+		                                }
+		                                break;
+									case "LAV_B":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.lavb_he_ammo += he_ammo;
+		                                    obj_ACTIONMENU.lavb_ap_ammo += ap_ammo;
+											obj_ACTIONMENU.lavb_mg_ammo += mg_ammo;
+											obj_ACTIONMENU.lavb_sq_ammo += sqd_ammo;
+		                                }
+		                                break;
+		                            case "LOGI_A":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.logia_amo_supply += ammo_supply;
+		                                    obj_ACTIONMENU.logia_bld_supply += building_supply;
+		                                }
+		                                break;
+									case "LOGI_B":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.logib_amo_supply += ammo_supply;
+		                                    obj_ACTIONMENU.logib_sqd_supply += sqd_supply;
+		                                }
+		                                break;
+		                            case "DEPOT":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.dpt_amo_supply += ammunition_ammo;
+		                                    obj_ACTIONMENU.dpt_bld_supply += parts_ammo;
+		                                }
+		                                break;
+		                            case "REPAIR":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.repair_mg_ammo += mg_ammo;
+		                                }
+		                                break;
+		                            case "TOW":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.tow_ammo += tow_ammo;
+		                                }
+		                                break;
+		                            case "MORTAR":
+		                                //If the unit has line of fire then add its ammo to available rounds
+		                                if can_shoot == true {
+		                                    obj_ACTIONMENU.mortar_ammo += mortar_ammo;
+		                                }
+		                                break;
+		                            default:
+		                                break;
+	                            }
                             }
                         }
                     }
                         else {
                             if global.supply_ship != noone {
-                                global.lc_ammunition_ammo = 0;
-                                global.lc_parts_ammo  = 0;
+                                lc_amo_ammo = 0;
+                                lc_bld_ammo = 0;
                                 if global.supply_ship.can_shoot == true {
-                                    global.lc_ammunition_ammo += global.supply_ship.ammunition_ammo;
-                                    global.lc_parts_ammo      += global.supply_ship.parts_ammo;
+                                    lc_amo_ammo += global.supply_ship.ammunition_ammo;
+                                    lc_bld_ammo += global.supply_ship.parts_ammo;
                                 }
                             }
                         }
@@ -1006,7 +1040,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                                 var ammo_1  = logia.ammo_supply;
                                 var max_1   = logia.ammo_max;
                                 var rate_1  = obj_LOGIB_Unit.logiamo_supply_rate;
-                                scr_LOGIB_LOGIA_Tab(logib.id, ammo_1, max_1, rate_1);
+                                scr_LOGIB_LOGIA_Tab(logia.id, ammo_1, max_1, rate_1);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
 										menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -1512,7 +1546,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                             if (logia.nav_confirmed == false) && (logia.action_confirmed == false) && (logia.resupplying == false) { global.resupply_target = "LOGI_A"; }
                                 else { global.resupply_target = "NOONE"; }
                         }
-							if logib { 
+							else if logib { 
 	                            if (logib.nav_confirmed == false) && (logib.action_confirmed == false) && (logib.resupplying == false) { global.resupply_target = "LOGI_B"; }
 	                                else { global.resupply_target = "NOONE"; }
 	                        }
@@ -1525,12 +1559,12 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                          //Determine which tab to display depending on which unit type is targeted    
                         switch global.resupply_target {
                             case "LOGI_A":
-                                var ammo_1  = logia.ammo_supply;
-                                var ammo_2  = logia.building_supply;
-                                var max_1   = logia.ammo_max;
-                                var max_2   = logia.building_max;
-                                var rate_1  = obj_LogiLanding_Unit.logiamo_supply_rate;//10
-                                var rate_2  = obj_LogiLanding_Unit.logibld_supply_rate;//10
+                                var ammo_1 = logia.ammo_supply;
+                                var ammo_2 = logia.building_supply;
+                                var max_1  = logia.ammo_max;
+                                var max_2  = logia.building_max;
+                                var rate_1 = obj_LogiLanding_Unit.logiamo_supply_rate;//10
+                                var rate_2 = obj_LogiLanding_Unit.logibld_supply_rate;//10
                                 scr_Ship_LOGIA_Tab(logia.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
@@ -1542,9 +1576,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								}
                                 break;
 							case "LOGI_B":
-                                var ammo_1  = logib.ammo_supply;
-                                var max_1   = logib.ammo_max;
-                                var rate_1  = obj_LogiLanding_Unit.logiamo_supply_rate;//10
+                                var ammo_1 = logib.ammo_supply;
+                                var max_1  = logib.ammo_max;
+                                var rate_1 = obj_LogiLanding_Unit.logiamo_supply_rate;//10
                                 scr_Ship_LOGIB_Tab(logib.id, ammo_1, max_1, rate_1);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
@@ -1556,12 +1590,12 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								}
                                 break;
                             case "DEPOT":
-                                var ammo_1  = depot.parts_ammo;
-                                var ammo_2  = depot.ammunition_ammo;
-                                var max_1   = depot.parts_max;
-                                var max_2   = depot.ammunition_max;
-                                var rate_1  = obj_LogiLanding_Unit.depotbld_supply_rate;//10
-                                var rate_2  = obj_LogiLanding_Unit.depotamo_supply_rate;//10
+                                var ammo_1 = depot.parts_ammo;
+                                var ammo_2 = depot.ammunition_ammo;
+                                var max_1  = depot.parts_max;
+                                var max_2  = depot.ammunition_max;
+                                var rate_1 = obj_LogiLanding_Unit.depotbld_supply_rate;//10
+                                var rate_2 = obj_LogiLanding_Unit.depotamo_supply_rate;//10
                                 scr_Ship_Depot_Tab(depot.id, ammo_1, ammo_2, max_1, max_2, rate_1, rate_2);
 								if menu_anim == true {
 									if menu_anim_count < menu_anim_timer { 
@@ -1619,6 +1653,22 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
     else {
 		if amount_reset == true {
 			amount_reset = false;
+			global.selected_infa   = 0;
+			global.selected_infb   = 0;
+			global.selected_mbta   = 0;
+			global.selected_mbtb   = 0;
+			global.selected_laca   = 0;
+			global.selected_lacb   = 0;
+			global.selected_lava   = 0;
+			global.selected_lavb   = 0;
+			global.selected_logia  = 0;
+			global.selected_logib  = 0;
+			global.selected_depot  = 0;
+			global.selected_repair = 0;
+			global.selected_tow    = 0;
+			global.selected_mortar = 0;
+			ds_list_clear(tabs);
+			tab_count = 0;
 	        //Reset
 	        global.menu_create = false;
 	        global.fire_display = false;
@@ -1628,94 +1678,106 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 	        global.nav_select = false;
 	        global.ammo_tab = "NOONE";
 	        global.resupply_target = "NOONE";
-	        //INF
-	        global.inf_rfl_amount = 0;
-	        global.inf_flr_amount = 0;
-	        global.inf_rpg_amount = 0;
-	        //MBT
-	        global.mbt_ap_amount = 0;
-	        global.mbt_mg_amount = 0;
-	        //LAC
-	        global.lac_dpt_amount = 0;
-	        global.lac_rpr_amount = 0;
-	        global.lac_tow_amount = 0;
-	        global.lac_mtr_amount = 0;
-			global.lac_tow2_amount = 0;
-	        //LAV
-	        global.lav_he_amount = 0;
-	        global.lav_ap_amount = 0;
-			global.lav_mg_amount = 0;
-			global.lav_at_amount = 0;
-			global.lav_sq_amount = 0;
+	        //INFA
+	        infa_rfl_amount = 0;
+	        infa_flr_amount = 0;
+	        infa_rpg_amount = 0;
+			//INFB
+	        infb_rfl_amount = 0;
+	        infb_flr_amount = 0;
+	        infb_rpg_amount = 0;
+	        //MBTA
+	        mbta_ap_amount = 0;
+	        mbta_mg_amount = 0;
+			//MBTB
+	        mbtb_ap_amount = 0;
+	        mbtb_mg_amount = 0;
+	        //LACA
+	        laca_dpt_amount = 0;
+	        laca_rpr_amount = 0;
+	        laca_tow_amount = 0;
+	        laca_mtr_amount = 0;
+			//LACB
+			lacb_tow_amount = 0;
+	        //LAVA
+	        lava_he_amount = 0;
+	        lava_ap_amount = 0;
+			lava_mg_amount = 0;
+			lava_at_amount = 0;
+			lava_sq_amount = 0;
+			//LAVB
+	        lavb_he_amount = 0;
+	        lavb_ap_amount = 0;
+			lavb_mg_amount = 0;
+			lavb_sq_amount = 0;
 	        //LOGI
-	        global.infrfl_l_amount  = 0;
-	        global.infrpg_l_amount  = 0;
-	        global.infflr_l_amount  = 0;
-	        global.mbtap_l_amount   = 0;
-	        global.mbtmg_l_amount   = 0;
-	        global.lavhe_l_amount   = 0;
-	        global.lavap_l_amount   = 0;
-			global.lavmg_l_amount   = 0;
-	        global.lavat_l_amount   = 0;
-	        global.lacdpt_l_amount  = 0;
-	        global.lacrpr_l_amount  = 0;
-	        global.lactow_l_amount  = 0;
-			global.lactow2_l_amount = 0;
-	        global.lacmtr_l_amount  = 0;
-	        global.logiamo_l_amount = 0;
-	        global.logibld_l_amount = 0;
-			global.logisqd_l_amount = 0;
-	        global.dptbld_l_amount  = 0;
-	        global.dptamo_l_amount  = 0;
-	        global.rprmg_l_amount   = 0;
-	        global.rprbld_l_amount  = 0;
-	        global.towamo_l_amount  = 0;
-	        global.mtramo_l_amount  = 0;
+	        infrfl_l_amount  = 0;
+	        infrpg_l_amount  = 0;
+	        infflr_l_amount  = 0;
+	        mbtap_l_amount   = 0;
+	        mbtmg_l_amount   = 0;
+	        lavhe_l_amount   = 0;
+	        lavap_l_amount   = 0;
+			lavmg_l_amount   = 0;
+	        lavat_l_amount   = 0;
+	        lacdpt_l_amount  = 0;
+	        lacrpr_l_amount  = 0;
+	        lactow_l_amount  = 0;
+			lactow2_l_amount = 0;
+	        lacmtr_l_amount  = 0;
+	        logiamo_l_amount = 0;
+	        logibld_l_amount = 0;
+			logisqd_l_amount = 0;
+	        dptbld_l_amount  = 0;
+	        dptamo_l_amount  = 0;
+	        rprmg_l_amount   = 0;
+	        rprbld_l_amount  = 0;
+	        towamo_l_amount  = 0;
+	        mtramo_l_amount  = 0;
 	        //TOW
-	        global.towS_amount = 0;
+	        towS_amount = 0;
 	        //Mortar
-	        global.mortarS_amount = 0;
+	        mortarS_amount = 0;
 	        //Depot
-	        global.infrfl_d_amount  = 0;
-	        global.infrpg_d_amount  = 0;
-	        global.infflr_d_amount  = 0;
-	        global.mbtap_d_amount   = 0;
-	        global.mbtmg_d_amount   = 0;
-	        global.lavhe_d_amount   = 0;
-	        global.lavap_d_amount   = 0;
-			global.lavmg_d_amount   = 0;
-			global.lavat_d_amount   = 0;
-	        global.lacdpt_d_amount  = 0;
-	        global.lacrpr_d_amount  = 0;
-	        global.lactow_d_amount  = 0;
-	        global.lacmtr_d_amount  = 0;
-			global.lactow2_d_amount = 0;
-	        global.logiamo_d_amount = 0;
-	        global.logibld_d_amount = 0;
-	        global.dptbld_d_amount  = 0;
-	        global.dptamo_d_amount  = 0;
-	        global.rprmg_d_amount   = 0;
-	        global.rprbld_d_amount  = 0;
-	        global.towamo_d_amount  = 0;
-	        global.mtramo_d_amount  = 0;
+	        infrfl_d_amount  = 0;
+	        infrpg_d_amount  = 0;
+	        infflr_d_amount  = 0;
+	        mbtap_d_amount   = 0;
+	        mbtmg_d_amount   = 0;
+	        lavhe_d_amount   = 0;
+	        lavap_d_amount   = 0;
+			lavmg_d_amount   = 0;
+			lavat_d_amount   = 0;
+	        lacdpt_d_amount  = 0;
+	        lacrpr_d_amount  = 0;
+	        lactow_d_amount  = 0;
+	        lacmtr_d_amount  = 0;
+			lactow2_d_amount = 0;
+	        logiamo_d_amount = 0;
+	        logibld_d_amount = 0;
+	        dptbld_d_amount  = 0;
+	        dptamo_d_amount  = 0;
+	        rprmg_d_amount   = 0;
+	        rprbld_d_amount  = 0;
+	        towamo_d_amount  = 0;
+	        mtramo_d_amount  = 0;
 	        //Resupply Ship
-	        global.logiamo_s_amount = 0;
-	        global.logibld_s_amount = 0;
-	        global.dptbld_s_amount  = 0;
-	        global.dptamo_s_amount  = 0;
+	        logiamo_s_amount = 0;
+	        logibld_s_amount = 0;
+	        dptbld_s_amount  = 0;
+	        dptamo_s_amount  = 0;
 	        //Repair
-			global.repair_ammo = 0;
-	        global.repair_mg_amount = 0;
-	        global.repair_v_amount = 0;
+			repair_v_ammo = 0;
+	        repair_mg_amount = 0;
+	        repair_v_amount = 0;
 	        //Temp cost variables
 	        global.temp_AP = 0;
-
-	        if global.game_turn != 0 && obj_CONTROL.show_options != true { global.can_zoom = true; }
 
 	        queue_reset = true;
 	        ammo_count = 0;
 	        ammo_check = true;
 	        shoot_amount = 0;
 		}
+		if global.game_turn != 0 && obj_CONTROL.show_options != true { global.can_zoom = true; }
     }
 

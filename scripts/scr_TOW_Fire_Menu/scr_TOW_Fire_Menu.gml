@@ -30,8 +30,8 @@ function scr_TOW_Fire_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.towS_amount;
-	                ammo_count   = global.tow_ammo;
+	                shoot_amount = towS_amount;
+	                ammo_count   = tow_ammo;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -41,7 +41,7 @@ function scr_TOW_Fire_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.tow_ammo <= 0 { c1 = c_red; }
+	                if tow_ammo <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

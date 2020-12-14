@@ -30,12 +30,12 @@ function scr_BTR_Fire_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.lav_he_amount;
-	                ammo_count = global.lav_he_ammo;
+	                shoot_amount = lava_he_amount;
+	                ammo_count = lava_he_ammo;
 	                break;
 	            case 1:
-	                shoot_amount = global.lav_ap_amount;
-	                ammo_count = global.lav_ap_ammo;
+	                shoot_amount = lava_ap_amount;
+	                ammo_count = lava_ap_ammo;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -45,11 +45,11 @@ function scr_BTR_Fire_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.lav_he_ammo <= 0 { c1 = c_red; }
+	                if lava_he_ammo <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 1:
-	                if global.lav_ap_ammo <= 0 { c1 = c_red; }
+	                if lava_ap_ammo <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

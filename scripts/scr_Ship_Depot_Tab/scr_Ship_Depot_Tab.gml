@@ -60,17 +60,17 @@ function scr_Ship_Depot_Tab(argument0, argument1, argument2, argument3, argument
 	        //Increase by a rate of 10
 	        if mouse_wheel_up() { 
 	            //Check if there is enough supply available
-	            if global.dptbld_s_amount <= (global.lc_parts_ammo-depotbld_supply_rate) { 
+	            if dptbld_s_amount <= (lc_bld_ammo-depotbld_supply_rate) { 
 	                //Make sure the unit rpg ammo does not go over max
-	                if ((global.dptbld_s_amount+depotparts_count)+depotbld_supply_rate) <= parts_max {
+	                if ((dptbld_s_amount+depotparts_count)+depotbld_supply_rate) <= parts_max {
 	                    //Check if there is enough turn AP for the move
 	                    var m_ap = (global.turn_AP-global.temp_AP);
 	                    if m_ap >= ap_cost {
 	                        //Check total unit AP available
 	                        var ap = target_unit.action_points;
-	                        if ap >= ((global.dptbld_s_amount+depotbld_supply_rate)/depotbld_supply_rate)*ap_cost {
+	                        if ap >= ((dptbld_s_amount+depotbld_supply_rate)/depotbld_supply_rate)*ap_cost {
 	                            //Add the rounds
-	                            global.dptbld_s_amount += depotbld_supply_rate; 
+	                            dptbld_s_amount += depotbld_supply_rate; 
 	                        }
 	                    }
 	                }
@@ -78,15 +78,15 @@ function scr_Ship_Depot_Tab(argument0, argument1, argument2, argument3, argument
 	        }
 	        //Decrease by a rate of 10
 	        if mouse_wheel_down() { 
-	            if global.dptbld_s_amount >= depotbld_supply_rate { 
-	                global.dptbld_s_amount -= depotbld_supply_rate; 
+	            if dptbld_s_amount >= depotbld_supply_rate { 
+	                dptbld_s_amount -= depotbld_supply_rate; 
 	            } 
 	        }
 	        //Clamp the value between zero and the max available rounds
-	        if global.dptbld_s_amount < 0 { global.dptbld_s_amount = 0; }
-	        if global.dptbld_s_amount > global.lc_parts_ammo { global.dptbld_s_amount = global.lc_parts_ammo; }
+	        if dptbld_s_amount < 0 { dptbld_s_amount = 0; }
+	        if dptbld_s_amount > lc_bld_ammo { dptbld_s_amount = lc_bld_ammo; }
 	        //Add to temp AP cost
-	        global.temp_AP = (global.dptbld_s_amount/depotbld_supply_rate)*ap_cost;
+	        global.temp_AP = (dptbld_s_amount/depotbld_supply_rate)*ap_cost;
 	        //Set the menu position
 	        global.fire_option = 0; 
 	        //Switch off camera zoom
@@ -100,17 +100,17 @@ function scr_Ship_Depot_Tab(argument0, argument1, argument2, argument3, argument
 	            //Increase by a rate of 10
 	            if mouse_wheel_up() { 
 	                //Check if there is enough supply available
-	                if global.dptamo_s_amount <= (global.lc_ammunition_ammo-depotamo_supply_rate) {
+	                if dptamo_s_amount <= (lc_amo_ammo-depotamo_supply_rate) {
 	                    //Make sure the unit ammo does not go over max
-	                    if ((global.dptamo_s_amount+depotammo_count)+depotamo_supply_rate) <= ammunition_max {
+	                    if ((dptamo_s_amount+depotammo_count)+depotamo_supply_rate) <= ammunition_max {
 	                        //Check if there is enough turn AP for the move
 	                        var m_ap = (global.turn_AP-global.temp_AP);
 	                        if m_ap >=  ap_cost {
 	                            //Check total unit AP available
 	                            var ap = target_unit.action_points;
-	                            if ap >= ((global.dptamo_s_amount+depotamo_supply_rate)/depotamo_supply_rate)*ap_cost {
+	                            if ap >= ((dptamo_s_amount+depotamo_supply_rate)/depotamo_supply_rate)*ap_cost {
 	                                //Add the rounds
-	                                global.dptamo_s_amount +=  depotamo_supply_rate; 
+	                                dptamo_s_amount +=  depotamo_supply_rate; 
 	                            }
 	                        }
 	                    }
@@ -118,15 +118,15 @@ function scr_Ship_Depot_Tab(argument0, argument1, argument2, argument3, argument
 	            }
 	            //Decrease by a rate of 10
 	            if mouse_wheel_down() { 
-	                if global.dptamo_s_amount >= depotamo_supply_rate { 
-	                    global.dptamo_s_amount -= depotamo_supply_rate; 
+	                if dptamo_s_amount >= depotamo_supply_rate { 
+	                    dptamo_s_amount -= depotamo_supply_rate; 
 	                } 
 	            }
 	            //Clamp the value between zero and the max available rounds
-	            if global.dptamo_s_amount < 0 { global.dptamo_s_amount = 0; }
-	            if global.dptamo_s_amount > global.lc_ammunition_ammo { global.dptamo_s_amount = global.lc_ammunition_ammo; }
+	            if dptamo_s_amount < 0 { dptamo_s_amount = 0; }
+	            if dptamo_s_amount > lc_amo_ammo { dptamo_s_amount = lc_amo_ammo; }
 	            //Add to temp AP cost
-	            global.temp_AP = (global.dptamo_s_amount/depotamo_supply_rate)*ap_cost;
+	            global.temp_AP = (dptamo_s_amount/depotamo_supply_rate)*ap_cost;
 	            //Set the menu position
 	            global.fire_option = 1; 
 	            //Switch off camera zoom
@@ -162,10 +162,10 @@ function scr_Ship_Depot_Tab(argument0, argument1, argument2, argument3, argument
 	            else if f1 {
 	                //TRANSFER PARTS SUPPLY
 	                //Remove cost
-	                if global.dptbld_s_amount != 0 {
+	                if dptbld_s_amount != 0 {
 	                    if global.supply_ship != noone {
 	                        var u = global.supply_ship;
-	                        if (u.can_shoot == true) && (u.parts_ammo >= global.dptbld_s_amount) {
+	                        if (u.can_shoot == true) && (u.parts_ammo >= dptbld_s_amount) {
 	                            if (target_unit.action_points >= global.temp_AP) {
 	                                u.action_confirmed = true;
 	                                global.units_running += 1; 
@@ -175,8 +175,8 @@ function scr_Ship_Depot_Tab(argument0, argument1, argument2, argument3, argument
 	                                u.target_y = global.target_y;
 	                                u.resupply_unit = argument0;
 	                                u.resupply_unit.resupplying = true;
-	                                u.shoot_amount    += global.dptbld_s_amount/depotbld_supply_rate; 
-	                                u.parts_ammo      -= global.dptbld_s_amount;
+	                                u.shoot_amount    += dptbld_s_amount/depotbld_supply_rate; 
+	                                u.parts_ammo      -= dptbld_s_amount;
 	                                global.turn_AP    -= ap_cost*u.shoot_amount;
 	                                target_unit.alert_display = true;
 	                                target_unit.alert_colour = c_red;
@@ -208,10 +208,10 @@ function scr_Ship_Depot_Tab(argument0, argument1, argument2, argument3, argument
 	                else if f2 {
 	                    //TRANSFER AMMO SUPPLY
 	                    //Remove ammo cost
-	                    if global.dptamo_s_amount != 0 {
+	                    if dptamo_s_amount != 0 {
 	                        if global.supply_ship != noone {
 	                            var u = global.supply_ship;
-	                            if (u.can_shoot == true) && (u.ammunition_ammo >= global.dptamo_s_amount) {
+	                            if (u.can_shoot == true) && (u.ammunition_ammo >= dptamo_s_amount) {
 	                                if (target_unit.action_points >= global.temp_AP) {
 	                                    u.action_confirmed = true;
 	                                    global.units_running += 1; 
@@ -221,8 +221,8 @@ function scr_Ship_Depot_Tab(argument0, argument1, argument2, argument3, argument
 	                                    u.target_y = global.target_y;
 	                                    u.resupply_unit = argument0;
 	                                    u.resupply_unit.resupplying = true;
-	                                    u.shoot_amount    += global.dptamo_s_amount/depotamo_supply_rate; 
-	                                    u.ammunition_ammo -= global.dptamo_s_amount;
+	                                    u.shoot_amount    += dptamo_s_amount/depotamo_supply_rate; 
+	                                    u.ammunition_ammo -= dptamo_s_amount;
 	                                    global.turn_AP    -= ap_cost*u.shoot_amount;
 	                                    target_unit.alert_display = true;
 	                                    target_unit.alert_colour = c_red;

@@ -45,17 +45,17 @@ function scr_Ship_LOGIB_Tab(argument0, argument1, argument2, argument3) {
 	    //Increase by a rate of 10
 	    if mouse_wheel_up() { 
 	        //Check if there is enough supply available
-	        if global.logiamo_s_amount <= (global.lc_ammunition_ammo-logiamo_supply_rate) {
+	        if logiamo_s_amount <= (lc_amo_ammo-logiamo_supply_rate) {
 	            //Make sure the unit ammo does not go over max
-	            if ((global.logiamo_s_amount+ammo_count)+logiamo_supply_rate) <= ammo_max {
+	            if ((logiamo_s_amount+ammo_count)+logiamo_supply_rate) <= ammo_max {
 	                //Check if there is enough turn AP for the move
 	                var m_ap = (global.turn_AP-global.temp_AP);
 	                if m_ap >=  ap_cost {
 	                    //Check total unit AP available
 	                    var ap = target_unit.action_points;
-	                    if ap >= ((global.logiamo_s_amount+logiamo_supply_rate)/logiamo_supply_rate)*ap_cost {
+	                    if ap >= ((logiamo_s_amount+logiamo_supply_rate)/logiamo_supply_rate)*ap_cost {
 	                        //Add the rounds
-	                        global.logiamo_s_amount +=  logiamo_supply_rate; 
+	                        logiamo_s_amount +=  logiamo_supply_rate; 
 	                    }
 	                }
 	            }
@@ -63,15 +63,15 @@ function scr_Ship_LOGIB_Tab(argument0, argument1, argument2, argument3) {
 	    }
 	    //Decrease by a rate of 10
 	    if mouse_wheel_down() { 
-	        if global.logiamo_s_amount >= logiamo_supply_rate { 
-	            global.logiamo_s_amount -= logiamo_supply_rate; 
+	        if logiamo_s_amount >= logiamo_supply_rate { 
+	            logiamo_s_amount -= logiamo_supply_rate; 
 	        } 
 	    }
 	    //Clamp the value between zero and the max available rounds
-	    if global.logiamo_s_amount < 0 { global.logiamo_s_amount = 0; }
-	    if global.logiamo_s_amount > global.lc_ammunition_ammo { global.logiamo_s_amount = global.lc_ammunition_ammo; }
+	    if logiamo_s_amount < 0 { logiamo_s_amount = 0; }
+	    if logiamo_s_amount > lc_amo_ammo { logiamo_s_amount = lc_amo_ammo; }
 	    //Add to temp AP cost
-	    global.temp_AP = (global.logiamo_s_amount/logiamo_supply_rate)*ap_cost;
+	    global.temp_AP = (logiamo_s_amount/logiamo_supply_rate)*ap_cost;
 	    //Set the menu position
 	    global.fire_option = 0; 
 	    //Switch off camera zoom
@@ -107,10 +107,10 @@ function scr_Ship_LOGIB_Tab(argument0, argument1, argument2, argument3) {
 	            else if f1 {
 	                //TRANSFER AMMO SUPPLY
 	                //Remove ammo cost
-	                if global.logiamo_s_amount != 0 {
+	                if logiamo_s_amount != 0 {
 	                    if global.supply_ship != noone {
 	                        var u = global.supply_ship;
-	                        if (u.can_shoot == true) && (u.ammunition_ammo >= global.logiamo_s_amount) {
+	                        if (u.can_shoot == true) && (u.ammunition_ammo >= logiamo_s_amount) {
 	                            if (target_unit.action_points >= global.temp_AP) {
 	                                    u.action_confirmed = true;
 	                                    global.units_running += 1; 
@@ -120,8 +120,8 @@ function scr_Ship_LOGIB_Tab(argument0, argument1, argument2, argument3) {
 	                                    u.target_y = global.target_y;
 	                                    u.resupply_unit = argument0;
 	                                    u.resupply_unit.resupplying = true;
-	                                    u.shoot_amount    += global.logiamo_s_amount/logiamo_supply_rate; 
-	                                    u.ammunition_ammo -= global.logiamo_s_amount;
+	                                    u.shoot_amount    += logiamo_s_amount/logiamo_supply_rate; 
+	                                    u.ammunition_ammo -= logiamo_s_amount;
 	                                    global.turn_AP    -= ap_cost*u.shoot_amount;
 										target_unit.alert_display = true;
 	                                    target_unit.alert_colour = c_red;

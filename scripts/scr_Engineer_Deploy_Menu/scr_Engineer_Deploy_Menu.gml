@@ -30,20 +30,20 @@ function scr_Engineer_Deploy_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.lac_dpt_amount;
-	                ammo_count   = global.lac_dpt_supply;
+	                shoot_amount = laca_dpt_amount;
+	                ammo_count   = laca_dpt_supply;
 	                break;
 	            case 1:
-	                shoot_amount = global.lac_rpr_amount;
-	                ammo_count   = global.lac_rpr_supply;
+	                shoot_amount = laca_rpr_amount;
+	                ammo_count   = laca_rpr_supply;
 	                break;
 	            case 2:
-	                shoot_amount = global.lac_tow_amount;
-	                ammo_count   = global.lac_tow_supply;
+	                shoot_amount = laca_tow_amount;
+	                ammo_count   = laca_tow_supply;
 	                break;
 	            case 3:
-	                shoot_amount = global.lac_mtr_amount;
-	                ammo_count   = global.lac_mtr_supply;
+	                shoot_amount = laca_mtr_amount;
+	                ammo_count   = laca_mtr_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -53,19 +53,19 @@ function scr_Engineer_Deploy_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.lac_dpt_supply <= 0 { c1 = c_red; }
+	                if laca_dpt_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 1:
-	                if global.lac_rpr_supply <= 0 { c1 = c_red; }
+	                if laca_rpr_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 2:
-	                if global.lac_tow_supply <= 0 { c1 = c_red; }
+	                if laca_tow_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 3:
-	                if global.lac_mtr_supply <= 0 { c1 = c_red; }
+	                if laca_mtr_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

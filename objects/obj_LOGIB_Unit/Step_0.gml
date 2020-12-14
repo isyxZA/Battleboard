@@ -39,7 +39,7 @@ if global.game_turn != 0 {
                 }
                 if global.can_select == true {
                     if (nav_confirmed == false) && (action_confirmed == false) && (resupplying == false) {
-                        if mouse_check_button_released(mb_right){
+                        if mouse_check_button_released(mb_right) {
                             if place_meeting(x, y, obj_MOUSE) {
                                 if selected == false { 
                                     selected = true;
@@ -99,7 +99,7 @@ if global.game_turn != 0 {
                                 if (global.turn_AP >= ap_cost) && (action_points >= ap_cost) {
                                     //If the unit has enough ammo for at least one round
                                     //ADJUST THIS TO REFLECT THE RATE DEPENDING ON THE TARGET
-                                    if (ammo_supply >= ammo_rate) || (building_supply >= building_rate) {
+                                    if ammo_supply >= ammo_rate {
                                         can_shoot = true; 
                                     }
                                         else { can_shoot = false; }

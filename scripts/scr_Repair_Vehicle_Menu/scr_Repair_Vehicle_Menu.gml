@@ -18,8 +18,8 @@ function scr_Repair_Vehicle_Menu() {
 		    if (m < mlen-1) {
 		        switch m {
 		            case 0:
-		                shoot_amount = global.repair_v_amount;
-		                ammo_count   = global.repair_ammo;
+		                shoot_amount = repair_v_amount;
+		                ammo_count   = repair_v_ammo;
 		                break;
 		            default:
 		                shoot_amount = 0;
@@ -29,7 +29,7 @@ function scr_Repair_Vehicle_Menu() {
 		        if m == global.fire_option { 
 		            switch m {
 		            case 0:
-		                if global.repair_ammo <= 0 { c1 = c_red; }
+		                if repair_v_ammo <= 0 { c1 = c_red; }
 		                    else { c1 = c_white; }
 		                break;
 		            default:

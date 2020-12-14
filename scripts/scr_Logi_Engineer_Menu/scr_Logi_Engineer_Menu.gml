@@ -38,20 +38,20 @@ function scr_Logi_Engineer_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.lacdpt_l_amount;
-	                ammo_count   = global.logi_bld_supply;
+	                shoot_amount = lacdpt_l_amount;
+	                ammo_count   = logia_bld_supply;
 	                break;
 	            case 1:
-	                shoot_amount = global.lacrpr_l_amount;
-	                ammo_count   = global.logi_bld_supply;
+	                shoot_amount = lacrpr_l_amount;
+	                ammo_count   = logia_bld_supply;
 	                break;
 	            case 2:
-	                shoot_amount = global.lactow_l_amount;
-	                ammo_count   = global.logi_bld_supply;
+	                shoot_amount = lactow_l_amount;
+	                ammo_count   = logia_bld_supply;
 	                break;
 	            case 3:
-	                shoot_amount = global.lacmtr_l_amount;
-	                ammo_count   = global.logi_bld_supply;
+	                shoot_amount = lacmtr_l_amount;
+	                ammo_count   = logia_bld_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -61,19 +61,19 @@ function scr_Logi_Engineer_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.logi_bld_supply <= 0 { c1 = c_red; }
+	                if logia_bld_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 1:
-	                if global.logi_bld_supply <= 0 { c1 = c_red; }
+	                if logia_bld_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 2:
-	                if global.logi_bld_supply <= 0 { c1 = c_red; }
+	                if logia_bld_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 3:
-	                if global.logi_bld_supply <= 0 { c1 = c_red; }
+	                if logia_bld_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

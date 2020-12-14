@@ -34,7 +34,7 @@ function scr_LACB_Tab(argument0, argument1) {
 		    //Increase by a rate of 1
 		    if mouse_wheel_up() { 
 		        //Check if there is enough ammo available
-		        if global.lac_tow2_amount <= (global.lac_tow2_ammo-tow_rate) { 
+		        if lacb_tow_amount <= (lacb_tow_ammo-tow_rate) { 
 		            //Check if there is enough turn AP for the move
 		            var m_ap = (global.turn_AP-global.temp_AP);
 		            if m_ap >= ap_cost {
@@ -47,10 +47,10 @@ function scr_LACB_Tab(argument0, argument1) {
 		                        if unit.can_shoot == true { ap += unit.action_points; }
 		                    }
 		                }
-		                if ap >= ((global.lac_tow2_amount+tow_rate)/tow_rate)*ap_cost {
-		                    if global.lac_tow2_amount <= 0 {
+		                if ap >= ((lacb_tow_amount+tow_rate)/tow_rate)*ap_cost {
+		                    if lacb_tow_amount <= 0 {
 		                        //Add the rounds
-		                        global.lac_tow2_amount += tow_rate; 
+		                        lacb_tow_amount += tow_rate; 
 		                    }
 		                }
 		            }
@@ -58,15 +58,15 @@ function scr_LACB_Tab(argument0, argument1) {
 		    }
 		    //Decrease by a rate of 1
 		    if mouse_wheel_down() { 
-		        if global.lac_tow2_amount >= tow_rate { 
-		            global.lac_tow2_amount -= tow_rate; 
+		        if lacb_tow_amount >= tow_rate { 
+		            lacb_tow_amount -= tow_rate; 
 		        } 
 		    }
 		    //Clamp the value between zero and the max available rounds
-		    if global.lac_tow2_amount < 0 { global.lac_tow2_amount = 0; }
-		    if global.lac_tow2_amount > 1 { global.lac_tow2_amount = 1; }
+		    if lacb_tow_amount < 0 { lacb_tow_amount = 0; }
+		    if lacb_tow_amount > 1 { lacb_tow_amount = 1; }
 		    //Add to temp AP cost
-		    global.temp_AP = (global.lac_tow2_amount/tow_rate)*ap_cost;
+		    global.temp_AP = (lacb_tow_amount/tow_rate)*ap_cost;
 		    //Set the menu position
 		    global.fire_option = 0; 
 		    //Switch off camera zoom
@@ -104,95 +104,35 @@ function scr_LACB_Tab(argument0, argument1) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab
-	            if global.selected_lava != 0 {
-	                global.ammo_tab = "LAV_A"; 
+				if ds_list_size(tabs) > 1 {
+					var t_size = ds_list_size(tabs)-1;
+					if tab_count < t_size { tab_count += 1; }
+						else { tab_count = 0; }
+					global.ammo_tab = ds_list_find_value(tabs, tab_count);
+					lacb_tow_amount = 0;
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
 					//Remove the surface
 					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                ammo_check = true;
-	            }
-					else if global.selected_lavb != 0 {
-		                global.ammo_tab = "LAV_B"; 
-						//Remove the surface
-						if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-		                ammo_check = true;
-		            }
-		                else if global.selected_logia != 0 {
-		                    global.ammo_tab = "LOGI_A"; 
-							//Remove the surface
-							if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-		                    ammo_check = true;
-		                }
-							else if global.selected_logib != 0 {
-			                    global.ammo_tab = "LOGI_B"; 
-								//Remove the surface
-								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                    ammo_check = true;
-			                }
-			                    else if global.selected_depot != 0 {
-			                        global.ammo_tab = "DEPOT";
-									//Remove the surface
-									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                        ammo_check = true;
-			                    }
-			                        else if global.selected_repair != 0 {
-			                            global.ammo_tab = "REPAIR";
-										//Remove the surface
-										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                            ammo_check = true;
-			                        }
-			                            else if global.selected_tow != 0 {
-			                                global.ammo_tab = "TOW";
-											//Remove the surface
-											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                                ammo_check = true;
-			                            }
-			                                else if global.selected_mortar != 0 {
-			                                    global.ammo_tab = "MORTAR";
-												//Remove the surface
-												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                                    ammo_check = true;
-			                                }
-			                                    else if global.selected_infa != 0 {
-			                                        global.ammo_tab = "INF_A"; 
-													//Remove the surface
-													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                                        ammo_check = true;
-			                                    }
-													else if global.selected_infb != 0 {
-				                                        global.ammo_tab = "INF_B"; 
-														//Remove the surface
-														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                        ammo_check = true;
-				                                    }
-				                                        else if global.selected_mbta != 0 {
-				                                            global.ammo_tab = "MBT_A"; 
-															//Remove the surface
-															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                            ammo_check = true;
-				                                        }
-															else if global.selected_mbtb != 0 {
-					                                            global.ammo_tab = "MBT_B"; 
-																//Remove the surface
-																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                            ammo_check = true;
-					                                        }
-					                                            else {
-					                                            }
+				}
 	        }
 		        else if f1 { 
 		            //SET TOW
 		            //Remove ammo cost
-		            if global.lac_tow2_amount != 0 {
+		            if lacb_tow_amount != 0 {
 		                var t=0;
-		                while (global.lac_tow2_amount >= tow_rate) {
+		                while (lacb_tow_amount >= tow_rate) {
 		                    t+=1;
 		                    var i;
 		                    for (i=0; i<ds_list_size(global.selected_lacb_list); i+=1) {
 		                        var u = ds_list_find_value(global.selected_lacb_list, i);
-		                        if (u.can_shoot == true) && (u.tow_supply >= tow_rate) {
+		                        if (u.can_shoot == true) && (u.tow_ammo >= tow_rate) {
 		                            if (u.action_points >= ap_cost) {
-		                                global.lac_tow2_amount -= tow_rate;
-		                                if global.lac_tow2_amount >= 0 {
+		                                lacb_tow_amount -= tow_rate;
+		                                if lacb_tow_amount >= 0 {
 		                                    if u.shoot_amount == 0 { 
 		                                        u.action_confirmed = true;
 		                                        global.units_running += 1; 
@@ -205,17 +145,17 @@ function scr_LACB_Tab(argument0, argument1) {
 		                                        u.alarm[3] = global.tick_rate*3;
 												if PLAYER.net_status != "NONE" { u.net_action = true; }
 		                                    }
-		                                    u.shoot_amount    += 1; 
-		                                    u.tow_supply      -= tow_rate;
-		                                    global.turn_AP    -= ap_cost;
-		                                    u.action_points   -= ap_cost;
+		                                    u.shoot_amount  += 1; 
+		                                    u.tow_ammo      -= tow_rate;
+		                                    global.turn_AP  -= ap_cost;
+		                                    u.action_points -= ap_cost;
 		                                    u.alert_text = "-"+string(u.shoot_amount*ap_cost)+ " AP";
 		                                }
 		                            }
 		                        }
 		                    }
 		                    if t >= 200 { 
-		                        global.lac_tow2_amount = 0;
+		                        lacb_tow_amount = 0;
 		                        global.targeting_error = true;
 		                    } 
 		                }
@@ -228,7 +168,7 @@ function scr_LACB_Tab(argument0, argument1) {
 		                    with unit { if action_confirmed == true { selected = false; } }
 		                }
 		                ammo_check = true;
-		                global.lac_tow_amount = 0;
+		                lacb_tow_amount = 0;
 		            }
 		                else { 
 		                    global.menu_create = false;
@@ -250,7 +190,7 @@ function scr_LACB_Tab(argument0, argument1) {
 		            queue_reset = true;
 		        }
 		                else if f2 { 
-		                    //CANCEL
+		                    //RETARGET
 		                    //Stop drawing fire menu and display the targeting reticule
 		                    global.fire_display = false;
 		                    global.reticule_display = true;
@@ -266,9 +206,9 @@ function scr_LACB_Tab(argument0, argument1) {
 		                    else if f3 { 
 		                        //CANCEL
 		                        //Stop drawing all menus
-		                        global.fire_display = false;
+		                        global.fire_display     = false;
 		                        global.reticule_display = false;
-		                        global.menu_create = false;
+		                        global.menu_create      = false;
 								//Reset menu animation
 								menu_anim = true;
 								menu_anim_count = 0;
@@ -280,7 +220,6 @@ function scr_LACB_Tab(argument0, argument1) {
 		                    }
 	    }
 	}
-
 
 
 }

@@ -44,7 +44,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	        //Increase by a rate of 4
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo available to add another amount
-	            if global.inf_rfl_amount <= (global.inf_rfl_ammo-rifle_rate) { 
+	            if infb_rfl_amount <= (infb_rfl_ammo-rifle_rate) { 
 	                //Check if there is enough turn AP for the move
 	                var m_ap = (global.turn_AP-global.temp_AP);
 	                if m_ap >= ap_cost {
@@ -57,24 +57,24 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                            if unit.can_shoot == true { ap += unit.action_points; }
 	                        }
 	                    }
-	                    if ap >= ((global.inf_rfl_amount+rifle_rate)/rifle_rate)*ap_cost {
+	                    if ap >= ((infb_rfl_amount+rifle_rate)/rifle_rate)*ap_cost {
 	                        //Add the rounds
-	                        global.inf_rfl_amount += rifle_rate; 
+	                        infb_rfl_amount += rifle_rate; 
 	                    }
 	                }
 	            } 
 	        }
 	        //Decrease by a rate of 4
 	        if mouse_wheel_down() { 
-	            if global.inf_rfl_amount >= rifle_rate { 
-	                global.inf_rfl_amount -= rifle_rate; 
+	            if infb_rfl_amount >= rifle_rate { 
+	                infb_rfl_amount -= rifle_rate; 
 	            } 
 	        }
 	        //Clamp the value between zero and the max available rounds
-	        if global.inf_rfl_amount < 0 { global.inf_rfl_amount = 0; }
-	        if global.inf_rfl_amount > global.inf_rfl_ammo { global.inf_rfl_amount = global.inf_rfl_ammo; }
+	        if infb_rfl_amount < 0 { infb_rfl_amount = 0; }
+	        if infb_rfl_amount > infb_rfl_ammo { infb_rfl_amount = infb_rfl_ammo; }
 	        //Add to temp AP cost
-	        global.temp_AP = (global.inf_rfl_amount/rifle_rate)*ap_cost;
+	        global.temp_AP = (infb_rfl_amount/rifle_rate)*ap_cost;
 	        //Set menu position
 	        global.fire_option = 0; 
 	        //Switch off zoom
@@ -89,7 +89,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	            //Increase by a rate of 1
 	            if mouse_wheel_up() { 
 	                //Check if there is enough ammo available
-	                if global.inf_rpg_amount <= (global.inf_rpg_ammo-rpg_rate) { 
+	                if infb_rpg_amount <= (infb_rpg_ammo-rpg_rate) { 
 	                    //Check if there is enough turn AP for the move
 	                    var m_ap = (global.turn_AP-global.temp_AP);
 	                    if m_ap >=  ap_cost {
@@ -102,24 +102,24 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                                if unit.can_shoot == true { ap += unit.action_points; }
 	                            }
 	                        }
-	                        if ap >= ((global.inf_rpg_amount+rpg_rate)/rpg_rate)*ap_cost {
+	                        if ap >= ((infb_rpg_amount+rpg_rate)/rpg_rate)*ap_cost {
 	                            //Add the rounds
-	                            global.inf_rpg_amount += rpg_rate; 
+	                            infb_rpg_amount += rpg_rate; 
 	                        }
 	                    }
 	                } 
 	            }
 	            //Decrease by a rate of 1
 	            if mouse_wheel_down() { 
-	                if global.inf_rpg_amount >= rpg_rate { 
-	                    global.inf_rpg_amount -= rpg_rate; 
+	                if infb_rpg_amount >= rpg_rate { 
+	                    infb_rpg_amount -= rpg_rate; 
 	                } 
 	            }
 	            //Clamp the value between zero and the max available rounds
-	            if global.inf_rpg_amount < 0 { global.inf_rpg_amount = 0; }
-	            if global.inf_rpg_amount > global.inf_rpg_ammo { global.inf_rpg_amount = global.inf_rpg_ammo; }
+	            if infb_rpg_amount < 0 { infb_rpg_amount = 0; }
+	            if infb_rpg_amount > infb_rpg_ammo { infb_rpg_amount = infb_rpg_ammo; }
 	            //Add to temp AP cost
-	            global.temp_AP = (global.inf_rpg_amount/rpg_rate)*ap_cost;
+	            global.temp_AP = (infb_rpg_amount/rpg_rate)*ap_cost;
 	            //Set menu position
 	            global.fire_option = 1; 
 	            //Switch off zoom
@@ -134,7 +134,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                //Increase by a rate of 1
 	                if mouse_wheel_up() { 
 	                    //Check if there is enough ammo available
-	                    if global.inf_flr_amount <= (global.inf_flr_ammo-flare_rate) { 
+	                    if infb_flr_amount <= (infb_flr_ammo-flare_rate) { 
 	                        //Check if there is enough turn AP for the move
 	                        var m_ap = (global.turn_AP-global.temp_AP);
 	                        if m_ap >=  ap_cost {
@@ -147,24 +147,24 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                                    if unit.can_shoot == true { ap += unit.action_points; }
 	                                }
 	                            }
-	                            if ap >= ((global.inf_flr_amount+flare_rate)/flare_rate)*ap_cost {
+	                            if ap >= ((infb_flr_amount+flare_rate)/flare_rate)*ap_cost {
 	                                //Add the rounds
-	                                global.inf_flr_amount += flare_rate; 
+	                                infb_flr_amount += flare_rate; 
 	                            }
 	                        }
 	                    } 
 	                }
 	                //Decrease by a rate of 1
 	                if mouse_wheel_down() { 
-	                    if global.inf_flr_amount >= flare_rate { 
-	                        global.inf_flr_amount -= flare_rate; 
+	                    if infb_flr_amount >= flare_rate { 
+	                        infb_flr_amount -= flare_rate; 
 	                    } 
 	                }
 	                //Clamp the value between zero and the max available rounds
-	                if global.inf_flr_amount < 0 { global.inf_flr_amount = 0; }
-	                if global.inf_flr_amount > global.inf_flr_ammo { global.inf_flr_amount = global.inf_flr_ammo; }
+	                if infb_flr_amount < 0 { infb_flr_amount = 0; }
+	                if infb_flr_amount > infb_flr_ammo { infb_flr_amount = infb_flr_ammo; }
 	                //Add to temp AP cost
-	                global.temp_AP = (global.inf_flr_amount/flare_rate)*ap_cost;
+	                global.temp_AP = (infb_flr_amount/flare_rate)*ap_cost;
 	                //Set menu position
 	                global.fire_option = 2; 
 	                //Switch off zoom
@@ -202,95 +202,37 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab
-	            if global.selected_mbta != 0 {
-	                global.ammo_tab = "MBT_A"; 
+				if ds_list_size(tabs) > 1 {
+					var t_size = ds_list_size(tabs)-1;
+					if tab_count < t_size { tab_count += 1; }
+						else { tab_count = 0; }
+					global.ammo_tab = ds_list_find_value(tabs, tab_count);
+					infb_rfl_amount = 0;
+			        infb_flr_amount = 0;
+			        infb_rpg_amount = 0;
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
 					//Remove the surface
 					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                ammo_check = true;
-	            }
-					else if global.selected_mbtb != 0 {
-		                global.ammo_tab = "MBT_B"; 
-						//Remove the surface
-						if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-		                ammo_check = true;
-		            }
-			            else if global.selected_laca != 0 {
-			                global.ammo_tab = "LAC_A";
-							//Remove the surface
-							if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                ammo_check = true;
-			            }
-							else if global.selected_lacb != 0 {
-				                global.ammo_tab = "LAC_B";
-								//Remove the surface
-								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                ammo_check = true;
-				            }
-				                else if global.selected_lava != 0 {
-				                    global.ammo_tab = "LAV_A"; 
-									//Remove the surface
-									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                    ammo_check = true;
-				                }
-									else if global.selected_lavb != 0 {
-					                    global.ammo_tab = "LAV_B"; 
-										//Remove the surface
-										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                    ammo_check = true;
-					                }
-					                    else if global.selected_logia != 0 {
-					                        global.ammo_tab = "LOGI_A";
-											//Remove the surface
-											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                        ammo_check = true;
-					                    }
-											else if global.selected_logib != 0 {
-						                        global.ammo_tab = "LOGI_B";
-												//Remove the surface
-												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                        ammo_check = true;
-						                    }
-						                        else if global.selected_depot != 0 {
-						                            global.ammo_tab = "DEPOT";
-													//Remove the surface
-													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                            ammo_check = true;
-						                        }
-						                            else if global.selected_repair != 0 {
-						                                global.ammo_tab = "REPAIR";
-														//Remove the surface
-														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                ammo_check = true;
-						                            }
-						                                else if global.selected_tow != 0 {
-						                                    global.ammo_tab = "TOW";
-															//Remove the surface
-															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                    ammo_check = true;
-						                                }
-						                                    else if global.selected_mortar != 0 {
-						                                        global.ammo_tab = "MORTAR";
-																//Remove the surface
-																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                        ammo_check = true;
-						                                    }
-						                                        else {
-						                                        }
-	                }
+				}
+	        }
 	            else if f1 { 
 	                //FIRE RIFLES
 	                //Remove ammo cost
-	                if global.inf_rfl_amount != 0 {
+	                if infb_rfl_amount != 0 {
 	                    var t=0;
-	                    while (global.inf_rfl_amount >= rifle_rate) {
+	                    while (infb_rfl_amount >= rifle_rate) {
 	                        t+=1;
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_infb_list); i+=1) {
 	                            var u = ds_list_find_value(global.selected_infb_list, i);
 	                            if (u.can_shoot == true) && (u.rifle_ammo >= rifle_rate) {
 	                                if (u.action_points >= ap_cost) {
-	                                    global.inf_rfl_amount -= rifle_rate;
-	                                    if global.inf_rfl_amount >= 0 {
+	                                    infb_rfl_amount -= rifle_rate;
+	                                    if infb_rfl_amount >= 0 {
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
@@ -313,7 +255,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                            }
 	                        }
 	                        if t >= 200 { 
-	                            global.inf_rfl_amount = 0; 
+	                            infb_rfl_amount = 0; 
 	                            global.targeting_error = true;
 	                        } 
 	                    }
@@ -326,7 +268,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                        with unit { if action_confirmed == true { selected = false; } }
 	                    }
 	                    ammo_check = true;
-	                    global.inf_rfl_amount = 0;
+	                    infb_rfl_amount = 0;
 	                }
 	                    else { 
 	                        global.menu_create = false;
@@ -350,19 +292,19 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                else if f2 { 
 	                    //FIRE RPG
 	                    //Remove ammo cost
-	                    if global.inf_rpg_amount != 0 {
+	                    if infb_rpg_amount != 0 {
 	                        var t=0;
-	                        while (global.inf_rpg_amount >= rpg_rate) {
+	                        while (infb_rpg_amount >= rpg_rate) {
 	                            t+=1;
 	                            var i;
 	                            for (i=0; i<ds_list_size(global.selected_infb_list); i+=1) {
 	                                var u = ds_list_find_value(global.selected_infb_list, i);
 	                                if (u.can_shoot == true) && (u.rpg_ammo >= rpg_rate) {
 	                                    if (u.action_points >= ap_cost) {
-	                                        global.inf_rpg_amount -= rpg_rate;
-	                                        if global.inf_rpg_amount >= 0 { 
+	                                        infb_rpg_amount -= rpg_rate;
+	                                        if infb_rpg_amount >= 0 { 
 	                                            if u.shoot_amount == 0 { 
-	                                                u.action_confirmed    = true;
+	                                                u.action_confirmed = true;
 	                                                global.units_running += 1; 
 	                                                u.shoot_rpg = true;
 	                                                u.weapon    = "RPG";
@@ -383,7 +325,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                                }
 	                            }
 	                            if t >= 200 { 
-	                                global.inf_rpg_amount = 0; 
+	                                infb_rpg_amount = 0; 
 	                                global.targeting_error = true;
 	                            }
 	                        }
@@ -396,7 +338,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                            with unit { if action_confirmed == true { selected = false; } }
 	                        }
 	                        ammo_check = true;
-	                        global.inf_rpg_amount = 0;
+	                        infb_rpg_amount = 0;
 	                    }
 	                        else { 
 	                            global.menu_create = false;
@@ -420,17 +362,17 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                    else if f3 { 
 	                        //FIRE FLARES
 	                        //Remove ammo cost
-	                        if global.inf_flr_amount != 0 {
+	                        if infb_flr_amount != 0 {
 	                            var t=0;
-	                            while (global.inf_flr_amount >= flare_rate) {
+	                            while (infb_flr_amount >= flare_rate) {
 	                                t+=1;
 	                                var i;
 	                                for (i=0; i<ds_list_size(global.selected_infb_list); i+=1) {
 	                                    var u = ds_list_find_value(global.selected_infb_list, i);
 	                                    if (u.can_shoot == true) && (u.flare_ammo >= flare_rate) {
 	                                        if (u.action_points >= ap_cost) {
-	                                            global.inf_flr_amount -= flare_rate;
-	                                            if global.inf_flr_amount >= 0 {
+	                                            infb_flr_amount -= flare_rate;
+	                                            if infb_flr_amount >= 0 {
 	                                                if u.shoot_amount == 0 { 
 	                                                    u.action_confirmed    = true;
 	                                                    global.units_running += 1; 
@@ -453,7 +395,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                                    }
 	                                }
 	                                if t >= 200 { 
-	                                    global.inf_flr_amount = 0; 
+	                                    infb_flr_amount = 0; 
 	                                    global.targeting_error = true;
 	                                }
 	                            }
@@ -466,7 +408,7 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                                with unit { if action_confirmed == true { selected = false; } }
 	                            }
 	                            ammo_check = true;
-	                            global.inf_flr_amount = 0;
+	                            infb_flr_amount = 0;
 	                        }
 	                            else { 
 	                                global.menu_create = false;
@@ -504,9 +446,9 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                            else if f5 { 
 	                                //CANCEL
 	                                //Stop drawing all menus
-	                                global.fire_display = false;
+	                                global.fire_display     = false;
 	                                global.reticule_display = false;
-	                                global.menu_create = false;
+	                                global.menu_create      = false;
 									//Reset menu animation
 									menu_anim = true;
 									menu_anim_count = 0;
@@ -518,7 +460,6 @@ function scr_INFB_Tab(argument0, argument1, argument2, argument3) {
 	                            }
 	    }
 	}
-
 
 
 }

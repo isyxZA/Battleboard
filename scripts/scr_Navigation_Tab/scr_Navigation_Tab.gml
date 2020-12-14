@@ -65,7 +65,6 @@ function scr_Navigation_Tab() {
 		                                    y_final = y_end;
 		                                    action_points -= temp_ap;
 											global.turn_AP -= temp_ap;
-		                                    //global.turn_AP -= (move_amount*mp_cost);
 		                                    alert_display = true;
 		                                    alert_text = "-"+string(temp_ap)+ " AP";
 		                                    alert_colour = c_red;
@@ -173,11 +172,10 @@ function scr_Navigation_Tab() {
 	                global.draw_apcost = true; 
 	                obj_CONTROL.ap_cost = global.temp_AP;
 	            }
-	            select_enable = false;
-				//Enable path tracking
-	            alarm[0] = 20;
 	            //Switch off the nav menu
 	            global.nav_menu = false;
+				select_enable = false;
+	            alarm[0] = 20;
 				//Reset menu animation
 				menu_anim = true;
 				menu_anim_count = 0;
@@ -300,7 +298,6 @@ function scr_Navigation_Tab() {
 	                    global.menu_create = false;
 	                }
 	}
-
 
 
 }

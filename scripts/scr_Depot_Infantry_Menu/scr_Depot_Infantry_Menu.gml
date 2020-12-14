@@ -37,16 +37,16 @@ function scr_Depot_Infantry_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.infrfl_d_amount;
-	                ammo_count   = global.dpt_amo_supply;
+	                shoot_amount = infrfl_d_amount;
+	                ammo_count   = dpt_amo_supply;
 	                break;
 	            case 1:
-	                shoot_amount = global.infrpg_d_amount;
-	                ammo_count   = global.dpt_amo_supply;
+	                shoot_amount = infrpg_d_amount;
+	                ammo_count   = dpt_amo_supply;
 	                break;
 	            case 2:
-	                shoot_amount = global.infflr_d_amount;
-	                ammo_count   = global.dpt_amo_supply;
+	                shoot_amount = infflr_d_amount;
+	                ammo_count   = dpt_amo_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -56,15 +56,15 @@ function scr_Depot_Infantry_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+	                if dpt_amo_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 1:
-	                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+	                if dpt_amo_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 2:
-	                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+	                if dpt_amo_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

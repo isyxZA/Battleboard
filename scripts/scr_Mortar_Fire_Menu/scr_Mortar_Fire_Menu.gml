@@ -30,8 +30,8 @@ function scr_Mortar_Fire_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.mortarS_amount;
-	                ammo_count   = global.mortar_ammo;
+	                shoot_amount = mortarS_amount;
+	                ammo_count   = mortar_ammo;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -41,7 +41,7 @@ function scr_Mortar_Fire_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.mortar_ammo <= 0 { c1 = c_red; }
+	                if mortar_ammo <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

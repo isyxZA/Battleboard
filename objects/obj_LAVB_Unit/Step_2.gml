@@ -399,13 +399,13 @@ if ap_depleted == true {
 
 if ammo_check == true {
     ammo_check = false;
-    if (he_ammo < he_rate) && (ap_ammo < ap_rate) { 
+    if (he_ammo < he_rate) && (ap_ammo < ap_rate) && (mg_ammo < mg_rate) { 
         alert_display = true;
         alert_text = "Ammo Depleted!"; 
         alert_colour = c_red;
         alarm[3] = global.tick_rate*3;
     }
-        else if (ap_ammo < ap_rate) || (ap_ammo < ap_rate) {
+        else if (he_ammo < he_rate) || (ap_ammo < ap_rate) || (mg_ammo < mg_rate) {
             alert_display = true;
             alert_text = "Low Ammo!"; 
             alert_colour = c_orange;

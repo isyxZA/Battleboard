@@ -30,9 +30,9 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	    //Increase by a rate of 10
 	    if mouse_wheel_up() { 
 	        //Check if there is enough ammo available to add another amount
-	        if global.repair_v_amount <= (global.repair_ammo-repair_rate) { 
+	        if repair_v_amount <= (repair_v_ammo-repair_rate) { 
 	            //Make sure the unit ammo does not go over max
-	            if ((global.repair_v_amount+repair_count)+repair_rate) <= repair_max {
+	            if ((repair_v_amount+repair_count)+repair_rate) <= repair_max {
 	                //Check if there is enough turn AP for the move
 	                var m_ap = (global.turn_AP-global.temp_AP);
 	                if m_ap >= ap_cost {
@@ -45,9 +45,9 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	                            if unit.manned_unit != noone { u_ap += unit.action_points; }
 	                        }
 	                    }
-	                    if u_ap >= ((global.repair_v_amount+repair_rate)/repair_rate)*ap_cost {
+	                    if u_ap >= ((repair_v_amount+repair_rate)/repair_rate)*ap_cost {
 	                        //Add the rounds
-	                        global.repair_v_amount += repair_rate; 
+	                        repair_v_amount += repair_rate; 
 	                    }
 	                }
 	            } 
@@ -55,15 +55,15 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	    }
 	    //Decrease by a rate of 4
 	    if mouse_wheel_down() { 
-	        if global.repair_v_amount >= repair_rate { 
-	            global.repair_v_amount -= repair_rate; 
+	        if repair_v_amount >= repair_rate { 
+	            repair_v_amount -= repair_rate; 
 	        } 
 	    }
 	    //Clamp the value between zero and the max available rounds
-	    if global.repair_v_amount < 0 { global.repair_v_amount = 0; }
-	    if global.repair_v_amount > global.repair_ammo { global.repair_v_amount = global.repair_ammo; }
+	    if repair_v_amount < 0 { repair_v_amount = 0; }
+	    if repair_v_amount > repair_v_ammo { repair_v_amount = repair_v_ammo; }
 	    //Add to temp AP cost
-	    global.temp_AP = (global.repair_v_amount/repair_rate)*ap_cost;
+	    global.temp_AP = (repair_v_amount/repair_rate)*ap_cost;
 	    //Set menu position
 	    global.fire_option = 0; 
 	    //Switch off zoom
@@ -93,9 +93,9 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	            else if f1 { 
 	                //REPAIR
 	                //Remove parts cost
-	                if global.repair_v_amount != 0 {
+	                if repair_v_amount != 0 {
 	                    var t=0;
-	                    while (global.repair_v_amount >= repair_rate) {
+	                    while (repair_v_amount >= repair_rate) {
 	                        t+=1;
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_list); i+=1) {
@@ -103,8 +103,8 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	                            var amt = (u.manned_unit.shoot_amount*repair_rate);
 	                            if (u.manned_unit.repair_ammo >= repair_rate) {
 	                                if (u.action_points >= ap_cost) && (u.unit_health+amt <= u.health_max-repair_rate){
-	                                    global.repair_v_amount -= repair_rate;
-	                                    if global.repair_v_amount >= 0 { 
+	                                    repair_v_amount -= repair_rate;
+	                                    if repair_v_amount >= 0 { 
 	                                        if u.manned_unit.shoot_amount == 0 { 
 	                                            u.manned_unit.action_confirmed = true;
 	                                            global.units_running += 1; 
@@ -128,7 +128,7 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	                            }
 	                        }
 	                        if t >= 200 { 
-	                            global.repair_v_amount = 0; 
+	                            repair_v_amount = 0; 
 	                            global.targeting_error = true;
 	                        } 
 	                    }
@@ -141,7 +141,7 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	                        with unit { if resupplying == true { selected = false; } }
 	                    }
 	                    ammo_check = true;
-	                    global.repair_v_amount = 0;
+	                    repair_v_amount = 0;
 	                }
 	                    else { 
 	                        global.repair_display = false;

@@ -47,92 +47,19 @@ function scr_Depot_Noone_Tab() {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab
-	            if global.selected_repair != 0 {
-	                global.ammo_tab = "REPAIR";
+				if ds_list_size(tabs) > 1 {
+					var t_size = ds_list_size(tabs)-1;
+					if tab_count < t_size { tab_count += 1; }
+						else { tab_count = 0; }
+					global.ammo_tab = ds_list_find_value(tabs, tab_count);
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
 					//Remove the surface
 					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                ammo_check = true;
-	            }
-	                else if global.selected_tow != 0 {
-	                    global.ammo_tab = "TOW";
-						//Remove the surface
-						if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                    ammo_check = true;
-	                }
-	                    else if global.selected_mortar != 0 {
-	                        global.ammo_tab = "MORTAR";
-							//Remove the surface
-							if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                        ammo_check = true;
-	                    }
-	                        else if global.selected_infa != 0 {
-	                            global.ammo_tab = "INF_A";
-								//Remove the surface
-								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                            ammo_check = true;
-	                        }
-								else if global.selected_infb != 0 {
-		                            global.ammo_tab = "INF_B";
-									//Remove the surface
-									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-		                            ammo_check = true;
-		                        }
-		                            else if global.selected_mbta != 0 {
-		                                global.ammo_tab = "MBT_A"; 
-										//Remove the surface
-										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-		                                ammo_check = true;
-		                            }
-										else if global.selected_mbtb != 0 {
-			                                global.ammo_tab = "MBT_B"; 
-											//Remove the surface
-											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                                ammo_check = true;
-			                            }
-			                                else if global.selected_laca != 0 {
-			                                    global.ammo_tab = "LAC_A"; 
-												//Remove the surface
-												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                                    ammo_check = true;
-			                                }
-												else if global.selected_lacb != 0 {
-				                                    global.ammo_tab = "LAC_B"; 
-													//Remove the surface
-													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                    ammo_check = true;
-				                                }
-				                                    else if global.selected_lava != 0 {
-				                                        global.ammo_tab = "LAV_A"; 
-														//Remove the surface
-														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                        ammo_check = true;
-				                                    }
-														else if global.selected_lavb != 0 {
-					                                        global.ammo_tab = "LAV_B"; 
-															//Remove the surface
-															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                        ammo_check = true;
-					                                    }
-					                                        else if global.selected_logia != 0 {
-					                                            global.ammo_tab = "LOGI_A"; 
-																//Remove the surface
-																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                            ammo_check = true;
-					                                        }
-																else if global.selected_logib != 0 {
-						                                            global.ammo_tab = "LOGI_B"; 
-																	//Remove the surface
-																	if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                            ammo_check = true;
-						                                        }
-						                                            else if global.selected_depot != 0 {
-						                                                global.ammo_tab = "DEPOT";
-																		//Remove the surface
-																		if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                                ammo_check = true;
-						                                            }
-						                                                else {
-						                                                }
+				}
 	        }
 	            else if f1 { 
 	                //RE-TARGET

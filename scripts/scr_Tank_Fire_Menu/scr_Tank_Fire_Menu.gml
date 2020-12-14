@@ -30,12 +30,12 @@ function scr_Tank_Fire_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.mbt_ap_amount;
-	                ammo_count   = global.mbt_ap_ammo;
+	                shoot_amount = mbta_ap_amount;
+	                ammo_count   = mbta_ap_ammo;
 	                break;
 	            case 1:
-	                shoot_amount = global.mbt_mg_amount;
-	                ammo_count   = global.mbt_mg_ammo;
+	                shoot_amount = mbta_mg_amount;
+	                ammo_count   = mbta_mg_ammo;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -45,11 +45,11 @@ function scr_Tank_Fire_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.mbt_ap_ammo <= 0 { c1 = c_red; }
+	                if mbta_ap_ammo <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 1:
-	                if global.mbt_mg_ammo <= 0 { c1 = c_red; }
+	                if mbta_mg_ammo<= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

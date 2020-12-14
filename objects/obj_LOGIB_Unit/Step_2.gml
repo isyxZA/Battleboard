@@ -206,13 +206,13 @@ if ap_depleted == true {
 
 if ammo_check == true {
     ammo_check = false;
-    if (ammo_supply < ammo_rate) && (building_supply < building_rate) { 
+    if ammo_supply < ammo_rate { 
         alert_display = true;
         alert_text = "Ammo Depleted!"; 
         alert_colour = c_red;
         alarm[3] = global.tick_rate*3;
     }
-        else if (ammo_supply < ammo_rate) || (building_supply < building_rate) {
+        else if (ammo_supply < (ammo_rate*2)) {
             alert_display = true;
             alert_text = "Low Ammo!"; 
             alert_colour = c_orange;
@@ -221,7 +221,6 @@ if ammo_check == true {
             else { }
 
 }
-
 
 if global.game_turn != 0 {
     if nav_confirmed == false {

@@ -15,7 +15,7 @@ if global.game_turn != 0 {
                     //Start double click check (ref obj_MOUSE)
                     if place_meeting(x, y, obj_MOUSE) { global.double_click = true; }
                 }
-                if mouse_check_button_released(mb_left){
+                if mouse_check_button_released(mb_left) {
                     //If the unit is already selected
                     if selected {
                         //If touching the mouse then stay selected
@@ -102,7 +102,7 @@ if global.game_turn != 0 {
                                         //If the unit has enough action points for a shot
                                         if (global.turn_AP >= ap_cost) && (action_points >= ap_cost) {
                                             //If the unit has enough ammo for at least one round
-                                            if (he_ammo >= he_rate) || (ap_ammo >= ap_rate) {
+                                            if (he_ammo >= he_rate) || (ap_ammo >= ap_rate) || (mg_ammo >= mg_rate) || (tow_ammo >= tow_rate) {
                                                 can_shoot = true; 
                                             }
                                                 else { can_shoot = false; }

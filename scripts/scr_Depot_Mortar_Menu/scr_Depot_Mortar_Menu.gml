@@ -35,8 +35,8 @@ function scr_Depot_Mortar_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.mtramo_d_amount;
-	                ammo_count   = global.dpt_amo_supply;
+	                shoot_amount = mtramo_d_amount;
+	                ammo_count   = dpt_amo_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -46,7 +46,7 @@ function scr_Depot_Mortar_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+	                if dpt_amo_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

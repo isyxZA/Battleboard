@@ -15,7 +15,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 		//Draw the header background
 		draw_sprite(spr_Menu_Header, 0, 0, 0);
 		//Draw header arrows when more than one unit type is selected
-		var uc = 0;
+		var uc = ds_list_size(tabs);
+		/*
 		if global.selected_infa   != 0 uc++;
 		if global.selected_infb   != 0 uc++;
 		if global.selected_mbta   != 0 uc++;
@@ -30,6 +31,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 		if global.selected_repair != 0 uc++;
 		if global.selected_tow    != 0 uc++;
 		if global.selected_mortar != 0 uc++;
+		*/
 		if uc > 1 {
 		    var hs;
 		    if global.header_highlight == false { hs = spr_Arrowhead_White; } else { 
@@ -58,16 +60,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Rifleman", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 				        switch m {
 				            case 0:
-				                shoot_amount = global.inf_rfl_amount;
-				                ammo_count   = global.inf_rfl_ammo;
+				                shoot_amount = infa_rfl_amount;
+				                ammo_count   = infa_rfl_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.inf_rpg_amount;
-				                ammo_count   = global.inf_rpg_ammo;
+				                shoot_amount = infa_rpg_amount;
+				                ammo_count   = infa_rpg_ammo;
 				                break;
 				            case 2:
-				                shoot_amount = global.inf_flr_amount;
-				                ammo_count   = global.inf_flr_ammo;
+				                shoot_amount = infa_flr_amount;
+				                ammo_count   = infa_flr_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -77,15 +79,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				                case 0:
-				                    if global.inf_rfl_ammo <= 0 { c1 = c_red; }
+				                    if infa_rfl_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                case 1:
-				                    if global.inf_rpg_ammo <= 0 { c1 = c_red; }
+				                    if infa_rpg_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                case 2:
-				                    if global.inf_flr_ammo <= 0 { c1 = c_red; }
+				                    if infa_flr_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                default:
@@ -100,16 +102,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Recon", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 				        switch m {
 				            case 0:
-				                shoot_amount = global.inf_rfl_amount;
-				                ammo_count   = global.inf_rfl_ammo;
+				                shoot_amount = infb_rfl_amount;
+				                ammo_count   = infb_rfl_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.inf_rpg_amount;
-				                ammo_count   = global.inf_rpg_ammo;
+				                shoot_amount = infb_rpg_amount;
+				                ammo_count   = infb_rpg_ammo;
 				                break;
 				            case 2:
-				                shoot_amount = global.inf_flr_amount;
-				                ammo_count   = global.inf_flr_ammo;
+				                shoot_amount = infb_flr_amount;
+				                ammo_count   = infb_flr_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -119,15 +121,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				                case 0:
-				                    if global.inf_rfl_ammo <= 0 { c1 = c_red; }
+				                    if infb_rfl_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                case 1:
-				                    if global.inf_rpg_ammo <= 0 { c1 = c_red; }
+				                    if infb_rpg_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                case 2:
-				                    if global.inf_flr_ammo <= 0 { c1 = c_red; }
+				                    if infb_flr_ammo <= 0 { c1 = c_red; }
 				                        else { c1 = c_white; }
 				                    break;
 				                default:
@@ -147,12 +149,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 							}
 						switch m {
 				            case 0:
-				                shoot_amount = global.mbt_ap_amount;
-				                ammo_count   = global.mbt_ap_ammo;
+				                shoot_amount = mbta_ap_amount;
+				                ammo_count   = mbta_ap_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.mbt_mg_amount;
-				                ammo_count   = global.mbt_mg_ammo;
+				                shoot_amount = mbta_mg_amount;
+				                ammo_count   = mbta_mg_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -162,11 +164,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.mbt_ap_ammo <= 0 { c1 = c_red; }
+				                if mbta_ap_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.mbt_mg_ammo <= 0 { c1 = c_red; }
+				                if mbta_mg_ammo<= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -186,12 +188,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 							}
 						switch m {
 				            case 0:
-				                shoot_amount = global.mbt_ap_amount;
-				                ammo_count   = global.mbt_ap_ammo;
+				                shoot_amount = mbtb_ap_amount;
+				                ammo_count   = mbtb_ap_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.mbt_mg_amount;
-				                ammo_count   = global.mbt_mg_ammo;
+				                shoot_amount = mbtb_mg_amount;
+				                ammo_count   = mbtb_mg_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -201,11 +203,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.mbt_ap_ammo <= 0 { c1 = c_red; }
+				                if mbtb_ap_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.mbt_mg_ammo <= 0 { c1 = c_red; }
+				                if mbtb_mg_ammo<= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -225,20 +227,20 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 							}
 						switch m {
 				            case 0:
-				                shoot_amount = global.lac_dpt_amount;
-				                ammo_count   = global.lac_dpt_supply;
+				                shoot_amount = laca_dpt_amount;
+				                ammo_count   = laca_dpt_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lac_rpr_amount;
-				                ammo_count   = global.lac_rpr_supply;
+				                shoot_amount = laca_rpr_amount;
+				                ammo_count   = laca_rpr_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.lac_tow_amount;
-				                ammo_count   = global.lac_tow_supply;
+				                shoot_amount = laca_tow_amount;
+				                ammo_count   = laca_tow_supply;
 				                break;
 				            case 3:
-				                shoot_amount = global.lac_mtr_amount;
-				                ammo_count   = global.lac_mtr_supply;
+				                shoot_amount = laca_mtr_amount;
+				                ammo_count   = laca_mtr_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -248,19 +250,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.lac_dpt_supply <= 0 { c1 = c_red; }
+				                if laca_dpt_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.lac_rpr_supply <= 0 { c1 = c_red; }
+				                if laca_rpr_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.lac_tow_supply <= 0 { c1 = c_red; }
+				                if laca_tow_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.lac_mtr_supply <= 0 { c1 = c_red; }
+				                if laca_mtr_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -280,8 +282,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 							}
 						switch m {
 				            case 0:
-				                shoot_amount = global.lac_tow2_amount;
-				                ammo_count   = global.lac_tow2_ammo;
+				                shoot_amount = lacb_tow_amount;
+				                ammo_count   = lacb_tow_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -291,7 +293,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.lac_tow2_ammo <= 0 { c1 = c_red; }
+				                if lacb_tow_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -311,24 +313,24 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 							}
 						switch m {
 				            case 0:
-				                shoot_amount = global.lav_he_amount;
-				                ammo_count = global.lav_he_ammo;
+				                shoot_amount = lava_he_amount;
+				                ammo_count = lava_he_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.lav_ap_amount;
-				                ammo_count = global.lav_ap_ammo;
+				                shoot_amount = lava_ap_amount;
+				                ammo_count = lava_ap_ammo;
 				                break;
 							case 2:
-				                shoot_amount = global.lav_mg_amount;
-				                ammo_count = global.lav_mg_ammo;
+				                shoot_amount = lava_mg_amount;
+				                ammo_count = lava_mg_ammo;
 				                break;
 				            case 3:
-				                shoot_amount = global.lav_at_amount;
-				                ammo_count = global.lav_at_ammo;
+				                shoot_amount = lava_at_amount;
+				                ammo_count = lava_at_ammo;
 				                break;
 				            case 4:
-				                shoot_amount = global.lav_sq_amount;
-				                ammo_count = global.lav_sq_ammo;
+				                shoot_amount = lava_sq_amount;
+				                ammo_count = lava_sq_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -338,23 +340,23 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.lav_he_ammo <= 0 { c1 = c_red; }
+				                if lava_he_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.lav_ap_ammo <= 0 { c1 = c_red; }
+				                if lava_ap_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 							case 2:
-				                if global.lav_mg_ammo <= 0 { c1 = c_red; }
+				                if lava_mg_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.lav_at_ammo <= 0 { c1 = c_red; }
+				                if lava_at_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 4:
-				                if global.lav_sq_ammo <= 0 { c1 = c_red; }
+				                if lava_sq_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -374,20 +376,20 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 							}
 						switch m {
 				            case 0:
-				                shoot_amount = global.lav_he_amount;
-				                ammo_count   = global.lav_he_ammo;
+				                shoot_amount = lavb_he_amount;
+				                ammo_count   = lavb_he_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.lav_ap_amount;
-				                ammo_count   = global.lav_ap_ammo;
+				                shoot_amount = lavb_ap_amount;
+				                ammo_count   = lavb_ap_ammo;
 				                break;
 							case 2:
-				                shoot_amount = global.lav_mg_amount;
-				                ammo_count   = global.lav_mg_ammo;
+				                shoot_amount = lavb_mg_amount;
+				                ammo_count   = lavb_mg_ammo;
 				                break;
 				            case 3:
-				                shoot_amount = global.lav_sq_amount;
-				                ammo_count   = global.lav_sq_ammo;
+				                shoot_amount = lavb_sq_amount;
+				                ammo_count   = lavb_sq_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -397,19 +399,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.lav_he_ammo <= 0 { c1 = c_red; }
+				                if lavb_he_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.lav_ap_ammo <= 0 { c1 = c_red; }
+				                if lavb_ap_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 							case 2:
-				                if global.lav_mg_ammo <= 0 { c1 = c_red; }
+				                if lavb_mg_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.lav_sq_ammo <= 0 { c1 = c_red; }
+				                if lavb_sq_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -423,8 +425,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Heavy MG", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.repair_mg_amount;
-				                ammo_count   = global.repair_mg_ammo;
+				                shoot_amount = repair_mg_amount;
+				                ammo_count   = repair_mg_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -434,7 +436,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.repair_mg_ammo <= 0 { c1 = c_red; }
+				                if repair_mg_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -448,8 +450,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "TOW", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.towS_amount;
-				                ammo_count   = global.tow_ammo;
+				                shoot_amount = towS_amount;
+				                ammo_count   = tow_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -459,7 +461,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.tow_ammo <= 0 { c1 = c_red; }
+				                if tow_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -473,8 +475,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Mortar", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mortarS_amount;
-				                ammo_count   = global.mortar_ammo;
+				                shoot_amount = mortarS_amount;
+				                ammo_count   = mortar_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -484,7 +486,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.mortar_ammo <= 0 { c1 = c_red; }
+				                if mortar_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -499,16 +501,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.infrfl_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infrfl_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.infrpg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infrpg_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.infflr_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infflr_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -518,15 +520,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -541,16 +543,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.infrfl_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infrfl_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.infrpg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infrpg_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.infflr_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infflr_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -560,15 +562,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -583,12 +585,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mbtap_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mbtap_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.mbtmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mbtmg_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -598,11 +600,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -617,12 +619,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mbtap_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mbtap_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.mbtmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mbtmg_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -632,11 +634,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -651,20 +653,20 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lacdpt_l_amount;
-				                ammo_count   = global.logi_bld_supply;
+				                shoot_amount = lacdpt_l_amount;
+				                ammo_count   = logia_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lacrpr_l_amount;
-				                ammo_count   = global.logi_bld_supply;
+				                shoot_amount = lacrpr_l_amount;
+				                ammo_count   = logia_bld_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.lactow_l_amount;
-				                ammo_count   = global.logi_bld_supply;
+				                shoot_amount = lactow_l_amount;
+				                ammo_count   = logia_bld_supply;
 				                break;
 				            case 3:
-				                shoot_amount = global.lacmtr_l_amount;
-				                ammo_count   = global.logi_bld_supply;
+				                shoot_amount = lacmtr_l_amount;
+				                ammo_count   = logia_bld_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -674,19 +676,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_bld_supply <= 0 { c1 = c_red; }
+				                if logia_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_bld_supply <= 0 { c1 = c_red; }
+				                if logia_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.logi_bld_supply <= 0 { c1 = c_red; }
+				                if logia_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.logi_bld_supply <= 0 { c1 = c_red; }
+				                if logia_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -701,8 +703,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lactow2_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lactow2_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -712,7 +714,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -727,20 +729,20 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lavhe_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavhe_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lavap_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavap_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 							case 2:
-				                shoot_amount = global.lavmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavmg_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 3:
-				                shoot_amount = global.lavat_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavat_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -750,19 +752,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 							case 2:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -777,16 +779,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lavhe_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavhe_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lavap_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavap_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 							case 2:
-				                shoot_amount = global.lavmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavmg_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -796,15 +798,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 							case 2:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -819,12 +821,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.logiamo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = logiamo_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.logibld_l_amount;
-				                ammo_count   = global.logi_bld_supply;
+				                shoot_amount = logibld_l_amount;
+				                ammo_count   = logia_bld_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -834,11 +836,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_bld_supply <= 0 { c1 = c_red; }
+				                if logia_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -853,8 +855,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.logiamo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = logiamo_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -864,7 +866,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -879,12 +881,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.dptbld_l_amount;
-				                ammo_count   = global.logi_bld_supply;
+				                shoot_amount = dptbld_l_amount;
+				                ammo_count   = logia_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.dptamo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = dptamo_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -894,11 +896,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_bld_supply <= 0 { c1 = c_red; }
+				                if logia_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -913,12 +915,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.rprbld_l_amount;
-				                ammo_count   = global.logi_bld_supply;
+				                shoot_amount = rprbld_l_amount;
+				                ammo_count   = logia_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.rprmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = rprmg_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -928,11 +930,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_bld_supply <= 0 { c1 = c_red; }
+				                if logia_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -947,8 +949,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.towamo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = towamo_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -958,7 +960,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -973,8 +975,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mtramo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mtramo_l_amount;
+				                ammo_count   = logia_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -984,7 +986,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logia_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1017,16 +1019,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.infrfl_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infrfl_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.infrpg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infrpg_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.infflr_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infflr_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1036,15 +1038,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1059,16 +1061,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.infrfl_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infrfl_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.infrpg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infrpg_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.infflr_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = infflr_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1078,15 +1080,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1101,12 +1103,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mbtap_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mbtap_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.mbtmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mbtmg_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1116,11 +1118,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1135,12 +1137,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mbtap_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mbtap_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.mbtmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mbtmg_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1150,11 +1152,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1169,8 +1171,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lactow2_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lactow2_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1180,7 +1182,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1195,20 +1197,20 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lavhe_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavhe_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lavap_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavap_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 							case 2:
-				                shoot_amount = global.lavmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavmg_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 3:
-				                shoot_amount = global.lavat_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavat_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1218,19 +1220,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 							case 2:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1245,16 +1247,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lavhe_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavhe_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lavap_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavap_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 							case 2:
-				                shoot_amount = global.lavmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = lavmg_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1264,15 +1266,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 							case 2:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1287,8 +1289,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.logiamo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = logiamo_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1298,7 +1300,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1313,8 +1315,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.logiamo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = logiamo_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1324,7 +1326,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1339,8 +1341,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.dptamo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = dptamo_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1350,7 +1352,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1365,8 +1367,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.rprmg_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = rprmg_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1376,11 +1378,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_bld_supply <= 0 { c1 = c_red; }
-				                    else { c1 = c_white; }
-				                break;
-				            case 1:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1395,8 +1393,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.towamo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = towamo_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1406,7 +1404,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1421,8 +1419,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mtramo_l_amount;
-				                ammo_count   = global.logi_amo_supply;
+				                shoot_amount = mtramo_l_amount;
+				                ammo_count   = logib_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1432,7 +1430,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.logi_amo_supply <= 0 { c1 = c_red; }
+				                if logib_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1465,16 +1463,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.infrfl_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = infrfl_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.infrpg_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = infrpg_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.infflr_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = infflr_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1484,15 +1482,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1507,16 +1505,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.infrfl_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = infrfl_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.infrpg_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = infrpg_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.infflr_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = infflr_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1526,15 +1524,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1549,12 +1547,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mbtap_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = mbtap_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.mbtmg_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = mbtmg_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1564,11 +1562,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1583,12 +1581,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mbtap_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = mbtap_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.mbtmg_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = mbtmg_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1598,11 +1596,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1617,20 +1615,20 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lacdpt_d_amount;
-				                ammo_count   = global.dpt_bld_supply;
+				                shoot_amount = lacdpt_d_amount;
+				                ammo_count   = dpt_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lacrpr_d_amount;
-				                ammo_count   = global.dpt_bld_supply;
+				                shoot_amount = lacrpr_d_amount;
+				                ammo_count   = dpt_bld_supply;
 				                break;
 				            case 2:
-				                shoot_amount = global.lactow_d_amount;
-				                ammo_count   = global.dpt_bld_supply;
+				                shoot_amount = lactow_d_amount;
+				                ammo_count   = dpt_bld_supply;
 				                break;
 				            case 3:
-				                shoot_amount = global.lacmtr_d_amount;
-				                ammo_count   = global.dpt_bld_supply;
+				                shoot_amount = lacmtr_d_amount;
+				                ammo_count   = dpt_bld_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1640,19 +1638,19 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
+				                if dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
+				                if dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 2:
-				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
+				                if dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 3:
-				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
+				                if dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1667,8 +1665,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lactow2_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = lactow2_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1678,7 +1676,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1693,20 +1691,20 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lavhe_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = lavhe_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lavap_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = lavap_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 							case 2:
-				                shoot_amount = global.lavmg_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = lavmg_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 3:
-				                shoot_amount = global.lavat_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = lavat_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1716,11 +1714,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1735,16 +1733,16 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.lavhe_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = lavhe_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.lavap_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = lavap_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 							case 2:
-				                shoot_amount = global.lavmg_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = lavmg_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1754,15 +1752,15 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 							case 2:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1777,12 +1775,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.logiamo_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = logiamo_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.logibld_d_amount;
-				                ammo_count   = global.dpt_bld_supply;
+				                shoot_amount = logibld_d_amount;
+				                ammo_count   = dpt_bld_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1792,11 +1790,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
+				                if dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1811,8 +1809,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.logiamo_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = logiamo_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1822,7 +1820,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1837,12 +1835,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.dptbld_d_amount;
-				                ammo_count   = global.dpt_bld_supply;
+				                shoot_amount = dptbld_d_amount;
+				                ammo_count   = dpt_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.dptamo_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = dptamo_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1852,11 +1850,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
+				                if dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1871,12 +1869,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.rprbld_d_amount;
-				                ammo_count   = global.dpt_bld_supply;
+				                shoot_amount = rprbld_d_amount;
+				                ammo_count   = dpt_bld_supply;
 				                break;
 				            case 1:
-				                shoot_amount = global.rprmg_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = rprmg_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1886,11 +1884,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_bld_supply <= 0 { c1 = c_red; }
+				                if dpt_bld_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1905,8 +1903,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.towamo_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = towamo_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1916,7 +1914,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1931,8 +1929,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.mtramo_d_amount;
-				                ammo_count   = global.dpt_amo_supply;
+				                shoot_amount = mtramo_d_amount;
+				                ammo_count   = dpt_amo_supply;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1942,7 +1940,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.dpt_amo_supply <= 0 { c1 = c_red; }
+				                if dpt_amo_supply <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -1975,12 +1973,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.logiamo_s_amount;
-				                ammo_count   = global.lc_ammunition_ammo;
+				                shoot_amount = logiamo_s_amount;
+				                ammo_count   = lc_amo_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.logibld_s_amount;
-				                ammo_count   = global.lc_parts_ammo;
+				                shoot_amount = logibld_s_amount;
+				                ammo_count   = lc_bld_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -1990,11 +1988,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.lc_ammunition_ammo <= 0 { c1 = c_red; }
+				                if lc_amo_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.lc_parts_ammo <= 0 { c1 = c_red; }
+				                if lc_bld_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -2009,8 +2007,8 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.logiamo_s_amount;
-				                ammo_count   = global.lc_ammunition_ammo;
+				                shoot_amount = logiamo_s_amount;
+				                ammo_count   = lc_amo_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -2020,7 +2018,7 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.lc_ammunition_ammo <= 0 { c1 = c_red; }
+				                if lc_amo_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:
@@ -2035,12 +2033,12 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
 						switch m {
 				            case 0:
-				                shoot_amount = global.dptbld_s_amount;
-				                ammo_count   = global.lc_parts_ammo;
+				                shoot_amount = dptbld_s_amount;
+				                ammo_count   = lc_bld_ammo;
 				                break;
 				            case 1:
-				                shoot_amount = global.dptamo_s_amount;
-				                ammo_count   = global.lc_ammunition_ammo;
+				                shoot_amount = dptamo_s_amount;
+				                ammo_count   = lc_amo_ammo;
 				                break;
 				            default:
 				                shoot_amount = 0;
@@ -2050,11 +2048,11 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        if m == global.fire_option { 
 				            switch m {
 				            case 0:
-				                if global.lc_parts_ammo <= 0 { c1 = c_red; }
+				                if lc_bld_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            case 1:
-				                if global.lc_ammunition_ammo <= 0 { c1 = c_red; }
+				                if lc_amo_ammo <= 0 { c1 = c_red; }
 				                    else { c1 = c_white; }
 				                break;
 				            default:

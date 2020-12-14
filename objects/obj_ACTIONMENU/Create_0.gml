@@ -14,6 +14,9 @@ global.nav_options[0] = "Confirm";
 global.nav_options[1] = "Reposition";
 global.nav_options[2] = "Cancel";
 
+tabs = ds_list_create();
+tab_count = 0;
+
 menu_anim = true;
 menu_anim_count = 0;
 menu_alpha = 0;
@@ -42,7 +45,6 @@ tb_fire_menu[0] = "Cannon";
 tb_fire_menu[1] = "MG";
 tb_fire_menu[2] = "Retarget";
 tb_fire_menu[3] = "Cancel";
-
 //LAC
 ea_fire_menu[0] = "Depot";
 ea_fire_menu[1] = "Repair";
@@ -54,7 +56,6 @@ ea_fire_menu[5] = "Cancel";
 eb_fire_menu[0] = "TOW";
 eb_fire_menu[1] = "Retarget";
 eb_fire_menu[2] = "Cancel";
-
 //LAV
 ba_fire_menu[0] = "HE";
 ba_fire_menu[1] = "AP";
@@ -70,7 +71,6 @@ bb_fire_menu[2] = "MG";
 bb_fire_menu[3] = "Dismount";
 bb_fire_menu[4] = "Retarget";
 bb_fire_menu[5] = "Cancel";
-
 //LOGI A
 l_fire_menu[0] = "Retarget";
 l_fire_menu[1] = "Cancel";
@@ -147,33 +147,27 @@ laat_fire_menu[2] = "Cancel";
 lam_fire_menu[0] = "Mortar(s)";
 lam_fire_menu[1] = "Retarget";
 lam_fire_menu[2] = "Cancel";
-
 //Logi B - Logi A
 lbla_fire_menu[0] = "Ammo(s)";
 lbla_fire_menu[1] = "Retarget";
 lbla_fire_menu[2] = "Cancel";
-
 //Logi B - Depot
 lbd_fire_menu[0] = "Ammo";
 lbd_fire_menu[1] = "Retarget";
 lbd_fire_menu[2] = "Cancel";
-
 //Logi B - Repair
 lbr_fire_menu[0] = "MG(s)";
 lbr_fire_menu[1] = "Retarget";
 lbr_fire_menu[2] = "Cancel";
-
 //Logi B - Deploy
 lbs_fire_menu[0] = "Deploy";
 lbs_fire_menu[1] = "Retarget";
 lbs_fire_menu[2] = "Cancel";
-
 //Depot
 d_fire_menu[0] = "Parts";
 d_fire_menu[1] = "Ammo";
 d_fire_menu[2] = "Retarget";
 d_fire_menu[3] = "Cancel";
-
 //Repair
 r_fire_menu[0] = "MG";
 r_fire_menu[1] = "Retarget";
@@ -181,16 +175,171 @@ r_fire_menu[2] = "Cancel";
 
 r_vehicle_menu[0]  = "Repair";
 r_vehicle_menu[1]  = "Cancel";
-
 //TOW
 at_fire_menu[0] = "TOW";
 at_fire_menu[1] = "Retarget";
 at_fire_menu[2] = "Cancel";
-
 //Mortar
 m_fire_menu[0] = "Mortar";
 m_fire_menu[1] = "Retarget";
 m_fire_menu[2] = "Cancel";
+
+//Unit Action Variables
+//INFA
+infa_rfl_ammo   = 0;
+infa_flr_ammo   = 0;
+infa_rpg_ammo   = 0;
+infa_rfl_amount = 0;
+infa_flr_amount = 0;
+infa_rpg_amount = 0;
+//INFB
+infb_rfl_ammo   = 0;
+infb_flr_ammo   = 0;
+infb_rpg_ammo   = 0;
+infb_rfl_amount = 0;
+infb_flr_amount = 0;
+infb_rpg_amount = 0;
+//MBTA
+mbta_ap_ammo   = 0;
+mbta_ap_amount = 0;
+mbta_mg_ammo   = 0;
+mbta_mg_amount = 0;	
+//MBTB
+mbtb_ap_ammo   = 0;
+mbtb_ap_amount = 0;
+mbtb_mg_ammo   = 0;
+mbtb_mg_amount = 0;	
+//LAVA
+lava_he_ammo   = 0;
+lava_he_amount = 0;
+lava_ap_ammo   = 0;
+lava_ap_amount = 0;
+lava_at_ammo   = 0;
+lava_at_amount = 0;
+lava_mg_ammo   = 0;
+lava_mg_amount = 0;
+lava_sq_ammo   = 0;
+lava_sq_amount = 0;	
+//LAVB
+lavb_he_ammo   = 0;
+lavb_he_amount = 0;
+lavb_ap_ammo   = 0;
+lavb_ap_amount = 0;
+lavb_mg_ammo   = 0;
+lavb_mg_amount = 0;
+lavb_sq_ammo   = 0;
+lavb_sq_amount = 0;	
+//LACA
+laca_dpt_supply = 0;
+laca_dpt_amount = 0;
+laca_rpr_supply = 0;
+laca_rpr_amount = 0;
+laca_tow_supply = 0;
+laca_tow_amount = 0;
+laca_mtr_supply = 0;
+laca_mtr_amount = 0;
+//LACB
+lacb_tow_ammo   = 0;
+lacb_tow_amount = 0;
+//LOGIA
+logia_amo_supply = 0;
+logia_bld_supply = 0;
+//LOGIB
+logib_amo_supply = 0;
+logib_sqd_supply = 0;
+//TOW
+tow_ammo = 0;
+towS_amount = 0;
+//Mortar
+mortar_ammo = 0;
+mortarS_amount = 0;
+//Depot
+dpt_amo_supply = 0;
+dpt_amo_amount = 0;
+dpt_bld_supply = 0;
+dpt_bld_amount = 0;
+//Repair
+repair_v_ammo = 0;
+repair_v_amount = 0;
+repair_mg_ammo = 0;
+repair_mg_amount = 0;
+//Supply ship
+lc_amo_ammo = 0;
+lc_bld_ammo = 0;
+
+//LOGI RESUPPLY VARIABLES
+//INF
+infrfl_l_amount = 0;
+infrpg_l_amount = 0;
+infflr_l_amount = 0;
+//MBT
+mbtap_l_amount = 0;
+mbtmg_l_amount = 0;
+//LAV
+lavhe_l_amount = 0;
+lavap_l_amount = 0;
+lavmg_l_amount = 0;
+lavat_l_amount = 0;
+//LAC
+lacdpt_l_amount  = 0;
+lacrpr_l_amount  = 0;
+lactow_l_amount  = 0;
+lacmtr_l_amount  = 0;
+lactow2_l_amount = 0;
+//Logi
+logiamo_l_amount = 0;
+logibld_l_amount = 0;
+logisqd_l_amount = 0;
+//Depot
+dptbld_l_amount = 0;
+dptamo_l_amount = 0;
+//Repair
+rprmg_l_amount = 0;
+rprbld_l_amount = 0;
+//TOW
+towamo_l_amount = 0;
+//Mortar
+mtramo_l_amount = 0;
+	
+//DEPOT RESUPPLY VARIBLES
+//INF
+infrfl_d_amount = 0;
+infrpg_d_amount = 0;
+infflr_d_amount = 0;
+//MBT
+mbtap_d_amount = 0;
+mbtmg_d_amount = 0;
+//LAV
+lavhe_d_amount = 0;
+lavap_d_amount = 0;
+lavmg_d_amount = 0;
+lavat_d_amount = 0;
+//LAC
+lacdpt_d_amount = 0;
+lacrpr_d_amount = 0;
+lactow_d_amount = 0;
+lacmtr_d_amount = 0;
+lactow2_d_amount = 0;
+//LOGI
+logiamo_d_amount = 0;
+logibld_d_amount = 0;
+//Depot
+dptbld_d_amount = 0;
+dptamo_d_amount = 0;
+//Repair
+rprmg_d_amount = 0;
+rprbld_d_amount = 0;
+//TOW
+towamo_d_amount = 0;
+//Mortar
+mtramo_d_amount = 0;
+//SHIP RESUPPLY VARIABLES
+//Logi
+logiamo_s_amount = 0;
+logibld_s_amount = 0;
+//Depot
+dptbld_s_amount = 0;
+dptamo_s_amount = 0;
 
 t_colour = make_colour_rgb(169,169,169);
 display_menuinfo = false;

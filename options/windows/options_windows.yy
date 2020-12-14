@@ -1,7 +1,7 @@
 {
   "option_windows_display_name": "BattleBoard (DEMO)",
   "option_windows_executable_name": "${project_name}",
-  "option_windows_version": "0.1.8.19",
+  "option_windows_version": "0.1.8.20",
   "option_windows_company_info": "Yellow House ",
   "option_windows_product_info": "Video Game",
   "option_windows_copyright_info": "Isaac A. Sykes",

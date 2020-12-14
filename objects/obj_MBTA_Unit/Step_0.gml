@@ -15,7 +15,7 @@ if global.game_turn != 0 {
                     //Start double click check (ref obj_MOUSE)
                     if place_meeting(x, y, obj_MOUSE) { global.double_click = true; }
                 }
-                if mouse_check_button_released(mb_left){
+                if mouse_check_button_released(mb_left) {
                     //If the unit is already selected
                     if selected {
                         //If touching the mouse then stay selected

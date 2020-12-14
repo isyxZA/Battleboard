@@ -1,18 +1,4 @@
-global.selected_infa   = ds_list_size(global.selected_infa_list);
-global.selected_infb   = ds_list_size(global.selected_infb_list);
-global.selected_mbta   = ds_list_size(global.selected_mbta_list);
-global.selected_mbtb   = ds_list_size(global.selected_mbtb_list);
-global.selected_laca   = ds_list_size(global.selected_laca_list);
-global.selected_lacb   = ds_list_size(global.selected_lacb_list);
-global.selected_lava   = ds_list_size(global.selected_lava_list);
-global.selected_lavb   = ds_list_size(global.selected_lavb_list);
-global.selected_logia  = ds_list_size(global.selected_logia_list);
-global.selected_logib  = ds_list_size(global.selected_logib_list);
-global.selected_depot  = ds_list_size(global.selected_depot_list);
-global.selected_repair = ds_list_size(global.selected_repair_list);
-global.selected_tow    = ds_list_size(global.selected_tow_list);
-global.selected_mortar = ds_list_size(global.selected_mortar_list);
-
+//STOP RUNNING THIS EVERY STEP\\
 global.total_infa   = ds_list_size(global.infa_list);
 global.total_infb   = ds_list_size(global.infb_list);
 global.total_mbta   = ds_list_size(global.mbta_list);
@@ -27,7 +13,6 @@ global.total_depot  = ds_list_size(global.depot_list);
 global.total_repair = ds_list_size(global.repair_list);
 global.total_tow    = ds_list_size(global.tow_list);
 global.total_mortar = ds_list_size(global.mortar_list);
-
 
 //Set global reference position of targeting reticule
 if global.fire_display != true {
@@ -135,7 +120,6 @@ if !ds_list_empty(global.selected_list) {
 							                            y_final = y_end;
 							                            action_points  -= temp_ap;
 														global.turn_AP -= temp_ap;
-							                            //global.turn_AP -= (move_amount*mp_cost);
 							                            alert_display = true;
 							                            alert_text = "-"+string(temp_ap)+ " AP";
 							                            alert_colour = c_red;
@@ -246,7 +230,10 @@ if !ds_list_empty(global.selected_list) {
 				        global.draw_apcost = true; 
 				        obj_CONTROL.ap_cost = global.temp_AP;
 				    }
+					
 				    global.nav_select = false;
+					select_enable = false;
+					alarm[0] = 20;
 					//Reset menu animation
 					menu_anim = true;
 					menu_anim_count = 0;
@@ -254,8 +241,6 @@ if !ds_list_empty(global.selected_list) {
 					menu_scl = 0;
 					//Remove the surface
 					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				    select_enable = false;
-				    alarm[0] = 20;
 				}
 			}
     }
@@ -264,6 +249,13 @@ if !ds_list_empty(global.selected_list) {
             //First make sure no menus are being displayed
             if global.fire_display == false && global.nav_menu == false && global.repair_display == false && global.reticule_display == false {
                 if global.turn_AP > 0 {
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
+					//Remove the surface
+					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
                     global.menu_create = true;
                     global.reticule_display = true;
                     if global.nav_select == true {
@@ -315,23 +307,43 @@ if !ds_list_empty(global.selected_list) {
                         //Display the fire/action options
                         if global.fire_display ==  false { 
                             global.fire_display = true; 
-                            if global.selected_infa != 0 { global.ammo_tab = "INF_A"; }
-								else if global.selected_infb != 0 { global.ammo_tab = "INF_B"; }
-	                                else if global.selected_mbta != 0 { global.ammo_tab = "MBT_A"; }
-										else if global.selected_mbtb != 0 { global.ammo_tab = "MBT_B"; }
-		                                    else if global.selected_laca != 0 { global.ammo_tab = "LAC_A"; }
-												else if global.selected_lacb != 0 { global.ammo_tab = "LAC_B"; }
-			                                        else if global.selected_lava != 0 { global.ammo_tab = "LAV_A"; }
-														else if global.selected_lavb != 0 { global.ammo_tab = "LAV_B"; }
-				                                            else if global.selected_logia != 0 { global.ammo_tab = "LOGI_A"; }
-																else if global.selected_logib != 0 { global.ammo_tab = "LOGI_B"; }
-																	else if global.selected_depot != 0 { global.ammo_tab = "DEPOT"; }
-					                                                    else if global.selected_repair != 0 { global.ammo_tab = "REPAIR"; }
-					                                                        else if global.selected_tow != 0 { global.ammo_tab = "TOW"; }
-					                                                            else if global.selected_mortar != 0 { global.ammo_tab = "MORTAR"; }
-					                                                                else if global.supply_ship != noone { global.ammo_tab = "SUPPLY SHIP"; }
-					                                                                    else { global.ammo_tab = "NOONE"; }
-                        
+							
+                            ds_list_clear(tabs);
+							global.selected_infa   = ds_list_size(global.selected_infa_list);
+							global.selected_infb   = ds_list_size(global.selected_infb_list);
+							global.selected_mbta   = ds_list_size(global.selected_mbta_list);
+							global.selected_mbtb   = ds_list_size(global.selected_mbtb_list);
+							global.selected_laca   = ds_list_size(global.selected_laca_list);
+							global.selected_lacb   = ds_list_size(global.selected_lacb_list);
+							global.selected_lava   = ds_list_size(global.selected_lava_list);
+							global.selected_lavb   = ds_list_size(global.selected_lavb_list);
+							global.selected_logia  = ds_list_size(global.selected_logia_list);
+							global.selected_logib  = ds_list_size(global.selected_logib_list);
+							global.selected_depot  = ds_list_size(global.selected_depot_list);
+							global.selected_repair = ds_list_size(global.selected_repair_list);
+							global.selected_tow    = ds_list_size(global.selected_tow_list);
+							global.selected_mortar = ds_list_size(global.selected_mortar_list);
+							if global.selected_infa   != 0     { ds_list_add(tabs, "INF_A"); }
+							if global.selected_infb   != 0     { ds_list_add(tabs, "INF_B"); }
+							if global.selected_mbta   != 0     { ds_list_add(tabs, "MBT_A"); }
+							if global.selected_mbtb   != 0     { ds_list_add(tabs, "MBT_B"); }
+							if global.selected_laca   != 0     { ds_list_add(tabs, "LAC_A"); }
+							if global.selected_lacb   != 0     { ds_list_add(tabs, "LAC_B"); }
+							if global.selected_lava   != 0     { ds_list_add(tabs, "LAV_A"); }
+							if global.selected_lavb   != 0     { ds_list_add(tabs, "LAV_B"); }
+							if global.selected_logia  != 0     { ds_list_add(tabs, "LOGI_A"); }
+							if global.selected_logib  != 0     { ds_list_add(tabs, "LOGI_B"); }
+							if global.selected_depot  != 0     { ds_list_add(tabs, "DEPOT"); }
+							if global.selected_repair != 0     { ds_list_add(tabs, "REPAIR"); }
+							if global.selected_tow    != 0     { ds_list_add(tabs, "TOW"); }
+							if global.selected_mortar != 0     { ds_list_add(tabs, "MORTAR"); }
+							if global.supply_ship     != noone { ds_list_add(tabs, "SUPPLY SHIP"); }
+							if !ds_list_empty(tabs) { 
+								global.ammo_tab = ds_list_find_value(tabs, 0);
+							}
+								else {
+									global.ammo_tab = "NOONE";
+								}
                             if ammo_check == false { ammo_check = true; }
 	                        global.menu_x = mouse_x;
 	                        global.menu_y = mouse_y;

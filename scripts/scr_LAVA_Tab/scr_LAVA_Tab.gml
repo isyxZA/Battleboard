@@ -62,7 +62,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	        //Increase by a rate of 1
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo available
-	            if global.lav_he_amount <= (global.lav_he_ammo-he_rate) { 
+	            if lava_he_amount <= (lava_he_ammo-he_rate) { 
 	                //Check if there is enough turn AP for the move
 	                var m_ap = (global.turn_AP-global.temp_AP);
 	                if m_ap >=  he_cost {
@@ -75,24 +75,24 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                            if unit.can_shoot == true { ap += unit.action_points; }
 	                        }
 	                    }
-	                    if ap >= ((global.lav_he_amount+he_rate)/he_rate)*he_cost {
+	                    if ap >= ((lava_he_amount+he_rate)/he_rate)*he_cost {
 	                        //Add the rounds
-	                        global.lav_he_amount += he_rate; 
+	                        lava_he_amount += he_rate; 
 	                    }
 	                }
 	            } 
 	        }
 	        //Decrease by a rate of 1
 	        if mouse_wheel_down() { 
-	            if global.lav_he_amount >= he_rate { 
-	                global.lav_he_amount -= he_rate; 
+	            if lava_he_amount >= he_rate { 
+	                lava_he_amount -= he_rate; 
 	            } 
 	        }
 	        //Clamp the value between zero and the max available rounds
-	        if global.lav_he_amount < 0 { global.lav_he_amount = 0; }
-	        if global.lav_he_amount > global.lav_he_ammo { global.lav_he_amount = global.lav_he_ammo; }
+	        if lava_he_amount < 0 { lava_he_amount = 0; }
+	        if lava_he_amount > lava_he_ammo { lava_he_amount = lava_he_ammo; }
 	        //Add to temp AP cost
-	        global.temp_AP = (global.lav_he_amount/he_rate)*he_cost;
+	        global.temp_AP = (lava_he_amount/he_rate)*he_cost;
 	        //Set the menu position
 	        global.fire_option = 0; 
 	        //Switch off camera zoom
@@ -106,7 +106,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	            //Increase by a rate of 1
 	            if mouse_wheel_up() { 
 	                //Check if there is enough ammo available
-	                if global.lav_ap_amount <= (global.lav_ap_ammo-ap_rate) { 
+	                if lava_ap_amount <= (lava_ap_ammo-ap_rate) { 
 	                    //Check if there is enough turn AP for the move
 	                    var m_ap = (global.turn_AP-global.temp_AP);
 	                    if m_ap >=  ap_cost {
@@ -119,24 +119,24 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                                if unit.can_shoot == true { ap += unit.action_points; }
 	                            }
 	                        }
-	                        if ap >= ((global.lav_ap_amount+ap_rate)/ap_rate)*ap_cost {
+	                        if ap >= ((lava_ap_amount+ap_rate)/ap_rate)*ap_cost {
 	                            //Add the rounds
-	                            global.lav_ap_amount += ap_rate; 
+	                            lava_ap_amount += ap_rate; 
 	                        }
 	                    }
 	                } 
 	            }
 	            //Decrease by a rate of 1
 	            if mouse_wheel_down() { 
-	                if global.lav_ap_amount >= ap_rate { 
-	                    global.lav_ap_amount -= ap_rate; 
+	                if lava_ap_amount >= ap_rate { 
+	                    lava_ap_amount -= ap_rate; 
 	                } 
 	            }
 	            //Clamp the value between zero and the max available rounds
-	            if global.lav_ap_amount < 0 { global.lav_ap_amount = 0; }
-	            if global.lav_ap_amount > global.lav_ap_ammo { global.lav_ap_amount = global.lav_ap_ammo; }
+	            if lava_ap_amount < 0 { lava_ap_amount = 0; }
+	            if lava_ap_amount > lava_ap_ammo { lava_ap_amount = lava_ap_ammo; }
 	            //Add to temp AP cost
-	            global.temp_AP = (global.lav_ap_amount/ap_rate)*ap_cost;
+	            global.temp_AP = (lava_ap_amount/ap_rate)*ap_cost;
 	            //Set the menu position
 	            global.fire_option = 1; 
 	            //Switch off camera zoom
@@ -150,7 +150,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		            //Increase by a rate of 1
 		            if mouse_wheel_up() { 
 		                //Check if there is enough ammo available
-		                if global.lav_mg_amount <= (global.lav_mg_ammo-mg_rate) { 
+		                if lava_mg_amount <= (lava_mg_ammo-mg_rate) { 
 		                    //Check if there is enough turn AP for the move
 		                    var m_ap = (global.turn_AP-global.temp_AP);
 		                    if m_ap >=  mg_cost {
@@ -163,24 +163,24 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		                                if unit.can_shoot == true { ap += unit.action_points; }
 		                            }
 		                        }
-		                        if ap >= ((global.lav_mg_amount+mg_rate)/mg_rate)*mg_cost {
+		                        if ap >= ((lava_mg_amount+mg_rate)/mg_rate)*mg_cost {
 		                            //Add the rounds
-		                            global.lav_mg_amount += mg_rate; 
+		                            lava_mg_amount += mg_rate; 
 		                        }
 		                    }
 		                } 
 		            }
 		            //Decrease by a rate of 1
 		            if mouse_wheel_down() { 
-		                if global.lav_mg_amount >= mg_rate { 
-		                    global.lav_mg_amount -= mg_rate; 
+		                if lava_mg_amount >= mg_rate { 
+		                    lava_mg_amount -= mg_rate; 
 		                } 
 		            }
 		            //Clamp the value between zero and the max available rounds
-		            if global.lav_mg_amount < 0 { global.lav_mg_amount = 0; }
-		            if global.lav_mg_amount > global.lav_mg_ammo { global.lav_mg_amount = global.lav_mg_ammo; }
+		            if lava_mg_amount < 0 { lava_mg_amount = 0; }
+		            if lava_mg_amount > lava_mg_ammo { lava_mg_amount = lava_mg_ammo; }
 		            //Add to temp AP cost
-		            global.temp_AP = (global.lav_mg_amount/mg_rate)*mg_cost;
+		            global.temp_AP = (lava_mg_amount/mg_rate)*mg_cost;
 		            //Set the menu position
 		            global.fire_option = 2; 
 		            //Switch off camera zoom
@@ -194,7 +194,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 			            //Increase by a rate of 1
 			            if mouse_wheel_up() { 
 			                //Check if there is enough ammo available
-			                if global.lav_at_amount <= (global.lav_at_ammo-tow_rate) { 
+			                if lava_at_amount <= (lava_at_ammo-tow_rate) { 
 			                    //Check if there is enough turn AP for the move
 			                    var m_ap = (global.turn_AP-global.temp_AP);
 			                    if m_ap >=  tow_cost {
@@ -207,24 +207,24 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 			                                if unit.can_shoot == true { ap += unit.action_points; }
 			                            }
 			                        }
-			                        if ap >= ((global.lav_at_amount+tow_rate)/tow_rate)*tow_cost {
+			                        if ap >= ((lava_at_amount+tow_rate)/tow_rate)*tow_cost {
 			                            //Add the rounds
-			                            global.lav_at_amount += tow_rate; 
+			                            lava_at_amount += tow_rate; 
 			                        }
 			                    }
 			                } 
 			            }
 			            //Decrease by a rate of 1
 			            if mouse_wheel_down() { 
-			                if global.lav_at_amount >= tow_rate { 
-			                    global.lav_at_amount -= tow_rate; 
+			                if lava_at_amount >= tow_rate { 
+			                    lava_at_amount -= tow_rate; 
 			                } 
 			            }
 			            //Clamp the value between zero and the max available rounds
-			            if global.lav_at_amount < 0 { global.lav_at_amount = 0; }
-			            if global.lav_at_amount > global.lav_at_ammo { global.lav_at_amount = global.lav_at_ammo; }
+			            if lava_at_amount < 0 { lava_at_amount = 0; }
+			            if lava_at_amount > lava_at_ammo { lava_at_amount = lava_at_ammo; }
 			            //Add to temp AP cost
-			            global.temp_AP = (global.lav_at_amount/tow_rate)*tow_cost;
+			            global.temp_AP = (lava_at_amount/tow_rate)*tow_cost;
 			            //Set the menu position
 			            global.fire_option = 3; 
 			            //Switch off camera zoom
@@ -238,7 +238,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				            //Increase by a rate of 1
 				            if mouse_wheel_up() { 
 				                //Check if there is enough ammo available
-				                if global.lav_sq_amount <= (global.lav_sq_ammo-sqd_rate) { 
+				                if lava_sq_amount <= (lava_sq_ammo-sqd_rate) { 
 				                    //Check if there is enough turn AP for the move
 				                    var m_ap = (global.turn_AP-global.temp_AP);
 				                    if m_ap >=  sqd_cost {
@@ -254,24 +254,24 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 												}
 				                            }
 				                        }
-				                        if ap >= (global.lav_sq_amount+sqd_rate)*sqd_cost {
+				                        if ap >= (lava_sq_amount+sqd_rate)*sqd_cost {
 				                            //Add the rounds
-											global.lav_sq_amount += sqd_rate;
+											lava_sq_amount += sqd_rate;
 				                        }
 				                    }
 				                } 
 				            }
 				            //Decrease by a rate of 1
 				            if mouse_wheel_down() { 
-				                if global.lav_sq_amount >= sqd_rate { 
-				                    global.lav_sq_amount -= sqd_rate; 
+				                if lava_sq_amount >= sqd_rate { 
+				                    lava_sq_amount -= sqd_rate; 
 				                } 
 				            }
 				            //Clamp the value between zero and the max available rounds
-				            if global.lav_sq_amount < 0 { global.lav_sq_amount = 0; }
-				            if global.lav_sq_amount > 1 { global.lav_sq_amount = 1; }
+				            if lava_sq_amount < 0 { lava_sq_amount = 0; }
+				            if lava_sq_amount > 1 { lava_sq_amount = 1; }
 				            //Add to temp AP cost
-				            global.temp_AP = (global.lav_sq_amount/sqd_rate)*sqd_cost;
+				            global.temp_AP = (lava_sq_amount/sqd_rate)*sqd_cost;
 				            //Set the menu position
 				            global.fire_option = 4; 
 				            //Switch off camera zoom
@@ -308,101 +308,39 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab
-				if global.selected_lavb != 0 {
-					global.ammo_tab = "LAV_B"; 
+				if ds_list_size(tabs) > 1 {
+					var t_size = ds_list_size(tabs)-1;
+					if tab_count < t_size { tab_count += 1; }
+						else { tab_count = 0; }
+					global.ammo_tab = ds_list_find_value(tabs, tab_count);
+					lava_he_amount = 0;
+			        lava_ap_amount = 0;
+					lava_mg_amount = 0;
+					lava_at_amount = 0;
+					lava_sq_amount = 0;
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
 					//Remove the surface
 					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					ammo_check = true;
-		        }
-		            else if global.selected_logia != 0 {
-						global.ammo_tab = "LOGI_A"; 
-						//Remove the surface
-						if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						ammo_check = true;
-		            }
-						else if global.selected_logib != 0 {
-							global.ammo_tab = "LOGI_B"; 
-							//Remove the surface
-							if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-							ammo_check = true;
-			            }
-			                else if global.selected_depot != 0 {
-			                    global.ammo_tab = "DEPOT";
-								//Remove the surface
-								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                    ammo_check = true;
-			                }
-			                    else if global.selected_repair != 0 {
-			                        global.ammo_tab = "REPAIR";
-									//Remove the surface
-									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                        ammo_check = true;
-			                    }
-			                        else if global.selected_tow != 0 {
-			                            global.ammo_tab = "TOW";
-										//Remove the surface
-										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                            ammo_check = true;
-			                        }
-			                            else if global.selected_mortar != 0 {
-			                                global.ammo_tab = "MORTAR";
-											//Remove the surface
-											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                                ammo_check = true;
-			                            }
-			                                else if global.selected_infa != 0 {
-			                                    global.ammo_tab = "INF_A"; 
-												//Remove the surface
-												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                                    ammo_check = true;
-			                                }
-												else if global.selected_infb != 0 {
-				                                    global.ammo_tab = "INF_B"; 
-													//Remove the surface
-													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                    ammo_check = true;
-				                                }
-				                                    else if global.selected_mbta != 0 {
-				                                        global.ammo_tab = "MBT_A"; 
-														//Remove the surface
-														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                        ammo_check = true;
-				                                    }
-														else if global.selected_mbtb != 0 {
-					                                        global.ammo_tab = "MBT_B"; 
-															//Remove the surface
-															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                        ammo_check = true;
-					                                    }
-					                                        else if global.selected_laca != 0 {
-					                                            global.ammo_tab = "LAC_A"; 
-																//Remove the surface
-																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                            ammo_check = true;
-					                                        }
-																else if global.selected_lacb != 0 {
-						                                            global.ammo_tab = "LAC_B"; 
-																	//Remove the surface
-																	if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                            ammo_check = true;
-						                                        }
-						                                            else {
-						                                            }
+				}
 	        }
 	            else if f1 { 
 	                //FIRE HIGH EXPLOSIVE ROUND
 	                //Remove ammo cost
-	                if global.lav_he_amount != 0 {
+	                if lava_he_amount != 0 {
 	                    var t=0;
-	                    while (global.lav_he_amount >= he_rate) {
+	                    while (lava_he_amount >= he_rate) {
 	                        t+=1;
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_lava_list); i+=1) {
 	                            var u = ds_list_find_value(global.selected_lava_list, i);
 	                                if (u.can_shoot == true) && (u.he_ammo >= he_rate) {
 	                                    if (u.action_points >= he_cost) {
-	                                        global.lav_he_amount -= he_rate;
-	                                        if global.lav_he_amount >= 0 {
+	                                        lava_he_amount -= he_rate;
+	                                        if lava_he_amount >= 0 {
 	                                            if u.shoot_amount == 0 { 
 	                                                u.action_confirmed = true;
 	                                                global.units_running += 1; 
@@ -425,7 +363,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                                }
 	                        }
 	                        if t >= 200 { 
-	                            global.lav_he_amount = 0; 
+	                            lava_he_amount = 0; 
 	                            global.targeting_error = true;
 	                        } 
 	                    }
@@ -438,7 +376,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                        with unit { if action_confirmed == true { selected = false; } }
 	                    }
 	                    ammo_check = true;
-	                    global.lav_he_amount = 0;
+	                    lava_he_amount = 0;
 	                }
 	                    else { 
 	                        global.menu_create = false;
@@ -462,17 +400,17 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                else if f2 { 
 	                    //FIRE ARMOR PIERCING ROUND
 	                    //Remove ammo cost
-	                    if global.lav_ap_amount != 0 {
+	                    if lava_ap_amount != 0 {
 	                        var t=0;
-	                        while (global.lav_ap_amount >= ap_rate) {
+	                        while (lava_ap_amount >= ap_rate) {
 	                            t+=1;
 	                            var i;
 	                            for (i=0; i<ds_list_size(global.selected_lava_list); i+=1) {
 	                                var u = ds_list_find_value(global.selected_lava_list, i);
 	                                if (u.can_shoot == true) && (u.ap_ammo >= ap_rate) {
 	                                    if (u.action_points >= ap_cost) {
-	                                        global.lav_ap_amount -= ap_rate;
-	                                        if global.lav_ap_amount >= 0 { 
+	                                        lava_ap_amount -= ap_rate;
+	                                        if lava_ap_amount >= 0 { 
 	                                            if u.shoot_amount == 0 { 
 	                                                u.action_confirmed = true;
 	                                                global.units_running += 1; 
@@ -495,7 +433,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                                }
 	                            }
 	                            if t >= 200 { 
-	                                global.lav_ap_amount = 0;
+	                                lava_ap_amount = 0;
 	                                global.targeting_error = true;
 	                            } 
 	                        }
@@ -508,7 +446,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                            with unit { if action_confirmed == true { selected = false; } }
 	                        }
 	                        ammo_check = true;
-	                        global.lav_ap_amount = 0;
+	                        lava_ap_amount = 0;
 	                    }
 	                        else { 
 	                            global.menu_create = false;
@@ -532,21 +470,21 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 						else if f3 { 
 		                    //FIRE MACHINE GUN ROUND
 		                    //Remove ammo cost
-		                    if global.lav_mg_amount != 0 {
+		                    if lava_mg_amount != 0 {
 		                        var t=0;
-		                        while (global.lav_mg_amount >= mg_rate) {
+		                        while (lava_mg_amount >= mg_rate) {
 		                            t+=1;
 		                            var i;
 		                            for (i=0; i<ds_list_size(global.selected_lava_list); i+=1) {
 		                                var u = ds_list_find_value(global.selected_lava_list, i);
 		                                if (u.can_shoot == true) && (u.mg_ammo >= mg_rate) {
 		                                    if (u.action_points >= mg_cost) {
-		                                        global.lav_mg_amount -= mg_rate;
-		                                        if global.lav_mg_amount >= 0 { 
+		                                        lava_mg_amount -= mg_rate;
+		                                        if lava_mg_amount >= 0 { 
 		                                            if u.shoot_amount == 0 { 
 		                                                u.action_confirmed = true;
 		                                                global.units_running += 1; 
-		                                                u.shoot_ap = true;
+		                                                u.shoot_mg = true;
 		                                                u.weapon = "MG";
 		                                                u.target_x = global.target_x;
 		                                                u.target_y = global.target_y;
@@ -565,7 +503,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		                                }
 		                            }
 		                            if t >= 200 { 
-		                                global.lav_mg_amount = 0;
+		                                lava_mg_amount = 0;
 		                                global.targeting_error = true;
 		                            } 
 		                        }
@@ -578,7 +516,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		                            with unit { if action_confirmed == true { selected = false; } }
 		                        }
 		                        ammo_check = true;
-		                        global.lav_mg_amount = 0;
+		                        lava_mg_amount = 0;
 		                    }
 		                        else { 
 		                            global.menu_create = false;
@@ -602,21 +540,21 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 							else if f4 { 
 			                    //FIRE TOW ROUND
 			                    //Remove ammo cost
-			                    if global.lav_at_amount != 0 {
+			                    if lava_at_amount != 0 {
 			                        var t=0;
-			                        while (global.lav_at_amount >= tow_rate) {
+			                        while (lava_at_amount >= tow_rate) {
 			                            t+=1;
 			                            var i;
 			                            for (i=0; i<ds_list_size(global.selected_lava_list); i+=1) {
 			                                var u = ds_list_find_value(global.selected_lava_list, i);
 			                                if (u.can_shoot == true) && (u.tow_ammo >= tow_rate) {
 			                                    if (u.action_points >= tow_cost) {
-			                                        global.lav_at_amount -= tow_rate;
-			                                        if global.lav_at_amount >= 0 { 
+			                                        lava_at_amount -= tow_rate;
+			                                        if lava_at_amount >= 0 { 
 			                                            if u.shoot_amount == 0 { 
 			                                                u.action_confirmed = true;
 			                                                global.units_running += 1; 
-			                                                u.shoot_ap = true;
+			                                                u.shoot_tow = true;
 			                                                u.weapon = "TOW";
 			                                                u.target_x = global.target_x;
 			                                                u.target_y = global.target_y;
@@ -635,7 +573,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 			                                }
 			                            }
 			                            if t >= 200 { 
-			                                global.lav_at_amount = 0;
+			                                lava_at_amount = 0;
 			                                global.targeting_error = true;
 			                            } 
 			                        }
@@ -648,7 +586,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 			                            with unit { if action_confirmed == true { selected = false; } }
 			                        }
 			                        ammo_check = true;
-			                        global.lav_at_amount = 0;
+			                        lava_at_amount = 0;
 			                    }
 			                        else { 
 			                            global.menu_create = false;
@@ -672,9 +610,9 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 								else if f5 { 
 				                    //DISMOUNT SQUAD
 				                    //Remove ammo cost
-				                    if global.lav_sq_amount != 0 {
+				                    if lava_sq_amount != 0 {
 				                        var t=0;
-				                        while (global.lav_sq_amount >= sqd_rate) {
+				                        while (lava_sq_amount >= sqd_rate) {
 				                            t+=1;
 				                            var i;
 				                            for (i=0; i<ds_list_size(global.selected_lava_list); i+=1) {
@@ -682,8 +620,8 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 												var tl = point_distance(u.x, u.y, global.target_x, global.target_y);
 				                                if (u.can_shoot == true) && (u.sqd_ammo >= sqd_rate) && (tl <= 136) {
 				                                    if (u.action_points >= sqd_cost) {
-				                                        global.lav_sq_amount -= sqd_rate;
-				                                        if global.lav_sq_amount >= 0 { 
+				                                        lava_sq_amount -= sqd_rate;
+				                                        if lava_sq_amount >= 0 { 
 				                                            if u.shoot_amount == 0 { 
 				                                                u.action_confirmed = true;
 				                                                global.units_running += 1; 
@@ -706,7 +644,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				                                }
 				                            }
 				                            if t >= 200 { 
-				                                global.lav_sq_amount = 0;
+				                                lava_sq_amount = 0;
 				                                global.targeting_error = true;
 				                            } 
 				                        }
@@ -719,7 +657,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				                            with unit { if action_confirmed == true { selected = false; } }
 				                        }
 				                        ammo_check = true;
-				                        global.lav_sq_amount = 0;
+				                        lava_sq_amount = 0;
 				                    }
 				                        else { 
 				                            global.menu_create = false;

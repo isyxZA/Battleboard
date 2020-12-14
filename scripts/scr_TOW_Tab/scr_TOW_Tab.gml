@@ -34,7 +34,7 @@ function scr_TOW_Tab(argument0, argument1) {
 	        //Increase by a rate of tow_rate
 	        if mouse_wheel_up() { 
 	            //Check if there is enough ammo available to add another amount
-	            if global.towS_amount <= (global.tow_ammo-tow_rate) { 
+	            if towS_amount <= (tow_ammo-tow_rate) { 
 	                //Check if there is enough turn AP for the move
 	                var m_ap = (global.turn_AP-global.temp_AP);
 	                if m_ap >= ap_cost {
@@ -47,24 +47,24 @@ function scr_TOW_Tab(argument0, argument1) {
 	                            if unit.can_shoot == true { ap += unit.action_points; }
 	                        }
 	                    }
-	                    if ap >= ((global.towS_amount+tow_rate)/tow_rate)*ap_cost {
+	                    if ap >= ((towS_amount+tow_rate)/tow_rate)*ap_cost {
 	                        //Add the rounds
-	                        global.towS_amount += tow_rate; 
+	                        towS_amount += tow_rate; 
 	                    }
 	                }
 	            } 
 	        }
 	        //Decrease by a rate of 4
 	        if mouse_wheel_down() { 
-	            if global.towS_amount >= tow_rate { 
-	                global.towS_amount -= tow_rate; 
+	            if towS_amount >= tow_rate { 
+	                towS_amount -= tow_rate; 
 	            } 
 	        }
 	        //Clamp the value between zero and the max available rounds
-	        if global.towS_amount < 0 { global.towS_amount = 0; }
-	        if global.towS_amount > global.tow_ammo { global.towS_amount = global.tow_ammo; }
+	        if towS_amount < 0 { towS_amount = 0; }
+	        if towS_amount > tow_ammo { towS_amount = tow_ammo; }
 	        //Add to temp AP cost
-	        global.temp_AP = (global.towS_amount/tow_rate)*ap_cost;
+	        global.temp_AP = (towS_amount/tow_rate)*ap_cost;
 	        //Set menu position
 	        global.fire_option = 0; 
 	        //Switch off zoom
@@ -101,102 +101,36 @@ function scr_TOW_Tab(argument0, argument1) {
 	if mouse_check_button_released(mb_left) {
 	    if global.my_turn == true {
 	        if f0 {            
-	            //Switch ammo/fire options tab
-	            if global.selected_mortar != 0 {
-	                global.ammo_tab = "MORTAR";
+				//Switch ammo/fire options tab
+				if ds_list_size(tabs) > 1 {
+					var t_size = ds_list_size(tabs)-1;
+					if tab_count < t_size { tab_count += 1; }
+						else { tab_count = 0; }
+					global.ammo_tab = ds_list_find_value(tabs, tab_count);
+					towS_amount = 0;
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
 					//Remove the surface
 					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                ammo_check = true;
-	            }
-	                else if global.selected_infa != 0 {
-	                    global.ammo_tab = "INF_A";
-						//Remove the surface
-						if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-	                    ammo_check = true;
-	                }
-						else if global.selected_infb != 0 {
-		                    global.ammo_tab = "INF_B";
-							//Remove the surface
-							if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-		                    ammo_check = true;
-		                }
-		                    else if global.selected_mbta != 0 {
-		                        global.ammo_tab = "MBT_A"; 
-								//Remove the surface
-								if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-		                        ammo_check = true;
-		                    }
-								else if global.selected_mbtb != 0 {
-			                        global.ammo_tab = "MBT_B"; 
-									//Remove the surface
-									if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                        ammo_check = true;
-			                    }
-			                        else if global.selected_laca != 0 {
-			                            global.ammo_tab = "LAC_A"; 
-										//Remove the surface
-										if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-			                            ammo_check = true;
-			                        }
-										else if global.selected_lacb != 0 {
-				                            global.ammo_tab = "LAC_B"; 
-											//Remove the surface
-											if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                            ammo_check = true;
-				                        }
-				                            else if global.selected_lava != 0 {
-				                                global.ammo_tab = "LAV_A"; 
-												//Remove the surface
-												if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-				                                ammo_check = true;
-				                            }
-												else if global.selected_lavb != 0 {
-					                                global.ammo_tab = "LAV_B"; 
-													//Remove the surface
-													if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                ammo_check = true;
-					                            }
-					                                else if global.selected_logia != 0 {
-					                                    global.ammo_tab = "LOGI_A"; 
-														//Remove the surface
-														if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-					                                    ammo_check = true;
-					                                }
-														else if global.selected_logib != 0 {
-						                                    global.ammo_tab = "LOGI_B"; 
-															//Remove the surface
-															if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                    ammo_check = true;
-						                                }
-						                                    else if global.selected_depot != 0 {
-						                                        global.ammo_tab = "DEPOT";
-																//Remove the surface
-																if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                        ammo_check = true;
-						                                    }
-						                                        else if global.selected_repair != 0 {
-						                                            global.ammo_tab = "REPAIR";
-																	//Remove the surface
-																	if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
-						                                            ammo_check = true;
-						                                        }
-						                                            else {
-						                                            }
+				}
 	        }
 	            else if f1 { 
 	                //FIRE TOW
 	                //Remove ammo cost
-	                if global.towS_amount != 0 {
+	                if towS_amount != 0 {
 	                    var t=0;
-	                    while (global.towS_amount >= tow_rate) {
+	                    while (towS_amount >= tow_rate) {
 	                        t+=1;
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_tow_list); i+=1) {
 	                            var u = ds_list_find_value(global.selected_tow_list, i);
 	                            if (u.can_shoot == true) && (u.tow_ammo >= tow_rate) {
 	                                if (u.action_points >= ap_cost) {
-	                                    global.towS_amount -= tow_rate;
-	                                    if global.towS_amount >= 0 { 
+	                                    towS_amount -= tow_rate;
+	                                    if towS_amount >= 0 { 
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
@@ -219,7 +153,7 @@ function scr_TOW_Tab(argument0, argument1) {
 	                            }
 	                        }
 	                        if t >= 200 { 
-	                            global.towS_amount = 0; 
+	                            towS_amount = 0; 
 	                            global.targeting_error = true;
 	                        } 
 	                    }
@@ -232,7 +166,7 @@ function scr_TOW_Tab(argument0, argument1) {
 	                        with unit { if action_confirmed == true { selected = false; } }
 	                    }
 	                    ammo_check = true;
-	                    global.towS_amount = 0;
+	                    towS_amount = 0;
 	                }
 	                    else { 
 	                        global.menu_create = false;

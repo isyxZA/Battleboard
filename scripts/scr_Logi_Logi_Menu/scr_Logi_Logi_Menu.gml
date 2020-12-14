@@ -36,12 +36,12 @@ function scr_Logi_Logi_Menu() {
 		
 	        switch m {
 	            case 0:
-	                shoot_amount = global.logiamo_l_amount;
-	                ammo_count   = global.logi_amo_supply;
+	                shoot_amount = logiamo_l_amount;
+	                ammo_count   = logia_amo_supply;
 	                break;
 	            case 1:
-	                shoot_amount = global.logibld_l_amount;
-	                ammo_count   = global.logi_bld_supply;
+	                shoot_amount = logibld_l_amount;
+	                ammo_count   = logia_bld_supply;
 	                break;
 	            default:
 	                shoot_amount = 0;
@@ -51,11 +51,11 @@ function scr_Logi_Logi_Menu() {
 	        if m == global.fire_option { 
 	            switch m {
 	            case 0:
-	                if global.logi_amo_supply <= 0 { c1 = c_red; }
+	                if logia_amo_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            case 1:
-	                if global.logi_bld_supply <= 0 { c1 = c_red; }
+	                if logia_bld_supply <= 0 { c1 = c_red; }
 	                    else { c1 = c_white; }
 	                break;
 	            default:

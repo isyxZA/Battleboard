@@ -32,7 +32,7 @@ if anim_select == true {
 }
 
 if is_manning == false {
-	if !ds_list_empty(global.unit_list) {
+	if !ds_list_empty(global.repair_list) {
 	    var repair = instance_place(x_final, y_final, obj_Repair_Static);
 	    if repair != noone { 
 	        is_manning = true;
