@@ -16,22 +16,6 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 		draw_sprite(spr_Menu_Header, 0, 0, 0);
 		//Draw header arrows when more than one unit type is selected
 		var uc = ds_list_size(tabs);
-		/*
-		if global.selected_infa   != 0 uc++;
-		if global.selected_infb   != 0 uc++;
-		if global.selected_mbta   != 0 uc++;
-		if global.selected_mbtb   != 0 uc++;
-		if global.selected_laca   != 0 uc++;
-		if global.selected_lacb   != 0 uc++;
-		if global.selected_lava   != 0 uc++;
-		if global.selected_lavb   != 0 uc++;
-		if global.selected_logia  != 0 uc++;
-		if global.selected_logib  != 0 uc++;
-		if global.selected_depot  != 0 uc++;
-		if global.selected_repair != 0 uc++;
-		if global.selected_tow    != 0 uc++;
-		if global.selected_mortar != 0 uc++;
-		*/
 		if uc > 1 {
 		    var hs;
 		    if global.header_highlight == false { hs = spr_Arrowhead_White; } else { 
@@ -2109,6 +2093,5 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 	        draw_clear_alpha(c_black, 1);
 	        surface_reset_target();
 		}
-
-
+		
 }

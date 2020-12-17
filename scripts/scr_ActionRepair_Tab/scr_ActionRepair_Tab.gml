@@ -1,4 +1,5 @@
 function scr_ActionRepair_Tab() {
+	
 	//Create action menu selection boxes   
 	var m1;
 	var m2;
@@ -136,17 +137,7 @@ function scr_ActionRepair_Tab() {
 	            }
 	                else if m4 {
 	                    //CANCEL
-	                    if !ds_list_empty(global.selected_list) {
-	                        var iv;
-	                        for (iv=0; iv<ds_list_size(global.selected_list); iv+=1) {
-	                            var unit = ds_list_find_value(global.selected_list, iv);
-	                            with unit { 
-	                                selected = false; 
-	                                pX = -1;
-	                                pY = -1;
-	                            }
-	                        }
-	                    }
+						with obj_Unit_Parent { if selected == true { selected = false; } }
 	                    global.menu_create = false;
 						//Reset menu animation
 						menu_anim = true;
@@ -158,17 +149,7 @@ function scr_ActionRepair_Tab() {
 	                }
 	                    else {
 	                        //When clicked outside of menu area
-	                        if !ds_list_empty(global.selected_list) {
-	                            var v;
-	                            for (v=0; v<ds_list_size(global.selected_list); v+=1) {
-	                                var unit = ds_list_find_value(global.selected_list, v);
-	                                with unit { 
-	                                    selected = false; 
-	                                    pX = -1;
-	                                    pY = -1;
-	                                }
-	                            }
-	                        }
+							with obj_Unit_Parent { if selected == true { selected = false; } }
 	                        global.menu_create = false;
 							//Reset menu animation
 							menu_anim = true;
@@ -179,6 +160,5 @@ function scr_ActionRepair_Tab() {
 							if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
 	                    }
 	    }
-
 
 }

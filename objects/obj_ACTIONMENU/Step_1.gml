@@ -86,7 +86,6 @@ if !ds_list_empty(global.selected_list) {
 	                    //global.temp_AP = 0;
 	                    for (li=0; li<ds_list_size(global.selected_list); li+=1) {
 	                        var pu = ds_list_find_value(global.selected_list, li);
-							//global.temp_AP += pu.temp_ap;
 							t_ap += pu.action_points;
 	                    }
 						if (t_ap-global.temp_AP) < 0 { global.navigation_error = true; }
@@ -95,9 +94,14 @@ if !ds_list_empty(global.selected_list) {
 						        for (ij=0; ij<ds_list_size(global.selected_list); ij+=1) {
 						            var unit = ds_list_find_value(global.selected_list, ij);
 						            with unit {
+										//Remove unit from selected status
+										selected = false;
+										alarm[11] = 20;
+										can_be_selected = false;
+										ds_list_delete(global.selected_list, id);
+										pX = -1;
+					                    pY = -1;
 										if temp_ap<=action_points {
-							                //Remove selection
-							                selected = false;
 							                //If the waypoint is not the unit's current position then allow movement
 							                if move_amount > 0 {
 							                    switch unit_type {
@@ -135,43 +139,43 @@ if !ds_list_empty(global.selected_list) {
 							                        case "MORTAR":
 							                            action_points -= temp_ap;
 														global.turn_AP -= temp_ap;
-														var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
+														var inf = instance_create_layer(x, y, "Units", spawn_unit);
 											            with inf {
 															mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 															my_squad = other.my_squad;
-												            //Set final waypoint
-												            x_final = other.x_end;
-												            y_final = other.y_end;
-												            x_end = other.x_end;
-												            y_end = other.y_end;
+															//Set final waypoint
+															x_final = other.x_end;
+															y_final = other.y_end;
+															x_end = other.x_end;
+															y_end = other.y_end;
 															active = true;
 															nav_confirmed = true;
-												            can_move = true; 
-												            count_start = true;
+															can_move = true; 
+															count_start = true;
 															action_points = other.action_points;
 															alert_display = true;
-												            alert_text = "-"+string(temp_ap)+ " AP";
-												            alert_colour = c_red;
-												            alarm[3] = global.tick_rate*3;
+															alert_text = "-"+string(temp_ap)+ " AP";
+															alert_colour = c_red;
+															alarm[3] = global.tick_rate*3;
 															alarm[6] = 10;
-													        //Add to squad list
-													        switch my_squad {
-													            case "ALPHA":
-													                ds_list_add(global.squad_alpha, id);
-													                break;
-													            case "BRAVO":
-													                ds_list_add(global.squad_bravo, id);
-													                break;
-													            case "CHARLIE":
-													                ds_list_add(global.squad_charlie, id);
-													                break;
-													            case "DELTA":
-													                ds_list_add(global.squad_delta, id);
-													                break;
-													            case "ECHO":
-													                ds_list_add(global.squad_echo, id);
-													                break;
-													        }
+															//Add to squad list
+															switch my_squad {
+																case "ALPHA":
+																	ds_list_add(global.squad_alpha, id);
+																	break;
+																case "BRAVO":
+																	ds_list_add(global.squad_bravo, id);
+																	break;
+																case "CHARLIE":
+																	ds_list_add(global.squad_charlie, id);
+																	break;
+																case "DELTA":
+																	ds_list_add(global.squad_delta, id);
+																	break;
+																case "ECHO":
+																	ds_list_add(global.squad_echo, id);
+																	break;
+															}
 														}
 											            switch my_squad {
 											                case "ALPHA":
@@ -203,11 +207,6 @@ if !ds_list_empty(global.selected_list) {
 																active = false;
 																break;
 											            }
-														//Check for enemy units in view range
-											            alarm[9] = 100;
-											            can_be_selected = false;
-														//Remove self from selected units list
-														ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 											            is_manned = false;
 											            x_end = x;
 											            y_end = y;
@@ -230,7 +229,6 @@ if !ds_list_empty(global.selected_list) {
 				        global.draw_apcost = true; 
 				        obj_CONTROL.ap_cost = global.temp_AP;
 				    }
-					
 				    global.nav_select = false;
 					select_enable = false;
 					alarm[0] = 20;
@@ -277,6 +275,7 @@ if !ds_list_empty(global.selected_list) {
                                     mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
                                     move_amount = 0;
 									move_max = 0;
+									nav_offset = 0;
 									mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
                                 }
                             }
@@ -307,7 +306,6 @@ if !ds_list_empty(global.selected_list) {
                         //Display the fire/action options
                         if global.fire_display ==  false { 
                             global.fire_display = true; 
-							
                             ds_list_clear(tabs);
 							global.selected_infa   = ds_list_size(global.selected_infa_list);
 							global.selected_infb   = ds_list_size(global.selected_infb_list);
@@ -367,6 +365,13 @@ if !ds_list_empty(global.selected_list) {
                             var u3 = ds_list_find_value(global.selected_list, iii);
                             //With selected units
                             with u3 {
+								//Remove unit from selected status
+								selected = false;
+								alarm[11] = 20;
+								can_be_selected = false;
+								ds_list_delete(global.selected_list, id);
+								pX = -1;
+					            pY = -1;
                                 //Reset nav positions
                                 x_end = x;
                                 y_end = y;
@@ -378,11 +383,12 @@ if !ds_list_empty(global.selected_list) {
 								temp_ap = 0;
                                 move_amount = 0;
 								move_max = 0;
+								nav_offset = 0;
                             }
                         }
                     }
                 } 
-                with obj_Unit_Parent { if selected == true { selected = false; } }
+				with obj_Unit_Parent { if selected == true { selected = false; } }
 				//Reset menu animation
 				menu_anim = true;
 				menu_anim_count = 0;
@@ -392,14 +398,4 @@ if !ds_list_empty(global.selected_list) {
 				if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
             }
 }
-
-
-
-
-
-
-
-
-
-
 

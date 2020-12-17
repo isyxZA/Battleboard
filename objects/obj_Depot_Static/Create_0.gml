@@ -16,6 +16,7 @@ if p_side == "ONE" {
 		txt_rot = 180;
 	}
 crater_index = spr_Static_Crater;
+spawn_unit = -1;
 my_inf = obj_INFA_Unit.my_sprite;
 my_sprite = spr_Depot_00;
 mp_cost = 2;

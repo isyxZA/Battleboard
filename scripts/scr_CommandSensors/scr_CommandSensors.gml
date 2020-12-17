@@ -30,7 +30,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -59,7 +58,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -88,7 +86,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -117,7 +114,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -146,7 +142,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -159,7 +154,7 @@ function scr_CommandSensors() {
 	                }
 	        }
 	        //Reinforcements
-	        if active_ilc == false && global.command_points >= 10  {
+	        if active_ilc == false && global.command_points >= 10 && !ds_list_empty(global.temp_infantry) {
 	            var d6 = point_distance(ui_bx+(bx_5*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d6 < s_dist {
 	                if ilc_timer < 10 { ilc_timer+=1; }
@@ -176,7 +171,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -188,7 +182,7 @@ function scr_CommandSensors() {
 	                    ilc_timer = 0; 
 	                }
 	        }
-	        if active_tlc == false && global.command_points >= 20 {
+	        if active_tlc == false && global.command_points >= 20 && !ds_list_empty(global.temp_tank) {
 	            var d7 = point_distance(ui_bx+(bx_6*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d7 < s_dist {
 	                if tlc_timer < 10 { tlc_timer+=1; }
@@ -205,7 +199,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -217,7 +210,7 @@ function scr_CommandSensors() {
 	                    tlc_timer = 0; 
 	                }
 	        }
-	        if active_elc == false && global.command_points >= 20 {
+	        if active_elc == false && global.command_points >= 20 && !ds_list_empty(global.temp_engineer) {
 	            var d8 = point_distance(ui_bx+(bx_7*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d8 < s_dist {
 	                if elc_timer < 10 { elc_timer+=1; }
@@ -234,7 +227,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -246,7 +238,7 @@ function scr_CommandSensors() {
 	                    elc_timer = 0; 
 	                }
 	        }
-	        if active_blc == false && global.command_points >= 20 {
+	        if active_blc == false && global.command_points >= 20 && !ds_list_empty(global.temp_btr) {
 	            var d9 = point_distance(ui_bx+(bx_8*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d9 < s_dist {
 	                if blc_timer < 10 { blc_timer+=1; }
@@ -263,7 +255,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }
@@ -275,7 +266,7 @@ function scr_CommandSensors() {
 	                    blc_timer = 0; 
 	                }
 	        }
-	        if active_llc == false && global.command_points >= 10 {
+	        if active_llc == false && global.command_points >= 10 && !ds_list_empty(global.temp_logi) {
 	            var d10 = point_distance(ui_bx+(bx_9*ui_ratio), ui_by+(by_0*ui_ratio), device_mouse_x_to_gui(0), device_mouse_y_to_gui(0));
 	            if d10 < s_dist {
 	                if llc_timer < 10 { llc_timer+=1; }
@@ -292,7 +283,6 @@ function scr_CommandSensors() {
 	                                with unit { 
 	                                    if selected == true { 
 	                                        selected = false; 
-	                                        //ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
 	                                    }
 	                                }
 	                            }

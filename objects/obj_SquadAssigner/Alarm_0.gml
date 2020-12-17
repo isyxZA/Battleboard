@@ -40,7 +40,7 @@ if is_undefined(lunit) {
 					slot1_sprite = spr_Logi_Dropdown; 
 					break;
 			}
-			alarm[0] = 2;
+			alarm[0] = irandom_range(8,12);
 		}
 			else if slot2_full == false { 
 				slot2_full = true;
@@ -77,7 +77,7 @@ if is_undefined(lunit) {
 						slot2_sprite = spr_Logi_Dropdown; 
 						break;
 				}
-				alarm[0] = 2;
+				alarm[0] = irandom_range(8,12);
 			}
 			    else if slot3_full == false { 
 					slot3_full = true;
@@ -114,7 +114,7 @@ if is_undefined(lunit) {
 							slot3_sprite = spr_Logi_Dropdown; 
 							break;
 					}
-					alarm[0] = 2;
+					alarm[0] = irandom_range(8,12);
 				} 
 			        else if slot4_full == false { 
 						slot4_full = true;
@@ -151,7 +151,7 @@ if is_undefined(lunit) {
 								slot4_sprite = spr_Logi_Dropdown; 
 								break;
 						}
-						alarm[0] = 2;
+						alarm[0] = irandom_range(8,12);
 					} 
 			            else if slot5_full == false { 
 							slot5_full = true; 
@@ -188,7 +188,7 @@ if is_undefined(lunit) {
 									slot5_sprite = spr_Logi_Dropdown; 
 									break;
 							}
-							alarm[0] = 2;
+							alarm[0] = irandom_range(8,12);
 						} 
 			                else if slot6_full == false { 
 								slot6_full = true; 

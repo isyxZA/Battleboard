@@ -98,7 +98,7 @@ function scr_TOW_Tab(argument0, argument1) {
 	                    obj_ACTIONMENU.display_menuinfo = false;
 	                }
                 
-	if mouse_check_button_released(mb_left) {
+	if mouse_check_button_pressed(mb_left) {
 	    if global.my_turn == true {
 	        if f0 {            
 				//Switch ammo/fire options tab
@@ -169,6 +169,10 @@ function scr_TOW_Tab(argument0, argument1) {
 	                    towS_amount = 0;
 	                }
 	                    else { 
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        global.menu_create = false;
 	                        global.reticule_display = false; 
 							//Reset menu animation
@@ -203,6 +207,10 @@ function scr_TOW_Tab(argument0, argument1) {
 	                }
 	                    else if f3 { 
 	                        //CANCEL
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        //Stop drawing all menus
 	                        global.fire_display = false;
 	                        global.reticule_display = false;
@@ -218,7 +226,5 @@ function scr_TOW_Tab(argument0, argument1) {
 	                    }
 	    }
 	}
-
-
 
 }

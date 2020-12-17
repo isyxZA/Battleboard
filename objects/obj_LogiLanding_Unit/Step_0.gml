@@ -282,7 +282,7 @@ if global.my_turn == true || global.active_llc == true {
 		                    //Check if in range and targeting a logi or a depot
 		                    var d = point_distance(x, y, mx, my);
 		                    if d <= action_range {
-		                        if place_meeting(mx, my, obj_Depot_Static) || place_meeting(mx, my, obj_LOGIA_Unit) {
+		                        if place_meeting(mx, my, obj_Depot_Static) || place_meeting(mx, my, obj_LOGIA_Unit) || place_meeting(mx, my, obj_LOGIB_Unit){
 		                            can_shoot = true; 
 		                        }
 		                            else { can_shoot = false; }

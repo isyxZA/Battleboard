@@ -1,21 +1,23 @@
 if can_drag == true {
     if mouse_check_button(mb_left) {
-        dragging = true;
-        with obj_SquadAssigner {
-            if active == true {
-                place_unit  = other.my_unit;
-                temp_sprite = other.icon_sprite;
-				temp_cost   = other.unit_cost;
-            }
-        }
-		with obj_ReserveAssigner {
-            if active == true {
-                place_unit  = other.my_unit;
-                temp_sprite = other.icon_sprite;
-				temp_cost   = other.unit_cost;
-				temp_class  = other.unit_class;
-            }
-        }
+		if (ltab.touching == false) && (rtab.touching == false) {
+	        dragging = true;
+	        with obj_SquadAssigner {
+	            if active == true {
+	                place_unit  = other.my_unit;
+	                temp_sprite = other.icon_sprite;
+					temp_cost   = other.unit_cost;
+	            }
+	        }
+			with obj_ReserveAssigner {
+	            if active == true {
+	                place_unit  = other.my_unit;
+	                temp_sprite = other.icon_sprite;
+					temp_cost   = other.unit_cost;
+					temp_class  = other.unit_class;
+	            }
+	        }
+		}
     }
         else { dragging = false; }
 }

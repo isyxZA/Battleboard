@@ -20,6 +20,7 @@ ap_depleted = false;
 mp_cost = 0;
 mp_depleted = false;
 my_colour = c_white;
+can_be_selected = true;
 selected = false;
 been_selected = false;
 pX = -1;

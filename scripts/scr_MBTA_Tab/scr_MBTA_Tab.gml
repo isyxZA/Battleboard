@@ -26,7 +26,7 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 			f4 = collision_rectangle(global.menu_x, global.menu_y-(global.menu_height*3)*global.menu_ratio, global.menu_x-(global.menu_width*global.menu_ratio), global.menu_y-(global.menu_height*4)*global.menu_ratio, obj_MOUSE, false, false);
 		}
 
-	var cannon_rate = argument0;;
+	var cannon_rate = argument0;
 	var mg_rate     = argument1;
 	var cannon_cost = argument2;
 	var mg_cost     = argument3;
@@ -75,7 +75,7 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 	        //Set the menu position
 	        global.fire_option = 0; 
 	        //Switch off camera zoom
-	        global.can_zoom  = false;
+	        global.can_zoom = false;
 	        global.header_highlight = false;
 	        obj_ACTIONMENU.display_tabinfo = false;
 	        obj_ACTIONMENU.display_menuinfo = true;
@@ -118,7 +118,7 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 	            //Add to temp AP cost
 	            global.temp_AP = (mbta_mg_amount/mg_rate)*mg_cost;
 	            global.fire_option = 1;
-	            global.can_zoom  = false;
+	            global.can_zoom = false;
 	            global.header_highlight = false;
 	            obj_ACTIONMENU.display_tabinfo = false;
 	            obj_ACTIONMENU.display_menuinfo = true;
@@ -126,7 +126,7 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 	            else if f3 { 
 	                //RE-TARGET
 	                global.fire_option = 2; 
-	                global.can_zoom  = true;
+	                global.can_zoom = true;
 	                global.header_highlight = false;
 	                obj_ACTIONMENU.display_tabinfo = false;
 	                obj_ACTIONMENU.display_menuinfo = false;
@@ -148,7 +148,7 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 	                        obj_ACTIONMENU.display_menuinfo = false;
 	                    }
             
-	if mouse_check_button_released(mb_left) {
+	if mouse_check_button_pressed(mb_left) {
 	    if global.my_turn == true {
 	        if f0 { 
 				//Switch ammo/fire options tab
@@ -220,6 +220,10 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 	                    mbta_ap_amount = 0;
 	                }
 	                    else { 
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        global.menu_create = false;
 	                        global.reticule_display = false; 
 							//Reset menu animation
@@ -291,6 +295,10 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 	                        //window_mouse_set(window_get_width() / 2, window_get_height() / 2);
 	                    }
 	                        else { 
+								//Deselect all units
+								if !ds_list_empty(global.selected_list) {
+									scr_DeselectAll();
+								}
 	                            global.menu_create = false;
 	                            global.reticule_display = false; 
 								//Reset menu animation
@@ -325,6 +333,10 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 	                    }
 	                        else if f4 { 
 	                            //CANCEL
+								//Deselect all units
+								if !ds_list_empty(global.selected_list) {
+									scr_DeselectAll();
+								}
 	                            //Stop drawing all menus
 	                            global.fire_display     = false;
 	                            global.reticule_display = false;
@@ -340,6 +352,5 @@ function scr_MBTA_Tab(argument0, argument1, argument2, argument3) {
 	                        }
 	    }
 	}
-
 
 }

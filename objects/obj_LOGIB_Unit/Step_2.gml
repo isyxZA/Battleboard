@@ -104,10 +104,10 @@ if action_confirmed == true {
         timer_start = true;
         shoot_amount -= 1;
     }
-        else if shoot_sqd == true {
+        else if shoot_squad == true {
 			if !shoot_mask.t_line {
 				//Add alert to gui
-				shoot_sqd = false;
+				shoot_squad = false;
 				if squad_unit != "NOONE" {
 					ds_list_add(global.action_alert_list, "Logi Deploying Squad");
 					timer_target = 3;
@@ -206,7 +206,7 @@ if ap_depleted == true {
 
 if ammo_check == true {
     ammo_check = false;
-    if ammo_supply < ammo_rate { 
+    if ammo_supply < 1 { 
         alert_display = true;
         alert_text = "Ammo Depleted!"; 
         alert_colour = c_red;

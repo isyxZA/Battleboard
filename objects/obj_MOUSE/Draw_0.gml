@@ -23,7 +23,7 @@ if global.game_state == "IN_GAME" {
                     var unit = ds_list_find_value(global.selected_list, i);
                     with unit {
                         //Draw unit stats
-                        scr_DrawUnitStats();
+                        if can_be_selected == true { scr_DrawUnitStats(); }
                     }
                 }
             }

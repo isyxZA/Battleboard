@@ -11,7 +11,9 @@ clear = false;
 count = 0;
 unit_change = false;
 
-with instance_create_layer(x-42, y, "Buttons", obj_Select_L) { parent = other.id; }
-with instance_create_layer(x+42, y, "Buttons", obj_Select_R) { parent = other.id; }
+ltab = instance_create_layer(x-42, y, "Buttons", obj_Select_L);
+ltab.parent = id;
+rtab = instance_create_layer(x+42, y, "Buttons", obj_Select_R);
+rtab.parent = id;
 
 

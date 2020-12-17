@@ -1,4 +1,4 @@
-start_points = 500;
+start_points = 750;
 formation_points = start_points;
 formation = 1;
 c1 = c_white;

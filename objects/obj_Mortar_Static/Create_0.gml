@@ -20,6 +20,7 @@ if p_side == "ONE" {
 		fmax = 315;
 	}
 crater_index = spr_Static_Crater;
+spawn_unit = -1;
 my_inf = obj_INFA_Unit.my_sprite;
 my_sprite = spr_Mortar_00;
 mp_cost = 2;

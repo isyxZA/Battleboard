@@ -91,7 +91,7 @@ lavap_supply_rate = 4;
 lavmg_supply_rate = 20;
 lavat_supply_rate = 1;
 //LAC
-lactow2_supply_rate = 10;
+lactow2_supply_rate = 1;
 //Logi
 logiamo_supply_rate = 10;
 //Depot

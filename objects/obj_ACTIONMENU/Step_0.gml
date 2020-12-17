@@ -900,10 +900,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 						                                                }
 																			else if laca || emy || flg || bld { 
 																				global.resupply_target = "NOONE";
-												                            }
+																			}
 																				else { global.resupply_target = "SQUAD"; }
-                                                            
-                        //Determine which tab to display depending on which unit type is targeted    
+						//Determine which tab to display depending on which unit type is targeted  
                         switch global.resupply_target {
                             case "INF_A":
                                 var ammo_1  = infa.rifle_ammo;
@@ -1780,4 +1779,5 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 		}
 		if global.game_turn != 0 && obj_CONTROL.show_options != true { global.can_zoom = true; }
     }
+
 

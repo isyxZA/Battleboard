@@ -70,7 +70,7 @@ if surface_exists (fow_surf) {
 	var aa0 = 0.04*global.menu_ratio;
 	draw_sprite_tiled_ext(spr_Fog_Lower, 0, fx2, fy1, fw1, fh2, c_white, aa0);
 	var aa1 = a1*global.menu_ratio;
-	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx1, fy1, fw1, fh1, c_white, aa1);
+	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx1, fy1, fw1, fh1, c_black, aa1);
 	var aa2 = a2*global.menu_ratio;
 	draw_sprite_tiled_ext(spr_Fog_Upper, 0, fx2, fy2, fw2, fh2, c_white, aa2);
     gpu_set_blendmode(bm_normal);

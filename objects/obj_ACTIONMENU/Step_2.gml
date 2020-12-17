@@ -23,3 +23,4 @@ if global.can_select == true || global.opponent_turn == true ||
 
 
 
+

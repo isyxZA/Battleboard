@@ -67,7 +67,10 @@ if timer_count != 0 {
                     can_endturn = false;
                     obj_COMMAND.target_option = "NOONE";
                     //Deselect all units
-                    scr_DeselectAll();
+					if !ds_list_empty(global.selected_list) {
+						scr_DeselectAll();
+					}
+					with obj_Unit_Parent { if selected ==  true { selected = false; } }
                     //If all units have completed their actions go ahead and end the turn
                     if global.units_running == 0 {
 						//Calculate objective capture status

@@ -177,7 +177,7 @@ if action_confirmed == true {
         else if shoot_rpg == true {
             if !shoot_mask.t_line {
                 //Add alert to gui
-                ds_list_add(global.action_alert_list, "Recon Firing RPG");
+                ds_list_add(global.action_alert_list, "Recon Firing GL");
                 shoot_rpg = false;
                 timer_target = 3;
                 timer_count = timer_target;

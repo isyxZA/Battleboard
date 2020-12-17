@@ -19,7 +19,7 @@ if timer_count > 0 { timer_start = true; }
                     var i;
                     for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
                         var z = ds_list_find_value(global.action_alert_list, i);
-                        if z == "Infantry Firing Rifles" { 
+                        if z == "Recon Firing Rifles" { 
                             ds_list_delete(global.action_alert_list, i); 
                             break;
                         }
@@ -41,7 +41,7 @@ if timer_count > 0 { timer_start = true; }
                     var i;
                     for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
                         var z = ds_list_find_value(global.action_alert_list, i);
-                        if z == "Infantry Firing RPG" { 
+                        if z == "Recon Firing GL" { 
                             ds_list_delete(global.action_alert_list, i); 
                             break;
                         }
@@ -60,7 +60,7 @@ if timer_count > 0 { timer_start = true; }
                     var i;
                     for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
                         var z = ds_list_find_value(global.action_alert_list, i);
-                        if z == "Infantry Firing Flare" { 
+                        if z == "Recon Firing Flare" { 
                             ds_list_delete(global.action_alert_list, i); 
                             break;
                         }
@@ -90,7 +90,7 @@ if timer_count > 0 { timer_start = true; }
                         var i;
                         for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
                             var z = ds_list_find_value(global.action_alert_list, i);
-                            if z == "Infantry Firing Rifles" { 
+                            if z == "Recon Firing Rifles" { 
                                 ds_list_delete(global.action_alert_list, i); 
                                 break;
                             }
@@ -111,7 +111,7 @@ if timer_count > 0 { timer_start = true; }
                         var i;
                         for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
                             var z = ds_list_find_value(global.action_alert_list, i);
-                            if z == "Infantry Firing RPG" { 
+                            if z == "Recon Firing GL" { 
                                 ds_list_delete(global.action_alert_list, i); 
                                 break;
                             }
@@ -129,7 +129,7 @@ if timer_count > 0 { timer_start = true; }
                         var i;
                         for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
                             var z = ds_list_find_value(global.action_alert_list, i);
-                            if z == "Infantry Firing Flare" { 
+                            if z == "Recon Firing Flare" { 
                                 ds_list_delete(global.action_alert_list, i); 
                                 break;
                             }

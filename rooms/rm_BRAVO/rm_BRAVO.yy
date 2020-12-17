@@ -19,8 +19,8 @@
       ],"visible":true,"depth":-121,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"GUI","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[],"visible":true,"depth":-21,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Aircraft","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_ACTIONMENU","path":"objects/obj_ACTIONMENU/obj_ACTIONMENU.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":64.0,"y":0.0,"resourceVersion":"1.0","name":"inst_8803C9CD","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_COMMAND","path":"objects/obj_COMMAND/obj_COMMAND.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":16.0,"y":48.0,"resourceVersion":"1.0","name":"inst_28BB62E8","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_ACTIONMENU","path":"objects/obj_ACTIONMENU/obj_ACTIONMENU.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":32.0,"resourceVersion":"1.0","name":"inst_29779CA9","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":-20,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"ActionMenu","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[],"visible":true,"depth":-19,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Command","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
@@ -239,7 +239,6 @@
   "instanceCreationOrder": [
     {"name":"inst_24558E9E","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
     {"name":"inst_65A4D606","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
-    {"name":"inst_8803C9CD","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
     {"name":"inst_28BB62E8","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
     {"name":"inst_C7FCD15C","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
     {"name":"inst_ACA065C","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
@@ -272,6 +271,7 @@
     {"name":"inst_4786C11F","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
     {"name":"inst_14B9BE60","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
     {"name":"inst_1329DE09","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
+    {"name":"inst_29779CA9","path":"rooms/rm_BRAVO/rm_BRAVO.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

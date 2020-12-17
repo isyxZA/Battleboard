@@ -1,7 +1,7 @@
 /// @description scr_Repair_Vehicle_Tab(current_health, max_health, repair_rate);
-/// @param  current_health
-/// @param  max_health
-/// @param  repair_rate
+/// @param current_health
+/// @param max_health
+/// @param repair_rate
 function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 
 	var f0;
@@ -144,6 +144,10 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	                    repair_v_amount = 0;
 	                }
 	                    else { 
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        global.repair_display = false;
 							//Reset menu animation
 							menu_anim = true;
@@ -161,6 +165,10 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	            }
 	                else if f2 { 
 	                    //CANCEL
+						//Deselect all units
+						if !ds_list_empty(global.selected_list) {
+							scr_DeselectAll();
+						}
 	                    //Stop drawing all menus
 	                    global.repair_display = false;
 						//Reset menu animation
@@ -173,7 +181,5 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	                }
 	    }
 	}
-
-
 
 }

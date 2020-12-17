@@ -41,6 +41,7 @@
     {"isDnD":false,"eventNum":10,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_LACB_Unit","path":"objects/obj_LACB_Unit/obj_LACB_Unit.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":4,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_LACB_Unit","path":"objects/obj_LACB_Unit/obj_LACB_Unit.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":7,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_LACB_Unit","path":"objects/obj_LACB_Unit/obj_LACB_Unit.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":11,"eventType":2,"collisionObjectId":null,"parent":{"name":"obj_LACB_Unit","path":"objects/obj_LACB_Unit/obj_LACB_Unit.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],

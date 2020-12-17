@@ -62,7 +62,7 @@ for (i=0; i<ds_list_size(global.temp_btr); i+=1) {
 			break;
 	}
 }
-ds_list_clear(global.temp_tank);
+ds_list_clear(global.temp_btr);
 
 xscale = 0.8;
 yscale = 0.8;

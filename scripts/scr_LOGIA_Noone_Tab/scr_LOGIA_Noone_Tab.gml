@@ -75,6 +75,10 @@ function scr_LOGIA_Noone_Tab() {
 	        }
 	            else if f2 { 
 	                //CANCEL
+					//Deselect all units
+					if !ds_list_empty(global.selected_list) {
+						scr_DeselectAll();
+					}
 	                //Stop drawing all menus
 	                global.fire_display = false;
 	                global.reticule_display = false;
@@ -90,8 +94,5 @@ function scr_LOGIA_Noone_Tab() {
 
 	            }
 	}
-
-
-
 
 }

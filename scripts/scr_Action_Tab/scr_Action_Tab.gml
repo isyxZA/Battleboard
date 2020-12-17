@@ -1,4 +1,5 @@
 function scr_Action_Tab() {
+	
 	//Create action menu selection boxes   
 	var m1;
 	var m2;
@@ -94,17 +95,7 @@ function scr_Action_Tab() {
 	        }
 	            else if m3 {
 	                //CANCEL
-	                if !ds_list_empty(global.selected_list) {
-	                    var i;
-	                    for (i=0; i<ds_list_size(global.selected_list); i+=1) {
-	                        var unit = ds_list_find_value(global.selected_list, i);
-	                        with unit { 
-	                            selected = false; 
-	                            pX = -1;
-	                            pY = -1;
-	                        }
-	                    }
-	                }
+					with obj_Unit_Parent { if selected == true { selected = false; } }
 	                global.menu_create = false;
 					//Reset menu animation
 					menu_anim = true;
@@ -118,17 +109,7 @@ function scr_Action_Tab() {
 	            }
 	                else {
 	                    //When clicked outside of menu area
-	                    if !ds_list_empty(global.selected_list) {
-	                        var i;
-	                        for (i=0; i<ds_list_size(global.selected_list); i+=1) {
-	                            var unit = ds_list_find_value(global.selected_list, i);
-	                            with unit { 
-	                                selected = false; 
-	                                pX = -1;
-	                                pY = -1;
-	                            }
-	                        }
-	                    }
+						with obj_Unit_Parent { if selected == true { selected = false; } }
 	                    global.menu_create = false;
 						//Reset menu animation
 						menu_anim = true;

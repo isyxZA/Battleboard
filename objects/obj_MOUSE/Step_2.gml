@@ -1,8 +1,5 @@
 if global.game_state == "IN_GAME" {
-	if mouse_check_button_released(mb_left) {
-		pX = -1;
-		pY = -1;
-	}
+	
     if global.click_count >= 2 {
         global.click_count = 0;
         switch global.dbl_click_unit {

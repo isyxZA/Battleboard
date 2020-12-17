@@ -8,7 +8,7 @@ if global.game_turn != 0 {
         if active == true {
 			with obj_LogiLanding_Unit { active = true; }
             //If a menu is not being displayed then allow for unit selection/deselection
-            if (global.menu_create == false) && (global.repair_display == false) && (global.nav_menu == false) {
+            if (can_be_selected == true) && (global.menu_create == false) && (global.repair_display == false) && (global.nav_menu == false) {
                 //Sets top left of selection box
                 if mouse_check_button_pressed(mb_left) {
                     pX = mouse_x-6;
@@ -98,8 +98,7 @@ if global.game_turn != 0 {
                                 //If the unit has enough action points for a shot
                                 if (global.turn_AP >= ap_cost) && (action_points >= ap_cost) {
                                     //If the unit has enough ammo for at least one round
-                                    //ADJUST THIS TO REFLECT THE RATE DEPENDING ON THE TARGET
-                                    if ammo_supply >= ammo_rate {
+                                    if ammo_supply >= 1 {
                                         can_shoot = true; 
                                     }
                                         else { can_shoot = false; }

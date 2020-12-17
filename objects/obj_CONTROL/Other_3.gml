@@ -18,6 +18,17 @@ ds_list_destroy(global.selected_lava_list);
 ds_list_destroy(global.laca_list);
 ds_list_destroy(global.selected_laca_list);
 
+ds_list_destroy(global.mbtb_list);
+ds_list_destroy(global.selected_mbtb_list);
+ds_list_destroy(global.infb_list);
+ds_list_destroy(global.selected_infb_list);
+ds_list_destroy(global.logib_list);
+ds_list_destroy(global.selected_logib_list);
+ds_list_destroy(global.lavb_list);
+ds_list_destroy(global.selected_lavb_list);
+ds_list_destroy(global.lacb_list);
+ds_list_destroy(global.selected_lacb_list);
+
 ds_list_destroy(global.depot_list);
 ds_list_destroy(global.selected_depot_list);
 ds_list_destroy(global.repair_list);

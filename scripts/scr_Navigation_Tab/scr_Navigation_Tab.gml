@@ -38,12 +38,18 @@ function scr_Navigation_Tab() {
 	                var i;
 	                for (i=0; i<ds_list_size(global.selected_list); i+=1) {
 	                    var unit = ds_list_find_value(global.selected_list, i);
+						//unit.selected = false;
+						//unit.can_be_selected = false;
 	                    with unit {
+							//Remove unit from selected status
+							selected = false;
+							alarm[11] = 20;
+							can_be_selected = false;
+							ds_list_delete(global.selected_list, id);
+							pX = -1;
+	                        pY = -1;
 							if temp_ap<=action_points {
-		                        //Remove selection
-		                        selected = false;
 		                        //If the waypoint is not the unit's current position then allow movement
-		                        //if nav_split == true {
 								if move_amount > 0 {
 		                            switch unit_type {
 		                                case "INF_A":
@@ -80,8 +86,7 @@ function scr_Navigation_Tab() {
 		                                case "MORTAR":
 											action_points -= temp_ap;
 											global.turn_AP -= temp_ap;
-		                                    //global.turn_AP -= (move_amount*mp_cost);
-											var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
+											var inf = instance_create_layer(x, y, "Units", spawn_unit);
 		                                    with inf {
 												mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 												my_squad = other.my_squad;
@@ -149,8 +154,6 @@ function scr_Navigation_Tab() {
 													active = false;
 													break;
 		                                    }
-		                                    alarm[9] = 100;
-		                                    can_be_selected = false;
 		                                    is_manned = false;
 		                                    x_end = x;
 		                                    y_end = y;
@@ -227,6 +230,13 @@ function scr_Navigation_Tab() {
 	                        var unit = ds_list_find_value(global.selected_list, i);
 	                        //With selected units
 	                        with unit {
+								//Remove unit from selected status
+								selected = false;
+								alarm[11] = 20;
+								can_be_selected = false;
+								ds_list_delete(global.selected_list, id);
+								pX = -1;
+					            pY = -1;
 	                            //Reset nav positions
 	                            x_end = x;
 	                            y_end = y;
@@ -239,9 +249,6 @@ function scr_Navigation_Tab() {
 	                            move_amount = 0;
 	                            move_max = 0;
 	                            nav_offset = 0;
-	                            selected = false;
-	                            pX = -1;
-	                            pY = -1;
 	                        }
 	                    }
 	                }
@@ -267,6 +274,13 @@ function scr_Navigation_Tab() {
 	                            var unit = ds_list_find_value(global.selected_list, i);
 	                             //With selected units
 	                            with unit {
+									//Remove unit from selected status
+									selected = false;
+									alarm[11] = 20;
+									can_be_selected = false;
+									ds_list_delete(global.selected_list, id);
+									pX = -1;
+					                pY = -1;
 	                                //Reset nav positions
 	                                x_end = x;
 	                                y_end = y;
@@ -279,9 +293,6 @@ function scr_Navigation_Tab() {
 	                                move_amount = 0;
 	                                move_max = 0;
 	                                nav_offset = 0;
-	                                selected = false;
-	                                pX = -1;
-	                                pY = -1;
 	                            }
 	                        }
 	                    }
@@ -298,6 +309,5 @@ function scr_Navigation_Tab() {
 	                    global.menu_create = false;
 	                }
 	}
-
 
 }

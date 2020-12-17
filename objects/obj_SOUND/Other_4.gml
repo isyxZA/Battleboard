@@ -3,7 +3,7 @@ switch room {
         if main_start == true && first_play == false {
             first_play = true;
             s = snd_MainMenu_01;
-            alarm[1] = 110;
+            alarm[1] = 60;
         }
         break;
     case rm_ALPHA:

@@ -7,7 +7,7 @@ if global.game_turn != 0 {
     if global.my_turn == true {
         if active == true {
             //If a menu is not being displayed then allow for unit selection/deselection
-            if (global.menu_create == false) && (global.repair_display == false) && (global.nav_menu == false) {
+            if (can_be_selected == true) && (global.menu_create == false) && (global.repair_display == false) && (global.nav_menu == false) {
                 //Sets top left of selection box
                 if mouse_check_button_pressed(mb_left) {
                     pX = mouse_x-6;
@@ -15,27 +15,28 @@ if global.game_turn != 0 {
                     //Start double click check (ref obj_MOUSE)
                     if place_meeting(x, y, obj_MOUSE) { global.double_click = true; }
                 }
-                if mouse_check_button_released(mb_left){
-                    //If the unit is already selected
-                    if selected {
-                        //If touching the mouse then stay selected
-                        if place_meeting(x, y, obj_MOUSE) {
-                            if global.double_click == true { 
-                                global.click_count += 1;
-                                global.dbl_click_unit = unit_type;
-                            }
-                        }
-                            else {
-                                //If already previously selected and not picking a waypoint
-                                if keyboard_check_direct(vk_shift) { }
-                                    else { if global.nav_select == false { selected = false; } }
-                            }
-                    }
-                        else {
-                            //Determine if selected or not
-                            scr_ToggleSelect(pX, pY, mouse_x-6, mouse_y-10);
-                        }
-                }
+	            if mouse_check_button_released(mb_left) {
+					//show_message("RELEASED!");
+	                //If the unit is already selected
+	                if selected {
+	                    //If touching the mouse then stay selected
+	                    if place_meeting(x, y, obj_MOUSE) {
+	                        if global.double_click == true { 
+	                            global.click_count += 1;
+	                            global.dbl_click_unit = unit_type;
+	                        }
+	                    }
+	                        else {
+	                            //If already previously selected and not picking a waypoint
+	                            if keyboard_check_direct(vk_shift) { }
+	                                else { if global.nav_select == false { selected = false; } }
+	                        }
+	                }
+	                    else {
+	                        //Determine if selected or not
+	                        scr_ToggleSelect(pX, pY, mouse_x-6, mouse_y-10);
+	                    }
+	            }
                 if global.can_select == true {
                     if (nav_confirmed == false) && (action_confirmed == false) && (resupplying == false) {
                         if mouse_check_button_released(mb_right){
@@ -124,7 +125,8 @@ if global.game_turn != 0 {
                         //Disable queue 
                         in_queue = false;
                         //Remove self from selected units list
-                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+                        var sl_index = ds_list_find_index(global.selected_list, id);
+						if sl_index != undefined { ds_list_delete(global.selected_list, sl_index); }
                         ds_list_delete(global.selected_infb_list, ds_list_find_index(global.selected_infb_list, id));
 						mp_grid_add_rectangle(global.move_grid, x_final-36, y_final-36, x_final+36, y_final+36);
                     }

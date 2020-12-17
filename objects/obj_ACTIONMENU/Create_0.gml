@@ -255,9 +255,9 @@ mortar_ammo = 0;
 mortarS_amount = 0;
 //Depot
 dpt_amo_supply = 0;
-dpt_amo_amount = 0;
+//dpt_amo_amount = 0;
 dpt_bld_supply = 0;
-dpt_bld_amount = 0;
+//dpt_bld_amount = 0;
 //Repair
 repair_v_ammo = 0;
 repair_v_amount = 0;
@@ -358,4 +358,5 @@ target_y = 0;
 
 if PLAYER.player == "ONE" { p_one = true; txt_rot = 0; }
 	else { p_one = false; txt_rot = 180; }
+
 

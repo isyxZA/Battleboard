@@ -169,7 +169,7 @@ function scr_LOGIA_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                    obj_ACTIONMENU.display_menuinfo = false;
 	                }
             
-	if mouse_check_button_released(mb_left) {
+	if mouse_check_button_pressed(mb_left) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab
@@ -242,6 +242,10 @@ function scr_LOGIA_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                    rprbld_l_amount = 0;
 	                }
 	                    else { 
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        global.menu_create = false;
 	                        global.reticule_display = false; 
 							//Reset menu animation
@@ -313,6 +317,10 @@ function scr_LOGIA_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                        rprmg_l_amount = 0;
 	                    }
 	                        else { 
+								//Deselect all units
+								if !ds_list_empty(global.selected_list) {
+									scr_DeselectAll();
+								}
 	                            global.menu_create = false;
 	                            global.reticule_display = false; 
 								//Reset menu animation
@@ -332,7 +340,7 @@ function scr_LOGIA_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                    queue_reset = true;
 	            }
 	                 else if f3 { 
-	                    //RETARGET
+	                    //RE-TARGET
 	                    //Stop drawing fire menu and display the targeting reticule
 	                    global.fire_display = false;
 	                    global.reticule_display = true;
@@ -347,6 +355,10 @@ function scr_LOGIA_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                }
 	                    else if f4 { 
 	                        //CANCEL
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        //Stop drawing all menus
 	                        global.fire_display = false;
 	                        global.reticule_display = false;
@@ -362,8 +374,5 @@ function scr_LOGIA_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                    }
 	    }
 	}
-
-
-
 
 }

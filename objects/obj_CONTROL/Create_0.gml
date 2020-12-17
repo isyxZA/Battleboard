@@ -152,9 +152,6 @@ draw_apreturn = false;
 show_options = false;
 temp_zlevel = 0;
 
-//Calculate current ammo levels trigger
-ammo_check = false;
-
 //Track amount of destroyed units
 lost_infantry = 0;
 lost_tank = 0;

@@ -2,7 +2,7 @@ function scr_InitGlobals() {
 	global.grid_size = 40;
 	global.cell_size = 96;
 	global.v_spacing = sprite_get_height(spr_Menu_Border);
-	global.h_spacing = sprite_get_width(spr_Menu_Border);
+	//global.h_spacing = sprite_get_width(spr_Menu_Border);
 	global.min_x = 0;
 	global.max_x = 0;
 	global.min_y = 0;

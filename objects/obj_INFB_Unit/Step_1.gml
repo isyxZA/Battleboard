@@ -1,7 +1,7 @@
 if (x_final == x_end) && (y_final == y_end) { nav_split = false; }
     else { nav_split = true; }
 
-my_path_pos = round(path_get_length(my_path)-(path_get_length(my_path)*path_position)); 
+//my_path_pos = round(path_get_length(my_path)-(path_get_length(my_path)*path_position)); 
 
 if selected { 
     if (global.nav_select == true) || (global.nav_menu == true) {
@@ -36,6 +36,8 @@ if is_manning == false {
 		    is_manning = true; 
 			manned_unit = depot.id;
 		    depot.is_manned = true;
+			depot.spawn_unit = obj_INFB_Unit;
+			depot.my_inf = my_sprite;
 			depot.active = true;
 			depot.can_be_selected = false;
 		    depot.alarm[9] = 200;
@@ -86,6 +88,8 @@ if is_manning == false {
 		        is_manning = true; 
 				manned_unit = repair.id;
 		        repair.is_manned = true;
+				repair.spawn_unit = obj_INFB_Unit;
+				repair.my_inf = my_sprite;
 				repair.active = true;
 				repair.can_be_selected = false;
 		        repair.alarm[9] = 200;
@@ -136,6 +140,8 @@ if is_manning == false {
 		            is_manning = true; 
 					manned_unit = tow.id;
 		            tow.is_manned = true;
+					tow.spawn_unit = obj_INFB_Unit;
+					tow.my_inf = my_sprite;
 					tow.active = true;
 					tow.can_be_selected = false;
 		            tow.alarm[9] = 200;
@@ -186,6 +192,8 @@ if is_manning == false {
 		                is_manning = true;
 						manned_unit = mortar.id;
 		                mortar.is_manned = true; 
+						mortar.spawn_unit = obj_INFB_Unit;
+						mortar.my_inf = my_sprite;
 						mortar.active = true;
 						mortar.can_be_selected = false;
 		                mortar.alarm[9] = 200;

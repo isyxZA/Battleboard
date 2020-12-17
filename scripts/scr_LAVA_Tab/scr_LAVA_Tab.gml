@@ -304,7 +304,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				                        obj_ACTIONMENU.display_menuinfo = false;
 				                    }
             
-	if mouse_check_button_released(mb_left) {
+	if mouse_check_button_pressed(mb_left) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab
@@ -379,6 +379,10 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                    lava_he_amount = 0;
 	                }
 	                    else { 
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        global.menu_create = false;
 	                        global.reticule_display = false; 
 							//Reset menu animation
@@ -449,6 +453,10 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                        lava_ap_amount = 0;
 	                    }
 	                        else { 
+								//Deselect all units
+								if !ds_list_empty(global.selected_list) {
+									scr_DeselectAll();
+								}
 	                            global.menu_create = false;
 	                            global.reticule_display = false; 
 								//Reset menu animation
@@ -519,6 +527,10 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		                        lava_mg_amount = 0;
 		                    }
 		                        else { 
+									//Deselect all units
+									if !ds_list_empty(global.selected_list) {
+										scr_DeselectAll();
+									}
 		                            global.menu_create = false;
 		                            global.reticule_display = false; 
 									//Reset menu animation
@@ -589,6 +601,10 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 			                        lava_at_amount = 0;
 			                    }
 			                        else { 
+										//Deselect all units
+										if !ds_list_empty(global.selected_list) {
+											scr_DeselectAll();
+										}
 			                            global.menu_create = false;
 			                            global.reticule_display = false; 
 										//Reset menu animation
@@ -660,6 +676,10 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				                        lava_sq_amount = 0;
 				                    }
 				                        else { 
+											//Deselect all units
+											if !ds_list_empty(global.selected_list) {
+												scr_DeselectAll();
+											}
 				                            global.menu_create = false;
 				                            global.reticule_display = false; 
 											//Reset menu animation
@@ -694,6 +714,10 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				                    }
 				                        else if f7 { 
 				                            //CANCEL
+											//Deselect all units
+											if !ds_list_empty(global.selected_list) {
+												scr_DeselectAll();
+											}
 				                            //Stop drawing all menus
 				                            global.fire_display = false;
 				                            global.reticule_display = false;
@@ -709,6 +733,5 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				                        }
 	    }
 	}
-
 
 }

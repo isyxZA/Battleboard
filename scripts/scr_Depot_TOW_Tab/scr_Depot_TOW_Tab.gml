@@ -189,6 +189,10 @@ function scr_Depot_TOW_Tab(argument0, argument1, argument2, argument3) {
 	                    towamo_d_amount = 0;
 	                }
 	                    else { 
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        global.menu_create = false;
 	                        global.reticule_display = false; 
 							//Reset menu animation
@@ -223,6 +227,10 @@ function scr_Depot_TOW_Tab(argument0, argument1, argument2, argument3) {
 	                }
 	                    else if f3 { 
 	                        //CANCEL
+							//Deselect all units
+							if !ds_list_empty(global.selected_list) {
+								scr_DeselectAll();
+							}
 	                        //Stop drawing all menus
 	                        global.fire_display = false;
 	                        global.reticule_display = false;
@@ -238,8 +246,5 @@ function scr_Depot_TOW_Tab(argument0, argument1, argument2, argument3) {
 	                    }
 	    }
 	}
-
-
-
 
 }

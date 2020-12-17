@@ -478,9 +478,6 @@ if global.game_state == "IN_GAME" {
 	    var txt3 = string(camera_get_view_width(obj_CAMERA.my_camera));
 	    var txt4 = string(camera_get_view_height(obj_CAMERA.my_camera));
 	    var txt5 = string(active_turn);
-	    if global.nav_menu == true { txt6 = "True"; } else { txt6 = "False"; }
-	    var txt8;
-	    if global.can_zoom == true { txt8 = "True"; } else { txt8 = "False"; }
         draw_set_color(c_red);
         draw_set_valign(fa_top);
         draw_set_halign(fa_left);
@@ -495,7 +492,7 @@ if global.game_state == "IN_GAME" {
         draw_text(8, 840, "Zoom Level: " + string(global.zoom_level));
         draw_text(8, 856, "View X: " + txt1);
         draw_text(8, 872, "View Y: " + txt2);
-        draw_text(8, 888, "View Width: " + txt3);
+        draw_text(8, 888, "View Width: "  + txt3);
         draw_text(8, 904, "View Height: " + txt4);
         draw_text(8, 920, "Light Level: " + string(global.light_level));
         draw_text(8, 936, "Ammo Tab: " + string(global.ammo_tab));

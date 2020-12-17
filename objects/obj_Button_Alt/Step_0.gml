@@ -170,16 +170,16 @@ if global.game_state == "IN_MENU" {
 								if is_undefined(lu) { ini_write_string("LAV", "V4", "NOONE"); }
 									else { ini_write_string("LAV", "V4", lu); }
 								//Save as LOG
-								lu = ds_list_find_value(global.temp_btr, 0);
+								lu = ds_list_find_value(global.temp_logi, 0);
 								if is_undefined(lu) { ini_write_string("LOG", "L1", "NOONE"); }
 									else { ini_write_string("LOG", "L1", lu); }
-								lu = ds_list_find_value(global.temp_btr, 1);
+								lu = ds_list_find_value(global.temp_logi, 1);
 								if is_undefined(lu) { ini_write_string("LOG", "L2", "NOONE"); }
 									else { ini_write_string("LOG", "L2", lu); }
-								lu = ds_list_find_value(global.temp_btr, 2);
+								lu = ds_list_find_value(global.temp_logi, 2);
 								if is_undefined(lu) { ini_write_string("LOG", "L3", "NOONE"); }
 									else { ini_write_string("LOG", "L3", lu); }
-								lu = ds_list_find_value(global.temp_btr, 3);
+								lu = ds_list_find_value(global.temp_logi, 3);
 								if is_undefined(lu) { ini_write_string("LOG", "L4", "NOONE"); }
 									else { ini_write_string("LOG", "L4", lu); }
 								ini_close();
@@ -335,16 +335,16 @@ if global.game_state == "IN_MENU" {
 								if is_undefined(lu) { ini_write_string("LAV", "V4", "NOONE"); }
 									else { ini_write_string("LAV", "V4", lu); }
 								//Save as LOG
-								lu = ds_list_find_value(global.temp_btr, 0);
+								lu = ds_list_find_value(global.temp_logi, 0);
 								if is_undefined(lu) { ini_write_string("LOG", "L1", "NOONE"); }
 									else { ini_write_string("LOG", "L1", lu); }
-								lu = ds_list_find_value(global.temp_btr, 1);
+								lu = ds_list_find_value(global.temp_logi, 1);
 								if is_undefined(lu) { ini_write_string("LOG", "L2", "NOONE"); }
 									else { ini_write_string("LOG", "L2", lu); }
-								lu = ds_list_find_value(global.temp_btr, 2);
+								lu = ds_list_find_value(global.temp_logi, 2);
 								if is_undefined(lu) { ini_write_string("LOG", "L3", "NOONE"); }
 									else { ini_write_string("LOG", "L3", lu); }
-								lu = ds_list_find_value(global.temp_btr, 3);
+								lu = ds_list_find_value(global.temp_logi, 3);
 								if is_undefined(lu) { ini_write_string("LOG", "L4", "NOONE"); }
 									else { ini_write_string("LOG", "L4", lu); }
 								ini_close();
@@ -500,16 +500,16 @@ if global.game_state == "IN_MENU" {
 								if is_undefined(lu) { ini_write_string("LAV", "V4", "NOONE"); }
 									else { ini_write_string("LAV", "V4", lu); }
 								//Save as LOG
-								lu = ds_list_find_value(global.temp_btr, 0);
+								lu = ds_list_find_value(global.temp_logi, 0);
 								if is_undefined(lu) { ini_write_string("LOG", "L1", "NOONE"); }
 									else { ini_write_string("LOG", "L1", lu); }
-								lu = ds_list_find_value(global.temp_btr, 1);
+								lu = ds_list_find_value(global.temp_logi, 1);
 								if is_undefined(lu) { ini_write_string("LOG", "L2", "NOONE"); }
 									else { ini_write_string("LOG", "L2", lu); }
-								lu = ds_list_find_value(global.temp_btr, 2);
+								lu = ds_list_find_value(global.temp_logi, 2);
 								if is_undefined(lu) { ini_write_string("LOG", "L3", "NOONE"); }
 									else { ini_write_string("LOG", "L3", lu); }
-								lu = ds_list_find_value(global.temp_btr, 3);
+								lu = ds_list_find_value(global.temp_logi, 3);
 								if is_undefined(lu) { ini_write_string("LOG", "L4", "NOONE"); }
 									else { ini_write_string("LOG", "L4", lu); }
 								ini_close();
@@ -665,16 +665,16 @@ if global.game_state == "IN_MENU" {
 								if is_undefined(lu) { ini_write_string("LAV", "V4", "NOONE"); }
 									else { ini_write_string("LAV", "V4", lu); }
 								//Save as LOG
-								lu = ds_list_find_value(global.temp_btr, 0);
+								lu = ds_list_find_value(global.temp_logi, 0);
 								if is_undefined(lu) { ini_write_string("LOG", "L1", "NOONE"); }
 									else { ini_write_string("LOG", "L1", lu); }
-								lu = ds_list_find_value(global.temp_btr, 1);
+								lu = ds_list_find_value(global.temp_logi, 1);
 								if is_undefined(lu) { ini_write_string("LOG", "L2", "NOONE"); }
 									else { ini_write_string("LOG", "L2", lu); }
-								lu = ds_list_find_value(global.temp_btr, 2);
+								lu = ds_list_find_value(global.temp_logi, 2);
 								if is_undefined(lu) { ini_write_string("LOG", "L3", "NOONE"); }
 									else { ini_write_string("LOG", "L3", lu); }
-								lu = ds_list_find_value(global.temp_btr, 3);
+								lu = ds_list_find_value(global.temp_logi, 3);
 								if is_undefined(lu) { ini_write_string("LOG", "L4", "NOONE"); }
 									else { ini_write_string("LOG", "L4", lu); }
 								ini_close();
@@ -830,16 +830,16 @@ if global.game_state == "IN_MENU" {
 								if is_undefined(lu) { ini_write_string("LAV", "V4", "NOONE"); }
 									else { ini_write_string("LAV", "V4", lu); }
 								//Save as LOG
-								lu = ds_list_find_value(global.temp_btr, 0);
+								lu = ds_list_find_value(global.temp_logi, 0);
 								if is_undefined(lu) { ini_write_string("LOG", "L1", "NOONE"); }
 									else { ini_write_string("LOG", "L1", lu); }
-								lu = ds_list_find_value(global.temp_btr, 1);
+								lu = ds_list_find_value(global.temp_logi, 1);
 								if is_undefined(lu) { ini_write_string("LOG", "L2", "NOONE"); }
 									else { ini_write_string("LOG", "L2", lu); }
-								lu = ds_list_find_value(global.temp_btr, 2);
+								lu = ds_list_find_value(global.temp_logi, 2);
 								if is_undefined(lu) { ini_write_string("LOG", "L3", "NOONE"); }
 									else { ini_write_string("LOG", "L3", lu); }
-								lu = ds_list_find_value(global.temp_btr, 3);
+								lu = ds_list_find_value(global.temp_logi, 3);
 								if is_undefined(lu) { ini_write_string("LOG", "L4", "NOONE"); }
 									else { ini_write_string("LOG", "L4", lu); }
 								ini_close();
