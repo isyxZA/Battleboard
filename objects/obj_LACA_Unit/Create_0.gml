@@ -99,12 +99,6 @@ mortar_max = 1;
 shoot_mortar = false;
 mortar_rate = 1;
 
-fire_menu[0] = "Depot";
-fire_menu[1] = "Repair";
-fire_menu[2] = "TOW";
-fire_menu[3] = "Mortar"
-fire_menu[4] = "Cancel";
-
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 1.5);
 audio_emitter_position(emit, x, y, 0);

@@ -32,7 +32,6 @@ if timer_count > 0 { timer_start = true; }
         }
             else { 
                 timer_start = false;
-                //global.units_running -= 1;
                 alarm[8] = 60;
                 action_confirmed = false;
                 switch weapon {

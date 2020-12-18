@@ -121,10 +121,6 @@ ds_list_add(global.unit_list, id);//Add self to total unit list
 ds_list_add(global.myunit_list, id);//Add self to my unit list
 ds_list_add(global.logib_list, id);
 
-fire_menu[0] = "Ammo";
-fire_menu[1] = "Supply";
-fire_menu[1] = "Cancel";
-
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 1.5);
 audio_emitter_position(emit, x, y, 0);

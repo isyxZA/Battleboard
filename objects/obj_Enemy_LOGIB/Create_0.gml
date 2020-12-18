@@ -70,11 +70,6 @@ ammo_max = 100;
 shoot_ammo = false;
 ammo_rate = 10;
 
-building_supply = 50;
-building_max = 100;
-shoot_building = false;
-building_rate = 10;
-
 //Infantry
 rfl_supply_rate = 20;
 rpg_supply_rate = 1;
@@ -120,10 +115,6 @@ manned_unit = noone;
 
 ds_list_add(global.unit_list, id);//Add self to unit list
 ds_list_add(global.enemyunit_list, id);//Add self to enemy unit list
-
-fire_menu[0] = "Ammo";
-fire_menu[1] = "Supply";
-fire_menu[1] = "Cancel";
 
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 2);

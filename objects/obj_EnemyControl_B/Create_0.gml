@@ -47,11 +47,39 @@ target_y = y;
 can_reinforce = true;
 idle_count = 0;
 
+//Initial spawn wave
 infantry_amount = 10;
+infantry_a = 6;
+infantry_b = 4;
 tank_amount = 8;
-engineer_amount = 2;
+tank_a = 6;
+tank_b = 2;
+engineer_amount = 4;
+engineer_a = 2;
+engineer_b = 4;
 btr_amount = 12;
+btr_a = 10;
+btr_b = 2;
 logi_amount = 2;
+logi_a = 1;
+logi_b = 1;
+
+//Reinforment waves
+infantry_amount_r = 4;
+infantry_a_r = 3;
+infantry_b_r = 1;
+tank_amount_r = 4;
+tank_a_r = 2;
+tank_b_r = 2;
+engineer_amount_r = 2;
+engineer_a_r = 1;
+engineer_b_r = 1;
+btr_amount_r = 4;
+btr_a_r = 1;
+btr_b_r = 3;
+logi_amount_r = 2;
+logi_a_r = 1;
+logi_b_r = 1;
 
 spawn_infantry = true;
 spawn_tank = false;

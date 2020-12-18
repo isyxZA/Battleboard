@@ -100,12 +100,6 @@ manned_unit = noone;
 ds_list_add(global.unit_list, id);//Add self to unit list
 ds_list_add(global.enemyunit_list, id);//Add self to enemy unit list
 
-fire_menu[0] = "Depot";
-fire_menu[1] = "Repair";
-fire_menu[2] = "TOW";
-fire_menu[3] = "Mortar"
-fire_menu[4] = "Cancel";
-
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 2);
 audio_emitter_position(emit, x, y, 0);

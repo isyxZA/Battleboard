@@ -84,6 +84,18 @@ ap_max = 50;
 shoot_ap = false;
 ap_rate = 4;
 
+mg_ammo = 600;
+mg_max = 600;
+shoot_mg = false;
+mg_rate = 20;
+mg_cost = 2;
+
+tow_ammo  = 2;
+tow_max   = 2;
+shoot_tow = false;
+tow_rate  = 1;
+tow_cost  = 6;
+
 x_end = x;
 y_end = y;
 x_final = x;
@@ -100,10 +112,6 @@ turret_rot = 0;
 
 ds_list_add(global.unit_list, id);//Add self to unit list
 ds_list_add(global.enemyunit_list, id);//Add self to enemy unit list
-
-fire_menu[0] = "HE";
-fire_menu[1] = "AP";
-fire_menu[2] = "Cancel";
 
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 2);

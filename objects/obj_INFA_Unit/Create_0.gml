@@ -88,11 +88,6 @@ ds_list_add(global.unit_list, id);//Add self to total unit list
 ds_list_add(global.myunit_list, id);//Add self to my unit list
 ds_list_add(global.infa_list, id);
 
-fire_menu[0] = "Rifle";
-fire_menu[1] = "RPG";
-fire_menu[2] = "Flare";
-fire_menu[3] = "Cancel";
-
 my_colour = c_white;
 
 emit = audio_emitter_create();

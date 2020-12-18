@@ -65,7 +65,14 @@ if action_confirmed == true {
             timer_start = true;
             shoot_amount -= 1;
         }
-            else {}
+			else if shoot_mg == true {
+		        shoot_mg = false;
+		        timer_target = 3;
+		        timer_count = timer_target;
+		        timer_start = true;
+		        shoot_amount -= 1;
+		    }
+				else {}
 }
 
 if timer_start == true {

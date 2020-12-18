@@ -102,10 +102,6 @@ ds_list_add(global.unit_list, id);//Add self to total unit list
 ds_list_add(global.myunit_list, id);//Add self to my unit list
 ds_list_add(global.mbtb_list, id);
 
-fire_menu[0] = "Cannon";
-fire_menu[1] = "Heavy MG";
-fire_menu[2] = "Cancel";
-
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 1.5);
 audio_emitter_position(emit, x, y, 0);

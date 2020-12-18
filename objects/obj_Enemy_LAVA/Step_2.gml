@@ -27,7 +27,6 @@ if global.opponent_turn == true || global.enemy_waiting == true {
         if rot != 180  { rot += (sin(degtorad(rot-180))); }
     }
 
-
 if action_confirmed == true { 
     var d2;
     d2 = point_direction(x, y, target_x, target_y)+rot_adj; 

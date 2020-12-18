@@ -48,38 +48,13 @@ if nav_confirmed == true {
 }
 
 if action_confirmed == true {
-    if shoot_depot == true { 
-        shoot_depot = false;
-        shoot_amount -= 1;
-        timer_target = 10;
-        timer_count = timer_target;
-        timer_start = true;
-        if PLAYER.net_status == "NONE" { instance_create_layer(target_x, target_y, "Units", obj_Enemy_Depot); }
-    }
-        else if shoot_repair == true {
-            shoot_repair = false;
-            shoot_amount -= 1;
-            timer_target = 10;
-            timer_count = timer_target;
-            timer_start = true;
-            if PLAYER.net_status == "NONE" { instance_create_layer(target_x, target_y, "Units", obj_Enemy_Repair); }
-        }
-            else if shoot_tow == true {
-                shoot_tow = false;
-                shoot_amount -= 1;
-                timer_target = 10;
-                timer_count = timer_target;
-                timer_start = true;
-                if PLAYER.net_status == "NONE" { instance_create_layer(target_x, target_y, "Units", obj_Enemy_TOW); }
-            }
-                else if shoot_mortar == true {
-                    shoot_mortar = false;
-                    shoot_amount -= 1;
-                    timer_target = 10;
-                    timer_count = timer_target;
-                    timer_start = true;
-                    if PLAYER.net_status == "NONE" { instance_create_layer(target_x, target_y, "Units", obj_Enemy_Mortar); }
-                }
+	if shoot_tow == true {
+	    shoot_tow = false;
+	    shoot_amount -= 1;
+	    timer_target = 10;
+	    timer_count = timer_target;
+	    timer_start = true;
+	}
 }
 
 if timer_start == true {

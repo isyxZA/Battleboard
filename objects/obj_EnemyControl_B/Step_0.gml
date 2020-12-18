@@ -58,7 +58,7 @@ if global.game_state == "IN_GAME" {
 	                            state = choose("DEFEND", "ATTACK", "DEFEND"); 
 	                            can_move = true;
 	                        }
-								else if global.game_turn >= 60 && global.game_turn < 64 { 
+								else if global.game_turn >= 60 && global.game_turn < 68 { 
 	                                turn_start = false;
 	                                state = "REINFORCE";
 									can_reinforce = true;
@@ -74,7 +74,7 @@ if global.game_state == "IN_GAME" {
 									spawn_btr = false;
 									spawn_logi = false;
 	                            }
-	                            else if global.game_turn >= 64 && global.game_turn <= 75 {
+	                            else if global.game_turn >= 69 && global.game_turn <= 79 {
 	                                //Check and replenish ammo
 	                                var ia;
 	                                if !ds_list_empty(active_list) {
@@ -83,21 +83,35 @@ if global.game_state == "IN_GAME" {
 	                                        with eu {
 	                                            switch unit_type {
 	                                                case "E_INFA":
+													case "E_INFB":
 	                                                    if rifle_ammo <= 0 { rifle_ammo += rifle_rate*4; }
 	                                                    if rpg_ammo   <= 0 { rpg_ammo += rpg_rate; }
 	                                                    if flare_ammo <= 0 { flare_ammo += flare_rate; }
 	                                                    break;
 	                                                case "E_MBTA":
+													case "E_MBTB":
 	                                                    if cannon_ammo <= 0 { cannon_ammo += cannon_rate*2; }
 	                                                    if mg_ammo     <= 0 { mg_ammo += mg_rate*4; }
 	                                                    break;
 	                                                case "E_LACA":
 	                                                    break;
+													case "E_LACB":
+														if tow_ammo <= 0 { tow_ammo += tow_rate*2; }
+	                                                    break;
 	                                                case "E_LAVA":
+	                                                    if ap_ammo  <= 0 { ap_ammo  += ap_rate*2;  }
+	                                                    if he_ammo  <= 0 { he_ammo  += he_rate*2;  }
+														if mg_ammo  <= 0 { mg_ammo  += mg_rate*2;  }
+	                                                    if tow_ammo <= 0 { tow_ammo += tow_rate*2; }
+	                                                    break;
+													case "E_LAVB":
 	                                                    if ap_ammo <= 0 { ap_ammo += ap_rate*2; }
 	                                                    if he_ammo <= 0 { he_ammo += he_rate*2; }
+														if mg_ammo <= 0 { mg_ammo += mg_rate*2; }
 	                                                    break;
 	                                                case "E_LOGIA":
+	                                                    break;
+													case "E_LOGIB":
 	                                                    break;
 	                                                case "E_DEPOT":
 	                                                    break;
@@ -115,7 +129,7 @@ if global.game_state == "IN_GAME" {
 	                                state = "DEFEND";  
 	                                can_move = true;
 								}
-									else if global.game_turn > 75  {
+									else if global.game_turn > 76  {
 			                            turn_start = false;
 			                            state = choose("DEFEND", "ATTACK", "DEFEND", "DEFEND"); 
 			                            can_move = true;
@@ -198,7 +212,18 @@ switch state {
                     if !ds_list_empty(tile_list) {
                         var c  = abs(floor(random(ds_list_size(tile_list))));
                         var ct = ds_list_find_value(tile_list, c);
-                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_INFA); infantry_amount -= 1; }
+                        if ct != noone { 
+							if infantry_a > 0 {
+								infantry_a -= 1;
+								instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_INFA); 
+								infantry_amount -= 1; 
+							}
+								else if infantry_b > 0 {
+									infantry_b -= 1;
+									instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_INFB); 
+									infantry_amount -= 1; 
+								}
+						}
                         //Remove the waypoint to prevent unit stacking
                         ds_list_delete(tile_list, c);
                     }
@@ -222,7 +247,18 @@ switch state {
                         if !ds_list_empty(tile_list) {
                             var c  = abs(floor(random(ds_list_size(tile_list))));
                             var ct = ds_list_find_value(tile_list, c);
-                            if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_MBTA); tank_amount -= 1; }
+                            if ct != noone { 
+								if tank_a > 0 {
+									tank_a -= 1;
+									instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_MBTA); 
+									tank_amount -= 1; 
+								}
+									else if tank_b > 0 {
+										tank_b -= 1;
+										instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_MBTB); 
+										tank_amount -= 1; 
+									} 
+							}
                             //Remove the waypoint to prevent unit stacking
                             ds_list_delete(tile_list, c);
                         }
@@ -245,7 +281,18 @@ switch state {
                             if !ds_list_empty(tile_list) {
                                 var c  = abs(floor(random(ds_list_size(tile_list))));
                                 var ct = ds_list_find_value(tile_list, c);
-                                if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LACA); engineer_amount -= 1; }
+                                if ct != noone { 
+									if engineer_a > 0 {
+										engineer_a -= 1;
+										instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LACA); 
+										engineer_amount -= 1; 
+									}
+										else if engineer_b > 0 {
+											engineer_b -= 1;
+											instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LACB); 
+											engineer_amount -= 1; 
+										} 
+								}
                                 //Remove the waypoint to prevent unit stacking
                                 ds_list_delete(tile_list, c);
                             }
@@ -268,7 +315,18 @@ switch state {
                                 if !ds_list_empty(tile_list) {
                                     var c  = abs(floor(random(ds_list_size(tile_list))));
                                     var ct = ds_list_find_value(tile_list, c);
-                                    if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LAVA); btr_amount -= 1; }
+                                    if ct != noone { 
+										if btr_a > 0 {
+											btr_a -= 1;
+											instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LAVA); 
+											btr_amount -= 1; 
+										}
+											else if btr_b > 0 {
+												btr_b -= 1;
+												instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LAVB); 
+												btr_amount -= 1; 
+											} 
+									}
                                     //Remove the waypoint to prevent unit stacking
                                     ds_list_delete(tile_list, c);
                                 }
@@ -291,7 +349,18 @@ switch state {
                                     if !ds_list_empty(tile_list) {
                                         var c  = abs(floor(random(ds_list_size(tile_list))));
                                         var ct = ds_list_find_value(tile_list, c);
-                                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LOGIA); logi_amount -= 1; }
+                                        if ct != noone { 
+											if logi_a > 0 {
+												logi_a -= 1;
+												instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LOGIA); 
+												logi_amount -= 1; 
+											}
+												else if logi_b > 0 {
+													logi_b -= 1;
+													instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LOGIB); 
+													logi_amount -= 1; 
+												}  
+										}
                                         //Remove the waypoint to prevent unit stacking
                                         ds_list_delete(tile_list, c);
                                     }
@@ -610,12 +679,23 @@ switch state {
             //First spawn INFANTRY units
             if spawn_infantry == true {
                 var esc = 0;
-                while infantry_amount > 0 {
+                while infantry_amount_r > 0 {
                     //Choose a waypoint from list of qualified tiles
                     if !ds_list_empty(tile_list) {
                         var c  = abs(floor(random(ds_list_size(tile_list))));
                         var ct = ds_list_find_value(tile_list, c);
-                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_INFA); infantry_amount -= 1; }
+                        if ct != noone { 
+							if infantry_a_r > 0 {
+								infantry_a_r -= 1;
+								instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_INFA); 
+								infantry_amount_r -= 1; 
+							}
+								else if infantry_b_r > 0 {
+									infantry_b_r -= 1;
+									instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_INFB); 
+									infantry_amount_r -= 1; 
+								} 
+						}
                         //Remove the waypoint to prevent unit stacking
                         ds_list_delete(tile_list, c);
                     }
@@ -623,7 +703,7 @@ switch state {
                     if esc > 200 { break; } else { esc+=1; }
                 }
                 //If all infantry have been spawned then switch to tank spawning
-                if infantry_amount <= 0 { 
+                if infantry_amount_r <= 0 { 
                     spawn_infantry = false; 
                     spawn_tank = true; 
                     alarm[7] = 120;
@@ -633,19 +713,30 @@ switch state {
                 //Spawn TANK units
                 else if spawn_tank == true {
                     var esc = 0;
-                    while tank_amount > 0 {
+                    while tank_amount_r > 0 {
                         //Choose a waypoint from list of qualified tiles
                         if !ds_list_empty(tile_list) {
                             var c  = abs(floor(random(ds_list_size(tile_list))));
                             var ct = ds_list_find_value(tile_list, c);
-                            if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_MBTA); tank_amount -= 1; }
+                            if ct != noone { 
+								if tank_a_r > 0 {
+									tank_a_r -= 1;
+									instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_MBTA); 
+									tank_amount_r -= 1; 
+								}
+									else if tank_b_r > 0 {
+										tank_b_r -= 1;
+										instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_MBTB); 
+										tank_amount_r -= 1; 
+									}  
+							}
                             //Remove the waypoint to prevent unit stacking
                             ds_list_delete(tile_list, c);
                         }
                         //Give an escape route
                         if esc > 200 { break; } else { esc+=1; }
                     }
-                    if tank_amount <= 0 { 
+                    if tank_amount_r <= 0 { 
                         spawn_tank = false; 
                         spawn_engineer = true; 
                         alarm[7] = 120;
@@ -655,19 +746,30 @@ switch state {
                     //Spawn ENGINEER units
                     else if spawn_engineer == true {
                         var esc = 0;
-                        while engineer_amount > 0 {
+                        while engineer_amount_r > 0 {
                             //Choose a waypoint from list of qualified tiles
                             if !ds_list_empty(tile_list) {
                                 var c  = abs(floor(random(ds_list_size(tile_list))));
                                 var ct = ds_list_find_value(tile_list, c);
-                                if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LACA); engineer_amount -= 1; }
+                                if ct != noone { 
+									if engineer_a_r > 0 {
+										engineer_a_r -= 1;
+										instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LACA); 
+										engineer_amount_r -= 1; 
+									}
+										else if engineer_b_r > 0 {
+											engineer_b_r -= 1;
+											instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LACB); 
+											engineer_amount_r -= 1; 
+										} 
+								}
                                 //Remove the waypoint to prevent unit stacking
                                 ds_list_delete(tile_list, c);
                             }
                             //Give an escape route
                             if esc > 200 { break; } else { esc+=1; }
                         }
-                        if engineer_amount <= 0 { 
+                        if engineer_amount_r <= 0 { 
                             spawn_engineer = false; 
                             spawn_btr = true; 
                             alarm[7] = 120;
@@ -677,20 +779,31 @@ switch state {
                         //Spawn BTR units
                         else if spawn_btr == true {
                             var esc = 0;
-                            while btr_amount > 0 {
+                            while btr_amount_r > 0 {
                                 //Spawn infantry
                                 //Choose a waypoint from list of qualified tiles
                                 if !ds_list_empty(tile_list) {
                                     var c  = abs(floor(random(ds_list_size(tile_list))));
                                     var ct = ds_list_find_value(tile_list, c);
-                                    if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LAVA); btr_amount -= 1; }
+                                    if ct != noone { 
+										if btr_a_r > 0 {
+											btr_a_r -= 1;
+											instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LAVA); 
+											btr_amount_r -= 1; 
+										}
+											else if btr_b_r > 0 {
+												btr_b_r -= 1;
+												instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LAVB); 
+												btr_amount_r -= 1; 
+											} 
+									}
                                     //Remove the waypoint to prevent unit stacking
                                     ds_list_delete(tile_list, c);
                                 }
                                 //Give an escape route
                                 if esc > 200 { break; } else { esc+=1; }
                             }
-                            if btr_amount <= 0 { 
+                            if btr_amount_r <= 0 { 
                                 spawn_btr = false; 
                                 spawn_logi = true; 
                                 alarm[7] = 120;
@@ -700,20 +813,31 @@ switch state {
                             //Spawn LOGI units
                             else if spawn_logi == true {
                                 var esc = 0;
-                                while logi_amount > 0 {
+                                while logi_amount_r > 0 {
                                     //Spawn infantry
                                     //Choose a waypoint from list of qualified tiles
                                     if !ds_list_empty(tile_list) {
                                         var c  = abs(floor(random(ds_list_size(tile_list))));
                                         var ct = ds_list_find_value(tile_list, c);
-                                        if ct != noone { instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LOGIA); logi_amount -= 1; }
+                                        if ct != noone { 
+											if logi_a_r > 0 {
+												logi_a_r -= 1;
+												instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LOGIA); 
+												logi_amount_r -= 1; 
+											}
+												else if logi_b_r > 0 {
+													logi_b_r -= 1;
+													instance_create_layer(ct.tile_x, ct.tile_y, "Units", obj_Enemy_LOGIB); 
+													logi_amount_r -= 1; 
+												}  
+										}
                                         //Remove the waypoint to prevent unit stacking
                                         ds_list_delete(tile_list, c);
                                     }
                                     //Give an escape route
                                     if esc > 200 { break; } else { esc+=1; }
                                 }
-                                if logi_amount <= 0 { 
+                                if logi_amount_r <= 0 { 
                                     spawn_logi = false; 
                                     ds_list_clear(tile_list);
 									state = "IDLE";

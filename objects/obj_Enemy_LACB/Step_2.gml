@@ -26,4 +26,11 @@ if global.opponent_turn == true || global.enemy_waiting == true {
         //Set idle image rotation
         if rot != 180  { rot += (sin(degtorad(rot-180))); }
     }
+	
+if action_confirmed == true { 
+    var d2;
+    d2 = point_direction(x, y, target_x, target_y)+rot_adj; 
+    if turret_rot != d2  { turret_rot += (sin(degtorad(turret_rot-d2))); }
+}
+    else { if turret_rot != 180  { turret_rot += (sin(degtorad(turret_rot-180))); } }
 

@@ -119,12 +119,6 @@ ds_list_add(global.unit_list, id);//Add self to total unit list
 ds_list_add(global.myunit_list, id);//Add self to my unit list
 ds_list_add(global.lavb_list, id);
 
-fire_menu[0] = "HE";
-fire_menu[1] = "AP";
-fire_menu[3] = "MG";
-fire_menu[4] = "Dismount";
-fire_menu[5] = "Cancel";
-
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 1.5);
 audio_emitter_position(emit, x, y, 0);

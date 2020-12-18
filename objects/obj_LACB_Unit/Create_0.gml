@@ -90,9 +90,6 @@ tow_max = 4;
 shoot_tow = false;
 tow_rate = 1;
 
-fire_menu[0] = "TOW";
-fire_menu[1] = "Cancel";
-
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 1.5);
 audio_emitter_position(emit, x, y, 0);

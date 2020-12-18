@@ -12,11 +12,13 @@ if p_side == "ONE" {
 		case "US":
 			my_sprite = spr_Engineer_A2a;
 			spot_mask = spr_Engineer_A2a_Mask;
+			my_turret = spr_Engineer_A2a_Turret;
 			crater_index = spr_Engineer_Crater_US;
 			break;
 		case "RU":
 			my_sprite = spr_Engineer_B2a;
 			spot_mask = spr_Engineer_B2a_Mask;
+			my_turret = spr_Engineer_B2a_Turret;
 			crater_index = spr_Engineer_Crater_RU;
 			break;
 	}
@@ -29,11 +31,13 @@ if p_side == "ONE" {
 			case "US":
 				my_sprite = spr_Engineer_A1a;
 				spot_mask = spr_Engineer_A1a_Mask;
+				my_turret = spr_Engineer_A1a_Turret;
 				crater_index = spr_Engineer_Crater_US;
 				break;
 			case "RU":
 				my_sprite = spr_Engineer_B1a;
 				spot_mask = spr_Engineer_B1a_Mask;
+				my_turret = spr_Engineer_B1a_Turret;
 				crater_index = spr_Engineer_Crater_RU;
 				break;
 		}
@@ -65,25 +69,10 @@ ap_cost = 6;
 
 action_range = 136;
 
-depot_supply = 1;
-depot_max = 1;
-shoot_depot = false;
-depot_rate = 1;
-
-repair_supply = 1;
-repair_max = 1;
-shoot_repair = false;
-repair_rate = 1;
-
-tow_supply = 1;
-tow_max = 1;
+tow_ammo = 4;
+tow_max = 4;
 shoot_tow = false;
 tow_rate = 1;
-
-mortar_supply = 1;
-mortar_max = 1;
-shoot_mortar = false;
-mortar_rate = 1;
 
 x_end = x;
 y_end = y;
@@ -97,14 +86,10 @@ can_man = true;
 is_manning = false;
 manned_unit = noone;
 
+turret_rot = 0;
+
 ds_list_add(global.unit_list, id);//Add self to unit list
 ds_list_add(global.enemyunit_list, id);//Add self to enemy unit list
-
-fire_menu[0] = "Depot";
-fire_menu[1] = "Repair";
-fire_menu[2] = "TOW";
-fire_menu[3] = "Mortar"
-fire_menu[4] = "Cancel";
 
 emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 2);

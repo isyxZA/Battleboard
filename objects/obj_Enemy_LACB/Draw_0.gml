@@ -10,6 +10,7 @@ if is_visible == true {
 		if p_one == true  { yy = y_final+38; }
 			else if p_one == false { yy = y_final-38; }
         draw_sprite_ext(my_sprite, 0, x_final, y_final, scl,scl, 0, my_colour, pa);
+		draw_sprite_ext(my_turret, 0, x_final, y_final, scl, scl, turret_rot, my_colour, pa);
     }
         else {
 			xx = x;
@@ -21,6 +22,8 @@ if is_visible == true {
 			shader_set_uniform_f(bright_x, 0.5);
 			shader_set_uniform_f(bright_y, 0.5);
 	        draw_sprite_ext(my_sprite, 0, x, y, scl,scl, 0, my_colour, my_alpha);
+			texture_set_stage(mask, sprite_get_texture(my_turret, 0));
+	        draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, my_colour, my_alpha);
 			shader_reset();
         }
 		
@@ -28,7 +31,6 @@ if is_visible == true {
 	//draw_text_transformed_shadow(xx, yy, string(my_squad), 1, 1, txt_rot, 2, 245, c_black, 1);
 
 	if action_confirmed == true {
-	    draw_line_width_colour(x, y, target_x, target_y, 3, c_red, c_red);
 	    draw_set_colour(c_white);
 	    draw_text_transformed_shadow(x, y, string(timer_count), 1, 1, txt_rot, 2, 245, c_black, 1);
 	}
