@@ -44,7 +44,7 @@ if nav_confirmed == true {
         var t = instance_place(x, y, obj_Game_Tile);
         t.occupied = false;
         //Start navigation with x_final and y_final end point
-        mp_grid_path(global.move_grid, my_path, x, y, x_final, y_final, diag);
+        mp_grid_path(my_grid, my_path, x, y, x_final, y_final, diag);
         nav_offset = 0;
         my_sound = audio_play_sound_on(emit, snd_TankMoving_01, true, 1);
         path_start(my_path, my_speed, path_action_stop, 0);
@@ -79,7 +79,7 @@ if nav_confirmed == true {
         y_end = y;
         x_final = x;
         y_final = y;
-        mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+        mp_grid_path(my_grid, my_path, x, y, x, y, diag);
         line_alpha = 0.35;
         audio_stop_sound(my_sound);
         audio_play_sound_on(emit, snd_TankShutdown, false, 1);

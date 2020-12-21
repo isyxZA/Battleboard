@@ -4,6 +4,7 @@ with obj_Enemy_Parent {
     scr_VisibilityCheck();
 }
 with shoot_mask { instance_destroy(); }
+mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 audio_emitter_free(emit);
 part_system_destroy(particle_dep0);
 part_system_destroy(particle_dep1);

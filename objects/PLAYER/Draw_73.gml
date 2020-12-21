@@ -13,25 +13,22 @@ if t_a > 0 {
 	draw_set_alpha(1);
 }
 
-/*
+
 if room == rm_ALPHA || room == rm_BRAVO {
 	if global.debug == true {
 		draw_set_alpha(0.1);
-		mp_grid_draw(global.move_grid);
+		mp_grid_draw(global.inf_move_grid);
 		draw_set_alpha(1);
-		with obj_Unit_Parent  { 
-			draw_set_color(c_green);
-			draw_text_transformed(x, y, id, 1, 1, txt_rot);
-			draw_set_color(c_black);
-		}
+		/*
 		with obj_Enemy_Parent { 
 			draw_set_color(c_green);
 			draw_text_transformed(x, y, net_id, 1, 1, txt_rot);
 			draw_set_color(c_black);
 		}
+		*/
 	}
 }
-*/
+
 
 
 

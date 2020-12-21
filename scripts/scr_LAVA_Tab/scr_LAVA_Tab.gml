@@ -641,7 +641,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				                                            if u.shoot_amount == 0 { 
 				                                                u.action_confirmed = true;
 				                                                global.units_running += 1; 
-				                                                u.shoot_ap = true;
+				                                                u.shoot_sqd = true;
 				                                                u.weapon = "SQD";
 				                                                u.target_x = global.target_x;
 				                                                u.target_y = global.target_y;

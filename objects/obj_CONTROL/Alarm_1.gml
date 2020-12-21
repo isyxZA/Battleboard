@@ -243,7 +243,7 @@ if global.game_turn == 0 {
                         y_end = y;
                         x_final = x;
                         y_final = y; 
-                        mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);      
+                        mp_grid_path(nav_grid, my_path, x, y, x, y, diag);      
                     }
                 }
             }
@@ -274,7 +274,7 @@ if global.game_turn == 0 {
                             y_end = y;
                             x_final = x;
                             y_final = y; 
-                            mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);      
+                            mp_grid_path(my_grid, my_path, x, y, x, y, diag);      
                         }
                     }
                 }
@@ -288,7 +288,7 @@ if global.game_turn == 0 {
                                 case "E_INFA":
 									if PLAYER.net_status != "NONE" { 
 										rifle_ammo = 100;
-										rpg_ammo = 1;
+										rpg_ammo   = 1;
 										flare_ammo = 2;
 									}
 									no_shot = false;
@@ -300,7 +300,7 @@ if global.game_turn == 0 {
 								case "E_INFB":
 									if PLAYER.net_status != "NONE" { 
 										rifle_ammo = 100;
-										rpg_ammo = 1;
+										rpg_ammo   = 1;
 										flare_ammo = 2;
 									}
 									no_shot = false;
@@ -346,10 +346,7 @@ if global.game_turn == 0 {
                                     break;
 								case "E_LACB":
 									if PLAYER.net_status != "NONE" { 
-										depot_supply  = 1;
-										repair_supply = 1;
-										tow_supply    = 1;
-										mortar_supply = 1;
+										tow_ammo    = 1;
 									}
 									no_shot = false;
                                     no_move = false;
@@ -359,8 +356,10 @@ if global.game_turn == 0 {
                                     break;
                                 case "E_LAVA":
 									if PLAYER.net_status != "NONE" { 
-										he_ammo = 80;
-										ap_ammo = 80;
+										he_ammo  = 80;
+										ap_ammo  = 80;
+										mg_ammo  = 600;
+										tow_ammo = 2;
 									}
 									no_shot = false;
                                     no_move = false;
@@ -372,6 +371,7 @@ if global.game_turn == 0 {
 									if PLAYER.net_status != "NONE" { 
 										he_ammo = 80;
 										ap_ammo = 80;
+										mg_ammo = 600;
 									}
 									no_shot = false;
                                     no_move = false;
@@ -392,8 +392,7 @@ if global.game_turn == 0 {
                                     break;
 								case "E_LOGIB":
 									if PLAYER.net_status != "NONE" { 
-										building_supply = 100;
-										ammo_supply = 100;
+										ammo_supply = 50;
 									}
                                     no_shot = false;
                                     no_move = false;

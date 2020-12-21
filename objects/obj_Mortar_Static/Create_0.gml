@@ -1,5 +1,7 @@
 event_inherited();
 
+my_grid = global.inf_move_grid;
+
 var p_side = PLAYER.player;
 p_faction  = PLAYER.faction;
 

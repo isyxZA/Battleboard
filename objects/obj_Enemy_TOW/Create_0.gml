@@ -76,3 +76,11 @@ emit = audio_emitter_create();
 audio_emitter_falloff(emit, 200, 2000, 2);
 audio_emitter_position(emit, x, y, 0);
 
+if PLAYER.net_status == "NONE" {
+	nav_grid  = global.inf_move_grid;
+	
+}
+	else {
+		nav_grid  = global.net_move_grid;
+	}
+

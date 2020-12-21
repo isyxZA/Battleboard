@@ -136,14 +136,14 @@ function scr_LOGIB_SQUAD_Tab(argument0, argument1) {
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_logib_list); i+=1) {
 	                            var u = ds_list_find_value(global.selected_logib_list, i);
-	                            if (u.can_shoot == true) && (u.sqd_supply >= deploy_rate) {
+	                            if (u.can_shoot == true) && (u.sqd_ammo >= deploy_rate) {
 	                                if (u.action_points >= ap_cost) {
 	                                    logisqd_l_amount -= deploy_rate;
 	                                    if logisqd_l_amount >= 0 { 
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
-	                                            u.shoot_ammo = true;
+	                                            u.shoot_squad = true;
 	                                            u.weapon     = "SQUAD";
 	                                            u.target_x   = global.target_x;
 	                                            u.target_y   = global.target_y;
@@ -152,7 +152,7 @@ function scr_LOGIB_SQUAD_Tab(argument0, argument1) {
 	                                            u.alarm[3] = global.tick_rate*3;
 	                                        }
 	                                        u.shoot_amount  += 1; 
-	                                        u.sqd_supply    -= deploy_rate;
+	                                        u.sqd_ammo    -= deploy_rate;
 	                                        global.turn_AP  -= ap_cost;
 	                                        u.action_points -= ap_cost;
 	                                        u.alert_text = "-"+string(u.shoot_amount*ap_cost)+ " AP";

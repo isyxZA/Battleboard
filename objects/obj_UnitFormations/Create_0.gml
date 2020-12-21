@@ -40,32 +40,32 @@ rs5 = instance_create_layer(x+260, 928, "Buttons", obj_ReserveAssigner);//LOG
 
 us1.unit_class  = "INF";
 us1.my_unit     = "INF_A";
-us1.my_sprite   = spr_Infantry_Icon;
-us1.icon_sprite = spr_Infantry_Dropdown;
+us1.my_sprite   = spr_INFA_Icon;
+us1.icon_sprite = spr_INFA_Dropdown;
 us1.unit_cost   = INF_1;
 
 us2.unit_class  = "MBT";
 us2.my_unit     = "MBT_A";
-us2.my_sprite   = spr_Tank_Icon;
-us2.icon_sprite = spr_Tank_Dropdown;
+us2.my_sprite   = spr_MBTA_Icon;
+us2.icon_sprite = spr_MBTA_Dropdown;
 us2.unit_cost   = MBT_1;
 
 us3.unit_class  = "LAC";
 us3.my_unit     = "LAC_A";
-us3.my_sprite   = spr_Engineer_Icon;
-us3.icon_sprite = spr_Engineer_Dropdown;
+us3.my_sprite   = spr_LACA_Icon;
+us3.icon_sprite = spr_LACA_Dropdown;
 us3.unit_cost   = LAC_1;
 
 us4.unit_class  = "LAV";
 us4.my_unit     = "LAV_A";
-us4.my_sprite   = spr_BTR_Icon;
-us4.icon_sprite = spr_BTR_Dropdown;
+us4.my_sprite   = spr_LAVA_Icon;
+us4.icon_sprite = spr_LAVA_Dropdown;
 us4.unit_cost   = LAV_1;
 
 us5.unit_class  = "LOG";
 us5.my_unit     = "LOGI_A";
-us5.my_sprite   = spr_Logi_Icon;
-us5.icon_sprite = spr_Logi_Dropdown;
+us5.my_sprite   = spr_LOGIA_Icon;
+us5.icon_sprite = spr_LOGIA_Dropdown;
 us5.unit_cost   = LOG_1;
 
 sa1.my_squad = "ALPHA";

@@ -336,7 +336,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 		                                //If the unit has line of fire then add its ammo to available rounds
 		                                if can_shoot == true {
 		                                    obj_ACTIONMENU.logib_amo_supply += ammo_supply;
-		                                    obj_ACTIONMENU.logib_sqd_supply += sqd_supply;
+		                                    obj_ACTIONMENU.logib_sqd_supply += sqd_ammo;
 		                                }
 		                                break;
 		                            case "DEPOT":

@@ -29,7 +29,8 @@ if t != noone {
 cant_shoot = -1;
 alarm[3] = 6;
 instance_create_layer(x, y, global.ground_layer, obj_Cant_Shoot);
-mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
+mp_grid_add_rectangle(global.move_grid    , x-36, y-36, x+36, y+36);
+mp_grid_add_rectangle(global.inf_move_grid, x-36, y-36, x+36, y+36);
 if PLAYER.net_status != "NONE" { mp_grid_add_rectangle(global.net_move_grid, x-36, y-36, x+36, y+36); }
 rot = random_range(0, 359);
 forest_cover = -1;

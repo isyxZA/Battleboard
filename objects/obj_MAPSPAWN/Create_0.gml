@@ -7,7 +7,8 @@ global.max_y = y+map_size;
 //Create ground layer and tilemaps
 global.ground_layer  = layer_get_id("Ground");
 //Initialise motion planning grid
-global.move_grid = mp_grid_create(x, y, global.grid_size, global.grid_size, global.cell_size, global.cell_size);
+global.move_grid     = mp_grid_create(x, y, global.grid_size, global.grid_size, global.cell_size, global.cell_size);
+global.inf_move_grid = mp_grid_create(x, y, global.grid_size, global.grid_size, global.cell_size, global.cell_size);
 if PLAYER.net_status != "NONE" {
 	global.net_move_grid = mp_grid_create(x, y, global.grid_size, global.grid_size, global.cell_size, global.cell_size);
 }

@@ -44,7 +44,7 @@ if nav_confirmed == true {
         var t = instance_place(x, y, obj_Game_Tile);
         t.occupied = false;
         //Start navigation with x_final and y_final end point
-        mp_grid_path(global.move_grid, my_path, x, y, x_final, y_final, diag);
+        mp_grid_path(my_grid, my_path, x, y, x_final, y_final, diag);
         nav_offset = 0;
         my_sound = audio_play_sound_on(emit, snd_TruckIdle01, true, 1);
         path_start(my_path, my_speed, path_action_stop, 0);
@@ -79,7 +79,7 @@ if nav_confirmed == true {
         y_end = y;
         x_final = x;
         y_final = y;
-        mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+        mp_grid_path(my_grid, my_path, x, y, x, y, diag);
         line_alpha = 0.35;
         audio_stop_sound(my_sound);
         //Switch off gui alert
@@ -105,52 +105,64 @@ if action_confirmed == true {
         shoot_amount -= 1;
     }
         else if shoot_squad == true {
-			if !shoot_mask.t_line {
-				//Add alert to gui
-				shoot_squad = false;
-				if squad_unit != "NOONE" {
-					ds_list_add(global.action_alert_list, "Logi Deploying Squad");
-					timer_target = 3;
-					timer_count = timer_target;
-					timer_start = true;
-					shoot_amount -= 1;
-					switch squad_unit {
-						case "INF_A":
-							var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
+			//Add alert to gui
+			shoot_squad = false;
+			sqd_unit   = ds_list_find_value(unit_list  , 0);
+			sqd_squad  = ds_list_find_value(squad_list , 0);
+			sqd_health = ds_list_find_value(health_list, 0);
+			sqd_rflamo = ds_list_find_value(rflamo_list, 0);
+			sqd_rpgamo = ds_list_find_value(rpgamo_list, 0);
+			sqd_flramo = ds_list_find_value(flramo_list, 0);
+			if sqd_unit != "NOONE" {
+				ds_list_add(global.action_alert_list, "Logi Deploying Squad");
+				timer_target = 1;
+				timer_count = timer_target;
+				timer_start = true;
+				shoot_amount -= 1;
+				switch sqd_unit {
+					case "INF_A":
+						var inf = instance_create_layer(target_x, target_y, "Units", obj_INFA_Unit);
+						break;
+					case "INF_B":
+						var inf = instance_create_layer(target_x, target_y, "Units", obj_INFB_Unit);
+						break;
+					default:
+						var inf = instance_create_layer(target_x, target_y, "Units", obj_INFA_Unit);
+						break;
+				}
+				with inf {
+					my_squad      = other.sqd_squad;
+					action_points = other.sqd_ap;
+					unit_health   = other.sqd_health;
+					rifle_ammo    = other.sqd_rflamo;
+					rpg_ammo      = other.sqd_rpgamo;
+					flare_ammo    = other.sqd_flramo;
+					//Add to squad list
+					switch my_squad {
+						case "ALPHA":
+							ds_list_add(global.squad_alpha, id);
 							break;
-						case "INF_B":
-							var inf = instance_create_layer(x, y, "Units", obj_INFB_Unit);
+						case "BRAVO":
+							ds_list_add(global.squad_bravo, id);
 							break;
-						default:
-							var inf = instance_create_layer(x, y, "Units", obj_INFA_Unit);
+						case "CHARLIE":
+							ds_list_add(global.squad_charlie, id);
 							break;
-					}
-					with inf {
-						my_squad    = other.squad_temp;
-						unit_health = other.health_temp;
-						rifle_ammo = rfl_temp;
-						rpg_ammo   = rpg_temp;
-						flare_ammo = flr_temp;
-						//Add to squad list
-						switch my_squad {
-							case "ALPHA":
-								ds_list_add(global.squad_alpha, id);
-								break;
-							case "BRAVO":
-								ds_list_add(global.squad_bravo, id);
-								break;
-							case "CHARLIE":
-								ds_list_add(global.squad_charlie, id);
-								break;
-							case "DELTA":
-								ds_list_add(global.squad_delta, id);
-								break;
-							case "ECHO":
-								ds_list_add(global.squad_echo, id);
-								break;
-						}
+						case "DELTA":
+							ds_list_add(global.squad_delta, id);
+							break;
+						case "ECHO":
+							ds_list_add(global.squad_echo, id);
+							break;
 					}
 				}
+				ds_list_delete(unit_list  , 0);
+				ds_list_delete(squad_list , 0);
+				ds_list_delete(ap_list    , 0);
+				ds_list_delete(health_list, 0);
+				ds_list_delete(rflamo_list, 0);
+				ds_list_delete(rpgamo_list, 0);
+				ds_list_delete(flramo_list, 0);
 			}
 		}
             else {}
@@ -159,6 +171,15 @@ if action_confirmed == true {
 if timer_start == true {
     timer_start = false;
     alarm[2] = global.tick_rate;
+}
+
+if add_squad == true {
+	add_squad = false;
+	ds_list_add(squad_list , sqd_unit  );
+	ds_list_add(health_list, sqd_health);
+	ds_list_add(rflamo_list, sqd_rflamo);
+	ds_list_add(rpgamo_list, sqd_rpgamo);
+	ds_list_add(flramo_list, sqd_flramo);
 }
 
 //Rotate the unit toward the next path point

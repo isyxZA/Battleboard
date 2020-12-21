@@ -1,5 +1,7 @@
 event_inherited();
 
+my_grid = global.move_grid;
+
 var p_side = PLAYER.player;
 p_faction  = PLAYER.faction;
 
@@ -100,12 +102,23 @@ sqd_max   = 4;
 shoot_sqd = false;
 sqd_rate  = 1;
 sqd_cost  = 2;
-squad_unit = "NOONE";
-squad_temp = "NOONE";
-health_temp = 0;
-rfl_temp = 0;
-flr_temp = 0;
-rpg_temp = 0;
+
+sqd_unit    = "NOONE";
+sqd_squad   = "NOONE";
+sqd_ap      = 0;
+sqd_health  = 0;
+sqd_rflamo  = 0;
+sqd_rpgamo  = 0;
+sqd_flramo  = 0;
+//Squads being transported
+unit_list   = ds_list_create();
+squad_list  = ds_list_create();
+ap_list     = ds_list_create();
+health_list = ds_list_create();
+rflamo_list = ds_list_create();
+rpgamo_list = ds_list_create();
+flramo_list = ds_list_create();
+add_squad = false;
 
 x_end = x;
 y_end = y;

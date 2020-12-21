@@ -11,7 +11,7 @@ function scr_EnemyNavigation(argument0, argument1) {
 	var tap1 = 0;
 	
 	//Create the navigation path 
-	if mp_grid_path(global.move_grid, my_path, x, y, xx, yy, diag) {
+	if mp_grid_path(nav_grid, my_path, x, y, xx, yy, diag) {
 	    //Limit movement to move cap
 	    //while (path_get_number(my_path)-1 > move_max) { path_delete_point(my_path, path_get_number(my_path)-1); }    
 		//Calculate the ap cost
@@ -338,12 +338,12 @@ function scr_EnemyNavigation(argument0, argument1) {
 	        }
 	    }
 	    //Create the final path
-	    mp_grid_path(global.move_grid, my_path, x, y, x_end, y_end, diag);
+	    mp_grid_path(nav_grid, my_path, x, y, x_end, y_end, diag);
 	    if (x_end == x) && (y_end == y)  { move_amount = 0; }
 	        else { move_amount = (path_get_number(my_path)-1); }
 
 	    if move_amount > 0 {
-		    if mp_grid_path(global.move_grid, my_path, x, y, x_end, y_end, diag) {
+		    if mp_grid_path(nav_grid, my_path, x, y, x_end, y_end, diag) {
 				temp_ap = 0;
 				var im3;
 				for(im3=0; im3<move_amount; im3++) {
@@ -375,7 +375,7 @@ function scr_EnemyNavigation(argument0, argument1) {
 		            y_end = y;
 		            x_final = x;
 		            y_final = y;
-		            mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+		            mp_grid_path(nav_grid, my_path, x, y, x, y, diag);
 					mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
 		            no_move = true;
 					move_max = 0;
@@ -388,7 +388,7 @@ function scr_EnemyNavigation(argument0, argument1) {
 	            y_end = y;
 	            x_final = x;
 	            y_final = y;
-	            mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+	            mp_grid_path(nav_grid, my_path, x, y, x, y, diag);
 				mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
 	            no_move = true;
 				move_max = 0;

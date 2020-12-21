@@ -463,7 +463,7 @@ function scr_DrawUnitStats() {
 					//SQUADS
 		            draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, 0, c_white, 1);
 		            draw_text_colour(xx-9, yy+18, "SQ",                  c_white, c_white, c_white, c_white, 1);
-		            draw_text_colour(xx-29, yy+18, string(sqd_supply), c_white, c_white, c_white, c_white, 1);
+		            draw_text_colour(xx-29, yy+18, string(sqd_ammo), c_white, c_white, c_white, c_white, 1);
 		            draw_set_halign(fa_left);
 		            //Ammo Supply
 		            draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, 0, c_white, 1);
@@ -1100,7 +1100,7 @@ function scr_DrawUnitStats() {
 						//SQUADS
 						draw_sprite_ext(spr_Stat_Background, 0, xx+26, yy-18, 1, 1, txt_rot, c_white, 1);
 						draw_text_transformed_colour(xx+10, yy-18, "SQ", 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
-						draw_text_transformed_colour(xx+28, yy-18, string(sqd_supply), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx+28, yy-18, string(sqd_ammo), 1, 1, txt_rot, c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_left);
 						//Ammo Supply
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);

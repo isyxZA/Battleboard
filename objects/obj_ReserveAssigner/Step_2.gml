@@ -17,19 +17,34 @@ if lcheck == true {
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
 						case "INF_A":
-							slot1_sprite = spr_Infantry_Dropdown;
+							slot1_sprite = spr_INFA_Dropdown; 
+							break;
+						case "INF_B":
+							slot1_sprite = spr_INFB_Dropdown; 
 							break;
 						case "MBT_A":
-							slot1_sprite = spr_Tank_Dropdown;
+							slot1_sprite = spr_MBTA_Dropdown; 
+							break;
+						case "MBT_B":
+							slot1_sprite = spr_MBTA_Dropdown; 
 							break;
 						case "LAC_A":
-							slot1_sprite = spr_Engineer_Dropdown;
+							slot1_sprite = spr_LACA_Dropdown; 
+							break;
+						case "LAC_B":
+							slot1_sprite = spr_LACB_Dropdown; 
 							break;
 						case "LAV_A":
-							slot1_sprite = spr_BTR_Dropdown;
+							slot1_sprite = spr_LAVA_Dropdown; 
+							break;
+						case "LAV_B":
+							slot1_sprite = spr_LAVB_Dropdown; 
 							break;
 						case "LOGI_A":
-							slot1_sprite = spr_Logi_Dropdown;
+							slot1_sprite = spr_LOGIA_Dropdown; 
+							break;
+						case "LOGI_B":
+							slot1_sprite = spr_LOGIB_Dropdown; 
 							break;
 					}
 					break;
@@ -38,19 +53,34 @@ if lcheck == true {
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
 						case "INF_A":
-							slot2_sprite = spr_Infantry_Dropdown;
+							slot2_sprite = spr_INFA_Dropdown; 
+							break;
+						case "INF_B":
+							slot2_sprite = spr_INFB_Dropdown; 
 							break;
 						case "MBT_A":
-							slot2_sprite = spr_Tank_Dropdown;
+							slot2_sprite = spr_MBTA_Dropdown; 
+							break;
+						case "MBT_B":
+							slot2_sprite = spr_MBTA_Dropdown; 
 							break;
 						case "LAC_A":
-							slot2_sprite = spr_Engineer_Dropdown;
+							slot2_sprite = spr_LACA_Dropdown; 
+							break;
+						case "LAC_B":
+							slot2_sprite = spr_LACB_Dropdown; 
 							break;
 						case "LAV_A":
-							slot2_sprite = spr_BTR_Dropdown;
+							slot2_sprite = spr_LAVA_Dropdown; 
+							break;
+						case "LAV_B":
+							slot2_sprite = spr_LAVB_Dropdown; 
 							break;
 						case "LOGI_A":
-							slot2_sprite = spr_Logi_Dropdown;
+							slot2_sprite = spr_LOGIA_Dropdown; 
+							break;
+						case "LOGI_B":
+							slot2_sprite = spr_LOGIB_Dropdown; 
 							break;
 					}
 					break;
@@ -59,19 +89,34 @@ if lcheck == true {
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
 						case "INF_A":
-							slot3_sprite = spr_Infantry_Dropdown;
+							slot3_sprite = spr_INFA_Dropdown; 
+							break;
+						case "INF_B":
+							slot3_sprite = spr_INFB_Dropdown; 
 							break;
 						case "MBT_A":
-							slot3_sprite = spr_Tank_Dropdown;
+							slot3_sprite = spr_MBTA_Dropdown; 
+							break;
+						case "MBT_B":
+							slot3_sprite = spr_MBTA_Dropdown; 
 							break;
 						case "LAC_A":
-							slot3_sprite = spr_Engineer_Dropdown;
+							slot3_sprite = spr_LACA_Dropdown; 
+							break;
+						case "LAC_B":
+							slot3_sprite = spr_LACB_Dropdown; 
 							break;
 						case "LAV_A":
-							slot3_sprite = spr_BTR_Dropdown;
+							slot3_sprite = spr_LAVA_Dropdown; 
+							break;
+						case "LAV_B":
+							slot3_sprite = spr_LAVB_Dropdown; 
 							break;
 						case "LOGI_A":
-							slot3_sprite = spr_Logi_Dropdown;
+							slot3_sprite = spr_LOGIA_Dropdown; 
+							break;
+						case "LOGI_B":
+							slot3_sprite = spr_LOGIB_Dropdown; 
 							break;
 					}
 					break;
@@ -80,19 +125,34 @@ if lcheck == true {
 					slu = ds_list_find_value(squad_list, sli);
 					switch slu {
 						case "INF_A":
-							slot4_sprite = spr_Infantry_Dropdown;
+							slot4_sprite = spr_INFA_Dropdown; 
+							break;
+						case "INF_B":
+							slot4_sprite = spr_INFB_Dropdown; 
 							break;
 						case "MBT_A":
-							slot4_sprite = spr_Tank_Dropdown;
+							slot4_sprite = spr_MBTA_Dropdown; 
+							break;
+						case "MBT_B":
+							slot4_sprite = spr_MBTA_Dropdown; 
 							break;
 						case "LAC_A":
-							slot4_sprite = spr_Engineer_Dropdown;
+							slot4_sprite = spr_LACA_Dropdown; 
+							break;
+						case "LAC_B":
+							slot4_sprite = spr_LACB_Dropdown; 
 							break;
 						case "LAV_A":
-							slot4_sprite = spr_BTR_Dropdown;
+							slot4_sprite = spr_LAVA_Dropdown; 
+							break;
+						case "LAV_B":
+							slot4_sprite = spr_LAVB_Dropdown; 
 							break;
 						case "LOGI_A":
-							slot4_sprite = spr_Logi_Dropdown;
+							slot4_sprite = spr_LOGIA_Dropdown; 
+							break;
+						case "LOGI_B":
+							slot4_sprite = spr_LOGIB_Dropdown; 
 							break;
 					}
 					break;

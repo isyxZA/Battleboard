@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_Infantry_Icon",
-    "path": "sprites/spr_Infantry_Icon/spr_Infantry_Icon.yy",
+    "name": "spr_INFA_Icon",
+    "path": "sprites/spr_INFA_Icon/spr_INFA_Icon.yy",
   },
   "solid": false,
   "visible": true,

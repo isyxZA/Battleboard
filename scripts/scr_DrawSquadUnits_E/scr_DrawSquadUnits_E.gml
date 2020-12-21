@@ -31,24 +31,46 @@ function scr_DrawSquadUnits_E(argument0) {
 			            else { icon_colour = c_red; }
 			    switch unit.unit_type {
 			        case "E_INFA":
+			            draw_sprite_ext(spr_INFA_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            break;
 					case "E_INFB":
-			            draw_sprite_ext(spr_Infantry_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            draw_sprite_ext(spr_INFB_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
 			        case "E_MBTA":
+			            draw_sprite_ext(spr_MBTA_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            break;
 					case "E_MBTB":
-			            draw_sprite_ext(spr_Tank_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            draw_sprite_ext(spr_MBTB_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
 			        case "E_LACA":
+			            draw_sprite_ext(spr_LACA_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            break;
 					case "E_LACB":
-			            draw_sprite_ext(spr_Engineer_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            draw_sprite_ext(spr_LACB_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
 			        case "E_LAVA":
+			            draw_sprite_ext(spr_LAVA_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            break;
 					case "E_LAVB":
-			            draw_sprite_ext(spr_BTR_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            draw_sprite_ext(spr_LAVB_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 			            break;
 			        case "E_LOGIA":
+			            draw_sprite_ext(spr_LOGIA_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            break;
 					case "E_LOGIB":
-			            draw_sprite_ext(spr_Logi_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            draw_sprite_ext(spr_LOGIB_Dropdown, 0, (ui_midx+adj)+((lpos-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+			            break;
+					case "E_DEPOT":
+			            draw_sprite_ext(spr_Depot_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1.2, 1.2, 0, icon_colour, 1);
+			            break;
+					case "E_REPAIR":
+			            draw_sprite_ext(spr_Repair_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1.2, 1.2, 0, icon_colour, 1);
+			            break;
+					case "E_TOW":
+			            draw_sprite_ext(spr_TOW_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1.2, 1.2, 0, icon_colour, 1);
+			            break;
+					case "E_MORTAR":
+			            draw_sprite_ext(spr_Mortar_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1.2, 1.2, 0, icon_colour, 1);
 			            break;
 			    }
 			}

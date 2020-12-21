@@ -1,6 +1,7 @@
 with shoot_mask { instance_destroy(); }
 if my_tile != noone { my_tile.occupied = false; }
 if action_confirmed == true { global.enemyunits_running -= 1; }
+mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 audio_emitter_free(emit);
 ds_list_destroy(target_list);
 ds_list_delete(global.unit_list, ds_list_find_index(global.unit_list, id));//Remove self from unit list

@@ -95,7 +95,7 @@ audio_emitter_falloff(emit, 200, 2000, 2);
 audio_emitter_position(emit, x, y, 0);
 
 if PLAYER.net_status == "NONE" {
-	nav_grid  = global.move_grid;
+	nav_grid  = global.inf_move_grid;
 	
 	var la = ds_list_size(global.squad_1);
 	var lb = ds_list_size(global.squad_2);

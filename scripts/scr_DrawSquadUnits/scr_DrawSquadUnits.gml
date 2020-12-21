@@ -18,24 +18,34 @@ function scr_DrawSquadUnits(argument0) {
 	            else { icon_colour = c_red; }
 	    switch unit.unit_type {
 	        case "INF_A":
+	            draw_sprite_ext(spr_INFA_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            break;
 			case "INF_B":
-	            draw_sprite_ext(spr_Infantry_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            draw_sprite_ext(spr_INFB_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
 	        case "MBT_A":
+	            draw_sprite_ext(spr_MBTA_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            break;
 			case "MBT_B":
-	            draw_sprite_ext(spr_Tank_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            draw_sprite_ext(spr_MBTB_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
 	        case "LAC_A":
+	            draw_sprite_ext(spr_LACA_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            break;
 			case "LAC_B":
-	            draw_sprite_ext(spr_Engineer_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            draw_sprite_ext(spr_LACB_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
 	        case "LAV_A":
+	            draw_sprite_ext(spr_LAVA_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            break;
 			case "LAV_B":
-	            draw_sprite_ext(spr_BTR_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            draw_sprite_ext(spr_LAVB_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
 	        case "LOGI_A":
+	            draw_sprite_ext(spr_LOGIA_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            break;
 			case "LOGI_B":
-	            draw_sprite_ext(spr_Logi_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
+	            draw_sprite_ext(spr_LOGIB_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1, 1, 0, icon_colour, 1);
 	            break;
 			case "DEPOT":
 	            draw_sprite_ext(spr_Depot_Dropdown, 0, (ui_midx+adj)+((i-lmid)*s_space), ty_2, 1.2, 1.2, 0, icon_colour, 1);

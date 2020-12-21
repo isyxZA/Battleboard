@@ -1,7 +1,7 @@
 if (x_final == x_end) && (y_final == y_end) { nav_split = false; }
     else { nav_split = true; }
 
-my_path_pos = round(path_get_length(my_path)-(path_get_length(my_path)*path_position)); 
+//my_path_pos = round(path_get_length(my_path)-(path_get_length(my_path)*path_position)); 
 
 if selected { 
     if (global.nav_select == true) || (global.nav_menu == true) {

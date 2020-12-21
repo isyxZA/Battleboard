@@ -1,9 +1,10 @@
-/// @description scr_Navigation(offset);
+/// @description scr_Navigation(nav grid, offset);
+/// @param nav grid
 /// @param offset
-function scr_Navigation(argument0) {
+function scr_Navigation(argument0, argument1) {
 	
-
-	var mx = mouse_x-global.cell_size*0.5 + argument0;
+	var n_grid = argument0;
+	var mx = mouse_x-global.cell_size*0.5 + argument1;
 	var my = mouse_y-global.cell_size*0.5;
 	var xx = instance_nearest(mx, my, obj_Game_Tile).tile_x;
 	var yy = instance_nearest(mx, my, obj_Game_Tile).tile_y;
@@ -11,7 +12,7 @@ function scr_Navigation(argument0) {
 	var tap1 = 0;
 
 	//Create the navigation path 
-	if mp_grid_path(global.move_grid, my_path, x, y, xx, yy, diag) {
+	if mp_grid_path(n_grid, my_path, x, y, xx, yy, diag) {
 	    //Limit movement to move max
 	    while (path_get_number(my_path)-1 > move_max) { path_delete_point(my_path, path_get_number(my_path)-1); }  
 		//Calculate the ap cost
@@ -179,6 +180,96 @@ function scr_Navigation(argument0) {
 	                                        }
 	                                }
 	                            break;
+							//Transport Vehicles
+							case "LAV_A":
+	                        case "LAV_B":
+	                        case "LOGI_B":
+	                            //First check if this unit waypoint is still at start position
+	                            //This will prevent adding path points in the negative direction
+	                            if (x_end == x) && (y_end == y) {
+	                                x_end = path_get_x(my_path, 1);
+	                                y_end = path_get_y(my_path, 1);
+	                            }
+	                                else {
+	                                    //Check for overlapping path ends
+	                                    if (x_end == u.x_end) && (y_end == u.y_end) {
+	                                        //If the vehicle has space
+	                                        if u.sqd_ammo < u.sqd_max {
+	                                            switch unit_type {
+	                                                //If this unit is a vehicle
+	                                                //Prevent from loading
+	                                                case "MBT_A":
+													case "MBT_B":
+	                                                case "LAC_A":
+													case "LAC_B":
+	                                                case "LAV_A":
+													case "LAV_B":
+	                                                case "LOGI_A":
+													case "LOGI_B":
+	                                                    path_delete_point(my_path, path_get_number(my_path) - 1);
+	                                                    x_end = path_get_x(my_path, 1);
+	                                                    y_end = path_get_y(my_path, 1);
+	                                                    break;
+													//If this unit is infantry
+													//Allow unit to load
+													case "INF_A":
+													case "INF_B":
+	                                                case "DEPOT":
+	                                                case "REPAIR":
+	                                                case "TOW":
+	                                                case "MORTAR":
+	                                                    break;
+	                                            }
+	                                        }
+	                                            //If the vehicle is full
+	                                            //Prevent units from loading
+	                                            else {
+	                                                path_delete_point(my_path, path_get_number(my_path) - 1);
+	                                                x_end = path_get_x(my_path, 1);
+	                                                y_end = path_get_y(my_path, 1);
+	                                            } 
+	                                    }
+	                                        //Check for overlapping path ends
+	                                        else if (x_end == u.x_final) && (y_end == u.y_final) {
+	                                            //If the vehicle has space
+		                                        if u.sqd_ammo < u.sqd_max {
+		                                            switch unit_type {
+		                                                //If this unit is a vehicle
+		                                                //Prevent from loading
+		                                                case "MBT_A":
+														case "MBT_B":
+		                                                case "LAC_A":
+														case "LAC_B":
+		                                                case "LAV_A":
+														case "LAV_B":
+		                                                case "LOGI_A":
+														case "LOGI_B":
+		                                                    path_delete_point(my_path, path_get_number(my_path) - 1);
+		                                                    x_end = path_get_x(my_path, 1);
+		                                                    y_end = path_get_y(my_path, 1);
+		                                                    break;
+														//If this unit is infantry
+														//Allow unit to load
+														case "INF_A":
+														case "INF_B":
+		                                                case "DEPOT":
+		                                                case "REPAIR":
+		                                                case "TOW":
+		                                                case "MORTAR":
+		                                                    break;
+		                                            }
+		                                        }
+		                                            //If the vehicle is full
+		                                            //Prevent units from loading
+		                                            else {
+		                                                path_delete_point(my_path, path_get_number(my_path) - 1);
+		                                                x_end = path_get_x(my_path, 1);
+		                                                y_end = path_get_y(my_path, 1);
+		                                            }  
+	                                        }
+	                                }
+	                            break;
+							//Repair Station
 	                        case "REPAIR":
 	                            //First check if unit is still at start position
 	                            //This will prevent adding path points in the negative direction
@@ -338,7 +429,7 @@ function scr_Navigation(argument0) {
 	    }
 	    //Create the final path
 	    //Will be executed once CONFIRMED in the ACTIONMENU
-	    mp_grid_path(global.move_grid, my_path, x, y, x_end, y_end, diag);
+	    mp_grid_path(n_grid, my_path, x, y, x_end, y_end, diag);
 	}
 	
 	if (x_end == x) && (y_end == y) { move_amount = 0; }
@@ -366,6 +457,5 @@ function scr_Navigation(argument0) {
 			}
 	    }
 	}
-
 
 }

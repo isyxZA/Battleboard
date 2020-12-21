@@ -216,7 +216,7 @@ if !ds_list_empty(global.selected_list) {
 											            move_amount = 0;
 											            move_max = 0;
 											            nav_offset = 0;
-											            mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+											            mp_grid_path(my_grid, my_path, x, y, x, y, diag);
 							                            break;
 							                    }
 							                }
@@ -272,7 +272,7 @@ if !ds_list_empty(global.selected_list) {
                                     y_final = y;
                                     nav_display = false;
                                     //Reset navigation path
-                                    mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+                                    mp_grid_path(my_grid, my_path, x, y, x, y, diag);
                                     move_amount = 0;
 									move_max = 0;
 									nav_offset = 0;
@@ -379,7 +379,7 @@ if !ds_list_empty(global.selected_list) {
                                 y_final = y;
                                 nav_display = false;
                                 //Reset navigation path
-                                mp_grid_path(global.move_grid, my_path, x, y, x, y, diag);
+                                mp_grid_path(my_grid, my_path, x, y, x, y, diag);
 								temp_ap = 0;
                                 move_amount = 0;
 								move_max = 0;
