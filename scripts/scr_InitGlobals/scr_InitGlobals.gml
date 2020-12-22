@@ -49,11 +49,17 @@ function scr_InitGlobals() {
 	global.mortar_list = ds_list_create();
 	global.selected_mortar_list = ds_list_create();
 
-	global.squad_alpha = ds_list_create();
-	global.squad_bravo = ds_list_create();
+	global.squad_alpha   = ds_list_create();
+	global.squad_bravo   = ds_list_create();
 	global.squad_charlie = ds_list_create();
-	global.squad_delta = ds_list_create();
-	global.squad_echo = ds_list_create();
+	global.squad_delta   = ds_list_create();
+	global.squad_echo    = ds_list_create();
+	
+	global.alpha_transit   = ds_list_create();
+	global.bravo_transit   = ds_list_create();
+	global.charlie_transit = ds_list_create();
+	global.delta_transit   = ds_list_create();
+	global.echo_transit    = ds_list_create();
 
 	global.squad_1 = ds_list_create();
 	global.squad_2 = ds_list_create();

@@ -139,12 +139,31 @@ if global.game_turn != 0 {
                         //Disable queue 
                         in_queue = false;
                         //Remove self from selected units list
-                        ds_list_delete(global.selected_list, ds_list_find_index(global.selected_list, id));
+                        var sl_index = ds_list_find_index(global.selected_list, id);
+						if sl_index != undefined { ds_list_delete(global.selected_list, sl_index); }
                         ds_list_delete(global.selected_mortar_list, ds_list_find_index(global.selected_mortar_list, id));
                     }
                     if can_shoot == true { can_shoot = false; }
                 }
         }
+			else {
+				if is_manned == false {
+                    //If selected and currently selecting a path
+                    if been_selected == true {
+                        //Switch off seledted
+                        selected = false;
+                        //Disable path drawing 
+                        been_selected = false;
+                        //Disable queue 
+                        in_queue = false;
+                        //Remove self from selected units list
+                        var sl_index = ds_list_find_index(global.selected_list, id);
+						if sl_index != undefined { ds_list_delete(global.selected_list, sl_index); }
+                        ds_list_delete(global.selected_mortar_list, ds_list_find_index(global.selected_mortar_list, id));
+                    }
+                    if can_shoot == true { can_shoot = false; }
+                }
+			}
     }
         else {
             //If selected and currently selecting a path

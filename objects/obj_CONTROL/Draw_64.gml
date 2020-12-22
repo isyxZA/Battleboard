@@ -174,7 +174,7 @@ if global.game_state == "IN_GAME" && game_over == false {
                             if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
                                     if !ds_list_empty(global.squad_alpha) {
-                                        scr_DrawSquadUnits(global.squad_alpha);
+                                        scr_DrawSquadUnits(global.squad_alpha, global.alpha_transit);
                                     }
                                 } 
                             }          
@@ -185,7 +185,7 @@ if global.game_state == "IN_GAME" && game_over == false {
                             if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
                                     if !ds_list_empty(global.squad_bravo) {
-                                        scr_DrawSquadUnits(global.squad_bravo);
+                                        scr_DrawSquadUnits(global.squad_bravo, global.bravo_transit);
                                     }
                                 }
                              }           
@@ -196,7 +196,7 @@ if global.game_state == "IN_GAME" && game_over == false {
                             if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
                                     if !ds_list_empty(global.squad_charlie) {
-                                        scr_DrawSquadUnits(global.squad_charlie);
+                                        scr_DrawSquadUnits(global.squad_charlie, global.charlie_transit);
                                     }
                                 } 
                             }          
@@ -207,7 +207,7 @@ if global.game_state == "IN_GAME" && game_over == false {
                             if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
                                     if !ds_list_empty(global.squad_delta) {
-                                        scr_DrawSquadUnits(global.squad_delta);
+                                        scr_DrawSquadUnits(global.squad_delta, global.delta_transit);
                                     }
                                 } 
                             }            
@@ -218,7 +218,7 @@ if global.game_state == "IN_GAME" && game_over == false {
                             if command_targeting == true && targeting_error != true && navigation_error != true && friendly_fire != true {
                                 if li == t_pos && lt == true {
                                     if !ds_list_empty(global.squad_echo) {
-                                        scr_DrawSquadUnits(global.squad_echo);
+                                        scr_DrawSquadUnits(global.squad_echo, global.echo_transit);
                                     }
                                 } 
                             }          

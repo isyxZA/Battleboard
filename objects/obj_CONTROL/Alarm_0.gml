@@ -57,11 +57,11 @@ if timer_count != 0 {
 				if ds_list_empty(global.squad_3) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "E_3")); }
 				if ds_list_empty(global.squad_4) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "E_4")); }
 				if ds_list_empty(global.squad_5) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "E_5")); }
-				if ds_list_empty(global.squad_alpha)   { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "ALPHA")); }
-				if ds_list_empty(global.squad_bravo)   { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "BRAVO")); }
-				if ds_list_empty(global.squad_charlie) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "CHARLIE")); }
-				if ds_list_empty(global.squad_delta)   { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "DELTA")); }
-				if ds_list_empty(global.squad_echo)    { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "ECHO")); }
+				if ds_list_empty(global.squad_alpha) && ds_list_empty(global.alpha_transit) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "ALPHA")); }
+				if ds_list_empty(global.squad_bravo) && ds_list_empty(global.bravo_transit) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "BRAVO")); }
+				if ds_list_empty(global.squad_charlie) && ds_list_empty(global.charlie_transit) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "CHARLIE")); }
+				if ds_list_empty(global.squad_delta) && ds_list_empty(global.delta_transit) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "DELTA")); }
+				if ds_list_empty(global.squad_echo) && ds_list_empty(global.echo_transit) { ds_list_delete(global.turn_list, ds_list_find_index(global.turn_list, "ECHO")); }
                 if global.my_turn == true {
                     global.my_turn = false;
                     can_endturn = false;

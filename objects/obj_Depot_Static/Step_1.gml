@@ -5,7 +5,12 @@ if build_pos < 2 {
     can_be_manned = false;
 }
     else {
-        if can_be_manned == false { can_be_manned = true; }
+        if occupy_switch == true { 
+			occupy_switch = false; 
+			can_be_manned = true;
+			var t = instance_place(x, y, obj_Game_Tile);
+			t.occupied = false;
+		}
         if is_manned == false {
             alert_display = true;
             alert_text = "Unmanned";

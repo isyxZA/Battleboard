@@ -185,27 +185,30 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				        //Select squad to disembark
 				        //Increase by a rate of 1
 				        if mouse_wheel_up() { 
-				            //Check if there is enough ammo available
-				            if lavb_sq_amount <= (lavb_sq_ammo-sqd_rate) { 
-				                //Check if there is enough turn AP for the move
-				                var m_ap = (global.turn_AP-global.temp_AP);
-				                if m_ap >=  sqd_cost {
-				                    //Check total unit AP available
-				                    var i;
-				                    var ap = 0;
-				                    if !ds_list_empty(global.selected_lavb_list) {
-				                        for (i=0; i<ds_list_size(global.selected_lavb_list); i+=1) {
-				                            var unit = ds_list_find_value(global.selected_lavb_list, i);
-											var sl = point_distance(unit.x, unit.y, global.target_x, global.target_y);
-				                            if (unit.can_shoot == true) && (sl <= 136) { ap += unit.action_points; }
-				                        }
-				                    }
-				                    if ap >= ((lavb_sq_amount+sqd_rate)/sqd_rate)*sqd_cost {
-				                        //Add the rounds
-				                        lavb_sq_amount += sqd_rate; 
-				                    }
-				                }
-				            } 
+							if tile_empty == true {
+					            //Check if there is enough ammo available
+					            if lavb_sq_amount <= (lavb_sq_ammo-sqd_rate) { 
+					                //Check if there is enough turn AP for the move
+					                var m_ap = (global.turn_AP-global.temp_AP);
+					                if m_ap >=  sqd_cost {
+					                    //Check total unit AP available
+					                    var i;
+					                    var ap = 0;
+					                    if !ds_list_empty(global.selected_lavb_list) {
+					                        for (i=0; i<ds_list_size(global.selected_lavb_list); i+=1) {
+					                            var unit = ds_list_find_value(global.selected_lavb_list, i);
+												var sl = point_distance(unit.x, unit.y, global.target_x, global.target_y);
+					                            if (unit.can_shoot == true) && (sl <= 136) { ap += unit.action_points; }
+					                        }
+					                    }
+					                    if ap >= ((lavb_sq_amount+sqd_rate)/sqd_rate)*sqd_cost {
+					                        //Add the rounds
+					                        lavb_sq_amount += sqd_rate; 
+					                    }
+					                }
+					            } 
+							}
+								else { lavb_sq_amount = 0; }
 				        }
 				        //Decrease by a rate of 1
 				        if mouse_wheel_down() { 
@@ -496,6 +499,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		                }
 							else if f4 { 
 					            //DISMOUNT SQUAD
+								if tile_empty == false { lavb_sq_amount = 0; }
 					            //Remove ammo cost
 					            if lavb_sq_amount != 0 {
 					                var t=0;

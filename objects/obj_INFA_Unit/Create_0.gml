@@ -82,6 +82,7 @@ target_x = x;
 target_y = y;
 diag = true;
 
+spawn_check = false;
 can_man = true;
 is_manning = false;
 manned_unit = noone;

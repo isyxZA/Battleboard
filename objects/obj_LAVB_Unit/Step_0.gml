@@ -100,9 +100,9 @@ if global.game_turn != 0 {
                                     //If the target is within range
                                     if d <= action_range {
                                         //If the unit has enough action points for a shot
-                                        if (global.turn_AP >= ap_cost) && (action_points >= ap_cost) {
+                                        if (global.turn_AP >= ap_cost) && (action_points >= 2) {
                                             //If the unit has enough ammo for at least one round
-                                            if (he_ammo >= he_rate) || (ap_ammo >= ap_rate) || (mg_ammo >= mg_rate) {
+                                            if (he_ammo >= he_rate) || (ap_ammo >= ap_rate) || (mg_ammo >= mg_rate) || (sqd_ammo >= sqd_rate) {
                                                 can_shoot = true; 
                                             }
                                                 else { can_shoot = false; }

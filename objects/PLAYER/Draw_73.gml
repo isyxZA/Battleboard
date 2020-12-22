@@ -16,16 +16,10 @@ if t_a > 0 {
 
 if room == rm_ALPHA || room == rm_BRAVO {
 	if global.debug == true {
-		draw_set_alpha(0.1);
-		mp_grid_draw(global.inf_move_grid);
-		draw_set_alpha(1);
-		/*
-		with obj_Enemy_Parent { 
-			draw_set_color(c_green);
-			draw_text_transformed(x, y, net_id, 1, 1, txt_rot);
-			draw_set_color(c_black);
-		}
-		*/
+		with obj_Game_Tile { if occupied == true { draw_text(tile_x, tile_y, "Occupied"); } }
+		//draw_set_alpha(0.1);
+		//mp_grid_draw(global.inf_move_grid);
+		//draw_set_alpha(1);
 	}
 }
 

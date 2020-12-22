@@ -5,6 +5,7 @@ with obj_Enemy_Parent {
 }
 obj_CONTROL.lost_tank += 1;
 with shoot_mask { instance_destroy(); }
+if is_manning == false { if my_tile != noone { my_tile.occupied = false; } }
 mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
 audio_emitter_free(emit);
 part_system_destroy(particle_tank0);

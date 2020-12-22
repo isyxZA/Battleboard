@@ -1,6 +1,8 @@
 if nav_confirmed == true {
     //Start movement along stored path
     if can_move == true {
+		//Set move false to prevent starting the path more than once
+        can_move = false;
 		if PLAYER.net_status == "HOST" {
 			//Send navigation data to client
 			var cc = ds_list_size(global.clients);
@@ -28,8 +30,6 @@ if nav_confirmed == true {
 			}
         global.units_running += 1;
         alarm[9] = 20;
-        //Set move false to prevent starting the path more than once
-        can_move = false;
         if anim_select == false { 
             scl = 0.8;
             anim_select = true; 
@@ -41,6 +41,8 @@ if nav_confirmed == true {
         } else { shoot_mask = instance_create_layer(x_final, y_final, "Units", obj_Cant_Shoot); }
         var t = instance_place(x, y, obj_Game_Tile);
         t.occupied = false;
+		var tt = instance_place(x_final, y_final, obj_Game_Tile);
+	    tt.occupied = true;
         //Start navigation with x_final and y_final end point
         mp_grid_path(my_grid, my_path, x, y, x_final, y_final, diag);
         nav_offset = 0;
@@ -59,9 +61,9 @@ if nav_confirmed == true {
         nav_confirmed = false; 
         path_end();
         var t = instance_place(x, y, obj_Game_Tile);
-        t.occupied = true;
+        //t.occupied = true;
 		mp_cost   = t.move_rating;
-        my_tile   = t.id;//was t.tile_num
+        my_tile   = t.id;
         my_tile_x = t.tile_x;
         my_tile_y = t.tile_y;
 		view_radius = (global.cell_size*4)+(t.height_rating*global.cell_size);

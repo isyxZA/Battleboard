@@ -1,6 +1,8 @@
 if nav_confirmed == true {
     //Start movement along stored path
     if can_move == true {
+		//Set move false to prevent starting the path more than once
+        can_move = false;
 		if PLAYER.net_status == "HOST" {
 			//Send navigation data to client
 			var cc = ds_list_size(global.clients);
@@ -30,8 +32,6 @@ if nav_confirmed == true {
 		part_emitter_clear(particle_eng0, eng0_emitter);
 		part_emitter_clear(particle_eng1, eng1_emitter);
         alarm[9] = 20;
-        //Set move false to prevent starting the path more than once
-        can_move = false;
         if anim_select == false { 
             scl = 0.8;
             anim_select = true; 
@@ -40,19 +40,23 @@ if nav_confirmed == true {
         if shoot_mask != noone { 
             shoot_mask.x = x_final; 
             shoot_mask.y = y_final;
-        }
-        var t = instance_place(x, y, obj_Game_Tile);
-        t.occupied = false;
-        //Start navigation with x_final and y_final end point
-        mp_grid_path(my_grid, my_path, x, y, x_final, y_final, diag);
-        nav_offset = 0;
-        my_sound = audio_play_sound_on(emit, snd_TruckIdle01, true, 1);
-        path_start(my_path, my_speed, path_action_stop, 0);
+        } else { shoot_mask = instance_create_layer(x_final, y_final, "Units", obj_Cant_Shoot); }
         if is_manning == true { 
             with manned_unit { is_occupied = false; manned_unit = noone; }
             is_manning = false;
             manned_unit = noone;
         }
+			else { 
+				var t = instance_place(x, y, obj_Game_Tile);
+				t.occupied = false;
+			}
+		var tt = instance_place(x_final, y_final, obj_Game_Tile);
+	    tt.occupied = true;
+        //Start navigation with x_final and y_final end point
+        mp_grid_path(my_grid, my_path, x, y, x_final, y_final, diag);
+        nav_offset = 0;
+        my_sound = audio_play_sound_on(emit, snd_TruckIdle01, true, 1);
+        path_start(my_path, my_speed, path_action_stop, 0);
         //Add alert to gui
         ds_list_add(global.action_alert_list, "LAC TOW Moving");
     }
@@ -66,7 +70,7 @@ if nav_confirmed == true {
         nav_confirmed = false; 
         path_end();
         var t = instance_place(x, y, obj_Game_Tile);
-        t.occupied = true;
+        //t.occupied = true;
         mp_cost   = t.move_rating;
         my_tile   = t.id;
         my_tile_x = t.tile_x;

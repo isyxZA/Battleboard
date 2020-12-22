@@ -40,29 +40,32 @@ function scr_LOGIB_SQUAD_Tab(argument0, argument1) {
 	        //Deploy Squad
 	        //Increase
 	        if mouse_wheel_up() { 
-	            //Check if there is enough ammo supply available
-	            if logisqd_l_amount <= (logib_sqd_supply-deploy_rate) {
-	                //Make sure the unit ammo does not go over max
-	                if (logisqd_l_amount+deploy_rate) <= deploy_max {
-	                    //Check if there is enough turn AP for the move
-	                    var m_ap = (global.turn_AP-global.temp_AP);
-	                    if m_ap >= ap_cost {
-	                        //Check total unit AP available
-	                        var i;
-	                        var ap = 0;
-	                        if !ds_list_empty(global.selected_logib_list) {
-	                            for (i=0; i<ds_list_size(global.selected_logib_list); i+=1) {
-	                                var unit = ds_list_find_value(global.selected_logib_list, i);
-	                                if unit.can_shoot == true { ap += unit.action_points; }
-	                            }
-	                        }
-	                        if ap >= ap_cost {
-	                            //Add the rounds
-	                            logisqd_l_amount += deploy_rate; 
-	                        }
-	                    }
-	                }
-	            } 
+				if tile_empty == true {
+		            //Check if there is enough ammo supply available
+		            if logisqd_l_amount <= (logib_sqd_supply-deploy_rate) {
+		                //Make sure the unit ammo does not go over max
+		                if (logisqd_l_amount+deploy_rate) <= deploy_max {
+		                    //Check if there is enough turn AP for the move
+		                    var m_ap = (global.turn_AP-global.temp_AP);
+		                    if m_ap >= ap_cost {
+		                        //Check total unit AP available
+		                        var i;
+		                        var ap = 0;
+		                        if !ds_list_empty(global.selected_logib_list) {
+		                            for (i=0; i<ds_list_size(global.selected_logib_list); i+=1) {
+		                                var unit = ds_list_find_value(global.selected_logib_list, i);
+		                                if unit.can_shoot == true { ap += unit.action_points; }
+		                            }
+		                        }
+		                        if ap >= ap_cost {
+		                            //Add the rounds
+		                            logisqd_l_amount += deploy_rate; 
+		                        }
+		                    }
+		                }
+		            } 
+				}
+					else { logisqd_l_amount = 0;  }
 	        }
 	        //Decrease by a rate of 1
 	        if mouse_wheel_down() { 
@@ -127,7 +130,8 @@ function scr_LOGIB_SQUAD_Tab(argument0, argument1) {
 				}
 	        }
 	            else if f1 {
-	                //TRANSFER MORTAR AMMO
+	                //DEPLOY SQUAD
+					if tile_empty == false { logisqd_l_amount = 0; }
 	                //Remove ammo cost
 	                if logisqd_l_amount != 0 {
 	                    var t=0;

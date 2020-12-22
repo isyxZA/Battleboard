@@ -25,6 +25,222 @@ if anim_select == true {
     }
 }
 
+if spawn_check == true {
+	spawn_check = false;
+	var depot  = instance_place(x, y, obj_Depot_Static);
+	var repair = instance_place(x, y, obj_Repair_Static);
+	var tow    = instance_place(x, y, obj_TOW_Static);
+	var mortar = instance_place(x, y, obj_Mortar_Static);
+	if depot != noone { 
+		is_manning = true; 
+		manned_unit = depot.id;
+		depot.is_manned = true;
+		depot.spawn_unit = obj_INFB_Unit;
+		depot.my_inf = my_sprite;
+		depot.active = true;
+		depot.can_be_selected = false;
+		depot.alarm[11] = 60;
+		depot.alert_display = false;
+		depot.alert_text = "No Alert";
+		depot.alert_colour = c_green;
+		depot.action_points = action_points;
+		depot.rifle_ammo = rifle_ammo;
+		depot.rpg_ammo = rpg_ammo;
+		depot.flare_ammo = flare_ammo;
+		if my_squad != "NOONE" {
+			switch my_squad {
+			    case "ALPHA":
+			        ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
+			        my_squad = "NOONE";
+			        depot.my_squad = "ALPHA";
+			        ds_list_add(global.squad_alpha, depot.id);
+			        break;
+			    case "BRAVO":
+			        ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
+			        my_squad = "NOONE";
+			        depot.my_squad = "BRAVO";
+			        ds_list_add(global.squad_bravo, depot.id);
+			        break;
+			    case "CHARLIE":
+			        ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
+			        my_squad = "NOONE";
+			        depot.my_squad = "CHARLIE";
+			        ds_list_add(global.squad_charlie, depot.id);
+			        break;
+			    case "DELTA":
+			        ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
+			        my_squad = "NOONE";
+			        depot.my_squad = "DELTA";
+			        ds_list_add(global.squad_delta, depot.id);
+			        break;
+			    case "ECHO":
+			        ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
+			        my_squad = "NOONE";
+			        depot.my_squad = "ECHO";
+			        ds_list_add(global.squad_echo, depot.id);
+			        break;
+			}
+		}
+		instance_destroy();
+	}
+		else if repair != noone { 
+			is_manning = true; 
+			manned_unit = repair.id;
+			repair.is_manned = true;
+			repair.spawn_unit = obj_INFB_Unit;
+			repair.my_inf = my_sprite;
+			repair.active = true;
+			repair.can_be_selected = false;
+			repair.alarm[11] = 60;
+			repair.alert_display = false;
+			repair.alert_text = "No Alert";
+			repair.alert_colour = c_green;
+			repair.action_points = action_points;
+			repair.rifle_ammo = rifle_ammo;
+			repair.rpg_ammo = rpg_ammo;
+			repair.flare_ammo = flare_ammo;
+			if my_squad != "NOONE" {
+			    switch my_squad {
+			        case "ALPHA":
+			            ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
+			            my_squad = "NOONE";
+			            repair.my_squad = "ALPHA";
+			            ds_list_add(global.squad_alpha, repair.id);
+			            break;
+			        case "BRAVO":
+			            ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
+			            my_squad = "NOONE";
+			            repair.my_squad = "BRAVO";
+			            ds_list_add(global.squad_bravo, repair.id);
+			            break;
+			        case "CHARLIE":
+			            ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
+			            my_squad = "NOONE";
+			            repair.my_squad = "CHARLIE";
+			            ds_list_add(global.squad_charlie, repair.id);
+			            break;
+			        case "DELTA":
+			            ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
+			            my_squad = "NOONE";
+			            repair.my_squad = "DELTA";
+			            ds_list_add(global.squad_delta, repair.id);
+			            break;
+			        case "ECHO":
+			            ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
+			            my_squad = "NOONE";
+			            repair.my_squad = "ECHO";
+			            ds_list_add(global.squad_echo, repair.id);
+			            break;
+			    }
+			}
+			instance_destroy();
+		}
+			else if tow != noone { 
+			    is_manning = true; 
+				manned_unit = tow.id;
+			    tow.is_manned = true;
+				tow.spawn_unit = obj_INFB_Unit;
+				tow.my_inf = my_sprite;
+				tow.active = true;
+				tow.can_be_selected = false;
+			    tow.alarm[11] = 60;
+			    tow.alert_display = false;
+			    tow.alert_text = "No Alert";
+			    tow.alert_colour = c_green;
+			    tow.action_points = action_points;
+			    tow.rifle_ammo = rifle_ammo;
+			    tow.rpg_ammo = rpg_ammo;
+			    tow.flare_ammo = flare_ammo;
+			    if my_squad != "NOONE" {
+			        switch my_squad {
+			            case "ALPHA":
+			                ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
+			                my_squad = "NOONE";
+			                tow.my_squad = "ALPHA";
+			                ds_list_add(global.squad_alpha, tow.id);
+			                break;
+			            case "BRAVO":
+			                ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
+			                my_squad = "NOONE";
+			                tow.my_squad = "BRAVO";
+			                ds_list_add(global.squad_bravo, tow.id);
+			                break;
+			            case "CHARLIE":
+			                ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
+			                my_squad = "NOONE";
+			                tow.my_squad = "CHARLIE";
+			                ds_list_add(global.squad_charlie, tow.id);
+			                break;
+			            case "DELTA":
+			                ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
+			                my_squad = "NOONE";
+			                tow.my_squad = "DELTA";
+			                ds_list_add(global.squad_delta, tow.id);
+			                break;
+			            case "ECHO":
+			                ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
+			                my_squad = "NOONE";
+			                tow.my_squad = "ECHO";
+			                ds_list_add(global.squad_echo, tow.id);
+			                break;
+			        }
+			    }
+				instance_destroy();
+			}
+			    else if mortar != noone { 
+			        is_manning = true;
+					manned_unit = mortar.id;
+			        mortar.is_manned = true; 
+					mortar.spawn_unit = obj_INFB_Unit;
+					mortar.my_inf = my_sprite;
+					mortar.active = true;
+					mortar.can_be_selected = false;
+			        //mortar.alarm[11] = 200;
+			        mortar.alert_display = false;
+			        mortar.alert_text = "No Alert";
+			        mortar.alert_colour = c_green;
+			        mortar.action_points = action_points;
+			        mortar.rifle_ammo = rifle_ammo;
+			        mortar.rpg_ammo = rpg_ammo;
+			        mortar.flare_ammo = flare_ammo;
+			        if my_squad != "NOONE" {
+			            switch my_squad {
+			                case "ALPHA":
+			                    ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
+			                    my_squad = "NOONE";
+			                    mortar.my_squad = "ALPHA";
+			                    ds_list_add(global.squad_alpha, mortar.id);
+			                    break;
+			                case "BRAVO":
+			                    ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
+			                    my_squad = "NOONE";
+			                    mortar.my_squad = "BRAVO";
+			                    ds_list_add(global.squad_bravo, mortar.id);
+			                    break;
+			                case "CHARLIE":
+			                    ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
+			                    my_squad = "NOONE";
+			                    mortar.my_squad = "CHARLIE";
+			                    ds_list_add(global.squad_charlie, mortar.id);
+			                    break;
+			                case "DELTA":
+			                    ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
+			                    my_squad = "NOONE";
+			                    mortar.my_squad = "DELTA";
+			                    ds_list_add(global.squad_delta, mortar.id);
+			                    break;
+			                case "ECHO":
+			                    ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
+			                    my_squad = "NOONE";
+			                    mortar.my_squad = "ECHO";
+			                    ds_list_add(global.squad_echo, mortar.id);
+			                    break;
+			            }
+			        }
+					instance_destroy();
+			    }
+}
+
 if active == true & is_manning == false {
 	if !ds_list_empty(global.myunit_list) {
 		//If assigned to man a static unit
@@ -261,22 +477,27 @@ if active == true & is_manning == false {
 			                    switch my_squad {
 			                        case "ALPHA":
 			                            ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
+										ds_list_add(global.alpha_transit, unit_type);
 			                            my_squad = "NOONE";
 			                            break;
 			                        case "BRAVO":
 			                            ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
+										ds_list_add(global.bravo_transit, unit_type);
 			                            my_squad = "NOONE";
 			                            break;
 			                        case "CHARLIE":
 			                            ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
+										ds_list_add(global.charlie_transit, unit_type);
 			                            my_squad = "NOONE";
 			                            break;
 			                        case "DELTA":
 			                            ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
+										ds_list_add(global.delta_transit, unit_type);
 			                            my_squad = "NOONE";
 			                            break;
 			                        case "ECHO":
 			                            ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
+										ds_list_add(global.echo_transit, unit_type);
 			                            my_squad = "NOONE";
 			                            break;
 			                    }
@@ -300,22 +521,27 @@ if active == true & is_manning == false {
 				                    switch my_squad {
 				                        case "ALPHA":
 				                            ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
+											ds_list_add(global.alpha_transit, unit_type);
 				                            my_squad = "NOONE";
 				                            break;
 				                        case "BRAVO":
 				                            ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
+											ds_list_add(global.bravo_transit, unit_type);
 				                            my_squad = "NOONE";
 				                            break;
 				                        case "CHARLIE":
 				                            ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
+											ds_list_add(global.charlie_transit, unit_type);
 				                            my_squad = "NOONE";
 				                            break;
 				                        case "DELTA":
 				                            ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
+											ds_list_add(global.delta_transit, unit_type);
 				                            my_squad = "NOONE";
 				                            break;
 				                        case "ECHO":
 				                            ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
+											ds_list_add(global.echo_transit, unit_type);
 				                            my_squad = "NOONE";
 				                            break;
 				                    }
@@ -339,22 +565,27 @@ if active == true & is_manning == false {
 					                    switch my_squad {
 					                        case "ALPHA":
 					                            ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
+												ds_list_add(global.alpha_transit, unit_type);
 					                            my_squad = "NOONE";
 					                            break;
 					                        case "BRAVO":
 					                            ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
+												ds_list_add(global.bravo_transit, unit_type);
 					                            my_squad = "NOONE";
 					                            break;
 					                        case "CHARLIE":
 					                            ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
+												ds_list_add(global.charlie_transit, unit_type);
 					                            my_squad = "NOONE";
 					                            break;
 					                        case "DELTA":
 					                            ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
+												ds_list_add(global.delta_transit, unit_type);
 					                            my_squad = "NOONE";
 					                            break;
 					                        case "ECHO":
 					                            ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
+												ds_list_add(global.echo_transit, unit_type);
 					                            my_squad = "NOONE";
 					                            break;
 					                    }

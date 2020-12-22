@@ -25,6 +25,7 @@ var t = instance_place(x, y, obj_Game_Tile);
 if t != noone {
     my_tile = t;
 	t.my_colour = c_red;
+	t.occupied = true;
 }
 cant_shoot = -1;
 alarm[3] = 6;

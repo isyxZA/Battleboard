@@ -1,6 +1,8 @@
 if nav_confirmed == true {
     //Start movement along stored path
     if can_move == true {
+		//Set move false to prevent starting the path more than once
+        can_move = false;
 		if PLAYER.net_status == "HOST" {
 			//Send navigation data to client
 			var cc = ds_list_size(global.clients);
@@ -30,8 +32,6 @@ if nav_confirmed == true {
 		part_emitter_clear(particle_logi0, logi0_emitter);
 		part_emitter_clear(particle_logi1, logi1_emitter);
         alarm[9] = 20;
-        //Set move false to prevent starting the path more than once
-        can_move = false;
         if anim_select == false { 
             scl = 0.8;
             anim_select = true; 
@@ -40,19 +40,23 @@ if nav_confirmed == true {
         if shoot_mask != noone { 
             shoot_mask.x = x_final; 
             shoot_mask.y = y_final;
-        }
-        var t = instance_place(x, y, obj_Game_Tile);
-        t.occupied = false;
-        //Start navigation with x_final and y_final end point
-        mp_grid_path(my_grid, my_path, x, y, x_final, y_final, diag);
-        nav_offset = 0;
-        my_sound = audio_play_sound_on(emit, snd_TruckIdle01, true, 1);
-        path_start(my_path, my_speed, path_action_stop, 0);
+        } else { shoot_mask = instance_create_layer(x_final, y_final, "Units", obj_Cant_Shoot); }
         if is_manning == true { 
             with manned_unit { is_occupied = false; manned_unit = noone; }
             is_manning = false;
             manned_unit = noone;
         }
+			else { 
+				var t = instance_place(x, y, obj_Game_Tile);
+				t.occupied = false;
+			}
+		var tt = instance_place(x_final, y_final, obj_Game_Tile);
+	    tt.occupied = true;
+        //Start navigation with x_final and y_final end point
+        mp_grid_path(my_grid, my_path, x, y, x_final, y_final, diag);
+        nav_offset = 0;
+        my_sound = audio_play_sound_on(emit, snd_TruckIdle01, true, 1);
+        path_start(my_path, my_speed, path_action_stop, 0);
         //Add alert to gui
         ds_list_add(global.action_alert_list, "Transport Moving");
     }
@@ -66,7 +70,7 @@ if nav_confirmed == true {
         nav_confirmed = false;
         path_end(); 
         var t = instance_place(x, y, obj_Game_Tile);
-        t.occupied = true;
+        //t.occupied = true;
         mp_cost   = t.move_rating;
         my_tile   = t.id;
         my_tile_x = t.tile_x;
@@ -109,6 +113,7 @@ if action_confirmed == true {
 			shoot_squad = false;
 			sqd_unit   = ds_list_find_value(unit_list  , 0);
 			sqd_squad  = ds_list_find_value(squad_list , 0);
+			sqd_ap     = ds_list_find_value(ap_list    , 0);
 			sqd_health = ds_list_find_value(health_list, 0);
 			sqd_rflamo = ds_list_find_value(rflamo_list, 0);
 			sqd_rpgamo = ds_list_find_value(rpgamo_list, 0);
@@ -141,20 +146,32 @@ if action_confirmed == true {
 					switch my_squad {
 						case "ALPHA":
 							ds_list_add(global.squad_alpha, id);
+							var ut = ds_list_find_index(global.alpha_transit, unit_type);
+							if ut != -1 { ds_list_delete(global.alpha_transit, ut); }
 							break;
 						case "BRAVO":
 							ds_list_add(global.squad_bravo, id);
+							var ut = ds_list_find_index(global.bravo_transit, unit_type);
+							if ut != -1 { ds_list_delete(global.bravo_transit, ut); }
 							break;
 						case "CHARLIE":
 							ds_list_add(global.squad_charlie, id);
+							var ut = ds_list_find_index(global.charlie_transit, unit_type);
+							if ut != -1 { ds_list_delete(global.charlie_transit, ut); }
 							break;
 						case "DELTA":
 							ds_list_add(global.squad_delta, id);
+							var ut = ds_list_find_index(global.delta_transit, unit_type);
+							if ut != -1 { ds_list_delete(global.delta_transit, ut); }
 							break;
 						case "ECHO":
 							ds_list_add(global.squad_echo, id);
+							var ut = ds_list_find_index(global.echo_transit, unit_type);
+							if ut != -1 { ds_list_delete(global.echo_transit, ut); }
 							break;
 					}
+					if my_squad == obj_CONTROL.active_turn { active = true; }
+					spawn_check = true;
 				}
 				ds_list_delete(unit_list  , 0);
 				ds_list_delete(squad_list , 0);
@@ -175,7 +192,9 @@ if timer_start == true {
 
 if add_squad == true {
 	add_squad = false;
-	ds_list_add(squad_list , sqd_unit  );
+	ds_list_add(unit_list  , sqd_unit  );
+	ds_list_add(squad_list , sqd_squad );
+	ds_list_add(ap_list    , sqd_ap    );
 	ds_list_add(health_list, sqd_health);
 	ds_list_add(rflamo_list, sqd_rflamo);
 	ds_list_add(rpgamo_list, sqd_rpgamo);

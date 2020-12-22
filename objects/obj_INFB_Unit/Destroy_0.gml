@@ -4,11 +4,13 @@ with obj_Enemy_Parent {
     scr_VisibilityCheck();
 }
 with shoot_mask { instance_destroy(); }
-if is_manning == false { mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40); }
+if is_manning == false { 
+	if my_tile != noone { my_tile.occupied = false; }
+	mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40); 
+}
 	else if is_manning == true {
 		if manned_unit != noone { 
 			if manned_unit.unit_type == "REPAIR" { mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40); } 
-				else { } 
 		}
 			else  { mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40); }
 	}

@@ -450,9 +450,16 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 						}
                         break;
                     case "LAV_A":
+						target_tile = instance_place(global.target_x, global.target_y, obj_Game_Tile);
+						//First check if the tile is occupied or not
+						if target_tile != noone {
+							if target_tile.occupied == false { tile_empty = true; }
+								else { tile_empty = false; }
+						}
+							else { tile_empty = false; }
                         scr_LAVA_Tab(
 							obj_LAVA_Unit.he_rate, obj_LAVA_Unit.ap_rate, obj_LAVA_Unit.mg_rate, obj_LAVA_Unit.tow_rate, obj_LAVA_Unit.sqd_rate,
-							obj_LAVA_Unit.he_cost, obj_LAVA_Unit.ap_cost, obj_LAVA_Unit.mg_cost, obj_LAVA_Unit.tow_cost, obj_LAVA_Unit.sqd_cost
+							obj_LAVA_Unit.he_cost, obj_LAVA_Unit.ap_cost, obj_LAVA_Unit.mg_cost, obj_LAVA_Unit.tow_cost, obj_LAVA_Unit.sqd_cost,
 						);
 						if menu_anim == true {
 							if menu_anim_count < menu_anim_timer { 
@@ -464,6 +471,13 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 						}
                         break;
 					case "LAV_B":
+						target_tile = instance_place(global.target_x, global.target_y, obj_Game_Tile);
+						//First check if the tile is occupied or not
+						if target_tile != noone {
+							if target_tile.occupied == false { tile_empty = true; }
+								else { tile_empty = false; }
+						}
+							else { tile_empty = false; }
                         scr_LAVB_Tab(
 							obj_LAVB_Unit.he_rate, obj_LAVB_Unit.ap_rate, obj_LAVB_Unit.mg_rate, obj_LAVB_Unit.sqd_rate,
 							obj_LAVB_Unit.he_cost, obj_LAVB_Unit.ap_cost, obj_LAVB_Unit.mg_cost, obj_LAVB_Unit.sqd_cost
@@ -1120,6 +1134,13 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								}
                                 break;
 							case "SQUAD":
+								target_tile = instance_place(global.target_x, global.target_y, obj_Game_Tile);
+								//First check if the tile is occupied or not
+								if target_tile != noone {
+									if target_tile.occupied == false { tile_empty = true; }
+										else { tile_empty = false; }
+								}
+									else { tile_empty = false; }
                                 var max_1  = 1;
                                 var rate_1 = 1;
                                 scr_LOGIB_SQUAD_Tab(max_1, rate_1);
