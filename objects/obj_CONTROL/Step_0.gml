@@ -128,19 +128,15 @@ if global.game_state == "IN_GAME" {
 	}
 	    else if global.game_turn == 0 {
 			if PLAYER.net_status == "NONE" {
-		        //Determine how many units have been deployed from the ships
-		        var itotal = ds_list_size(global.myunit_list);
 		        //Once all units have been deployed, begin manouvers
-		        if itotal == 30 && turn_timer == 99 {
+		        if empty_ship >= 5 && turn_timer == 99 {
 		            timer_count = 0;
 		            turn_timer = 2;
 		        }
 			}
 				else {
-					//Determine how many units have been deployed from the ships
-			        var itotal = ds_list_size(global.myunit_list)+ds_list_size(global.enemyunit_list);
 			        //Once all units have been deployed, begin manouvers
-			        if itotal == 60 && turn_timer == 99 {
+			        if empty_ship >= 10 && turn_timer == 99 {
 			            timer_count = 0;
 			            turn_timer = 2;
 			        }

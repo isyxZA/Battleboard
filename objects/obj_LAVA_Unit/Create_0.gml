@@ -98,7 +98,7 @@ tow_rate  = 1;
 tow_cost  = 6;
 
 sqd_ammo  = 0;
-sqd_max   = 4;
+sqd_max   = 2;
 shoot_sqd = false;
 sqd_rate  = 1;
 sqd_cost  = 2;

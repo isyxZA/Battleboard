@@ -23,7 +23,7 @@ if global.new_game == true {
 				lspritea = spr_Logi_A1;
 				ispriteb = spr_Infantry_A1a;
 				tspriteb = spr_Tank_A1a_Icon;
-				espriteb = spr_Engineer_A1a;
+				espriteb = spr_Engineer_A1a_Icon;
 				bspriteb = spr_BTR_A1a_Icon;
 				lspriteb = spr_Logi_A1a;
 				break;
@@ -35,7 +35,7 @@ if global.new_game == true {
 				lspritea = spr_Logi_B1;
 				ispriteb = spr_Infantry_B1a;
 				tspriteb = spr_Tank_B1a_Icon;
-				espriteb = spr_Engineer_B1a;
+				espriteb = spr_Engineer_B1a_Icon;
 				bspriteb = spr_BTR_B1a_Icon;
 				lspriteb = spr_Logi_B1a;
 				break;
@@ -333,7 +333,7 @@ if global.new_game == true {
 					lspritea = spr_Logi_A2;
 					ispriteb = spr_Infantry_A2a;
 					tspriteb = spr_Tank_A2a_Icon;
-					espriteb = spr_Engineer_A2a;
+					espriteb = spr_Engineer_A2a_Icon;
 					bspriteb = spr_BTR_A2a_Icon;
 					lspriteb = spr_Logi_A2a;
 					break;
@@ -345,7 +345,7 @@ if global.new_game == true {
 					lspritea = spr_Logi_B2;
 					ispriteb = spr_Infantry_B2a;
 					tspriteb = spr_Tank_B2a_Icon;
-					espriteb = spr_Engineer_B2a;
+					espriteb = spr_Engineer_B2a_Icon;
 					bspriteb = spr_BTR_B2a_Icon;
 					lspriteb = spr_Logi_B2a;
 					break;

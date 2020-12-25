@@ -31,7 +31,7 @@ if can_move == true {
 if global.my_turn == true || global.active_llc == true {
     if can_move == false {
         //If units are still available for spawn
-        if (depleted == false) {
+        if depleted == false {
             if mouse_check_button_pressed(mb_left) {
                 if place_meeting(x, y, obj_MOUSE) { 
 					if obj_CONTROL.show_options == false {
@@ -85,6 +85,12 @@ if global.my_turn == true || global.active_llc == true {
                         if depleted == false {
                             //Switch off ability to spawn units 
                             depleted = true; 
+							//Send emty signal to CONTROL
+							if send_empty == true { 
+								send_empty = false;
+								//if PLAYER.net_status != "NONE"
+								obj_CONTROL.empty_ship += 1; 
+							}
                             if selected { 
                                 if global.selected_LC == true { global.selected_LC = false; }
                                 if global.active_llc == true { 
@@ -150,10 +156,10 @@ if global.my_turn == true || global.active_llc == true {
 								case spr_Engineer_B2:
                                     my_unit = obj_LACA_Unit;
                                     break;
-								case spr_Engineer_A1a:
-								case spr_Engineer_A2a:
-								case spr_Engineer_B1a:
-								case spr_Engineer_B2a:
+								case spr_Engineer_A1a_Icon:
+								case spr_Engineer_A2a_Icon:
+								case spr_Engineer_B1a_Icon:
+								case spr_Engineer_B2a_Icon:
                                     my_unit = obj_LACB_Unit;
                                     break;
                                 case spr_BTR_A1_Icon:

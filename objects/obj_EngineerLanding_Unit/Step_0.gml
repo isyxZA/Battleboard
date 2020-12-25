@@ -97,10 +97,10 @@ if global.my_turn == true || global.active_elc == true {
 								case spr_Engineer_B2:
                                     my_unit = obj_LACA_Unit;
                                     break;
-								case spr_Engineer_A1a:
-								case spr_Engineer_A2a:
-								case spr_Engineer_B1a:
-								case spr_Engineer_B2a:
+								case spr_Engineer_A1a_Icon:
+								case spr_Engineer_A2a_Icon:
+								case spr_Engineer_B1a_Icon:
+								case spr_Engineer_B2a_Icon:
                                     my_unit = obj_LACB_Unit;
                                     break;
                             }

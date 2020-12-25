@@ -2,7 +2,7 @@ switch room {
     case rm_MainMenu:
 		shader_set(shd_vignette_noise);
 	    shader_set_uniform_f(uni_settings, 2, 1, 0.2, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
-	    shader_set_uniform_f(uni_vignette_colour,210,180,140); //R,G,B - 0 to 255 was 255,223,201
+	    shader_set_uniform_f(uni_vignette_colour, 255,230,204); //210,180,140); //R,G,B - 0 to 255 was 255,223,201
 	    draw_sprite_stretched(bg_Main, 0,0,0, room_width, room_height);
 		draw_set_alpha(0.2);
 		draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);

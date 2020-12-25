@@ -22,6 +22,7 @@ action_range = view_radius;
 unit_drag = false;
 can_place = false;
 depleted = false;
+send_empty = true;
 supply_display = false;
 my_unit = -1;
 ship_type = "Supply";

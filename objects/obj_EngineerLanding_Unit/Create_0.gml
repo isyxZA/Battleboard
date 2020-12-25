@@ -12,11 +12,11 @@ if PLAYER.player == "ONE" {
 	switch p_faction {
 		case "US":
 			u_spriteA = spr_Engineer_A1;
-			u_spriteB = spr_Engineer_A1a;
+			u_spriteB = spr_Engineer_A1a_Icon;
 			break;
 		case "RU":
 			u_spriteA = spr_Engineer_B1;
-			u_spriteB = spr_Engineer_A1a;
+			u_spriteB = spr_Engineer_B1a_Icon;
 			break;
 	}
 }
@@ -28,11 +28,11 @@ if PLAYER.player == "ONE" {
 		switch p_faction {
 			case "US":
 				u_spriteA = spr_Engineer_A2;
-				u_spriteB = spr_Engineer_A2a;
+				u_spriteB = spr_Engineer_A2a_Icon;
 				break;
 			case "RU":
 				u_spriteA = spr_Engineer_B2;
-				u_spriteB = spr_Engineer_B2a;
+				u_spriteB = spr_Engineer_B2a_Icon;
 				break;
 		} 
 	}

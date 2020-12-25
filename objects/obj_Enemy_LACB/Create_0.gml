@@ -10,15 +10,17 @@ if p_side == "ONE" {
 	txt_rot = 0;
 	switch p_faction {
 		case "US":
-			my_sprite = spr_Engineer_A2a;
-			spot_mask = spr_Engineer_A2a_Mask;
-			my_turret = spr_Engineer_A2a_Turret;
+			my_sprite    = spr_Engineer_A2a;
+			spot_mask    = spr_Engineer_A2a_Mask;
+			my_turret    = spr_Engineer_A2a_Turret;
+			my_icon      = spr_Engineer_A2a_Icon;
 			crater_index = spr_Engineer_Crater_US;
 			break;
 		case "RU":
-			my_sprite = spr_Engineer_B2a;
-			spot_mask = spr_Engineer_B2a_Mask;
-			my_turret = spr_Engineer_B2a_Turret;
+			my_sprite    = spr_Engineer_B2a;
+			spot_mask    = spr_Engineer_B2a_Mask;
+			my_turret    = spr_Engineer_B2a_Turret;
+			my_icon      = spr_Engineer_B2a_Icon;
 			crater_index = spr_Engineer_Crater_RU;
 			break;
 	}
@@ -29,15 +31,17 @@ if p_side == "ONE" {
 		txt_rot = 180;
 		switch p_faction {
 			case "US":
-				my_sprite = spr_Engineer_A1a;
-				spot_mask = spr_Engineer_A1a_Mask;
-				my_turret = spr_Engineer_A1a_Turret;
+				my_sprite    = spr_Engineer_A1a;
+				spot_mask    = spr_Engineer_A1a_Mask;
+				my_turret    = spr_Engineer_A1a_Turret;
+				my_icon      = spr_Engineer_A1a_Icon;
 				crater_index = spr_Engineer_Crater_US;
 				break;
 			case "RU":
-				my_sprite = spr_Engineer_B1a;
-				spot_mask = spr_Engineer_B1a_Mask;
-				my_turret = spr_Engineer_B1a_Turret;
+				my_sprite    = spr_Engineer_B1a;
+				spot_mask    = spr_Engineer_B1a_Mask;
+				my_turret    = spr_Engineer_B1a_Turret;
+				my_icon      = spr_Engineer_B1a_Icon;
 				crater_index = spr_Engineer_Crater_RU;
 				break;
 		}
@@ -69,8 +73,8 @@ ap_cost = 6;
 
 action_range = 136;
 
-tow_ammo = 4;
-tow_max = 4;
+tow_ammo = 6;
+tow_max = 6;
 shoot_tow = false;
 tow_rate = 1;
 

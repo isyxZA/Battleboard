@@ -1,11 +1,15 @@
 if global.can_choose == true {
     if place_meeting(x, y, obj_MOUSE) {
-		if can_play == true { can_play = false; }
+		if play_touch == true { 
+			play_touch = false; 
+			audio_play_sound(snd_Checkbox, 1, false);
+		}
 		//if txt == "Host Game" || txt == "Join Game" { c1 = c_red; }
 			//else { c1 = make_colour_rgb(240,248,255); }
 		c1 = make_colour_rgb(240,248,255);
 		highlight = true;
         if mouse_check_button_pressed(mb_left) {
+			audio_play_sound(snd_Accept, 1, false);
             switch txt {
                 case "Campaign"://From Main Menu, Single player..goes to room Setup
 					PLAYER.net_status = "NONE";
@@ -222,7 +226,7 @@ if global.can_choose == true {
     }
         else { 
 			highlight = false;
-			can_play = true;
+			play_touch = true;
 			if txt == "Ready" || txt == "Create Game" || txt == "Join Server" { c1 = c_green; }
 				else { c1 = c_silver; }
         }

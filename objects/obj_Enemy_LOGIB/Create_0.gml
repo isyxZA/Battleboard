@@ -70,6 +70,11 @@ ammo_max = 100;
 shoot_ammo = false;
 ammo_rate = 10;
 
+sqd_ammo = 0;
+sqd_max = 6;
+shoot_squad = false;
+sqd_rate = 1;
+
 //Infantry
 rfl_supply_rate = 20;
 rpg_supply_rate = 1;

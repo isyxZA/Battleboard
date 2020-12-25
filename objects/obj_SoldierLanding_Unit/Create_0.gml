@@ -22,6 +22,7 @@ view_radius = global.cell_size*8;
 unit_drag = false;
 can_place = false;
 depleted = false;
+send_empty = true;
 mx = 0;
 my = 0;
 my_unit = -1;
@@ -43,7 +44,7 @@ if global.game_turn == 0 {
 					u_spriteB = spr_Infantry_B1;
 					break;
 			}
-			v_spacing = 82; 
+			v_spacing = 44; 
 		}
 			else if PLAYER.player == "TWO" { 
 				switch p_faction {
@@ -56,7 +57,7 @@ if global.game_turn == 0 {
 						u_spriteB = spr_Infantry_B2;
 						break;
 				} 
-				v_spacing = -82; 
+				v_spacing = -44; 
 			}
 		//Load global.temp_logi here
 		var i;

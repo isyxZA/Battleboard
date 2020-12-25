@@ -135,13 +135,20 @@ if timer_count > 0 { timer_start = true; }
                                 alert_colour = c_green;
                                 alarm[3] = global.tick_rate*2; 
                             }
-                                else if unit_type == "REPAIR" { 
-                                    mg_ammo += other.repairmg_supply_rate;
-                                    alert_display = true;
-                                    alert_text = "+20 MG Ammo"; 
-                                    alert_colour = c_green;
-                                    alarm[3] = global.tick_rate*2; 
-                                }
+								else if unit_type == "LAV_A" || unit_type == "LAV_B" { 
+	                                mg_ammo += other.lavmg_supply_rate;
+	                                alert_display = true;
+	                                alert_text = "+20 MG Ammo"; 
+	                                alert_colour = c_green;
+	                                alarm[3] = global.tick_rate*2; 
+	                            }
+	                                else if unit_type == "REPAIR" { 
+	                                    mg_ammo += other.repairmg_supply_rate;
+	                                    alert_display = true;
+	                                    alert_text = "+20 MG Ammo"; 
+	                                    alert_colour = c_green;
+	                                    alarm[3] = global.tick_rate*2; 
+	                                }
                         }
                         alert_display = true;
                         alert_text = "-20 Ammo"; 
@@ -455,20 +462,27 @@ if timer_count > 0 { timer_start = true; }
                     case "MG":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "MBT_A" || unit_type == "MBT_B" || unit_type == "LAV_A" || unit_type == "LAV_B" { 
+                                if unit_type == "MBT_A" || unit_type == "MBT_B" { 
                                     mg_ammo += other.mbtmg_supply_rate;
                                     alert_display = true;
                                     alert_text = "+20 MG Ammo"; 
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
-                                    else if unit_type == "REPAIR" { 
-                                        mg_ammo += other.repairmg_supply_rate;
-                                        alert_display = true;
-                                        alert_text = "+20 MG Ammo"; 
-                                        alert_colour = c_green;
-                                        alarm[3] = global.tick_rate*2; 
-                                    }
+									else if unit_type == "LAV_A" || unit_type == "LAV_B" { 
+		                                mg_ammo += other.lavmg_supply_rate;
+		                                alert_display = true;
+		                                alert_text = "+20 MG Ammo"; 
+		                                alert_colour = c_green;
+		                                alarm[3] = global.tick_rate*2; 
+		                            }
+	                                    else if unit_type == "REPAIR" { 
+	                                        mg_ammo += other.repairmg_supply_rate;
+	                                        alert_display = true;
+	                                        alert_text = "+20 MG Ammo"; 
+	                                        alert_colour = c_green;
+	                                        alarm[3] = global.tick_rate*2; 
+	                                    }
                             }
                             alert_display = true;
                             alert_text = "-20 Ammo"; 

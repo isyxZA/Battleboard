@@ -11,10 +11,10 @@ if p_side == "ONE" {
 	txt_rot = 0;
 	switch p_faction {
 		case "US":
-			my_sprite = spr_Infantry_B1a;
+			my_sprite = spr_Infantry_A1a;
 			break;
 		case "RU":
-			my_sprite = spr_Infantry_B1a;
+			my_sprite = spr_Infantry_A1a;
 			break;
 	}
 }
@@ -39,7 +39,7 @@ my_tile   = t.tile_num;
 my_tile_x = t.tile_x;
 my_tile_y = t.tile_y;
 view_radius = (global.cell_size*4)+(t.height_rating*global.cell_size);
-size_target = (4+t.height_rating)*1.5;//Light radius target size...was 6
+size_target = (5+t.height_rating)*1.5;//Light radius target size
 x = my_tile_x;
 y = my_tile_y;
 
@@ -57,7 +57,7 @@ action_points = 0;
 move_points = 0;
 ap_cost = 2;
 
-action_range = global.cell_size*5;
+action_range = global.cell_size*6;
 
 rifle_ammo = 100;
 rifle_max = 100;
@@ -69,8 +69,8 @@ rpg_max = 1;
 shoot_rpg = false;
 rpg_rate = 1;
 
-flare_ammo = 2;
-flare_max = 2;
+flare_ammo = 4;
+flare_max = 4;
 shoot_flare = false;
 flare_rate = 1;
 

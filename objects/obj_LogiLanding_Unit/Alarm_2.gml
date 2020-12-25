@@ -8,7 +8,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "LOGI_A" { 
+                            if unit_type == "LOGI_A" || unit_type == "LOGI_B" { 
                                 ammo_supply += other.logiamo_supply_rate; 
                                 alert_display = true;
                                 alert_text = "+10 Ammo"; 
@@ -86,7 +86,7 @@ if timer_count > 0 { timer_start = true; }
                     case "AMMO":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "LOGI_A" { 
+                                if unit_type == "LOGI_A" || unit_type == "LOGI_B" { 
                                     ammo_supply += other.logiamo_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+10 Ammo"; 

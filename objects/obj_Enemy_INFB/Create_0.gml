@@ -50,7 +50,7 @@ shoot_mask.my_unit = id;
 mp_grid_add_rectangle(global.move_grid, x-36, y-36, x+36, y+36);
 
 unit_type = "E_INFB";
-view_radius = global.cell_size*5;
+view_radius = global.cell_size*6;
 
 my_speed = 3.5;
 
@@ -70,8 +70,8 @@ rpg_max = 1;
 shoot_rpg = false;
 rpg_rate = 1;
 
-flare_ammo = 2;
-flare_max = 2;
+flare_ammo = 4;
+flare_max = 4;
 shoot_flare = false;
 flare_rate = 1;
 

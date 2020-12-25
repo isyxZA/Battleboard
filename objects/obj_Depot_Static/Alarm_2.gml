@@ -8,7 +8,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "INF_A" { 
+                            if unit_type == "INF_A" || unit_type == "INF_B" { 
                                 rifle_ammo += other.rfl_supply_rate; 
                                 alert_display = true;
                                 alert_text = "+20 Rifle Ammo"; 
@@ -35,7 +35,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "INF_A" { 
+                            if unit_type == "INF_A" || unit_type == "INF_B" { 
                                 rpg_ammo += other.rpg_supply_rate;
                                 alert_display = true;
                                 alert_text = "+1 RPG Ammo"; 
@@ -62,7 +62,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "INF_A" { 
+                            if unit_type == "INF_A" || unit_type == "INF_B" { 
                                 flare_ammo += other.flr_supply_rate;
                                 alert_display = true;
                                 alert_text = "+1 Flare Ammo"; 
@@ -89,7 +89,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "MBT_A" { 
+                            if unit_type == "MBT_A" || unit_type == "MBT_B" { 
                                 cannon_ammo += other.mbtap_supply_rate;
                                 alert_display = true;
                                 alert_text = "+1 Cannon Ammo"; 
@@ -116,20 +116,27 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "MBT_A" { 
+                            if unit_type == "MBT_A" || unit_type == "MBT_B" { 
                                 mg_ammo += other.mbtmg_supply_rate;
                                 alert_display = true;
                                 alert_text = "+20 MG Ammo"; 
                                 alert_colour = c_green;
                                 alarm[3] = global.tick_rate*2; 
                             }
-                                else if unit_type == "REPAIR" { 
-                                    mg_ammo += other.repairmg_supply_rate;
-                                    alert_display = true;
-                                    alert_text = "+20 MG Ammo"; 
-                                    alert_colour = c_green;
-                                    alarm[3] = global.tick_rate*2; 
-                                }
+								else if unit_type == "LAV_A" || unit_type == "LAV_B" { 
+		                            mg_ammo += other.lavmg_supply_rate;
+		                            alert_display = true;
+		                            alert_text = "+20 MG Ammo"; 
+		                            alert_colour = c_green;
+		                            alarm[3] = global.tick_rate*2; 
+		                        }
+	                                else if unit_type == "REPAIR" { 
+	                                    mg_ammo += other.repairmg_supply_rate;
+	                                    alert_display = true;
+	                                    alert_text = "+20 MG Ammo"; 
+	                                    alert_colour = c_green;
+	                                    alarm[3] = global.tick_rate*2; 
+	                                }
                         }
                         alert_display = true;
                         alert_text = "-20 Ammo"; 
@@ -258,7 +265,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "LAV_A" { 
+                            if unit_type == "LAV_A" || unit_type == "LAV_B" { 
                                 he_ammo += other.lavhe_supply_rate;
                                 alert_display = true;
                                 alert_text = "+4 HE Ammo"; 
@@ -285,7 +292,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "LAV_A" { 
+                            if unit_type == "LAV_A" || unit_type == "LAV_B" { 
                                 ap_ammo += other.lavap_supply_rate;
                                 alert_display = true;
                                 alert_text = "+4 AP Ammo"; 
@@ -339,7 +346,7 @@ if timer_count > 0 { timer_start = true; }
                     shoot_ammunition = true;
                     if resupply_unit != noone {
                         with resupply_unit { 
-                            if unit_type == "LOGI_A" { 
+                            if unit_type == "LOGI_A" || unit_type == "LOGI_B" { 
                                 ammo_supply += other.logiamo_supply_rate; 
                                 alert_display = true;
                                 alert_text = "+10 Ammo"; 
@@ -477,7 +484,7 @@ if timer_count > 0 { timer_start = true; }
                     case "RIFLE":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "INF_A" { 
+                                if unit_type == "INF_A" || unit_type == "INF_B" { 
                                     rifle_ammo += other.rfl_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+20 Rifle Ammo"; 
@@ -503,7 +510,7 @@ if timer_count > 0 { timer_start = true; }
                     case "RPG":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "INF_A" { 
+                                if unit_type == "INF_A" || unit_type == "INF_B" { 
                                     rpg_ammo += other.rpg_supply_rate;
                                     alert_display = true;
                                     alert_text = "+1 RPG Ammo"; 
@@ -529,7 +536,7 @@ if timer_count > 0 { timer_start = true; }
                     case "FLARE":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "INF_A" { 
+                                if unit_type == "INF_A" || unit_type == "INF_B" { 
                                     flare_ammo += other.flr_supply_rate;
                                     alert_display = true;
                                     alert_text = "+1 Flare Ammo"; 
@@ -555,7 +562,7 @@ if timer_count > 0 { timer_start = true; }
                     case "CANNON":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "MBT_A" { 
+                                if unit_type == "MBT_A" || unit_type == "MBT_B" { 
                                     cannon_ammo += other.mbtap_supply_rate;
                                     alert_display = true;
                                     alert_text = "+1 Cannon Ammo"; 
@@ -581,20 +588,27 @@ if timer_count > 0 { timer_start = true; }
                     case "MG":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "MBT_A" { 
+                                if unit_type == "MBT_A" || unit_type == "MBT_B" { 
                                     mg_ammo += other.mbtmg_supply_rate;
                                     alert_display = true;
                                     alert_text = "+20 MG Ammo"; 
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
-                                    else if unit_type == "REPAIR" { 
-                                        mg_ammo += other.repairmg_supply_rate;
-                                        alert_display = true;
-                                        alert_text = "+20 MG Ammo"; 
-                                        alert_colour = c_green;
-                                        alarm[3] = global.tick_rate*2; 
-                                    }
+									else if unit_type == "LAV_A" || unit_type == "LAV_B" { 
+		                                mg_ammo += other.lavmg_supply_rate;
+		                                alert_display = true;
+		                                alert_text = "+20 MG Ammo"; 
+		                                alert_colour = c_green;
+		                                alarm[3] = global.tick_rate*2; 
+		                            }
+	                                    else if unit_type == "REPAIR" { 
+	                                        mg_ammo += other.repairmg_supply_rate;
+	                                        alert_display = true;
+	                                        alert_text = "+20 MG Ammo"; 
+	                                        alert_colour = c_green;
+	                                        alarm[3] = global.tick_rate*2; 
+	                                    }
                             }
                             alert_display = true;
                             alert_text = "-20 Ammo"; 
@@ -718,7 +732,7 @@ if timer_count > 0 { timer_start = true; }
                     case "HE":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "LAV_A" { 
+                                if unit_type == "LAV_A" || unit_type == "LAV_B" { 
                                     he_ammo += other.lavhe_supply_rate;
                                     alert_display = true;
                                     alert_text = "+4 HE Ammo"; 
@@ -744,7 +758,7 @@ if timer_count > 0 { timer_start = true; }
                     case "AP":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "LAV_A" { 
+                                if unit_type == "LAV_A" || unit_type == "LAV_B" { 
                                     ap_ammo += other.lavap_supply_rate;
                                     alert_display = true;
                                     alert_text = "+4 AP Ammo"; 
@@ -796,7 +810,7 @@ if timer_count > 0 { timer_start = true; }
                     case "AMMO":
                         if resupply_unit != noone {
                             with resupply_unit { 
-                                if unit_type == "LOGI_A" { 
+                                if unit_type == "LOGI_A" || unit_type == "LOGI_B" { 
                                     ammo_supply += other.logiamo_supply_rate; 
                                     alert_display = true;
                                     alert_text = "+10 Ammo"; 

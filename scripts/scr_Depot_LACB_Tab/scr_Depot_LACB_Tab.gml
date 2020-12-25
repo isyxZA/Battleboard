@@ -135,7 +135,7 @@ function scr_Depot_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                //Remove supply cost
 	                if lactow2_d_amount != 0 {
 	                    var t=0;
-	                    while (lactow2_d_amount >= lacdpt_supply_rate) {
+	                    while (lactow2_d_amount >= lactow2_supply_rate) {
 	                        t+=1;
 	                        var i;
 	                        for (i=0; i<ds_list_size(global.selected_depot_list); i+=1) {
@@ -147,7 +147,7 @@ function scr_Depot_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
-	                                            u.shoot_building = true;
+	                                            u.shoot_ammunition = true;
 	                                            u.weapon = "TOWMOBILE";
 	                                            u.target_x = global.target_x;
 	                                            u.target_y = global.target_y;
@@ -158,7 +158,7 @@ function scr_Depot_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                                            u.alarm[3] = global.tick_rate*3;
 	                                        }
 	                                        u.shoot_amount     += 1; 
-	                                        u.ammunition_ammo  -= lacdpt_supply_rate;
+	                                        u.ammunition_ammo  -= lactow2_supply_rate;
 	                                        global.turn_AP     -= ap_cost;
 	                                        u.action_points    -= ap_cost;
 	                                        u.alert_text = "-"+string(u.shoot_amount*ap_cost)+ " AP";
@@ -167,7 +167,7 @@ function scr_Depot_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                            }
 	                        }
 	                        if t >= 200 { 
-	                            lacdpt_l_amount = 0;
+	                            lactow2_d_amount = 0;
 	                            global.targeting_error = true;
 	                        } 
 	                    }
@@ -180,7 +180,7 @@ function scr_Depot_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                        with unit { if action_confirmed == true { selected = false; } }
 	                    }
 	                    ammo_check = true;
-	                    lacdpt_l_amount = 0;
+	                    lactow2_d_amount = 0;
 	                }
 	                    else { 
 							//Deselect all units

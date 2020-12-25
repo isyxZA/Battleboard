@@ -1,4 +1,5 @@
 if txt != "Back" { 
+	draw_sprite_ext(sprite_index, 0, x, y, 1.01, 1.09, 0, c_dkgray, 0.6);
 	draw_self();
 	if highlight == true { 
 		gpu_set_blendmode(bm_add);

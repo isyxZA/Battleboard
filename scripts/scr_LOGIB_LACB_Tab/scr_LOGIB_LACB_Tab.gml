@@ -40,9 +40,8 @@ function scr_LOGIB_LACB_Tab(argument0, argument1, argument2, argument3) {
 	    obj_ACTIONMENU.display_menuinfo = false;
 	}
 	    else if f1 { 
-	        //RESUPPLY DEPOT
-	        //Select number of rounds to fire
-	        //Increase by a rate of 1 building supply
+	        //RESUPPLY TOW
+	        //Increase
 	        if mouse_wheel_up() { 
 	            //Check if there is enough building supply available
 	            if lactow2_l_amount <= (logib_amo_supply-lactow2_supply_rate) {
@@ -147,7 +146,7 @@ function scr_LOGIB_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
-	                                            u.shoot_building = true;
+	                                            u.shoot_ammo = true;
 	                                            u.weapon = "TOWMOBILE";
 	                                            u.target_x = global.target_x;
 	                                            u.target_y = global.target_y;
@@ -158,7 +157,7 @@ function scr_LOGIB_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                                            u.alarm[3] = global.tick_rate*3;
 	                                        }
 	                                        u.shoot_amount     += 1; 
-	                                        u.building_supply  -= lactow2_supply_rate;
+	                                        u.ammo_supply      -= lactow2_supply_rate;
 	                                        global.turn_AP     -= ap_cost;
 	                                        u.action_points    -= ap_cost;
 	                                        u.alert_text = "-"+string(u.shoot_amount*ap_cost)+ " AP";

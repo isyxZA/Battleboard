@@ -68,21 +68,21 @@ my_speed = 3.8;
 fuel_count = 100;
 unit_health = 100;
 
-start_ap = 12;
+start_ap = 10;
 action_points = 0;
 ap_cost = 4;
 
 action_range = view_radius;
 
-he_ammo = 50;
-he_max = 50;
+he_ammo = 60;
+he_max = 60;
 shoot_he = false;
-he_rate = 4;
+he_rate = 8;
 
-ap_ammo = 50;
-ap_max = 50;
+ap_ammo = 60;
+ap_max = 60;
 shoot_ap = false;
-ap_rate = 4;
+ap_rate = 8;
 
 mg_ammo = 600;
 mg_max = 600;

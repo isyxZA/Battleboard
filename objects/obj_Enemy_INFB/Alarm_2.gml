@@ -22,7 +22,7 @@ if timer_count > 0 { timer_start = true; }
                     alarm[4] = 10;
                     alarm[7] = 10;
                     audio_play_sound_on(emit, snd_RPG01, false, 10);
-                    with instance_create_layer(x, y, "ParticleFX", obj_E_RPG_Bullet) {
+                    with instance_create_layer(x, y, "ParticleFX", obj_E_GL_Bullet) {
                         x_to = other.target_x;
                         y_to = other.target_y;
                     }
@@ -62,7 +62,7 @@ if timer_count > 0 { timer_start = true; }
                         alarm[4] = 10;
                         alarm[7] = 10;
                         audio_play_sound_on(emit, snd_RPG01, false, 10);
-                        with instance_create_layer(x, y, "ParticleFX", obj_E_RPG_Bullet) {
+                        with instance_create_layer(x, y, "ParticleFX", obj_E_GL_Bullet) {
                             x_to = other.target_x;
                             y_to = other.target_y;
                         }

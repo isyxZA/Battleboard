@@ -74,15 +74,15 @@ ap_cost = 4;
 
 action_range = view_radius;
 
-he_ammo = 50;
-he_max = 50;
+he_ammo = 80;
+he_max = 80;
 shoot_he = false;
-he_rate = 4;
+he_rate = 8;
 
-ap_ammo = 50;
-ap_max = 50;
+ap_ammo = 80;
+ap_max = 80;
 shoot_ap = false;
-ap_rate = 4;
+ap_rate = 8;
 
 mg_ammo = 600;
 mg_max = 600;

@@ -2,6 +2,7 @@ if global.locked == false {
 	if place_meeting(x,y, obj_MOUSE) {
 	    if mouse_check_button_pressed(mb_left) {
 	        if is_checked == false { 
+				audio_play_sound(snd_Checkbox, 1, false);
 	            PLAYER.faction = "RU";
 				if PLAYER.net_status == "HOST" { 
 					var cc = ds_list_size(global.clients);

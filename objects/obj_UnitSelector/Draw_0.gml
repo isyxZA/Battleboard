@@ -13,16 +13,17 @@ switch my_unit {
 		draw_text_colour_shadow(x, y+56, "Action Points 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		draw_text_colour_shadow(x, y+76, "AR Rifle x 100", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		draw_text_colour_shadow(x, y+86, "GL Launcher x 4", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-		draw_text_colour_shadow(x, y+96, "Flares x 2", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+		draw_text_colour_shadow(x, y+96, "Flares x 1", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		break;
 	case "INF_B":
 		draw_set_font(fnt_10);
 		draw_text_colour_shadow(x, y+42, "Recon Scouts", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		draw_set_font(fnt_8);
-		draw_text_colour_shadow(x, y+56, "Action Points 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-		draw_text_colour_shadow(x, y+76, "AR Rifle x 100", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-		draw_text_colour_shadow(x, y+86, "GL Launcher x 2", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-		draw_text_colour_shadow(x, y+96, "Flares x 6", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+		draw_text_colour_shadow(x, y+56 , "Action Points 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+		draw_text_colour_shadow(x, y+76 , "AR Rifle x 100", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+		draw_text_colour_shadow(x, y+86 , "GL Launcher x 1", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+		draw_text_colour_shadow(x, y+96 , "Flares x 4", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+		draw_text_colour_shadow(x, y+106, "Vision ++", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		break;
 	case "MBT_A":
 		if PLAYER.faction == "US" { 
@@ -31,7 +32,7 @@ switch my_unit {
 			draw_set_font(fnt_8);
 			draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			draw_text_colour_shadow(x, y+76, "Armor Piercing x 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-			draw_text_colour_shadow(x, y+86, "Heavy MG x 100", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+86, "Heavy MG x 600", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		}
 			else if PLAYER.faction == "RU" {
 				draw_set_font(fnt_10);
@@ -39,7 +40,7 @@ switch my_unit {
 				draw_set_font(fnt_8);
 				draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_text_colour_shadow(x, y+76, "Armor Piercing x 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-				draw_text_colour_shadow(x, y+86, "Heavy MG x 100", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+86, "Heavy MG x 600", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			}
 		break;
 	case "MBT_B":
@@ -47,17 +48,17 @@ switch my_unit {
 			draw_set_font(fnt_10);
 			draw_text_colour_shadow(x, y+42, "M1A1 Abrams MBT", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			draw_set_font(fnt_8);
-			draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-			draw_text_colour_shadow(x, y+76, "Armor Piercing x 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-			draw_text_colour_shadow(x, y+86, "Heavy MG x 100", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+56, "Action Points 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+76, "Armor Piercing x 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+86, "Heavy MG x 600", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		}
 			else if PLAYER.faction == "RU" {
 				draw_set_font(fnt_10);
 				draw_text_colour_shadow(x, y+42, "T62 MBT", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_set_font(fnt_8);
-				draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-				draw_text_colour_shadow(x, y+76, "Armor Piercing x 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-				draw_text_colour_shadow(x, y+86, "Heavy MG x 100", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+56, "Action Points 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+76, "Armor Piercing x 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+86, "Heavy MG x 600", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			}
 		break;
 	case "LAC_A":
@@ -106,6 +107,9 @@ switch my_unit {
 			draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			draw_text_colour_shadow(x, y+76, "High Explosive x 40", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			draw_text_colour_shadow(x, y+86, "Armor Piercing x 40", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+96, "Heavy MG x 600", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+106, "TOW x 2", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+116, "Squad Capacity x 2", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		}
 			else if PLAYER.faction == "RU" {
 				draw_set_font(fnt_10);
@@ -114,6 +118,9 @@ switch my_unit {
 				draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_text_colour_shadow(x, y+76, "High Explosive x 40", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_text_colour_shadow(x, y+86, "Armor Piercing x 40", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+96, "Heavy MG x 600", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+106, "TOW x 2", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+116, "Squad Capacity x 2", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			}
 		break;
 	case "LAV_B":
@@ -121,17 +128,21 @@ switch my_unit {
 			draw_set_font(fnt_10);
 			draw_text_colour_shadow(x, y+42, "M1126 Stryker APC", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			draw_set_font(fnt_8);
-			draw_text_colour_shadow(x, y+56, "Action Points 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			draw_text_colour_shadow(x, y+76, "High Explosive x 40", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			draw_text_colour_shadow(x, y+86, "Armor Piercing x 40", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+96, "Heavy MG x 600", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+106, "Squad Capacity x 4", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		}
 			else if PLAYER.faction == "RU" {
 				draw_set_font(fnt_10);
 				draw_text_colour_shadow(x, y+42, "BTR-80 APC", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_set_font(fnt_8);
-				draw_text_colour_shadow(x, y+56, "Action Points 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_text_colour_shadow(x, y+76, "High Explosive x 40", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_text_colour_shadow(x, y+86, "Armor Piercing x 40", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+96, "Heavy MG x 600", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+106, "Squad Capacity x 4", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			}
 		break;
 	case "LOGI_A":
@@ -159,7 +170,7 @@ switch my_unit {
 			draw_set_font(fnt_8);
 			draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			draw_text_colour_shadow(x, y+76, "Ammunition x 50", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-			draw_text_colour_shadow(x, y+86, "Squad Capacity x 4", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+			draw_text_colour_shadow(x, y+86, "Squad Capacity x 6", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 		}
 			else if PLAYER.faction == "RU" {
 				draw_set_font(fnt_10);
@@ -167,7 +178,7 @@ switch my_unit {
 				draw_set_font(fnt_8);
 				draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_text_colour_shadow(x, y+76, "Ammunition x 50", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
-				draw_text_colour_shadow(x, y+86, "Squad Capacity x 4", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+86, "Squad Capacity x 6", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 			}
 		break;
 }

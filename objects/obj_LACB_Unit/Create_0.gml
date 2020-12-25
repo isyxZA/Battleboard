@@ -13,11 +13,13 @@ if p_side == "ONE" {
 		case "US":
 			my_sprite    = spr_Engineer_A1a;
 			my_turret    = spr_Engineer_A1a_Turret;
+			my_icon      = spr_Engineer_A1a_Icon;
 			crater_index = spr_Engineer_Crater_US;
 			break;
 		case "RU":
 			my_sprite    = spr_Engineer_B1a;
 			my_turret    = spr_Engineer_B1a_Turret;
+			my_icon      = spr_Engineer_B1a_Icon;
 			crater_index = spr_Engineer_Crater_RU;
 			break;
 	}
@@ -28,13 +30,15 @@ if p_side == "ONE" {
 		txt_rot = 180;
 		switch p_faction {
 			case "US":
-				my_sprite = spr_Engineer_A2a;
+				my_sprite    = spr_Engineer_A2a;
 				my_turret    = spr_Engineer_A2a_Turret;
+				my_icon      = spr_Engineer_A2a_Icon;
 				crater_index = spr_Engineer_Crater_US;
 				break;
 			case "RU":
-				my_sprite = spr_Engineer_B2a;
+				my_sprite    = spr_Engineer_B2a;
 				my_turret    = spr_Engineer_B2a_Turret;
+				my_icon      = spr_Engineer_B2a_Icon;
 				crater_index = spr_Engineer_Crater_RU;
 				break;
 		}
@@ -87,8 +91,8 @@ ds_list_add(global.unit_list, id);//Add self to total unit list
 ds_list_add(global.myunit_list, id);//Add self to my unit list
 ds_list_add(global.lacb_list, id);
 
-tow_ammo = 4;
-tow_max = 4;
+tow_ammo = 6;
+tow_max = 6;
 shoot_tow = false;
 tow_rate = 1;
 

@@ -1,6 +1,7 @@
 if place_meeting(x,y, obj_MOUSE) {
 	if mouse_check_button_pressed(mb_left) {
 		if is_checked == false { 
+			audio_play_sound(snd_Checkbox, 1, false);
 		    with obj_UnitFormations { 
 				formation = 4;
 				alarm[0] = 2;

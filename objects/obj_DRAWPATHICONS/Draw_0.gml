@@ -31,8 +31,10 @@ if global.my_turn == true || global.waiting == true {
 		                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 		                            break;
 		                        case "LAC_A":
+									draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
+		                            break;
 								case "LAC_B":
-		                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
+		                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 		                            break;
 		                        case "LOGI_A":
 								case "LOGI_B":
@@ -78,8 +80,10 @@ if global.my_turn == true || global.waiting == true {
 				                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
 				                        case "LAC_A":
-										case "LAC_B":
 				                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
+				                            break;
+										case "LAC_B":
+				                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
 				                        case "LOGI_A":
 										case "LOGI_B":
@@ -129,8 +133,10 @@ if global.my_turn == true || global.waiting == true {
 				                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
 				                        case "LAC_A":
-										case "LAC_B":
 				                            draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
+				                            break;
+										case "LAC_B":
+				                            draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
 				                            break;
 				                        case "LOGI_A":
 										case "LOGI_B":
@@ -161,8 +167,10 @@ if global.my_turn == true || global.waiting == true {
 		                            draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot, c_white, 1);
 		                            break;
 		                        case "LAC_A":
-								case "LAC_B":
 		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
+		                            break;
+								case "LAC_B":
+		                            draw_sprite_ext(my_icon, 0, x, y, 0.6, 0.6, rot, c_black, 0.6);
 		                            break;
 		                        case "LOGI_A":
 								case "LOGI_B":
@@ -220,8 +228,10 @@ if global.my_turn == true || global.waiting == true {
                                                 draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
                                                 break;
                                             case "E_LACA":
-											case "E_LACB":
                                                 draw_sprite_ext(my_sprite, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
+                                                break;
+											case "E_LACB":
+                                                draw_sprite_ext(my_icon, 0, x1, y1, 0.6, 0.6, r, c_black, 0.6);
                                                 break;
                                             case "E_LOGIA":
 											case "E_LOGIB":
@@ -252,9 +262,11 @@ if global.my_turn == true || global.waiting == true {
                                         draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot, c_white, 1);
                                         break;
                                     case "E_LACA":
-									case "E_LACB":
                                         draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
                                         break;
+									case "E_LACB":
+	                                    draw_sprite_ext(my_icon, 0, x, y, 0.6, 0.6, rot, c_black, 0.6);
+	                                    break;
                                     case "E_LOGIA":
 									case "E_LOGIB":
                                         draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);

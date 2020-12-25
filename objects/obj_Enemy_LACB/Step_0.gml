@@ -14,9 +14,14 @@ if nav_confirmed == true {
         no_shot = false;
         if !ds_list_empty(target_list) { ds_list_clear(target_list); }
         if my_tile != noone { my_tile.occupied = false; }
-        scr_VisibilityCheck();
+        //scr_VisibilityCheck();
         if is_visible == true { my_sound = audio_play_sound_on(emit, snd_TruckIdle01, true, 1); }
-            else my_sound = -1;
+            else { 
+				//Check if unit will be moving into view
+				scr_VisibilityCheck();
+				if is_visible == true { my_sound = audio_play_sound_on(emit, snd_TruckIdle01, true, 1); }
+					else { my_sound = -1; }
+			}
         //Start navigation with x_final and y_final end point
         mp_grid_path(nav_grid, my_path, x, y, x_final, y_final, diag);
         path_start(my_path, my_speed, path_action_stop, 0);
@@ -43,6 +48,10 @@ if nav_confirmed == true {
         x_final = x;
         y_final = y;
         if my_sound != -1 { audio_stop_sound(my_sound); }
+		if is_visible == true { 
+			//Check if unit has moved out of view
+			scr_VisibilityCheck(); 
+		}
         mp_grid_path(nav_grid, my_path, x, y, x, y, diag);
     }
 }

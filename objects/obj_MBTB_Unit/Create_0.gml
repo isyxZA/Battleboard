@@ -66,24 +66,24 @@ unit_type = "MBT_B";
 my_speed = 3.6;
 fuel_count = 100;
 
-start_ap = 12;
-start_mp = 12;
+start_ap = 10;
+start_mp = 10;
 action_points = 0;
 move_points = 0;
 //ap_cost = 2;
 
 action_range = global.cell_size*8;
 
-cannon_ammo = 12;
-cannon_max = 12;
+cannon_ammo = 10;
+cannon_max = 10;
 shoot_cannon = false;
 cannon_rate = 1;
 cannon_cost = 4;
 
-mg_ammo = 100;
-mg_max = 100;
+mg_ammo = 600;
+mg_max = 600;
 shoot_mg = false;
-mg_rate = 4;
+mg_rate = 20;
 mg_cost = 2;
 
 x_end = x;

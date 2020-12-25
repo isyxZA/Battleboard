@@ -1,3 +1,4 @@
+draw_sprite_stretched_ext(bg_Main, 0, x_pos-1, y_pos-1, s_width+2, s_height+2, c_dkgray, a-0.4);
 draw_sprite_stretched_ext(bg_Main, 0, x_pos, y_pos, s_width, s_height, c_black, a);
 draw_sprite_stretched_ext(spr_Text_BG1, 0, x_pos, y_pos, s_width, s_height, c_white, a);
 draw_sprite_ext(spr_Title, 0, x, y, 0.9, 0.9, 0, c_white, a);

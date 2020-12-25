@@ -2,6 +2,7 @@ if PLAYER.net_status == "NONE" {
 	if place_meeting(x,y, obj_MOUSE) {
 	    if mouse_check_button_pressed(mb_left) {
 	        if is_checked == false { 
+				audio_play_sound(snd_Checkbox, 1, false);
 	            PLAYER.opponent_faction = "RU";
 	            anim_count = 0;
 	        }

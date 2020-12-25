@@ -39,7 +39,7 @@ my_tile   = t.tile_num;
 my_tile_x = t.tile_x;
 my_tile_y = t.tile_y;
 view_radius = (global.cell_size*4)+(t.height_rating*global.cell_size);
-size_target = (4+t.height_rating)*1.5;//Light radius target size...was 6
+size_target = (4+t.height_rating)*1.5;//Light radius target size
 x = my_tile_x;
 y = my_tile_y;
 
@@ -64,13 +64,13 @@ rifle_max = 100;
 shoot_rifle = false;
 rifle_rate = 4;
 
-rpg_ammo = 1;
-rpg_max = 1;
+rpg_ammo = 4;
+rpg_max = 4;
 shoot_rpg = false;
 rpg_rate = 1;
 
-flare_ammo = 2;
-flare_max = 2;
+flare_ammo = 1;
+flare_max = 1;
 shoot_flare = false;
 flare_rate = 1;
 

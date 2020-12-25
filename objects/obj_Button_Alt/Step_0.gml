@@ -1,8 +1,13 @@
 if global.game_state == "IN_MENU" {
 	if place_meeting(x, y, obj_MOUSE) {
+		if play_touch == true { 
+			play_touch = false; 
+			audio_play_sound(snd_Checkbox, 1, false);
+		}
 		if txt != "Save" { c1 = make_colour_rgb(240,248,255); }
 		highlight = true;
 	    if mouse_check_button_pressed(mb_left) {
+			audio_play_sound(snd_Accept, 1, false);
 	        switch txt {
 	            case "Clear":
 					if global.locked == false {
@@ -903,8 +908,9 @@ if global.game_state == "IN_MENU" {
 				}
 					else  { c1 = make_colour_rgb(153,25,0); }
 			}
-				else { c1 = c_silver; }
+				else { c1 = c_gray; }
 			highlight = false;
+			play_touch = true;
 	    }
 }
 

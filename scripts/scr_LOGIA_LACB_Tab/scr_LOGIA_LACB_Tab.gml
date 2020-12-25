@@ -147,7 +147,7 @@ function scr_LOGIA_LACB_Tab(argument0, argument1, argument2, argument3) {
 	                                        if u.shoot_amount == 0 { 
 	                                            u.action_confirmed = true;
 	                                            global.units_running += 1; 
-	                                            u.shoot_building = true;
+	                                            u.shoot_ammo = true;
 	                                            u.weapon = "TOWMOBILE";
 	                                            u.target_x = global.target_x;
 	                                            u.target_y = global.target_y;
