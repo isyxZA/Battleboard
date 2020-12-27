@@ -8,4 +8,5 @@ start_credits = false;
 start_ready = false;
 play_touch = true;
 highlight = false;
+wip_display = false;
 

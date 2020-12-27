@@ -38,6 +38,7 @@ if PLAYER.player == "ONE" {
 	}
 
 unit_type = "LANDINGCRAFT";
+label = "LAC Ship";
 y_to = 0;
 can_move = true;
 view_radius = global.cell_size*8;

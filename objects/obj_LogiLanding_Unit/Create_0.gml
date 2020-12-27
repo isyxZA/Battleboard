@@ -15,6 +15,7 @@ if PLAYER.player == "ONE" {
 	}
 
 unit_type = "LANDINGCRAFT";
+label = "Supply Ship";
 
 can_move = true;
 view_radius = global.cell_size*8;

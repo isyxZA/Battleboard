@@ -13,7 +13,7 @@ if t_a > 0 {
 	draw_set_alpha(1);
 }
 
-
+/*
 if room == rm_ALPHA || room == rm_BRAVO {
 	if global.debug == true {
 		with obj_Game_Tile { if occupied == true { draw_text(tile_x, tile_y, "Occupied"); } }
@@ -22,7 +22,7 @@ if room == rm_ALPHA || room == rm_BRAVO {
 		//draw_set_alpha(1);
 	}
 }
-
+*/
 
 
 

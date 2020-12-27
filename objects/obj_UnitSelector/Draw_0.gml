@@ -36,7 +36,7 @@ switch my_unit {
 		}
 			else if PLAYER.faction == "RU" {
 				draw_set_font(fnt_10);
-				draw_text_colour_shadow(x, y+42, "T72B3 MBT", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+42, "T-72B3 MBT", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_set_font(fnt_8);
 				draw_text_colour_shadow(x, y+56, "Action Points 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_text_colour_shadow(x, y+76, "Armor Piercing x 12", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
@@ -54,7 +54,7 @@ switch my_unit {
 		}
 			else if PLAYER.faction == "RU" {
 				draw_set_font(fnt_10);
-				draw_text_colour_shadow(x, y+42, "T62 MBT", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
+				draw_text_colour_shadow(x, y+42, "T-62 MBT", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_set_font(fnt_8);
 				draw_text_colour_shadow(x, y+56, "Action Points 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);
 				draw_text_colour_shadow(x, y+76, "Armor Piercing x 10", c_white, t_colour, t_colour, t_colour, 1, 300, c_black, 0.6);

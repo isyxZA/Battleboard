@@ -5,10 +5,8 @@ with obj_Enemy_Parent {
 }
 with shoot_mask { instance_destroy(); }
 if is_manning == false { 
-	if is_manning == false { 
-		var t = instance_place(x, y, obj_Game_Tile);
-		t.occupied = false;
-	}
+	var t = instance_place(x, y, obj_Game_Tile);
+	t.occupied = false;
 	mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40); 
 }
 	else if is_manning == true {

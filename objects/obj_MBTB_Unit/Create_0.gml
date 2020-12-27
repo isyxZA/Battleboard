@@ -14,13 +14,17 @@ if p_side == "ONE" {
 			my_sprite = spr_Tank_A1a; 
 			my_turret = spr_Tank_A1a_Turret;
 			my_icon   = spr_Tank_A1a_Icon;
+			my_mask   = spr_Tank_A1a_Mask;
 			crater_index = spr_Tank_Crater_US;
+			label = "M1A1 Abrams MBT";
 			break;
 		case "RU":
 			my_sprite = spr_Tank_B1a; 
 			my_turret = spr_Tank_B1a_Turret;
 			my_icon   = spr_Tank_B1a_Icon;
+			my_mask   = spr_Tank_B1a_Mask;
 			crater_index = spr_Tank_Crater_RU;
+			label = "T-62 MBT";
 			break;
 	}
 }
@@ -33,13 +37,17 @@ if p_side == "ONE" {
 				my_sprite = spr_Tank_A2a; 
 				my_turret = spr_Tank_A2a_Turret;
 				my_icon   = spr_Tank_A2a_Icon;
+				my_mask   = spr_Tank_A2a_Mask;
 				crater_index = spr_Tank_Crater_US;
+				label = "M1A1 Abrams MBT";
 				break;
 			case "RU":
 				my_sprite = spr_Tank_B2a; 
 				my_turret = spr_Tank_B2a_Turret;
 				my_icon   = spr_Tank_B2a_Icon;
+				my_mask   = spr_Tank_B2a_Mask;
 				crater_index = spr_Tank_Crater_RU;
+				label = "T-62 MBT";
 				break;
 		}
 	}

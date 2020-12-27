@@ -37,6 +37,7 @@ if spawn_check == true {
 		depot.is_manned = true;
 		depot.spawn_unit = obj_INFB_Unit;
 		depot.my_inf = my_sprite;
+		depot.my_mask = my_mask;
 		depot.active = true;
 		depot.can_be_selected = false;
 		depot.alarm[11] = 60;
@@ -89,6 +90,7 @@ if spawn_check == true {
 			repair.is_manned = true;
 			repair.spawn_unit = obj_INFB_Unit;
 			repair.my_inf = my_sprite;
+			repair.my_mask = my_mask;
 			repair.active = true;
 			repair.can_be_selected = false;
 			repair.alarm[11] = 60;
@@ -141,6 +143,7 @@ if spawn_check == true {
 			    tow.is_manned = true;
 				tow.spawn_unit = obj_INFB_Unit;
 				tow.my_inf = my_sprite;
+				tow.my_mask = my_mask;
 				tow.active = true;
 				tow.can_be_selected = false;
 			    tow.alarm[11] = 60;
@@ -193,6 +196,7 @@ if spawn_check == true {
 			        mortar.is_manned = true; 
 					mortar.spawn_unit = obj_INFB_Unit;
 					mortar.my_inf = my_sprite;
+					mortar.my_mask = my_mask;
 					mortar.active = true;
 					mortar.can_be_selected = false;
 			        //mortar.alarm[11] = 200;
@@ -257,6 +261,7 @@ if active == true & is_manning == false {
 		    depot.is_manned = true;
 			depot.spawn_unit = obj_INFB_Unit;
 			depot.my_inf = my_sprite;
+			depot.my_mask = my_mask;
 			depot.active = true;
 			depot.can_be_selected = false;
 		    //depot.alarm[11] = 200;
@@ -309,6 +314,7 @@ if active == true & is_manning == false {
 		        repair.is_manned = true;
 				repair.spawn_unit = obj_INFB_Unit;
 				repair.my_inf = my_sprite;
+				repair.my_mask = my_mask;
 				repair.active = true;
 				repair.can_be_selected = false;
 		        //repair.alarm[11] = 200;
@@ -361,6 +367,7 @@ if active == true & is_manning == false {
 		            tow.is_manned = true;
 					tow.spawn_unit = obj_INFB_Unit;
 					tow.my_inf = my_sprite;
+					tow.my_mask = my_mask;
 					tow.active = true;
 					tow.can_be_selected = false;
 		            //tow.alarm[11] = 200;
@@ -413,6 +420,7 @@ if active == true & is_manning == false {
 		                mortar.is_manned = true; 
 						mortar.spawn_unit = obj_INFB_Unit;
 						mortar.my_inf = my_sprite;
+						mortar.my_mask = my_mask;
 						mortar.active = true;
 						mortar.can_be_selected = false;
 		                //mortar.alarm[11] = 200;
@@ -460,63 +468,20 @@ if active == true & is_manning == false {
 		                }
 		            }
 						else if ifv != noone { 
-			                is_manning = true;
-							manned_unit = ifv.id;
-			                ifv.sqd_ammo += 1; 
-							ifv.selected = false;
-							ifv.can_be_selected = false;
-							ifv.sqd_unit   = "INF_B";
-							ifv.sqd_squad  = my_squad;
-							ifv.sqd_ap     = action_points;
-							ifv.sqd_health = unit_health;
-			                ifv.sqd_rflamo = rifle_ammo;
-			                ifv.sqd_rpgamo = rpg_ammo;
-			                ifv.sqd_flramo = flare_ammo;
-							ifv.add_squad  = true;
-			                if my_squad != "NOONE" {
-			                    switch my_squad {
-			                        case "ALPHA":
-			                            ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
-										ds_list_add(global.alpha_transit, unit_type);
-			                            my_squad = "NOONE";
-			                            break;
-			                        case "BRAVO":
-			                            ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
-										ds_list_add(global.bravo_transit, unit_type);
-			                            my_squad = "NOONE";
-			                            break;
-			                        case "CHARLIE":
-			                            ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
-										ds_list_add(global.charlie_transit, unit_type);
-			                            my_squad = "NOONE";
-			                            break;
-			                        case "DELTA":
-			                            ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
-										ds_list_add(global.delta_transit, unit_type);
-			                            my_squad = "NOONE";
-			                            break;
-			                        case "ECHO":
-			                            ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
-										ds_list_add(global.echo_transit, unit_type);
-			                            my_squad = "NOONE";
-			                            break;
-			                    }
-			                }
-			            }
-							else if apc != noone { 
+							if ifv.nav_confirmed == false {
 				                is_manning = true;
-								manned_unit = apc.id;
-				                apc.sqd_ammo += 1; 
-								apc.selected = false;
-								apc.can_be_selected = false;
-								apc.sqd_unit   = "INF_B";
-								apc.sqd_squad  = my_squad;
-								apc.sqd_ap     = action_points;
-								apc.sqd_health = unit_health;
-				                apc.sqd_rflamo = rifle_ammo;
-				                apc.sqd_rpgamo = rpg_ammo;
-				                apc.sqd_flramo = flare_ammo;
-								apc.add_squad  = true;
+								manned_unit = ifv.id;
+				                ifv.sqd_ammo += 1; 
+								ifv.selected = false;
+								ifv.can_be_selected = false;
+								ifv.sqd_unit   = "INF_B";
+								ifv.sqd_squad  = my_squad;
+								ifv.sqd_ap     = action_points;
+								ifv.sqd_health = unit_health;
+				                ifv.sqd_rflamo = rifle_ammo;
+				                ifv.sqd_rpgamo = rpg_ammo;
+				                ifv.sqd_flramo = flare_ammo;
+								ifv.add_squad  = true;
 				                if my_squad != "NOONE" {
 				                    switch my_squad {
 				                        case "ALPHA":
@@ -546,21 +511,23 @@ if active == true & is_manning == false {
 				                            break;
 				                    }
 				                }
-				            }
-								else if log != noone { 
+							}
+			            }
+							else if apc != noone { 
+								if apc.nav_confirmed == false {
 					                is_manning = true;
-									manned_unit = log.id;
-					                log.sqd_ammo += 1; 
-									log.selected = false;
-									log.can_be_selected = false;
-									log.sqd_unit   = "INF_B";
-									log.sqd_squad  = my_squad;
-									log.sqd_ap     = action_points;
-									log.sqd_health = unit_health;
-					                log.sqd_rflamo = rifle_ammo;
-					                log.sqd_rpgamo = rpg_ammo;
-					                log.sqd_flramo = flare_ammo;
-									log.add_squad  = true;
+									manned_unit = apc.id;
+					                apc.sqd_ammo += 1; 
+									apc.selected = false;
+									apc.can_be_selected = false;
+									apc.sqd_unit   = "INF_B";
+									apc.sqd_squad  = my_squad;
+									apc.sqd_ap     = action_points;
+									apc.sqd_health = unit_health;
+					                apc.sqd_rflamo = rifle_ammo;
+					                apc.sqd_rpgamo = rpg_ammo;
+					                apc.sqd_flramo = flare_ammo;
+									apc.add_squad  = true;
 					                if my_squad != "NOONE" {
 					                    switch my_squad {
 					                        case "ALPHA":
@@ -590,6 +557,53 @@ if active == true & is_manning == false {
 					                            break;
 					                    }
 					                }
+								}
+				            }
+								else if log != noone { 
+									if log.nav_confirmed == false {
+						                is_manning = true;
+										manned_unit = log.id;
+						                log.sqd_ammo += 1; 
+										log.selected = false;
+										log.can_be_selected = false;
+										log.sqd_unit   = "INF_B";
+										log.sqd_squad  = my_squad;
+										log.sqd_ap     = action_points;
+										log.sqd_health = unit_health;
+						                log.sqd_rflamo = rifle_ammo;
+						                log.sqd_rpgamo = rpg_ammo;
+						                log.sqd_flramo = flare_ammo;
+										log.add_squad  = true;
+						                if my_squad != "NOONE" {
+						                    switch my_squad {
+						                        case "ALPHA":
+						                            ds_list_delete(global.squad_alpha, ds_list_find_index(global.squad_alpha, id));
+													ds_list_add(global.alpha_transit, unit_type);
+						                            my_squad = "NOONE";
+						                            break;
+						                        case "BRAVO":
+						                            ds_list_delete(global.squad_bravo, ds_list_find_index(global.squad_bravo, id));
+													ds_list_add(global.bravo_transit, unit_type);
+						                            my_squad = "NOONE";
+						                            break;
+						                        case "CHARLIE":
+						                            ds_list_delete(global.squad_charlie, ds_list_find_index(global.squad_charlie, id));
+													ds_list_add(global.charlie_transit, unit_type);
+						                            my_squad = "NOONE";
+						                            break;
+						                        case "DELTA":
+						                            ds_list_delete(global.squad_delta, ds_list_find_index(global.squad_delta, id));
+													ds_list_add(global.delta_transit, unit_type);
+						                            my_squad = "NOONE";
+						                            break;
+						                        case "ECHO":
+						                            ds_list_delete(global.squad_echo, ds_list_find_index(global.squad_echo, id));
+													ds_list_add(global.echo_transit, unit_type);
+						                            my_squad = "NOONE";
+						                            break;
+						                    }
+						                }
+									}
 					            }
 									else { is_manning = false; }
 	}

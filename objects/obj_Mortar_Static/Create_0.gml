@@ -24,6 +24,7 @@ if p_side == "ONE" {
 crater_index = spr_Static_Crater;
 spawn_unit = -1;
 my_inf = obj_INFA_Unit.my_sprite;
+my_mask = obj_INFA_Unit.my_mask;
 my_sprite = spr_Mortar_00;
 mp_cost = 2;
 var t = instance_place(x, y, obj_Game_Tile);
@@ -49,6 +50,7 @@ target_y = y;
 diag = true;
 
 unit_type = "MORTAR";
+label = "Mortar Pit";
 
 my_speed = 0.75;
 

@@ -4,6 +4,10 @@ with obj_Enemy_Parent {
     scr_VisibilityCheck();
 }
 with shoot_mask { instance_destroy(); }
+if is_manned == true { 
+	var t = instance_place(x, y, obj_Game_Tile);
+	t.occupied = false;
+}
 audio_emitter_free(emit);
 part_system_destroy(particle_rpr0);
 part_system_destroy(particle_rpr1);

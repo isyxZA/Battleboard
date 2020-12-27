@@ -118,6 +118,62 @@ if auto_assign == true {
 				if su != "NOONE" { ds_list_add(global.temp_logi, su); }
 				ini_close();
 			}
+				else {
+					//Load a default formation
+					ds_list_add(global.temp_alpha, "MBT_A"); 
+					ds_list_add(global.temp_alpha, "MBT_A"); 
+					ds_list_add(global.temp_alpha, "MBT_A"); 
+					ds_list_add(global.temp_alpha, "MBT_A"); 
+					ds_list_add(global.temp_alpha, "LAC_A"); 
+					ds_list_add(global.temp_alpha, "LAC_A"); 
+	
+					ds_list_add(global.temp_bravo, "INF_A"); 
+					ds_list_add(global.temp_bravo, "INF_A"); 
+					ds_list_add(global.temp_bravo, "LOGI_A"); 
+					ds_list_add(global.temp_bravo, "LAV_A"); 
+					ds_list_add(global.temp_bravo, "LAV_A"); 
+					ds_list_add(global.temp_bravo, "LAC_B"); 
+	
+					ds_list_add(global.temp_charlie, "INF_A"); 
+					ds_list_add(global.temp_charlie, "INF_A"); 
+					ds_list_add(global.temp_charlie, "LOGI_A"); 
+					ds_list_add(global.temp_charlie, "LAV_A"); 
+					ds_list_add(global.temp_charlie, "LAV_A"); 
+					ds_list_add(global.temp_charlie, "LAC_B"); 
+	
+					ds_list_add(global.temp_delta, "INF_A"); 
+					ds_list_add(global.temp_delta, "INF_A"); 
+					ds_list_add(global.temp_delta, "INF_A"); 
+					ds_list_add(global.temp_delta, "LAV_B");
+					ds_list_add(global.temp_delta, "INF_B"); 
+					ds_list_add(global.temp_delta, "INF_B"); 
+	
+					ds_list_add(global.temp_echo, "INF_A"); 
+					ds_list_add(global.temp_echo, "INF_A"); 
+					ds_list_add(global.temp_echo, "INF_A"); 
+					ds_list_add(global.temp_echo, "LAV_B"); 
+					ds_list_add(global.temp_echo, "INF_B"); 
+					ds_list_add(global.temp_echo, "INF_B"); 
+				
+					ds_list_add(global.temp_infantry, "INF_A"); 
+					ds_list_add(global.temp_infantry, "INF_A"); 
+					ds_list_add(global.temp_infantry, "INF_A"); 
+					ds_list_add(global.temp_infantry, "INF_A"); 
+				
+					ds_list_add(global.temp_tank, "MBT_B"); 
+					ds_list_add(global.temp_tank, "MBT_B"); 
+				
+					ds_list_add(global.temp_engineer, "LAC_A"); 
+					ds_list_add(global.temp_engineer, "LAC_A"); 
+				
+					ds_list_add(global.temp_btr, "LAV_B");
+					ds_list_add(global.temp_btr, "LAV_B"); 
+					ds_list_add(global.temp_btr, "LAV_B");
+					ds_list_add(global.temp_btr, "LAV_B"); 
+				
+					ds_list_add(global.temp_logi, "LOGI_B"); 
+					ds_list_add(global.temp_logi, "LOGI_B"); 
+				}
 			//CALCULATE AMOUNT OF FORMATION POINTS USED\\
 			var fp = 0;
 			var i;

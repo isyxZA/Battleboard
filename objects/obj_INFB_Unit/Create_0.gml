@@ -12,9 +12,11 @@ if p_side == "ONE" {
 	switch p_faction {
 		case "US":
 			my_sprite = spr_Infantry_A1a;
+			my_mask   = spr_Infantry_A1a_Mask;
 			break;
 		case "RU":
 			my_sprite = spr_Infantry_A1a;
+			my_mask   = spr_Infantry_A1a_Mask;
 			break;
 	}
 }
@@ -25,9 +27,11 @@ if p_side == "ONE" {
 		switch p_faction {
 			case "US":
 				my_sprite = spr_Infantry_A2a;
+				my_mask   = spr_Infantry_A2a_Mask;
 				break;
 			case "RU":
 				my_sprite = spr_Infantry_B2a;
+				my_mask   = spr_Infantry_B2a_Mask;
 				break;
 		}
 	}
@@ -48,6 +52,7 @@ shoot_mask.kind = 1;
 shoot_mask.my_unit = id;
 
 unit_type = "INF_B";
+label = "Reconnaissance";
 
 my_speed = 3.5;
 

@@ -11,16 +11,20 @@ if p_side == "ONE" {
 	txt_rot = 0;
 	switch p_faction {
 		case "US":
-			my_sprite    = spr_Engineer_A1a;
-			my_turret    = spr_Engineer_A1a_Turret;
-			my_icon      = spr_Engineer_A1a_Icon;
+			my_sprite = spr_Engineer_A1a;
+			my_turret = spr_Engineer_A1a_Turret;
+			my_icon   = spr_Engineer_A1a_Icon;
+			my_mask   = spr_Engineer_A1a_Mask;
 			crater_index = spr_Engineer_Crater_US;
+			label = "M1097A2 TOW";
 			break;
 		case "RU":
-			my_sprite    = spr_Engineer_B1a;
-			my_turret    = spr_Engineer_B1a_Turret;
-			my_icon      = spr_Engineer_B1a_Icon;
+			my_sprite = spr_Engineer_B1a;
+			my_turret = spr_Engineer_B1a_Turret;
+			my_icon   = spr_Engineer_B1a_Icon;
+			my_mask   = spr_Engineer_B1a_Mask;
 			crater_index = spr_Engineer_Crater_RU;
+			label = "GAZ Tigr TOW";
 			break;
 	}
 }
@@ -30,16 +34,20 @@ if p_side == "ONE" {
 		txt_rot = 180;
 		switch p_faction {
 			case "US":
-				my_sprite    = spr_Engineer_A2a;
-				my_turret    = spr_Engineer_A2a_Turret;
-				my_icon      = spr_Engineer_A2a_Icon;
+				my_sprite = spr_Engineer_A2a;
+				my_turret = spr_Engineer_A2a_Turret;
+				my_icon   = spr_Engineer_A2a_Icon;
+				my_mask   = spr_Engineer_A2a_Mask;
 				crater_index = spr_Engineer_Crater_US;
+				label = "M1097A2 TOW";
 				break;
 			case "RU":
-				my_sprite    = spr_Engineer_B2a;
-				my_turret    = spr_Engineer_B2a_Turret;
-				my_icon      = spr_Engineer_B2a_Icon;
+				my_sprite = spr_Engineer_B2a;
+				my_turret = spr_Engineer_B2a_Turret;
+				my_icon   = spr_Engineer_B2a_Icon;
+				my_mask   = spr_Engineer_B2a_Mask;
 				crater_index = spr_Engineer_Crater_RU;
+				label = "GAZ Tigr TOW";
 				break;
 		}
 	}

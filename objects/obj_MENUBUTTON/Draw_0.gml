@@ -12,5 +12,6 @@ draw_set_halign(fa_center);
 draw_set_font(fnt_16);
 draw_text_colour_shadow(x, y, txt, c1, c1, c1, c1, 1, 330, c_black, 0.7);
 draw_set_font(fnt_12);
+if wip_display == true { draw_text_colour_shadow(room_width*0.5, room_height-32, "(Work in progress...ETA...Unknown)", c_red, c_red, c_red, c_red, 1, 330, c_black, 0.7); }
 
 

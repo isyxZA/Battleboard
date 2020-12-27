@@ -9,7 +9,7 @@ function scr_DiscoveryCheck() {
 	    for (ui=0; ui<ds_list_size(global.myunit_list); ui+=1){
 	        var eu = ds_list_find_value(global.myunit_list, ui);
 	        var ud = point_distance(x, y, eu.x, eu.y);
-	        var ur = eu.view_radius-global.cell_size;
+	        var ur = eu.view_radius;
 	        if ud <= ur { vis_count += 1; }
 	    }
 	}

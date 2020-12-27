@@ -291,6 +291,9 @@ if action_confirmed == true {
 				else if shoot_sqd == true {
 					//Add alert to gui
 					shoot_sqd = false;
+					action_confirmed = false;
+					alarm[8] = 60;
+					weapon = "NOONE";
 					sqd_unit   = ds_list_find_value(unit_list  , 0);
 					sqd_squad  = ds_list_find_value(squad_list , 0);
 					sqd_ap     = ds_list_find_value(ap_list    , 0);
@@ -299,10 +302,10 @@ if action_confirmed == true {
 					sqd_rpgamo = ds_list_find_value(rpgamo_list, 0);
 					sqd_flramo = ds_list_find_value(flramo_list, 0);
 					if sqd_unit != "NOONE" {
-						ds_list_add(global.action_alert_list, "APC Deploying Squad");
-						timer_target = 1;
-						timer_count = timer_target;
-						timer_start = true;
+						//ds_list_add(global.action_alert_list, "APC Deploying Squad");
+						//timer_target = 1;
+						//timer_count = timer_target;
+						//timer_start = true;
 						shoot_amount -= 1;
 						switch sqd_unit {
 							case "INF_A":
@@ -410,18 +413,21 @@ if global.my_turn == true || global.waiting == true {
         if rot != 180  { rot += (sin(degtorad(rot-180))); }
     }
 
-var d2;
-if action_confirmed == true || draw_flash == true { 
-    d2 = point_direction(x, y, target_x, target_y)+rot_adj; 
-    if turret_rot != d2  { turret_rot += (sin(degtorad(turret_rot-d2))); }
+if weapon != "SQD" {
+	var d2;
+	if action_confirmed == true || draw_flash == true { 
+	    d2 = point_direction(x, y, target_x, target_y)+rot_adj; 
+	    if turret_rot != d2  { turret_rot += (sin(degtorad(turret_rot-d2))); }
+	}
+	    else { 
+	        if selected && global.reticule_display == true {
+	             d2 = point_direction(x, y, global.target_x, global.target_y)+rot_adj;
+	             if turret_rot != d2  { turret_rot += (sin(degtorad(turret_rot-d2))); } 
+	        }
+	            else { if turret_rot != 180  { turret_rot += (sin(degtorad(turret_rot-180))); } }
+	    }
 }
-    else { 
-        if selected && global.reticule_display == true {
-             d2 = point_direction(x, y, global.target_x, global.target_y)+rot_adj;
-             if turret_rot != d2  { turret_rot += (sin(degtorad(turret_rot-d2))); } 
-        }
-            else { if turret_rot != 180  { turret_rot += (sin(degtorad(turret_rot-180))); } }
-    }
+	else { if turret_rot != 180  { turret_rot += (sin(degtorad(turret_rot-180))); } }
     
 if mp_depleted == true {
     mp_depleted = false;

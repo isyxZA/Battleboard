@@ -1,4 +1,5 @@
 unit_type = "NOONE";
+label = "NOONE";
 active = false;
 light_size = 0;
 size_target = 0;
@@ -67,6 +68,7 @@ rot = 0;
 rot_adj = 0;
 txt_rot = 0;
 my_sprite = -1;
+my_mask = -1;
 my_icon = -1;
 my_alpha = 1;
 diag = false;

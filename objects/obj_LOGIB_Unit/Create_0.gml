@@ -11,12 +11,16 @@ if p_side == "ONE" {
 	txt_rot = 0;
 	switch p_faction {
 		case "US":
-			my_sprite    = spr_Logi_A1a;
+			my_sprite = spr_Logi_A1a;
+			my_mask   = spr_Logi_A1a_Mask;
 			crater_index = spr_Logi_Crater_US;
+			label = "M35 Transport";
 			break;
 		case "RU":
-			my_sprite    = spr_Logi_B1a;
+			my_sprite = spr_Logi_B1a;
+			my_mask   = spr_Logi_B1a_Mask;
 			crater_index = spr_Logi_Crater_RU;
+			label = "Ural 4320 Transport";
 			break;
 	}
 }
@@ -26,12 +30,16 @@ if p_side == "ONE" {
 		txt_rot = 180;
 		switch p_faction {
 			case "US":
-				my_sprite    = spr_Logi_A2a;
+				my_sprite = spr_Logi_A2a;
+				my_mask   = spr_Logi_A2a_Mask;
 				crater_index = spr_Logi_Crater_US;
+				label = "M35 Transport";
 				break;
 			case "RU":
-				my_sprite    = spr_Logi_B2a;
+				my_sprite = spr_Logi_B2a;
+				my_mask   = spr_Logi_B2a_Mask;
 				crater_index = spr_Logi_Crater_RU;
+				label = "Ural 4320 Transport";
 				break;
 		}
 	}

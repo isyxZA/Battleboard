@@ -14,13 +14,17 @@ if p_side == "ONE" {
 			my_sprite = spr_BTR_A1a; 
 			my_turret = spr_BTR_A1a_Turret;
 			my_icon   = spr_BTR_A1a_Icon;
+			my_mask   = spr_BTR_A1a_Mask;
 			crater_index = spr_BTR_Crater_US;
+			label = "M1126 Stryker APC";
 			break;
 		case "RU":
 			my_sprite = spr_BTR_B1a; 
 			my_turret = spr_BTR_B1a_Turret;
 			my_icon   = spr_BTR_B1a_Icon;
+			my_mask   = spr_BTR_B1a_Mask;
 			crater_index = spr_BTR_Crater_RU;
+			label = "BTR-80 APC";
 			break;
 	}
 }
@@ -33,13 +37,17 @@ if p_side == "ONE" {
 				my_sprite = spr_BTR_A2a; 
 				my_turret = spr_BTR_A2a_Turret;
 				my_icon   = spr_BTR_A2a_Icon;
+				my_mask   = spr_BTR_A2a_Mask;
 				crater_index = spr_BTR_Crater_US;
+				label = "M1126 Stryker APC";
 				break;
 			case "RU":
 				my_sprite = spr_BTR_B2a; 
 				my_turret = spr_BTR_B2a_Turret;
 				my_icon   = spr_BTR_B2a_Icon;
+				my_mask   = spr_BTR_B2a_Mask;
 				crater_index = spr_BTR_Crater_RU;
+				label = "BTR-80 APC";
 				break;
 		}
 	}

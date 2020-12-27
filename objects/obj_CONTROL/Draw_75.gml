@@ -261,7 +261,7 @@ if global.game_state == "IN_GAME" {
                 var aa;
                 for (aa=0; aa<ds_list_size(global.selected_list); aa+=1){
                     unit = ds_list_find_value(global.selected_list, aa);
-                    var txt = unit.unit_type;
+                    var txt = unit.label;
                     draw_sprite_ext(spr_Alert_Box02, 0, display_get_gui_width()*0.95, (mid_y+adj2)+((aa-lmid2)*v_space), 1, 1, 0, c_white, 0.5);
                     draw_text(display_get_gui_width()*0.95, (mid_y+adj2)+((aa-lmid2)*v_space), string_hash_to_newline(string(txt)));
                 }
@@ -290,7 +290,7 @@ if global.game_state == "IN_GAME" {
     //Game over display panel
     if global.victory == true || global.defeat == true { 
 		var xx0 = sprite_get_width(spr_OptionsBG_2)*0.5;
-		var txt1 = "Battlefield Dominance";
+		var txt1 = "Battlefield Report";
 		draw_sprite_ext(spr_OptionsBG_2, 0, mid_x-xx0, mid_y-256, 1, 0.5, 0, c_white, txt_a);
 		
 		draw_set_colour(c_white);
@@ -308,10 +308,10 @@ if global.game_state == "IN_GAME" {
 		
 		draw_set_font(fnt_10);
 		draw_text(mid_x-280, mid_y-140, "Infantry:");
-		draw_text(mid_x-280, mid_y-120, "Tanks:");
-		draw_text(mid_x-280, mid_y-100, "Engineers:");
-		draw_text(mid_x-280, mid_y-80 , "Light Armor:");
-		draw_text(mid_x-280, mid_y-60 , "Logistics Trucks:");
+		draw_text(mid_x-280, mid_y-120, "MBT's:");
+		draw_text(mid_x-280, mid_y-100, "LAC's:");
+		draw_text(mid_x-280, mid_y-80 , "LAV's:");
+		draw_text(mid_x-280, mid_y-60 , "Trucks:");
 		draw_text(mid_x-280, mid_y-40 , "Depots:");
 		draw_text(mid_x-280, mid_y-20 , "Repair Stations:");
 		draw_text(mid_x-280, mid_y    , "TOW Launchers:");
@@ -344,7 +344,6 @@ if global.game_state == "IN_GAME" {
 		draw_sprite_ext(spr_SilverStar     , 0, mid_x-280, mid_y+90, 1, 1, 0, c_white, 1);
 		draw_sprite_ext(spr_LegionofMerit  , 0, mid_x    , mid_y+90, 1, 1, 0, c_white, 1);
 		draw_sprite_ext(spr_SuperiorService, 0, mid_x+280, mid_y+90, 1, 1, 0, c_white, 1);
-		
 		
 		draw_set_colour(c_black);
 		draw_set_halign(fa_center);

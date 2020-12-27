@@ -12,9 +12,11 @@ if p_side == "ONE" {
 	switch p_faction {
 		case "US":
 			my_sprite = spr_Infantry_A1;
+			my_mask   = spr_Infantry_A1_Mask;
 			break;
 		case "RU":
 			my_sprite = spr_Infantry_B1;
+			my_mask   = spr_Infantry_B1_Mask;
 			break;
 	}
 }
@@ -25,9 +27,11 @@ if p_side == "ONE" {
 		switch p_faction {
 			case "US":
 				my_sprite = spr_Infantry_A2;
+				my_mask   = spr_Infantry_A2_Mask;
 				break;
 			case "RU":
 				my_sprite = spr_Infantry_B2;
+				my_mask   = spr_Infantry_B2_Mask;
 				break;
 		}
 	}
@@ -48,6 +52,7 @@ shoot_mask.kind = 1;
 shoot_mask.my_unit = id;
 
 unit_type = "INF_A";
+label = "Riflemen";
 
 my_speed = 3.5;
 

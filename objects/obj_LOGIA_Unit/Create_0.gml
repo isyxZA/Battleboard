@@ -11,12 +11,16 @@ if p_side == "ONE" {
 	txt_rot = 0;
 	switch p_faction {
 		case "US":
-			my_sprite    = spr_Logi_A1;
+			my_sprite = spr_Logi_A1;
+			my_mask   = spr_Logi_A1_Mask;
 			crater_index = spr_Logi_Crater_US;
+			label = "M35 Cargo";
 			break;
 		case "RU":
-			my_sprite    = spr_Logi_B1;
+			my_sprite = spr_Logi_B1;
+			my_mask   = spr_Logi_B1_Mask;
 			crater_index = spr_Logi_Crater_RU;
+			label = "Ural 4320 Cargo";
 			break;
 	}
 }
@@ -26,12 +30,16 @@ if p_side == "ONE" {
 		txt_rot = 180;
 		switch p_faction {
 			case "US":
-				my_sprite    = spr_Logi_A2;
+				my_sprite = spr_Logi_A2;
+				my_mask   = spr_Logi_A2_Mask;
 				crater_index = spr_Logi_Crater_US;
+				label = "M35 Cargo";
 				break;
 			case "RU":
-				my_sprite    = spr_Logi_B2;
+				my_sprite = spr_Logi_B2;
+				my_mask   = spr_Logi_B2_Mask;
 				crater_index = spr_Logi_Crater_RU;
+				label = "Ural 4320 Cargo";
 				break;
 		}
 	}
