@@ -266,7 +266,7 @@ if global.game_turn != 0 {
     if nav_confirmed == false {
         if global.highlight_shoot != true && global.highlight_move != true {
             //Highlight tiles in supply range
-            if keyboard_check_pressed(ord("R")) {
+            if keyboard_check_pressed(global.SUPPLY) {
                 if highlight_supply == false { 
                     highlight_supply = true;
                     global.highlight_supply = true;
@@ -287,7 +287,7 @@ if global.game_turn != 0 {
         if selected {
             if global.highlight_supply != true && global.highlight_move != true {
                 //Highlight tiles within shoot range
-                if keyboard_check_pressed(ord("F")) {
+                if keyboard_check_pressed(global.RANGE) {
                     if highlight_shoot == false { 
                         highlight_shoot = true;
                         global.highlight_shoot = true;
@@ -307,7 +307,7 @@ if global.game_turn != 0 {
             }
             if global.highlight_shoot != true && global.highlight_supply != true {
                 //Highlight tiles within movement range
-                if keyboard_check_pressed(ord("T")) {
+                if keyboard_check_pressed(global.TERRAIN) {
                     if highlight_move == false { 
                         highlight_move = true;
                         global.highlight_move = true;
@@ -330,7 +330,7 @@ if global.game_turn != 0 {
 }
 
 //Deactivate tile highlight for supply
-if keyboard_check_released(ord("R")) {
+if keyboard_check_released(global.SUPPLY) {
     if highlight_supply == true { 
         highlight_supply = false;
         global.highlight_supply = false;
@@ -370,7 +370,7 @@ if highlight_supply == true {
 }
 
 //Deactivate tile highlight for shoot 
-if keyboard_check_released(ord("F")) {
+if keyboard_check_released(global.RANGE) {
     if highlight_shoot == true { 
         highlight_shoot = false;
         global.highlight_shoot = false;
@@ -410,7 +410,7 @@ if highlight_shoot == true {
 }
 
 //Deactivate tile highlight for movement 
-if keyboard_check_released(ord("T")) {
+if keyboard_check_released(global.TERRAIN) {
     if highlight_move == true { 
         highlight_move = false;
         global.highlight_move = false;

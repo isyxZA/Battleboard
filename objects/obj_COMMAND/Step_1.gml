@@ -47,7 +47,7 @@ if deactivate == true {
 }
 
 if confirm_menu == true {
-	if keyboard_check_pressed(ord("X")) {
+	if keyboard_check_pressed(global.CANCEL) {
 		confirm_menu = false;
 		//Reset menu animation
 		menu_anim = true;

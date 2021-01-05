@@ -1,10 +1,11 @@
 function scr_TargetUAV() {
+	
 	//Rotate targeting
-	if keyboard_check_pressed(ord("Z")) {
+	if keyboard_check_pressed(global.LSHIFT) {
 	    target_rot += 1;
 	    if target_rot > 3 { target_rot = 0; }
 	}
-	    else if keyboard_check_pressed(ord("C")) {
+	    else if keyboard_check_pressed(global.RSHIFT) {
 	        target_rot -= 1;
 	        if target_rot < 0 { target_rot = 3; }
 	    }
@@ -69,7 +70,5 @@ function scr_TargetUAV() {
 			                uav_y2 = target_y+room_height*0.6;
 						}
 	            }
-
-
 
 }

@@ -61,7 +61,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	    else if f1 { 
 	        //Select number of rounds to fire HE
 	        //Increase by a rate of 1
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough ammo available
 	            if lava_he_amount <= (lava_he_ammo-he_rate) { 
 	                //Check if there is enough turn AP for the move
@@ -84,7 +84,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	            } 
 	        }
 	        //Decrease by a rate of 1
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if lava_he_amount >= he_rate { 
 	                lava_he_amount -= he_rate; 
 	            } 
@@ -105,7 +105,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	        else if f2 { 
 	            //Select number of rounds to fire AP
 	            //Increase by a rate of 1
-	            if mouse_wheel_up() { 
+	            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                //Check if there is enough ammo available
 	                if lava_ap_amount <= (lava_ap_ammo-ap_rate) { 
 	                    //Check if there is enough turn AP for the move
@@ -128,7 +128,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                } 
 	            }
 	            //Decrease by a rate of 1
-	            if mouse_wheel_down() { 
+	            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                if lava_ap_amount >= ap_rate { 
 	                    lava_ap_amount -= ap_rate; 
 	                } 
@@ -149,7 +149,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				else if f3 { 
 		            //Select number of rounds to fire MG
 		            //Increase by a rate of 1
-		            if mouse_wheel_up() { 
+		            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 		                //Check if there is enough ammo available
 		                if lava_mg_amount <= (lava_mg_ammo-mg_rate) { 
 		                    //Check if there is enough turn AP for the move
@@ -172,7 +172,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		                } 
 		            }
 		            //Decrease by a rate of 1
-		            if mouse_wheel_down() { 
+		            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 		                if lava_mg_amount >= mg_rate { 
 		                    lava_mg_amount -= mg_rate; 
 		                } 
@@ -193,7 +193,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 					else if f4 { 
 			            //Select number of rounds to fire TOW
 			            //Increase by a rate of 1
-			            if mouse_wheel_up() { 
+			            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 			                //Check if there is enough ammo available
 			                if lava_at_amount <= (lava_at_ammo-tow_rate) { 
 			                    //Check if there is enough turn AP for the move
@@ -216,7 +216,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 			                } 
 			            }
 			            //Decrease by a rate of 1
-			            if mouse_wheel_down() { 
+			            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 			                if lava_at_amount >= tow_rate { 
 			                    lava_at_amount -= tow_rate; 
 			                } 
@@ -237,7 +237,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 						else if f5 { 
 				            //Select squad to disembark
 				            //Increase by a rate of 1
-				            if mouse_wheel_up() { 
+				            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 								if tile_empty == true {
 							        //Check if there is enough ammo available
 							        if lava_sq_amount <= (lava_sq_ammo-sqd_rate) { 
@@ -266,7 +266,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 									else { lava_sq_amount = 0; }
 				            }
 				            //Decrease by a rate of 1
-				            if mouse_wheel_down() { 
+				            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 				                if lava_sq_amount >= sqd_rate { 
 				                    lava_sq_amount -= sqd_rate; 
 				                } 
@@ -308,7 +308,7 @@ function scr_LAVA_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				                        obj_ACTIONMENU.display_menuinfo = false;
 				                    }
             
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab

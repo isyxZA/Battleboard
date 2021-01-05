@@ -1,1 +1,1 @@
-txt = "Q";
+key = "SHOOT";

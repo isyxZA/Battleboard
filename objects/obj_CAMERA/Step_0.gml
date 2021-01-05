@@ -5,7 +5,7 @@ if global.game_state == "IN_GAME" {
 				window_set_cursor(cr_arrow);
 			}
                 else {
-                    if mouse_check_button(mb_middle) {
+                    if mouse_check_button(global.MMOUSE) {
                         dragging = true; 
 						window_set_cursor(cr_cross);
                     } 
@@ -20,7 +20,7 @@ if global.game_state == "IN_GAME" {
 					window_set_cursor(cr_arrow);
                 }
                     else {
-                        if mouse_check_button(mb_middle) {
+                        if mouse_check_button(global.MMOUSE) {
                             dragging = true; 
 							window_set_cursor(cr_cross);
                         } 
@@ -38,7 +38,7 @@ if global.game_state == "IN_GAME" {
     //Set zoom level
     if global.zoom_speed != 0 {
         if global.can_zoom == true {
-            if mouse_wheel_up() { 
+            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
                 if global.zoom_level != 0 {
                     global.zoom_level -= 2;
                     if global.zoom_level < 0 { global.zoom_level = 0; }
@@ -50,7 +50,7 @@ if global.game_state == "IN_GAME" {
                     audio_group_set_gain(Soundscape, el, 200);
                 }
             } 
-            if mouse_wheel_down() { 
+            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
                 if global.zoom_level != 10 {
                     global.zoom_level += 2;
                     if global.zoom_level > 10 { global.zoom_level = 10; }
@@ -150,7 +150,7 @@ if global.game_state == "IN_GAME" {
 		}
     }
     
-    if (mouse_check_button_pressed(mb_middle)) {
+    if mouse_check_button_pressed(global.MMOUSE) {
         drag_x = mouse_x;
         drag_y = mouse_y;
     }
@@ -178,16 +178,16 @@ if global.game_state == "IN_GAME" {
                         edge_pan_d = false;
                     }
                 if player == "ONE" {  
-	                if edge_pan_l == true || keyboard_check(ord("A")) { cam_move_l = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)-(pan_speed_l), camera_get_view_y(my_camera));               } else { cam_move_l = false; }
-	                if edge_pan_r == true || keyboard_check(ord("D")) { cam_move_r = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)+(pan_speed_r), camera_get_view_y(my_camera));               } else { cam_move_r = false; }
-	                if edge_pan_u == true || keyboard_check(ord("W")) { cam_move_u = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)              , camera_get_view_y(my_camera)-(pan_speed_u)); } else { cam_move_u = false; }
-	                if edge_pan_d == true || keyboard_check(ord("S")) { cam_move_d = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)              , camera_get_view_y(my_camera)+(pan_speed_d)); } else { cam_move_d = false; }
+	                if edge_pan_l == true || keyboard_check(global.LEFT)  { cam_move_l = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)-(pan_speed_l), camera_get_view_y(my_camera));               } else { cam_move_l = false; }
+	                if edge_pan_r == true || keyboard_check(global.RIGHT) { cam_move_r = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)+(pan_speed_r), camera_get_view_y(my_camera));               } else { cam_move_r = false; }
+	                if edge_pan_u == true || keyboard_check(global.UP)    { cam_move_u = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)              , camera_get_view_y(my_camera)-(pan_speed_u)); } else { cam_move_u = false; }
+	                if edge_pan_d == true || keyboard_check(global.DOWN)  { cam_move_d = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)              , camera_get_view_y(my_camera)+(pan_speed_d)); } else { cam_move_d = false; }
 				}
 					else if player == "TWO" {  
-		                if edge_pan_l == true || keyboard_check(ord("A")) { cam_move_r = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)+(pan_speed_r), camera_get_view_y(my_camera));               } else { cam_move_r = false; }
-		                if edge_pan_r == true || keyboard_check(ord("D")) { cam_move_l = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)-(pan_speed_l), camera_get_view_y(my_camera));               } else { cam_move_l = false; }
-		                if edge_pan_u == true || keyboard_check(ord("W")) { cam_move_d = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)              , camera_get_view_y(my_camera)+(pan_speed_d)); } else { cam_move_d = false; }
-		                if edge_pan_d == true || keyboard_check(ord("S")) { cam_move_u = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)              , camera_get_view_y(my_camera)-(pan_speed_u)); } else { cam_move_u = false; }
+		                if edge_pan_l == true || keyboard_check(global.LEFT)  { cam_move_r = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)+(pan_speed_r), camera_get_view_y(my_camera));               } else { cam_move_r = false; }
+		                if edge_pan_r == true || keyboard_check(global.RIGHT) { cam_move_l = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)-(pan_speed_l), camera_get_view_y(my_camera));               } else { cam_move_l = false; }
+		                if edge_pan_u == true || keyboard_check(global.UP)    { cam_move_d = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)              , camera_get_view_y(my_camera)+(pan_speed_d)); } else { cam_move_d = false; }
+		                if edge_pan_d == true || keyboard_check(global.DOWN)  { cam_move_u = true; camera_set_view_pos(my_camera, camera_get_view_x(my_camera)              , camera_get_view_y(my_camera)-(pan_speed_u)); } else { cam_move_u = false; }
 					}
 
                 //Camera easing

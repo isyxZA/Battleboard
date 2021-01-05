@@ -1,1 +1,1 @@
-txt = "Esc";
+key = "ESCAPE";

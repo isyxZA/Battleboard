@@ -15,7 +15,7 @@ function scr_Command_Menu() {
 		                else if draw_airdrop == true { txt = "Airdrop"; }
 		                    else if draw_ilc == true { txt = "Infantry"; }
 		                        else if draw_tlc == true { txt = "Tank"; }
-		                            else if draw_elc == true { txt = "Engineer"; }
+		                            else if draw_elc == true { txt = "LAC"; }
 		                                else if draw_blc == true { txt = "LAV"; }
 		                                    else if draw_llc == true { txt = "Logistics"; }
 		                                        else txt = "";

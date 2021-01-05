@@ -23,8 +23,8 @@ if global.fire_display != true {
     display_tabinfo  = false;
 }
     else if global.fire_display == true { 
-        if keyboard_check_direct(ord("Q")) {
-            if !mouse_check_button(mb_right) {
+        if keyboard_check_direct(global.SHOOT) {
+            if !mouse_check_button(global.RMOUSE) {
 				global.menu_x = mouse_x;
 				global.menu_y = mouse_y;
             }
@@ -32,7 +32,7 @@ if global.fire_display != true {
     }
 
 //Set menu position
-if mouse_check_button(mb_right) {
+if mouse_check_button(global.RMOUSE) {
 	global.menu_x = mouse_x;
 	global.menu_y = mouse_y;
 }
@@ -40,7 +40,7 @@ if mouse_check_button(mb_right) {
 //Hotkeys for navigation, targeting and cancelling
 if !ds_list_empty(global.selected_list) { 
     //Navigation
-    if keyboard_check_pressed(ord("E")) {
+    if keyboard_check_pressed(global.MOVE) {
         //First make sure no menus are being displayed
         if global.nav_menu == false && global.repair_display == false && global.nav_select == false && global.fire_display == false {
             if global.turn_AP > 0 {
@@ -238,12 +238,12 @@ if !ds_list_empty(global.selected_list) {
 					menu_alpha = 0;
 					menu_scl = 0;
 					//Remove the surface
-					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+					if surface_exists(global.menu_surf) { surface_free(global.menu_surf); }
 				}
 			}
     }
         //Targeting
-        else if keyboard_check_pressed(ord("Q")) {
+        else if keyboard_check_pressed(global.SHOOT) {
             //First make sure no menus are being displayed
             if global.fire_display == false && global.nav_menu == false && global.repair_display == false && global.reticule_display == false {
                 if global.turn_AP > 0 {
@@ -253,7 +253,7 @@ if !ds_list_empty(global.selected_list) {
 					menu_alpha = 0;
 					menu_scl = 0;
 					//Remove the surface
-					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+					if surface_exists(global.menu_surf) { surface_free(global.menu_surf); }
                     global.menu_create = true;
                     global.reticule_display = true;
                     if global.nav_select == true {
@@ -350,7 +350,7 @@ if !ds_list_empty(global.selected_list) {
                 }
         }
             //CANCEL
-            else if keyboard_check_pressed(ord("X")) {
+            else if keyboard_check_pressed(global.CANCEL) {
                 if global.fire_display     == true { global.fire_display     = false; queue_reset = true; } 
                 if global.reticule_display == true { global.reticule_display = false; } 
                 if global.menu_create      == true { global.menu_create      = false; }
@@ -395,7 +395,7 @@ if !ds_list_empty(global.selected_list) {
 				menu_alpha = 0;
 				menu_scl = 0;
 				//Remove the surface
-				if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+				if surface_exists(global.menu_surf) { surface_free(global.menu_surf); }
             }
 }
 

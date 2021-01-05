@@ -39,7 +39,7 @@ function scr_MBTB_Tab(argument0, argument1, argument2, argument3) {
 	        //CANNON
 	        //Select number of rounds to fire
 	        //Increase by a rate of 1
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough ammo available
 	            if mbtb_ap_amount <= (mbtb_ap_ammo-cannon_rate) { 
 	                //Check if there is enough turn AP for the move
@@ -62,7 +62,7 @@ function scr_MBTB_Tab(argument0, argument1, argument2, argument3) {
 	            } 
 	        }
 	        //Decrease by a rate of 1
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if mbtb_ap_amount >= cannon_rate { 
 	                mbtb_ap_amount -= cannon_rate; 
 	            } 
@@ -84,7 +84,7 @@ function scr_MBTB_Tab(argument0, argument1, argument2, argument3) {
 	            //MG
 	            //Select number of rounds to fire
 	            //Increase by a rate of 4
-	            if mouse_wheel_up() { 
+	            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                //Check if there is enough ammo available
 	                if mbtb_mg_amount <= (mbtb_mg_ammo-mg_rate) { 
 	                    //Check if there is enough turn AP for the move
@@ -107,7 +107,7 @@ function scr_MBTB_Tab(argument0, argument1, argument2, argument3) {
 	                } 
 	            }
 	            //Decrease by a rate of 4
-	            if mouse_wheel_down() { 
+	            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                if mbtb_mg_amount >= mg_rate { 
 	                    mbtb_mg_amount -= mg_rate; 
 	                } 
@@ -148,7 +148,7 @@ function scr_MBTB_Tab(argument0, argument1, argument2, argument3) {
 	                        obj_ACTIONMENU.display_menuinfo = false;
 	                    }
             
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 		        //Switch ammo/fire options tab

@@ -63,7 +63,7 @@ function scr_LOGIA_INFA_Tab(argument0, argument1, argument2, argument3, argument
 	        //RESUPPLY RIFLES
 	        //Select number of rounds to fire
 	        //Increase by a rate of 20
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough ammo supply available
 	            if infrfl_l_amount <= (logia_amo_supply-rfl_supply_rate) {
 	                //Make sure the unit rifle ammo does not go over max
@@ -89,7 +89,7 @@ function scr_LOGIA_INFA_Tab(argument0, argument1, argument2, argument3, argument
 	            } 
 	        }
 	        //Decrease by a rate of 20
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if infrfl_l_amount >= rfl_supply_rate { 
 	                infrfl_l_amount -= rfl_supply_rate; 
 	            } 
@@ -111,7 +111,7 @@ function scr_LOGIA_INFA_Tab(argument0, argument1, argument2, argument3, argument
 	            //RESUPPLY RPG
 	            //Select number of rounds to fire
 	            //Increase by a rate of 1
-	            if mouse_wheel_up() { 
+	            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                //Check if there is enough ammo available
 	                if infrpg_l_amount <= (logia_amo_supply-rpg_supply_rate) { 
 	                    //Make sure the unit rpg ammo does not go over max
@@ -137,7 +137,7 @@ function scr_LOGIA_INFA_Tab(argument0, argument1, argument2, argument3, argument
 	                } 
 	            }
 	            //Decrease by a rate of 1
-	            if mouse_wheel_down() { 
+	            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                if infrpg_l_amount >= rpg_supply_rate { 
 	                    infrpg_l_amount -= rpg_supply_rate; 
 	                } 
@@ -159,7 +159,7 @@ function scr_LOGIA_INFA_Tab(argument0, argument1, argument2, argument3, argument
 	                //RESUPPLY FLARES
 	                //Select number of rounds to fire
 	                //Increase by a rate of 1
-	                if mouse_wheel_up() { 
+	                if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                    //Check if there is enough ammo available
 	                    if infflr_l_amount <= (logia_amo_supply-flr_supply_rate) { 
 	                        //Make sure the unit flare ammo does not go over max
@@ -185,7 +185,7 @@ function scr_LOGIA_INFA_Tab(argument0, argument1, argument2, argument3, argument
 	                    } 
 	                }
 	                //Decrease by a rate of 1
-	                if mouse_wheel_down() { 
+	                if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                    if infflr_l_amount >= flr_supply_rate { 
 	                        infflr_l_amount -= flr_supply_rate; 
 	                    } 
@@ -227,7 +227,7 @@ function scr_LOGIA_INFA_Tab(argument0, argument1, argument2, argument3, argument
 	                            obj_ACTIONMENU.display_menuinfo = false;
 	                        }
             
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab

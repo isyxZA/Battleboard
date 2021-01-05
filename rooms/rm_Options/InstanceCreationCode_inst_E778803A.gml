@@ -1,1 +1,1 @@
-txt = "C";
+key = "RSHIFT";

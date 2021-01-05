@@ -73,7 +73,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 	        //RESUPPLY HE
 	        //Select number of rounds to fire
 	        //Increase by a rate of 4
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough ammo supply available
 	            if lavhe_l_amount <= (logia_amo_supply-lavhe_supply_rate) {
 	                //Make sure the unit ammo does not go over max
@@ -99,7 +99,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 	            } 
 	        }
 	        //Decrease by a rate of 1
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if lavhe_l_amount >= lavhe_supply_rate { 
 	                lavhe_l_amount -= lavhe_supply_rate; 
 	            } 
@@ -121,7 +121,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 	            //RESUPPLY AP
 	            //Select number of rounds to fire
 	            //Increase by a rate of 4
-	            if mouse_wheel_up() { 
+	            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                //Check if there is enough ammo available
 	                if lavap_l_amount <= (logia_amo_supply-lavap_supply_rate) { 
 	                    //Make sure the unit rpg ammo does not go over max
@@ -147,7 +147,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 	                } 
 	            }
 	            //Decrease by a rate of 4
-	            if mouse_wheel_down() { 
+	            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                if lavap_l_amount >= lavap_supply_rate { 
 	                    lavap_l_amount -= lavap_supply_rate; 
 	                } 
@@ -169,7 +169,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 		            //RESUPPLY MG
 		            //Select number of rounds to fire
 		            //Increase by a rate of 4
-		            if mouse_wheel_up() { 
+		            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 		                //Check if there is enough ammo available
 		                if lavmg_l_amount <= (logia_amo_supply-lavmg_supply_rate) { 
 		                    //Make sure the unit rpg ammo does not go over max
@@ -195,7 +195,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 		                } 
 		            }
 		            //Decrease by a rate of 4
-		            if mouse_wheel_down() { 
+		            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 		                if lavmg_l_amount >= lavmg_supply_rate { 
 		                    lavmg_l_amount -= lavmg_supply_rate; 
 		                } 
@@ -217,7 +217,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 			            //RESUPPLY TOW
 			            //Select number of rounds to fire
 			            //Increase
-			            if mouse_wheel_up() { 
+			            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 			                //Check if there is enough ammo available
 			                if lavat_l_amount <= (logia_amo_supply-lavat_supply_rate) { 
 			                    //Make sure the unit rpg ammo does not go over max
@@ -243,7 +243,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 			                } 
 			            }
 			            //Decrease by a rate of 4
-			            if mouse_wheel_down() { 
+			            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 			                if lavat_l_amount >= lavat_supply_rate { 
 			                    lavat_l_amount -= lavat_supply_rate; 
 			                } 
@@ -285,7 +285,7 @@ function scr_LOGIA_LAVA_Tab(argument0, argument1, argument2, argument3, argument
 			                        obj_ACTIONMENU.display_menuinfo = false;
 			                    }
             
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab

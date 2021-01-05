@@ -6,7 +6,7 @@ if global.my_turn == true && global.nav_select == true {
             var n_unit = ds_list_find_value(global.selected_list, iu);
             with n_unit { 
 				mp_grid_clear_rectangle(global.move_grid, x-40, y-40, x+40, y+40);
-	            scr_Offset_Navigation();
+	            //scr_Offset_Navigation();
 	            //Add a delay to prevent this calculating every step
 	            if nav_allow ==  true {
 	                nav_allow = false;
@@ -30,7 +30,7 @@ if global.my_turn == true && global.nav_select == true {
 								else { }
 						}
 					if move_max > 0 {
-						if global.mouse_holdpos == false { scr_Navigation(my_grid, nav_offset); }
+						if global.mouse_holdpos == false { scr_Navigation(my_grid, 0); }
 					}
 	            }
             }

@@ -30,7 +30,7 @@ function scr_Action_Tab() {
 	                global.menu_option = 0; 
 	            }
                 
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    //Actions to be executed depending on button selection
 	    if m1 { 
 	        //MOVE

@@ -29,7 +29,7 @@ function scr_Ship_Noone_Tab() {
 	            global.can_zoom  = true;
 	        }
             
-	if mouse_check_button_released(mb_left) {
+	if mouse_check_button_released(global.LMOUSE) {
 	    if f0 { 
 	    }
 	        else if f1 {

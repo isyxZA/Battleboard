@@ -1,1 +1,1 @@
-txt = "F";
+key = "RANGE";

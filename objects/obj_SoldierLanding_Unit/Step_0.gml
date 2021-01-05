@@ -31,7 +31,7 @@ if global.my_turn == true || global.active_ilc == true {
     if can_move == false {
         //If units are still available for spawn
         if depleted == false {
-            if mouse_check_button_pressed(mb_left) {
+            if mouse_check_button_pressed(global.LMOUSE) {
                 if place_meeting(x, y, obj_MOUSE) { 
 					if obj_CONTROL.show_options == false {
 						if global.selected_LC == false { selected = true; } else { selected = false; } 
@@ -86,7 +86,7 @@ if global.my_turn == true || global.active_ilc == true {
                         my = y;
                     }
                 //Right click to place unit
-                if mouse_check_button_pressed(mb_right) {
+                if mouse_check_button_pressed(global.RMOUSE) {
                     if can_place == true { 
                         if !ds_list_empty(unit_list) {
                             var t = ds_list_find_value(unit_list, 0);

@@ -1,4 +1,5 @@
 function scr_TargetMissiles() {
+	
 	target_rot = 0; 
 
 	//Store bomb positions
@@ -49,7 +50,5 @@ function scr_TargetMissiles() {
 	    bomb_x7 = target_x;
 	    bomb_y7 = target_y;
 	}
-
-
 
 }

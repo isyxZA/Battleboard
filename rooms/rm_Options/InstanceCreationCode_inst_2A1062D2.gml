@@ -1,1 +1,1 @@
-txt = "Spacebar";
+key = "TURNEND";

@@ -1,1 +1,1 @@
-txt = "Middle Mouse";
+key = "MMOUSE";

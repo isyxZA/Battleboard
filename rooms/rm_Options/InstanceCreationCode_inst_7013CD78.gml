@@ -1,1 +1,1 @@
-txt = "Z";
+key = "LSHIFT";

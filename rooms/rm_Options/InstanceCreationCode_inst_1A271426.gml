@@ -1,1 +1,1 @@
-txt = "E";
+key = "MOVE";

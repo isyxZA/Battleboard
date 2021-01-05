@@ -54,6 +54,33 @@ if file_exists("settings.sav") {
 	if vs == 1 { global.vsync = true; } else { global.vsync = false; }
 	global.ui_scale = ini_read_real("Display", "UI", 0.8);
 	scale_pos = ini_read_real("Display", "UIX", 0);
+	
+	//Key binds
+	global.UP      = ini_read_real("Keys", "Up"     , 87);
+	global.DOWN    = ini_read_real("Keys", "Down"   , 83);
+	global.LEFT    = ini_read_real("Keys", "Left"   , 65);
+	global.RIGHT   = ini_read_real("Keys", "Right"  , 68);
+	global.LSHIFT  = ini_read_real("Keys", "LShift" , 90);
+	global.RSHIFT  = ini_read_real("Keys", "RShift" , 67);
+	global.SHOOT   = ini_read_real("Keys", "Shoot"  , 81);
+	global.MOVE    = ini_read_real("Keys", "Move"   , 69);
+	global.CANCEL  = ini_read_real("Keys", "Cancel" , 88);
+	global.STATS   = ini_read_real("Keys", "Stats"  , 9 );
+	global.RANGE   = ini_read_real("Keys", "Range"  , 70);
+	global.TERRAIN = ini_read_real("Keys", "Terrain", 84);
+	global.SUPPLY  = ini_read_real("Keys", "Supply" , 82);
+	global.GRID    = ini_read_real("Keys", "Grid"   , 71);
+	global.TURNEND = ini_read_real("Keys", "Turnend", 32);
+	global.HINTS   = ini_read_real("Keys", "Hints"  , 72);
+	global.OBJECTIVES = ini_read_real("Keys", "Objectives", 79);
+	global.VISIBILITY = ini_read_real("Keys", "Visibility", 86);
+	global.SCREEN     = ini_read_real("Keys", "Screen"    , 80);
+	global.ESCAPE     = ini_read_real("Keys", "Escape"    , 27);
+	global.LMOUSE = ini_read_real("Keys", "LMouse", 1);
+	global.RMOUSE = ini_read_real("Keys", "RMouse", 2);
+	global.MMOUSE = ini_read_real("Keys", "MMouse", 3);
+	global.INCREASE = ini_read_real("Keys", "Increase", 107);
+	global.DECREASE = ini_read_real("Keys", "Decrease", 109);
 		
 	ini_close();
 }
@@ -63,6 +90,7 @@ if file_exists("settings.sav") {
 		zoom_pos    = 0;
 		pan_pos     = 0;
 		scale_pos   = 0;
+		
 	}
 
 

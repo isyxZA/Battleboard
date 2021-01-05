@@ -2,7 +2,7 @@ x = mouse_x;
 y = mouse_y;
 
 if global.game_state == "IN_GAME" {
-    if keyboard_check_direct(vk_tab) { show_allstats = true;} 
+    if keyboard_check_direct(global.STATS) { show_allstats = true;} 
         else { show_allstats = false; }
     if show_allstats == false {
         if place_meeting(x,y, obj_Unit_Parent) { 

@@ -1,1 +1,1 @@
-txt = "Scroll Wheel";
+key = "INCREASE";

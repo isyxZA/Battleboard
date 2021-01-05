@@ -1,1 +1,1 @@
-txt = "R";
+key = "SUPPLY";

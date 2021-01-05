@@ -1,1 +1,1 @@
-txt = "S";
+key = "DOWN";

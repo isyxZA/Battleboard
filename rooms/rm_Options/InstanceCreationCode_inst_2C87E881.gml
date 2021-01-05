@@ -1,1 +1,1 @@
-txt = "X";
+key = "CANCEL";

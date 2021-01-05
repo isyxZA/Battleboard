@@ -1,219 +1,89 @@
-switch txt {
-    case "W":
-    case "A":
-    case "D":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
+draw_sprite_ext(my_sprite, 0, x, y, xscale, yscale, 0, c_white, 1);
+draw_set_font(my_font);
+draw_text_colour_shadow(x, y, string(txt), c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
+draw_set_font(fnt_12);
+draw_set_colour(c_white);
+draw_set_halign(fa_center);
+
+switch key {
+    case "UP":
+		draw_text(x, y+32, string("Move Up."));
+		break;
+    case "LEFT":
+		draw_text(x, y+32, string("Move Left."));
+		break;
+    case "RIGHT":
+        draw_text(x, y+32, string("Move Right."));
         break;
-    case "S":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_center);
-        draw_text(x,y+40, string_hash_to_newline("Move around the board."));
+    case "DOWN":
+        draw_text(x, y+32, string("Move Down."));
         break;
-    case "P":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Toggle fullscreen. (Single Player Only)"));
-        draw_set_halign(fa_center);
+    case "SCREEN":
+        draw_text(x, y+32, string("Toggle fullscreen. (Single Player Only)"));
         break;
-	case "G":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Toggle grid display."));
-        draw_set_halign(fa_center);
+	case "GRID":
+        draw_text(x, y+32, string("Toggle grid display."));
         break;
-    case "H":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Toggle hints."));
-        draw_set_halign(fa_center);
+    case "HINTS":
+        draw_text(x, y+32, string("Toggle hints."));
         break;
-    case "T":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Highlight nearby terrain tiles."));
-        draw_set_halign(fa_center);
+    case "TERRAIN":
+        draw_text(x, y+32, string("Highlight nearby terrain tiles."));
         break;
-    case "R":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Highlight tiles in resupply range."));
-        draw_set_halign(fa_center);
+    case "SUPPLY":
+        draw_text(x, y+32, string("Highlight tiles in resupply range."));
         break;
-    case "F":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Highlight tiles in unit firing range."));
-        draw_set_halign(fa_center);
+    case "RANGE":
+        draw_text(x, y+32, string("Highlight tiles in unit firing range."));
         break;
-    case "V":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Toggle enhanced visibility of units."));
-        draw_set_halign(fa_center);
+    case "VISIBILITY":
+        draw_text(x, y+32, string("Toggle enhanced visibility of units."));
         break;
-    case "Z":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Shift/Rotate units to the left."));
-        draw_set_halign(fa_center);
+    case "LSHIFT":
+        draw_text(x, y+32, string("Shift/Rotate units to the left."));
         break;
-    case "C":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Shift/Rotate units to the right."));
-        draw_set_halign(fa_center);
+    case "RSHIFT":
+        draw_text(x, y+32, string("Shift/Rotate units to the right."));
         break;
-    case "Tab":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_14);
-        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Identify units."));
-        draw_set_halign(fa_center);
+    case "STATS":
+        draw_text(x, y+32, string("Identify units."));
         break;
-    case "Esc":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_14);
-        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Pause the game."));
-        draw_set_halign(fa_center);
+    case "ESCAPE":
+        draw_text(x, y+32, string("Pause the game."));
         break;
-    case "Middle Mouse":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.8, 0.7, 0, c_white, 1);
-        draw_set_font(fnt_12);
-        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_center);
-        draw_text(x,y+30, string_hash_to_newline("Hold to drag the board."));
+    case "MMOUSE":
+        draw_text(x, y+32, string("Hold to drag the board."));
         break;
-    case "Left Mouse":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.8, 0.7, 0, c_white, 1);
-        draw_set_font(fnt_12);
-        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_center);
-        draw_text(x,y+30, string_hash_to_newline("Hold and drag to create selection box."));
-        draw_text(x,y+50, string_hash_to_newline("Select a single unit. Hold SHIFT for multiple units."));
-        draw_text(x,y+70, string_hash_to_newline("Confirm unit action."));
+    case "LMOUSE":
+        draw_text(x, y+32, string("Select units and confirm actions."));
         break;
-    case "Right Mouse":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.8, 0.7, 0, c_white, 1);
-        draw_set_font(fnt_12);
-        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_center);
-        draw_text(x,y+30, string_hash_to_newline("Place unit from landing craft to board."));
-        draw_text(x,y+50, string_hash_to_newline("Select a single unit and display menu."));
-        draw_text(x,y+70, string_hash_to_newline("Display action menu for selected units."));
+    case "RMOUSE":
+        draw_text(x, y+32, string("Select single unit and display menu."));
         break;
-    case "Scroll Wheel":
-        draw_sprite_ext(spr_Menu_Button, 0, x, y, 0.8, 0.7, 0, c_white, 1);
-        draw_set_font(fnt_12);
-        draw_text_colour_shadow(x,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_center);
-        draw_text(x,y+30, string_hash_to_newline("Zoom camera in/out."));
-        draw_text(x,y+50, string_hash_to_newline("Increase/decrease action amount."));
+    case "INCREASE":
+        draw_text(x, y+32, string("Zoom camera in/Increase action amount."));
         break;
-    case "Spacebar":
-        draw_sprite_ext(spr_Menu_Button, 0, x+40, y, 0.8, 0.7, 0, c_white, 1);
-        draw_set_font(fnt_12);
-        draw_text_colour_shadow(x+40,  y, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+120,y, string_hash_to_newline("End the turn."));
-		draw_set_halign(fa_center);
+	case "DECREASE":
+        draw_text(x, y+32, string("Zoom camera out/Decrease action amount."));
         break;
-    case "O":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Highlight objective area."));
-        draw_set_halign(fa_center);
+    case "TURNEND":
+        draw_text(x, y+32, string("End the turn."));
         break;
-	case "X":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Cancel."));
-        draw_set_halign(fa_center);
+    case "OBJECTIVES":
+        draw_text(x, y+32, string("Highlight objective area."));
         break;
-    case "E":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Move selected units."));
-        draw_set_halign(fa_center);
+	case "CANCEL":
+        draw_text(x, y+32, string("Cancel."));
         break;
-    case "Q":
-        draw_sprite_ext(spr_Menu_Box, 0, x, y, 1, 1, 0, c_white, 1);
-        draw_set_font(fnt_20);
-        draw_text_colour_shadow(x,  y+2, txt, c_silver, c_silver, c_silver, c_silver, 1, 330, c_black, 0.7);
-        draw_set_font(fnt_12);
-        draw_set_colour(c_white);
-        draw_set_halign(fa_left);
-        draw_text(x+32,y, string_hash_to_newline("Target with selected units."));
-        draw_set_halign(fa_center);
+    case "MOVE":
+        draw_text(x, y+32, string("Move selected units."));
+        break;
+    case "SHOOT":
+        draw_text(x, y+32, string("Target with selected units."));
         break;
 }
-
+draw_set_font(fnt_12);
+draw_set_colour(c_black);
 
 
 

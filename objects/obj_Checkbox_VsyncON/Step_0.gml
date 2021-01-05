@@ -1,15 +1,17 @@
-if place_meeting(x,y, obj_MOUSE) {
-    if mouse_check_button_pressed(mb_left) {
-        if is_checked == false { 
-            if global.vsync == false { 
-                global.vsync = true;
-                anim_count = 0;
-                if display_aa >= 12 display_reset(8, true); 
-                    else if display_aa == 6 display_reset(4, true); 
-                        else if display_aa == 2 display_reset(2, true); 
-            }
-        }
-    }
+if global.keybind == false {
+	if place_meeting(x,y, obj_MOUSE) {
+	    if mouse_check_button_pressed(mb_left) {
+	        if is_checked == false { 
+	            if global.vsync == false { 
+	                global.vsync = true;
+	                anim_count = 0;
+	                if display_aa >= 12 display_reset(8, true); 
+	                    else if display_aa == 6 display_reset(4, true); 
+	                        else if display_aa == 2 display_reset(2, true); 
+	            }
+	        }
+	    }
+	}
 }
 
 if global.vsync == true { is_checked = true; } 

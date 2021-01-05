@@ -9,13 +9,13 @@ if global.game_turn != 0 {
             //If a menu is not being displayed then allow for unit selection/deselection
             if (can_be_selected == true) && (global.menu_create == false) && (global.repair_display == false) && (global.nav_menu == false) {
                 //Sets top left of selection box
-                if mouse_check_button_pressed(mb_left) {
+                if mouse_check_button_pressed(global.LMOUSE) {
                     pX = mouse_x-6;
                     pY = mouse_y-10;
                     //Start double click check (ref obj_MOUSE)
                     if place_meeting(x, y, obj_MOUSE) { global.double_click = true; }
                 }
-                if mouse_check_button_released(mb_left) {
+                if mouse_check_button_released(global.LMOUSE) {
                     //If the unit is already selected
                     if selected {
                         //If touching the mouse then stay selected
@@ -38,7 +38,7 @@ if global.game_turn != 0 {
                 }
                 if global.can_select == true {
                     if (nav_confirmed == false) && (action_confirmed == false) && (resupplying == false) {
-                        if mouse_check_button_released(mb_right){
+                        if mouse_check_button_released(global.RMOUSE){
                             if place_meeting(x, y, obj_MOUSE) {
                                 if selected == false { 
                                     selected = true;
@@ -50,7 +50,7 @@ if global.game_turn != 0 {
                                     }
                             }
                         }
-                            else if keyboard_check_released(ord("E")) {
+                            else if keyboard_check_released(global.MOVE) {
                                 if place_meeting(x, y, obj_MOUSE) {
                                     if selected == false { 
                                         selected = true;
@@ -58,7 +58,7 @@ if global.game_turn != 0 {
                                     }
                                 }
                             }
-                                else if keyboard_check_released(ord("Q")) {
+                                else if keyboard_check_released(global.SHOOT) {
                                     if place_meeting(x, y, obj_MOUSE) {
                                         if selected == false { 
                                             selected = true;

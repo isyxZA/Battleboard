@@ -61,7 +61,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	        //RESUPPLY REPAIR
 	        //Select number of rounds to fire
 	        //Increase by a rate of 10
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough supply available
 	            if rprbld_d_amount <= (dpt_bld_supply-repairS_supply_rate) { 
 	                //Make sure the unit rpg ammo does not go over max
@@ -87,7 +87,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	            } 
 	        }
 	        //Decrease by a rate of 4
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if rprbld_d_amount >= repairS_supply_rate { 
 	                rprbld_d_amount -= repairS_supply_rate; 
 	            } 
@@ -109,7 +109,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	            //RESUPPLY MG AMMO
 	            //Select number of rounds to fire
 	            //Increase by a rate of 20
-	            if mouse_wheel_up() { 
+	            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                //Check if there is enough supply available
 	                if rprmg_d_amount <= (dpt_amo_supply-repairmg_supply_rate) {
 	                    //Make sure the unit ammo does not go over max
@@ -135,7 +135,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                } 
 	            }
 	            //Decrease by a rate of 10
-	            if mouse_wheel_down() { 
+	            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                if rprmg_d_amount >= repairmg_supply_rate { 
 	                    rprmg_d_amount -= repairmg_supply_rate; 
 	                } 
@@ -177,7 +177,7 @@ function scr_Depot_Repair_Tab(argument0, argument1, argument2, argument3, argume
 	                    obj_ACTIONMENU.display_menuinfo = false;
 	                }
             
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab

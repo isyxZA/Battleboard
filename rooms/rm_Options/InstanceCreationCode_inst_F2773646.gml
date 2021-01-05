@@ -1,1 +1,1 @@
-txt = "H";
+key = "HINTS";

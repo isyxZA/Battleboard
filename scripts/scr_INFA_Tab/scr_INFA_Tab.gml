@@ -42,7 +42,7 @@ function scr_INFA_Tab(argument0, argument1, argument2, argument3) {
 	        //RIFLES
 	        //Select number of rounds to fire
 	        //Increase by a rate of 4
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough ammo available to add another amount
 	            if infa_rfl_amount <= (infa_rfl_ammo-rifle_rate) { 
 	                //Check if there is enough turn AP for the move
@@ -65,7 +65,7 @@ function scr_INFA_Tab(argument0, argument1, argument2, argument3) {
 	            } 
 	        }
 	        //Decrease by a rate of 4
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if infa_rfl_amount >= rifle_rate { 
 	                infa_rfl_amount -= rifle_rate; 
 	            } 
@@ -87,7 +87,7 @@ function scr_INFA_Tab(argument0, argument1, argument2, argument3) {
 	            //RPG
 	            //Select number of rounds to fire
 	            //Increase by a rate of 1
-	            if mouse_wheel_up() { 
+	            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                //Check if there is enough ammo available
 	                if infa_rpg_amount <= (infa_rpg_ammo-rpg_rate) { 
 	                    //Check if there is enough turn AP for the move
@@ -110,7 +110,7 @@ function scr_INFA_Tab(argument0, argument1, argument2, argument3) {
 	                } 
 	            }
 	            //Decrease by a rate of 1
-	            if mouse_wheel_down() { 
+	            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                if infa_rpg_amount >= rpg_rate { 
 	                    infa_rpg_amount -= rpg_rate; 
 	                } 
@@ -132,7 +132,7 @@ function scr_INFA_Tab(argument0, argument1, argument2, argument3) {
 	                //FLARES
 	                //Select number of rounds to fire
 	                //Increase by a rate of 1
-	                if mouse_wheel_up() { 
+	                if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                    //Check if there is enough ammo available
 	                    if infa_flr_amount <= (infa_flr_ammo-flare_rate) { 
 	                        //Check if there is enough turn AP for the move
@@ -155,7 +155,7 @@ function scr_INFA_Tab(argument0, argument1, argument2, argument3) {
 	                    } 
 	                }
 	                //Decrease by a rate of 1
-	                if mouse_wheel_down() { 
+	                if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                    if infa_flr_amount >= flare_rate { 
 	                        infa_flr_amount -= flare_rate; 
 	                    } 
@@ -198,7 +198,7 @@ function scr_INFA_Tab(argument0, argument1, argument2, argument3) {
 	                            obj_ACTIONMENU.display_menuinfo = false;
 	                        }
                 
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab

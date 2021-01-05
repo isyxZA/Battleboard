@@ -32,7 +32,7 @@ if global.my_turn == true || global.active_llc == true {
     if can_move == false {
         //If units are still available for spawn
         if depleted == false {
-            if mouse_check_button_pressed(mb_left) {
+            if mouse_check_button_pressed(global.LMOUSE) {
                 if place_meeting(x, y, obj_MOUSE) { 
 					if obj_CONTROL.show_options == false {
 						if global.selected_LC == false { selected = true; } else { selected = false; } 
@@ -121,7 +121,7 @@ if global.my_turn == true || global.active_llc == true {
                         }
                     }
                 //Right click to place unit
-                if mouse_check_button_pressed(mb_right) {
+                if mouse_check_button_pressed(global.RMOUSE) {
                     if can_place == true { 
                         if !ds_list_empty(unit_list) {
                             var t = ds_list_find_value(unit_list, 0);
@@ -245,7 +245,7 @@ if global.my_turn == true || global.active_llc == true {
 				if active == true {
 		            if ds_list_empty(global.selected_list) {
 		                if (global.fire_display == false) && (resupplying == false) && (action_confirmed == false) {
-		                    if mouse_check_button_pressed(mb_left) {
+		                    if mouse_check_button_pressed(global.LMOUSE) {
 		                        if place_meeting(x, y, obj_MOUSE) { 
 									if obj_CONTROL.show_options == false {
 										if global.selected_LC == false { selected = true; } else { selected = false; } 
@@ -373,7 +373,7 @@ if global.my_turn == true || global.active_llc == true {
 if global.game_turn != 0 {
     if depleted == true {
         if global.highlight_shoot != true && global.highlight_move != true && global.selected_LC != true {
-            if keyboard_check_pressed(ord("R")) {
+            if keyboard_check_pressed(global.SUPPLY) {
                 if highlight_supply == false { 
                     highlight_supply = true;
                     global.highlight_supply = true;
@@ -392,7 +392,7 @@ if global.game_turn != 0 {
             }
         }
     }
-    if keyboard_check_released(ord("R")) {
+    if keyboard_check_released(global.SUPPLY) {
         if highlight_supply == true { 
             highlight_supply = false;
             global.highlight_supply = false;

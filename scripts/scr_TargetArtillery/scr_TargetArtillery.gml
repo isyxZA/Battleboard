@@ -1,10 +1,10 @@
 function scr_TargetArtillery() {
 	//Rotate targeting
-	if keyboard_check_pressed(ord("Z")) {
+	if keyboard_check_pressed(global.LSHIFT) {
 	    target_rot += 1;
 	    if target_rot > 1 { target_rot = 0; }
 	}
-	    else if keyboard_check_pressed(ord("C")) {
+	    else if keyboard_check_pressed(global.RSHIFT) {
 	        target_rot -= 1;
 	        if target_rot < 0 { target_rot = 1; }
 	    }
@@ -91,7 +91,5 @@ function scr_TargetArtillery() {
 	    bomb_x10= target_x;
 	    bomb_y10 = target_y;
 	}
-
-
 
 }

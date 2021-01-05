@@ -1,1 +1,1 @@
-txt = "Tab";
+key = "STATS";

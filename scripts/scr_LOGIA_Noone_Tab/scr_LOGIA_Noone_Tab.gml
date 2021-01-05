@@ -42,7 +42,7 @@ function scr_LOGIA_Noone_Tab() {
 	                obj_ACTIONMENU.display_menuinfo = false;
 	            }
             
-	if mouse_check_button_released(mb_left) {
+	if mouse_check_button_released(global.LMOUSE) {
 	    if f0 { 
 	        //Switch ammo/fire options tab
 			if ds_list_size(tabs) > 1 {

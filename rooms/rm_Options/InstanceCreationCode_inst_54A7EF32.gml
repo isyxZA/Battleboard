@@ -1,1 +1,1 @@
-txt = "P";
+key = "SCREEN";

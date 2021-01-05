@@ -32,7 +32,7 @@ function scr_TOW_Tab(argument0, argument1) {
 	        //TOW LAUNCHER
 	        //Select number of rounds to fire
 	        //Increase by a rate of tow_rate
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough ammo available to add another amount
 	            if towS_amount <= (tow_ammo-tow_rate) { 
 	                //Check if there is enough turn AP for the move
@@ -55,7 +55,7 @@ function scr_TOW_Tab(argument0, argument1) {
 	            } 
 	        }
 	        //Decrease by a rate of 4
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if towS_amount >= tow_rate { 
 	                towS_amount -= tow_rate; 
 	            } 
@@ -98,7 +98,7 @@ function scr_TOW_Tab(argument0, argument1) {
 	                    obj_ACTIONMENU.display_menuinfo = false;
 	                }
                 
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 {            
 				//Switch ammo/fire options tab

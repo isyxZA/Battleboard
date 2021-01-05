@@ -43,7 +43,7 @@ function scr_Depot_Noone_Tab() {
 	                obj_ACTIONMENU.display_menuinfo = false;
 	            }
                 
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab

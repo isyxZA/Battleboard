@@ -1,4 +1,5 @@
 function scr_InitGlobals() {
+	
 	global.grid_size = 40;
 	global.cell_size = 96;
 	global.v_spacing = sprite_get_height(spr_Menu_Border);
@@ -165,6 +166,8 @@ function scr_InitGlobals() {
 	global.repair_display = false;
 	global.supply_ship = noone;
 	global.header_highlight = false;
+	
+	global.keybind = false;
 
 	global.active_bomber = false;
 	global.active_missile = false;
@@ -183,7 +186,7 @@ function scr_InitGlobals() {
 	global.resupply_target = "NOONE";
 	global.can_select = true;
 	global.show_stats = false;
-
+	
 	global.vis_mask = false;
 	global.highlight_supply = false;
 	global.highlight_shoot = false;
@@ -193,16 +196,15 @@ function scr_InitGlobals() {
 	global.targeting_error = false;
 	global.navigation_error = false;
 	global.friendly_fire = false;
-
 	global.show_cursor = true;
 	global.double_click = false;
 	global.click_count = 0;
 	global.dbl_click_unit = "NOONE";
-	
 	global.objective_1 = -1;
 	global.objective_2 = -1;
 	global.objective_3 = -1;
-
+	
+	//Networking
 	global.server       = -1;
 	global.clients      = -1;
 	global.server_name  = "";
@@ -215,8 +217,36 @@ function scr_InitGlobals() {
 	
 	global.clientSocket = 0;
 	global.clientConnected = -1 ;
-
-	//DefineMacros
+	
+	//Key map default
+	global.UP      = 87;
+	global.DOWN    = 83;
+	global.LEFT    = 65;
+	global.RIGHT   = 68;
+	global.LSHIFT  = 90;
+	global.RSHIFT  = 67;
+	global.SHOOT   = 81;
+	global.MOVE    = 69;
+	global.CANCEL  = 88;
+	global.STATS   = 9;
+	global.RANGE   = 70;
+	global.TERRAIN = 84;
+	global.SUPPLY  = 82;
+	global.GRID    = 71;
+	global.TURNEND = 32;
+	global.HINTS   = 72;
+	global.OBJECTIVES = 79;
+	global.VISIBILITY = 86;
+	global.SCREEN     = 80;
+	global.ESCAPE     = 27;
+	global.LMOUSE = 1;
+	global.RMOUSE = 2;
+	global.MMOUSE = 3;
+	global.INCREASE = 107;
+	global.DECREASE = 109;
+	
+	//Macros
+	//Networking
 	#macro NET_PING 1
 	#macro NET_GREENLIGHT 2
 	#macro NET_FACTION 3
@@ -233,6 +263,7 @@ function scr_InitGlobals() {
 	#macro NET_CANCELSHOOT 14
 	#macro NET_ENDRUN 15
 	
+	//Squad formation costs
 	#macro INF_1 5
 	#macro INF_2 10
 	
@@ -247,6 +278,5 @@ function scr_InitGlobals() {
 	
 	#macro LOG_1 15
 	#macro LOG_2 10
-
 
 }

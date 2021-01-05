@@ -52,7 +52,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	    else if f1 { 
 	        //Select number of rounds to fire
 	        //Increase by a rate of 1
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough ammo available
 	            if lavb_he_amount <= (lavb_he_ammo-he_rate) { 
 	                //Check if there is enough turn AP for the move
@@ -75,7 +75,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	            } 
 	        }
 	        //Decrease by a rate of 1
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if lavb_he_amount >= he_rate { 
 	                lavb_he_amount -= he_rate; 
 	            } 
@@ -96,7 +96,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	        else if f2 { 
 	            //Select number of rounds to fire
 	            //Increase by a rate of 1
-	            if mouse_wheel_up() { 
+	            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	                //Check if there is enough ammo available
 	                if lavb_ap_amount <= (lavb_ap_ammo-ap_rate) { 
 	                    //Check if there is enough turn AP for the move
@@ -119,7 +119,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 	                } 
 	            }
 	            //Decrease by a rate of 1
-	            if mouse_wheel_down() { 
+	            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	                if lavb_ap_amount >= ap_rate { 
 	                    lavb_ap_amount -= ap_rate; 
 	                } 
@@ -140,7 +140,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 				else if f3 { 
 		            //Select number of rounds to fire MG
 		            //Increase by a rate of 1
-		            if mouse_wheel_up() { 
+		            if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 		                //Check if there is enough ammo available
 		                if lavb_mg_amount <= (lavb_mg_ammo-mg_rate) { 
 		                    //Check if there is enough turn AP for the move
@@ -163,7 +163,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 		                } 
 		            }
 		            //Decrease by a rate of 1
-		            if mouse_wheel_down() { 
+		            if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 		                if lavb_mg_amount >= mg_rate { 
 		                    lavb_mg_amount -= mg_rate; 
 		                } 
@@ -184,7 +184,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 					else if f4 { 
 				        //Select squad to disembark
 				        //Increase by a rate of 1
-				        if mouse_wheel_up() { 
+				        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 							if tile_empty == true {
 					            //Check if there is enough ammo available
 					            if lavb_sq_amount <= (lavb_sq_ammo-sqd_rate) { 
@@ -211,7 +211,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 								else { lavb_sq_amount = 0; }
 				        }
 				        //Decrease by a rate of 1
-				        if mouse_wheel_down() { 
+				        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 				            if lavb_sq_amount >= sqd_rate { 
 				                lavb_sq_amount -= sqd_rate; 
 				            } 
@@ -253,7 +253,7 @@ function scr_LAVB_Tab(argument0, argument1, argument2, argument3, argument4, arg
 			                        obj_ACTIONMENU.display_menuinfo = false;
 			                    }
             
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab

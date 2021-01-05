@@ -18,7 +18,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 			}
                 //If not choosing a waypoint
                 else if global.nav_menu == false {
-                    if mouse_check_button_pressed(mb_right) {
+                    if mouse_check_button_pressed(global.RMOUSE) {
                         //If not displaying the repair menu
                         //Enable the action/action_repair tab
                         if global.repair_display != true { global.menu_create = true; } else { global.menu_create = false; }
@@ -129,7 +129,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
             //If currently choosing a waypoint
             else if global.nav_select == true {
                 //RMB to bring up the nav menu
-                if mouse_check_button_pressed(mb_right) {
+                if mouse_check_button_pressed(global.RMOUSE) {
 					var total_ap = 0;
                     //Calculate the mp cost
                     if !ds_list_empty(global.selected_list) {
@@ -150,7 +150,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
         //If using the targeting reticule
         else if global.reticule_display == true {
             //If RMB while the targeting reticule is visible
-            if mouse_check_button_pressed(mb_right) {
+            if mouse_check_button_pressed(global.RMOUSE) {
                 //Display the fire/action options
                 if global.fire_display ==  false {
                     global.fire_display = true; 

@@ -51,7 +51,7 @@ function scr_Depot_LOGIB_Tab(argument0, argument1, argument2, argument3) {
 	        //RESUPPLY AMMO
 	        //Select number of rounds to fire
 	        //Increase by a rate of 10
-	        if mouse_wheel_up() { 
+	        if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
 	            //Check if there is enough supply available
 	            if logiamo_d_amount <= (dpt_amo_supply-logiamo_supply_rate) {
 	                //Make sure the unit ammo does not go over max
@@ -77,7 +77,7 @@ function scr_Depot_LOGIB_Tab(argument0, argument1, argument2, argument3) {
 	            } 
 	        }
 	        //Decrease by a rate of 10
-	        if mouse_wheel_down() { 
+	        if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
 	            if logiamo_d_amount >= logiamo_supply_rate { 
 	                logiamo_d_amount -= logiamo_supply_rate; 
 	            } 
@@ -119,7 +119,7 @@ function scr_Depot_LOGIB_Tab(argument0, argument1, argument2, argument3) {
 	                    obj_ACTIONMENU.display_menuinfo = false;
 	                }
             
-	if mouse_check_button_pressed(mb_left) {
+	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
 	            //Switch ammo/fire options tab

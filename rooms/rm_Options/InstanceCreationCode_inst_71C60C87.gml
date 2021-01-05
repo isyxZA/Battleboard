@@ -1,1 +1,1 @@
-txt = "O";
+key = "OBJECTIVES";

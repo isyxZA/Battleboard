@@ -40,7 +40,7 @@ if global.my_turn == true || global.waiting == true {
 }
 
 if PLAYER.net_status != "NONE" && landing == true {
-	if keyboard_check_pressed(vk_escape) {
+	if keyboard_check_pressed(global.ESCAPE) {
 		if show_options == false {  
 			//Retract UI, disable unit selection, display game options
 			show_options = true;

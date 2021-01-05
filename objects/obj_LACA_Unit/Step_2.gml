@@ -244,7 +244,7 @@ if ammo_check == true {
 if selected {
     if global.highlight_supply != true && global.highlight_move != true {
         //Highlight tiles within action range
-        if keyboard_check_pressed(ord("F")) {
+        if keyboard_check_pressed(global.RANGE) {
             if highlight_shoot == false { 
                 highlight_shoot = true;
                 global.highlight_shoot = true;
@@ -264,7 +264,7 @@ if selected {
     }
     if global.highlight_supply != true && global.highlight_shoot != true {
         //Highlight tiles within movement range
-        if keyboard_check_pressed(ord("T")) {
+        if keyboard_check_pressed(global.TERRAIN) {
             if highlight_move == false { 
                 highlight_move = true;
                 global.highlight_move = true;
@@ -285,7 +285,7 @@ if selected {
 }
 
 //Deactivate highlighting shoot tiles
-if keyboard_check_released(ord("F")) {
+if keyboard_check_released(global.RANGE) {
     if highlight_shoot == true { 
         highlight_shoot = false;
         global.highlight_shoot = false;
@@ -325,7 +325,7 @@ if highlight_shoot == true {
 }
 
 //Deactivate highlighting move tiles
-if keyboard_check_released(ord("T")) {
+if keyboard_check_released(global.TERRAIN) {
     if highlight_move == true { 
         highlight_move = false;
         global.highlight_move = false;

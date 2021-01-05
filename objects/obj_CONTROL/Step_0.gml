@@ -37,7 +37,7 @@ if global.game_state == "IN_GAME" {
 		                if endturn_timer >= 12 {
 		                    if global.my_turn == true { 
 		                        draw_endturn = true; 
-			                        if mouse_check_button_pressed(mb_left) {
+			                        if mouse_check_button_pressed(global.LMOUSE) {
 			                            //End player turn
 			                            can_endturn = true;
 			                            can_count = false;
@@ -71,7 +71,7 @@ if global.game_state == "IN_GAME" {
 	                    endturn_timer = 0; 
 	                    draw_endturn = false;
 						if show_options == false {
-							if keyboard_check_pressed(vk_space) {
+							if keyboard_check_pressed(global.TURNEND) {
 								//End player turn
 		                        can_endturn = true;
 		                        can_count = false;

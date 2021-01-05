@@ -1,5 +1,5 @@
 if net_status == "NONE" && global.game_state != "RESTART" {
-	if keyboard_check_pressed(vk_escape) {
+	if keyboard_check_pressed(global.ESCAPE) {
 		//As single player go to pause room
 		///Pause
 		if (room == rm_ALPHA) || (room == rm_BRAVO) || (room == rm_Pause) {
@@ -21,18 +21,35 @@ if net_status == "NONE" && global.game_state != "RESTART" {
 			    }
 		}
 	}
+	if keyboard_check_pressed(global.SCREEN) {
+		if global.keybind == false {
+			if can_switch == true {
+				can_switch = false;
+				alarm[0] = 60;
+				if fullscreen == false {
+					fullscreen = true;
+					window_set_fullscreen(true);
+				}
+					else {
+						fullscreen = false;
+						window_set_fullscreen(false);
+						window_set_size(1280, 720);
+					}
+			}
+		}
+	}
 }
 
 if global.game_state == "IN_GAME" {
-    if keyboard_check_pressed(ord("V")) {
+    if keyboard_check_pressed(global.VISIBILITY) {
         if global.vis_mask == false { global.vis_mask = true; }
             else if global.vis_mask == true { global.vis_mask = false; }
     }
-    if keyboard_check_pressed(ord("H")) {
+    if keyboard_check_pressed(global.HINTS) {
         if global.display_info == false { global.display_info = true; }
             else if global.display_info == true { global.display_info = false; }
     }
-	if keyboard_check_pressed(ord("G")) {
+	if keyboard_check_pressed(global.GRID) {
         if global.grid_display == false { global.grid_display = true; }
             else if global.grid_display == true { global.grid_display = false; }
     }

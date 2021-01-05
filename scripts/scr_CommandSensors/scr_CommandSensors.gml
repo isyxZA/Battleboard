@@ -18,7 +18,7 @@ function scr_CommandSensors() {
 	            if d1 < s_dist {
 	                if bomber_timer < 10 { bomber_timer+=1; }
 	                if bomber_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        bomber_targeting = true;
 	                        command_targeting = false;
 	                        bomber_timer = 0;
@@ -46,7 +46,7 @@ function scr_CommandSensors() {
 	            if d2 < s_dist {
 	                if missile_timer < 10 { missile_timer+=1; }
 	                if missile_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        missile_targeting = true;
 	                        command_targeting = false;
 	                        missile_timer = 0;
@@ -74,7 +74,7 @@ function scr_CommandSensors() {
 	            if d3 < s_dist {
 	                if uav_timer < 10 { uav_timer+=1; }
 	                if uav_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        uav_targeting = true;
 	                        command_targeting = false;
 	                        uav_timer = 0;
@@ -102,7 +102,7 @@ function scr_CommandSensors() {
 	            if d4 < s_dist {
 	                if artillery_timer < 10 { artillery_timer+=1; }
 	                if artillery_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        artillery_targeting = true;
 	                        command_targeting = false;
 	                        artillery_timer = 0;
@@ -130,7 +130,7 @@ function scr_CommandSensors() {
 	            if d5 < s_dist {
 	                if airdrop_timer < 10 { airdrop_timer+=1; }
 	                if airdrop_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        airdrop_targeting = true;
 	                        command_targeting = false;
 	                        airdrop_timer = 0;
@@ -159,7 +159,7 @@ function scr_CommandSensors() {
 	            if d6 < s_dist {
 	                if ilc_timer < 10 { ilc_timer+=1; }
 	                if ilc_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        ilc_targeting = true;
 	                        command_targeting = false;
 	                        ilc_timer = 0;
@@ -187,7 +187,7 @@ function scr_CommandSensors() {
 	            if d7 < s_dist {
 	                if tlc_timer < 10 { tlc_timer+=1; }
 	                if tlc_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        tlc_targeting = true;
 	                        command_targeting = false;
 	                        tlc_timer = 0;
@@ -215,7 +215,7 @@ function scr_CommandSensors() {
 	            if d8 < s_dist {
 	                if elc_timer < 10 { elc_timer+=1; }
 	                if elc_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        elc_targeting = true;
 	                        command_targeting = false;
 	                        elc_timer = 0;
@@ -243,7 +243,7 @@ function scr_CommandSensors() {
 	            if d9 < s_dist {
 	                if blc_timer < 10 { blc_timer+=1; }
 	                if blc_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        blc_targeting = true;
 	                        command_targeting = false;
 	                        blc_timer = 0;
@@ -271,7 +271,7 @@ function scr_CommandSensors() {
 	            if d10 < s_dist {
 	                if llc_timer < 10 { llc_timer+=1; }
 	                if llc_timer >= 10 {
-	                    if mouse_check_button_pressed(mb_left) {
+	                    if mouse_check_button_pressed(global.LMOUSE) {
 	                        llc_targeting = true;
 	                        command_targeting = false;
 	                        llc_timer = 0;
@@ -400,7 +400,7 @@ function scr_CommandSensors() {
 	                if tlist_adj9 != 0 { tlist_adj9 = lerp(tlist_adj9, 0, 0.05); }
 	            }
             
-	        if mouse_check_button_released(mb_left) {
+	        if mouse_check_button_released(global.LMOUSE) {
 	            var ins_txt = "";
 	            command_targeting = true;
 	            if bomber_targeting == true {  bomber_targeting = false; ins_txt = "BOMBER"; }
@@ -1260,7 +1260,5 @@ function scr_CommandSensors() {
 	                                            }
 	        }
 	    }
-
-
 
 }

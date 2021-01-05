@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_Menu_Button","path":"sprites/spr_Menu_Button/spr_Menu_Button.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_Menu_Button",
     "tags": [],
     "resourceType": "GMSequence",
   },

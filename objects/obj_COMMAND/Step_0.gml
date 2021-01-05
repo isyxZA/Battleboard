@@ -12,7 +12,7 @@ if active == true {
         case "BOMBER":
             if draw_bomber == false { draw_bomber = true; }
             //Right click to bring up confirmation menu
-            if mouse_check_button_pressed(mb_right) {
+            if mouse_check_button_pressed(global.RMOUSE) {
                 if confirm_menu == false { 
                     confirm_menu = true; 
                     confirm_list = 1;
@@ -23,7 +23,7 @@ if active == true {
         case "MISSILE":
             if draw_missile == false { draw_missile = true; }
             //Right click to bring up confirmation menu
-            if mouse_check_button_pressed(mb_right) {
+            if mouse_check_button_pressed(global.RMOUSE) {
                 if confirm_menu == false { 
                     confirm_menu = true; 
                     confirm_list = 1;
@@ -34,7 +34,7 @@ if active == true {
         case "UAV":
             if draw_uav == false { draw_uav = true; }
                 //Right click to bring up confirmation menu
-                if mouse_check_button_pressed(mb_right) {
+                if mouse_check_button_pressed(global.RMOUSE) {
                     if confirm_menu == false { 
                         confirm_menu = true; 
                         confirm_list = 1;
@@ -45,7 +45,7 @@ if active == true {
         case "ARTILLERY":
             if draw_artillery == false { draw_artillery = true; }
             //Right click to bring up confirmation menu
-            if mouse_check_button_pressed(mb_right) {
+            if mouse_check_button_pressed(global.RMOUSE) {
                 if confirm_menu == false { 
                     confirm_menu = true; 
                     confirm_list = 1;
@@ -61,7 +61,7 @@ if active == true {
                 if t != noone {
                     if (t.is_manned == true) {
                         can_drop = true;
-                        if mouse_check_button_pressed(mb_right) {
+                        if mouse_check_button_pressed(global.RMOUSE) {
                             if confirm_menu == false { 
                                 airdrop_depot = t.id;
                                 confirm_menu = true; 
@@ -79,7 +79,7 @@ if active == true {
         case "ILC":
             if draw_ilc == false { draw_ilc = true; }
             //Right click to bring up confirmation menu
-            if mouse_check_button_pressed(mb_right) {
+            if mouse_check_button_pressed(global.RMOUSE) {
                 var t = instance_place(mouse_x, mouse_y, obj_Ship_Spawn);
                 if t != noone {
                     if (t.available == true) && (t.spawning == false) {
@@ -105,7 +105,7 @@ if active == true {
         case "TLC":
             if draw_tlc == false { draw_tlc = true; }
             //Right click to bring up confirmation menu
-            if mouse_check_button_pressed(mb_right) {
+            if mouse_check_button_pressed(global.RMOUSE) {
                 var t = instance_place(mouse_x, mouse_y, obj_Ship_Spawn);
                 if t != noone {
                     if (t.available == true) && (t.spawning == false) {
@@ -131,7 +131,7 @@ if active == true {
         case "BLC":
             if draw_blc == false { draw_blc = true; }
             //Right click to bring up confirmation menu
-            if mouse_check_button_pressed(mb_right) {
+            if mouse_check_button_pressed(global.RMOUSE) {
                 var t = instance_place(mouse_x, mouse_y, obj_Ship_Spawn);
                 if t != noone {
                     if (t.available == true) && (t.spawning == false) {
@@ -157,7 +157,7 @@ if active == true {
         case "ELC":
             if draw_elc == false { draw_elc = true; }
             //Right click to bring up confirmation menu
-            if mouse_check_button_pressed(mb_right) {
+            if mouse_check_button_pressed(global.RMOUSE) {
                 var t = instance_place(mouse_x, mouse_y, obj_Ship_Spawn);
                 if t != noone {
                     if (t.available == true) && (t.spawning == false) {
@@ -183,7 +183,7 @@ if active == true {
         case "LLC":
             if draw_llc == false { draw_llc = true }
                 //Right click to bring up confirmation menu
-                if mouse_check_button_pressed(mb_right) {
+                if mouse_check_button_pressed(global.RMOUSE) {
                     var t = instance_place(mouse_x, mouse_y, obj_Ship_Spawn);
                     if t != noone {
                         if (t.available == true) && (t.spawning == false) {
@@ -274,7 +274,7 @@ if confirm_menu == true {
 	                    menu_option = 0; 
 	                }
                     
-	        if mouse_check_button_pressed(mb_left) {
+	        if mouse_check_button_pressed(global.LMOUSE) {
 		        if f1 {
 		            //CONFIRM
 		            switch target_option {
@@ -660,7 +660,7 @@ if confirm_menu == true {
                                             reinforce_squad = "NOONE";
                                         }
                             
-                if mouse_check_button_pressed(mb_left) {
+                if mouse_check_button_pressed(global.LMOUSE) {
 	                if f1 || f2 || f3 || f4 || f5 {
 	                    //CONFIRM
 						if reinforce_squad != "NOONE" {

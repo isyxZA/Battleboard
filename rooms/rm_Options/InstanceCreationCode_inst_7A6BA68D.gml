@@ -1,1 +1,1 @@
-txt = "V";
+key = "VISIBILITY";
