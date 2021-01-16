@@ -41,29 +41,42 @@ if global.game_turn != 0 {
                         if mouse_check_button_released(global.RMOUSE){
                             if place_meeting(x, y, obj_MOUSE) {
                                 if selected == false { 
-                                    selected = true;
-                                    global.menu_create = true;
+									if action_points > 0 {
+	                                    selected = true;
+	                                    global.menu_create = true;
+									}
+										else { 
+											ap_depleted = true; 
+											pX = -1;
+											pY = -1;
+										}
                                 }
                                     else {
-                                        pX = -1;
-                                        pY = -1;
+	                                    pX = -1;
+	                                    pY = -1;
                                     }
                             }
                         }
                             else if keyboard_check_released(global.MOVE) {
                                 if place_meeting(x, y, obj_MOUSE) {
-                                    if selected == false { 
-                                        selected = true;
-                                        global.nav_select = true;
+                                    if selected == false {
+										if action_points >= mp_cost {
+	                                        selected = true;
+	                                        global.nav_select = true;
+										}
+											else { ap_depleted = true; }
                                     }
                                 }
                             }
                                 else if keyboard_check_released(global.SHOOT) {
                                     if place_meeting(x, y, obj_MOUSE) {
                                         if selected == false { 
-                                            selected = true;
-                                            global.menu_create = true;
-                                            global.reticule_display = true;
+											if action_points >= ap_cost {
+	                                            selected = true;
+	                                            global.menu_create = true;
+	                                            global.reticule_display = true;
+											}
+												else { ap_depleted = true; }
                                         }
                                     }
                                 }
@@ -102,7 +115,7 @@ if global.game_turn != 0 {
                                         //If the unit has enough action points for a shot
                                         if (global.turn_AP >= ap_cost) && (action_points >= ap_cost) {
                                             //If the unit has enough ammo for at least one round
-                                            if (rifle_ammo >= rifle_rate) || (rpg_ammo >= rpg_rate) || flare_ammo >= flare_rate {
+                                            if (rifle_ammo >= rifle_rate) || (rpg_ammo >= rpg_rate) || (flare_ammo >= flare_rate) {
                                                 can_shoot = true; 
                                             }
                                                 else { can_shoot = false; }

@@ -73,6 +73,7 @@ if global.game_turn == 0 {
 							case "LOGI_B":
                                 if my_squad == obj_CONTROL.active_turn {
                                     active = true;
+									if shoot_mask != noone { with shoot_mask { active = true; } }
                                     action_points = start_ap;
                                     global.turn_AP += action_points;
                                 }
@@ -161,6 +162,7 @@ if global.game_turn == 0 {
 									case "LAV_B":
 										if my_squad == obj_CONTROL.active_turn {
                                             active = true;
+											if shoot_mask != noone { with shoot_mask { active = true; } }
                                             action_points = max(4, round(start_ap*(unit_health/100)));
                                             global.turn_AP += action_points;
                                         }
@@ -179,6 +181,7 @@ if global.game_turn == 0 {
 										if build_pos < 2 { build_pos += 1; }
 		                                if my_squad == obj_CONTROL.active_turn {
 		                                    active = true;
+											if shoot_mask != noone { with shoot_mask { active = true; } }
 		                                    action_points = max(4, round(start_ap*(unit_health/100)));
 		                                    global.turn_AP += action_points;
 		                                }
@@ -190,6 +193,7 @@ if global.game_turn == 0 {
 											else {
 			                                    if my_squad == obj_CONTROL.active_turn {
 			                                        active = true;
+													if shoot_mask != noone { with shoot_mask { active = true; } }
 			                                        action_points = max(4, round(start_ap*(unit_health/100)));
 			                                        global.turn_AP += action_points;
 			                                    }
@@ -202,6 +206,7 @@ if global.game_turn == 0 {
                                         if is_manned == true {
                                             if my_squad == obj_CONTROL.active_turn {
                                                 active = true;
+												if shoot_mask != noone { with shoot_mask { active = true; } }
                                                 action_points = max(4, round(start_ap*(unit_health/100)));
                                                 global.turn_AP += action_points;
                                             }

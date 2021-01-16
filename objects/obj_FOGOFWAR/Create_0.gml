@@ -27,15 +27,16 @@ amplitude = 1.499;
 shift  = 0;
 xshift = 0;
 
-a1 = 0.1;
-a1_start = a1;
+a1 = 0.2;
 a2 = 0.3;
+
+/*
+a1_start = a1;
 a2_start = a2;
-
 fade_in = true;
-
 t1 = 0;
-t1_duration = 10000;
+t1_duration = 8000;
+*/
 
 fx1 = (x+sh_1)*fow_scale;
 fy1 = (y+sv_1)*fow_scale;

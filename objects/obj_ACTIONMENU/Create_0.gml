@@ -160,7 +160,7 @@ lbr_fire_menu[0] = "MG(s)";
 lbr_fire_menu[1] = "Retarget";
 lbr_fire_menu[2] = "Cancel";
 //Logi B - Deploy
-lbs_fire_menu[0] = "Deploy";
+lbs_fire_menu[0] = "Dismount";
 lbs_fire_menu[1] = "Retarget";
 lbs_fire_menu[2] = "Cancel";
 //Depot
@@ -173,8 +173,8 @@ r_fire_menu[0] = "MG";
 r_fire_menu[1] = "Retarget";
 r_fire_menu[2] = "Cancel";
 
-r_vehicle_menu[0]  = "Repair";
-r_vehicle_menu[1]  = "Cancel";
+r_vehicle_menu[0] = "Repair";
+r_vehicle_menu[1] = "Cancel";
 //TOW
 at_fire_menu[0] = "TOW";
 at_fire_menu[1] = "Retarget";

@@ -3,6 +3,7 @@ key_temp = -1;
 txt = "";
 txt_temp = "--"
 popup  = false;
+hint = false;
 can_click = false;
 surf   = -1;
 surf_w = sprite_get_width(spr_KeybindBG);

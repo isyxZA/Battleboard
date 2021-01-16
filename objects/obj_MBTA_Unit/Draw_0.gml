@@ -104,6 +104,13 @@ if global.my_turn == true || global.waiting == true {
 
 scr_DrawSquad(my_squad);
 
+/*
+if selected || action_confirmed {
+	var bdir = round(point_direction(global.target_x, global.target_y, x, y));
+	draw_set_color(c_white);
+	draw_text(x, y+16, string(bdir));
+}
+*/
 //draw_set_alpha(0.1);
 //draw_circle_colour(x, y, view_radius, c_fuchsia, c_fuchsia, false);
 //draw_set_alpha(1);

@@ -193,6 +193,9 @@ if global.my_turn == true || global.waiting == true {
                                 case "MORTAR":
                                     scr_Fire_Menu(lam_fire_menu, array_length(lam_fire_menu), "LOGIB-MORTAR");
                                     break;
+								case "SQUAD":
+                                    scr_Fire_Menu(lbs_fire_menu, array_length(lbs_fire_menu), "LOGIB-SQUAD");
+                                    break;
                                 case "NOONE":
                                     scr_Fire_Menu(l_fire_menu, array_length(l_fire_menu), "LOGIB_A");
                                     break;

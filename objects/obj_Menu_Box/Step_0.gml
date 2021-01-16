@@ -1,12 +1,17 @@
-if global.keybind == false {
-	if place_meeting(x, y, obj_MOUSE) {
+if place_meeting(x, y, obj_MOUSE) {
+	if global.keybind == false {
 		if mouse_check_button_pressed(mb_left) {
 			popup = true;
 			global.keybind = true;
 			alarm[1] = 1;
 		}
+		hint = true;
 	}
+		else { hint = false; }
 }
+	else {
+		hint = false;
+	}
 
 if popup == true {
 	var m1 = collision_rectangle(btn_x1, btn_y, btn_x1+btn_w, btn_y+btn_h, obj_MOUSE, false, false);

@@ -4,7 +4,6 @@ if can_start == true {
     path_start(my_path, 60, path_action_stop, 0);
     audio_emitter_velocity(emit, path_speed, -path_speed, 0);
     audio_play_sound_on(emit, snd_JetEngine02, false, 1);
-	
 }
 
 audio_emitter_position(emit, x, y, 0);

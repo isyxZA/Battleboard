@@ -253,6 +253,15 @@ if global.my_turn == true || global.active_llc == true {
 								} 
 		                            else { selected = false; }
 		                    }
+								else if keyboard_check_released(global.SHOOT) {
+                                    if place_meeting(x, y, obj_MOUSE) {
+                                        if selected == false { 
+											if obj_CONTROL.show_options == false {
+												if global.selected_LC == false { selected = true; } else { selected = false; } 
+											}
+                                        }
+                                    }
+                                }
 		                }
 		            }
 		            if selected {

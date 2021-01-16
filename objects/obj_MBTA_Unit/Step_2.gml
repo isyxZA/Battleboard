@@ -283,7 +283,7 @@ if action_confirmed == true || draw_flash == true {
              d2 = point_direction(x, y, global.target_x, global.target_y)+rot_adj;
              if turret_rot != d2  { turret_rot += (sin(degtorad(turret_rot-d2))); } 
         }
-            else { if turret_rot != 180  { turret_rot += (sin(degtorad(turret_rot-180))); } }
+            else { if turret_rot != 0  { turret_rot += (sin(degtorad(turret_rot-180))); } }
     }
     
 if mp_depleted == true {

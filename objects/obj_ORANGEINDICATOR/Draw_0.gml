@@ -10,6 +10,12 @@ if global.my_turn == true || global.waiting == true {
                         if global.nav_select == true {
 							if move_amount > 0 { 
 								draw_sprite(spr_Dot_Orange, 0, x_end, y_end); 
+								var mcost = action_points-temp_ap;
+								draw_set_colour(c_white);
+		                        draw_set_font(fnt_12);
+								if p_one == true { draw_text_transformed_shadow(x_end, y_end, string(mcost), 0.9, 0.9, txt_rot, 2, 245, c_black, 1); }
+									else { draw_text_transformed_shadow(x_end+2, y_end, string(mcost), 0.9, 0.9, txt_rot, 2, 65, c_black, 1); }
+		                        draw_set_colour(c_black);
 							}
 	                        if nav_offset != 0 {
 								//FIX THIS FOR PLAYER SIDE\\

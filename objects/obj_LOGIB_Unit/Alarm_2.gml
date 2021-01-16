@@ -342,7 +342,7 @@ if timer_count > 0 { timer_start = true; }
                 timer_start = false;
                 alarm[8] = 60;
                 action_confirmed = false;
-                resupply_unit.resupplying = false;
+                //resupply_unit.resupplying = false;
                 switch weapon {
 					case "SQUAD":
 		                //Switch off gui alert
@@ -365,6 +365,7 @@ if timer_count > 0 { timer_start = true; }
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2;
                                 }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-20 Ammo"; 
@@ -391,6 +392,7 @@ if timer_count > 0 { timer_start = true; }
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-1 Ammo"; 
@@ -417,6 +419,7 @@ if timer_count > 0 { timer_start = true; }
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-1 Ammo"; 
@@ -443,6 +446,7 @@ if timer_count > 0 { timer_start = true; }
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-1 Ammo"; 
@@ -483,6 +487,7 @@ if timer_count > 0 { timer_start = true; }
 	                                        alert_colour = c_green;
 	                                        alarm[3] = global.tick_rate*2; 
 	                                    }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-20 Ammo"; 
@@ -509,6 +514,7 @@ if timer_count > 0 { timer_start = true; }
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-4 Ammo"; 
@@ -535,6 +541,7 @@ if timer_count > 0 { timer_start = true; }
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-4 Ammo"; 
@@ -561,6 +568,7 @@ if timer_count > 0 { timer_start = true; }
 	                                alert_colour = c_green;
 	                                alarm[3] = global.tick_rate*2;
 	                            }
+								resupplying = false;
 	                        }
 	                        alert_display = true;
 	                        alert_text = "-1 Ammo"; 
@@ -594,6 +602,7 @@ if timer_count > 0 { timer_start = true; }
                                         alert_colour = c_green;
                                         alarm[3] = global.tick_rate*2;
                                     }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-10 Ammo"; 
@@ -620,6 +629,7 @@ if timer_count > 0 { timer_start = true; }
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-1 Ammo"; 
@@ -646,6 +656,7 @@ if timer_count > 0 { timer_start = true; }
                                     alert_colour = c_green;
                                     alarm[3] = global.tick_rate*2; 
                                 }
+								resupplying = false;
                             }
                             alert_display = true;
                             alert_text = "-4 Ammo"; 

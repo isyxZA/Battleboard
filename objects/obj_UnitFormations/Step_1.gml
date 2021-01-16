@@ -136,7 +136,7 @@ if auto_assign == true {
 	
 					ds_list_add(global.temp_charlie, "INF_A"); 
 					ds_list_add(global.temp_charlie, "INF_A"); 
-					ds_list_add(global.temp_charlie, "LOGI_A"); 
+					ds_list_add(global.temp_charlie, "LOGI_B"); 
 					ds_list_add(global.temp_charlie, "LAV_A"); 
 					ds_list_add(global.temp_charlie, "LAV_A"); 
 					ds_list_add(global.temp_charlie, "LAC_B"); 
@@ -172,7 +172,7 @@ if auto_assign == true {
 					ds_list_add(global.temp_btr, "LAV_B"); 
 				
 					ds_list_add(global.temp_logi, "LOGI_B"); 
-					ds_list_add(global.temp_logi, "LOGI_B"); 
+					ds_list_add(global.temp_logi, "LOGI_A"); 
 				}
 			//CALCULATE AMOUNT OF FORMATION POINTS USED\\
 			var fp = 0;

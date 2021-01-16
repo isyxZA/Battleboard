@@ -898,19 +898,23 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 						                                }
 						                                    else if depot { 
 						                                        if (depot.nav_confirmed == false) && (depot.action_confirmed == false) && (depot.resupplying == false ) && (depot.is_manned == true) { global.resupply_target = "DEPOT"; }
-						                                            else { global.resupply_target = "NOONE"; }
+						                                            else if (depot.can_be_manned == true) && (depot.is_manned == false) { global.resupply_target = "SQUAD"; }
+																		else { global.resupply_target = "NOONE"; }
 						                                    }
 						                                        else if rpr { 
 						                                            if (rpr.nav_confirmed == false) && (rpr.action_confirmed == false) && (rpr.resupplying == false ) && (rpr.is_manned == true) { global.resupply_target = "REPAIR"; }
-						                                                else { global.resupply_target = "NOONE"; }
+						                                                else if (rpr.can_be_manned == true) && (rpr.is_manned == false) { global.resupply_target = "SQUAD"; }
+																			else { global.resupply_target = "NOONE"; }
 						                                        }
 						                                            else if tow { 
 						                                                if (tow.nav_confirmed == false) && (tow.action_confirmed == false) && (tow.resupplying == false ) && (tow.is_manned == true) { global.resupply_target = "TOW"; }
-						                                                    else { global.resupply_target = "NOONE"; }
+						                                                    else if (tow.can_be_manned == true) && (tow.is_manned == false) { global.resupply_target = "SQUAD"; }
+																				else { global.resupply_target = "NOONE"; }
 						                                            }
 						                                                else if mtr { 
 						                                                    if (mtr.nav_confirmed == false) && (mtr.action_confirmed == false) && (mtr.resupplying == false ) && (mtr.is_manned == true) { global.resupply_target = "MORTAR"; }
-						                                                        else { global.resupply_target = "NOONE"; }
+						                                                        else if (mtr.can_be_manned == true) && (mtr.is_manned == false) { global.resupply_target = "SQUAD"; }
+																					else { global.resupply_target = "NOONE"; }
 						                                                }
 																			else if laca || emy || flg || bld { 
 																				global.resupply_target = "NOONE";
@@ -1800,5 +1804,6 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 		}
 		if global.game_turn != 0 && obj_CONTROL.show_options != true { global.can_zoom = true; }
     }
+
 
 

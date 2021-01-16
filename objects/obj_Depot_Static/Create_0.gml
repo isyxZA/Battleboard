@@ -111,10 +111,6 @@ can_be_manned = false;
 is_manned = false;
 can_be_selected = true;
 
-fire_menu[0] = "Parts";
-fire_menu[1] = "Ammunition";
-fire_menu[2] = "Cancel";
-
 ds_list_add(global.unit_list, id);//Add self to total unit list
 ds_list_add(global.myunit_list, id);//Add self to my unit list
 ds_list_add(global.depot_list, id);

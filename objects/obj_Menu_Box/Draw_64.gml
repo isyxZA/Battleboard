@@ -29,5 +29,15 @@ if popup == true {
 		}
 }
 	else { 
+		if hint == true { 
+			draw_rectangle_color(mouse_x-48, mouse_y-38, mouse_x+48, mouse_y-12, c_black, c_black, c_black, c_black, false);
+			draw_rectangle_color(mouse_x-47, mouse_y-37, mouse_x+47, mouse_y-13, c_silver, c_silver, c_silver, c_silver, true);
+			draw_set_font(fnt_12);
+			draw_set_color(c_silver);
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_middle);
+			draw_text(mouse_x, mouse_y-24, "Click to bind");
+			draw_set_color(c_black);
+		}
 		if surface_exists(surf) { surface_free(surf); }
 	}

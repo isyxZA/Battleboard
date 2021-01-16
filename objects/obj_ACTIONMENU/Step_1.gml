@@ -398,4 +398,32 @@ if !ds_list_empty(global.selected_list) {
 				if surface_exists(global.menu_surf) { surface_free(global.menu_surf); }
             }
 }
+	else {
+		if global.supply_ship != noone {
+			if keyboard_check_pressed(global.SHOOT) {
+				//Display the fire/action options
+                if global.fire_display ==  false { 
+                    global.fire_display = true; 
+					global.ammo_tab = "SUPPLY SHIP";
+                    if ammo_check == false { ammo_check = true; }
+	                global.menu_x = mouse_x;
+	                global.menu_y = mouse_y;
+                }
+            }
+				//CANCEL
+	            else if keyboard_check_pressed(global.CANCEL) {
+	                if global.fire_display     == true { global.fire_display     = false; queue_reset = true; } 
+	                if global.reticule_display == true { global.reticule_display = false; } 
+	                if global.menu_create      == true { global.menu_create      = false; }
+					with obj_Unit_Parent { if selected == true { selected = false; } }
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
+					//Remove the surface
+					if surface_exists(global.menu_surf) { surface_free(global.menu_surf); }
+	            }
+		}
+	}
 

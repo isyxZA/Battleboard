@@ -4,9 +4,9 @@ if global.can_choose == true {
 			play_touch = false; 
 			audio_play_sound(snd_Checkbox, 1, false);
 		}
-		//if txt == "Host Game" || txt == "Join Game" { c1 = c_red; wip_display = true; }
-			//else { c1 = make_colour_rgb(240,248,255); }
-		c1 = make_colour_rgb(240,248,255);
+		if txt == "Host Game" || txt == "Join Game" { c1 = c_red; wip_display = true; }
+			else { c1 = make_colour_rgb(240,248,255); }
+		//c1 = make_colour_rgb(240,248,255);
 		highlight = true;
         if mouse_check_button_pressed(mb_left) {
 			audio_play_sound(snd_Accept, 1, false);
@@ -24,6 +24,7 @@ if global.can_choose == true {
                     alarm[0] = 60;
                     break;
 				case "Host Game"://From Main Menu, Multiplayer...goes to room Host
+					/*
 					PLAYER.net_status = "HOST";
                     PLAYER.player = "ONE";
 					PLAYER.faction = "US";
@@ -34,6 +35,7 @@ if global.can_choose == true {
                     obj_SOUND.fade_in = false;
 					start_game = true;
                     alarm[6] = 60;
+					*/
                     break;
 				case "Create Game"://From room Host...go to Setup
 					//Create server
@@ -54,6 +56,7 @@ if global.can_choose == true {
 					}
                     break;
 				case "Join Game"://From Main Menu, Multiplayer...go to room Join
+					/*
 					PLAYER.net_status = "CLIENT";
                     global.transition = true;
                     global.can_choose = false;
@@ -62,6 +65,7 @@ if global.can_choose == true {
                     obj_SOUND.fade_in = false;
 					start_game = true;
                     alarm[5] = 60;
+					*/
                     break;
 				case "Join Server"://From room Join...Join a valid server and go to Setup
 					if (global.server_IP != undefined) && (global.server_port != undefined) && (global.server_name != undefined) && (global.server_name != "") {

@@ -1424,6 +1424,32 @@ function scr_Fire_Menu(argument0, argument1, argument2) {
 				        }
 				            else { c1 = c_gray; }
 						break;
+					case "LOGIB-SQUAD":
+						//Draw the header text
+						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Deploy", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
+						switch m {
+				            case 0:
+				                shoot_amount = logisqd_l_amount;
+				                ammo_count   = logib_sqd_supply;
+				                break;
+				            default:
+				                shoot_amount = 0;
+				                break;
+				        }
+				        var c1;
+				        if m == global.fire_option { 
+				            switch m {
+				            case 0:
+				                if logib_sqd_supply <= 0 { c1 = c_red; }
+				                    else { c1 = c_white; }
+				                break;
+				            default:
+				                c1 = c_white;
+				                break;
+				            }
+				        }
+				            else { c1 = c_gray; }
+						break;
 					case "LOGIB_A":
 						//Draw the header text
 						draw_text_colour_shadow(0+(global.menu_width*0.5), 0+(global.menu_height*0.5), "Re-Supply", c_gray, c_gray, c_gray, c_gray, 1, 300, c_black, 0.2);
