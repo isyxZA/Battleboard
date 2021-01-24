@@ -1,28 +1,29 @@
 switch room {
     case rm_MainMenu:
 		shader_set(shd_vignette_noise);
-	    shader_set_uniform_f(uni_settings, 2, 1, 0.2, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
-	    shader_set_uniform_f(uni_vignette_colour, 222,190,148);//210,180,140);
+	    shader_set_uniform_f(uni_settings, 2, 1, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+	    shader_set_uniform_f(uni_vignette_colour, 184,175,154);
 	    draw_sprite_stretched(bg_Main, 0,0,0, room_width, room_height);
-		draw_set_alpha(0.2);
+		shader_reset();
+		draw_set_alpha(0.3);
 		draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
 		draw_set_alpha(1);
-		shader_reset();
         break;
     case rm_Pause:
 		shader_set(shd_vignette_noise);
-	    shader_set_uniform_f(uni_settings, 2, 1, 0.2, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+	    shader_set_uniform_f(uni_settings, 2, 1, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
 	    shader_set_uniform_f(uni_vignette_colour,148,140,104);
         draw_sprite_stretched(bg_Pause, 0,0,0, room_width, room_height);
 		shader_reset();
         draw_set_alpha(0.3);
         draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
+		draw_set_alpha(0.5);
         draw_roundrect_colour_ext(x, y, x+254, y+416, 4, 4, c_black, c_black, false);
         draw_set_alpha(1);
         break;
 	case rm_Join:
 		shader_set(shd_vignette_noise);
-	    shader_set_uniform_f(uni_settings, 2, 1, 0.2, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+	    shader_set_uniform_f(uni_settings, 2, 1, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
 	    shader_set_uniform_f(uni_vignette_colour,148,140,104);
         draw_sprite_stretched(bg_Setup, 0,0,0, room_width, room_height);
 		shader_reset();
@@ -32,7 +33,7 @@ switch room {
         break;
 	case rm_Host:
 		shader_set(shd_vignette_noise);
-	    shader_set_uniform_f(uni_settings, 2, 1, 0.2, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+	    shader_set_uniform_f(uni_settings, 2, 1, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
 	    shader_set_uniform_f(uni_vignette_colour,148,140,104); 
         draw_sprite_stretched(bg_Setup, 0,0,0, room_width, room_height);
 		shader_reset();
@@ -58,9 +59,9 @@ switch room {
         break;
     case rm_Options:
 		shader_set(shd_vignette_noise);
-	    shader_set_uniform_f(uni_settings, 2, 1, 0.2, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+	    shader_set_uniform_f(uni_settings, 2, 1, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
 	    shader_set_uniform_f(uni_vignette_colour,186,177,131);
-        draw_sprite_stretched(bg_Main, 0,0,0, room_width, room_height);
+        draw_sprite_stretched(bg_Options, 0,0,0, room_width, room_height);
 		shader_reset();
         draw_set_alpha(0.3);
         draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
@@ -84,7 +85,7 @@ switch room {
         break;
     case rm_Setup:
 		shader_set(shd_vignette_noise);
-	    shader_set_uniform_f(uni_settings, 2, 1, 0.2, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+	    shader_set_uniform_f(uni_settings, 2, 1, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
 	    shader_set_uniform_f(uni_vignette_colour,210,180,140); 
         draw_sprite_stretched(bg_Setup, 0,0,0, room_width, room_height);
 		shader_reset();

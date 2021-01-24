@@ -901,7 +901,7 @@ function scr_DrawUnitStats() {
 						//TOW
 						draw_sprite_ext(spr_Stat_Background, 0, xx-26, yy+18, 1, 1, txt_rot, c_white, 1);
 						draw_sprite_ext(spr_AT_Icon,     0, xx-22, yy+18, 1, 1, txt_rot, c_white, 1);
-						draw_text_transformed_colour(xx-32, yy+18, string(tow_supply), 1, 1, txt_rot,c_white, c_white, c_white, c_white, 1);
+						draw_text_transformed_colour(xx-32, yy+18, string(tow_ammo), 1, 1, txt_rot,c_white, c_white, c_white, c_white, 1);
 						draw_set_halign(fa_center);
 					}
 						else if is_manning == true {

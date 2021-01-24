@@ -199,7 +199,7 @@ if spawn_check == true {
 					mortar.my_mask = my_mask;
 					mortar.active = true;
 					mortar.can_be_selected = false;
-			        //mortar.alarm[11] = 200;
+			        mortar.alarm[11] = 60;
 			        mortar.alert_display = false;
 			        mortar.alert_text = "No Alert";
 			        mortar.alert_colour = c_green;

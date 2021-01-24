@@ -15,8 +15,8 @@ if p_side == "ONE" {
 			my_mask   = spr_Infantry_A1a_Mask;
 			break;
 		case "RU":
-			my_sprite = spr_Infantry_A1a;
-			my_mask   = spr_Infantry_A1a_Mask;
+			my_sprite = spr_Infantry_B1a;
+			my_mask   = spr_Infantry_B1a_Mask;
 			break;
 	}
 }
