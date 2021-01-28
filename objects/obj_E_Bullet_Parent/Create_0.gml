@@ -15,6 +15,8 @@ light_strength = 1;
 damage_1 = 0;
 damage_2 = 0;
 damage_3 = 0;
+impact_side = "";
+armor_reduction = 0;
 fuse = 0;
 fow1_scale = 0.5;
 

@@ -2,6 +2,7 @@ timer_count -= 1;
 
 if timer_count > 0 { timer_start = true; }
     else if timer_count <= 0 {
+		scr_TargetImpact();
         if shoot_amount > 0 {  
             switch weapon {
                 case "CANNON":
@@ -13,6 +14,7 @@ if timer_count > 0 { timer_start = true; }
                     alarm[7] = 10;
                     with instance_create_layer(x, y, "ParticleFX", obj_Tank_Cannon_Bullet) {
                         unit_parent = other.id;
+						impact_side = other.target_impact;
                         x_to = unit_parent.target_x;
                         y_to = unit_parent.target_y;
                     }
@@ -34,6 +36,7 @@ if timer_count > 0 { timer_start = true; }
                     audio_play_sound_on(emit, snd_TankMG01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_Tank_MG_Bullet) {
                         unit_parent = other.id;
+						impact_side = other.target_impact;
                         x_to = unit_parent.target_x;
                         y_to = unit_parent.target_y;
                     }
@@ -65,6 +68,7 @@ if timer_count > 0 { timer_start = true; }
                         audio_play_sound_on(emit, snd_TankCannon01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_Tank_Cannon_Bullet) {
                             unit_parent = other.id;
+							impact_side = other.target_impact;
 	                        x_to = unit_parent.target_x;
 	                        y_to = unit_parent.target_y;
                         }
@@ -85,6 +89,7 @@ if timer_count > 0 { timer_start = true; }
                         audio_play_sound_on(emit, snd_TankMG01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_Tank_MG_Bullet) {
                             unit_parent = other.id;
+							impact_side = other.target_impact;
 	                        x_to = unit_parent.target_x;
 	                        y_to = unit_parent.target_y;
                         }

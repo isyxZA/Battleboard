@@ -9,8 +9,8 @@ if is_visible == true {
 		xx = x_final;
 		if p_one == true  { yy = y_final+38; }
 			else if p_one == false { yy = y_final-38; }
-        draw_sprite_ext(my_sprite, 0, x_final, y_final, scl, scl, 0, my_colour, pa);
-        draw_sprite_ext(my_turret, 0, x_final, y_final, scl, scl, 0, my_colour, pa);
+        draw_sprite_ext(my_sprite, 0, x_final, y_final, scl, scl, rot, my_colour, pa);
+        draw_sprite_ext(my_turret, 0, x_final, y_final, scl, scl, turret_rot, my_colour, pa);
     }
         else {
 			xx = x;
@@ -21,7 +21,7 @@ if is_visible == true {
 			texture_set_stage(mask, sprite_get_texture(my_sprite, 0));
 			shader_set_uniform_f(bright_x, 0.5);
 			shader_set_uniform_f(bright_y, 0.5);
-	        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, my_colour, my_alpha);
+	        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, rot, my_colour, my_alpha);
 			texture_set_stage(mask, sprite_get_texture(my_turret, 0));
 	        draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, my_colour, my_alpha);
 			shader_reset();	 

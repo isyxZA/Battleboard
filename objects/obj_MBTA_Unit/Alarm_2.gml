@@ -2,17 +2,19 @@ timer_count -= 1;
 
 if timer_count > 0 { timer_start = true; }
     else if timer_count <= 0 {
+		scr_TargetImpact();
         if shoot_amount > 0 {  
             switch weapon {
                 case "CANNON":
-                    audio_play_sound_on(emit, snd_TankCannon01, false, 10);
                     shoot_cannon = true;
                     draw_flash = true;
                     flash_index = spr_Muzzle_Flash_01;
                     alarm[4] = 10;
                     alarm[7] = 10;
+					audio_play_sound_on(emit, snd_TankCannon01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_Tank_Cannon_Bullet) {
                         unit_parent = other.id;
+						impact_side = other.target_impact;
                         x_to = unit_parent.target_x;
                         y_to = unit_parent.target_y;
                     }
@@ -34,6 +36,7 @@ if timer_count > 0 { timer_start = true; }
                     audio_play_sound_on(emit, snd_TankMG01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_Tank_MG_Bullet) {
                         unit_parent = other.id;
+						impact_side = other.target_impact;
                         x_to = unit_parent.target_x;
                         y_to = unit_parent.target_y;
                     }
@@ -63,11 +66,12 @@ if timer_count > 0 { timer_start = true; }
                         alarm[4] = 10;
                         alarm[7] = 10;
                         audio_play_sound_on(emit, snd_TankCannon01, false, 10);
-                        with instance_create_layer(x, y, "ParticleFX", obj_Tank_Cannon_Bullet) {
-                            unit_parent = other.id;
+	                    with instance_create_layer(x, y, "ParticleFX", obj_Tank_Cannon_Bullet) {
+	                        unit_parent = other.id;
+							impact_side = other.target_impact;
 	                        x_to = unit_parent.target_x;
 	                        y_to = unit_parent.target_y;
-                        }
+	                    }
                         //Switch off gui alert
                         var i;
                         for (i=0; i<ds_list_size(global.action_alert_list); i+=1){
@@ -85,6 +89,7 @@ if timer_count > 0 { timer_start = true; }
                         audio_play_sound_on(emit, snd_TankMG01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_Tank_MG_Bullet) {
                             unit_parent = other.id;
+							impact_side = other.target_impact;
 	                        x_to = unit_parent.target_x;
 	                        y_to = unit_parent.target_y;
                         }

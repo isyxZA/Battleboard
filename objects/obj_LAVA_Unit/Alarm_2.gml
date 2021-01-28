@@ -2,6 +2,7 @@ timer_count -= 1;
 
 if timer_count > 0 { timer_start = true; }
     else if timer_count <= 0 {
+		scr_TargetImpact();
         if shoot_amount > 0 {  
             switch weapon {
                 case "HE":
@@ -13,6 +14,7 @@ if timer_count > 0 { timer_start = true; }
                     audio_play_sound_on(emit, snd_BTR_HE01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_HE_Bullet) {
                         unit_parent = other.id;
+						impact_side = other.target_impact;
                         x_to = other.target_x;
                         y_to = other.target_y;
                     }
@@ -34,7 +36,8 @@ if timer_count > 0 { timer_start = true; }
                     alarm[7] = 14;
                     audio_play_sound_on(emit, snd_BTR_AP01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_AP_Bullet) {
-                        unit_parent = other.id
+                        unit_parent = other.id;
+						impact_side = other.target_impact;
                         x_to = other.target_x;
                         y_to = other.target_y;
                     }
@@ -56,7 +59,8 @@ if timer_count > 0 { timer_start = true; }
                     alarm[7] = 14;
                     audio_play_sound_on(emit, snd_TankMG01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_Tank_MG_Bullet) {
-                        unit_parent = other.id
+                        unit_parent = other.id;
+						impact_side = other.target_impact;
                         x_to = other.target_x;
                         y_to = other.target_y;
                     }
@@ -78,7 +82,8 @@ if timer_count > 0 { timer_start = true; }
                     alarm[7] = 14;
                     audio_play_sound_on(emit, snd_TOW01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_TOW_Bullet) {
-                        unit_parent = other.id
+                        unit_parent = other.id;
+						impact_side = other.target_impact;
                         x_to = other.target_x;
                         y_to = other.target_y;
                     }
@@ -122,6 +127,7 @@ if timer_count > 0 { timer_start = true; }
                         audio_play_sound_on(emit, snd_BTR_HE01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_HE_Bullet) {
                             unit_parent = other.id;
+							impact_side = other.target_impact;
                             x_to = other.target_x;
                             y_to = other.target_y;
                         }
@@ -142,7 +148,8 @@ if timer_count > 0 { timer_start = true; }
                         alarm[7] = 16;
                         audio_play_sound_on(emit, snd_BTR_AP01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_AP_Bullet) {
-                            unit_parent = other.id
+                            unit_parent = other.id;
+							impact_side = other.target_impact;
                             x_to = other.target_x;
                             y_to = other.target_y;
                         }
@@ -163,7 +170,8 @@ if timer_count > 0 { timer_start = true; }
 	                    alarm[7] = 14;
 	                    audio_play_sound_on(emit, snd_TankMG01, false, 10);
 	                    with instance_create_layer(x, y, "ParticleFX", obj_Tank_MG_Bullet) {
-	                        unit_parent = other.id
+	                        unit_parent = other.id;
+							impact_side = other.target_impact;
 	                        x_to = other.target_x;
 	                        y_to = other.target_y;
 	                    }
@@ -184,7 +192,8 @@ if timer_count > 0 { timer_start = true; }
 	                    alarm[7] = 14;
 	                    audio_play_sound_on(emit, snd_TOW01, false, 10);
 	                    with instance_create_layer(x, y, "ParticleFX", obj_TOW_Bullet) {
-	                        unit_parent = other.id
+	                        unit_parent = other.id;
+							impact_side = other.target_impact;
 	                        x_to = other.target_x;
 	                        y_to = other.target_y;
 	                    }

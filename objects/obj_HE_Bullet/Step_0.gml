@@ -64,30 +64,81 @@ if explode == true {
                             break;
                         case "MBT_A":
 						case "MBT_B":
+							switch impact_side {
+								case "FRONT":
+									armor_reduction = 20;
+									break;
+								case "REAR":
+									armor_reduction = 40;
+									break;
+								case "LSIDE":
+								case "RSIDE":
+									armor_reduction = 35;
+									break;
+								case "":
+									armor_reduction = 0;
+									break;
+							}
+							var dmg = damage_3-armor_reduction;
+							var atxt = "-" + string(dmg) + " HP";
                             u.taking_damage = true;
-                            u.unit_health -= damage_1;
+                            u.unit_health -= dmg;
                             u.alert_display = true;
-                            u.alert_text = "-10 HP"; 
+                            u.alert_text = atxt; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
                         case "LAC_A":
 						case "LAC_B":
+							switch impact_side {
+								case "FRONT":
+									armor_reduction = 0;
+									break;
+								case "REAR":
+									armor_reduction = 0;
+									break;
+								case "LSIDE":
+								case "RSIDE":
+									armor_reduction = 5;
+									break;
+								case "":
+									armor_reduction = 0;
+									break;
+							}
+							var dmg = damage_2-armor_reduction;
+							var atxt = "-" + string(dmg) + " HP";
                             u.taking_damage = true;
-                            u.unit_health -= damage_2;
+                            u.unit_health -= dmg;
                             u.alert_display = true;
-                            u.alert_text = "-20 HP"; 
+                            u.alert_text = atxt; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
                         case "LAV_A":
 						case "LAV_B":
+							switch impact_side {
+								case "FRONT":
+									armor_reduction = 0;
+									break;
+								case "REAR":
+									armor_reduction = 10;
+									break;
+								case "LSIDE":
+								case "RSIDE":
+									armor_reduction = 5;
+									break;
+								case "":
+									armor_reduction = 0;
+									break;
+							}
+							var dmg = damage_2-armor_reduction;
+							var atxt = "-" + string(dmg) + " HP";
                             u.taking_damage = true;
-                            u.unit_health -= damage_1;
+                            u.unit_health -= dmg;
                             u.alert_display = true;
-                            u.alert_text = "-10 HP"; 
+                            u.alert_text = atxt; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
@@ -129,27 +180,78 @@ if explode == true {
                                 break;
                             case "E_MBTA":
 							case "E_MBTB":
-                                e.unit_health -= damage_1;
+								switch impact_side {
+									case "FRONT":
+										armor_reduction = 40;
+										break;
+									case "REAR":
+										armor_reduction = 20;
+										break;
+									case "LSIDE":
+									case "RSIDE":
+										armor_reduction = 35;
+										break;
+									case "":
+										armor_reduction = 0;
+										break;
+								}
+								var dmg = damage_3-armor_reduction;
+								var atxt = "-" + string(dmg) + " HP";
+                                e.unit_health -= dmg;
                                 e.alert_display = true;
-                                e.alert_text = "-10 HP"; 
+                                e.alert_text = atxt; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
                                 break;
                             case "E_LACA":
 							case "E_LACB":
-                                e.unit_health -= damage_2;
+								switch impact_side {
+									case "FRONT":
+										armor_reduction = 0;
+										break;
+									case "REAR":
+										armor_reduction = 0;
+										break;
+									case "LSIDE":
+									case "RSIDE":
+										armor_reduction = 5;
+										break;
+									case "":
+										armor_reduction = 0;
+										break;
+								}
+								var dmg = damage_1-armor_reduction;
+								var atxt = "-" + string(dmg) + " HP";
+                                e.unit_health -= dmg;
                                 e.alert_display = true;
-                                e.alert_text = "-20 HP"; 
+                                e.alert_text = atxt; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
                                 break;
                             case "E_LAVA":
 							case "E_LAVB":
-                                e.unit_health -= damage_1;
+								switch impact_side {
+									case "FRONT":
+										armor_reduction = 10;
+										break;
+									case "REAR":
+										armor_reduction = 0;
+										break;
+									case "LSIDE":
+									case "RSIDE":
+										armor_reduction = 5;
+										break;
+									case "":
+										armor_reduction = 0;
+										break;
+								}
+								var dmg = damage_2-armor_reduction;
+								var atxt = "-" + string(dmg) + " HP";
+                                e.unit_health -= dmg;
                                 e.alert_display = true;
-                                e.alert_text = "-10 HP"; 
+                                e.alert_text = atxt; 
                                 e.alert_colour = c_red;
                                 e.alarm[3] = global.tick_rate*2;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }

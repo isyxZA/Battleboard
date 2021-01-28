@@ -23,7 +23,7 @@ if global.game_state == "IN_GAME" {
                     var unit = ds_list_find_value(global.selected_list, i);
                     with unit {
                         //Draw unit stats
-                        if can_be_selected == true { scr_DrawUnitStats(); }
+                        if can_be_selected == true && alert_display == false { scr_DrawUnitStats(); }
                     }
                 }
             }
@@ -33,7 +33,7 @@ if global.game_state == "IN_GAME" {
         //Draw single unit stat box when in contact with the mouse
         if show_stats == true {
             with instance_nearest(x, y, obj_Unit_Parent) {
-                if (selected != true) {
+                if selected == false && alert_display == false {
                     //Draw unit stats
                     scr_DrawUnitStats();
                 }

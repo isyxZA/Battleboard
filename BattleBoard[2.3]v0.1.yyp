@@ -500,6 +500,7 @@
     {"id":{"name":"ts_Bushes_00","path":"sprites/ts_Bushes_00/ts_Bushes_00.yy",},"order":7,},
     {"id":{"name":"ts_Sand_L1_tileset","path":"tilesets/ts_Sand_L1_tileset/ts_Sand_L1_tileset.yy",},"order":0,},
     {"id":{"name":"spr_Cloud_2","path":"sprites/spr_Cloud_2/spr_Cloud_2.yy",},"order":9,},
+    {"id":{"name":"scr_TargetImpact","path":"scripts/scr_TargetImpact/scr_TargetImpact.yy",},"order":10,},
     {"id":{"name":"spr_E_Artillery_Icon","path":"sprites/spr_E_Artillery_Icon/spr_E_Artillery_Icon.yy",},"order":57,},
     {"id":{"name":"spr_Engineer_A1a_Turret","path":"sprites/spr_Engineer_A1a_Turret/spr_Engineer_A1a_Turret.yy",},"order":19,},
     {"id":{"name":"ts_BoardTiles_tileset","path":"tilesets/ts_BoardTiles_tileset/ts_BoardTiles_tileset.yy",},"order":1,},

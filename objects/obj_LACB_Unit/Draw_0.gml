@@ -11,7 +11,7 @@ if global.my_turn == true || global.waiting == true {
 		texture_set_stage(mask, sprite_get_texture(my_sprite, 0));
 		shader_set_uniform_f(bright_x, 0.75);
 		shader_set_uniform_f(bright_y, 0.75);
-        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, rot, c_white, 1);
 		texture_set_stage(mask, sprite_get_texture(my_turret, 0));
         draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, c_white, 1);
 		shader_reset();
@@ -24,14 +24,14 @@ if global.my_turn == true || global.waiting == true {
                         if taking_damage == false { draw_sprite_ext(spr_Octagon_Green, 0, x, y, 1, 1, 0, c_white, 1); } 
                             else { draw_sprite_ext(spr_Octagon_Red, 0, x, y, 1, 1, 0, c_white, 1); }
                     }
-                    draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1); 
+                    draw_sprite_ext(my_sprite, 0, x, y, scl, scl, rot, c_white, 1); 
                     if global.nav_select == true && anim_select == false  {
                         var na;
                         if nav_split == true { na = 0.75; } else { na = 0.25; }
                         //Draw icon to show potential waypoint location 
                         //if p_one == true { draw_sprite_ext(my_sprite, 0, x_end-4, y_end+2, 0.8, 0.8, 0, c_black, na); }
 							//else { draw_sprite_ext(my_sprite, 0, x_end+4, y_end-2, 0.8, 0.8, 0, c_black, na); }
-                        draw_sprite_ext(my_sprite, 0, x_end, y_end, 0.75, 0.75, 0, c_white, na);
+                        draw_sprite_ext(my_sprite, 0, x_end, y_end, 0.75, 0.75, rot, c_white, na);
 						draw_sprite_ext(my_turret, 0, x_end, y_end, 0.75, 0.75, turret_rot, c_white, na);
                     }
                         //If selected and not selecting a path
@@ -39,9 +39,9 @@ if global.my_turn == true || global.waiting == true {
                             //Nav menu is up (CONFIRM, CANCEL)
                             if global.nav_menu == true {
                                 //Draw icon at current waypoint location 
-                                if p_one == true { draw_sprite_ext(my_sprite, 0, x_end-4, y_end+2, 0.8, 0.8, 0, c_black, 0.5); }
-									else { draw_sprite_ext(my_sprite, 0, x_end+4, y_end-2, 0.8, 0.8, 0, c_black, 0.5); } 
-                                draw_sprite_ext(my_sprite, 0, x_end, y_end, 0.75, 0.75, 0, c_white, 1);
+                                if p_one == true { draw_sprite_ext(my_sprite, 0, x_end-4, y_end+2, 0.8, 0.8, rot, c_black, 0.5); }
+									else { draw_sprite_ext(my_sprite, 0, x_end+4, y_end-2, 0.8, 0.8, rot, c_black, 0.5); } 
+                                draw_sprite_ext(my_sprite, 0, x_end, y_end, 0.75, 0.75, rot, c_white, 1);
 								draw_sprite_ext(my_turret, 0, x_end, y_end, 0.75, 0.75, turret_rot, c_white, 1);
                             }
                         }
@@ -63,9 +63,9 @@ if global.my_turn == true || global.waiting == true {
 						mask = shader_get_sampler_index(shd_shadows, "mask");
                         shader_set(shd_shadows);
 						texture_set_stage(mask, sprite_get_texture(my_sprite, 0));
-						shader_set_uniform_f(bright_x, 0.25);
-						shader_set_uniform_f(bright_y, 0.25);
-				        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+						shader_set_uniform_f(bright_x, 0.75);
+						shader_set_uniform_f(bright_y, 0.75);
+				        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, rot, c_white, 1);
 						texture_set_stage(mask, sprite_get_texture(my_turret, 0));
 						draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, c_white, 1);
 						shader_reset(); 
@@ -79,7 +79,7 @@ if global.my_turn == true || global.waiting == true {
                             else { draw_sprite_ext(spr_Octagon_Red, 0, x_final, y_final, 1, 1, 0, c_white, 1); }
                     }
                     var pa = max(0.5, path_position);
-                    draw_sprite_ext(my_sprite, 0, x_final, y_final, scl, scl, 0, c_white, pa);
+                    draw_sprite_ext(my_sprite, 0, x_final, y_final, scl, scl, rot, c_white, pa);
 					draw_sprite_ext(my_turret, 0, x_final, y_final, scl, scl, turret_rot, c_white, pa);
                 }
     }
@@ -93,9 +93,9 @@ if global.my_turn == true || global.waiting == true {
 		mask = shader_get_sampler_index(shd_shadows, "mask");
         shader_set(shd_shadows);
 		texture_set_stage(mask, sprite_get_texture(my_sprite, 0));
-		shader_set_uniform_f(bright_x, 0.25);
-		shader_set_uniform_f(bright_y, 0.25);
-        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, 0, c_white, 1);
+		shader_set_uniform_f(bright_x, 0.75);
+		shader_set_uniform_f(bright_y, 0.75);
+        draw_sprite_ext(my_sprite, 0, x, y, scl, scl, rot, c_white, 1);
 		texture_set_stage(mask, sprite_get_texture(my_turret, 0));
         draw_sprite_ext(my_turret, 0, x, y, scl, scl, turret_rot, c_white, 1);
 		shader_reset();

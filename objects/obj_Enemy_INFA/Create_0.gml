@@ -65,8 +65,8 @@ rifle_max = 100;
 shoot_rifle = false;
 rifle_rate = 4;
 
-rpg_ammo = 4;
-rpg_max = 4;
+rpg_ammo = 2;
+rpg_max = 2;
 shoot_rpg = false;
 rpg_rate = 1;
 

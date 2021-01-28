@@ -160,28 +160,28 @@ if global.my_turn == true || global.waiting == true {
 		                        case "TOW":
 		                        case "REPAIR":
 		                        case "DEPOT":
-		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
+		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot_path, c_white, 1);
 		                            break;
 		                        case "MBT_A":
 								case "MBT_B":
-		                            draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot, c_white, 1);
+		                            draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot_path, c_white, 1);
 		                            break;
 		                        case "LAC_A":
-		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
+		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot_path, c_white, 1);
 		                            break;
 								case "LAC_B":
-		                            draw_sprite_ext(my_icon, 0, x, y, 0.6, 0.6, rot, c_white, 1);
+		                            draw_sprite_ext(my_icon, 0, x, y, 0.6, 0.6, rot_path, c_white, 1);
 		                            break;
 		                        case "LOGI_A":
 								case "LOGI_B":
-		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot, c_white, 1);
+		                            draw_sprite_ext(my_sprite, 0, x, y, 0.7, 0.7, rot_path, c_white, 1);
 		                            break;
 		                        case "LAV_A":
 								case "LAV_B":
-		                            draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot, c_white, 1);
+		                            draw_sprite_ext(my_icon, 0, x, y, 0.7, 0.7, rot_path, c_white, 1);
 		                            break;
 		                        default:
-		                            draw_sprite_ext(spr_Arrow_Sml, 0, x, y, 0.7, 0.7, rot, c_white, 1);
+		                            draw_sprite_ext(spr_Arrow_Sml, 0, x, y, 0.7, 0.7, rot_path, c_white, 1);
 		                            break;
 		                    } 
 		                }

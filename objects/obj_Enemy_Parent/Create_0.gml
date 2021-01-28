@@ -34,6 +34,7 @@ my_sound = -1;
 
 target_x = 0;
 target_y = 0;
+target_impact = "";
 ttx = x;
 tty = y;
 
@@ -88,6 +89,7 @@ my_colour = c_white;
 my_icon = -1;
 
 rot = 0;
+rot_offset = choose(0,90,180,270);
 txt_rot = 0;
 rot_adj = 0;
 my_alpha = 1;

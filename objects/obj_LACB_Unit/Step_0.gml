@@ -128,6 +128,60 @@ if global.game_turn != 0 {
                 }
                     else { 
                         if can_shoot == true { can_shoot = false;} 
+						if global.nav_select == false {
+							if keyboard_check_pressed(global.LSHIFT) { 
+								if action_points >= 1 {
+									switch rot_offset {
+										case 0:
+											rot_offset = 90;
+											break;
+										case 90:
+											rot_offset = 180;
+											break;
+										case 180:
+											rot_offset = 270;
+											break;
+										case 270:
+											rot_offset = 0;
+											break;
+									}
+									action_points -= 1;
+									alert_display = true;
+									alert_text = "-1 AP";
+									alert_colour = c_red;
+									alarm[3] = global.tick_rate*3;
+									global.draw_apcost = true; 
+									obj_CONTROL.ap_cost = 1;
+								}
+									else { ap_depleted = true; }
+							}
+								else if keyboard_check_pressed(global.RSHIFT) { 
+									if action_points >= 1 { 
+										switch rot_offset {
+											case 0:
+												rot_offset = 270;
+												break;
+											case 270:
+												rot_offset = 180;
+												break;
+											case 180:
+												rot_offset = 90;
+												break;
+											case 90:
+												rot_offset = 0;
+												break;
+										}
+										action_points -= 1;
+										alert_display = true;
+										alert_text = "-1 AP";
+										alert_colour = c_red;
+										alarm[3] = global.tick_rate*3;
+										global.draw_apcost = true; 
+										obj_CONTROL.ap_cost = 1;
+									}
+										else { ap_depleted = true; }
+								}
+						}
                     }
             }
                 else {
