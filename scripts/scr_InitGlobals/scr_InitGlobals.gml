@@ -244,6 +244,7 @@ function scr_InitGlobals() {
 	global.MMOUSE = 3;
 	global.INCREASE = 107;
 	global.DECREASE = 109;
+	global.ARMOR = 164;
 	
 	//Macros
 	//Networking

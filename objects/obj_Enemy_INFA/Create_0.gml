@@ -104,11 +104,11 @@ if PLAYER.net_status == "NONE" {
 	var le = ds_list_size(global.squad_5);
 	//Assign to a squad
 	if global.game_turn == 0 {
-		if la<6 { ds_list_add(global.squad_1, id); my_squad = "E_1"; }
+		if la<9 { ds_list_add(global.squad_1, id); my_squad = "E_1"; }
 		    else if lb<6 { ds_list_add(global.squad_2, id); my_squad = "E_2"; }
 		        else if lc<6 { ds_list_add(global.squad_3, id); my_squad = "E_3"; }
 		            else if ld<6 { ds_list_add(global.squad_4, id); my_squad = "E_4"; }
-		                else if le<6 { ds_list_add(global.squad_5, id); my_squad = "E_5"; }
+		                else if le<9 { ds_list_add(global.squad_5, id); my_squad = "E_5"; }
 		                    else { ds_list_add(global.squad_1, id); my_squad = "E_1"; }
 	}
 		else {

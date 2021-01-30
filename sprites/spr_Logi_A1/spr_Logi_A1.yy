@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_Logi_A1","path":"sprites/spr_Logi_A1/spr_Logi_A1.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_Logi_A1",
     "tags": [],
     "resourceType": "GMSequence",
   },

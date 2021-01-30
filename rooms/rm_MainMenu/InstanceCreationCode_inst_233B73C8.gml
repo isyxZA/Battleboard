@@ -1,1 +1,1 @@
-txt = "Campaign";
+txt = "1 vs Computer";

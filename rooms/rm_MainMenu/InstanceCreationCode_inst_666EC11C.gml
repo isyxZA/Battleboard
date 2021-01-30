@@ -1,1 +1,1 @@
-txt = "Join Game";
+txt = "1 vs Player";

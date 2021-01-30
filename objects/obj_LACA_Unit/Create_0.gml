@@ -12,12 +12,14 @@ if p_side == "ONE" {
 	switch p_faction {
 		case "US":
 			my_sprite = spr_Engineer_A1;
+			my_armor  = spr_Engineer_A1_Armor;
 			my_mask   = spr_Engineer_A1_Mask;
 			crater_index = spr_Engineer_Crater_US;
 			label = "M1097A2 Cargo";
 			break;
 		case "RU":
 			my_sprite = spr_Engineer_B1;
+			my_armor  = spr_Engineer_B1_Armor;
 			my_mask   = spr_Engineer_B1_Mask;
 			crater_index = spr_Engineer_Crater_RU;
 			label = "GAZ Tigr Cargo";
@@ -31,12 +33,14 @@ if p_side == "ONE" {
 		switch p_faction {
 			case "US":
 				my_sprite = spr_Engineer_A2;
+				my_armor  = spr_Engineer_A2_Armor;
 				my_mask   = spr_Engineer_A2_Mask;
 				crater_index = spr_Engineer_Crater_US;
 				label = "M1097A2 Cargo";
 				break;
 			case "RU":
 				my_sprite = spr_Engineer_B2;
+				my_armor  = spr_Engineer_B2_Armor;
 				my_mask   = spr_Engineer_B2_Mask;
 				crater_index = spr_Engineer_Crater_RU;
 				label = "GAZ Tigr Cargo";

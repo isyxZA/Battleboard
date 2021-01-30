@@ -641,3 +641,6 @@ if highlight_move == true {
         }
     }
 }
+
+if keyboard_check_pressed(global.ARMOR)  { show_armor = true;  }
+if keyboard_check_released(global.ARMOR) { show_armor = false; }

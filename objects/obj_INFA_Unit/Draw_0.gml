@@ -92,6 +92,10 @@ if global.my_turn == true || global.waiting == true {
 		shader_reset();
     }
     
+if show_armor == true { 
+	draw_sprite_ext(my_mask, 0, x_final, y_final, scl, scl, rot, c_white, 1);
+}
+
 scr_DrawSquad(my_squad);
 
 //draw_set_alpha(0.1);

@@ -74,4 +74,7 @@ switch key {
 	case "SHOOT":
 		scr_KeyText(global.SHOOT, "PERM");
 		break;
+	case "ARMOR":
+		scr_KeyText(global.ARMOR, "PERM");
+		break;
 }

@@ -13,6 +13,8 @@ if p_side == "ONE" {
 		case "US":
 			my_sprite = spr_BTR_A1a; 
 			my_turret = spr_BTR_A1a_Turret;
+			my_armor  = spr_BTR_A1a_Armor;
+			my_turret_armor  = spr_BTR_A1a_Turret_Armor;
 			my_icon   = spr_BTR_A1a_Icon;
 			my_mask   = spr_BTR_A1a_Mask;
 			crater_index = spr_BTR_Crater_US;
@@ -21,6 +23,8 @@ if p_side == "ONE" {
 		case "RU":
 			my_sprite = spr_BTR_B1a; 
 			my_turret = spr_BTR_B1a_Turret;
+			my_armor  = spr_BTR_B1a_Armor;
+			my_turret_armor  = spr_BTR_B1a_Turret_Armor;
 			my_icon   = spr_BTR_B1a_Icon;
 			my_mask   = spr_BTR_B1a_Mask;
 			crater_index = spr_BTR_Crater_RU;
@@ -36,6 +40,8 @@ if p_side == "ONE" {
 			case "US":
 				my_sprite = spr_BTR_A2a; 
 				my_turret = spr_BTR_A2a_Turret;
+				my_armor  = spr_BTR_A2a_Armor;
+				my_turret_armor  = spr_BTR_A2a_Turret_Armor;
 				my_icon   = spr_BTR_A2a_Icon;
 				my_mask   = spr_BTR_A2a_Mask;
 				crater_index = spr_BTR_Crater_US;
@@ -44,6 +50,8 @@ if p_side == "ONE" {
 			case "RU":
 				my_sprite = spr_BTR_B2a; 
 				my_turret = spr_BTR_B2a_Turret;
+				my_armor  = spr_BTR_B2a_Armor;
+				my_turret_armor  = spr_BTR_B2a_Turret_Armor;
 				my_icon   = spr_BTR_B2a_Icon;
 				my_mask   = spr_BTR_B2a_Mask;
 				crater_index = spr_BTR_Crater_RU;

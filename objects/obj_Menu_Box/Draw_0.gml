@@ -40,10 +40,10 @@ switch key {
         draw_text(x, y+30, string("Toggle enhanced visibility of units."));
         break;
     case "LSHIFT":
-        draw_text(x, y+30, string("Shift/Rotate units to the left."));
+        draw_text(x, y+30, string("Rotate units to the left."));
         break;
     case "RSHIFT":
-        draw_text(x, y+30, string("Shift/Rotate units to the right."));
+        draw_text(x, y+30, string("Rotate units to the right."));
         break;
     case "STATS":
         draw_text(x, y+30, string("Identify units."));
@@ -80,6 +80,9 @@ switch key {
         break;
     case "SHOOT":
         draw_text(x, y+30, string("Target with selected units."));
+        break;
+	case "ARMOR":
+        draw_text(x, y+30, string("Display unit armor."));
         break;
 }
 draw_set_font(fnt_12);

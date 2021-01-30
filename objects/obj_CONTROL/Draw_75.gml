@@ -353,7 +353,7 @@ if global.game_state == "IN_GAME" {
 
     //Display hints
     if global.display_info == true && show_options != true {
-        if global.my_turn == true && global.units_running == 0 { 
+        if global.my_turn == true && global.units_running == 0 && show_armor == false { 
             if global.game_turn == 0 { 
                 draw_set_font(fnt_14);
                 draw_set_halign(fa_left);
@@ -455,6 +455,13 @@ if global.game_state == "IN_GAME" {
 						}
 			}
         }
+			else {
+				if show_armor == true {
+					draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.5, 0.8, 5.75, 0, c_white, 0.7);
+					draw_sprite(spr_Armor_Stats, 0, 0, display_get_height()*0.5);
+					draw_text_colour(display_get_width()*0.04, display_get_height()*0.43, string_hash_to_newline("--- ARMOR ---"), c_white, c_white, c_white, c_white, 1);
+				}
+			}
         if draw_endturn == true {
             draw_set_colour(t_colour);
             draw_set_alpha(0.9);

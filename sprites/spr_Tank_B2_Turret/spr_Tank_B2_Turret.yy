@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_Tank_B2_Turret","path":"sprites/spr_Tank_B2_Turret/spr_Tank_B2_Turret.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_Tank_B2_Turret",
     "tags": [],
     "resourceType": "GMSequence",
   },

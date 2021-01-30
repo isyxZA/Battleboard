@@ -150,6 +150,7 @@ cp_cost = 0;
 draw_apreturn = false;
 
 show_options = false;
+show_armor = false;
 temp_zlevel = 0;
 
 //Track empty spawn ships

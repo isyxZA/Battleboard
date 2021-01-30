@@ -13,12 +13,14 @@ if p_side == "ONE" {
 		case "US":
 			my_sprite = spr_Logi_A1;
 			my_mask   = spr_Logi_A1_Mask;
+			my_armor  = spr_Logi_A1_Armor;
 			crater_index = spr_Logi_Crater_US;
 			label = "M35 Cargo";
 			break;
 		case "RU":
 			my_sprite = spr_Logi_B1;
 			my_mask   = spr_Logi_B1_Mask;
+			my_armor  = spr_Logi_B1_Armor;
 			crater_index = spr_Logi_Crater_RU;
 			label = "Ural 4320 Cargo";
 			break;
@@ -32,12 +34,14 @@ if p_side == "ONE" {
 			case "US":
 				my_sprite = spr_Logi_A2;
 				my_mask   = spr_Logi_A2_Mask;
+				my_armor  = spr_Logi_A2_Armor;
 				crater_index = spr_Logi_Crater_US;
 				label = "M35 Cargo";
 				break;
 			case "RU":
 				my_sprite = spr_Logi_B2;
 				my_mask   = spr_Logi_B2_Mask;
+				my_armor  = spr_Logi_B2_Armor;
 				crater_index = spr_Logi_Crater_RU;
 				label = "Ural 4320 Cargo";
 				break;

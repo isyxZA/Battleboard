@@ -892,13 +892,13 @@ function scr_KeyText(argument0, argument1) {
 		case 164://Alt Left
 			//Set text to display
 			if text_type == "PERM" { 
-				txt = "Alt L"; 
-				my_sprite = spr_Menu_Button;
+				txt = "Alt"; 
+				my_sprite = spr_Menu_Box;
 				my_font = fnt_14;
-				xscale = 0.7;
-				yscale = 0.7;
+				xscale = 1;
+				yscale = 1;
 			}
-				else if text_type == "TEMP" { txt_temp = "Alt L"; }
+				else if text_type == "TEMP" { txt_temp = "Alt"; }
 			break;
 		case 165://Alt Right
 			//Set text to display

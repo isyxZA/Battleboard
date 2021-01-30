@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_Tank_A1_Mask","path":"sprites/spr_Tank_A1_Mask/spr_Tank_A1_Mask.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_Tank_A1_Mask",
     "tags": [],
     "resourceType": "GMSequence",
   },

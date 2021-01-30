@@ -36,6 +36,7 @@ if is_manning == false {
 	    var repair = instance_place(x_final, y_final, obj_Repair_Static);
 	    if repair != noone { 
 	        is_manning = true;
+			rot_offset = 0;
 			manned_unit = repair.id;
 	        if anim_select == false { scl = 0.75; }
 	        repair.is_occupied = true;

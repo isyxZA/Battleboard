@@ -13,6 +13,8 @@ if p_side == "ONE" {
 		case "US":
 			my_sprite = spr_Tank_A1; 
 			my_turret = spr_Tank_A1_Turret;
+			my_armor  = spr_Tank_A1_Armor;
+			my_turret_armor  = spr_Tank_A1_Turret_Armor;
 			my_icon   = spr_Tank_A1_Icon;
 			my_mask   = spr_Tank_A1_Mask;
 			crater_index = spr_Tank_Crater_US;
@@ -21,6 +23,8 @@ if p_side == "ONE" {
 		case "RU":
 			my_sprite = spr_Tank_B1; 
 			my_turret = spr_Tank_B1_Turret;
+			my_armor  = spr_Tank_B1_Armor;
+			my_turret_armor  = spr_Tank_B1_Turret_Armor;
 			my_icon   = spr_Tank_B1_Icon;
 			my_mask   = spr_Tank_B1_Mask;
 			crater_index = spr_Tank_Crater_RU;
@@ -35,7 +39,10 @@ if p_side == "ONE" {
 		switch p_faction {
 			case "US":
 				my_sprite = spr_Tank_A2; 
+				my_armor  = spr_Tank_A2_Armor;
 				my_turret = spr_Tank_A2_Turret;
+				my_armor  = spr_Tank_A2_Armor;
+				my_turret_armor  = spr_Tank_A2_Turret_Armor;
 				my_icon   = spr_Tank_A2_Icon;
 				my_mask   = spr_Tank_A2_Mask;
 				crater_index = spr_Tank_Crater_US;
@@ -44,6 +51,8 @@ if p_side == "ONE" {
 			case "RU":
 				my_sprite = spr_Tank_B2; 
 				my_turret = spr_Tank_B2_Turret;
+				my_armor  = spr_Tank_B2_Armor;
+				my_turret_armor  = spr_Tank_B2_Turret_Armor;
 				my_icon   = spr_Tank_B2_Icon;
 				my_mask   = spr_Tank_B2_Mask;
 				crater_index = spr_Tank_Crater_RU;

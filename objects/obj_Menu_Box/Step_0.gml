@@ -123,6 +123,10 @@ if popup == true {
 						global.SHOOT = key_temp;
 						scr_KeyText(global.SHOOT, "PERM");
 						break;
+					case "ARMOR":
+						global.ARMOR = key_temp;
+						scr_KeyText(global.ARMOR, "PERM");
+						break;
 				}
 				//Find and remove any duplicate assignments
 				var myID = id;
@@ -203,6 +207,9 @@ if popup == true {
 								break;
 							case "SHOOT":
 								if global.SHOOT == other.key_temp { global.SHOOT = -1; txt = "!?"; }
+								break;
+							case "ARMOR":
+								if global.ARMOR == other.key_temp { global.ARMOR = -1; txt = "!?"; }
 								break;
 						}
 					}

@@ -4,14 +4,14 @@ if global.can_choose == true {
 			play_touch = false; 
 			audio_play_sound(snd_Checkbox, 1, false);
 		}
-		if txt == "Host Game" || txt == "Join Game" { c1 = c_red; wip_display = true; }
+		if txt == "Host Game" || txt == "1 vs Player" { c1 = c_red; wip_display = true; }
 			else { c1 = make_colour_rgb(240,248,255); }
 		//c1 = make_colour_rgb(240,248,255);
 		highlight = true;
         if mouse_check_button_pressed(mb_left) {
 			audio_play_sound(snd_Accept, 1, false);
             switch txt {
-                case "Campaign"://From Main Menu, Single player..goes to room Setup
+                case "1 vs Computer"://From Main Menu, Single player..goes to room Setup
 					PLAYER.net_status = "NONE";
 					PLAYER.player = "ONE";
 					PLAYER.faction = "US";
@@ -55,7 +55,7 @@ if global.can_choose == true {
 	                    alarm[0] = 60;
 					}
                     break;
-				case "Join Game"://From Main Menu, Multiplayer...go to room Join
+				case "1 vs Player"://From Main Menu, Multiplayer...go to room Join
 					/*
 					PLAYER.net_status = "CLIENT";
                     global.transition = true;

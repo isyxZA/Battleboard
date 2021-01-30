@@ -128,7 +128,7 @@ if global.game_turn != 0 {
                 }
                     else { 
                         if can_shoot == true { can_shoot = false;} 
-						if global.nav_select == false {
+						if global.nav_select == false && is_manning == false {
 							if keyboard_check_pressed(global.LSHIFT) { 
 								if action_points >= 1 {
 									switch rot_offset {

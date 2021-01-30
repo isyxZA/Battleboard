@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"spr_Tank_B2","path":"sprites/spr_Tank_B2/spr_Tank_B2.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "spr_Tank_B2",
     "tags": [],
     "resourceType": "GMSequence",
   },
