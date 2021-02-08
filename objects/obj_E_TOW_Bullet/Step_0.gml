@@ -43,19 +43,19 @@ if explode == true {
         var e = instance_place(x, y, obj_Enemy_Parent);
         
         if h!= noone { 
-            h.my_health -= damage_2;
+            h.my_health -= damage_alt;
             //if h.my_health <= 0 { h.alarm[0] = 60; }
         }
             else if t!= noone { 
-                t.my_health -= damage_2;
+                t.my_health -= damage_alt;
                 //if t.my_health <= 0 { t.alarm[0] = 60; }
             }
                 else if u!= noone { 
                     switch u.unit_type {
                         case "INF_A":
 						case "INF_B":
-                            u.unit_health -= damage_1;
                             u.taking_damage = true;
+                            u.unit_health -= damage_alt;
                             u.alert_display = true;
                             u.alert_text = "-20 HP"; 
                             u.alert_colour = c_red;
@@ -66,20 +66,20 @@ if explode == true {
 						case "MBT_B":
 							switch impact_side {
 								case "FRONT":
-									armor_reduction = 25;
+									armor_reduction = 0.4;
 									break;
 								case "REAR":
-									armor_reduction = 0;
+									armor_reduction = 0.6;
 									break;
 								case "LSIDE":
 								case "RSIDE":
-									armor_reduction = 15;
+									armor_reduction = 0.5;
 									break;
 								case "":
 									armor_reduction = 0;
 									break;
 							}
-							var dmg = damage_2-armor_reduction;
+							var dmg = damage_max*armor_reduction;
 							var atxt = "-" + string(dmg) + " HP";
                             u.taking_damage = true;
                             u.unit_health -= dmg;
@@ -93,20 +93,20 @@ if explode == true {
 						case "LAC_B":
 							switch impact_side {
 								case "FRONT":
-									armor_reduction = 0;
+									armor_reduction = 0.6;
 									break;
 								case "REAR":
-									armor_reduction = 0;
+									armor_reduction = 0.7;
 									break;
 								case "LSIDE":
 								case "RSIDE":
-									armor_reduction = 5;
+									armor_reduction = 0.6;
 									break;
 								case "":
 									armor_reduction = 0;
 									break;
 							}
-							var dmg = damage_2-armor_reduction;
+							var dmg = damage_max*armor_reduction;
 							var atxt = "-" + string(dmg) + " HP";
                             u.taking_damage = true;
                             u.unit_health -= dmg;
@@ -117,23 +117,48 @@ if explode == true {
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
                             break;
                         case "LAV_A":
-						case "LAV_B":
 							switch impact_side {
 								case "FRONT":
-									armor_reduction = 20;
+									armor_reduction = 0.5;
 									break;
 								case "REAR":
-									armor_reduction = 0;
+									armor_reduction = 0.6;
 									break;
 								case "LSIDE":
 								case "RSIDE":
-									armor_reduction = 10;
+									armor_reduction = 0.4;
 									break;
 								case "":
 									armor_reduction = 0;
 									break;
 							}
-							var dmg = damage_1-armor_reduction;
+							var dmg = damage_max*armor_reduction;
+							var atxt = "-" + string(dmg) + " HP";
+                            u.taking_damage = true;
+                            u.unit_health -= dmg;
+                            u.alert_display = true;
+                            u.alert_text = atxt; 
+                            u.alert_colour = c_red;
+                            u.alarm[3] = global.tick_rate*2;
+                            if u.unit_health <= 0 { u.alarm[5] = 60; }
+                            break;
+						case "LAV_B":
+							switch impact_side {
+								case "FRONT":
+									armor_reduction = 0.4;
+									break;
+								case "REAR":
+									armor_reduction = 0.6;
+									break;
+								case "LSIDE":
+								case "RSIDE":
+									armor_reduction = 0.5;
+									break;
+								case "":
+									armor_reduction = 0;
+									break;
+							}
+							var dmg = damage_max*armor_reduction;
 							var atxt = "-" + string(dmg) + " HP";
                             u.taking_damage = true;
                             u.unit_health -= dmg;
@@ -145,10 +170,27 @@ if explode == true {
                             break;
                         case "LOGI_A":
 						case "LOGI_B":
+							switch impact_side {
+								case "FRONT":
+									armor_reduction = 0.6;
+									break;
+								case "REAR":
+									armor_reduction = 0.7;
+									break;
+								case "LSIDE":
+								case "RSIDE":
+									armor_reduction = 0.7;
+									break;
+								case "":
+									armor_reduction = 0;
+									break;
+							}
+							var dmg = damage_max*armor_reduction;
+							var atxt = "-" + string(dmg) + " HP";
                             u.taking_damage = true;
-                            u.unit_health -= damage_3;
+                            u.unit_health -= dmg;
                             u.alert_display = true;
-                            u.alert_text = "-80 HP"; 
+                            u.alert_text = atxt; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
@@ -158,9 +200,9 @@ if explode == true {
                         case "TOW":
                         case "MORTAR":
                             u.taking_damage = true;
-                            u.unit_health -= damage_2;
+                            u.unit_health -= damage_alt;
                             u.alert_display = true;
-                            u.alert_text = "-60 HP"; 
+                            u.alert_text = "-20 HP"; 
                             u.alert_colour = c_red;
                             u.alarm[3] = global.tick_rate*2;
                             if u.unit_health <= 0 { u.alarm[5] = 60; }
@@ -171,70 +213,121 @@ if explode == true {
                         switch e.unit_type {
                             case "E_INFA":
 							case "E_INFB":
-                                e.unit_health -= damage_1;
+                                e.unit_health -= damage_alt;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
                                 break;
                             case "E_MBTA":
 							case "E_MBTB":
-                                switch impact_side {
-									case "FRONT":
-										armor_reduction = 0;
+								switch impact_side {
+									case "FRONT"://Rear
+										armor_reduction = 0.6;
 										break;
-									case "REAR":
-										armor_reduction = 25;
+									case "REAR"://Front
+										armor_reduction = 0.4;
 										break;
 									case "LSIDE":
 									case "RSIDE":
-										armor_reduction = 15;
+										armor_reduction = 0.5;
 										break;
 									case "":
 										armor_reduction = 0;
 										break;
 								}
-								var dmg = damage_2-armor_reduction;
+								var dmg = damage_max*armor_reduction;
                                 e.unit_health -= dmg;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
                                 break;
                             case "E_LACA":
 							case "E_LACB":
 								switch impact_side {
-									case "FRONT":
-										armor_reduction = 0;
+									case "FRONT"://Rear
+										armor_reduction = 0.7;
 										break;
-									case "REAR":
-										armor_reduction = 0;
+									case "REAR"://Front
+										armor_reduction = 0.6;
 										break;
 									case "LSIDE":
 									case "RSIDE":
-										armor_reduction = 5;
+										armor_reduction = 0.6;
 										break;
 									case "":
 										armor_reduction = 0;
 										break;
 								}
-								var dmg = damage_2-armor_reduction;
+								var dmg = damage_max*armor_reduction;
                                 e.unit_health -= dmg;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
                                 break;
                             case "E_LAVA":
+								switch impact_side {
+									case "FRONT"://Rear
+										armor_reduction = 0.6;
+										break;
+									case "REAR"://Front
+										armor_reduction = 0.4;
+										break;
+									case "LSIDE":
+									case "RSIDE":
+										armor_reduction = 0.5;
+										break;
+									case "":
+										armor_reduction = 0;
+										break;
+								}
+								var dmg = damage_max*armor_reduction;
+                                e.unit_health -= dmg;
+                                if e.unit_health <= 0 { e.alarm[5] = 60; }
+                                break;
 							case "E_LAVB":
-                                e.unit_health -= damage_3;
+								switch impact_side {
+									case "FRONT"://Rear
+										armor_reduction = 0.6;
+										break;
+									case "REAR"://Front
+										armor_reduction = 0.4;
+										break;
+									case "LSIDE":
+									case "RSIDE":
+										armor_reduction = 0.5;
+										break;
+									case "":
+										armor_reduction = 0;
+										break;
+								}
+								var dmg = damage_max*armor_reduction;
+                                e.unit_health -= dmg;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
                                 break;
                             case "E_LOGIA":
 							case "E_LOGIB":
-                                e.unit_health -= damage_3;
+								switch impact_side {
+									case "FRONT"://Rear
+										armor_reduction = 0.7;
+										break;
+									case "REAR"://Front
+										armor_reduction = 0.6;
+										break;
+									case "LSIDE":
+									case "RSIDE":
+										armor_reduction = 0.7;
+										break;
+									case "":
+										armor_reduction = 0;
+										break;
+								}
+								var dmg = damage_max*armor_reduction;
+                                e.unit_health -= dmg;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
                                 break;
                             case "E_DEPOT":
                             case "E_REPAIR":
                             case "E_TOW":
                             case "E_MORTAR":
-                                e.unit_health -= damage_2;
+                                e.unit_health -= damage_alt;
                                 if e.unit_health <= 0 { e.alarm[5] = 60; }
                                 break;
                         }
-                    }
+                }
     }
 }
 

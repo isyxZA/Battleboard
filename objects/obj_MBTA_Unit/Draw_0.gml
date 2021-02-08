@@ -107,11 +107,11 @@ if show_armor == true {
 
 scr_DrawSquad(my_squad);
 
-/*
-draw_set_color(c_white);
-draw_text(x, y-16, string(rot));
-draw_text(x, y+16, string(rot_offset));
-*/
+
+//draw_set_color(c_white);
+//draw_text(x, y-16, string(rot));
+//draw_text(x, y+16, string(rot_offset));
+
 
 /*
 if selected || action_confirmed {

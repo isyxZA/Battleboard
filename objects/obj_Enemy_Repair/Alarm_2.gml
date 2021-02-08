@@ -5,13 +5,14 @@ if timer_count > 0 { timer_start = true; }
         if shoot_amount > 0 {  
             switch weapon {
                 case "MG":
+					scr_TargetImpact_E();
                     shoot_mg = true;
                     draw_flash = true;
                     flash_index = spr_Muzzle_Flash_05;
                     alarm[4] = 10;
                     audio_play_sound_on(emit, snd_Rifles01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_E_Rifle_Bullet) {
-                        unit_parent = other.id;
+                        impact_side = other.target_impact;
                         x_to = other.target_x;
                         y_to = other.target_y;
                     }
@@ -35,12 +36,13 @@ if timer_count > 0 { timer_start = true; }
                 manned_unit.resupplying = false;
                 switch weapon {
                     case "MG":
+						scr_TargetImpact_E();
                         draw_flash = true;
                         flash_index = spr_Muzzle_Flash_05;
                         alarm[4] = 10;
                         audio_play_sound_on(emit, snd_Rifles01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_E_Rifle_Bullet) {
-                            unit_parent = other.id;
+                            impact_side = other.target_impact;
                             x_to = other.target_x;
                             y_to = other.target_y;
                         }

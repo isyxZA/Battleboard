@@ -13,7 +13,6 @@ if timer_count > 0 { timer_start = true; }
                     alarm[4] = 10;
                     alarm[7] = 10;
                     with instance_create_layer(x, y, "ParticleFX", obj_Tank_Cannon_Bullet) {
-                        unit_parent = other.id;
 						impact_side = other.target_impact;
                         x_to = unit_parent.target_x;
                         y_to = unit_parent.target_y;
@@ -35,7 +34,6 @@ if timer_count > 0 { timer_start = true; }
                     alarm[4] = 22;
                     audio_play_sound_on(emit, snd_TankMG01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_Tank_MG_Bullet) {
-                        unit_parent = other.id;
 						impact_side = other.target_impact;
                         x_to = unit_parent.target_x;
                         y_to = unit_parent.target_y;
@@ -67,7 +65,6 @@ if timer_count > 0 { timer_start = true; }
                         alarm[7] = 10;
                         audio_play_sound_on(emit, snd_TankCannon01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_Tank_Cannon_Bullet) {
-                            unit_parent = other.id;
 							impact_side = other.target_impact;
 	                        x_to = unit_parent.target_x;
 	                        y_to = unit_parent.target_y;
@@ -88,7 +85,6 @@ if timer_count > 0 { timer_start = true; }
                         alarm[4] = 22;
                         audio_play_sound_on(emit, snd_TankMG01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_Tank_MG_Bullet) {
-                            unit_parent = other.id;
 							impact_side = other.target_impact;
 	                        x_to = unit_parent.target_x;
 	                        y_to = unit_parent.target_y;

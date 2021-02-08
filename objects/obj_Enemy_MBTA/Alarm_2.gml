@@ -2,7 +2,7 @@ timer_count -= 1;
 
 if timer_count > 0 { timer_start = true; }
     else if timer_count <= 0 {
-		scr_TargetImpact();
+		scr_TargetImpact_E();
         if shoot_amount > 0 {  
             switch weapon {
                 case "CANNON":

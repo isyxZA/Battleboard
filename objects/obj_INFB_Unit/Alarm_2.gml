@@ -12,7 +12,6 @@ if timer_count > 0 { timer_start = true; }
                     alarm[4] = 10;
                     audio_play_sound_on(emit, snd_Rifles01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_Rifle_Bullet) {
-                        unit_parent = other.id;
 						impact_side = other.target_impact;
                         x_to = other.target_x;
                         y_to = other.target_y;
@@ -35,7 +34,6 @@ if timer_count > 0 { timer_start = true; }
                     alarm[7] = 10;
                     audio_play_sound_on(emit, snd_RPG01, false, 10);
                     with instance_create_layer(x, y, "ParticleFX", obj_GL_Bullet) {
-                        unit_parent = other.id;
 						impact_side = other.target_impact;
                         x_to = other.target_x;
                         y_to = other.target_y;
@@ -55,7 +53,6 @@ if timer_count > 0 { timer_start = true; }
                     alarm[7] = 10;
                     audio_play_sound_on(emit, snd_Flare01, false, 10);
                     with instance_create_layer(x, y, "Flares", obj_Flare_Bullet) {
-                        unit_parent = other.id;
                         x_to = other.target_x;
                         y_to = other.target_y;
                     }
@@ -85,7 +82,6 @@ if timer_count > 0 { timer_start = true; }
                         alarm[4] = 10;
                         audio_play_sound_on(emit, snd_Rifles01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_Rifle_Bullet) {
-                            unit_parent = other.id;
 							impact_side = other.target_impact;
                             x_to = other.target_x;
                             y_to = other.target_y;
@@ -107,7 +103,6 @@ if timer_count > 0 { timer_start = true; }
                         alarm[7] = 10;
                         audio_play_sound_on(emit, snd_RPG01, false, 10);
                         with instance_create_layer(x, y, "ParticleFX", obj_GL_Bullet) {
-                            unit_parent = other.id;
 							impact_side = other.target_impact;
                             x_to = other.target_x;
                             y_to = other.target_y;
@@ -126,7 +121,6 @@ if timer_count > 0 { timer_start = true; }
                         alarm[7] = 10;
                         audio_play_sound_on(emit, snd_Flare01, false, 10);
                         with instance_create_layer(x, y, "Flares", obj_Flare_Bullet) {
-                            unit_parent = other.id;
                             x_to = other.target_x;
                             y_to = other.target_y;
                         }

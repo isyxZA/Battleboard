@@ -1,7 +1,6 @@
 event_inherited();
-damage_1 = 20;
-damage_2 = 60;
-damage_3 = 80;
+damage_alt = 20;
+damage_max = 100;
 image_speed = 1.25;
 s = 40;
 

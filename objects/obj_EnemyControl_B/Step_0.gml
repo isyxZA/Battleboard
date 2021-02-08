@@ -4,7 +4,7 @@ if global.game_state == "IN_GAME" {
 	    //If enemy units are available
 	    if !ds_list_empty(global.enemyunit_list) {
 	        if active == true {
-	            if global.opponent_turn == true && active_timer < turn_max { 
+	            if (global.opponent_turn == true) && (active_timer < turn_max) { 
 	                if turn_start == true {
 	                    can_execute = true;
 	                    //Set active squad for the turn
@@ -398,10 +398,6 @@ switch state {
                                 if nav_confirmed == false && action_confirmed == false && resupplying == false {
                                     //Find max ap
                                     var amm = (action_points/ap_cost);
-                                    if amm<0 {amm=0;}
-                                    //Find max mp
-                                    //var mm = (action_points/mp_cost);
-                                    //if mm<0 {mm=0;}
                                     //Take action
                                     if no_shot == false {
                                         if (amm >= 1) {
@@ -450,8 +446,59 @@ switch state {
                                                 else { no_move = true; }			
                                         }
                                     //If the unit cannot move or shoot then increment the idle count
-                                    if no_move == true && no_shot == true { idle_state = 1; }
-                                        else { idle_state = 0; }
+                                    if no_move == true && no_shot == true { 
+										if (action_points >= 1) && (is_visible == true) { 
+											//First check if the unit is a vehicle and is visible to opponent
+											switch unit_type {
+												case "E_MBTA":
+												case "E_MBTB":
+												case "E_LAVB":
+												case "E_LAVA":
+													if !ds_list_empty(global.myunit_list) {
+														var t_i;
+														var t_dfinal = view_radius;
+														var t_l = ds_list_size(global.myunit_list);
+														for(t_i=0; t_i<t_l; t_i+=1) {
+															var t_v = ds_list_find_value(global.myunit_list, t_i);
+															var t_x = t_v.x;
+															var t_y = t_v.y;
+															switch t_v.unit_type  {
+																case "MBT_A":
+																case "MBT_B":
+																case "LAV_A":
+																case "LAV_B":
+																case "LAC_B":
+																case "TOW" :
+																	//Find closest threat
+																	var t_d = point_distance(x, y, t_x, t_y);
+																	if t_d < t_dfinal { 
+																		t_dfinal = t_d; 
+																		threat_x = t_x;
+																		threat_y = t_y;
+																	}
+																	break;
+																default:
+																	break;
+															}
+															
+														}
+													}	
+													scr_RotateUnit(threat_x, threat_y);
+													break;
+												default:
+													idle_state = 1;
+													break;
+											}
+										}
+											else { 
+												threat_x = x;
+												threat_y = y;
+												idle_state = 1; 
+											}
+									}
+                                        else { 
+											idle_state = 0; 
+										}
                                     obj_EnemyControl_B.idle_count += idle_state;
                                 }
                                     else {
@@ -511,12 +558,8 @@ switch state {
                             var u1 = ds_list_find_value(active_list, i1);
                             with u1 {
                                 if nav_confirmed == false && action_confirmed == false && resupplying == false {
-                                    //Find max movement amount
-                                    //var mm = (action_points/mp_cost);
-                                    //if mm<0 {mm=0;}
                                     //Find max actions amount
                                     var amm = (action_points/ap_cost);
-                                    if amm<0 {amm=0;}
                                     //If there are enough points available
                                     //Begin movement
                                     if no_move == false {
@@ -607,7 +650,56 @@ switch state {
                                             }
                                         }
                                     //If the unit cannot move or shoot then increment the idle count
-                                    if no_move == true && no_shot == true { idle_state = 1; }
+                                    if no_move == true && no_shot == true { 
+										if (action_points >= 1) && (is_visible == true) { 
+											//First check if the unit is a vehicle and is visible to opponent
+											switch unit_type {
+												case "E_MBTA":
+												case "E_MBTB":
+												case "E_LAVB":
+												case "E_LAVA":
+													var t_i;
+													var t_dfinal = view_radius;
+													if !ds_list_empty(global.myunit_list) {
+														var t_l = ds_list_size(global.myunit_list);
+														for(t_i=0; t_i<t_l; t_i+=1) {
+															var t_v = ds_list_find_value(global.myunit_list, t_i);
+															var t_x = t_v.x;
+															var t_y = t_v.y;
+															switch t_v.unit_type  {
+																case "MBT_A":
+																case "MBT_B":
+																case "LAV_A":
+																case "LAV_B":
+																case "LAC_B":
+																case "TOW" :
+																	//Find closest threat
+																	var t_d = point_distance(x, y, t_x, t_y);
+																	if t_d < t_dfinal { 
+																		t_dfinal = t_d; 
+																		threat_x = t_x;
+																		threat_y = t_y;
+																	}
+																	break;
+																default:
+																	break;
+															}
+															
+														}
+													}	
+													scr_RotateUnit(threat_x, threat_y);
+													break;
+												default:
+													idle_state = 1;
+													break;
+											}
+										}
+											else { 
+												threat_x = x;
+												threat_y = y;
+												idle_state = 1; 
+											} 
+									}
                                         else { idle_state = 0; }
                                     obj_EnemyControl_B.idle_count += idle_state;
                                 }

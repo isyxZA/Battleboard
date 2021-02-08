@@ -17,12 +17,14 @@ if global.my_turn == true || global.waiting == true {
 									else { draw_text_transformed_shadow(x_end+2, y_end, string(mcost), 0.9, 0.9, txt_rot, 2, 65, c_black, 1); }
 		                        draw_set_colour(c_black);
 							}
+							/*
 	                        if nav_offset != 0 {
 								//FIX THIS FOR PLAYER SIDE\\
 	                            var n = nav_offset/global.cell_size;
 	                            if n > 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end+17, y_end, 0.5, 0.5,  0, c_white, 1); }
 	                                else if n < 0 { draw_sprite_ext(spr_Arrowhead_Green, 0, x_end-16, y_end, 0.5, 0.5, 180, c_white, 1); }
 	                        }
+							*/
                         }
                     }
             }
@@ -76,5 +78,31 @@ if global.my_turn == true || global.waiting == true {
             }
         }
     }
+
+/*
+with obj_Enemy_Parent { 
+	if is_visible == true {
+		switch unit_type {
+			case "E_MBTA":
+			case "E_MBTB":
+			case "E_LAVB":
+			case "E_LAVA":
+				draw_line_width_color(x, y, threat_x, threat_y, 2, c_orange, c_orange);
+				draw_text_color(x, y-16, string(rot_offset), c_orange, c_orange, c_orange, c_orange, 1);
+				//var c_state = obj_EnemyControl_B.state;
+				//draw_text_color(x, y+16, c_state, c_orange, c_orange, c_orange, c_orange, 1);
+				if p_one == true {
+					draw_text_color(x, y+16, "ONE", c_orange, c_orange, c_orange, c_orange, 1);
+				}
+					else {
+						draw_text_color(x, y+16, "TWO", c_orange, c_orange, c_orange, c_orange, 1);
+					}
+				break;
+			default:
+				break;
+		}
+	}
+}
+*/
     
 

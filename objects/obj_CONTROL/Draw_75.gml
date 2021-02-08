@@ -363,15 +363,17 @@ if global.game_state == "IN_GAME" {
                     draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.515, 2, 1, 0, c_white, 0.7);
                     draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string("Right click on a green square to place your unit."), c_white, c_white, c_white, c_white, 1);
                 }
-					else if ds_list_size(global.myunit_list) < 24 {
+					else if ds_list_size(global.myunit_list) < 18 {
 	                    draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.485, 1.7, 1, 0, c_white, 0.7);
 		                draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string("Press V to toggle enhanced unit visibility."), c_white, c_white, c_white, c_white, 1);
 		                draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.515, 1.4, 1, 0, c_white, 0.7);
 		                draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string("Hold TAB to identify your units."), c_white, c_white, c_white, c_white, 1);
 	                }
 	                    else {
-		                    draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.485, 1.5, 1, 0, c_white, 0.7);
+		                    draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.485, 1.3, 1, 0, c_white, 0.7);
 		                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string("Press G to toggle grid visibility."), c_white, c_white, c_white, c_white, 1);
+							draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.515, 1.3, 1, 0, c_white, 0.7);
+							draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string("Press Alt to display unit armor."), c_white, c_white, c_white, c_white, 1);
 	                    }
                 draw_set_halign(fa_center);
             }
@@ -426,16 +428,24 @@ if global.game_state == "IN_GAME" {
 			                            if global.nav_select == false {
 			                                if global.reticule_display == false {
 			                                    if global.nav_menu == false {
-			                                        draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.485, 1.8, 1, 0, c_white, 0.7);
-			                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string_hash_to_newline("E to begin movement. Q to begin targeting."), c_white, c_white, c_white, c_white, 1);
-			                                        draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.515, 1.8, 1, 0, c_white, 0.7);
-			                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string_hash_to_newline("Or Right-Click to display options."), c_white, c_white, c_white, c_white, 1);
+			                                        draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.455, 1.7, 1, 0, c_white, 0.7);
+			                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.455, string_hash_to_newline("E to begin movement. Q to begin targeting."), c_white, c_white, c_white, c_white, 1);
+													draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.484, 1.7, 1, 0, c_white, 0.7);
+			                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.484, string_hash_to_newline("T for terrain data. F for action range."), c_white, c_white, c_white, c_white, 1);
+			                                        draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.514, 1.7, 1, 0, c_white, 0.7);
+			                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.514, string_hash_to_newline("Z to rotate left. C to rotate right. -1 AP"), c_white, c_white, c_white, c_white, 1);
+													draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.5435, 1.7, 1, 0, c_white, 0.7);
+			                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.5435, string_hash_to_newline("Or Right-Click to display options."), c_white, c_white, c_white, c_white, 1);
 			                                    }
 			                                }
 			                                    else if global.reticule_display == true {
 			                                        if global.fire_display == false {
-			                                            draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.5, 2, 1, 0, c_white, 0.7);
-			                                            draw_text_colour(display_get_width()*0.005, display_get_height()*0.5, string_hash_to_newline("Q or Mouse Button Right to display unit options."), c_white, c_white, c_white, c_white, 1);
+														draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.47, 1.5, 1, 0, c_white, 0.7);
+				                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.47, string_hash_to_newline("Q or Right Mouse to display options."), c_white, c_white, c_white, c_white, 1);
+														draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.5, 1, 1, 0, c_white, 0.7);
+				                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.5, string_hash_to_newline("Press X to cancel."), c_white, c_white, c_white, c_white, 1);
+				                                        draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.53, 1.5, 1, 0, c_white, 0.7);
+				                                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.53, string_hash_to_newline("Or Right-Click to display options."), c_white, c_white, c_white, c_white, 1);
 			                                        }
 			                                            else if global.fire_display == true {
 			                                                draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.5, 1.75, 1, 0, c_white, 0.7);
@@ -444,14 +454,31 @@ if global.game_state == "IN_GAME" {
 			                                    }
 			                            }
 			                                else if global.nav_select == true {
-			                                    draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.485, 1.25, 1, 0, c_white, 0.7);
-			                                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.485, string_hash_to_newline("Press E to confirm movement."), c_white, c_white, c_white, c_white, 1);
-			                                    draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.515, 1.6, 1, 0, c_white, 0.7);
-			                                    draw_text_colour(display_get_width()*0.005, display_get_height()*0.515, string_hash_to_newline("Or Right-Click to display unit options."), c_white, c_white, c_white, c_white, 1);
+												draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.47, 1.5, 1, 0, c_white, 0.7);
+				                                draw_text_colour(display_get_width()*0.005, display_get_height()*0.47, string_hash_to_newline("Press E to confirm movement."), c_white, c_white, c_white, c_white, 1);
+												draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.5, 1, 1, 0, c_white, 0.7);
+				                                draw_text_colour(display_get_width()*0.005, display_get_height()*0.5, string_hash_to_newline("Press X to cancel."), c_white, c_white, c_white, c_white, 1);
+				                                draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.53, 1.5, 1, 0, c_white, 0.7);
+				                                draw_text_colour(display_get_width()*0.005, display_get_height()*0.53, string_hash_to_newline("Or Right-Click to display options."), c_white, c_white, c_white, c_white, 1);
+												
 			                                }
 			                        }
 			                    draw_set_halign(fa_center);
 			                }
+								else if global.game_turn < 10 {
+									draw_set_font(fnt_14);
+				                    draw_set_halign(fa_left);
+				                    if ds_list_size(global.selected_list) == 0 {
+				                        draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.47, 1.7, 1, 0, c_white, 0.7);
+				                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.47, string_hash_to_newline("Hold O to view objective capture range."), c_white, c_white, c_white, c_white, 1);
+				                        draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.5, 1.7, 1, 0, c_white, 0.7);
+				                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.5, string_hash_to_newline("Hold R to view tiles within resupply range."), c_white, c_white, c_white, c_white, 1);
+				                        draw_sprite_ext(spr_Alert_Box03, 0, 0, display_get_height()*0.53, 1.2, 1, 0, c_white, 0.7);
+				                        draw_text_colour(display_get_width()*0.005, display_get_height()*0.53, string_hash_to_newline("Toggle hints with H."), c_white, c_white, c_white, c_white, 1);
+                        
+				                    }
+									draw_set_halign(fa_center);
+								}
 						}
 			}
         }
@@ -484,6 +511,7 @@ if global.game_state == "IN_GAME" {
 	    var txt3 = string(camera_get_view_width(obj_CAMERA.my_camera));
 	    var txt4 = string(camera_get_view_height(obj_CAMERA.my_camera));
 	    var txt5 = string(active_turn);
+		var txt6 = obj_EnemyControl_B.state;
         draw_set_color(c_red);
         draw_set_valign(fa_top);
         draw_set_halign(fa_left);
@@ -503,7 +531,8 @@ if global.game_state == "IN_GAME" {
         draw_text(8, 920, "Light Level: " + string(global.light_level));
         draw_text(8, 936, "Ammo Tab: " + string(global.ammo_tab));
         draw_text(8, 952, "Active Squad: " + txt5);
-        draw_text(8, 968, "Turn List Size: " + string(ds_list_size(global.turn_list)));
+		draw_text(8, 968, "Enemy State: " + txt6);
+        //draw_text(8, 968, "Turn List Size: " + string(ds_list_size(global.turn_list)));
         draw_text(8, 984, "Total Units: " + string(ds_list_size(global.myunit_list)));
         draw_text(8, 1000, "Total Enemy Units: " + string(ds_list_size(global.enemyunit_list)));
         draw_text(8, 1016, "Units Running: " + string(global.units_running));

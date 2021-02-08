@@ -11,7 +11,7 @@ if global.can_choose == true {
         if mouse_check_button_pressed(mb_left) {
 			audio_play_sound(snd_Accept, 1, false);
             switch txt {
-                case "1 vs Computer"://From Main Menu, Single player..goes to room Setup
+                case "1 vs A.I."://From Main Menu, Single player..goes to room Setup
 					PLAYER.net_status = "NONE";
 					PLAYER.player = "ONE";
 					PLAYER.faction = "US";

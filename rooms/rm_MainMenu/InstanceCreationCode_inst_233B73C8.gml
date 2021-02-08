@@ -1,1 +1,1 @@
-txt = "1 vs Computer";
+txt = "1 vs A.I.";
