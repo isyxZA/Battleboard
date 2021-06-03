@@ -61,6 +61,7 @@ uni_wave_speed = shader_get_uniform(shd_ripple,"wave_speed");
 var_wave_speed = choose(0.1, 0.2, 0.3, 0.4); //higher = faster
 */
 
+/*
 //Particles Setup
 particle_tree0 = part_system_create();
 particle_tree1 = part_system_create();
@@ -104,5 +105,6 @@ part_type_speed(part3, .3, .4, -0.002, 0);
 part_type_direction(part3, 180, 0, 0, 2);
 part_type_orientation(part3, 0, 359, 0, 0, true);
 part_type_life(part3, 100, 140);
+*/
 
 scr_InView(x, y, obj_CAMERA.my_camera);

@@ -1,6 +1,6 @@
 particle_artillery0 = part_system_create();
 particle_artillery1 = part_system_create();
-part_system_depth(particle_artillery0, -12);
+part_system_depth(particle_artillery0, -15);
 part_system_depth(particle_artillery1, -3);
 
 //Fireball particle

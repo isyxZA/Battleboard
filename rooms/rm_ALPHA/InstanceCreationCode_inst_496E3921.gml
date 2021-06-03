@@ -1,0 +1,1 @@
+if p_one == true { alarm[3] = random_range(100, 300); }

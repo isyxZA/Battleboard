@@ -28,7 +28,7 @@ if p_side == "ONE" {
 			my_icon   = spr_Engineer_B1a_Icon;
 			my_mask   = spr_Engineer_B1a_Mask;
 			crater_index = spr_Engineer_Crater_RU;
-			label = "GAZ Tigr TOW";
+			label = "GAZ Tigr ATGM";
 			break;
 	}
 }
@@ -55,7 +55,7 @@ if p_side == "ONE" {
 				my_icon   = spr_Engineer_B2a_Icon;
 				my_mask   = spr_Engineer_B2a_Mask;
 				crater_index = spr_Engineer_Crater_RU;
-				label = "GAZ Tigr TOW";
+				label = "GAZ Tigr ATGM";
 				break;
 		}
 	}

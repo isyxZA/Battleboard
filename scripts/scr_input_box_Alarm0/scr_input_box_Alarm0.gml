@@ -6,6 +6,4 @@ function scr_input_box_Alarm0() {
 	else
 	{vBar = "|";}
 	alarm[0] = vBarInterval;
-
-
 }

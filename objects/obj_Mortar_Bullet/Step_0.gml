@@ -188,7 +188,10 @@ if explode == true {
                         }
                     }
 						else {
-							with instance_create_layer(x, y, "GroundFX", obj_Crater) { sprite_index = other.crater_index; }
+							with instance_create_layer(x, y, "GroundFX", obj_Crater) { 
+								sprite_index = other.crater_index; 
+								alarm[1] = random_range(600, 900);
+							}
 						}
     }
 }

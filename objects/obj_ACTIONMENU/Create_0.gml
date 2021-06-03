@@ -25,49 +25,61 @@ menu_anim_timer = 20;
 
 //INF
 ia_fire_menu[0] = "Rifle";
-ia_fire_menu[1] = "RPG";
+if PLAYER.faction == "US" { ia_fire_menu[1] = "AT4"; }
+	else if PLAYER.faction == "RU" { ia_fire_menu[1] = "RPG"; }
+		else { ia_fire_menu[1] = "RPG"; }
 ia_fire_menu[2] = "Flare";
 ia_fire_menu[3] = "Retarget";
 ia_fire_menu[4] = "Cancel";
 
 ib_fire_menu[0] = "Rifle";
-ib_fire_menu[1] = "GL";
+ib_fire_menu[1] = "GL 40mm";
 ib_fire_menu[2] = "Flare";
 ib_fire_menu[3] = "Retarget";
 ib_fire_menu[4] = "Cancel";
 //MBT
-ta_fire_menu[0] = "Cannon";
-ta_fire_menu[1] = "MG";
+if PLAYER.faction == "US" { ta_fire_menu[0] = "Gun 120mm"; }
+	else if PLAYER.faction == "RU" { ta_fire_menu[0] = "Gun 125mm"; }
+		else { ta_fire_menu[0] = "Gun 120mm"; }
+ta_fire_menu[1] = "MG 12.7mm";
 ta_fire_menu[2] = "Retarget";
 ta_fire_menu[3] = "Cancel";
 
-tb_fire_menu[0] = "Cannon";
-tb_fire_menu[1] = "MG";
+if PLAYER.faction == "US" { tb_fire_menu[0] = "Gun 120mm"; }
+	else if PLAYER.faction == "RU" { tb_fire_menu[0] = "Gun 115mm"; }
+		else { tb_fire_menu[0] = "Gun 120mm"; }
+tb_fire_menu[1] = "MG 12.7mm";
 tb_fire_menu[2] = "Retarget";
 tb_fire_menu[3] = "Cancel";
 //LAC
 ea_fire_menu[0] = "Depot";
 ea_fire_menu[1] = "Repair";
-ea_fire_menu[2] = "TOW";
+if PLAYER.faction == "US" { ea_fire_menu[2] = "TOW"; }
+	else if PLAYER.faction == "RU" { ea_fire_menu[2] = "ATGM"; }
+		else { ea_fire_menu[2] = "TOW"; }
 ea_fire_menu[3] = "Mortar";
 ea_fire_menu[4] = "Retarget";
 ea_fire_menu[5] = "Cancel";
 
-eb_fire_menu[0] = "TOW";
+if PLAYER.faction == "US" { eb_fire_menu[0] = "TOW II"; }
+	else if PLAYER.faction == "RU" { eb_fire_menu[0] = "ATGM"; }
+		else { eb_fire_menu[0] = "TOW"; }
 eb_fire_menu[1] = "Retarget";
 eb_fire_menu[2] = "Cancel";
 //LAV
-ba_fire_menu[0] = "HE";
-ba_fire_menu[1] = "AP";
-ba_fire_menu[2] = "MG";
-ba_fire_menu[3] = "TOW";
+ba_fire_menu[0] = "HE 30mm";
+ba_fire_menu[1] = "AP 30mm";
+ba_fire_menu[2] = "MG 12.7mm";
+if PLAYER.faction == "US" { ba_fire_menu[3] = "TOW II"; }
+	else if PLAYER.faction == "RU" { ba_fire_menu[3] = "AGTM"; }
+		else { ba_fire_menu[3] = "TOW"; }
 ba_fire_menu[4] = "Dismount";
 ba_fire_menu[5] = "Retarget";
 ba_fire_menu[6] = "Cancel";
 
-bb_fire_menu[0] = "HE";
-bb_fire_menu[1] = "AP";
-bb_fire_menu[2] = "MG";
+bb_fire_menu[0] = "HE 30mm";
+bb_fire_menu[1] = "AP 30mm";
+bb_fire_menu[2] = "MG 12.7mm";
 bb_fire_menu[3] = "Dismount";
 bb_fire_menu[4] = "Retarget";
 bb_fire_menu[5] = "Cancel";
@@ -76,7 +88,9 @@ l_fire_menu[0] = "Retarget";
 l_fire_menu[1] = "Cancel";
 //Logi A - INF A
 laia_fire_menu[0] = "Rifle(s)";
-laia_fire_menu[1] = "RPG(s)";
+if PLAYER.faction == "US" { laia_fire_menu[1] = "AT4(s)"; }
+	else if PLAYER.faction == "RU" { laia_fire_menu[1] = "RPG(s)"; }
+		else { laia_fire_menu[1] = "RPG(s)";}
 laia_fire_menu[2] = "Flare(s)";
 laia_fire_menu[3] = "Retarget";
 laia_fire_menu[4] = "Cancel";
@@ -87,12 +101,12 @@ laib_fire_menu[2] = "Flare(s)";
 laib_fire_menu[3] = "Retarget";
 laib_fire_menu[4] = "Cancel";
 //Logi A - MBT A
-lata_fire_menu[0] = "Cannon(s)";
+lata_fire_menu[0] = "Gun(s)";
 lata_fire_menu[1] = "MG(s)";
 lata_fire_menu[2] = "Retarget";
 lata_fire_menu[3] = "Cancel";
 //Logi A - MBT B
-latb_fire_menu[0] = "Cannon(s)";
+latb_fire_menu[0] = "Gun(s)";
 latb_fire_menu[1] = "MG(s)";
 latb_fire_menu[2] = "Retarget";
 latb_fire_menu[3] = "Cancel";
@@ -100,7 +114,9 @@ latb_fire_menu[3] = "Cancel";
 laba_fire_menu[0] = "HE(s)";
 laba_fire_menu[1] = "AP(s)";
 laba_fire_menu[2] = "MG(s)";
-laba_fire_menu[3] = "TOW(s)";
+if PLAYER.faction == "US" { laba_fire_menu[3] = "TOW II(s)"; }
+	else if PLAYER.faction == "RU" { laba_fire_menu[3] = "ATGM(s)"; }
+		else { laba_fire_menu[3] = "ATM(s)"; }
 laba_fire_menu[4] = "Retarget";
 laba_fire_menu[5] = "Cancel";
 //Logi A - LAV B
@@ -112,12 +128,16 @@ labb_fire_menu[4] = "Cancel";
 //Logi A - LAC A
 laea_fire_menu[0] = "Depot(s)";
 laea_fire_menu[1] = "Repair(s)";
-laea_fire_menu[2] = "TOW(s)";
+if PLAYER.faction == "US" { laea_fire_menu[2] = "TOW(s)"; }
+	else if PLAYER.faction == "RU" { laea_fire_menu[2] = "ATGM(s)"; }
+		else { laea_fire_menu[2] = "ATM(s)"; }
 laea_fire_menu[3] = "Mortar(s)";
 laea_fire_menu[4] = "Retarget";
 laea_fire_menu[5] = "Cancel";
 //Logi A - LAC B
-laeb_fire_menu[0] = "TOW(s)";
+if PLAYER.faction == "US" { laeb_fire_menu[0] = "TOW II(s)"; }
+	else if PLAYER.faction == "RU" { laeb_fire_menu[0] = "ATGM(s)"; }
+		else { laeb_fire_menu[0] = "ATM(s)"; }
 laeb_fire_menu[1] = "Retarget";
 laeb_fire_menu[2] = "Cancel";
 //Logi A - Logi A
@@ -140,7 +160,9 @@ lar_fire_menu[1] = "MG(s)";
 lar_fire_menu[2] = "Retarget";
 lar_fire_menu[3] = "Cancel";
 //Logi A - TOW
-laat_fire_menu[0] = "TOW(s)";
+if PLAYER.faction == "US" { laat_fire_menu[0] = "TOW(s)"; }
+	else if PLAYER.faction == "RU" { laat_fire_menu[0] = "ATGM(s)"; }
+		else { laat_fire_menu[0] = "ATM(s)"; }
 laat_fire_menu[1] = "Retarget";
 laat_fire_menu[2] = "Cancel";
 //Logi A - Mortar
@@ -176,7 +198,9 @@ r_fire_menu[2] = "Cancel";
 r_vehicle_menu[0] = "Repair";
 r_vehicle_menu[1] = "Cancel";
 //TOW
-at_fire_menu[0] = "TOW";
+if PLAYER.faction == "US" { at_fire_menu[0] = "TOW II"; }
+	else if PLAYER.faction == "RU" { at_fire_menu[0] = "ATGM"; }
+		else { at_fire_menu[0] = "TOW"; }
 at_fire_menu[1] = "Retarget";
 at_fire_menu[2] = "Cancel";
 //Mortar
@@ -345,7 +369,7 @@ t_colour = make_colour_rgb(169,169,169);
 display_menuinfo = false;
 display_tabinfo = false;
 select_enable = true;
-repair_tab = false;
+//repair_tab = false;
 ammo_count = 0;
 ammo_check = true;
 target_tile = noone;

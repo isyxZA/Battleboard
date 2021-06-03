@@ -34,8 +34,13 @@ if explode == true {
         var e = instance_place(x, y, obj_Enemy_Parent);
         
         if h!= noone { 
-            h.my_health -= damage_1;
-            //if h.my_health <= 0 { h.alarm[0] = 60; }
+			if h.my_house == spr_Bunker_01 {
+				with instance_create_layer(x, y, "GroundFX", obj_Crater) { sprite_index = spr_BunkerCrater01; }
+				h.alarm[0] = 2;
+			}
+				else {
+					h.my_health -= damage_1;
+				}
         }
             else if t!= noone { 
                 t.my_health -= damage_1;
@@ -181,7 +186,10 @@ if explode == true {
                         }
                     }
 						else {
-							with instance_create_layer(x, y, "GroundFX", obj_Crater) { sprite_index = other.crater_index; }
+							with instance_create_layer(x, y, "GroundFX", obj_Crater) { 
+								sprite_index = other.crater_index; 
+								alarm[1] = random_range(600, 900);
+							}
 						}
     }
 }

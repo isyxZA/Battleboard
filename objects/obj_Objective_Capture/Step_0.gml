@@ -46,18 +46,21 @@ if can_count == true {
         }
 		pone_units = u1;
 		ptwo_units = u2;
-		if pone_units>ptwo_units { 
+		if pone_units > ptwo_units { 
 			//If player one controls the objective
-			if capture_pos == 9 { if u2 == 0 { capture_pos += 1; } }
-				else { capture_pos += 1; }
-			if capture_pos >= 10 { capture_pos = 10; objective_cap += 1; }
+			if capture_pos == 9 { if u2 == 0 { capture_pos += 1; status_txt = "Captured!"; } }
+				else { capture_pos += 1; status_txt = "Capturing"; }
+			if capture_pos >= 10 { capture_pos = 10; objective_cap += 1; status_txt = ""; }
 		}
-			else if ptwo_units>pone_units { 
+			else if ptwo_units > pone_units { 
 				//If player two controls the area
-				if capture_pos == -9 { if u1 == 0 { capture_pos -= 1; } }
-					else { capture_pos -= 1; }
-				if capture_pos <= -10 { capture_pos = -10; objective_cap -= 1; }
+				if capture_pos == -9 { if u1 == 0 { capture_pos -= 1; status_txt = "Lost!"; } }
+					else { capture_pos -= 1; status_txt = "Losing"; }
+				if capture_pos <= -10 { capture_pos = -10; objective_cap -= 1; status_txt = ""; }
 			}
+				else if (pone_units > 0) && (pone_units == ptwo_units) {
+					status_txt = "Contested";
+				}
 		if p_one == true { flag_x = x+(capture_pos*(x_ref*0.1)); }
 			else { flag_x = x-(capture_pos*(x_ref*0.1)); }
     }

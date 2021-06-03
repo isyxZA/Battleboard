@@ -2,6 +2,8 @@ objective_cap =0 ;
 capture_pos = 0; //Add for player one, subtract for player two
 capture_radius = 480;
 
+status_txt = "";
+
 highlight_obj = false;
 
 x_ref = sprite_get_width(spr_Flag_Neutral_sml)*0.5;
@@ -16,5 +18,5 @@ ptwo_units = 0;
 
 can_count = false;
 
-if PLAYER.player == "ONE" { p_one = true; rot = 0; }
-	else { p_one = false; rot = 180; }
+if PLAYER.player == "ONE" { p_one = true; rot = 0; txt_adj = -32; }
+	else { p_one = false; rot = 180; txt_adj = 32; }

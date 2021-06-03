@@ -1,6 +1,6 @@
 particle_btr0 = part_system_create();
 particle_btr1 = part_system_create();
-part_system_depth(particle_btr0, -12);
+part_system_depth(particle_btr0, -15);
 part_system_depth(particle_btr1, -3);
 
 //Fireball particle

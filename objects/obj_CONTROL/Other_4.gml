@@ -648,7 +648,16 @@ if global.new_game == true {
 	ui_bx    = ui_tx;
 	ui_by    = display_get_gui_height()-(ui_height*global.ui_scale);
 }
-	else if global.restart_game == true {
-		//Restart the game
-		game_restart();
+	else if global.set_ui == true {
+		global.set_ui = false;
+		ui_ratio = global.ui_scale;
+		s_dist   = 36*global.ui_scale;
+		clamp(s_dist, 24, 36);
+		ui_tx    = (mid_x - (ui_width*global.ui_scale)*0.5);
+		ui_bx    = ui_tx;
+		ui_by    = display_get_gui_height()-(ui_height*global.ui_scale);
 	}
+		else if global.restart_game == true {
+			//Restart the game
+			game_restart();
+		}

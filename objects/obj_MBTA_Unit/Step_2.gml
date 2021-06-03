@@ -305,6 +305,8 @@ if ap_depleted == true {
 
 if ammo_check == true {
     ammo_check = false;
+	//If the unit is in a repair station then check station parts level instead
+	
     if (cannon_ammo < cannon_rate) && (mg_ammo < mg_rate) { 
         alert_display = true;
         alert_text = "Ammo Depleted!"; 
@@ -318,7 +320,6 @@ if ammo_check == true {
             alarm[3] = global.tick_rate*3;
         }
             else { }
-
 }
 
 //Toggle tile highlights

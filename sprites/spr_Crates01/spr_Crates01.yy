@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ef742c96-f819-44a8-9ca5-e7030cd1b4d2","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Map Objects",
     "path": "folders/Sprites/WorldTiles/Map Objects.yy",

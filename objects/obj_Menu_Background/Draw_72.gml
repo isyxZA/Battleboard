@@ -2,11 +2,12 @@ switch room {
     case rm_MainMenu:
 		shader_set(shd_vignette_noise);
 	    shader_set_uniform_f(uni_settings, 2, 1, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
-	    shader_set_uniform_f(uni_vignette_colour, 184,175,154);
+	    shader_set_uniform_f(uni_vignette_colour, 148,145,120);//184,175,154);
 	    draw_sprite_stretched(bg_Main, 0,0,0, room_width, room_height);
 		shader_reset();
-		draw_set_alpha(0.3);
-		draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
+		draw_set_alpha(0.4);
+		draw_sprite_stretched(bg_Main, 0,0,0, room_width, room_height);
+		//draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);
 		draw_set_alpha(1);
         break;
     case rm_Pause:
@@ -87,7 +88,7 @@ switch room {
 		shader_set(shd_vignette_noise);
 	    shader_set_uniform_f(uni_settings, 2, 1, 0.1, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
 	    shader_set_uniform_f(uni_vignette_colour,210,180,140); 
-        draw_sprite_stretched(bg_Setup, 0,0,0, room_width, room_height);
+        draw_sprite_stretched(bg_Pause, 0,0,0, room_width, room_height);
 		shader_reset();
         draw_set_alpha(0.3);
         draw_rectangle_colour(0, 0, room_width, room_height, c_black, c_black, c_black, c_black, false);

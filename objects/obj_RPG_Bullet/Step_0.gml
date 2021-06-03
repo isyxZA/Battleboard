@@ -67,14 +67,14 @@ if explode == true {
 						case "MBT_B":
 							switch impact_side {
 								case "FRONT"://Rear
-									armor_reduction = 0.3;
+									armor_reduction = 0.2;
 									break;
 								case "REAR"://Front
 									armor_reduction = 0.1;
 									break;
 								case "LSIDE":
 								case "RSIDE":
-									armor_reduction = 0.2;
+									armor_reduction = 0.15;
 									break;
 								case "":
 									armor_reduction = 0;
@@ -120,14 +120,14 @@ if explode == true {
                         case "LAV_A":
 							switch impact_side {
 								case "FRONT"://Rear
-									armor_reduction = 0.4;
+									armor_reduction = 0.25;
 									break;
 								case "REAR"://Front
-									armor_reduction = 0.3;
+									armor_reduction = 0.2;
 									break;
 								case "LSIDE":
 								case "RSIDE":
-									armor_reduction = 0.2;
+									armor_reduction = 0.15;
 									break;
 								case "":
 									armor_reduction = 0;
@@ -146,14 +146,14 @@ if explode == true {
 						case "LAV_B":
 							switch impact_side {
 								case "FRONT"://Rear
-									armor_reduction = 0.4;
+									armor_reduction = 0.25;
 									break;
 								case "REAR"://Front
-									armor_reduction = 0.2;
+									armor_reduction = 0.15;
 									break;
 								case "LSIDE":
 								case "RSIDE":
-									armor_reduction = 0.3;
+									armor_reduction = 0.2;
 									break;
 								case "":
 									armor_reduction = 0;
@@ -228,11 +228,11 @@ if explode == true {
 										armor_reduction = 0.1;
 										break;
 									case "REAR":
-										armor_reduction = 0.3;
+										armor_reduction = 0.2;
 										break;
 									case "LSIDE":
 									case "RSIDE":
-										armor_reduction = 0.2;
+										armor_reduction = 0.15;
 										break;
 									case "":
 										armor_reduction = 0;
@@ -276,14 +276,14 @@ if explode == true {
                             case "E_LAVA":
 								switch impact_side {
 									case "FRONT":
-										armor_reduction = 0.3;
+										armor_reduction = 0.2;
 										break;
 									case "REAR":
-										armor_reduction = 0.4;
+										armor_reduction = 0.25;
 										break;
 									case "LSIDE":
 									case "RSIDE":
-										armor_reduction = 0.2;
+										armor_reduction = 0.15;
 										break;
 									case "":
 										armor_reduction = 0;
@@ -301,14 +301,14 @@ if explode == true {
 							case "E_LAVB":
 								switch impact_side {
 									case "FRONT":
-										armor_reduction = 0.2;
+										armor_reduction = 0.15;
 										break;
 									case "REAR":
-										armor_reduction = 0.4;
+										armor_reduction = 0.25;
 										break;
 									case "LSIDE":
 									case "RSIDE":
-										armor_reduction = 0.3;
+										armor_reduction = 0.2;
 										break;
 									case "":
 										armor_reduction = 0;

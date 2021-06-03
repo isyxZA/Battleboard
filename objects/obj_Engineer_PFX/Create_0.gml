@@ -1,6 +1,6 @@
 particle_engineer0 = part_system_create();
 particle_engineer1 = part_system_create();
-part_system_depth(particle_engineer0, -12);
+part_system_depth(particle_engineer0, -15);
 part_system_depth(particle_engineer1, -3);
 
 //Fireball particle

@@ -94,7 +94,3 @@ if file_exists("settings.sav") {
 	}
 
 
-
-
-
-

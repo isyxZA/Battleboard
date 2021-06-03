@@ -28,7 +28,7 @@ if p_side == "ONE" {
 			my_icon   = spr_BTR_B1_Icon;
 			my_mask   = spr_BTR_B1_Mask;
 			crater_index = spr_BTR_Crater_RU;
-			label = "BMP3 IFV";
+			label = "BMP-3M IFV";
 			break;
 	}
 }
@@ -104,7 +104,7 @@ ap_cost = 4;
 mg_ammo = 600;
 mg_max = 600;
 shoot_mg = false;
-mg_rate = 20;
+mg_rate = 12;
 mg_cost = 2;
 
 tow_ammo  = 2;

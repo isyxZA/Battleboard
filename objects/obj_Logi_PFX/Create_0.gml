@@ -1,6 +1,6 @@
 particle_logi0 = part_system_create();
 particle_logi1 = part_system_create();
-part_system_depth(particle_logi0, -12);
+part_system_depth(particle_logi0, -15);
 part_system_depth(particle_logi1, -3);
 
 //Fireball particle

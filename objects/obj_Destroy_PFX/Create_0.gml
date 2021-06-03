@@ -1,6 +1,6 @@
 //Explosion3 Particle System
 ps = part_system_create();
-part_system_depth(ps, -12);
+part_system_depth(ps, -15);
 
 //Explosion3 Particle Types
 //Effect1

@@ -156,7 +156,7 @@ function scr_LOGIB_SQUAD_Tab(argument0, argument1) {
 	                                            u.alarm[3] = global.tick_rate*3;
 	                                        }
 	                                        u.shoot_amount  += 1; 
-	                                        u.sqd_ammo    -= deploy_rate;
+	                                        u.sqd_ammo      -= deploy_rate;
 	                                        global.turn_AP  -= ap_cost;
 	                                        u.action_points -= ap_cost;
 	                                        u.alert_text = "-"+string(u.shoot_amount*ap_cost)+ " AP";

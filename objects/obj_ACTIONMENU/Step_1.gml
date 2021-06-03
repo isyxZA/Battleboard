@@ -335,7 +335,34 @@ if !ds_list_empty(global.selected_list) {
 							if global.selected_repair != 0     { ds_list_add(tabs, "REPAIR"); }
 							if global.selected_tow    != 0     { ds_list_add(tabs, "TOW"); }
 							if global.selected_mortar != 0     { ds_list_add(tabs, "MORTAR"); }
-							if global.supply_ship     != noone { ds_list_add(tabs, "SUPPLY SHIP"); }
+							//Check if any vehicles are in a repair station
+							//If there are then add a repair tab to the list
+							var vi;
+                            for (vi=0; vi<ds_list_size(global.selected_list); vi+=1) {
+								var in_repair = false;
+                                var vu = ds_list_find_value(global.selected_list, vi);
+                                switch vu.unit_type {
+                                    case "MBT_A":
+									case "MBT_B":
+		                            case "LAC_A":
+									case "LAC_B":
+		                            case "LAV_A":
+									case "LAV_B":
+		                            case "LOGI_A":
+									case "LOGI_B":
+                                        if vu.is_manning == true { 
+											in_repair = true;
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+								if in_repair == true { 
+									ds_list_add(tabs, "REPAIR OP");
+									break;
+								}
+                            }
+							if global.supply_ship != noone { ds_list_add(tabs, "SUPPLY SHIP"); }
 							if !ds_list_empty(tabs) { 
 								global.ammo_tab = ds_list_find_value(tabs, 0);
 							}

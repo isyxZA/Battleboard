@@ -181,6 +181,9 @@ if global.can_choose == true {
 			                obj_SOUND.fade_in = true;
 			                obj_SOUND.fade_out = false;
 			            }
+							else {
+								global.set_ui = true;
+							}
 			            room_goto(global.temp_room);
 					}
                     break;

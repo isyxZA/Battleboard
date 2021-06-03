@@ -6,13 +6,13 @@ h_start = hour;
 h_change = 12;
 
 day_start    = global.light_level;
-day_change   = 0.5;
+day_change   = 0.3;
 day_duration = 24000;
 
 n_colour = make_color_rgb(0,6,36);//make_color_hsv(250,100,40);
 n_start  = 0;
 n_alpha  = n_start;
-n_change = 0.4;
+n_change = 0.5;
 n_duration = 12000;
 n_count = 0;
 n_trigger = false;

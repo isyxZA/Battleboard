@@ -18,12 +18,26 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 			}
                 //If not choosing a waypoint
                 else if global.nav_menu == false {
+					//When units have been selected but are not pathfinding or targeting yet
                     if mouse_check_button_pressed(global.RMOUSE) {
+						global.menu_create = true;
+						/*
                         //If not displaying the repair menu
                         //Enable the action/action_repair tab
                         if global.repair_display != true { global.menu_create = true; } else { global.menu_create = false; }
+						*/
                     }
                     if global.menu_create == true {
+						scr_Action_Tab();
+						if menu_anim == true {
+							if menu_anim_count < menu_anim_timer { 
+								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_anim_count ++; 
+							}
+								else { menu_anim = false; }
+						}
+						/*
                         //First check if any vehicles are in a repair station
                         if !ds_list_empty(global.selected_list) {
                             var i;
@@ -70,8 +84,10 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 									}
 								}
                         }
+						*/
                     }
                         else if global.menu_create == false {
+							/*
                             if global.repair_display == true {
                                 //Calculate available repair amount
                                 if ammo_check == true {
@@ -123,7 +139,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 										else { menu_anim = false; }
 								}
                             }
-                        }
+							*/
+                        }	
                 }
         }
             //If currently choosing a waypoint
@@ -183,7 +200,34 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 					if global.selected_repair != 0     { ds_list_add(tabs, "REPAIR"); }
 					if global.selected_tow    != 0     { ds_list_add(tabs, "TOW"); }
 					if global.selected_mortar != 0     { ds_list_add(tabs, "MORTAR"); }
-					if global.supply_ship     != noone { ds_list_add(tabs, "SUPPLY SHIP"); }
+					//Check if any vehicles are in a repair station
+					//If there are then add a repair tab to the list
+					var vii;
+                    for (vii=0; vii<ds_list_size(global.selected_list); vii+=1) {
+						var in_repair = false;
+                        var vuu = ds_list_find_value(global.selected_list, vii);
+                        switch vuu.unit_type {
+                            case "MBT_A":
+							case "MBT_B":
+		                    case "LAC_A":
+							case "LAC_B":
+		                    case "LAV_A":
+							case "LAV_B":
+		                    case "LOGI_A":
+							case "LOGI_B":
+                                if vuu.is_manning == true { 
+									in_repair = true;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+						if in_repair == true { 
+							ds_list_add(tabs, "REPAIR OP");
+							break;
+						}
+                    }
+					if global.supply_ship != noone { ds_list_add(tabs, "SUPPLY SHIP"); }
 					if !ds_list_empty(tabs) { 
 						global.ammo_tab = ds_list_find_value(tabs, 0);
 					}
@@ -255,6 +299,8 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
                     dpt_bld_supply = 0;
 					//REPAIR Ammo
                     repair_mg_ammo = 0;
+					//REPAIR Parts
+					repair_v_ammo = 0;
                     if !ds_list_empty(global.selected_list) {
                         var i;
                         for (i=0; i<ds_list_size(global.selected_list); i+=1) {
@@ -283,6 +329,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 		                                    obj_ACTIONMENU.mbta_ap_ammo += cannon_ammo;
 		                                    obj_ACTIONMENU.mbta_mg_ammo += mg_ammo;
 		                                }
+											else {
+												if is_manning == true && manned_unit != noone { obj_ACTIONMENU.repair_v_ammo += manned_unit.repair_ammo; }
+											}
 		                                break;
 									case "MBT_B":
 		                                //If the unit has line of fire then add its ammo to available rounds
@@ -290,6 +339,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 		                                    obj_ACTIONMENU.mbtb_ap_ammo += cannon_ammo;
 		                                    obj_ACTIONMENU.mbtb_mg_ammo += mg_ammo;
 		                                }
+											else {
+												if is_manning == true && manned_unit != noone { obj_ACTIONMENU.repair_v_ammo += manned_unit.repair_ammo; }
+											}
 		                                break;
 		                            case "LAC_A":
 		                                //If the unit has line of fire then add its ammo to available rounds
@@ -299,12 +351,18 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 		                                    obj_ACTIONMENU.laca_tow_supply += tow_supply;
 		                                    obj_ACTIONMENU.laca_mtr_supply += mortar_supply;
 		                                }
+											else {
+												if is_manning == true && manned_unit != noone { obj_ACTIONMENU.repair_v_ammo += manned_unit.repair_ammo; }
+											}
 		                                break;
 									case "LAC_B":
 		                                //If the unit has line of fire then add its ammo to available rounds
 		                                if can_shoot == true {
 		                                    obj_ACTIONMENU.lacb_tow_ammo += tow_ammo;
 		                                }
+											else {
+												if is_manning == true && manned_unit != noone { obj_ACTIONMENU.repair_v_ammo += manned_unit.repair_ammo; }
+											}
 		                                break;
 		                            case "LAV_A":
 		                                //If the unit has line of fire then add its ammo to available rounds
@@ -315,6 +373,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 											obj_ACTIONMENU.lava_at_ammo += tow_ammo;
 											obj_ACTIONMENU.lava_sq_ammo += sqd_ammo;
 		                                }
+											else {
+												if is_manning == true && manned_unit != noone { obj_ACTIONMENU.repair_v_ammo += manned_unit.repair_ammo; }
+											}
 		                                break;
 									case "LAV_B":
 		                                //If the unit has line of fire then add its ammo to available rounds
@@ -324,6 +385,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 											obj_ACTIONMENU.lavb_mg_ammo += mg_ammo;
 											obj_ACTIONMENU.lavb_sq_ammo += sqd_ammo;
 		                                }
+											else {
+												if is_manning == true && manned_unit != noone { obj_ACTIONMENU.repair_v_ammo += manned_unit.repair_ammo; }
+											}
 		                                break;
 		                            case "LOGI_A":
 		                                //If the unit has line of fire then add its ammo to available rounds
@@ -331,6 +395,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 		                                    obj_ACTIONMENU.logia_amo_supply += ammo_supply;
 		                                    obj_ACTIONMENU.logia_bld_supply += building_supply;
 		                                }
+											else {
+												if is_manning == true && manned_unit != noone { obj_ACTIONMENU.repair_v_ammo += manned_unit.repair_ammo; }
+											}
 		                                break;
 									case "LOGI_B":
 		                                //If the unit has line of fire then add its ammo to available rounds
@@ -338,6 +405,9 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 		                                    obj_ACTIONMENU.logib_amo_supply += ammo_supply;
 		                                    obj_ACTIONMENU.logib_sqd_supply += sqd_ammo;
 		                                }
+											else {
+												if is_manning == true && manned_unit != noone { obj_ACTIONMENU.repair_v_ammo += manned_unit.repair_ammo; }
+											}
 		                                break;
 		                            case "DEPOT":
 		                                //If the unit has line of fire then add its ammo to available rounds
@@ -406,7 +476,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 						}
                         break;
                     case "MBT_A":
-                        scr_MBTA_Tab(1, 4, 4, 2);
+                        scr_MBTA_Tab(1, 12, 4, 2);
 						if menu_anim == true {
 							if menu_anim_count < menu_anim_timer { 
 								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -417,7 +487,7 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 						}
                         break;
 					case "MBT_B":
-                        scr_MBTB_Tab(1, 4, 4, 2);
+                        scr_MBTB_Tab(1, 12, 4, 2);
 						if menu_anim == true {
 							if menu_anim_count < menu_anim_timer { 
 								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
@@ -1562,6 +1632,44 @@ if (!ds_list_empty(global.selected_list)) || (global.supply_ship != noone) {
 								else { menu_anim = false; }
 						}
                         break;
+					case "REPAIR OP":
+	                    //Loop thru unit list to find vehicles in repair stations
+						//This way we can repair multiple vehicles at the same time
+	                    var h_total = 0;
+	                    var h_max = 0;
+	                    if !ds_list_empty(global.selected_list) {
+	                        var ii;
+	                        for (ii=0; ii<ds_list_size(global.selected_list); ii+=1) {
+	                            var u = ds_list_find_value(global.selected_list, ii);
+	                            switch u.unit_type {
+	                                case "MBT_A":
+									case "MBT_B":
+			                        case "LAC_A":
+									case "LAC_B":
+			                        case "LAV_A":
+									case "LAV_B":
+			                        case "LOGI_A":
+									case "LOGI_B":
+	                                    if u.is_manning == true { 
+	                                        h_total += u.unit_health; 
+	                                        h_max   += u.health_max;
+	                                    }
+	                                    break;
+	                                default:
+	                                    break;
+	                            }
+	                        }
+	                    }
+	                    scr_Repair_Vehicle_Tab(h_total, h_max, obj_Repair_Static.repair_rate);
+						if menu_anim == true {
+							if menu_anim_count < menu_anim_timer { 
+								menu_scl   = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_alpha = ease_out_quad(menu_anim_count, 0, 1, menu_anim_timer);
+								menu_anim_count ++; 
+							}
+								else { menu_anim = false; }
+						}
+						break;
                     case "SUPPLY SHIP":
                         var logia = instance_place(global.target_x, global.target_y, obj_LOGIA_Unit);
 						var logib = instance_place(global.target_x, global.target_y, obj_LOGIB_Unit);

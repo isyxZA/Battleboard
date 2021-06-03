@@ -13,7 +13,7 @@ if timer_count != 0 {
                     timer_count = 0;
                     turn_timer = 6;
                     global.zoom_speed = 0.4;
-					with obj_Jet_Spawner { alarm[1] = 100; }
+					with obj_Jet_Spawner { alarm[1] = 160; }
                 }
                     else if pre_battle = false {
                         //Players land their units simultaneously at this time

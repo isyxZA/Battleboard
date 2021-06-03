@@ -243,6 +243,9 @@ if spawn_check == true {
 			        }
 					instance_destroy();
 			    }
+					else {
+						if active == true { if shoot_mask != noone { with shoot_mask { active = true; } } }
+					}
 }
 
 if active == true & is_manning == false {

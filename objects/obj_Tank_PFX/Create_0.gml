@@ -1,6 +1,6 @@
 particle_tank0 = part_system_create();
 particle_tank1 = part_system_create();
-part_system_depth(particle_tank0, -12);
+part_system_depth(particle_tank0, -15);
 part_system_depth(particle_tank1, -3);
 
 //Fireball particle

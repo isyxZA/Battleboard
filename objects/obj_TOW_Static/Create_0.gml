@@ -52,7 +52,8 @@ target_y = y;
 diag = true;
 
 unit_type = "TOW";
-label = "TOW Emplacement";
+label = "Anti-Tank";
+
 
 my_speed = 0.75;
 

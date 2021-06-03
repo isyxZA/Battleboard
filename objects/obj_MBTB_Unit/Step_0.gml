@@ -102,31 +102,34 @@ if global.game_turn != 0 {
                 }
                 //Determine firing solution
                 if global.reticule_display == true {
-                    //Check for collision with Cant_Shoot object along aiming line
-                    //shoot_mask.active = true;
-                    var d = point_distance(x_end, y_end, global.target_x, global.target_y);
-                    //Prevent unit from targeting self
-                    if (x == global.target_x) && (y == global.target_y) { can_shoot = false; }
-                        else {
-                            if shoot_mask.t_line { can_shoot = false; } 
-                                //If unit has a clear line of sight
-                                else if !shoot_mask.t_line { 
-                                    //If the target is within range
-                                    if d <= action_range {
-                                        //If the unit has enough action points for a shot
-                                        //2 is the min action points needed
-                                        if (global.turn_AP >= 2) && (action_points >= 2) {
-                                            //If the unit has enough ammo for at least one round
-                                            if (cannon_ammo >= cannon_rate) || (mg_ammo >= mg_rate) {
-                                                can_shoot = true; 
-                                            }
-                                                else { can_shoot = false; }
-                                        }
-                                            else { can_shoot = false; }
-                                    }
-                                        else { can_shoot = false; }
-                                }
-                        }
+					if is_manning == false {
+	                    //Check for collision with Cant_Shoot object along aiming line
+	                    //shoot_mask.active = true;
+	                    var d = point_distance(x_end, y_end, global.target_x, global.target_y);
+	                    //Prevent unit from targeting self
+	                    if (x == global.target_x) && (y == global.target_y) { can_shoot = false; }
+	                        else {
+	                            if shoot_mask.t_line { can_shoot = false; } 
+	                                //If unit has a clear line of sight
+	                                else if !shoot_mask.t_line { 
+	                                    //If the target is within range
+	                                    if d <= action_range {
+	                                        //If the unit has enough action points for a shot
+	                                        //2 is the min action points needed
+	                                        if (global.turn_AP >= 2) && (action_points >= 2) {
+	                                            //If the unit has enough ammo for at least one round
+	                                            if (cannon_ammo >= cannon_rate) || (mg_ammo >= mg_rate) {
+	                                                can_shoot = true; 
+	                                            }
+	                                                else { can_shoot = false; }
+	                                        }
+	                                            else { can_shoot = false; }
+	                                    }
+	                                        else { can_shoot = false; }
+	                                }
+	                        }
+					}
+						else { can_shoot = false; }
                 }
                     else { 
                         if can_shoot == true { can_shoot = false; } 

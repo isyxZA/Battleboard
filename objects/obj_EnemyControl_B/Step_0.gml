@@ -43,6 +43,7 @@ if global.game_state == "IN_GAME" {
 	                        if !ds_list_empty(active_list) {
 	                            for(ali=0; ali<ds_list_size(active_list); ali+=1) {
 	                                var uli = ds_list_find_value(active_list, ali);
+									uli.idle_state = 0;
 	                                turn_ap += uli.action_points;
 	                            }
 	                        }
@@ -447,7 +448,7 @@ switch state {
                                         }
                                     //If the unit cannot move or shoot then increment the idle count
                                     if no_move == true && no_shot == true { 
-										if (action_points >= 1) && (is_visible == true) { 
+										if (action_points >= 1) && (is_visible == true) && (idle_state == 0) { 
 											//First check if the unit is a vehicle and is visible to opponent
 											switch unit_type {
 												case "E_MBTA":
@@ -484,6 +485,7 @@ switch state {
 														}
 													}	
 													scr_RotateUnit(threat_x, threat_y);
+													idle_state = 1;
 													break;
 												default:
 													idle_state = 1;
@@ -651,7 +653,7 @@ switch state {
                                         }
                                     //If the unit cannot move or shoot then increment the idle count
                                     if no_move == true && no_shot == true { 
-										if (action_points >= 1) && (is_visible == true) { 
+										if (action_points >= 1) && (is_visible == true) && (idle_state == 0) { 
 											//First check if the unit is a vehicle and is visible to opponent
 											switch unit_type {
 												case "E_MBTA":
@@ -688,6 +690,7 @@ switch state {
 														}
 													}	
 													scr_RotateUnit(threat_x, threat_y);
+													idle_state = 1;
 													break;
 												default:
 													idle_state = 1;

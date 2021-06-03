@@ -247,7 +247,7 @@ function scr_DrawUnitStats() {
 						draw_text_colour(xx, yy-38, "M1097 TOW", clr1, clr1, clr1, clr1, 1);
 						break;
 					case "RU":
-						draw_text_colour(xx, yy-38, "Tigr TOW", clr1, clr1, clr1, clr1, 1);
+						draw_text_colour(xx, yy-38, "Tigr ATGM", clr1, clr1, clr1, clr1, 1);
 						break;
 				}
 		        if is_manning == false {
@@ -558,7 +558,7 @@ function scr_DrawUnitStats() {
 		    case "TOW":
 		        if selected != true { draw_sprite_ext(spr_Label_Border, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
 		            else { draw_sprite_ext(spr_Label_Border_Green, 0, xx, yy-39, 1, 1, 0, c_white, 1); }
-		        draw_text_colour(xx, yy-38, "TOW", clr1, clr1, clr1, clr1, 1);
+		        draw_text_colour(xx, yy-38, "Anti-Tank", clr1, clr1, clr1, clr1, 1);
 		        if can_be_manned == true && alert_display == false {
 		            if is_manned == true {
 		                draw_set_halign(fa_right);
@@ -884,7 +884,7 @@ function scr_DrawUnitStats() {
 							draw_text_transformed_colour(xx, yy+40, "M1097 TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 							break;
 						case "RU":
-							draw_text_transformed_colour(xx, yy+40, "Tigr TOW", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
+							draw_text_transformed_colour(xx, yy+40, "Tigr ATGM", 1, 1, txt_rot, clr1, clr1, clr1, clr1, 1);
 							break;
 					}
 					if is_manning == false {

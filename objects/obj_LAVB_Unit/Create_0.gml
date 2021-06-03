@@ -104,7 +104,7 @@ ap_cost = 4;
 mg_ammo = 600;
 mg_max = 600;
 shoot_mg = false;
-mg_rate = 20;
+mg_rate = 12;
 mg_cost = 2;
 
 sqd_ammo  = 0;

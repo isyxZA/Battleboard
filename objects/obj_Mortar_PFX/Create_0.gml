@@ -1,6 +1,6 @@
 particle_mortar0 = part_system_create();
 particle_mortar1 = part_system_create();
-part_system_depth(particle_mortar0, -12);
+part_system_depth(particle_mortar0, -15);
 part_system_depth(particle_mortar1, -3);
 
 //Fireball particle

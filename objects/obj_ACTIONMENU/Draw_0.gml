@@ -14,17 +14,20 @@ if global.my_turn == true || global.waiting == true {
                         //Draw line to target and visually show if there is line of sight
                         var sc;
                         if can_shoot == true { sc = make_colour_rgb(0,100,0); } else { sc = make_colour_rgb(139,0,0); }
-                        draw_set_alpha(0.5);
-                        draw_line_width_colour(x_end-2, y_end  , global.target_x, global.target_y, 1, sc, c_black);
-                        draw_line_width_colour(x_end-1, y_end  , global.target_x, global.target_y, 1, sc, c_black);
-                        draw_line_width_colour(x_end  , y_end+2, global.target_x, global.target_y, 2, sc, c_black);
-                        draw_line_width_colour(x_end  , y_end+1, global.target_x, global.target_y, 2, sc, c_black);
-                        draw_line_width_colour(x_end  , y_end  , global.target_x, global.target_y, 2, sc, c_black);
-                        draw_line_width_colour(x_end  , y_end-1, global.target_x, global.target_y, 2, sc, c_black);
-                        draw_line_width_colour(x_end  , y_end-2, global.target_x, global.target_y, 2, sc, c_black);
-                        draw_line_width_colour(x_end+1, y_end  , global.target_x, global.target_y, 1, sc, c_black);
-                        draw_line_width_colour(x_end+2, y_end  , global.target_x, global.target_y, 1, sc, c_black);
-                        draw_set_alpha(1);
+						draw_set_alpha(0.5);
+	                    draw_line_width_colour(x_end-2, y_end  , global.target_x, global.target_y, 1, sc, c_black);
+	                    draw_line_width_colour(x_end-1, y_end  , global.target_x, global.target_y, 1, sc, c_black);
+	                    draw_line_width_colour(x_end  , y_end+2, global.target_x, global.target_y, 2, sc, c_black);
+	                    draw_line_width_colour(x_end  , y_end+1, global.target_x, global.target_y, 2, sc, c_black);
+	                    draw_line_width_colour(x_end  , y_end  , global.target_x, global.target_y, 2, sc, c_black);
+	                    draw_line_width_colour(x_end  , y_end-1, global.target_x, global.target_y, 2, sc, c_black);
+	                    draw_line_width_colour(x_end  , y_end-2, global.target_x, global.target_y, 2, sc, c_black);
+	                    draw_line_width_colour(x_end+1, y_end  , global.target_x, global.target_y, 1, sc, c_black);
+	                    draw_line_width_colour(x_end+2, y_end  , global.target_x, global.target_y, 1, sc, c_black);
+	                    draw_set_alpha(1);
+						//Draw the targeting reticule
+			            draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			            draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                         draw_circle_colour(x, y, 4, c_black, c_white, false);
                     }
                 }
@@ -59,48 +62,78 @@ if global.my_turn == true || global.waiting == true {
         if global.reticule_display == false {
             if global.menu_create == true {
                 //Draw lines to selection for visual confirmation
+				scr_Action_Menu(global.action_menu, array_length(global.action_menu));
+				/*
                 if repair_tab == false { scr_Action_Menu(global.action_menu, array_length(global.action_menu)); }
                     else { scr_Action_Menu(global.action_repair_menu, array_length(global.action_repair_menu)); }
+				*/
             }
                 else if global.menu_create == false {
                     if global.nav_menu == true { scr_Action_Menu(global.nav_options, array_length(global.nav_options)); }
-                        else if global.repair_display == true { scr_Repair_Vehicle_Menu(); }
+                        //else if global.repair_display == true { scr_Repair_Vehicle_Menu(); }
                 }
         }
-            //If not using targeting reticule
+            //If targeting
             else if global.reticule_display == true {
                 //Draw the targeting reticule
-                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
-                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
+                //draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+                //draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                 //DRAW THE FIRE/AMMO MENU ACCORDING TO SELECTED AMMO TAB global.ammo_tab
                 if global.fire_display == true {
                     //Draw menu according to ammo tab
                     switch global.ammo_tab {
                         case "INF_A":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(ia_fire_menu,array_length(ia_fire_menu),global.ammo_tab);
                             break;
 						case "INF_B":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(ib_fire_menu,array_length(ib_fire_menu),global.ammo_tab);
                             break;
                         case "MBT_A":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(ta_fire_menu,array_length(ta_fire_menu),global.ammo_tab);
                             break;
 						case "MBT_B":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(tb_fire_menu,array_length(tb_fire_menu),global.ammo_tab);
                             break;
                         case "LAC_A":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(ea_fire_menu,array_length(ea_fire_menu),global.ammo_tab);
                             break;
 						case "LAC_B":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(eb_fire_menu,array_length(eb_fire_menu),global.ammo_tab);
                             break;
                         case "LAV_A":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(ba_fire_menu,array_length(ba_fire_menu),global.ammo_tab);
                             break;
 						case "LAV_B":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(bb_fire_menu,array_length(bb_fire_menu),global.ammo_tab);
                             break;
                         case "LOGI_A":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             switch global.resupply_target {
                                 case "INF_A":
                                     scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "LOGIA-INFA");
@@ -153,6 +186,9 @@ if global.my_turn == true || global.waiting == true {
                             }
                             break;
 						case "LOGI_B":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             switch global.resupply_target {
                                 case "INF_A":
                                     scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "LOGIB-INFA");
@@ -205,6 +241,9 @@ if global.my_turn == true || global.waiting == true {
                             }
                             break;
                         case "DEPOT":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             switch global.resupply_target {
                                 case "INF_A":
                                     scr_Fire_Menu(laia_fire_menu, array_length(laia_fire_menu), "DEPOT-INFA");
@@ -257,15 +296,33 @@ if global.my_turn == true || global.waiting == true {
                             }
                             break;
                         case "REPAIR":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(r_fire_menu, array_length(r_fire_menu), "REPAIR-MG");
                             break;
                         case "TOW":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(at_fire_menu,array_length(at_fire_menu), "TOW");
                             break;
                         case "MORTAR":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             scr_Fire_Menu(m_fire_menu, array_length(m_fire_menu), "MORTAR");
                             break;
+						case "REPAIR OP":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, x, y, 0.5, 0.5, 0, c_white, 1);
+			                //draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
+							scr_Repair_Vehicle_Menu();
+							break;
                         case "SUPPLY SHIP":
+							//Draw the targeting reticule
+			                draw_sprite_ext(spr_Targeting_Reticule_01, 0, global.target_x, global.target_y, 0.5, 0.5, 0, c_white, 1);
+			                draw_circle_colour(global.target_x, global.target_y, 4, c_black, c_white, false);
                             switch global.resupply_target {
                                 case "LOGI_A":
                                     scr_Fire_Menu(lala_fire_menu, array_length(lala_fire_menu), "SHIP-LOGIA");

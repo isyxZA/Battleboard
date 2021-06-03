@@ -1,4 +1,4 @@
-if global.transition = true { global.transition = false; }
+if global.transition == true { global.transition = false; }
 
 switch room {
 	case rm_MainMenu:

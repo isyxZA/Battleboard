@@ -12,7 +12,7 @@ if explode_bomb1 == true {
 	//Smoke
     part_emitter_burst(particle_bomber1, explosion1_emitter, part3, 60);
 	//Shrapnel
-    part_emitter_burst(particle_bomber1, explosion1_emitter, part4, 16);
+    part_emitter_burst(particle_bomber1, explosion1_emitter, part4, 20);
 }
 
 

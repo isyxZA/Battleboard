@@ -819,6 +819,45 @@ with obj_Enemy_LOGIB {
 	}
 }
 
+with obj_Crater {
+	if display_particles == true {
+		var pfx1;
+		var pfx2;
+		var pnum1;
+		var pnum2;
+	
+		if sprite_index == spr_BunkerCrater01 {
+			pfx1 = part3;
+			pfx2 = part1;
+			pnum1 = -75;
+			pnum2 = -25;
+		
+			part_emitter_region(particle_house0, house0_emitter, x-4, x+4, y-4, y+4, ps_shape_ellipse, ps_distr_invgaussian);
+			//Smoke
+			part_emitter_stream(particle_house0, house0_emitter, pfx1, pnum1);
+			
+			part_emitter_region(particle_house1, house1_emitter, x-4, x+4, y-4, y+4, ps_shape_ellipse, ps_distr_invgaussian);
+			//Sparks
+			part_emitter_stream(particle_house1, house1_emitter, pfx2, pnum2);
+		}
+			else {
+				pfx1 = part3;
+				pfx2 = part1;
+				pnum1 = -200;
+				pnum2 = -100;
+				
+				part_emitter_region(particle_house0, house0_emitter, x-4, x+4, y-4, y+4, ps_shape_ellipse, ps_distr_invgaussian);
+				//Smoke
+				part_emitter_stream(particle_house0, house0_emitter, pfx1, pnum1);
+			
+				part_emitter_region(particle_house1, house1_emitter, x-4, x+4, y-4, y+4, ps_shape_ellipse, ps_distr_invgaussian);
+				//Sparks
+				part_emitter_stream(particle_house1, house1_emitter, pfx2, pnum2);
+			}
+	}
+}
+
+/*
 with obj_Houses {
 	if my_health < 100 {
 		var pfx1;
@@ -912,3 +951,4 @@ with obj_Trees {
 		part_emitter_stream(particle_tree1, tree1_emitter, pfx2, pnum2);
 	}
 }
+*/

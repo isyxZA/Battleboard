@@ -1,6 +1,6 @@
 particle_tow0 = part_system_create();
 particle_tow1 = part_system_create();
-part_system_depth(particle_tow0, -12);
+part_system_depth(particle_tow0, -15);
 part_system_depth(particle_tow1, -3);
 
 //Fireball particle

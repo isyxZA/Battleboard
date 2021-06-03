@@ -23,72 +23,91 @@ function scr_Repair_Vehicle_Tab(argument0, argument1, argument2) {
 	var repair_max   = argument1;
 	var repair_rate  = argument2;
 	var ap_cost      = 2;
-
-	if f1 { 
-	    //REPAIR
-	    //Select number of rounds to fire
-	    //Increase by a rate of 10
-	    if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
-	        //Check if there is enough ammo available to add another amount
-	        if repair_v_amount <= (repair_v_ammo-repair_rate) { 
-	            //Make sure the unit ammo does not go over max
-	            if ((repair_v_amount+repair_count)+repair_rate) <= repair_max {
-	                //Check if there is enough turn AP for the move
-	                var m_ap = (global.turn_AP-global.temp_AP);
-	                if m_ap >= ap_cost {
-	                    //Check total unit AP available
-	                    var i;
-	                    var u_ap = 0;
-	                    if !ds_list_empty(global.selected_list) {
-	                        for (i=0; i<ds_list_size(global.selected_list); i+=1) {
-	                            var unit = ds_list_find_value(global.selected_list, i);
-	                            if unit.manned_unit != noone { u_ap += unit.action_points; }
-	                        }
-	                    }
-	                    if u_ap >= ((repair_v_amount+repair_rate)/repair_rate)*ap_cost {
-	                        //Add the rounds
-	                        repair_v_amount += repair_rate; 
-	                    }
-	                }
-	            } 
-	        }
-	    }
-	    //Decrease by a rate of 4
-	    if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
-	        if repair_v_amount >= repair_rate { 
-	            repair_v_amount -= repair_rate; 
-	        } 
-	    }
-	    //Clamp the value between zero and the max available rounds
-	    if repair_v_amount < 0 { repair_v_amount = 0; }
-	    if repair_v_amount > repair_v_ammo { repair_v_amount = repair_v_ammo; }
-	    //Add to temp AP cost
-	    global.temp_AP = (repair_v_amount/repair_rate)*ap_cost;
-	    //Set menu position
-	    global.fire_option = 0; 
-	    //Switch off zoom
-	    global.can_zoom  = false;
-	    obj_ACTIONMENU.display_tabinfo = false;
-	    obj_ACTIONMENU.display_menuinfo = true;
+	
+	if f0 { 
+	    global.header_highlight = true;
+	    obj_ACTIONMENU.display_menuinfo = false;
 	}
-	    else if f2 {
-	        //CANCEL
-	        global.fire_option = 1; 
-	        global.can_zoom  = true; 
-	        obj_ACTIONMENU.display_tabinfo = false;
-	        obj_ACTIONMENU.display_menuinfo = false;
-	    }
-	        else { 
-	            //OUT OF MENU AREA
-	            global.fire_option = 0; 
-	            global.can_zoom  = true;
-	            obj_ACTIONMENU.display_tabinfo = false;
-	            obj_ACTIONMENU.display_menuinfo = false;
-	        }
+		else if f1 { 
+		    //REPAIR
+		    //Select number of rounds to fire
+		    //Increase by a rate of 10
+		    if mouse_wheel_up() || keyboard_check_pressed(global.INCREASE) { 
+		        //Check if there is enough ammo available to add another amount
+		        if repair_v_amount <= (repair_v_ammo-repair_rate) { 
+		            //Make sure the unit ammo does not go over max
+		            if ((repair_v_amount+repair_count)+repair_rate) <= repair_max {
+		                //Check if there is enough turn AP for the move
+		                var m_ap = (global.turn_AP-global.temp_AP);
+		                if m_ap >= ap_cost {
+		                    //Check total unit AP available
+		                    var i;
+		                    var u_ap = 0;
+		                    if !ds_list_empty(global.selected_list) {
+		                        for (i=0; i<ds_list_size(global.selected_list); i+=1) {
+		                            var unit = ds_list_find_value(global.selected_list, i);
+		                            if unit.manned_unit != noone { u_ap += unit.action_points; }
+		                        }
+		                    }
+		                    if u_ap >= ((repair_v_amount+repair_rate)/repair_rate)*ap_cost {
+		                        //Add the rounds
+		                        repair_v_amount += repair_rate; 
+		                    }
+		                }
+		            } 
+		        }
+		    }
+		    //Decrease by a rate of 4
+		    if mouse_wheel_down() || keyboard_check_pressed(global.DECREASE) { 
+		        if repair_v_amount >= repair_rate { 
+		            repair_v_amount -= repair_rate; 
+		        } 
+		    }
+		    //Clamp the value between zero and the max available rounds
+		    if repair_v_amount < 0 { repair_v_amount = 0; }
+		    if repair_v_amount > repair_v_ammo { repair_v_amount = repair_v_ammo; }
+		    //Add to temp AP cost
+		    global.temp_AP = (repair_v_amount/repair_rate)*ap_cost;
+		    //Set menu position
+		    global.fire_option = 0; 
+		    //Switch off zoom
+		    global.can_zoom  = false;
+		    obj_ACTIONMENU.display_tabinfo = false;
+		    obj_ACTIONMENU.display_menuinfo = true;
+		}
+		    else if f2 {
+		        //CANCEL
+		        global.fire_option = 1; 
+		        global.can_zoom  = true; 
+		        obj_ACTIONMENU.display_tabinfo = false;
+		        obj_ACTIONMENU.display_menuinfo = false;
+		    }
+		        else { 
+		            //OUT OF MENU AREA
+		            global.fire_option = 0; 
+		            global.can_zoom  = true;
+		            obj_ACTIONMENU.display_tabinfo = false;
+		            obj_ACTIONMENU.display_menuinfo = false;
+		        }
                 
 	if mouse_check_button_pressed(global.LMOUSE) {
 	    if global.my_turn == true {
 	        if f0 { 
+				//Switch ammo/fire options tab
+				if ds_list_size(tabs) > 1 {
+					var t_size = ds_list_size(tabs)-1;
+					if tab_count < t_size { tab_count += 1; }
+						else { tab_count = 0; }
+					global.ammo_tab = ds_list_find_value(tabs, tab_count);
+					repair_v_amount = 0;
+					//Reset menu animation
+					menu_anim = true;
+					menu_anim_count = 0;
+					menu_alpha = 0;
+					menu_scl = 0;
+					//Remove the surface
+					if surface_exists(global.menu_surf) { surface_free (global.menu_surf); }
+				}
 	        }
 	            else if f1 { 
 	                //REPAIR
