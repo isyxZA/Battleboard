@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c0b58b4a-3c1f-4109-82cf-15de5eee2f4d","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Faction B",
     "path": "folders/Sprites/Units/Aircraft/Faction B.yy",

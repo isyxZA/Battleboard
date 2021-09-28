@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0f77af75-5a18-4b8e-aa1b-75647566bc1b","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "South Facing",
     "path": "folders/Sprites/Units/Naval/Faction B/South Facing.yy",

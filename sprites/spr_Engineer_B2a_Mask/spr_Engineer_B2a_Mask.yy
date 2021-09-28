@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"035801c8-ff21-4b2d-8835-ebe2234937d7","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "South Facing",
     "path": "folders/Sprites/Units/Vehicles/Faction B/South Facing.yy",

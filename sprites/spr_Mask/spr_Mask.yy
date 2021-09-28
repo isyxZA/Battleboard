@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4b8202c9-2eaf-4eaf-8ce3-247de8bdbf4a","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Miscellaneous",
     "path": "folders/Sprites/Miscellaneous.yy",

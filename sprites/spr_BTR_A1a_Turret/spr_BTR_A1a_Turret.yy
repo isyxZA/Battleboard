@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f3679a76-d7ba-45b9-bdc6-4d9fbedd2d5e","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "North Facing",
     "path": "folders/Sprites/Units/Vehicles/Faction A/North Facing.yy",

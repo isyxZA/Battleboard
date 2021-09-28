@@ -18,6 +18,4 @@ function net_client_connections() {
 		break;
 	
 	}
-
-
 }

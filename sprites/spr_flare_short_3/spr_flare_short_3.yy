@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"88c64c5a-a992-4823-be0c-081520f36e45","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Optical Flares",
     "path": "folders/Sprites/Effects/Optical Flares.yy",

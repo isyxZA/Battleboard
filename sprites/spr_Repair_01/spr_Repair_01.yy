@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d7c5d45b-4c95-43c1-961f-20c65da2f54e","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Faction A",
     "path": "folders/Sprites/Units/Static Units/Faction A.yy",

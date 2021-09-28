@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ba17cd31-4fbc-4472-b68c-1b427c0fbed0","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Muzzle Flashes",
     "path": "folders/Sprites/Effects/Muzzle Flashes.yy",

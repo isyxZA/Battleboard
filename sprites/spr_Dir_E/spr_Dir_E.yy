@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"7e16619a-939c-4805-adaa-0ab5026fc1b9","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Direction Indicators",
     "path": "folders/Sprites/WorldTiles/Grid/Direction Indicators.yy",

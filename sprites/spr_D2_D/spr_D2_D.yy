@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"01707576-3645-403c-97c9-a7d349a09845","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Alpha",
     "path": "folders/Sprites/WorldTiles/Maps/Alpha.yy",

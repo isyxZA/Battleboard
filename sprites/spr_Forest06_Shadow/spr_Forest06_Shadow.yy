@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4aaf01fc-ffeb-48e8-82a1-4f47f62410f2","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Foliage",
     "path": "folders/Sprites/WorldTiles/Foliage.yy",

@@ -17,6 +17,4 @@ function net_write_client() {
 
 	//Sends the data to the client.
 	network_send_packet(argument[0],global.sbuffer,buffer_tell(global.sbuffer));
-
-
 }

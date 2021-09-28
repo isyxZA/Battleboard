@@ -3,8 +3,8 @@
 ///@param restrictedCharacter1 The character (as a string) to stop from being entered in the input box
 ///@param [...,restrictedCharacterN] The character (as a string) to stop from being entered in the input box
 ///PLACE BEFORE scr_input_box_input in Step event
-function scr_input_box_restrict() {
-
+function scr_input_box_restrict() 
+{
 	if (selected == true)
 	{
 		if (argument_count >= 1)
@@ -15,6 +15,4 @@ function scr_input_box_restrict() {
 			}
 		}
 	}
-
-
 }

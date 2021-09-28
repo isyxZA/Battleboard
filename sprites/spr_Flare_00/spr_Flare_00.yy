@@ -287,6 +287,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"98b5d965-4283-45a2-b5b0-a7d9d9793e04","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Lights",
     "path": "folders/Sprites/Lights.yy",

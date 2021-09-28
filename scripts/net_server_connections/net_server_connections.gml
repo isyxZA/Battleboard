@@ -48,7 +48,4 @@ function net_server_connections() {
 		break;
 	
 	}
-		
-
-
 }

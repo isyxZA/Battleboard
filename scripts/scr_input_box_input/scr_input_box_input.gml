@@ -145,6 +145,4 @@ function scr_input_box_input(argument0, argument1, argument2) {
 		else
 		{displayText = text;}
 	}
-
-
 }

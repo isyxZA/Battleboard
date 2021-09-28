@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"524f0ef2-ae21-474f-97fe-f1aafce38f9d","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Buildings",
     "path": "folders/Sprites/WorldTiles/Buildings.yy",

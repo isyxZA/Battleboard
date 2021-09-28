@@ -15,7 +15,8 @@
 ///@param {bool} startSelected Whether the input box will take input as soon as its created or must be clicked first
 ///@param {real} vBarInterval The amount of steps/frames for the vbar to be shown/hidden (-1 to not show a vbar)
 ///Place in Create event
-function scr_input_box_init(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10, argument11, argument12, argument13) {
+function scr_input_box_init(argument0, argument1, argument2, argument3, argument4, argument5, argument6, argument7, argument8, argument9, argument10, argument11, argument12, argument13) 
+{
 
 	left = argument0;
 	top = argument1;
@@ -49,6 +50,4 @@ function scr_input_box_init(argument0, argument1, argument2, argument3, argument
 
 	//not a dropdown box (used for switching)
 	dd = false;
-
-
 }

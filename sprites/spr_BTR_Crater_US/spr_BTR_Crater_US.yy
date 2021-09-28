@@ -67,6 +67,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"95b3fc2e-3627-481d-9ae1-e4d9e19e5d39","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "HitMarkers",
     "path": "folders/Sprites/Effects/HitMarkers.yy",

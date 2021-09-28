@@ -167,6 +167,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5ffe8c99-4fec-4f43-9869-c859b143c8cd","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Smoke",
     "path": "folders/Sprites/Effects/Smoke.yy",

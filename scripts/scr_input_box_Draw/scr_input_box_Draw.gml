@@ -90,6 +90,4 @@ function scr_input_box_Draw(argument0, argument1, argument2, argument3, argument
 			break;
 		}
 	}
-
-
 }

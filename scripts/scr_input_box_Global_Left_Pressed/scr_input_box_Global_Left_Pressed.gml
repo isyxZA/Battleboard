@@ -19,6 +19,4 @@ function scr_input_box_Global_Left_Pressed() {
 	}
 	else if (selected == true)
 	{scr_input_box_unselect();}
-
-
 }

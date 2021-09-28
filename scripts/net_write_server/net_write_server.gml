@@ -16,6 +16,4 @@ function net_write_server() {
 
 	//Sends the data to the server.
 	network_send_packet(global.clientSocket,global.cbuffer,buffer_tell(global.cbuffer));
-
-
 }
