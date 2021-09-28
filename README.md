@@ -1,3 +1,3 @@
 # Battleboard
 
-A 2D, turn-based military strategy game developed in Gamemaker Studio 2.
+A 2D, top-down, turn-based military strategy game developed in Gamemaker Studio 1.4 and GMS 2.
